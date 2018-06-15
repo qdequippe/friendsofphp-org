@@ -1,0 +1,24 @@
+language: php
+
+php: 7.1
+
+install:
+    - composer update
+
+script:
+    # test that website is generated
+    - vendor/bin/statie generate source
+
+# see docs: https://www.statie.org/docs/github-pages/
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+        branch: master
+    local_dir: output
+
+notifications:
+    email:
+        on_success: newer
+        on_failure: always
