@@ -1,0 +1,10 @@
+{
+    "name": "friendsofphp.org",
+    "version": "1.0.0",
+    "dependencies": {
+        "child_process": "^1.0.2",
+        "gulp": "^3.9.1",
+        "gulp-util": "^3.0.8",
+        "gulp-watch": "^4.3.11"
+    }
+}

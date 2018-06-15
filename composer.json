@@ -1,0 +1,14 @@
+{
+    "name": "allfriendsofphp/allfriendsofphp",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "symfony/var-dumper": "^4.0",
+        "nette/utils": "^2.5",
+        "symplify/statie": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "AllFriensOfPhp\\": "src"
+        }
+    }
+}

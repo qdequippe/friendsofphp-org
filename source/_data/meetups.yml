@@ -1,0 +1,1470 @@
+parameters:
+    meetups:
+        -
+            name: '[Frederick Web Tech] Open Workshop — Combined Frederick Technology Groups'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-06-16 14:00'
+        -
+            name: '[Kansas City''s PHP User Group] Coffee Shop Hangout'
+            userGroup: ''
+            start: '2018-06-16 19:30'
+        -
+            name: '[BrightonPHP] BrightonPHP June: Lightning Talks'
+            userGroup: BrightonPHP
+            start: '2018-06-18 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2018-06-19 08:00'
+        -
+            name: '[GhentPHP] Meetup at Starring Jane'
+            userGroup: GhentPHP
+            start: '2018-06-19 17:00'
+        -
+            name: '[PHP.gent] Meetup at Starring Jane'
+            userGroup: ''
+            start: '2018-06-19 17:00'
+        -
+            name: '[Fryslân] Monthly Meetup - 2018'
+            userGroup: ''
+            start: '2018-06-19 17:00'
+        -
+            name: '[The Edinburgh PHP User Group] edPUG - Edinburgh PHP User Group: Serverless PHP'
+            userGroup: 'The Edinburgh PHP User Group'
+            start: '2018-06-19 17:30'
+        -
+            name: '[PHP Pernambuco] #14 MEETUP PHP PE'
+            userGroup: 'PHP Pernambuco'
+            start: '2018-06-19 22:00'
+        -
+            name: '[Indianapolis] PHP+Beer DT'
+            userGroup: Indianapolis
+            start: '2018-06-19 22:30'
+        -
+            name: '[Milwaukee] Application Monitoring in the LAMP Stack'
+            userGroup: Milwaukee
+            start: '2018-06-19 23:00'
+        -
+            name: '[PDX-PHP] Monthly Meetup'
+            userGroup: ''
+            start: '2018-06-20 01:30'
+        -
+            name: '[PHP Symfony User Group Basel] 5. PHP Symfony User Group Basel'
+            userGroup: 'PHP Symfony User Group Basel'
+            start: '2018-06-20 16:00'
+        -
+            name: '[NijmegenPHP] NMGN.tech Juni 2018 '
+            userGroup: NijmegenPHP
+            start: '2018-06-20 16:30'
+        -
+            name: '[AFUP Montpellier] Apéro PHP Juin 2018'
+            userGroup: 'AFUP Montpellier'
+            start: '2018-06-20 17:00'
+        -
+            name: '[PHP Essex] PHP Essex Meetup'
+            userGroup: 'PHP Essex'
+            start: '2018-06-20 18:30'
+        -
+            name: '[Washington D.C.] Main monthly meeting'
+            userGroup: ''
+            start: '2018-06-20 22:30'
+        -
+            name: '[Buffalo] Adding AI to Your Help Desk'
+            userGroup: Buffalo
+            start: '2018-06-20 23:00'
+        -
+            name: '[Vancouver PHP Meetup] PHP Meetup: June 20th 2018'
+            userGroup: 'Vancouver PHP Meetup'
+            start: '2018-06-21 01:00'
+        -
+            name: '[PHP Adelaide] PHP Adelaide User Group Meeting'
+            userGroup: 'PHP Adelaide'
+            start: '2018-06-21 08:30'
+        -
+            name: '[Salzburg Web Dev] WebDev Meetup bei Findologic'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-06-21 16:00'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-06-21 16:00'
+        -
+            name: '[AmsterdamPHP] Monthly Meeting'
+            userGroup: AmsterdamPHP
+            start: '2018-06-21 17:00'
+        -
+            name: '[PHPSP Campinas] PHPSP Campinas + PUB'
+            userGroup: 'PHPSP Campinas'
+            start: '2018-06-21 22:00'
+        -
+            name: '[Raleigh (N.C.) PHP & MySQL] PHP'
+            userGroup: ''
+            start: '2018-06-21 22:00'
+        -
+            name: '[Rio] Meetup PHPRio'
+            userGroup: Rio
+            start: '2018-06-21 22:00'
+        -
+            name: '[TrianglePHP] PHP'
+            userGroup: TrianglePHP
+            start: '2018-06-21 22:00'
+        -
+            name: '[Madison] Understanding how Kubernetes, Containers, and Big Data are relevant to PHP'
+            userGroup: Madison
+            start: '2018-06-22 00:00'
+        -
+            name: '[PHPSP Santos ] PHPSP Santos Talks #3 + IFSP Cubatão'
+            userGroup: 'PHPSP Santos '
+            start: '2018-06-23 17:00'
+        -
+            name: '[PHPSP Santos ] PHPSP Santos Talks #3 + IFSP Cubatão'
+            userGroup: 'PHPSP Santos '
+            start: '2018-06-23 17:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Coffee and Chat'
+            userGroup: ''
+            start: '2018-06-24 18:00'
+        -
+            name: '[PHP User Group Wellington] June Meetup - Composer PHP Dependency Manager'
+            userGroup: 'PHP User Group Wellington'
+            start: '2018-06-26 06:00'
+        -
+            name: '[Washington D.C.] VA DC PHP Social Subgroup'
+            userGroup: ''
+            start: '2018-06-26 22:00'
+        -
+            name: '[Washington D.C.] DC PHP Beverage Subgroup (in DC)'
+            userGroup: ''
+            start: '2018-06-26 23:00'
+        -
+            name: '[Memphis] Memphis PHP User Group'
+            userGroup: Memphis
+            start: '2018-06-26 23:30'
+        -
+            name: '[azPHP] azPHP Monthly Meeting - Enumerations & ???'
+            userGroup: azPHP
+            start: '2018-06-27 02:00'
+        -
+            name: '[Nashville PHP] Nashville PHP Hot Chicken Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-06-27 16:00'
+        -
+            name: '[PHP Limburg BE] June Code Kata Meetup @ Aranere'
+            userGroup: 'PHP Limburg BE'
+            start: '2018-06-27 16:30'
+        -
+            name: '[Salzburg Web Dev] WebDev Alpine'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-06-27 17:00'
+        -
+            name: '[PHP Antwerp] June Meetup at Bagaar'
+            userGroup: 'PHP Antwerp'
+            start: '2018-06-27 17:00'
+        -
+            name: '[Drupal Usergroup Karlsruhe] Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Usergroup Karlsruhe'
+            start: '2018-06-27 17:00'
+        -
+            name: '[Symfony User Group Berlin] The Silex Sunset & Composer Best Practices 2018'
+            userGroup: 'Symfony User Group Berlin'
+            start: '2018-06-27 17:30'
+        -
+            name: '[Seattle] Dinner with Jeremy Lindblom'
+            userGroup: Seattle
+            start: '2018-06-28 02:00'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-06-28 16:00'
+        -
+            name: '[Vienna] #ViennaPHP monthly gathering'
+            userGroup: Vienna
+            start: '2018-06-28 17:00'
+        -
+            name: '[phpugmrn] PHPUGMRN 03/18'
+            userGroup: phpugmrn
+            start: '2018-06-28 17:00'
+        -
+            name: '[Nashville PHP] Nashville PHP South Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-07-03 16:30'
+        -
+            name: '[Frederick Web Tech] Presentation: Introduction to Kubernetes — Brandon Mueller'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-07-03 22:30'
+        -
+            name: '[Singapore] Singapore PHP User Group Meetup - July 2018'
+            userGroup: Singapore
+            start: '2018-07-04 11:00'
+        -
+            name: '[Chattanooga PHP] PHP Talk, Networking, Collaboration, and Socializing'
+            userGroup: 'Chattanooga PHP'
+            start: '2018-07-04 16:00'
+        -
+            name: '[Aberdeen PHP] AberdeenPHP Monthly Meeting'
+            userGroup: 'Aberdeen PHP'
+            start: '2018-07-04 17:30'
+        -
+            name: '[DeventerPHP] DeventerPHP - Lightning talks'
+            userGroup: DeventerPHP
+            start: '2018-07-05 16:00'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-07-05 16:00'
+        -
+            name: '[Deventer] DeventerPHP - Lightning talks'
+            userGroup: Deventer
+            start: '2018-07-05 16:00'
+        -
+            name: '[PHP Leuven - Web Innovation Group] First Thursday of the month (placeholder)'
+            userGroup: ''
+            start: '2018-07-05 17:00'
+        -
+            name: '[Groningen] PHP Meetup July/ Luís Cobucci'
+            userGroup: Groningen
+            start: '2018-07-05 17:30'
+        -
+            name: '[Las Vegas] PHP User Group Meeting'
+            userGroup: 'Las Vegas'
+            start: '2018-07-06 01:00'
+        -
+            name: '[Los Angeles] LADataTech Monthly MixR'
+            userGroup: 'Los Angeles'
+            start: '2018-07-06 01:00'
+        -
+            name: '[Köln-Bonn] PHPUG Köln'
+            userGroup: ''
+            start: '2018-07-06 17:00'
+        -
+            name: '[PDX-PHP] Hack And Help'
+            userGroup: ''
+            start: '2018-07-06 17:00'
+        -
+            name: '[Boston] AWS Snack, Season 2'
+            userGroup: Boston
+            start: '2018-07-08 04:00'
+        -
+            name: '[Idaho PHP User Group] Show and Tell'
+            userGroup: 'Idaho PHP User Group'
+            start: '2018-07-10 00:15'
+        -
+            name: '[Laravel Brussels] Monthly Meetup'
+            userGroup: 'Laravel Brussels'
+            start: '2018-07-10 16:30'
+        -
+            name: '[PHP USERGROUP DRESDEN] Meetup V / 2018'
+            userGroup: 'PHP USERGROUP DRESDEN'
+            start: '2018-07-10 16:30'
+        -
+            name: '[Amersfoort] PHPAmersfoort July 2018'
+            userGroup: Amersfoort
+            start: '2018-07-10 17:00'
+        -
+            name: '[North West Drupal User Group] NWDUG July 2018'
+            userGroup: 'North West Drupal User Group'
+            start: '2018-07-10 18:00'
+        -
+            name: '[Minas Gerais] beer.php'
+            userGroup: 'Minas Gerais'
+            start: '2018-07-10 22:00'
+        -
+            name: '[Minnesota] July Meetup Featuring Tessa Kriesel on Benefits of Continuous Integration'
+            userGroup: Minnesota
+            start: '2018-07-10 23:00'
+        -
+            name: '[Milano] Lo stato dell''arte di CI/CD con i container'
+            userGroup: Milano
+            start: '2018-07-11 17:00'
+        -
+            name: '[PHP Hampshire] PHP Hampshire July 2018 Meetup'
+            userGroup: 'PHP Hampshire'
+            start: '2018-07-11 19:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] TBA — Purdue Perl Mongers'
+            userGroup: ''
+            start: '2018-07-11 21:30'
+        -
+            name: '[Kansas City''s PHP User Group] Presentation Meetup - TBA'
+            userGroup: ''
+            start: '2018-07-11 23:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Open Source Food & Beer & Chat'
+            userGroup: ''
+            start: '2018-07-11 23:30'
+        -
+            name: '[Peak PHP] Peak PHP - Topic TBD'
+            userGroup: 'Peak PHP'
+            start: '2018-07-12 01:00'
+        -
+            name: '[Vilnius] Vilnius PHP'
+            userGroup: Vilnius
+            start: '2018-07-12 16:00'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-07-12 16:00'
+        -
+            name: '[010PHP] 010PHP UserGroup Meetup'
+            userGroup: ''
+            start: '2018-07-12 17:00'
+        -
+            name: '[Rio] Boteco PHP'
+            userGroup: Rio
+            start: '2018-07-12 22:00'
+        -
+            name: '[São Paulo] PHPSP + Pub'
+            userGroup: ''
+            start: '2018-07-12 22:00'
+        -
+            name: '[South Florida PHP User Group] SoFloPHP Boca (Monthly Meetup)'
+            userGroup: 'South Florida PHP User Group'
+            start: '2018-07-12 23:00'
+        -
+            name: '[Austin] Austin PHP Monthly Meetup'
+            userGroup: Austin
+            start: '2018-07-13 00:00'
+        -
+            name: '[AmsterdamPHP] Geeks, Games & Drinks'
+            userGroup: AmsterdamPHP
+            start: '2018-07-13 17:00'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2018-07-16 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2018-07-17 08:00'
+        -
+            name: '[Indianapolis] PHP+Beer DT'
+            userGroup: Indianapolis
+            start: '2018-07-17 22:30'
+        -
+            name: '[Milwaukee] MySQL You Should Know, But Don’t'
+            userGroup: Milwaukee
+            start: '2018-07-17 23:00'
+        -
+            name: '[San Francisco] SF PHP July Meetup at Zillow'
+            userGroup: 'San Francisco'
+            start: '2018-07-18 01:30'
+        -
+            name: '[PDX-PHP] Monthly Meetup'
+            userGroup: ''
+            start: '2018-07-18 01:30'
+        -
+            name: '[PHP Essex] Craft CMS with Jamie Wade - PHP Essex Meetup'
+            userGroup: 'PHP Essex'
+            start: '2018-07-18 18:30'
+        -
+            name: '[Washington D.C.] Main monthly meeting'
+            userGroup: ''
+            start: '2018-07-18 22:30'
+        -
+            name: '[PHP Adelaide] PHP Adelaide User Group Meeting'
+            userGroup: 'PHP Adelaide'
+            start: '2018-07-19 08:30'
+        -
+            name: '[Zagreb] ZgPHP drinkup 2018/07'
+            userGroup: Zagreb
+            start: '2018-07-19 15:30'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-07-19 16:00'
+        -
+            name: '[Vienna] #ViennaPHP monthly gathering'
+            userGroup: Vienna
+            start: '2018-07-19 17:00'
+        -
+            name: '[AmsterdamPHP] Monthly Meeting'
+            userGroup: AmsterdamPHP
+            start: '2018-07-19 17:00'
+        -
+            name: '[TrianglePHP] PHP'
+            userGroup: TrianglePHP
+            start: '2018-07-19 22:00'
+        -
+            name: '[Raleigh (N.C.) PHP & MySQL] PHP'
+            userGroup: ''
+            start: '2018-07-19 22:00'
+        -
+            name: '[PHPSP Campinas] PHPSP Campinas + PUB'
+            userGroup: 'PHPSP Campinas'
+            start: '2018-07-19 22:00'
+        -
+            name: '[Frederick Web Tech] Open Workshop — Combined Frederick Technology Groups'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-07-21 14:00'
+        -
+            name: '[Kansas City''s PHP User Group] Coffee Shop Hangout'
+            userGroup: ''
+            start: '2018-07-21 19:30'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Coffee and Chat'
+            userGroup: ''
+            start: '2018-07-22 18:00'
+        -
+            name: '[Fryslân] Monthly Meetup - 2018'
+            userGroup: ''
+            start: '2018-07-24 17:00'
+        -
+            name: '[PHP-WVL] Juli meetup bij ?'
+            userGroup: ''
+            start: '2018-07-24 17:30'
+        -
+            name: '[Washington D.C.] VA DC PHP Social Subgroup'
+            userGroup: ''
+            start: '2018-07-24 22:00'
+        -
+            name: '[Memphis] Memphis PHP User Group'
+            userGroup: Memphis
+            start: '2018-07-24 23:30'
+        -
+            name: '[PHP Mexico] #PHPMx: Julio 2018'
+            userGroup: 'PHP Mexico'
+            start: '2018-07-25 00:00'
+        -
+            name: '[azPHP] azPHP Monthly Meeting'
+            userGroup: azPHP
+            start: '2018-07-25 02:00'
+        -
+            name: '[Nashville PHP] Nashville PHP Hot Chicken Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-07-25 16:00'
+        -
+            name: '[München] PHP User Group Munich Meeting'
+            userGroup: ''
+            start: '2018-07-25 16:30'
+        -
+            name: '[PHP Antwerp] July Meetup at TBC'
+            userGroup: 'PHP Antwerp'
+            start: '2018-07-25 17:00'
+        -
+            name: '[Drupal Usergroup Karlsruhe] Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Usergroup Karlsruhe'
+            start: '2018-07-25 17:00'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-07-26 16:00'
+        -
+            name: '[Washington D.C.] DC PHP Beverage Subgroup (in DC)'
+            userGroup: ''
+            start: '2018-07-31 23:00'
+        -
+            name: '[Chattanooga PHP] PHP Talk, Networking, Collaboration, and Socializing'
+            userGroup: 'Chattanooga PHP'
+            start: '2018-08-01 16:00'
+        -
+            name: '[Aberdeen PHP] AberdeenPHP Monthly Meeting'
+            userGroup: 'Aberdeen PHP'
+            start: '2018-08-01 17:30'
+        -
+            name: '[Kansas City''s PHP User Group] Presentation Meetup - TBA'
+            userGroup: ''
+            start: '2018-08-01 23:00'
+        -
+            name: '[DeventerPHP] DeventerPHP - August 2018'
+            userGroup: DeventerPHP
+            start: '2018-08-02 16:00'
+        -
+            name: '[Deventer] DeventerPHP - August 2018'
+            userGroup: Deventer
+            start: '2018-08-02 16:00'
+        -
+            name: '[Vilnius] Vilnius PHP'
+            userGroup: Vilnius
+            start: '2018-08-02 16:00'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-08-02 16:00'
+        -
+            name: '[PHP Leuven - Web Innovation Group] First Thursday of the month (placeholder)'
+            userGroup: ''
+            start: '2018-08-02 17:00'
+        -
+            name: '[Groningen] PHP Meetup August/ Talk by Djurre de Boer'
+            userGroup: Groningen
+            start: '2018-08-02 17:30'
+        -
+            name: '[Las Vegas] PHP User Group Meeting'
+            userGroup: 'Las Vegas'
+            start: '2018-08-03 01:00'
+        -
+            name: '[Los Angeles] LADataTech Monthly MixR'
+            userGroup: 'Los Angeles'
+            start: '2018-08-03 01:00'
+        -
+            name: '[PDX-PHP] Hack And Help'
+            userGroup: ''
+            start: '2018-08-03 17:00'
+        -
+            name: '[Köln-Bonn] PHPUG Köln'
+            userGroup: ''
+            start: '2018-08-03 17:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Thunder Talks '
+            userGroup: ''
+            start: '2018-08-04 18:00'
+        -
+            name: '[Idaho PHP User Group] Topic: TBD'
+            userGroup: 'Idaho PHP User Group'
+            start: '2018-08-07 00:15'
+        -
+            name: '[Nashville PHP] Nashville PHP South Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-08-07 16:30'
+        -
+            name: '[Frederick Web Tech] Presentation: Technology Meetup (Topic to be determined)'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-08-07 22:30'
+        -
+            name: '[PHP Hampshire] PHP Hampshire August 2018 Meetup'
+            userGroup: 'PHP Hampshire'
+            start: '2018-08-08 19:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] TBA — Purdue Perl Mongers'
+            userGroup: ''
+            start: '2018-08-08 21:30'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Open Source Food & Beer & Chat'
+            userGroup: ''
+            start: '2018-08-08 23:30'
+        -
+            name: '[Peak PHP] Peak PHP - Topic TBD'
+            userGroup: 'Peak PHP'
+            start: '2018-08-09 01:00'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-08-09 16:00'
+        -
+            name: '[010PHP] 010PHP UserGroup Meetup'
+            userGroup: ''
+            start: '2018-08-09 17:00'
+        -
+            name: '[Rio] Boteco PHP'
+            userGroup: Rio
+            start: '2018-08-09 22:00'
+        -
+            name: '[São Paulo] PHPSP + Pub'
+            userGroup: ''
+            start: '2018-08-09 22:00'
+        -
+            name: '[South Florida PHP User Group] SoFloPHP Boca (Monthly Meetup)'
+            userGroup: 'South Florida PHP User Group'
+            start: '2018-08-09 23:00'
+        -
+            name: '[Austin] Austin PHP Monthly Meetup'
+            userGroup: Austin
+            start: '2018-08-10 00:00'
+        -
+            name: '[AmsterdamPHP] Geeks & drinks'
+            userGroup: AmsterdamPHP
+            start: '2018-08-10 17:00'
+        -
+            name: '[Laravel Brussels] Monthly Meetup'
+            userGroup: 'Laravel Brussels'
+            start: '2018-08-14 16:30'
+        -
+            name: '[Amersfoort] PHPAmersfoort 5 year anniversary'
+            userGroup: Amersfoort
+            start: '2018-08-14 17:00'
+        -
+            name: '[Minas Gerais] beer.php'
+            userGroup: 'Minas Gerais'
+            start: '2018-08-14 22:00'
+        -
+            name: '[PHP Essex] PHP Essex Meetup'
+            userGroup: 'PHP Essex'
+            start: '2018-08-15 18:30'
+        -
+            name: '[Washington D.C.] Main monthly meeting'
+            userGroup: ''
+            start: '2018-08-15 22:30'
+        -
+            name: '[Philadelphia] Talking about PHP with Philly PHP'
+            userGroup: Philadelphia
+            start: '2018-08-15 23:00'
+        -
+            name: '[San Francisco] SF PHP August Meetup at Zillow'
+            userGroup: 'San Francisco'
+            start: '2018-08-16 01:30'
+        -
+            name: '[PHP Adelaide] PHP Adelaide User Group Meeting'
+            userGroup: 'PHP Adelaide'
+            start: '2018-08-16 08:30'
+        -
+            name: '[Zagreb] ZgPHP drinkup 2018/08'
+            userGroup: Zagreb
+            start: '2018-08-16 15:30'
+        -
+            name: '[San Diego PHP User Group] Co-Working Thursdays'
+            userGroup: 'San Diego PHP User Group'
+            start: '2018-08-16 16:00'
+        -
+            name: '[Vienna] #ViennaPHP monthly gathering'
+            userGroup: Vienna
+            start: '2018-08-16 17:00'
+        -
+            name: '[AmsterdamPHP] Monthly Meeting'
+            userGroup: AmsterdamPHP
+            start: '2018-08-16 17:00'
+        -
+            name: '[TrianglePHP] PHP'
+            userGroup: TrianglePHP
+            start: '2018-08-16 22:00'
+        -
+            name: '[Raleigh (N.C.) PHP & MySQL] PHP'
+            userGroup: ''
+            start: '2018-08-16 22:00'
+        -
+            name: '[PHPSP Campinas] PHPSP Campinas + PUB'
+            userGroup: 'PHPSP Campinas'
+            start: '2018-08-16 22:00'
+        -
+            name: '[Frederick Web Tech] Open Workshop — Combined Frederick Technology Groups'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-08-18 14:00'
+        -
+            name: '[Kansas City''s PHP User Group] Coffee Shop Hangout'
+            userGroup: ''
+            start: '2018-08-18 19:30'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2018-08-20 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2018-08-21 08:00'
+        -
+            name: '[Fryslân] Monthly Meetup - 2018'
+            userGroup: ''
+            start: '2018-08-21 17:00'
+        -
+            name: '[Indianapolis] PHP+Beer DT'
+            userGroup: Indianapolis
+            start: '2018-08-21 22:30'
+        -
+            name: '[PDX-PHP] Monthly Meetup'
+            userGroup: ''
+            start: '2018-08-22 01:30'
+        -
+            name: '[PHP USERGROUP DRESDEN] Meetup VI / 2018'
+            userGroup: 'PHP USERGROUP DRESDEN'
+            start: '2018-08-22 16:30'
+        -
+            name: '[Drupal Usergroup Karlsruhe] Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Usergroup Karlsruhe'
+            start: '2018-08-22 17:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Coffee and Chat'
+            userGroup: ''
+            start: '2018-08-26 18:00'
+        -
+            name: '[PHP Antwerp] August Meetup at TBC'
+            userGroup: 'PHP Antwerp'
+            start: '2018-08-28 17:00'
+        -
+            name: '[Washington D.C.] VA DC PHP Social Subgroup'
+            userGroup: ''
+            start: '2018-08-28 22:00'
+        -
+            name: '[Washington D.C.] DC PHP Beverage Subgroup (in DC)'
+            userGroup: ''
+            start: '2018-08-28 23:00'
+        -
+            name: '[Memphis] Memphis PHP User Group'
+            userGroup: Memphis
+            start: '2018-08-28 23:30'
+        -
+            name: '[azPHP] azPHP Monthly Meeting'
+            userGroup: azPHP
+            start: '2018-08-29 02:00'
+        -
+            name: '[Nashville PHP] Nashville PHP Hot Chicken Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-08-29 16:00'
+        -
+            name: '[Idaho PHP User Group] Topic: TBD'
+            userGroup: 'Idaho PHP User Group'
+            start: '2018-09-04 00:15'
+        -
+            name: '[Oklahoma] OKC PHP'
+            userGroup: Oklahoma
+            start: '2018-09-04 16:30'
+        -
+            name: '[Nashville PHP] Nashville PHP South Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-09-04 16:30'
+        -
+            name: '[PHP-WVL] September meetup bij ?'
+            userGroup: ''
+            start: '2018-09-04 17:30'
+        -
+            name: '[Frederick Web Tech] Presentation: Technology Meetup (Topic to be determined)'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-09-04 22:30'
+        -
+            name: '[Chattanooga PHP] PHP Talk, Networking, Collaboration, and Socializing'
+            userGroup: 'Chattanooga PHP'
+            start: '2018-09-05 16:00'
+        -
+            name: '[Kansas City''s PHP User Group] Presentation Meetup - TBA'
+            userGroup: ''
+            start: '2018-09-05 23:00'
+        -
+            name: '[Vilnius] Vilnius PHP'
+            userGroup: Vilnius
+            start: '2018-09-06 16:00'
+        -
+            name: '[PHP Leuven - Web Innovation Group] First Thursday of the month (placeholder)'
+            userGroup: ''
+            start: '2018-09-06 17:00'
+        -
+            name: '[Groningen] PHP Meetup September/........'
+            userGroup: Groningen
+            start: '2018-09-06 17:30'
+        -
+            name: '[Los Angeles] LADataTech Monthly MixR'
+            userGroup: 'Los Angeles'
+            start: '2018-09-07 01:00'
+        -
+            name: '[Las Vegas] PHP User Group Meeting'
+            userGroup: 'Las Vegas'
+            start: '2018-09-07 01:00'
+        -
+            name: '[Köln-Bonn] PHPUG Köln'
+            userGroup: ''
+            start: '2018-09-07 17:00'
+        -
+            name: '[PDX-PHP] Hack And Help'
+            userGroup: ''
+            start: '2018-09-07 17:00'
+        -
+            name: '[Laravel Brussels] Monthly Meetup'
+            userGroup: 'Laravel Brussels'
+            start: '2018-09-11 16:30'
+        -
+            name: '[Hamburg] Treffen der PHP-Usergroup Hamburg'
+            userGroup: Hamburg
+            start: '2018-09-11 16:30'
+        -
+            name: '[Amersfoort] Monthly Meetup'
+            userGroup: Amersfoort
+            start: '2018-09-11 17:00'
+        -
+            name: '[Minas Gerais] beer.php'
+            userGroup: 'Minas Gerais'
+            start: '2018-09-11 22:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] TBA — Purdue Perl Mongers'
+            userGroup: ''
+            start: '2018-09-12 21:30'
+        -
+            name: '[Fox Cities] To Be Determined...'
+            userGroup: 'Fox Cities'
+            start: '2018-09-12 23:30'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Open Source Food & Beer & Chat'
+            userGroup: ''
+            start: '2018-09-12 23:30'
+        -
+            name: '[Peak PHP] Peak PHP - Topic TBD'
+            userGroup: 'Peak PHP'
+            start: '2018-09-13 01:00'
+        -
+            name: '[010PHP] 010PHP UserGroup Meetup'
+            userGroup: ''
+            start: '2018-09-13 17:00'
+        -
+            name: '[Rio] Boteco PHP'
+            userGroup: Rio
+            start: '2018-09-13 22:00'
+        -
+            name: '[São Paulo] PHPSP + Pub'
+            userGroup: ''
+            start: '2018-09-13 22:00'
+        -
+            name: '[South Florida PHP User Group] SoFloPHP Boca (Monthly Meetup)'
+            userGroup: 'South Florida PHP User Group'
+            start: '2018-09-13 23:00'
+        -
+            name: '[Austin] Austin PHP Monthly Meetup'
+            userGroup: Austin
+            start: '2018-09-14 00:00'
+        -
+            name: '[PDX-PHP] Cascadia PHP Conference'
+            userGroup: ''
+            start: '2018-09-14 16:00'
+        -
+            name: '[AmsterdamPHP] Geeks, Games & Drinks'
+            userGroup: AmsterdamPHP
+            start: '2018-09-14 17:00'
+        -
+            name: '[Frederick Web Tech] Open Workshop — Combined Frederick Technology Groups'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-09-15 14:00'
+        -
+            name: '[Kansas City''s PHP User Group] Coffee Shop Hangout'
+            userGroup: ''
+            start: '2018-09-15 19:30'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2018-09-17 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2018-09-18 08:00'
+        -
+            name: '[Fryslân] Monthly Meetup - 2018'
+            userGroup: ''
+            start: '2018-09-18 17:00'
+        -
+            name: '[Indianapolis] PHP+Beer DT'
+            userGroup: Indianapolis
+            start: '2018-09-18 22:30'
+        -
+            name: '[PDX-PHP] Monthly Meetup'
+            userGroup: ''
+            start: '2018-09-19 01:30'
+        -
+            name: '[PHP Essex] PHP Essex Meetup'
+            userGroup: 'PHP Essex'
+            start: '2018-09-19 18:30'
+        -
+            name: '[Washington D.C.] Main monthly meeting'
+            userGroup: ''
+            start: '2018-09-19 22:30'
+        -
+            name: '[Philadelphia] Talking about PHP with Philly PHP'
+            userGroup: Philadelphia
+            start: '2018-09-19 23:00'
+        -
+            name: '[PHP Adelaide] PHP Adelaide User Group Meeting'
+            userGroup: 'PHP Adelaide'
+            start: '2018-09-20 08:30'
+        -
+            name: '[Frankfurt] PHPUGFFM IV / 2018 - lillydoo - 20 Sep 18 19:00'
+            userGroup: Frankfurt
+            start: '2018-09-20 17:00'
+        -
+            name: '[Vienna] #ViennaPHP monthly gathering'
+            userGroup: Vienna
+            start: '2018-09-20 17:00'
+        -
+            name: '[AmsterdamPHP] Monthly Meeting'
+            userGroup: AmsterdamPHP
+            start: '2018-09-20 17:00'
+        -
+            name: '[Raleigh (N.C.) PHP & MySQL] PHP'
+            userGroup: ''
+            start: '2018-09-20 22:00'
+        -
+            name: '[PHPSP Campinas] PHPSP Campinas + PUB'
+            userGroup: 'PHPSP Campinas'
+            start: '2018-09-20 22:00'
+        -
+            name: '[TrianglePHP] PHP'
+            userGroup: TrianglePHP
+            start: '2018-09-20 22:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Coffee and Chat'
+            userGroup: ''
+            start: '2018-09-23 18:00'
+        -
+            name: '[Washington D.C.] VA DC PHP Social Subgroup'
+            userGroup: ''
+            start: '2018-09-25 22:00'
+        -
+            name: '[Washington D.C.] DC PHP Beverage Subgroup (in DC)'
+            userGroup: ''
+            start: '2018-09-25 23:00'
+        -
+            name: '[Memphis] Memphis PHP User Group'
+            userGroup: Memphis
+            start: '2018-09-25 23:30'
+        -
+            name: '[azPHP] azPHP Monthly Meeting'
+            userGroup: azPHP
+            start: '2018-09-26 02:00'
+        -
+            name: '[Nashville PHP] Nashville PHP Hot Chicken Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-09-26 16:00'
+        -
+            name: '[München] PHP User Group Munich Meeting'
+            userGroup: ''
+            start: '2018-09-26 16:30'
+        -
+            name: '[Drupal Usergroup Karlsruhe] Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Usergroup Karlsruhe'
+            start: '2018-09-26 17:00'
+        -
+            name: '[PHP Antwerp] September Meetup at Wunderman'
+            userGroup: 'PHP Antwerp'
+            start: '2018-09-26 17:00'
+        -
+            name: '[PHP Mexico] #PHPMx: Septiembre'
+            userGroup: 'PHP Mexico'
+            start: '2018-09-28 00:00'
+        -
+            name: '[Idaho PHP User Group] Topic: TBD'
+            userGroup: 'Idaho PHP User Group'
+            start: '2018-10-02 00:15'
+        -
+            name: '[Nashville PHP] Nashville PHP South Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-10-02 16:30'
+        -
+            name: '[Frederick Web Tech] Presentation: Technology Meetup (Topic to be determined)'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-10-02 22:30'
+        -
+            name: '[Chattanooga PHP] PHP Talk, Networking, Collaboration, and Socializing'
+            userGroup: 'Chattanooga PHP'
+            start: '2018-10-03 16:00'
+        -
+            name: '[Kansas City''s PHP User Group] Presentation Meetup - TBA'
+            userGroup: ''
+            start: '2018-10-03 23:00'
+        -
+            name: '[Vilnius] Vilnius PHP'
+            userGroup: Vilnius
+            start: '2018-10-04 16:00'
+        -
+            name: '[PHP Leuven - Web Innovation Group] First Thursday of the month (placeholder)'
+            userGroup: ''
+            start: '2018-10-04 17:00'
+        -
+            name: '[Groningen] Monthly Meeting'
+            userGroup: Groningen
+            start: '2018-10-04 17:30'
+        -
+            name: '[Las Vegas] PHP User Group Meeting'
+            userGroup: 'Las Vegas'
+            start: '2018-10-05 01:00'
+        -
+            name: '[Los Angeles] LADataTech Monthly MixR'
+            userGroup: 'Los Angeles'
+            start: '2018-10-05 01:00'
+        -
+            name: '[Köln-Bonn] PHPUG Köln'
+            userGroup: ''
+            start: '2018-10-05 17:00'
+        -
+            name: '[PDX-PHP] Hack And Help'
+            userGroup: ''
+            start: '2018-10-05 17:00'
+        -
+            name: '[Laravel Brussels] Monthly Meetup'
+            userGroup: 'Laravel Brussels'
+            start: '2018-10-09 16:30'
+        -
+            name: '[Hamburg] Treffen der PHP-Usergroup Hamburg'
+            userGroup: Hamburg
+            start: '2018-10-09 16:30'
+        -
+            name: '[Amersfoort] Monthly Meetup'
+            userGroup: Amersfoort
+            start: '2018-10-09 17:00'
+        -
+            name: '[Minas Gerais] beer.php'
+            userGroup: 'Minas Gerais'
+            start: '2018-10-09 22:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] TBA — Purdue Perl Mongers'
+            userGroup: ''
+            start: '2018-10-10 21:30'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Open Source Food & Beer & Chat'
+            userGroup: ''
+            start: '2018-10-10 23:30'
+        -
+            name: '[Peak PHP] Peak PHP - Topic TBD'
+            userGroup: 'Peak PHP'
+            start: '2018-10-11 01:00'
+        -
+            name: '[010PHP] 010PHP UserGroup Meetup'
+            userGroup: ''
+            start: '2018-10-11 17:00'
+        -
+            name: '[Rio] Boteco PHP'
+            userGroup: Rio
+            start: '2018-10-11 22:00'
+        -
+            name: '[São Paulo] PHPSP + Pub'
+            userGroup: ''
+            start: '2018-10-11 22:00'
+        -
+            name: '[South Florida PHP User Group] SoFloPHP Boca (Monthly Meetup)'
+            userGroup: 'South Florida PHP User Group'
+            start: '2018-10-11 23:00'
+        -
+            name: '[Austin] Austin PHP Monthly Meetup'
+            userGroup: Austin
+            start: '2018-10-12 00:00'
+        -
+            name: '[AmsterdamPHP] Geeks & drinks'
+            userGroup: AmsterdamPHP
+            start: '2018-10-12 17:00'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2018-10-15 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2018-10-16 07:00'
+        -
+            name: '[PHP-WVL] Meetup placeholder'
+            userGroup: ''
+            start: '2018-10-16 17:30'
+        -
+            name: '[Indianapolis] PHP+Beer DT'
+            userGroup: Indianapolis
+            start: '2018-10-16 22:30'
+        -
+            name: '[PDX-PHP] Monthly Meetup'
+            userGroup: ''
+            start: '2018-10-17 01:30'
+        -
+            name: '[PHP Essex] PHP Essex Meetup'
+            userGroup: 'PHP Essex'
+            start: '2018-10-17 18:30'
+        -
+            name: '[Washington D.C.] Main monthly meeting'
+            userGroup: ''
+            start: '2018-10-17 22:30'
+        -
+            name: '[Philadelphia] Talking about PHP with Philly PHP'
+            userGroup: Philadelphia
+            start: '2018-10-17 23:00'
+        -
+            name: '[PHP Adelaide] PHP Adelaide User Group Meeting'
+            userGroup: 'PHP Adelaide'
+            start: '2018-10-18 07:30'
+        -
+            name: '[Vienna] #ViennaPHP monthly gathering'
+            userGroup: Vienna
+            start: '2018-10-18 17:00'
+        -
+            name: '[AmsterdamPHP] Monthly Meeting'
+            userGroup: AmsterdamPHP
+            start: '2018-10-18 17:00'
+        -
+            name: '[PHPSP Campinas] PHPSP Campinas + PUB'
+            userGroup: 'PHPSP Campinas'
+            start: '2018-10-18 22:00'
+        -
+            name: '[TrianglePHP] PHP'
+            userGroup: TrianglePHP
+            start: '2018-10-18 22:00'
+        -
+            name: '[Raleigh (N.C.) PHP & MySQL] PHP'
+            userGroup: ''
+            start: '2018-10-18 22:00'
+        -
+            name: '[Frederick Web Tech] Open Workshop — Combined Frederick Technology Groups'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-10-20 14:00'
+        -
+            name: '[Kansas City''s PHP User Group] Coffee Shop Hangout'
+            userGroup: ''
+            start: '2018-10-20 19:30'
+        -
+            name: '[Fryslân] Monthly Meetup - 2018'
+            userGroup: ''
+            start: '2018-10-23 17:00'
+        -
+            name: '[Washington D.C.] VA DC PHP Social Subgroup'
+            userGroup: ''
+            start: '2018-10-23 22:00'
+        -
+            name: '[Memphis] Memphis PHP User Group'
+            userGroup: Memphis
+            start: '2018-10-23 23:30'
+        -
+            name: '[azPHP] azPHP Monthly Meeting'
+            userGroup: azPHP
+            start: '2018-10-24 02:00'
+        -
+            name: '[Drupal Usergroup Karlsruhe] Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Usergroup Karlsruhe'
+            start: '2018-10-24 17:00'
+        -
+            name: '[PHP Antwerp] Monthly Meetup'
+            userGroup: 'PHP Antwerp'
+            start: '2018-10-24 17:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Coffee and Chat'
+            userGroup: ''
+            start: '2018-10-28 18:00'
+        -
+            name: '[Washington D.C.] DC PHP Beverage Subgroup (in DC)'
+            userGroup: ''
+            start: '2018-10-30 23:00'
+        -
+            name: '[Nashville PHP] Nashville PHP Hot Chicken Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-10-31 16:00'
+        -
+            name: '[Vilnius] Vilnius PHP'
+            userGroup: Vilnius
+            start: '2018-11-01 17:00'
+        -
+            name: '[PHP Leuven - Web Innovation Group] First Thursday of the month (placeholder)'
+            userGroup: ''
+            start: '2018-11-01 18:00'
+        -
+            name: '[Groningen] Monthly Meeting'
+            userGroup: Groningen
+            start: '2018-11-01 18:30'
+        -
+            name: '[Los Angeles] LADataTech Monthly MixR'
+            userGroup: 'Los Angeles'
+            start: '2018-11-02 01:00'
+        -
+            name: '[Las Vegas] PHP User Group Meeting'
+            userGroup: 'Las Vegas'
+            start: '2018-11-02 01:00'
+        -
+            name: '[PDX-PHP] Hack And Help'
+            userGroup: ''
+            start: '2018-11-02 17:00'
+        -
+            name: '[Köln-Bonn] PHPUG Köln'
+            userGroup: ''
+            start: '2018-11-02 18:00'
+        -
+            name: '[Idaho PHP User Group] Topic: TBD'
+            userGroup: 'Idaho PHP User Group'
+            start: '2018-11-06 01:15'
+        -
+            name: '[Nashville PHP] Nashville PHP South Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-11-06 17:30'
+        -
+            name: '[Frederick Web Tech] Presentation: Technology Meetup (Topic to be determined)'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-11-06 23:30'
+        -
+            name: '[Chattanooga PHP] PHP Talk, Networking, Collaboration, and Socializing'
+            userGroup: 'Chattanooga PHP'
+            start: '2018-11-07 17:00'
+        -
+            name: '[Kansas City''s PHP User Group] Presentation Meetup - TBA'
+            userGroup: ''
+            start: '2018-11-08 00:00'
+        -
+            name: '[010PHP] 010PHP UserGroup Meetup'
+            userGroup: ''
+            start: '2018-11-08 18:00'
+        -
+            name: '[São Paulo] PHPSP + Pub'
+            userGroup: ''
+            start: '2018-11-08 21:00'
+        -
+            name: '[Rio] Boteco PHP'
+            userGroup: Rio
+            start: '2018-11-08 21:00'
+        -
+            name: '[South Florida PHP User Group] SoFloPHP Boca (Monthly Meetup)'
+            userGroup: 'South Florida PHP User Group'
+            start: '2018-11-09 00:00'
+        -
+            name: '[Austin] Austin PHP Monthly Meetup'
+            userGroup: Austin
+            start: '2018-11-09 01:00'
+        -
+            name: '[Salzburg Web Dev] Barcamp November 2018'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-11-09 09:00'
+        -
+            name: '[AmsterdamPHP] Geeks, Games & Drinks'
+            userGroup: AmsterdamPHP
+            start: '2018-11-09 18:00'
+        -
+            name: '[PHP USERGROUP DRESDEN] Meetup VII / 2018'
+            userGroup: 'PHP USERGROUP DRESDEN'
+            start: '2018-11-12 17:30'
+        -
+            name: '[Hamburg] Treffen der PHP-Usergroup Hamburg'
+            userGroup: Hamburg
+            start: '2018-11-13 17:30'
+        -
+            name: '[Laravel Brussels] Monthly Meetup'
+            userGroup: 'Laravel Brussels'
+            start: '2018-11-13 17:30'
+        -
+            name: '[Amersfoort] Monthly Meetup'
+            userGroup: Amersfoort
+            start: '2018-11-13 18:00'
+        -
+            name: '[Minas Gerais] beer.php'
+            userGroup: 'Minas Gerais'
+            start: '2018-11-13 21:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] TBA — Purdue Perl Mongers'
+            userGroup: ''
+            start: '2018-11-14 22:30'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Open Source Food & Beer & Chat'
+            userGroup: ''
+            start: '2018-11-15 00:30'
+        -
+            name: '[Peak PHP] Peak PHP - Topic TBD'
+            userGroup: 'Peak PHP'
+            start: '2018-11-15 02:00'
+        -
+            name: '[PHP Adelaide] PHP Adelaide User Group Meeting'
+            userGroup: 'PHP Adelaide'
+            start: '2018-11-15 07:30'
+        -
+            name: '[Vienna] #ViennaPHP November gathering'
+            userGroup: Vienna
+            start: '2018-11-15 18:00'
+        -
+            name: '[AmsterdamPHP] Monthly Meeting'
+            userGroup: AmsterdamPHP
+            start: '2018-11-15 18:00'
+        -
+            name: '[PHPSP Campinas] PHPSP Campinas + PUB'
+            userGroup: 'PHPSP Campinas'
+            start: '2018-11-15 21:00'
+        -
+            name: '[Raleigh (N.C.) PHP & MySQL] PHP'
+            userGroup: ''
+            start: '2018-11-15 23:00'
+        -
+            name: '[TrianglePHP] PHP'
+            userGroup: TrianglePHP
+            start: '2018-11-15 23:00'
+        -
+            name: '[PHP Mexico] #PHPMx: Noviembre 2018'
+            userGroup: 'PHP Mexico'
+            start: '2018-11-16 01:00'
+        -
+            name: '[Frederick Web Tech] Open Workshop — Combined Frederick Technology Groups'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-11-17 15:00'
+        -
+            name: '[Kansas City''s PHP User Group] Coffee Shop Hangout'
+            userGroup: ''
+            start: '2018-11-17 20:30'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2018-11-19 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2018-11-20 07:00'
+        -
+            name: '[Fryslân] Monthly Meetup - 2018'
+            userGroup: ''
+            start: '2018-11-20 18:00'
+        -
+            name: '[Indianapolis] PHP+Beer DT'
+            userGroup: Indianapolis
+            start: '2018-11-20 23:30'
+        -
+            name: '[PDX-PHP] Monthly Meetup'
+            userGroup: ''
+            start: '2018-11-21 02:30'
+        -
+            name: '[PHP Essex] PHP Essex Meetup'
+            userGroup: 'PHP Essex'
+            start: '2018-11-21 19:30'
+        -
+            name: '[Washington D.C.] Main monthly meeting'
+            userGroup: ''
+            start: '2018-11-21 23:30'
+        -
+            name: '[Philadelphia] Talking about PHP with Philly PHP'
+            userGroup: Philadelphia
+            start: '2018-11-22 00:00'
+        -
+            name: '[Frankfurt] PHPUGFFM V / 2018 - Triplesense Reply GmbH - 22 Nov 18 19:00'
+            userGroup: Frankfurt
+            start: '2018-11-22 18:00'
+        -
+            name: '[Rio] Boteco PHP'
+            userGroup: Rio
+            start: '2018-11-22 21:00'
+        -
+            name: '[Greater Lafayette Open Source Symposium PHP-SIG] Coffee and Chat'
+            userGroup: ''
+            start: '2018-11-25 19:00'
+        -
+            name: '[PHP-WVL] Meetup placeholder'
+            userGroup: ''
+            start: '2018-11-27 18:30'
+        -
+            name: '[Washington D.C.] VA DC PHP Social Subgroup'
+            userGroup: ''
+            start: '2018-11-27 23:00'
+        -
+            name: '[Washington D.C.] DC PHP Beverage Subgroup (in DC)'
+            userGroup: ''
+            start: '2018-11-28 00:00'
+        -
+            name: '[Memphis] Memphis PHP User Group'
+            userGroup: Memphis
+            start: '2018-11-28 00:30'
+        -
+            name: '[azPHP] azPHP Monthly Meeting'
+            userGroup: azPHP
+            start: '2018-11-28 02:00'
+        -
+            name: '[Nashville PHP] Nashville PHP Hot Chicken Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-11-28 17:00'
+        -
+            name: '[München] PHP User Group Munich Meeting'
+            userGroup: ''
+            start: '2018-11-28 17:30'
+        -
+            name: '[Drupal Usergroup Karlsruhe] Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Usergroup Karlsruhe'
+            start: '2018-11-28 18:00'
+        -
+            name: '[PHP Antwerp] Monthly Meetup'
+            userGroup: 'PHP Antwerp'
+            start: '2018-11-28 18:00'
+        -
+            name: '[Idaho PHP User Group] Topic: TBD'
+            userGroup: 'Idaho PHP User Group'
+            start: '2018-12-04 01:15'
+        -
+            name: '[Oklahoma] OKC PHP'
+            userGroup: Oklahoma
+            start: '2018-12-04 17:30'
+        -
+            name: '[Nashville PHP] Nashville PHP South Lunch'
+            userGroup: 'Nashville PHP'
+            start: '2018-12-04 17:30'
+        -
+            name: '[Frederick Web Tech] Presentation: Technology Meetup (Topic to be determined)'
+            userGroup: 'Frederick Web Tech'
+            start: '2018-12-04 23:30'
+        -
+            name: '[Chattanooga PHP] PHP Talk, Networking, Collaboration, and Socializing'
+            userGroup: 'Chattanooga PHP'
+            start: '2018-12-05 17:00'
+        -
+            name: '[Vilnius] Vilnius PHP'
+            userGroup: Vilnius
+            start: '2018-12-06 17:00'
+        -
+            name: '[PHP Leuven - Web Innovation Group] First Thursday of the month (placeholder)'
+            userGroup: ''
+            start: '2018-12-06 18:00'
+        -
+            name: '[Groningen] Monthly Meeting'
+            userGroup: Groningen
+            start: '2018-12-06 18:30'
+        -
+            name: '[Los Angeles] LADataTech Monthly MixR'
+            userGroup: 'Los Angeles'
+            start: '2018-12-07 02:00'
+        -
+            name: '[Las Vegas] PHP User Group Meeting'
+            userGroup: 'Las Vegas'
+            start: '2018-12-07 02:00'
+        -
+            name: '[Köln-Bonn] PHPUG Köln'
+            userGroup: ''
+            start: '2018-12-07 18:00'
+        -
+            name: '[PDX-PHP] Hack And Help'
+            userGroup: ''
+            start: '2018-12-07 18:00'
+        -
+            name: '[Hamburg] Treffen der PHP-Usergroup Hamburg'
+            userGroup: Hamburg
+            start: '2018-12-11 17:30'
+        -
+            name: '[Laravel Brussels] Monthly Meetup'
+            userGroup: 'Laravel Brussels'
+            start: '2018-12-11 17:30'
+        -
+            name: '[Amersfoort] Monthly Meetup'
+            userGroup: Amersfoort
+            start: '2018-12-11 18:00'
+        -
+            name: '[Minas Gerais] beer.php'
+            userGroup: 'Minas Gerais'
+            start: '2018-12-11 21:00'
+        -
+            name: '[Kansas City''s PHP User Group] Presentation Meetup - TBA'
+            userGroup: ''
+            start: '2018-12-13 00:00'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2018-12-17 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2018-12-18 07:00'
+        -
+            name: '[PHP USERGROUP DRESDEN] Meetup VIII / 2018'
+            userGroup: 'PHP USERGROUP DRESDEN'
+            start: '2018-12-20 17:30'
+        -
+            name: '[TrianglePHP] PHP'
+            userGroup: TrianglePHP
+            start: '2018-12-20 23:00'
+        -
+            name: '[Raleigh (N.C.) PHP & MySQL] PHP'
+            userGroup: ''
+            start: '2018-12-20 23:00'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2019-01-15 07:00'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2019-01-21 18:45'
+        -
+            name: '[München] PHP User Group Munich Meeting'
+            userGroup: ''
+            start: '2019-01-23 17:30'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2019-02-18 18:45'
+        -
+            name: '[Melbourne] Melbourne PHP Users Group Meeting'
+            userGroup: Melbourne
+            start: '2019-02-19 07:00'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2019-03-18 18:45'
+        -
+            name: '[PHP Antwerp] Monthly Meetup'
+            userGroup: 'PHP Antwerp'
+            start: '2019-03-27 18:00'
+        -
+            name: '[Salzburg Web Dev] Barcamp April 2019'
+            userGroup: 'Salzburg Web Dev'
+            start: '2019-04-05 08:00'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2019-04-15 18:45'
+        -
+            name: '[BrightonPHP] BrightonPHP Meetup'
+            userGroup: BrightonPHP
+            start: '2019-05-20 18:45'
+        -
+            name: '[Groningen] PHP Meetup June/ Juliette Reinders Folmer '
+            userGroup: Groningen
+            start: '2019-06-06 17:30'
