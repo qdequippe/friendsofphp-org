@@ -1,2 +1,5 @@
 imports:
     - { resource: 'source/_data/*.yml' }
+
+parameters:
+    site_title: 'European PHP Meetups at 1 place'

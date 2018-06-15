@@ -1,11 +1,23 @@
+---
+title: "When & where your friends meet?"
+layout: default
+---
 
+{block content}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Friends of PHP - European PHP Meetups at 1 place</h1>
 
-<h1>Friends of PHP - European PHP Meetups at 1 place</h1>
+            {foreach $meetups as $meetup}
+                <h3>{$meetup['name']}</h3>
+                <p>
+                    Group: {$meetup['userGroup']}
+                    When: {$meetup['start']|date: "Y-m-d J:i"}
+                </p>
 
-{foreach $meetups as $meetup}
-    <h3>{$meetup['name']}</h3>
-    <p>
-        Group: {$meetup['userGroup']}
-        When: {$meetup['start']|date: "Y-m-d J:i"}
-    </p>
-{/foreach}
+                <br>
+            {/foreach}
+
+        </div>
+    </div>
+{/block}
