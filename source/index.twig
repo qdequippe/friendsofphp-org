@@ -2,19 +2,19 @@
 title: "When & where your friends meet?"
 layout: default
 ---
+{% extends 'default.twig' %}
 
 {% block content %}
     <div class="row">
         <div class="col-md-12">
             <h1>Friends of PHP - European PHP Meetups at 1 place</h1>
 
-            {% for $meetups as $meetup %}
-                asdf
-                {#<h3>{$meetup['name']}</h3>#}
-                {#<p>#}
-                    {#Group: {$meetup['userGroup']}#}
-                    {#When: {$meetup['start']|date: "Y-m-d J:i"}#}
-                {#</p>#}
+            {% for meetup in meetups %}
+                <h3>{{ meetup.name }}</h3>
+                <p>
+                    Group: {{ meetup.userGroup }}
+                    When: {{ meetup.start|date("Y-m-d J:i") }}
+                </p>
 
                 <br>
             {% endfor %}

@@ -2,15 +2,38 @@
 
 namespace Statie\StatieTwig;
 
+use Symplify\Statie\Renderable\File\AbstractFile;
+use Twig\Environment;
+use Twig\Loader\ArrayLoader;
+use Twig\Loader\LoaderInterface;
+
 final class TwigRenderer
 {
-    public function __construct()
+    /**
+     * @var Environment
+     */
+    private $twigEnvironment;
+
+    /**
+     * @var ArrayLoader
+     */
+    private $twigArrayLoader;
+
+    public function __construct(Environment $twigEnvironment, ArrayLoader $twigArrayLoader)
     {
+        $this->twigEnvironment = $twigEnvironment;
+        $this->twigArrayLoader = $twigArrayLoader;
     }
 
-    public function render(string $content): string
+    /**
+     * @param string[] $parameters
+     */
+    public function render(AbstractFile $file, array $parameters = []): string
     {
-        dump($content);
-        die;
+        $this->twigArrayLoader->setTemplate($file->getFilePath(), $file->getContent());
+
+        // layout?
+
+        return $this->twigEnvironment->render($file->getFilePath(), $parameters);
     }
 }

@@ -2,14 +2,10 @@
 
 namespace Statie\StatieTwig\Renderable;
 
-
 use Nette\Utils\Strings;
 use Statie\StatieTwig\TwigRenderer;
 use Symplify\Statie\Configuration\Configuration;
 use Symplify\Statie\Contract\Renderable\FileDecoratorInterface;
-use Symplify\Statie\Exception\Latte\InvalidLatteSyntaxException;
-use Symplify\Statie\FlatWhite\Latte\DynamicStringLoader;
-use Symplify\Statie\FlatWhite\Latte\LatteRenderer;
 use Symplify\Statie\Generator\Configuration\GeneratorElement;
 use Symplify\Statie\Generator\Renderable\File\AbstractGeneratorFile;
 use Symplify\Statie\Renderable\File\AbstractFile;
@@ -22,22 +18,15 @@ final class TwigFileDecorator implements FileDecoratorInterface
     private $configuration;
 
     /**
-     * @var DynamicStringLoader
-     */
-    private $dynamicStringLoader;
-
-    /**
      * @var TwigRenderer
      */
     private $twigRenderer;
 
     public function __construct(
         Configuration $configuration,
-        DynamicStringLoader $dynamicStringLoader,
         TwigRenderer $twigRenderer
     ) {
         $this->configuration = $configuration;
-        $this->dynamicStringLoader = $dynamicStringLoader;
         $this->twigRenderer = $twigRenderer;
     }
 
@@ -74,14 +63,11 @@ final class TwigFileDecorator implements FileDecoratorInterface
     private function decorateFile(AbstractFile $file): void
     {
         $parameters = $file->getConfiguration() + $this->configuration->getOptions() + [
-                'file' => $file,
-            ];
+            'file' => $file,
+        ];
 
-        $htmlContent = $this->twigRenderer->render($file->getContent());
-
-
-//        $htmlContent = $this->renderOuterWithLayout($file, $parameters);
-//        $file->changeContent($htmlContent);
+        $htmlContent = $this->twigRenderer->render($file, $parameters);
+        $file->changeContent($htmlContent);
     }
 
 //    private function decorateFileWithGeneratorElements(AbstractFile $file, GeneratorElement $generatorElement): void

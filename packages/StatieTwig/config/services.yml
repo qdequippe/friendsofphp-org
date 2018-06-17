@@ -5,17 +5,24 @@ services:
     Statie\StatieTwig\:
         resource: '../src'
 
+    # twig setup
+    Twig\Loader\ArrayLoader:
+    Twig\Environment:
+        $options:
+            'cache': '%kernel.cache_dir%/twig'
+
+    # this should not be here
     # todo turn to collector with priotiy
     Symplify\Statie\Renderable\RenderableFilesProcessor:
         # order is important, since determined order of calls in code
         calls:
-#            # has to run before Markdown; so it can render perex and content is set
-#            - ['addFileDecorator', ['@Symplify\Statie\Renderable\ConfigurationDecorator']]
-#            # has to run before Latte; it fails the other way.
-#            - ['addFileDecorator', ['@Symplify\Statie\Renderable\MarkdownFileDecorator']]
-#            # has to run befefore Latte, because "relativePath" can be used in Latte rendering
-#            - ['addFileDecorator', ['@Symplify\Statie\Renderable\RouteFileDecorator']]
-#            - ['addFileDecorator', ['@Symplify\Statie\Renderable\LatteFileDecorator']]
+            # has to run before Markdown; so it can render perex and content is set
+            - ['addFileDecorator', ['@Symplify\Statie\Renderable\ConfigurationDecorator']]
+            # has to run before Latte; it fails the other way.
+            - ['addFileDecorator', ['@Symplify\Statie\Renderable\MarkdownFileDecorator']]
+            # has to run befefore Latte, because "relativePath" can be used in Latte rendering
+            - ['addFileDecorator', ['@Symplify\Statie\Renderable\RouteFileDecorator']]
+            - ['addFileDecorator', ['@Symplify\Statie\Renderable\LatteFileDecorator']]
 
             # added extra manually :(
             - ['addFileDecorator', ['@Statie\StatieTwig\Renderable\TwigFileDecorator']]
