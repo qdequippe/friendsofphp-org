@@ -70,6 +70,14 @@ final class TwigFileDecorator implements FileDecoratorInterface
         $file->changeContent($htmlContent);
     }
 
+    /**
+     * Higher priorities are executed first.
+     */
+    public function getPriority(): int
+    {
+        return 700;
+    }
+
 //    private function decorateFileWithGeneratorElements(AbstractFile $file, GeneratorElement $generatorElement): void
 //    {
 //        // prepare parameters
