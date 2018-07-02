@@ -52,4 +52,6 @@ $yaml = ['parameters' => [
     'meetups' => $meetupsAsArray
 ]];
 
-file_put_contents(__DIR__ . '/source/_data/meetups.yml', Yaml::dump($yaml));
+$yamlDump = Yaml::dump($yaml, 10, 4);
+
+file_put_contents(__DIR__ . '/source/_data/meetups.yml', $yamlDump);
