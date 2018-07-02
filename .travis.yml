@@ -8,6 +8,8 @@ install:
 script:
     # test that website is generated
     - vendor/bin/statie generate source
+    # coding standard run
+    - vendor/bin/ecs check src
 
 # see docs: https://www.statie.org/docs/github-pages/
 deploy:

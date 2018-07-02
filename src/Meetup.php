@@ -15,6 +15,7 @@ final class Meetup
      * @var string
      */
     private $userGroupName;
+
     /**
      * @var DateTimeInterface
      */

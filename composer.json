@@ -13,5 +13,9 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "symplify/easy-coding-standard": "^4.4",
+        "slam/php-cs-fixer-extensions": "^1.16"
+    }
 }

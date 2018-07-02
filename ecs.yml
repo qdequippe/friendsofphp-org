@@ -1,0 +1,20 @@
+imports:
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr2.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/php71.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/clean-code.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/symplify.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/common.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr12.yml' }
+
+services:
+    Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
+        maxCognitiveComplexity: 8
+
+    # class should be Abstact or Final
+    SlamCsFixer\FinalInternalClassFixer: ~
+
+parameters:
+    exclude_checkers:
+        # mutually conflicting
+        - 'PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer'
+        - 'PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer'
