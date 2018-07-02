@@ -1,4 +1,5 @@
-<?php
+#!/usr/bin/env php
+<?php declare(strict_types=1);
 
 use AllFriensOfPhp\Meetup;
 use Nette\Utils\DateTime;
@@ -6,9 +7,7 @@ use Nette\Utils\Json;
 use Nette\Utils\Strings;
 use Symfony\Component\Yaml\Yaml;
 
-require __DIR__ . '/vendor/autoload.php';
-
-// @todo move to import command
+require __DIR__ . '/../vendor/autoload.php';
 
 $client = new GuzzleHttp\Client([
     'headers' => [
@@ -28,10 +27,11 @@ foreach ($result as $event) {
     $startDateTime = DateTime::from($event['start']);
 
     // skip past meetups
-    if ($startDateTime < $nowDateTime) { //  || $startDateTime > $nextWeekDateTime) {
+    if ($startDateTime < $nowDateTime) {
         continue;
     }
 
+    // @todo resolve user group city
     $userGroupMatch = Strings::match($event['title'], '#\[(?<userGroup>[A-Za-z ]+)\]#');
     $userGroup = $userGroupMatch['userGroup'] ?? '';
 
