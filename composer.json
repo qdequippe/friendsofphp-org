@@ -4,13 +4,14 @@
         "guzzlehttp/guzzle": "^6.3",
         "symfony/var-dumper": "^4.0",
         "nette/utils": "^2.5",
-        "symplify/statie": "dev-master",
+        "symplify/statie": "^4.5",
         "twig/twig": "^2.4.8"
     },
     "autoload": {
         "psr-4": {
-            "AllFriensOfPhp\\": "src",
-            "Statie\\StatieTwig\\": "packages/StatieTwig/src"
+            "AllFriensOfPhp\\": "src"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
