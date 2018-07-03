@@ -2,6 +2,7 @@
 
 namespace Fop\Repository;
 
+use Fop\FileSystem\YamlFileSystem;
 use Symfony\Component\Yaml\Yaml;
 
 final class UserGroupRepository
@@ -16,12 +17,18 @@ final class UserGroupRepository
      */
     private $userGroups = [];
 
-    public function __construct(string $userGroupsStorage)
+    /**
+     * @var YamlFileSystem
+     */
+    private $yamlFileSystem;
+
+    public function __construct(string $userGroupsStorage, YamlFileSystem $yamlFileSystem)
     {
         $this->userGroupsStorage = $userGroupsStorage;
 
         $userGroupsArray = Yaml::parseFile($userGroupsStorage);
         $this->userGroups = $userGroupsArray['parameters']['meetup_groups'] ?? [];
+        $this->yamlFileSystem = $yamlFileSystem;
     }
 
     /**
@@ -35,16 +42,14 @@ final class UserGroupRepository
             ],
         ];
 
-        // @todo service
-        $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
-        file_put_contents($this->userGroupsStorage, $yamlDump);
+        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $this->userGroupsStorage);
     }
 
     /**
      * @return mixed[]
      */
-    public function fetchAll(): array
+    public function fetchByContinent(string $continent): array
     {
-        return $this->userGroups;
+        return $this->userGroups[strtolower($continent)] ?? [];
     }
 }

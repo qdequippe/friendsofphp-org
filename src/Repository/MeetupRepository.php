@@ -2,8 +2,8 @@
 
 namespace Fop\Repository;
 
+use Fop\FileSystem\YamlFileSystem;
 use Fop\Meetup;
-use Symfony\Component\Yaml\Yaml;
 
 final class MeetupRepository
 {
@@ -12,9 +12,15 @@ final class MeetupRepository
      */
     private $meetupsStorage;
 
-    public function __construct(string $meetupsStorage)
+    /**
+     * @var YamlFileSystem
+     */
+    private $yamlFileSystem;
+
+    public function __construct(string $meetupsStorage, YamlFileSystem $yamlFileSystem)
     {
         $this->meetupsStorage = $meetupsStorage;
+        $this->yamlFileSystem = $yamlFileSystem;
     }
 
     /**
@@ -42,8 +48,6 @@ final class MeetupRepository
             ],
         ];
 
-        // @todo service
-        $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
-        file_put_contents($this->meetupsStorage, $yamlDump);
+        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $this->meetupsStorage);
     }
 }

@@ -25,37 +25,50 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
      * @var MeetupRepository
      */
     private $meetupRepository;
+
     /**
      * @var UserGroupRepository
      */
     private $userGroupRepository;
 
-    public function __construct(Client $client, MeetupRepository $meetupRepository, UserGroupRepository $userGroupRepository)
-    {
+    public function __construct(
+        Client $client,
+        MeetupRepository $meetupRepository,
+        UserGroupRepository $userGroupRepository
+    ) {
         parent::__construct();
         $this->client = $client;
         $this->meetupRepository = $meetupRepository;
         $this->userGroupRepository = $userGroupRepository;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $userGroups = $this->userGroupRepository->fetchAll();
-        foreach ($userGroups as $userGroup) {
-            dump($userGroup);
+        $europeanUserGroups = $this->userGroupRepository->fetchByContinent('Europe');
+        foreach ($europeanUserGroups as $europeanUserGroup) {
+            $groupName = substr($europeanUserGroup['meetup_com_url'], strlen('http://www.meetup.com/'));
+            dump($groupName);
             die;
         }
 
-        // loda from data/meetup-com-groups.yml
+//        // loda from data/meetup-com-groups.yml
         $groupName = '010PHP';
-
         $nowDateTime = DateTime::from('now');
+        $meetups = $this->getMeetupsForUserGroup($groupName, $nowDateTime);
 
+        dump($meetups);
+        die;
+
+        $this->meetupRepository->saveToFile($meetups);
+    }
+
+    private function getMeetupsForUserGroup($groupName, $nowDateTime): array
+    {
         $url = sprintf('http://api.meetup.com/2/events?group_urlname=%s', $groupName);
         $response = $this->client->get($url);
 
@@ -81,7 +94,6 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
 
             $meetups[] = new Meetup($event['name'], $event['group']['name'], $startDateTime, $location);
         }
-
-        $this->meetupRepository->saveToFile($meetups);
+        return $meetups;
     }
 }
