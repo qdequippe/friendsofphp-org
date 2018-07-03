@@ -6,8 +6,10 @@
         "symfony/var-dumper": "^4.0",
         "nette/utils": "^2.5",
         "symplify/statie": "^4.5",
-        "twig/twig": "^2.4.8",
-        "rinvex/country": "^3.1"
+        "rinvex/country": "^3.1",
+        "symfony/console": "^4.1",
+        "symfony/dependency-injection": "^4.1",
+        "symfony/http-kernel": "^4.1"
     },
     "require-dev": {
         "symplify/easy-coding-standard": "^4.4",
@@ -17,12 +19,8 @@
     },
     "autoload": {
         "psr-4": {
-            "AllFriensOfPhp\\": "src"
-        },
-        "files": [
-            "bin/import-groups-from-php-ug.php",
-            "bin/import-meetups-from-meetups.php"
-        ]
+            "Fop\\": "src"
+        }
     },
     "scripts": {
         "check-cs": "vendor/bin/ecs check bin src",

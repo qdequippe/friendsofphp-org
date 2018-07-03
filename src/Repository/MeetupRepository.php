@@ -1,23 +1,30 @@
 <?php declare(strict_types=1);
 
-namespace AllFriensOfPhp;
+namespace Fop\Repository;
 
-use Symfony\Component\Yaml\Yaml;
+use Fop\FileSystem\YamlFileSystem;
+use Fop\Meetup;
 
 final class MeetupRepository
 {
     /**
      * @var string
      */
-    private $filePath;
+    private $meetupsStorage;
 
-    public function __construct(string $filePath = '')
+    /**
+     * @var YamlFileSystem
+     */
+    private $yamlFileSystem;
+
+    public function __construct(string $meetupsStorage, YamlFileSystem $yamlFileSystem)
     {
-        $this->filePath = $filePath ?: __DIR__ . '/../source/_data/meetups.yml';
+        $this->meetupsStorage = $meetupsStorage;
+        $this->yamlFileSystem = $yamlFileSystem;
     }
 
     /**
-     * @param LocatedMeetup[] $meetups
+     * @param Meetup[] $meetups
      */
     public function saveToFile(array $meetups): void
     {
@@ -41,8 +48,6 @@ final class MeetupRepository
             ],
         ];
 
-        // @todo service
-        $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
-        file_put_contents($this->filePath, $yamlDump);
+        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $this->meetupsStorage);
     }
 }

@@ -23,6 +23,4 @@ deploy:
     local_dir: output
 
 notifications:
-    email:
-        on_success: newer
-        on_failure: always
+    email: newer

@@ -18,3 +18,4 @@ parameters:
         # mutually conflicting
         - 'PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer'
         - 'PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer'
+        - 'Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff'
