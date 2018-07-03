@@ -11,9 +11,17 @@ final class UserGroupRepository
      */
     private $userGroupsStorage;
 
+    /**
+     * @var mixed[]
+     */
+    private $userGroups = [];
+
     public function __construct(string $userGroupsStorage)
     {
         $this->userGroupsStorage = $userGroupsStorage;
+
+        $userGroupsArray = Yaml::parseFile($userGroupsStorage);
+        $this->userGroups = $userGroupsArray['parameters']['meetup_groups'] ?? [];
     }
 
     /**
@@ -30,5 +38,13 @@ final class UserGroupRepository
         // @todo service
         $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
         file_put_contents($this->userGroupsStorage, $yamlDump);
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function fetchAll(): array
+    {
+        return $this->userGroups;
     }
 }
