@@ -9,10 +9,6 @@ final class UserGroupRepository
     /**
      * @var string
      */
-    private $filePath;
-    /**
-     * @var string
-     */
     private $userGroupStorage;
 
     public function __construct(string $userGroupStorage)

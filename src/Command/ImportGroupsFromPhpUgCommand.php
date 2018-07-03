@@ -9,12 +9,12 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
 final class ImportGroupsFromPhpUgCommand extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         dump('EEE');
         die;
