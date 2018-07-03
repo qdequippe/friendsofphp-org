@@ -1,6 +1,6 @@
 language: php
 
-php: 7.1
+php: 7.2
 
 install:
     - composer update
@@ -10,6 +10,8 @@ script:
     - vendor/bin/statie generate source
     # coding standard run
     - vendor/bin/ecs check bin src
+    # static analysis
+    - vendor/bin/phpstan analyse bin src --level max --configuration phpstan.neon
 
 # see docs: https://www.statie.org/docs/github-pages/
 deploy:
