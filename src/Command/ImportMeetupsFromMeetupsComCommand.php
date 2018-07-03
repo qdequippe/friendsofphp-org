@@ -2,6 +2,7 @@
 
 namespace Fop\Command;
 
+use DateTimeInterface;
 use Fop\Location;
 use Fop\Meetup;
 use Fop\Repository\MeetupRepository;
@@ -31,6 +32,11 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
      */
     private $userGroupRepository;
 
+    /**
+     * @var DateTimeInterface
+     */
+    private $nowDateTime;
+
     public function __construct(
         Client $client,
         MeetupRepository $meetupRepository,
@@ -40,6 +46,7 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
         $this->client = $client;
         $this->meetupRepository = $meetupRepository;
         $this->userGroupRepository = $userGroupRepository;
+        $this->nowDateTime = DateTime::from('now');
     }
 
     protected function configure(): void
@@ -51,19 +58,14 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
     {
         $europeanUserGroups = $this->userGroupRepository->fetchByContinent('Europe');
 
-        dump($europeanUserGroups);
-        die;
-
+        $meetups = [];
         foreach ($europeanUserGroups as $europeanUserGroup) {
-            $groupName = substr($europeanUserGroup['meetup_com_url'], strlen('http://www.meetup.com/'));
-            dump($groupName);
-            die;
-        }
+            $groupUrlName = $this->resolveGroupUrlNameFromGroupUrl($europeanUserGroup);
 
-//        // loda from data/meetup-com-groups.yml
-        $groupName = '010PHP';
-        $nowDateTime = DateTime::from('now');
-        $meetups = $this->getMeetupsForUserGroup($groupName, $nowDateTime);
+            $meetupsOfGroup = $this->getMeetupsForUserGroup($groupUrlName);
+
+            $meetups = array_merge($meetups, $meetupsOfGroup);
+        }
 
         dump($meetups);
         die;
@@ -71,7 +73,10 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
         $this->meetupRepository->saveToFile($meetups);
     }
 
-    private function getMeetupsForUserGroup($groupName, $nowDateTime): array
+    /**
+     * @return Meetup[]
+     */
+    private function getMeetupsForUserGroup(string $groupName): array
     {
         $url = sprintf('http://api.meetup.com/2/events?group_urlname=%s', $groupName);
         $response = $this->client->get($url);
@@ -83,21 +88,58 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
         foreach ($events as $event) {
             $startDateTime = DateTime::from(strtotime((string) $event['time']));
 
-            // skip past meetups
-            if ($startDateTime < $nowDateTime) {
+            if ($this->shouldSkipMeetup($startDateTime, $event)) {
                 continue;
             }
 
-            // draft event, not ready yet
-            if (! isset($event['venue'])) {
-                continue;
-            }
-
-            $venue = $event['venue'];
-            $location = new Location($venue['city'], $venue['localized_country_name'], $venue['lon'], $venue['lat']);
-
-            $meetups[] = new Meetup($event['name'], $event['group']['name'], $startDateTime, $location);
+            $meetups[] = $this->createMeetupFromEventData($event, $startDateTime);
         }
+
         return $meetups;
+    }
+
+    /**
+     * @param string[] $userGroup
+     */
+    private function resolveGroupUrlNameFromGroupUrl(array $userGroup): string
+    {
+        $array = explode('/', $userGroup['meetup_com_url']);
+        end($array);
+
+        return prev($array);
+    }
+
+    /**
+     * @param mixed[] $event
+     */
+    private function shouldSkipMeetup(DateTimeInterface $startDateTime, array $event): bool
+    {
+        // skip past meetups
+        if ($startDateTime < $this->nowDateTime) {
+            return true;
+        }
+
+        // draft event, not ready yet
+        return ! isset($event['venue']);
+//            return true;
+//        }
+//
+//        if (! isset($event['venue']['city']) || ! $event['venue']['city']) {
+//            return true;
+//        }
+//
+//        return true;
+    }
+
+    /**
+     * @param mixed[] $event
+     */
+    private function createMeetupFromEventData(array $event, DateTimeInterface $startDateTime): Meetup
+    {
+        $venue = $event['venue'];
+
+        $location = new Location($venue['city'], $venue['localized_country_name'], $venue['lon'], $venue['lat']);
+
+        return new Meetup($event['name'], $event['group']['name'], $startDateTime, $location);
     }
 }
