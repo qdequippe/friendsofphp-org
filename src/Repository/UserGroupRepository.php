@@ -9,11 +9,11 @@ final class UserGroupRepository
     /**
      * @var string
      */
-    private $userGroupStorage;
+    private $userGroupsStorage;
 
-    public function __construct(string $userGroupStorage)
+    public function __construct(string $userGroupsStorage)
     {
-        $this->userGroupStorage = $userGroupStorage;
+        $this->userGroupsStorage = $userGroupsStorage;
     }
 
     /**
@@ -29,6 +29,6 @@ final class UserGroupRepository
 
         // @todo service
         $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
-        file_put_contents($this->userGroupStorage, $yamlDump);
+        file_put_contents($this->userGroupsStorage, $yamlDump);
     }
 }

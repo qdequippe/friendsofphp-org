@@ -1,4 +1,4 @@
-paramters:
+parameters:
     user_groups_storage: '%kernel.project_dir%/source/_data/user_groups.yml'
     meetups_storage: '%kernel.project_dir%/source/_data/meetups.yml'
 
@@ -7,7 +7,7 @@ services:
         autowire: true
         bind:
             $userGroupsStorage: '%user_groups_storage%'
-            $meetupsStorage: '%meetup_storage%'
+            $meetupsStorage: '%meetups_storage%'
 
     Fop\:
         resource: '../'

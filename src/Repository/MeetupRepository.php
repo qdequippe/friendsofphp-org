@@ -10,11 +10,11 @@ final class MeetupRepository
     /**
      * @var string
      */
-    private $meetupStorage;
+    private $meetupsStorage;
 
-    public function __construct(string $meetupStorage)
+    public function __construct(string $meetupsStorage)
     {
-        $this->meetupStorage = $meetupStorage;
+        $this->meetupsStorage = $meetupsStorage;
     }
 
     /**
@@ -44,6 +44,6 @@ final class MeetupRepository
 
         // @todo service
         $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
-        file_put_contents($this->meetupStorage, $yamlDump);
+        file_put_contents($this->meetupsStorage, $yamlDump);
     }
 }
