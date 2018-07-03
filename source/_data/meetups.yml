@@ -1,9 +1,170 @@
 parameters:
     meetups:
-        name: '010PHP: Well-intentioned paper tigers'
-        userGroup: 010PHP
-        start: '2018-07-03 19:52'
-        city: Rotterdam
-        country: Netherlands
-        longitude: 4.477093
-        latitude: 51.907269
+        -
+            name: 'Barcamp November 2018'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-07-03 21:37'
+            city: Puch
+            country: Austria
+            longitude: 13.086338
+            latitude: 47.724117
+        -
+            name: 'Barcamp April 2019'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-07-03 21:37'
+            city: Puch
+            country: Austria
+            longitude: 13.086338
+            latitude: 47.724117
+        -
+            name: 'September Meetup at Wunderman'
+            userGroup: 'Full Stack Antwerp'
+            start: '2018-07-03 21:37'
+            city: Antwerpen
+            country: Belgium
+            longitude: 4.411315
+            latitude: 51.194706
+        -
+            name: THEOplayer
+            userGroup: 'PHP Leuven - Web Innovation Group'
+            start: '2018-07-03 21:37'
+            city: Leuven
+            country: Belgium
+            longitude: 4.715206
+            latitude: 50.879662
+        -
+            name: 'First Thursday of the month (placeholder)'
+            userGroup: 'PHP Leuven - Web Innovation Group'
+            start: '2018-07-03 21:37'
+            city: Leuven
+            country: Belgium
+            longitude: 4.72613
+            latitude: 50.85187
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-03 21:37'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'DeventerPHP - Lightning talks'
+            userGroup: DeventerPHP
+            start: '2018-07-03 21:37'
+            city: Deventer
+            country: Netherlands
+            longitude: 6.19297
+            latitude: 52.236748
+        -
+            name: 'DeventerPHP - The developer''s model for talking to managers'
+            userGroup: DeventerPHP
+            start: '2018-07-03 21:37'
+            city: Deventer
+            country: Netherlands
+            longitude: 6.19297
+            latitude: 52.236748
+        -
+            name: 'What''s new in Xdebug - Derick Rethans'
+            userGroup: PHPMiNDS
+            start: '2018-07-03 21:38'
+            city: Nottingham
+            country: 'United Kingdom'
+            longitude: -1.14304
+            latitude: 52.951992
+        -
+            name: 'Docker for PHP Development'
+            userGroup: 'Bristol PHP Training'
+            start: '2018-07-03 21:38'
+            city: 'Bristol, BS1 6QA'
+            country: 'United Kingdom'
+            longitude: -2.581783
+            latitude: 51.448288
+        -
+            name: 'Group Discussion: Exploring Deployment Processes in web projects'
+            userGroup: 'PHP Cambridge'
+            start: '2018-07-03 21:38'
+            city: Cambridge
+            country: 'United Kingdom'
+            longitude: 0.141326
+            latitude: 52.235432
