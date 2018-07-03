@@ -1,0 +1,96 @@
+parameters:
+    groups:
+        europe:
+            - 'https://meetup.com/Aberdeen-PHP'
+            - 'https://meetup.com/Bristol-PHP-Training'
+            - 'https://meetup.com/Deventer'
+            - 'https://meetup.com/DeventerPHP'
+            - 'https://meetup.com/PHP-Leuven---Web-Innovation-Group'
+
+        america:
+            - 'https://meetup.com/Nashville-PHP'
+            - 'https://meetup.com/Frederick-Web-Tech'
+            - 'https://meetup.com/San-Diego-PHP-User-Group'
+            - 'https://meetup.com/Atlanta'
+            - 'https://meetup.com/Las-Vegas'
+            - 'https://meetup.com/Los-Angeles'
+            - 'https://meetup.com/PDX-PHP'
+            - 'https://meetup.com/Idaho-PHP-User-Group'
+            - 'https://meetup.com/Minnesota'
+            - 'https://meetup.com/Greater-Lafayette-Open-Source-Symposium-PHP-SIG'
+            - 'https://meetup.com/Kansas-City''s-PHP-User-Group'
+            - 'https://meetup.com/Peak-PHP'
+            - 'https://meetup.com/South-Florida-PHP-User-Group'
+            - 'https://meetup.com/Austin'
+            - 'https://meetup.com/Boston'
+            - 'https://meetup.com/Indianapolis'
+            - 'https://meetup.com/Milwaukee'
+            - 'https://meetup.com/San-Francisco'
+
+
+        the_rest:
+            - 'https://meetup.com/Singapore'
+            - 'https://meetup.com/Rio'
+            - 'https://meetup.com/PHP-Reboot'
+            - 'https://meetup.com/Minas-Gerais'
+            - 'https://meetup.com/São-Paulo'
+            - 'https://meetup.com/Melbourne'
+
+            # europe
+            - 'https://meetup.com/Groningen'
+            - 'https://meetup.com/PHP-East-Midlands'
+            - 'https://meetup.com/London'
+            - 'https://meetup.com/Köln-Bonn'
+            - 'https://meetup.com/PHP-USERGROUP-DRESDEN'
+            - 'https://meetup.com/Laravel-Brussels'
+            - 'https://meetup.com/Amersfoort'
+            - 'https://meetup.com/Glasgow'
+            - 'https://meetup.com/North-West-Drupal-User-Group'
+            - 'https://meetup.com/Milano'
+            - 'https://meetup.com/PHP-South-West-UK'
+            - 'https://meetup.com/Cambridge'
+            - 'https://meetup.com/PHP-Hampshire'
+            - 'https://meetup.com/Vilnius'
+            - 'https://meetup.com/PHP-Usergroup-Düsseldorf'
+            - 'https://meetup.com/010PHP'
+            - 'https://meetup.com/PHPMiNDS-Nottingham'
+            - 'https://meetup.com/AmsterdamPHP'
+            - 'https://meetup.com/BrightonPHP'
+            - 'https://meetup.com/Rheinhessen'
+
+
+
+            # europe
+            - 'https://meetup.com/PHP-Essex'
+            - 'https://meetup.com/Zagreb'
+            - 'https://meetup.com/Vienna'
+            - 'https://meetup.com/Fryslân'
+            - 'https://meetup.com/PHP.gent'
+            - 'https://meetup.com/GhentPHP'
+            - 'https://meetup.com/PHP-WVL'
+            - 'https://meetup.com/München'
+            - 'https://meetup.com/Drupal-Usergroup-Karlsruhe'
+            - 'https://meetup.com/PHP-Antwerp'
+            - 'https://meetup.com/Symfony-User-Group-Hamburg'
+            - 'https://meetup.com/PHP-Symfony-User-Group-Basel'
+            - 'https://meetup.com/Hamburg'
+            - 'https://meetup.com/Frankfurt'
+
+            # america
+            - 'https://meetup.com/Washington-D.C.'
+            - 'https://meetup.com/TrianglePHP'
+            - 'https://meetup.com/Raleigh-(N.C.)-PHP-&-MySQL'
+            - 'https://meetup.com/azPHP'
+            - 'https://meetup.com/Memphis'
+
+            # the rest
+            - 'https://meetup.com/PHP-Adelaide'
+            - 'https://meetup.com/PHPSP-Campinas'
+            - 'https://meetup.com/PHP-Mexico'
+            - 'https://meetup.com/Cape-Town-PHP-Group'
+
+            - 'https://meetup.com/Chattanooga-PHP'
+            - 'https://meetup.com/Philadelphia'
+            - 'https://meetup.com/Oklahoma'
+            - 'https://meetup.com/Fox-Cities'
+            - 'https://meetup.com/Salzburg-Web-Dev'

@@ -23,6 +23,9 @@ $nowDateTime = DateTime::from('now');
 
 /** @var Meetup[] $meetups */
 $meetups = [];
+
+/** @var string[] $links */
+$links = [];
 foreach ($result as $event) {
     $startDateTime = DateTime::from($event['start']);
 
@@ -32,11 +35,39 @@ foreach ($result as $event) {
     }
 
     // @todo resolve user group city
-    $userGroupMatch = Strings::match($event['title'], '#\[(?<userGroup>[\w-ü ]+)\]#');
-    $userGroup = $userGroupMatch['userGroup'] ?? '';
+    $userGroupMatch = Strings::match($event['title'], '#\[(?<userGroup>[\w-\'öüãâ.&\(\) ]+)\]#');
 
-    $meetups[] = new Meetup($event['title'], $userGroup, $startDateTime);
+    if (! isset($userGroupMatch['userGroup'])) {
+        dump($event['title']);
+        dump($userGroupMatch);
+        die;
+    }
+
+    $links[] = 'https://meetup.com/' . str_replace(' ', '-', $userGroupMatch['userGroup']);
+
+//    $userGroup = $userGroupMatch['userGroup'] ?? '';
+
+//    $meetups[] = new Meetup($event['title'], $userGroup, $startDateTime);
 }
+
+$links = array_unique($links);
+
+$groupsYamlFile = [
+    'parameters' => [
+        'groups' => [
+            $links
+        ]
+    ]
+];
+
+dump($links);
+
+$yamlDump = Yaml::dump($groupsYamlFile, 10, 4);
+
+file_put_contents(__DIR__ . '/../source/_data/groups.yml', $yamlDump);
+
+
+die;
 
 // dump meetups to yaml
 $meetupsAsArray = [];
@@ -47,6 +78,8 @@ foreach ($meetups as $meetup) {
         'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
     ];
 }
+
+die;
 
 $yaml = ['parameters' => [
     'meetups' => $meetupsAsArray

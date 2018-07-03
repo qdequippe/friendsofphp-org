@@ -28,7 +28,7 @@ final class YamlMeetupFileManager
         $meetupsAsArray = [];
         foreach ($meetups as $meetup) {
             // hydratation?
-            $meetupsAsArray[] = [
+            $meetupsAsArray = [
                 'name' => $meetup->getName(),
                 'userGroup' => $meetup->getUserGroup(),
                 'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
@@ -37,6 +37,8 @@ final class YamlMeetupFileManager
                 'longitude' => $meetup->getLocatoin()->getLongitude(),
                 'latitude' => $meetup->getLocatoin()->getLatitude(),
             ];
+            dump($meetup);
+            die;
         }
 
         $meetupsYamlStructure = [
