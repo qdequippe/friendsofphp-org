@@ -6,6 +6,7 @@ use AllFriensOfPhp\YamlMeetupFileManager;
 use Nette\Utils\DateTime;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
+use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -23,7 +24,7 @@ $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
 
 $groups = $result['groups'];
 
-$meetupGroups[] = [];
+$meetupGroups = [];
 foreach ($groups as $group) {
     // resolve meetups.com groups first
     if (! Strings::contains($group['url'], 'meetup.com')) {
@@ -31,7 +32,7 @@ foreach ($groups as $group) {
     }
 
     if ($group['country']) {
-        $country = (CountryLoader::country($group['country']))->getName();
+        $country = CountryLoader::country($group['country']);
 
     } else {
         // detect city + country from latitude/longitude
@@ -51,7 +52,7 @@ foreach ($groups as $group) {
         } else {
             foreach ($geocodeJson['results'][0]['address_components'] as $addressComponent) {
                 if (in_array('country', $addressComponent['types'], true)) {
-                    $country = $addressComponent['long_name'];
+                    $country = CountryLoader::country($addressComponent['short_name']);
                     break;
                 }
             }
@@ -66,5 +67,27 @@ foreach ($groups as $group) {
     ];
 }
 
+// sort by country
+
+uasort($meetupGroups, function (array $firstMeetupGroup, array $secondMeetupGroup) {
+    return $firstMeetupGroup['country'] > $secondMeetupGroup['country'];
+});
+
+// split by continent
+$meetupGroupsByContinent = [];
+
+foreach ($meetupGroups as $meetupGroup) {
+    if ($meetupGroup['country']) {
+        /** @var Country $country */
+        $country = $meetupGroup['country'];
+        $regionKey = strtolower($country->getRegion());
+    } else {
+        $regionKey = 'unknown';
+    }
+
+    $meetupGroup['country'] = $country ? $country->getName() : 'unknown';
+    $meetupGroupsByContinent[$regionKey][] = $meetupGroup;
+}
+
 $userGroupRepository = (new UserGroupRepository());
-$userGroupRepository->saveToFile($meetupGroups);
+$userGroupRepository->saveToFile($meetupGroupsByContinent);
