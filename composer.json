@@ -6,7 +6,6 @@
         "symfony/var-dumper": "^4.0",
         "nette/utils": "^2.5",
         "symplify/statie": "^4.5",
-        "twig/twig": "^2.4.8",
         "rinvex/country": "^3.1",
         "symfony/console": "^4.1",
         "symfony/dependency-injection": "^4.1",
