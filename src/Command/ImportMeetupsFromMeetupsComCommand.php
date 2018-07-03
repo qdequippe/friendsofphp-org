@@ -67,9 +67,6 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
             $meetups = array_merge($meetups, $meetupsOfGroup);
         }
 
-        dump($meetups);
-        die;
-
         $this->meetupRepository->saveToFile($meetups);
     }
 
@@ -121,14 +118,6 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
 
         // draft event, not ready yet
         return ! isset($event['venue']);
-//            return true;
-//        }
-//
-//        if (! isset($event['venue']['city']) || ! $event['venue']['city']) {
-//            return true;
-//        }
-//
-//        return true;
     }
 
     /**
