@@ -1,0 +1,4 @@
+parameters:
+    groups:
+        europe:
+            - 'https://www.meetup.com/010PHP/'

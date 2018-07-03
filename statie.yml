@@ -3,3 +3,4 @@ imports:
 
 parameters:
     site_title: 'European PHP Meetups at 1 place'
+    templating: 'twig'
