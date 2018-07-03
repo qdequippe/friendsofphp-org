@@ -2,7 +2,7 @@ parameters:
     meetups:
         name: '010PHP: Well-intentioned paper tigers'
         userGroup: 010PHP
-        start: '2018-07-03 11:36'
+        start: '2018-07-03 11:40'
         city: Rotterdam
         country: Netherlands
         longitude: 4.477093

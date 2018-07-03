@@ -61,6 +61,9 @@ foreach ($meetupGroups as $meetupGroup) {
     $meetupGroupsByContinent[$regionKey][] = $meetupGroup;
 }
 
+/**
+ * @param mixed[] $group
+ */
 function resolveCountry(array $group): ?Country
 {
     if ($group['country']) {
