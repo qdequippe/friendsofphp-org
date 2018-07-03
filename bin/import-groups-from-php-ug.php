@@ -4,7 +4,6 @@ use AllFriensOfPhp\UserGroupRepository;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
-use Rinvex\Country\CountryLoader;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -59,40 +58,6 @@ foreach ($meetupGroups as $meetupGroup) {
 
     $meetupGroup['country'] = $country ? $country->getName() : 'unknown';
     $meetupGroupsByContinent[$regionKey][] = $meetupGroup;
-}
-
-/**
- * @param mixed[] $group
- */
-function resolveCountry(array $group): ?Country
-{
-    if ($group['country']) {
-        return CountryLoader::country($group['country']);
-    }
-
-    // detect city + country from latitude/longitude
-    $latitude = $group['latitude'];
-    $longitude = $group['longitude'];
-
-    $geocode = file_get_contents(sprintf(
-        'http://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&sensor=false',
-        $latitude,
-        $longitude
-    ));
-
-    $geocodeJson = Json::decode($geocode, Json::FORCE_ARRAY);
-
-    if ($geocodeJson['status'] !== 'OK') {
-        return null;
-    }
-
-    foreach ($geocodeJson['results'][0]['address_components'] as $addressComponent) {
-        if (in_array('country', $addressComponent['types'], true)) {
-            return CountryLoader::country($addressComponent['short_name']);
-        }
-    }
-
-    return null;
 }
 
 $userGroupRepository = (new UserGroupRepository());
