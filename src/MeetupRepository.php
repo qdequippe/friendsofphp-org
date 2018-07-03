@@ -4,7 +4,7 @@ namespace AllFriensOfPhp;
 
 use Symfony\Component\Yaml\Yaml;
 
-final class YamlMeetupFileManager
+final class MeetupRepository
 {
     /**
      * @var string
@@ -16,14 +16,10 @@ final class YamlMeetupFileManager
         $this->filePath = $filePath ?: __DIR__ . '/../source/_data/meetups.yml';
     }
 
-    public function loadFromFile()
-    {
-    }
-
     /**
      * @param LocatedMeetup[] $meetups
      */
-    public function saveToFile(array $meetups)
+    public function saveToFile(array $meetups): void
     {
         $meetupsAsArray = [];
         foreach ($meetups as $meetup) {
@@ -37,14 +33,12 @@ final class YamlMeetupFileManager
                 'longitude' => $meetup->getLocatoin()->getLongitude(),
                 'latitude' => $meetup->getLocatoin()->getLatitude(),
             ];
-            dump($meetup);
-            die;
         }
 
         $meetupsYamlStructure = [
             'parameters' => [
-                'meetups' => $meetupsAsArray
-            ]
+                'meetups' => $meetupsAsArray,
+            ],
         ];
 
         // @todo service

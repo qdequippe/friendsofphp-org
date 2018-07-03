@@ -8,14 +8,17 @@ final class Location
      * @var string
      */
     private $city;
+
     /**
      * @var string
      */
     private $country;
+
     /**
      * @var float
      */
     private $longitude;
+
     /**
      * @var float
      */

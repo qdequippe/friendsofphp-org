@@ -19,12 +19,12 @@ final class UserGroupRepository
     /**
      * @param mixed[] $meetupGroups
      */
-    public function saveToFile(array $meetupGroups)
+    public function saveToFile(array $meetupGroups): void
     {
         $meetupsYamlStructure = [
             'parameters' => [
-                'meetup_groups' => $meetupGroups
-            ]
+                'meetup_groups' => $meetupGroups,
+            ],
         ];
 
         // @todo service

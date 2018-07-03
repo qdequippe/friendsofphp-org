@@ -19,7 +19,7 @@
     },
     "scripts": {
         "check-cs": "vendor/bin/ecs check bin src",
-        "fix-cs": "vendor/bin/ecs check bin src"
+        "fix-cs": "vendor/bin/ecs check bin src --fix"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

@@ -3,7 +3,7 @@
 
 use AllFriensOfPhp\LocatedMeetup;
 use AllFriensOfPhp\Location;
-use AllFriensOfPhp\YamlMeetupFileManager;
+use AllFriensOfPhp\MeetupRepository;
 use Nette\Utils\DateTime;
 use Nette\Utils\Json;
 
@@ -11,8 +11,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $client = new GuzzleHttp\Client([
     'headers' => [
-        'Accept' => 'application/json'
-    ]
+        'Accept' => 'application/json',
+    ],
 ]);
 
 
@@ -47,5 +47,5 @@ foreach ($events as $event) {
     $locatedMeetups[] = new LocatedMeetup($event['name'], $event['group']['name'], $startDateTime, $location);
 }
 
-$yamlMeetupFileManager = new YamlMeetupFileManager();
+$yamlMeetupFileManager = new MeetupRepository();
 $yamlMeetupFileManager->saveToFile($locatedMeetups);

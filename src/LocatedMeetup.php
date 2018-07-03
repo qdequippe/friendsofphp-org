@@ -23,20 +23,24 @@ final class LocatedMeetup
 
     public function getLocatoin(): Location
     {
-        return $this->locatoin;
+        return $this->location;
     }
 
     /**
      * @var Location
      */
-    private $locatoin;
+    private $location;
 
-    public function __construct(string $name, string $userGroupName, DateTimeInterface $startDateTime, Location $locatoin)
-    {
+    public function __construct(
+        string $name,
+        string $userGroupName,
+        DateTimeInterface $startDateTime,
+        Location $location
+    ) {
         $this->name = $name;
         $this->userGroupName = $userGroupName;
         $this->startDateTime = $startDateTime;
-        $this->locatoin = $locatoin;
+        $this->location = $location;
     }
 
     public function getUserGroupName(): string

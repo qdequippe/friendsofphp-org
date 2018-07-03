@@ -2,8 +2,6 @@
 <?php declare(strict_types=1);
 
 use AllFriensOfPhp\UserGroupRepository;
-use AllFriensOfPhp\YamlMeetupFileManager;
-use Nette\Utils\DateTime;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
@@ -13,8 +11,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $client = new GuzzleHttp\Client([
     'headers' => [
-        'Accept' => 'application/json'
-    ]
+        'Accept' => 'application/json',
+    ],
 ]);
 
 $url = sprintf('https://php.ug/api/rest/listtype/1');
@@ -33,7 +31,6 @@ foreach ($groups as $group) {
 
     if ($group['country']) {
         $country = CountryLoader::country($group['country']);
-
     } else {
         // detect city + country from latitude/longitude
         $latitude = $group['latitude'];
