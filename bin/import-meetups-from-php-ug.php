@@ -32,7 +32,7 @@ foreach ($result as $event) {
     }
 
     // @todo resolve user group city
-    $userGroupMatch = Strings::match($event['title'], '#\[(?<userGroup>[A-Za-z ]+)\]#');
+    $userGroupMatch = Strings::match($event['title'], '#\[(?<userGroup>[\w-ü ]+)\]#');
     $userGroup = $userGroupMatch['userGroup'] ?? '';
 
     $meetups[] = new Meetup($event['title'], $userGroup, $startDateTime);

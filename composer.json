@@ -7,15 +7,19 @@
         "symplify/statie": "^4.5",
         "twig/twig": "^2.4.8"
     },
+    "require-dev": {
+        "symplify/easy-coding-standard": "^4.4",
+        "slam/php-cs-fixer-extensions": "^1.16"
+    },
     "autoload": {
         "psr-4": {
             "AllFriensOfPhp\\": "src"
         }
     },
+    "scripts": {
+        "check-cs": "vendor/bin/ecs check bin src",
+        "fix-cs": "vendor/bin/ecs check bin src"
+    },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require-dev": {
-        "symplify/easy-coding-standard": "^4.4",
-        "slam/php-cs-fixer-extensions": "^1.16"
-    }
+    "prefer-stable": true
 }
