@@ -20,12 +20,8 @@
     },
     "autoload": {
         "psr-4": {
-            "AllFriensOfPhp\\": "src"
-        },
-        "files": [
-            "bin/import-groups-from-php-ug.php",
-            "bin/import-meetups-from-meetups.php"
-        ]
+            "Fop\\": "src"
+        }
     },
     "scripts": {
         "check-cs": "vendor/bin/ecs check bin src",
