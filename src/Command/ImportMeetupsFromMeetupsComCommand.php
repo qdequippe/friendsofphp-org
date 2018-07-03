@@ -50,6 +50,10 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $europeanUserGroups = $this->userGroupRepository->fetchByContinent('Europe');
+
+        dump($europeanUserGroups);
+        die;
+
         foreach ($europeanUserGroups as $europeanUserGroup) {
             $groupName = substr($europeanUserGroup['meetup_com_url'], strlen('http://www.meetup.com/'));
             dump($groupName);
