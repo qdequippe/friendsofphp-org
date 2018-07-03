@@ -1,4 +1,3 @@
-#!/usr/bin/env php
 <?php declare(strict_types=1);
 
 use AllFriensOfPhp\UserGroupRepository;
@@ -29,43 +28,13 @@ foreach ($groups as $group) {
         continue;
     }
 
-    if ($group['country']) {
-        $country = CountryLoader::country($group['country']);
-    } else {
-        // detect city + country from latitude/longitude
-        $latitude = $group['latitude'];
-        $longitude = $group['longitude'];
-
-        $geocode = file_get_contents(sprintf(
-            'http://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&sensor=false',
-            $latitude,
-            $longitude
-        ));
-
-        $geocodeJson = Json::decode($geocode, Json::FORCE_ARRAY);
-
-        if ($geocodeJson['status'] !== 'OK') {
-            $country = null;
-        } else {
-            foreach ($geocodeJson['results'][0]['address_components'] as $addressComponent) {
-                if (in_array('country', $addressComponent['types'], true)) {
-                    $country = CountryLoader::country($addressComponent['short_name']);
-                    break;
-                }
-            }
-        }
-
-        // Germany, Europe
-    }
-
     $meetupGroups[] = [
         'meetup_com_url' => $group['url'],
-        'country' => $country,
+        'country' => resolveCountry($group),
     ];
 }
 
 // sort by country
-
 uasort($meetupGroups, function (array $firstMeetupGroup, array $secondMeetupGroup) {
     return $firstMeetupGroup['country'] > $secondMeetupGroup['country'];
 });
@@ -74,16 +43,53 @@ uasort($meetupGroups, function (array $firstMeetupGroup, array $secondMeetupGrou
 $meetupGroupsByContinent = [];
 
 foreach ($meetupGroups as $meetupGroup) {
+    $country = null;
     if ($meetupGroup['country']) {
         /** @var Country $country */
         $country = $meetupGroup['country'];
-        $regionKey = strtolower($country->getRegion());
+
+        if ($country->getRegion() === null) {
+            $regionKey = 'unknown';
+        } else {
+            $regionKey = strtolower($country->getRegion());
+        }
     } else {
         $regionKey = 'unknown';
     }
 
     $meetupGroup['country'] = $country ? $country->getName() : 'unknown';
     $meetupGroupsByContinent[$regionKey][] = $meetupGroup;
+}
+
+function resolveCountry(array $group): ?Country
+{
+    if ($group['country']) {
+        return CountryLoader::country($group['country']);
+    }
+
+    // detect city + country from latitude/longitude
+    $latitude = $group['latitude'];
+    $longitude = $group['longitude'];
+
+    $geocode = file_get_contents(sprintf(
+        'http://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&sensor=false',
+        $latitude,
+        $longitude
+    ));
+
+    $geocodeJson = Json::decode($geocode, Json::FORCE_ARRAY);
+
+    if ($geocodeJson['status'] !== 'OK') {
+        return null;
+    }
+
+    foreach ($geocodeJson['results'][0]['address_components'] as $addressComponent) {
+        if (in_array('country', $addressComponent['types'], true)) {
+            return CountryLoader::country($addressComponent['short_name']);
+        }
+    }
+
+    return null;
 }
 
 $userGroupRepository = (new UserGroupRepository());

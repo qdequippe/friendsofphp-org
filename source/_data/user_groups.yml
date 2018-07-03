@@ -1,29 +1,36 @@
 parameters:
     meetup_groups:
-        europe:
+        unknown:
             -
-                meetup_com_url: 'http://www.meetup.com/viennaphp'
-                country: Austria
+                meetup_com_url: 'https://www.meetup.com/sfugstr/'
+                country: unknown
+            -
+                meetup_com_url: 'https://www.meetup.com/sfughh/'
+                country: unknown
+        europe:
             -
                 meetup_com_url: 'https://www.meetup.com/de-DE/salzburgwebdev/'
                 country: Austria
             -
-                meetup_com_url: 'https://www.meetup.com/Laravel-Brussels/'
-                country: Belgium
-            -
-                meetup_com_url: 'http://www.meetup.com/Brussels-PHP-Meetup/'
-                country: Belgium
+                meetup_com_url: 'http://www.meetup.com/viennaphp'
+                country: Austria
             -
                 meetup_com_url: 'http://www.meetup.com/phpantwerp/'
-                country: Belgium
-            -
-                meetup_com_url: 'http://www.meetup.com/Hasselt-PHP-Meetup'
                 country: Belgium
             -
                 meetup_com_url: 'http://www.meetup.com/Symfony-User-Group-Belgium/'
                 country: Belgium
             -
                 meetup_com_url: 'http://www.meetup.com/PHP-Leuven-Web-Innovation-Group/'
+                country: Belgium
+            -
+                meetup_com_url: 'http://www.meetup.com/Hasselt-PHP-Meetup'
+                country: Belgium
+            -
+                meetup_com_url: 'https://www.meetup.com/Laravel-Brussels/'
+                country: Belgium
+            -
+                meetup_com_url: 'http://www.meetup.com/Brussels-PHP-Meetup/'
                 country: Belgium
             -
                 meetup_com_url: 'https://meetup.com/phpvarna'
@@ -38,16 +45,10 @@ parameters:
                 meetup_com_url: 'https://www.meetup.com/fr-FR/Montpellier-PHP-Meetup/'
                 country: France
             -
-                meetup_com_url: 'https://www.meetup.com/Drupal-User-Group-Karlsruhe/'
+                meetup_com_url: 'https://www.meetup.com/sfugberlin/'
                 country: Germany
             -
                 meetup_com_url: 'http://www.meetup.com/PHP-Usergroup-Duesseldorf'
-                country: Germany
-            -
-                meetup_com_url: 'https://www.meetup.com/sfugstr/'
-                country: Germany
-            -
-                meetup_com_url: 'https://www.meetup.com/sfugberlin/'
                 country: Germany
             -
                 meetup_com_url: 'http://www.meetup.com/PHPUG-Koblenz/'
@@ -56,13 +57,13 @@ parameters:
                 meetup_com_url: 'https://www.meetup.com/PHP-User-Group-Stuttgart/'
                 country: Germany
             -
+                meetup_com_url: 'https://www.meetup.com/Drupal-User-Group-Karlsruhe/'
+                country: Germany
+            -
                 meetup_com_url: 'http://www.meetup.com/de/PHP-Usergroup-Neuss'
                 country: Germany
             -
                 meetup_com_url: 'https://www.meetup.com/sfugcgn'
-                country: Germany
-            -
-                meetup_com_url: 'https://www.meetup.com/sfughh/'
                 country: Germany
             -
                 meetup_com_url: 'http://www.meetup.com/phpmeetup/'
@@ -171,19 +172,19 @@ parameters:
                 country: 'United Kingdom'
         americas:
             -
-                meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
-                country: Brazil
-            -
                 meetup_com_url: 'https://www.meetup.com/PHPSP-Santos/'
                 country: Brazil
             -
-                meetup_com_url: 'https://www.meetup.com/Burlington-PHP-Meetup/'
-                country: Canada
+                meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
+                country: Brazil
             -
                 meetup_com_url: 'http://www.meetup.com/Winnipeg-PHP/'
                 country: Canada
             -
                 meetup_com_url: 'https://www.meetup.com/Vancouver-PHP/'
+                country: Canada
+            -
+                meetup_com_url: 'https://www.meetup.com/Burlington-PHP-Meetup/'
                 country: Canada
             -
                 meetup_com_url: 'http://www.meetup.com/PHPColMeetup'
