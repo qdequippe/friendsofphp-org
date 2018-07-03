@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop;
+namespace Fop\Repository;
 
+use Fop\Meetup;
 use Symfony\Component\Yaml\Yaml;
 
 final class MeetupRepository
@@ -9,15 +10,15 @@ final class MeetupRepository
     /**
      * @var string
      */
-    private $filePath;
+    private $meetupStorage;
 
-    public function __construct(string $filePath = '')
+    public function __construct(string $meetupStorage)
     {
-        $this->filePath = $filePath ?: __DIR__ . '/../source/_data/meetups.yml';
+        $this->meetupStorage = $meetupStorage;
     }
 
     /**
-     * @param LocatedMeetup[] $meetups
+     * @param Meetup[] $meetups
      */
     public function saveToFile(array $meetups): void
     {
@@ -43,6 +44,6 @@ final class MeetupRepository
 
         // @todo service
         $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
-        file_put_contents($this->filePath, $yamlDump);
+        file_put_contents($this->meetupStorage, $yamlDump);
     }
 }

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop;
+namespace Fop\Repository;
 
 use Symfony\Component\Yaml\Yaml;
 
@@ -10,10 +10,14 @@ final class UserGroupRepository
      * @var string
      */
     private $filePath;
+    /**
+     * @var string
+     */
+    private $userGroupStorage;
 
-    public function __construct(string $filePath = '')
+    public function __construct(string $userGroupStorage)
     {
-        $this->filePath = $filePath ?: __DIR__ . '/../source/_data/user_groups.yml';
+        $this->userGroupStorage = $userGroupStorage;
     }
 
     /**
@@ -29,6 +33,6 @@ final class UserGroupRepository
 
         // @todo service
         $yamlDump = Yaml::dump($meetupsYamlStructure, 10, 4);
-        file_put_contents($this->filePath, $yamlDump);
+        file_put_contents($this->userGroupStorage, $yamlDump);
     }
 }
