@@ -2,6 +2,8 @@
 
 namespace Fop\Importer;
 
+use Fop\Api\MeetupComApi;
+use Fop\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -29,14 +31,19 @@ final class GroupsFromPhpUgImporter
     private $countryResolver;
 
     /**
-     * @var Client
+     * @var PhpUgApi
      */
-    private $client;
+    private $phpUgApi;
+    /**
+     * @var MeetupComApi
+     */
+    private $meetupComApi;
 
-    public function __construct(CountryResolver $countryResolver, Client $client)
+    public function __construct(CountryResolver $countryResolver, PhpUgApi $phpUgApi, MeetupComApi $meetupComApi)
     {
         $this->countryResolver = $countryResolver;
-        $this->client = $client;
+        $this->phpUgApi = $phpUgApi;
+        $this->meetupComApi = $meetupComApi;
     }
 
     /**
@@ -44,30 +51,35 @@ final class GroupsFromPhpUgImporter
      */
     public function import(): array
     {
-        $response = $this->client->request('get', self::API_ALL_GROUPS_URL);
-
-        $groups = $this->getResponseItem($response, 'groups');
-
-        $meetupGroups = [];
-        foreach ($groups as $group) {
+        $groups = [];
+        foreach ($this->phpUgApi->getAllGroups() as $group) {
             // resolve meetups.com groups only
             if (! Strings::contains($group['url'], 'meetup.com')) {
                 continue;
             }
 
-            try {
-                $meetupGroupId = $this->resolveGroupIdFromUrl($group['url']);
-            } catch (ClientException $clientException) {
-                if ($clientException->getCode() === 404) {
-                    // the group doesn't exist anymore, skip it
-                    continue;
-                }
-
-                // other unknown error, show it
-                throw $clientException;
+            $groupId = $this->meetupComApi->getIdForGroupUrl($group['url']);
+            // the group doesn't exist anymore, skip it
+            if ($groupId === null) {
+                continue;
             }
 
-            $meetupGroups[] = [
+//            dump($groupId);
+//            die;
+//
+//            try {
+//                $meetupGroupId = $this->resolveGroupIdFromUrl($group['url']);
+//            } catch (ClientException $clientException) {
+//                if ($clientException->getCode() === 404) {
+//                    // the group doesn't exist anymore, skip it
+//                    continue;
+//                }
+//
+//                // other unknown error, show it
+//                throw $clientException;
+//            }
+
+            $groups[] = [
                 'name' => $group['name'],
                 'meetup_com_id' => $meetupGroupId,
                 'meetup_com_url' => $group['url'],
@@ -75,9 +87,9 @@ final class GroupsFromPhpUgImporter
             ];
         }
 
-        $meetupGroups = $this->sortByCountry($meetupGroups);
+        $groups = $this->sortByCountry($groups);
 
-        return $this->groupMeetupsByContinent($meetupGroups);
+        return $this->groupMeetupsByContinent($groups);
     }
 
     /**
@@ -128,33 +140,5 @@ final class GroupsFromPhpUgImporter
         }
 
         return 'unknown';
-    }
-
-    private function resolveGroupIdFromUrl(string $groupUrl): int
-    {
-        $groupUrlName = $this->resolveGroupUrlNameFromGroupUrl($groupUrl);
-
-        $response = $this->client->request('get', self::API_GROUP_DETAIL_URL . $groupUrlName);
-
-        return $this->getResponseItem($response, 'id');
-    }
-
-    private function resolveGroupUrlNameFromGroupUrl(string $url): string
-    {
-        $url = rtrim($url, '/');
-
-        $array = explode('/', $url);
-
-        return $array[count($array) - 1];
-    }
-
-    /**
-     * @return mixed
-     */
-    private function getResponseItem(Response $response, string $name)
-    {
-        $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
-
-        return $result[$name];
     }
 }
