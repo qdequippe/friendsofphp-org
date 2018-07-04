@@ -62,11 +62,14 @@ final class GroupsFromPhpUgImporter
                     // the group doesn't exist anymore, skip it
                     continue;
                 }
+
+                // other unknown error, show it
+                throw $clientException;
             }
 
             $meetupGroups[] = [
                 'name' => $group['name'],
-                'meeutp_com_id' => $meetupGroupId,
+                'meetup_com_id' => $meetupGroupId,
                 'meetup_com_url' => $group['url'],
                 'country' => $this->countryResolver->resolveFromGroup($group),
             ];

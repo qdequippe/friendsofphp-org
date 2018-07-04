@@ -1,2 +1,346 @@
 parameters:
-    meetups: {  }
+    meetups:
+        -
+            name: 'Docker for PHP Development'
+            userGroup: 'Bristol PHP Training'
+            start: '2018-07-04 19:30'
+            city: 'Bristol, BS1 6QA'
+            country: 'United Kingdom'
+            longitude: -2.581783
+            latitude: 51.448288
+        -
+            name: 'DeventerPHP - Lightning talks'
+            userGroup: DeventerPHP
+            start: '2018-07-05 18:00'
+            city: Deventer
+            country: Netherlands
+            longitude: 6.19297
+            latitude: 52.236748
+        -
+            name: 'PHPAmersfoort July 2018'
+            userGroup: PHPAmersfoort
+            start: '2018-07-10 19:00'
+            city: Amersfoort
+            country: Netherlands
+            longitude: 5.415305
+            latitude: 52.180676
+        -
+            name: 'Group Discussion: Exploring Deployment Processes in web projects'
+            userGroup: 'PHP Cambridge'
+            start: '2018-07-11 20:30'
+            city: Cambridge
+            country: 'United Kingdom'
+            longitude: 0.141326
+            latitude: 52.235432
+        -
+            name: '3 Talks: How to build an app in two years, Testing Fatigue and Over-engineering'
+            userGroup: 'Web Engineering Düsseldorf'
+            start: '2018-07-12 18:30'
+            city: Düsseldorf
+            country: Germany
+            longitude: 6.74945
+            latitude: 51.214321
+        -
+            name: 'PHP Meetup Tilburg #7: Tim Huijzers My first year with event sourcing'
+            userGroup: 'Tilburg PHP Meetup'
+            start: '2018-07-12 19:00'
+            city: Tilburg
+            country: Netherlands
+            longitude: 5.095313
+            latitude: 51.558067
+        -
+            name: 'What''s new in Xdebug - Derick Rethans'
+            userGroup: PHPMiNDS
+            start: '2018-07-12 20:00'
+            city: Nottingham
+            country: 'United Kingdom'
+            longitude: -1.14304
+            latitude: 52.951992
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2018-07-19 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.33595
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-25 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'DeventerPHP - The developer''s model for talking to managers'
+            userGroup: DeventerPHP
+            start: '2018-08-02 18:00'
+            city: Deventer
+            country: Netherlands
+            longitude: 6.19297
+            latitude: 52.236748
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            userGroup: 'Symfony User Group Hamburg'
+            start: '2018-08-07 18:30'
+            city: Hamburg
+            country: Germany
+            longitude: 10.02516
+            latitude: 53.58453
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2018-08-16 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.33595
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-08-22 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2018-09-20 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-09-26 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'September Meetup at Wunderman'
+            userGroup: 'Full Stack Antwerp'
+            start: '2018-09-26 19:00'
+            city: Antwerpen
+            country: Belgium
+            longitude: 4.411315
+            latitude: 51.194706
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            userGroup: 'Symfony User Group Hamburg'
+            start: '2018-10-02 18:30'
+            city: Hamburg
+            country: Germany
+            longitude: 10.02516
+            latitude: 53.58453
+        -
+            name: 'First Thursday of the month (placeholder)'
+            userGroup: 'PHP Leuven - Web Innovation Group'
+            start: '2018-10-04 19:00'
+            city: Leuven
+            country: Belgium
+            longitude: 4.72613
+            latitude: 50.85187
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2018-10-18 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-10-24 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: '6. PHP Symfony User Group Basel'
+            userGroup: 'PHP Symfony User Group Basel'
+            start: '2018-11-08 18:00'
+            city: Basel
+            country: Switzerland
+            longitude: 7.593108
+            latitude: 47.540962
+        -
+            name: 'Barcamp November 2018'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-11-09 10:00'
+            city: Puch
+            country: Austria
+            longitude: 13.086338
+            latitude: 47.724117
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2018-11-15 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.33595
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-11-28 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            userGroup: 'Symfony User Group Hamburg'
+            start: '2018-12-04 18:30'
+            city: Hamburg
+            country: Germany
+            longitude: 10.02516
+            latitude: 53.58453
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2018-12-20 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-12-26 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2019-01-17 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2019-01-23 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            userGroup: 'Symfony User Group Hamburg'
+            start: '2019-02-05 18:30'
+            city: Hamburg
+            country: Germany
+            longitude: 10.02516
+            latitude: 53.58453
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2019-02-21 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2019-02-27 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2019-03-21 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2019-03-27 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            userGroup: 'Symfony User Group Hamburg'
+            start: '2019-04-02 18:30'
+            city: Hamburg
+            country: Germany
+            longitude: 10.02516
+            latitude: 53.58453
+        -
+            name: 'Barcamp April 2019'
+            userGroup: 'Salzburg Web Dev'
+            start: '2019-04-05 10:00'
+            city: Puch
+            country: Austria
+            longitude: 13.086338
+            latitude: 47.724117
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2019-04-18 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2019-04-24 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2019-05-16 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2019-05-22 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            userGroup: 'Symfony User Group Hamburg'
+            start: '2019-06-04 18:30'
+            city: Hamburg
+            country: Germany
+            longitude: 10.02516
+            latitude: 53.58453
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2019-06-20 18:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2019-06-26 19:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978

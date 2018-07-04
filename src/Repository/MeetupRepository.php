@@ -30,8 +30,7 @@ final class MeetupRepository
     {
         $meetupsAsArray = [];
         foreach ($meetups as $meetup) {
-            // hydratation?
-            $meetupsAsArray = [
+            $meetupsAsArray[] = [
                 'name' => $meetup->getName(),
                 'userGroup' => $meetup->getUserGroup(),
                 'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
