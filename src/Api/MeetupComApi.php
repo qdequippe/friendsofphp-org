@@ -5,8 +5,8 @@ namespace Fop\Api;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Nette\Utils\Json;
-use function GuzzleHttp\Psr7\build_query;
 use Psr\Http\Message\ResponseInterface;
+use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupComApi
 {
@@ -80,7 +80,6 @@ final class MeetupComApi
             $result = $this->getResultFromResponse($response);
 
             return $result['id'];
-
         } catch (ClientException $clientException) {
             if ($clientException->getCode() === 404) {
                 // the group doesn't exist anymore, skip it

@@ -14,6 +14,7 @@ services:
 
     Fop\:
         resource: '../'
+        exclude: '../{Entity}'
 
     Symfony\Component\Console\Application:
         public: true

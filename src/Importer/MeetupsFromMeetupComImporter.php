@@ -4,8 +4,8 @@ namespace Fop\Importer;
 
 use DateTimeInterface;
 use Fop\Api\MeetupComApi;
-use Fop\Location;
-use Fop\Meetup;
+use Fop\Entity\Location;
+use Fop\Entity\Meetup;
 use Nette\Utils\DateTime;
 
 final class MeetupsFromMeetupComImporter

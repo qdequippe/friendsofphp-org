@@ -5,26 +5,12 @@ namespace Fop\Importer;
 use Fop\Api\MeetupComApi;
 use Fop\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Psr7\Response;
-use Nette\Utils\Json;
+use Fop\Entity\Group;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
 
 final class GroupsFromPhpUgImporter
 {
-    /**
-     * e.g. http://api.meetup.com/dallasphp
-     * @var string
-     */
-    private const API_GROUP_DETAIL_URL = 'http://api.meetup.com/';
-
-    /**
-     * @var string
-     */
-    private const API_ALL_GROUPS_URL = 'https://php.ug/api/rest/listtype/1';
-
     /**
      * @var CountryResolver
      */
@@ -34,6 +20,7 @@ final class GroupsFromPhpUgImporter
      * @var PhpUgApi
      */
     private $phpUgApi;
+
     /**
      * @var MeetupComApi
      */
@@ -64,27 +51,12 @@ final class GroupsFromPhpUgImporter
                 continue;
             }
 
-//            dump($groupId);
-//            die;
-//
-//            try {
-//                $meetupGroupId = $this->resolveGroupIdFromUrl($group['url']);
-//            } catch (ClientException $clientException) {
-//                if ($clientException->getCode() === 404) {
-//                    // the group doesn't exist anymore, skip it
-//                    continue;
-//                }
-//
-//                // other unknown error, show it
-//                throw $clientException;
-//            }
-
-            $groups[] = [
-                'name' => $group['name'],
-                'meetup_com_id' => $meetupGroupId,
-                'meetup_com_url' => $group['url'],
-                'country' => $this->countryResolver->resolveFromGroup($group),
-            ];
+            $groups[] = new Group(
+                $group['name'],
+                $groupId,
+                $group['url'],
+                $this->countryResolver->resolveFromGroup($group)
+            );
         }
 
         $groups = $this->sortByCountry($groups);

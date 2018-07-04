@@ -4,7 +4,6 @@ namespace Fop\Api;
 
 use GuzzleHttp\Client;
 use Nette\Utils\Json;
-use function GuzzleHttp\Psr7\build_query;
 
 final class PhpUgApi
 {
