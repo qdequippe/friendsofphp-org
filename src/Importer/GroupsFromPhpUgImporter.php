@@ -44,12 +44,20 @@ final class GroupsFromPhpUgImporter
 
         $meetupGroups = [];
         foreach ($groups as $group) {
+
             // resolve meetups.com groups only
             if (! Strings::contains($group['url'], 'meetup.com')) {
                 continue;
             }
 
+            $groupUrlName = $this->resolveGroupUrlNameFromGroupUrl($group['url']);
+            $groupUrlApi = 'http://api.meetup.com/' . $groupUrlName;
+
+            $response = $this->client->request('get', $groupUrlApi);
+            $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
+
             $meetupGroups[] = [
+                'meeutp_com_id' => $result['id'],
                 'meetup_com_url' => $group['url'],
                 'country' => $this->countryResolver->resolveFromGroup($group),
             ];
@@ -108,5 +116,17 @@ final class GroupsFromPhpUgImporter
         }
 
         return 'unknown';
+    }
+
+    /**
+     * @param string[] $userGroup
+     */
+    private function resolveGroupUrlNameFromGroupUrl(string $url): string
+    {
+        $url = rtrim($url, '/');
+
+        $array = explode('/', $url);
+
+        return $array[count($array) - 1];
     }
 }

@@ -99,11 +99,17 @@ final class ImportCommand extends Command
 
         $meetups = [];
         foreach ($europeanUserGroups as $europeanUserGroup) {
+
+            dump($europeanUserGroup['meetup_com_id']);
+            die;
+
             $groupUrlName = $this->resolveGroupUrlNameFromGroupUrl($europeanUserGroup);
 
             $this->symfonyStyle->note(sprintf('Importing meetups for "%s" group', $groupUrlName));
 
             $meetupsOfGroup = $this->meetupsFromMeetupComImporter->importForGroupName($groupUrlName);
+            $this->symfonyStyle->note(sprintf('Loaded %d meetups', count($meetupsOfGroup)));
+
             $meetups = array_merge($meetups, $meetupsOfGroup);
         }
 
@@ -115,7 +121,7 @@ final class ImportCommand extends Command
      */
     private function resolveGroupUrlNameFromGroupUrl(array $userGroup): string
     {
-        $url = rtrim($userGroup['meetup_com_url'], '\\');
+        $url = rtrim($userGroup['meetup_com_url'], '/');
 
         $array = explode('/', $url);
 

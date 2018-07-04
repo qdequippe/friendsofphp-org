@@ -14,6 +14,7 @@ final class MeetupsFromMeetupComImporter
 {
     /**
      * @var string
+     * @see https://www.meetup.com/meetup_api/docs/:urlname/events/#list
      */
     private const URL_API = 'http://api.meetup.com/2/events';
 
@@ -46,14 +47,20 @@ final class MeetupsFromMeetupComImporter
     {
         # see https://www.meetup.com/meetup_api/auth/#keys
         $query = self::URL_API . '?' . build_query([
-            'group_urlname' => $groupName,
+//            'group_urlname' => $groupName,
             'key' => $this->meetupApiKey,
+            // no_earlier_than "today" - @todo
         ]);
+
+        // 'group_id' - Return events from groups with the specified IDs, separated by commas
+        // @todo get group ids in group importing
+
 
         $response = $this->client->request('GET', $query);
 
         $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
         $events = $result['results'];
+
 
         $meetups = [];
         foreach ($events as $event) {
