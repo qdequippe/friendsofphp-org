@@ -1,9 +1,2 @@
 parameters:
-    meetups:
-        name: 'Group Discussion: Exploring Deployment Processes in web projects'
-        userGroup: 'PHP Cambridge'
-        start: '2018-07-11 20:30'
-        city: Cambridge
-        country: 'United Kingdom'
-        longitude: 0.141326
-        latitude: 52.235432
+    meetups: {  }

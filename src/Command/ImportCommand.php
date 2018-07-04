@@ -89,8 +89,13 @@ final class ImportCommand extends Command
 
     private function importsGroups(): void
     {
-        $groups = $this->groupsFromPhpUgImporter->import();
-        $this->userGroupRepository->saveToFile($groups);
+        $groupsByContinent = $this->groupsFromPhpUgImporter->import();
+        foreach ($groupsByContinent as $groups) {
+            foreach ($groups as $group) {
+                $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group['name']));
+            }
+        }
+        $this->userGroupRepository->saveToFile($groupsByContinent);
     }
 
     private function importMeetups(): void
@@ -99,13 +104,13 @@ final class ImportCommand extends Command
 
         $meetups = [];
         foreach ($europeanUserGroups as $europeanUserGroup) {
-
             dump($europeanUserGroup['meetup_com_id']);
+
+            $meetupIds = array_keys($europeanUserGroups, 'meetup_com_id', true);
+            dump($meetupIds);
             die;
 
-            $groupUrlName = $this->resolveGroupUrlNameFromGroupUrl($europeanUserGroup);
-
-            $this->symfonyStyle->note(sprintf('Importing meetups for "%s" group', $groupUrlName));
+            $this->symfonyStyle->note(sprintf('Importing meetups for "%s" group', $group['name']));
 
             $meetupsOfGroup = $this->meetupsFromMeetupComImporter->importForGroupName($groupUrlName);
             $this->symfonyStyle->note(sprintf('Loaded %d meetups', count($meetupsOfGroup)));
