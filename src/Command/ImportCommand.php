@@ -87,17 +87,6 @@ final class ImportCommand extends Command
         }
     }
 
-    /**
-     * @param string[] $userGroup
-     */
-    private function resolveGroupUrlNameFromGroupUrl(array $userGroup): string
-    {
-        $array = explode('/', $userGroup['meetup_com_url']);
-        end($array);
-
-        return prev($array);
-    }
-
     private function importsGroups(): void
     {
         $groups = $this->groupsFromPhpUgImporter->import();
@@ -117,5 +106,16 @@ final class ImportCommand extends Command
         }
 
         $this->meetupRepository->saveToFile($meetups);
+    }
+
+    /**
+     * @param string[] $userGroup
+     */
+    private function resolveGroupUrlNameFromGroupUrl(array $userGroup): string
+    {
+        $array = explode('/', $userGroup['meetup_com_url']);
+        end($array);
+
+        return prev($array);
     }
 }
