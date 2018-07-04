@@ -5,6 +5,7 @@ namespace Fop\Api;
 use GuzzleHttp\Client;
 use Nette\Utils\Json;
 use function GuzzleHttp\Psr7\build_query;
+use Psr\Http\Message\ResponseInterface;
 
 final class MeetupComApi
 {
@@ -36,10 +37,8 @@ final class MeetupComApi
     public function getMeetupsByGroupsIds(array $groupIds): array
     {
         $url = $this->createUrlFromGroupIds($groupIds);
-
         $response = $this->client->request('GET', $url);
-
-        $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
+        $result = $this->getResultFromResponse($response);
 
         return $result['results'];
     }
@@ -57,5 +56,10 @@ final class MeetupComApi
             # https://www.meetup.com/meetup_api/auth/#keys
             'key' => $this->meetupComApiKey,
         ]);
+    }
+
+    private function getResultFromResponse(ResponseInterface $response): mixed
+    {
+        return Json::decode($response->getBody(), Json::FORCE_ARRAY);
     }
 }
