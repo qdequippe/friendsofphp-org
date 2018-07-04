@@ -8,13 +8,14 @@ use Fop\Meetup;
 use GuzzleHttp\Client;
 use Nette\Utils\DateTime;
 use Nette\Utils\Json;
+use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupsFromMeetupComImporter
 {
     /**
      * @var string
      */
-    private const URL_API = 'http://api.meetup.com/2/events?group_urlname=%s';
+    private const URL_API = 'http://api.meetup.com/2/events';
 
     /**
      * @var Client
@@ -43,12 +44,13 @@ final class MeetupsFromMeetupComImporter
      */
     public function importForGroupName(string $groupName): array
     {
-        $url = sprintf(self::URL_API, $groupName);
-
-        $response = $this->client->request('GET', $url, [
-            # see https://www.meetup.com/meetup_api/auth/#keys
+        # see https://www.meetup.com/meetup_api/auth/#keys
+        $query = self::URL_API . '?' . build_query([
+            'group_urlname' => $groupName,
             'key' => $this->meetupApiKey,
         ]);
+
+        $response = $this->client->request('GET', $query);
 
         $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
         $events = $result['results'];
