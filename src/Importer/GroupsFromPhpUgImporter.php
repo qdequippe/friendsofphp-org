@@ -34,7 +34,7 @@ final class GroupsFromPhpUgImporter
     }
 
     /**
-     * @return mixed[]
+     * @return Group[][]
      */
     public function import(): array
     {

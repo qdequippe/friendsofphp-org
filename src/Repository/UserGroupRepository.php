@@ -2,6 +2,7 @@
 
 namespace Fop\Repository;
 
+use Fop\Entity\Group;
 use Fop\FileSystem\YamlFileSystem;
 use Symfony\Component\Yaml\Yaml;
 
@@ -32,13 +33,13 @@ final class UserGroupRepository
     }
 
     /**
-     * @param mixed[] $meetupGroups
+     * @param Group[][] $groupsByContinent
      */
-    public function saveToFile(array $meetupGroups): void
+    public function saveToFile(array $groupsByContinent): void
     {
         $meetupsYamlStructure = [
             'parameters' => [
-                'meetup_groups' => $meetupGroups,
+                'meetup_groups' => $this->turnObjectsToArrays($groupsByContinent),
             ],
         ];
 
@@ -51,5 +52,31 @@ final class UserGroupRepository
     public function fetchByContinent(string $continent): array
     {
         return $this->userGroups[strtolower($continent)] ?? [];
+    }
+
+    /**
+     * @param Group[][] $groupsByContinent
+     * @return mixed[][]
+     */
+    private function turnObjectsToArrays(array $groupsByContinent): array
+    {
+        $arrayGroupsByContinent = [];
+
+        foreach ($groupsByContinent as $continent => $groups) {
+            $arrayGroups = [];
+            /** @var Group $group */
+            foreach ($groups as $group) {
+                $arrayGroups[] = [
+                    'name' => $group->getName(),
+                    'meetup_com_id' => $group->getMeetupComId(),
+                    'meetup_com_url' => $group->getMeetupComUrl(),
+                    'country' => $group->getCountry() ? $group->getCountry()->getName() : 'unknown',
+                ];
+            }
+
+            $arrayGroupsByContinent[$continent] = $arrayGroups;
+        }
+
+        return $arrayGroupsByContinent;
     }
 }

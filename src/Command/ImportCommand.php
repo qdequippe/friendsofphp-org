@@ -2,6 +2,7 @@
 
 namespace Fop\Command;
 
+use Fop\Entity\Group;
 use Fop\Importer\GroupsFromPhpUgImporter;
 use Fop\Importer\MeetupsFromMeetupComImporter;
 use Fop\Repository\MeetupRepository;
@@ -91,8 +92,9 @@ final class ImportCommand extends Command
     {
         $groupsByContinent = $this->groupsFromPhpUgImporter->import();
         foreach ($groupsByContinent as $groups) {
+            /** @var Group $group */
             foreach ($groups as $group) {
-                $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group['name']));
+                $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group->getName()));
             }
         }
         $this->userGroupRepository->saveToFile($groupsByContinent);
