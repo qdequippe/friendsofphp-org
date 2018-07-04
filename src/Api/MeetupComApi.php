@@ -65,7 +65,10 @@ final class MeetupComApi
         ]);
     }
 
-    private function getResultFromResponse(ResponseInterface $response): mixed
+    /**
+     * @return mixed
+     */
+    private function getResultFromResponse(ResponseInterface $response)
     {
         return Json::decode($response->getBody(), Json::FORCE_ARRAY);
     }

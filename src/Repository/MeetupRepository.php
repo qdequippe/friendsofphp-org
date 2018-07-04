@@ -2,8 +2,8 @@
 
 namespace Fop\Repository;
 
+use Fop\Entity\Meetup;
 use Fop\FileSystem\YamlFileSystem;
-use Fop\Meetup;
 
 final class MeetupRepository
 {

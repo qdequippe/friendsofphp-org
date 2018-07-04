@@ -20,7 +20,7 @@ final class MeetupsFromMeetupComImporter
      */
     private $meetupComApi;
 
-    public function __construct(string $meetupComApiKey, MeetupComApi $meetupComApi)
+    public function __construct(MeetupComApi $meetupComApi)
     {
         $this->nowDateTime = DateTime::from('now');
         $this->meetupComApi = $meetupComApi;
