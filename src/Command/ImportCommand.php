@@ -103,8 +103,6 @@ final class ImportCommand extends Command
         $europeanGroups = $this->userGroupRepository->fetchByContinent('Europe');
 
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
-        $groupIds = implode(',', $groupIds);
-
         $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);
 
         $this->symfonyStyle->note(sprintf('Loaded %d meetups', count($meetups)));

@@ -3,71 +3,46 @@
 namespace Fop\Importer;
 
 use DateTimeInterface;
+use Fop\Api\MeetupComApi;
 use Fop\Location;
 use Fop\Meetup;
-use GuzzleHttp\Client;
 use Nette\Utils\DateTime;
-use Nette\Utils\Json;
-use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupsFromMeetupComImporter
 {
-    /**
-     * @var string
-     */
-    private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/2/events';
-
-    /**
-     * @var Client
-     */
-    private $client;
-
     /**
      * @var DateTimeInterface
      */
     private $nowDateTime;
 
     /**
-     * @var string
+     * @var MeetupComApi
      */
-    private $meetupApiKey;
+    private $meetupComApi;
 
-    public function __construct(Client $client, string $meetupApiKey)
+    public function __construct(string $meetupComApiKey, MeetupComApi $meetupComApi)
     {
-        $this->client = $client;
         $this->nowDateTime = DateTime::from('now');
-        $this->meetupApiKey = $meetupApiKey;
+        $this->meetupComApi = $meetupComApi;
     }
 
     /**
+     * @param int[] $groupIds
      * @return Meetup[]
      */
-    public function importForGroupIds(string $groupIds): array
+    public function importForGroupIds(array $groupIds): array
     {
-        $query = self::API_EVENTS_BY_GROUPS_URL . '?' . build_query([
-            # https://www.meetup.com/meetup_api/docs/2/events/#params
-            'group_id' => $groupIds,
-            # https://www.meetup.com/meetup_api/auth/#keys
-            'key' => $this->meetupApiKey,
-            // no_earlier_than "today" - @todo
-        ]);
-
-        $response = $this->client->request('GET', $query);
-
-        $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
-        $events = $result['results'];
-
         $meetups = [];
-        foreach ($events as $event) {
+        foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIds) as $meetup) {
             // not sure why, but probably some bug
-            $time = substr((string) $event['time'], 0, -3);
+            $time = substr((string) $meetup['time'], 0, -3);
             $startDateTime = DateTime::from($time);
 
-            if ($this->shouldSkipMeetup($startDateTime, $event)) {
+            if ($this->shouldSkipMeetup($startDateTime, $meetup)) {
                 continue;
             }
 
-            $meetups[] = $this->createMeetupFromEventData($event, $startDateTime);
+            $meetups[] = $this->createMeetupFromEventData($meetup, $startDateTime);
         }
 
         return $meetups;
