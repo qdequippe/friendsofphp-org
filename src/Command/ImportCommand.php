@@ -87,34 +87,25 @@ final class ImportCommand extends Command
         }
     }
 
-    /**
-     * @param string[] $userGroup
-     */
-    private function resolveGroupUrlNameFromGroupUrl(array $userGroup): string
-    {
-        $array = explode('/', $userGroup['meetup_com_url']);
-        end($array);
-
-        return prev($array);
-    }
-
     private function importsGroups(): void
     {
-        $groups = $this->groupsFromPhpUgImporter->import();
-        $this->userGroupRepository->saveToFile($groups);
+        $groupsByContinent = $this->groupsFromPhpUgImporter->import();
+        foreach ($groupsByContinent as $groups) {
+            foreach ($groups as $group) {
+                $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group['name']));
+            }
+        }
+        $this->userGroupRepository->saveToFile($groupsByContinent);
     }
 
     private function importMeetups(): void
     {
-        $europeanUserGroups = $this->userGroupRepository->fetchByContinent('Europe');
+        $europeanGroups = $this->userGroupRepository->fetchByContinent('Europe');
 
-        $meetups = [];
-        foreach ($europeanUserGroups as $europeanUserGroup) {
-            $groupUrlName = $this->resolveGroupUrlNameFromGroupUrl($europeanUserGroup);
+        $groupIds = array_column($europeanGroups, 'meetup_com_id');
+        $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);
 
-            $meetupsOfGroup = $this->meetupsFromMeetupComImporter->importForGroupName($groupUrlName);
-            $meetups = array_merge($meetups, $meetupsOfGroup);
-        }
+        $this->symfonyStyle->note(sprintf('Loaded %d meetups', count($meetups)));
 
         $this->meetupRepository->saveToFile($meetups);
     }

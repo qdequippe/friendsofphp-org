@@ -2,33 +2,35 @@
 
 namespace Fop\Importer;
 
+use Fop\Api\MeetupComApi;
+use Fop\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
-use GuzzleHttp\Client;
-use Nette\Utils\Json;
+use Fop\Entity\Group;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
 
 final class GroupsFromPhpUgImporter
 {
     /**
-     * @var string
-     */
-    private const URL_API = 'https://php.ug/api/rest/listtype/1';
-
-    /**
      * @var CountryResolver
      */
     private $countryResolver;
 
     /**
-     * @var Client
+     * @var PhpUgApi
      */
-    private $client;
+    private $phpUgApi;
 
-    public function __construct(CountryResolver $countryResolver, Client $client)
+    /**
+     * @var MeetupComApi
+     */
+    private $meetupComApi;
+
+    public function __construct(CountryResolver $countryResolver, PhpUgApi $phpUgApi, MeetupComApi $meetupComApi)
     {
         $this->countryResolver = $countryResolver;
-        $this->client = $client;
+        $this->phpUgApi = $phpUgApi;
+        $this->meetupComApi = $meetupComApi;
     }
 
     /**
@@ -36,28 +38,30 @@ final class GroupsFromPhpUgImporter
      */
     public function import(): array
     {
-        $response = $this->client->request('get', self::URL_API);
-
-        $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
-
-        $groups = $result['groups'];
-
-        $meetupGroups = [];
-        foreach ($groups as $group) {
+        $groups = [];
+        foreach ($this->phpUgApi->getAllGroups() as $group) {
             // resolve meetups.com groups only
             if (! Strings::contains($group['url'], 'meetup.com')) {
                 continue;
             }
 
-            $meetupGroups[] = [
-                'meetup_com_url' => $group['url'],
-                'country' => $this->countryResolver->resolveFromGroup($group),
-            ];
+            $groupId = $this->meetupComApi->getIdForGroupUrl($group['url']);
+            // the group doesn't exist anymore, skip it
+            if ($groupId === null) {
+                continue;
+            }
+
+            $groups[] = new Group(
+                $group['name'],
+                $groupId,
+                $group['url'],
+                $this->countryResolver->resolveFromGroup($group)
+            );
         }
 
-        $meetupGroups = $this->sortByCountry($meetupGroups);
+        $groups = $this->sortByCountry($groups);
 
-        return $this->groupMeetupsByContinent($meetupGroups);
+        return $this->groupMeetupsByContinent($groups);
     }
 
     /**

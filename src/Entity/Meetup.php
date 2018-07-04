@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop;
+namespace Fop\Entity;
 
 use DateTimeInterface;
 

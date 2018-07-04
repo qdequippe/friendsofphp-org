@@ -1,7 +1,8 @@
 parameters:
     user_groups_storage: '%kernel.project_dir%/source/_data/user_groups.yml'
     meetups_storage: '%kernel.project_dir%/source/_data/meetups.yml'
-    meetup_api_key: '3862c18323629314e5c596422581378'
+    # setup here: https://secure.meetup.com/meetup_api/key/
+    meetup_com_api_key: '3862c18323629314e5c596422581378'
 
 services:
     _defaults:
@@ -9,10 +10,11 @@ services:
         bind:
             $userGroupsStorage: '%user_groups_storage%'
             $meetupsStorage: '%meetups_storage%'
-            $meetupApiKey: '%meetup_api_key%'
+            $meetupComApiKey: '%meetup_com_api_key%'
 
     Fop\:
         resource: '../'
+        exclude: '../{Entity}'
 
     Symfony\Component\Console\Application:
         public: true

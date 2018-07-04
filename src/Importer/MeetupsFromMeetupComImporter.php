@@ -3,67 +3,46 @@
 namespace Fop\Importer;
 
 use DateTimeInterface;
-use Fop\Location;
-use Fop\Meetup;
-use GuzzleHttp\Client;
+use Fop\Api\MeetupComApi;
+use Fop\Entity\Location;
+use Fop\Entity\Meetup;
 use Nette\Utils\DateTime;
-use Nette\Utils\Json;
 
 final class MeetupsFromMeetupComImporter
 {
-    /**
-     * @var string
-     */
-    private const URL_API = 'http://api.meetup.com/2/events?group_urlname=%s';
-
-    /**
-     * @var Client
-     */
-    private $client;
-
     /**
      * @var DateTimeInterface
      */
     private $nowDateTime;
 
     /**
-     * @var string
+     * @var MeetupComApi
      */
-    private $meetupApiKey;
+    private $meetupComApi;
 
-    public function __construct(Client $client, string $meetupApiKey)
+    public function __construct(MeetupComApi $meetupComApi)
     {
-        $this->client = $client;
         $this->nowDateTime = DateTime::from('now');
-        $this->meetupApiKey = $meetupApiKey;
+        $this->meetupComApi = $meetupComApi;
     }
 
     /**
+     * @param int[] $groupIds
      * @return Meetup[]
      */
-    public function importForGroupName(string $groupName): array
+    public function importForGroupIds(array $groupIds): array
     {
-        $url = sprintf(self::URL_API, $groupName);
-
-        $response = $this->client->request('GET', $url, [
-            # see https://www.meetup.com/meetup_api/auth/#keys
-            'key' => $this->meetupApiKey,
-        ]);
-
-        $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
-        $events = $result['results'];
-
         $meetups = [];
-        foreach ($events as $event) {
+        foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIds) as $meetup) {
             // not sure why, but probably some bug
-            $time = substr((string) $event['time'], 0, -3);
+            $time = substr((string) $meetup['time'], 0, -3);
             $startDateTime = DateTime::from($time);
 
-            if ($this->shouldSkipMeetup($startDateTime, $event)) {
+            if ($this->shouldSkipMeetup($startDateTime, $meetup)) {
                 continue;
             }
 
-            $meetups[] = $this->createMeetupFromEventData($event, $startDateTime);
+            $meetups[] = $this->createMeetupFromEventData($meetup, $startDateTime);
         }
 
         return $meetups;
