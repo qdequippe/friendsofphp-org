@@ -68,8 +68,8 @@ final class ImportCommand extends Command
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
-        $this->addOption(self::OPTION_GROUPS, null, InputOption::VALUE_NONE, 'Imports groups');
-        $this->addOption(self::OPTION_MEETUPS, null, InputOption::VALUE_NONE, 'Imports meetups');
+        $this->addOption(self::OPTION_GROUPS, null, InputOption::VALUE_NONE, 'Imports groups from php.ug');
+        $this->addOption(self::OPTION_MEETUPS, null, InputOption::VALUE_NONE, 'Imports meetups meetup.com');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): void
