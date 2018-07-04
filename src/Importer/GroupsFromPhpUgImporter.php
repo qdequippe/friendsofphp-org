@@ -1,54 +1,42 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\Importer;
 
 use Fop\Country\CountryResolver;
-use Fop\Repository\UserGroupRepository;
 use GuzzleHttp\Client;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class ImportGroupsFromPhpUgCommand extends Command
+final class GroupsFromPhpUgImporter
 {
+    /**
+     * @var string
+     */
+    private const URL_API = 'https://php.ug/api/rest/listtype/1';
+
     /**
      * @var CountryResolver
      */
     private $countryResolver;
 
     /**
-     * @var UserGroupRepository
-     */
-    private $userGroupRepository;
-
-    /**
      * @var Client
      */
     private $client;
 
-    public function __construct(
-        CountryResolver $countryResolver,
-        UserGroupRepository $userGroupRepository,
-        Client $client
-    ) {
-        parent::__construct();
+    public function __construct(CountryResolver $countryResolver, Client $client)
+    {
         $this->countryResolver = $countryResolver;
-        $this->userGroupRepository = $userGroupRepository;
         $this->client = $client;
     }
 
-    protected function configure(): void
+    /**
+     * @return mixed[]
+     */
+    public function import(): array
     {
-        $this->setName(CommandNaming::classToName(self::class));
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): void
-    {
-        $response = $this->client->get('https://php.ug/api/rest/listtype/1');
+        $response = $this->client->request('get', self::URL_API);
 
         $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
 
@@ -68,9 +56,8 @@ final class ImportGroupsFromPhpUgCommand extends Command
         }
 
         $meetupGroups = $this->sortByCountry($meetupGroups);
-        $meetupGroupsByContinent = $this->groupMeetupsByContinent($meetupGroups);
 
-        $this->userGroupRepository->saveToFile($meetupGroupsByContinent);
+        return $this->groupMeetupsByContinent($meetupGroups);
     }
 
     /**

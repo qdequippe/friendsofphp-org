@@ -1,36 +1,25 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\Importer;
 
 use DateTimeInterface;
 use Fop\Location;
 use Fop\Meetup;
-use Fop\Repository\MeetupRepository;
-use Fop\Repository\UserGroupRepository;
 use GuzzleHttp\Client;
 use Nette\Utils\DateTime;
 use Nette\Utils\Json;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class ImportMeetupsFromMeetupsComCommand extends Command
+final class MeetupsFromMeetupComImporter
 {
+    /**
+     * @var string
+     */
+    private const URL_API = 'http://api.meetup.com/2/events?group_urlname=%s';
+
     /**
      * @var Client
      */
     private $client;
-
-    /**
-     * @var MeetupRepository
-     */
-    private $meetupRepository;
-
-    /**
-     * @var UserGroupRepository
-     */
-    private $userGroupRepository;
 
     /**
      * @var DateTimeInterface
@@ -42,47 +31,19 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
      */
     private $meetupApiKey;
 
-    public function __construct(
-        Client $client,
-        MeetupRepository $meetupRepository,
-        UserGroupRepository $userGroupRepository,
-        string $meetupApiKey
-    ) {
-        parent::__construct();
+    public function __construct(Client $client, string $meetupApiKey)
+    {
         $this->client = $client;
-        $this->meetupRepository = $meetupRepository;
-        $this->userGroupRepository = $userGroupRepository;
         $this->nowDateTime = DateTime::from('now');
         $this->meetupApiKey = $meetupApiKey;
-    }
-
-    protected function configure(): void
-    {
-        $this->setName(CommandNaming::classToName(self::class));
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): void
-    {
-        $europeanUserGroups = $this->userGroupRepository->fetchByContinent('Europe');
-
-        $meetups = [];
-        foreach ($europeanUserGroups as $europeanUserGroup) {
-            $groupUrlName = $this->resolveGroupUrlNameFromGroupUrl($europeanUserGroup);
-
-            $meetupsOfGroup = $this->getMeetupsForUserGroup($groupUrlName);
-
-            $meetups = array_merge($meetups, $meetupsOfGroup);
-        }
-
-        $this->meetupRepository->saveToFile($meetups);
     }
 
     /**
      * @return Meetup[]
      */
-    private function getMeetupsForUserGroup(string $groupName): array
+    public function importForGroupName(string $groupName): array
     {
-        $url = sprintf('http://api.meetup.com/2/events?group_urlname=%s', $groupName);
+        $url = sprintf(self::URL_API, $groupName);
 
         $response = $this->client->request('GET', $url, [
             # see https://www.meetup.com/meetup_api/auth/#keys
@@ -106,17 +67,6 @@ final class ImportMeetupsFromMeetupsComCommand extends Command
         }
 
         return $meetups;
-    }
-
-    /**
-     * @param string[] $userGroup
-     */
-    private function resolveGroupUrlNameFromGroupUrl(array $userGroup): string
-    {
-        $array = explode('/', $userGroup['meetup_com_url']);
-        end($array);
-
-        return prev($array);
     }
 
     /**
