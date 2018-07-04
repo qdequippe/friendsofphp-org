@@ -19,7 +19,7 @@ final class Meetup
     /**
      * @var DateTimeInterface
      */
-    private $startDateTime;
+    private $dateTime;
 
     public function getLocatoin(): Location
     {
@@ -34,12 +34,12 @@ final class Meetup
     public function __construct(
         string $name,
         string $userGroupName,
-        DateTimeInterface $startDateTime,
+        DateTimeInterface $dateTime,
         Location $location
     ) {
         $this->name = $name;
         $this->userGroupName = $userGroupName;
-        $this->startDateTime = $startDateTime;
+        $this->dateTime = $dateTime;
         $this->location = $location;
     }
 
@@ -48,9 +48,9 @@ final class Meetup
         return $this->userGroupName;
     }
 
-    public function getStartDateTime(): DateTimeInterface
+    public function getDateTime(): DateTimeInterface
     {
-        return $this->startDateTime;
+        return $this->dateTime;
     }
 
     public function getName(): string

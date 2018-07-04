@@ -11,11 +11,6 @@ use Nette\Utils\DateTime;
 final class MeetupsFromMeetupComImporter
 {
     /**
-     * @var Meetup[]
-     */
-    private $meetups = [];
-
-    /**
      * @var DateTimeInterface
      */
     private $nowDateTime;

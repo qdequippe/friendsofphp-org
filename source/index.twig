@@ -20,7 +20,7 @@ layout: "_layouts/default.twig"
                 function initMap() {
                     var locations = [
                         {% for meetup in meetups %}
-                            ['{{ meetup.name }}', {{ meetup.latitude }}, {{ meetup.longitude }}, {{ loop.index }} ],
+                            ['{{ meetup.start|date("Y-m-d H:i") }} - {{ meetup.name }}', {{ meetup.latitude }}, {{ meetup.longitude }}, {{ loop.index }} ],
                         {% endfor %}
                     ];
 
