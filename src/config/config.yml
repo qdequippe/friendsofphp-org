@@ -6,7 +6,8 @@ parameters:
 
     # @todo it would be great to setup these globally here
     # setup here: https://developers.google.com/maps/documentation/javascript/get-api-key
-    # google_api_key: 'AIzaSyDg-lL3KI-DhpKONlwYzQ7i2YAcL8gmopE'
+    env(GOOGLE_API_KEY): '...'
+    google_api_key: '%env(GOOGLE_API_KEY)%'
 
 services:
     _defaults:
