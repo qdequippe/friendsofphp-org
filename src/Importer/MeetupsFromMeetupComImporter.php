@@ -11,6 +11,11 @@ use Nette\Utils\DateTime;
 final class MeetupsFromMeetupComImporter
 {
     /**
+     * @var Meetup[]
+     */
+    private $meetups = [];
+
+    /**
      * @var DateTimeInterface
      */
     private $nowDateTime;
@@ -19,6 +24,11 @@ final class MeetupsFromMeetupComImporter
      * @var MeetupComApi
      */
     private $meetupComApi;
+
+    /**
+     * @var string[]
+     */
+    private $groupsHavingMeetup = [];
 
     public function __construct(MeetupComApi $meetupComApi)
     {
@@ -33,6 +43,8 @@ final class MeetupsFromMeetupComImporter
     public function importForGroupIds(array $groupIds): array
     {
         $meetups = [];
+        $groupsHavingMeetup = [];
+
         foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIds) as $meetup) {
             // not sure why, but probably some bug
             $time = substr((string) $meetup['time'], 0, -3);
@@ -49,17 +61,29 @@ final class MeetupsFromMeetupComImporter
     }
 
     /**
-     * @param mixed[] $event
+     * @param mixed[] $meetup
      */
-    private function shouldSkipMeetup(DateTimeInterface $startDateTime, array $event): bool
+    private function shouldSkipMeetup(DateTimeInterface $startDateTime, array $meetup): bool
     {
         // skip past meetups
         if ($startDateTime < $this->nowDateTime) {
             return true;
         }
-
         // draft event, not ready yet
-        return ! isset($event['venue']);
+        if (! isset($meetup['venue'])) {
+            return true;
+        }
+
+        $groupName = $meetup['group']['name'];
+
+        // keep only 1 nearest meetup for the group - keep it present and less crowded
+        if (in_array($groupName, $this->groupsHavingMeetup, true)) {
+            return true;
+        }
+
+        $this->groupsHavingMeetup[] = $groupName;
+
+        return false;
     }
 
     /**
