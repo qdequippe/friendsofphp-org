@@ -62,4 +62,14 @@ final class Meetup
     {
         return $this->userGroupName;
     }
+
+    public function getLongitude(): float
+    {
+        return $this->location->getLongitude();
+    }
+
+    public function getLatitude(): float
+    {
+        return $this->location->getLatitude();
+    }
 }

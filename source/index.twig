@@ -6,18 +6,50 @@ layout: "_layouts/default.twig"
 {% block content %}
     <div class="row">
         <div class="col-md-12">
-            <h1>Friends of PHP - European PHP Meetups at 1 place</h1>
+            <h1 class="text-center pt-5 pb-5">Friends of PHP - European PHP Meetups at 1 place</h1>
 
-            {% for meetup in meetups %}
-                <h3>{{ meetup.name }}</h3>
-                <p>
-                    Group: {{ meetup.userGroup }}
-                    When: {{ meetup.start|date("Y-m-d J:i") }}
-                </p>
+            {# https://developers.google.com/maps/documentation/javascript/markers #}
+            <div class="card">
+                <div class="card-body">
+                    <div id="map"></div>
+                </div>
+            </div>
 
-                <br>
-            {% endfor %}
+            {# inspiration https://stackoverflow.com/a/3059129/1348344 #}
+            <script type="text/javascript">
+                function initMap() {
+                    var locations = [
+                        {% for meetup in meetups %}
+                            ['{{ meetup.name }}', {{ meetup.latitude }}, {{ meetup.longitude }}, {{ loop.index }} ],
+                        {% endfor %}
+                    ];
 
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 5.7,
+                        // west-central Europe focus
+                        center: new google.maps.LatLng(50.0372825,9.2753231),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+
+                    var infowindow = new google.maps.InfoWindow();
+
+                    var marker, i;
+
+                    for (i = 0; i < locations.length; i++) {
+                        marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                            map: map
+                        });
+
+                        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                            return function() {
+                                infowindow.setContent(locations[i][0]);
+                                infowindow.open(map, marker);
+                            }
+                        })(marker, i));
+                    }
+                }
+            </script>
         </div>
     </div>
 {% endblock %}
