@@ -1,5 +1,7 @@
 imports:
     - { resource: 'source/_data/*.yml' }
+    # enabled on localhost only
+    - { resource: 'config/config.local.yml',  ignore_errors: true }
 
 parameters:
     site_title: 'European PHP Meetups at 1 place'
