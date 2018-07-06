@@ -1,6 +1,14 @@
 parameters:
     meetup_groups:
         europe:
+            # manual
+            -
+                name: 'Berlin PHP Usergroup'
+                meetup_com_id: 20148431
+                meetup_com_url: 'https://www.meetup.com/Berlin-PHP-Usergroup/'
+                country: Germany
+
+            # imported from php.ug
             -
                 name: 'Symfony User Group Stuttgart'
                 meetup_com_id: 4197452

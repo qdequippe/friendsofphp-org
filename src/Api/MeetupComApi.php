@@ -76,13 +76,9 @@ final class MeetupComApi
     public function getIdForGroupUrl(string $url): ?int
     {
         try {
-            $groupPart = $this->resolveGroupUrlNameFromGroupUrl($url);
+            $group = $this->getGroupForUrl($url);
 
-            $response = $this->client->request('get', self::API_GROUP_DETAIL_URL . $groupPart);
-
-            $result = $this->getResultFromResponse($response);
-
-            return $result['id'];
+            return $group['id'];
         } catch (ClientException $clientException) {
             if ($clientException->getCode() === 404) {
                 // the group doesn't exist anymore, skip it
@@ -92,6 +88,18 @@ final class MeetupComApi
             // other unknown error, show it
             throw $clientException;
         }
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function getGroupForUrl(string $url): array
+    {
+        $groupPart = $this->resolveGroupUrlNameFromGroupUrl($url);
+
+        $response = $this->client->request('get', self::API_GROUP_DETAIL_URL . $groupPart);
+
+        return $this->getResultFromResponse($response);
     }
 
     private function resolveGroupUrlNameFromGroupUrl(string $url): string
