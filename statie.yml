@@ -1,8 +1,10 @@
 imports:
     - { resource: 'source/_data/*.yml' }
-    # enabled on localhost only
-    - { resource: 'config/config.local.yml',  ignore_errors: true }
 
 parameters:
     site_title: 'European PHP Meetups at 1 place'
     templating: 'twig'
+
+    # its still public in the footer, so no need to hide it
+    # setup & manage here: https://console.cloud.google.com/apis/credentials
+    google_api_key:  'AIzaSyD8ZmzC6PXqLazbJZWs2iQsVtKz6cGw7C4'
