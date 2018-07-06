@@ -1,22 +1,6 @@
 parameters:
     meetups:
         -
-            name: 'Docker for PHP Development'
-            userGroup: 'Bristol PHP Training'
-            start: '2018-07-04 19:30'
-            city: 'Bristol, BS1 6QA'
-            country: 'United Kingdom'
-            longitude: -2.581783
-            latitude: 51.448288
-        -
-            name: 'DeventerPHP - Lightning talks'
-            userGroup: DeventerPHP
-            start: '2018-07-05 18:00'
-            city: Deventer
-            country: Netherlands
-            longitude: 6.19297
-            latitude: 52.236748
-        -
             name: 'PHPAmersfoort July 2018'
             userGroup: PHPAmersfoort
             start: '2018-07-10 19:00'
@@ -24,6 +8,14 @@ parameters:
             country: Netherlands
             longitude: 5.415305
             latitude: 52.180676
+        -
+            name: 'Let''s Go "Neos and Flow" meetup @ gesagt getan'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-07-11 19:00'
+            city: Grödig
+            country: Austria
+            longitude: 13.007371
+            latitude: 47.74803
         -
             name: 'Group Discussion: Exploring Deployment Processes in web projects'
             userGroup: 'PHP Cambridge'
@@ -73,6 +65,14 @@ parameters:
             longitude: 8.432104
             latitude: 49.004978
         -
+            name: 'DeventerPHP - The developer''s model for talking to managers'
+            userGroup: DeventerPHP
+            start: '2018-08-02 18:00'
+            city: Deventer
+            country: Netherlands
+            longitude: 6.19297
+            latitude: 52.236748
+        -
             name: 'Treffen der Symfony User Group Hamburg'
             userGroup: 'Symfony User Group Hamburg'
             start: '2018-08-07 18:30'
@@ -104,11 +104,3 @@ parameters:
             country: Switzerland
             longitude: 7.593108
             latitude: 47.540962
-        -
-            name: 'Barcamp November 2018'
-            userGroup: 'Salzburg Web Dev'
-            start: '2018-11-09 10:00'
-            city: Puch
-            country: Austria
-            longitude: 13.086338
-            latitude: 47.724117
