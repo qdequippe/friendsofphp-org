@@ -2,6 +2,7 @@
 
 namespace Fop\FileSystem;
 
+use Nette\Utils\FileSystem;
 use Symfony\Component\Yaml\Yaml;
 
 final class YamlFileSystem
@@ -12,6 +13,6 @@ final class YamlFileSystem
     public function saveArrayToFile(array $data, string $file): void
     {
         $yamlDump = Yaml::dump($data, 10, 4);
-        file_put_contents($file, $yamlDump);
+        FileSystem::write($file, $yamlDump);
     }
 }
