@@ -13,6 +13,6 @@ parameters:
     map:
         europe:
             location:
-                latitude: 50.7007456
-                longitude: 8.1220082
+                latitude: 51.10
+                longitude: 8.12
             zoom: 6
