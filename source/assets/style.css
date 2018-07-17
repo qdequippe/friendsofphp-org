@@ -47,3 +47,7 @@ body {
 #footer ul {
     padding-left: 1em;
 }
+
+.add-to-calendar-button {
+    margin-top: -.2em;
+}

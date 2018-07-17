@@ -22,9 +22,14 @@
             "Fop\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Fop\\Tests\\": "tests"
+        }
+    },
     "scripts": {
-        "check-cs": "vendor/bin/ecs check bin src",
-        "fix-cs": "vendor/bin/ecs check bin src --fix",
-        "phpstan": "vendor/bin/phpstan analyse bin src --level max"
+        "check-cs": "vendor/bin/ecs check bin src tests",
+        "fix-cs": "vendor/bin/ecs check bin src tests --fix",
+        "phpstan": "vendor/bin/phpstan analyse bin src tests --level max"
     }
 }
