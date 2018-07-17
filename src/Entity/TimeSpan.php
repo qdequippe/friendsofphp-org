@@ -12,11 +12,11 @@ final class TimeSpan
     private $startDateTime;
 
     /**
-     * @var DateTimeInterface
+     * @var DateTimeInterface|null
      */
     private $endDateTime;
 
-    public function __construct(DateTimeInterface $startDateTime, DateTimeInterface $endDateTime)
+    public function __construct(DateTimeInterface $startDateTime, ?DateTimeInterface $endDateTime)
     {
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
@@ -27,7 +27,7 @@ final class TimeSpan
         return $this->startDateTime;
     }
 
-    public function getEndDateTime(): DateTimeInterface
+    public function getEndDateTime(): ?DateTimeInterface
     {
         return $this->endDateTime;
     }

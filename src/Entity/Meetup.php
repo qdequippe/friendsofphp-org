@@ -65,7 +65,7 @@ final class Meetup
         return $this->timeSpan->getStartDateTime();
     }
 
-    public function getEndDateTime(): DateTimeInterface
+    public function getEndDateTime(): ?DateTimeInterface
     {
         return $this->timeSpan->getEndDateTime();
     }

@@ -101,8 +101,12 @@ final class MeetupsFromMeetupComImporter
         $time = substr((string) $meetup['time'], 0, -3);
         $startDateTime = DateTime::from($time);
 
-        $duration = substr((string) $meetup['duration'], 0, -3);
-        $endDateTime = $startDateTime->modify('+' . $duration);
+        if (isset($meetup['duration']) && $meetup['duration']) {
+            $duration = substr((string) $meetup['duration'], 0, -3);
+            $endDateTime = $startDateTime->modifyClone('+' . $duration . ' seconds');
+        } else {
+            $endDateTime = null;
+        }
 
         return new TimeSpan($startDateTime, $endDateTime);
     }

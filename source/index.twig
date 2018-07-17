@@ -32,7 +32,7 @@ layout: "_layouts/default.twig"
                             {{ meetup.start|date("Y-m-d H:i") }}
 
                             <p>
-                                <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.startDateTime|date('Ymd\\THi00\\Z') }}/{{ meetup.endDateTime|date('Ymd\\THi00\\Z') }}" class="btn btn-primary btn-sm">Add to Google Calendar</a>
+                                <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm">Add to Google Calendar</a>
                             </p>
                         </td>
                         <td>{{ meetup.city }}, {{ meetup.country }}</td>

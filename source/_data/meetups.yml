@@ -4,6 +4,7 @@ parameters:
             name: 'Group Discussion: Exploring Deployment Processes in web projects (rescheduled)'
             userGroup: 'PHP Cambridge'
             start: '2018-07-18 20:30'
+            end: '2018-07-18 22:30'
             city: Cambridge
             country: 'United Kingdom'
             longitude: 0.141326
@@ -13,6 +14,7 @@ parameters:
             name: '#ViennaPHP monthly gathering'
             userGroup: 'Vienna PHP Community'
             start: '2018-07-19 18:30'
+            end: '2018-07-19 21:30'
             city: Vienna
             country: Austria
             longitude: 16.33595
@@ -22,6 +24,7 @@ parameters:
             name: 'Symfony User Group Cologne - July''18'
             userGroup: 'Symfony User Group Cologne'
             start: '2018-07-25 18:30'
+            end: '2018-07-25 22:00'
             city: Köln
             country: Germany
             longitude: 6.957003
@@ -31,6 +34,7 @@ parameters:
             name: 'Triff die Drupal Community in Karlsruhe'
             userGroup: 'Drupal Karlsruhe'
             start: '2018-07-25 19:00'
+            end: '2018-07-25 22:00'
             city: Karlsruhe
             country: Germany
             longitude: 8.432104
@@ -40,6 +44,7 @@ parameters:
             name: 'July Meetup at BossData & Beatswitch'
             userGroup: 'Full Stack Antwerp'
             start: '2018-07-25 19:00'
+            end: '2018-07-25 22:00'
             city: Antwerp
             country: Belgium
             longitude: 4.39295
@@ -49,6 +54,7 @@ parameters:
             name: 'NMGN.tech Juli 2018 - Moving from legacy to event-driven with Kafka'
             userGroup: NMGN.tech
             start: '2018-07-25 19:00'
+            end: '2018-07-25 21:00'
             city: Nijmegen
             country: Netherlands
             longitude: 5.854814
@@ -58,6 +64,7 @@ parameters:
             name: 'Pipelines and Generators in PHP & Doctrine ODM'
             userGroup: 'Symfony User Group Berlin'
             start: '2018-07-25 19:30'
+            end: '2018-07-25 22:00'
             city: Berlin
             country: Germany
             longitude: 13.328264
@@ -67,6 +74,7 @@ parameters:
             name: 'DeventerPHP - The developer''s model for talking to managers'
             userGroup: DeventerPHP
             start: '2018-08-02 18:00'
+            end: '2018-08-02 21:00'
             city: Deventer
             country: Netherlands
             longitude: 6.19297
@@ -76,6 +84,7 @@ parameters:
             name: 'Treffen der Symfony User Group Hamburg'
             userGroup: 'Symfony User Group Hamburg'
             start: '2018-08-07 18:30'
+            end: null
             city: Hamburg
             country: Germany
             longitude: 10.02516
@@ -85,6 +94,7 @@ parameters:
             name: 'PHPAmersfoort 5 year anniversary'
             userGroup: PHPAmersfoort
             start: '2018-08-14 18:00'
+            end: '2018-08-14 22:30'
             city: Amersfoort
             country: Netherlands
             longitude: 5.374795
@@ -94,6 +104,7 @@ parameters:
             name: 'brumPHP August: Introduction to Serverless PHP'
             userGroup: BrumPHP
             start: '2018-08-30 19:30'
+            end: '2018-08-30 21:30'
             city: Birmingham
             country: 'United Kingdom'
             longitude: -1.912747
@@ -103,6 +114,7 @@ parameters:
             name: 'First Thursday of the month (placeholder)'
             userGroup: 'PHP Leuven - Web Innovation Group'
             start: '2018-10-04 19:00'
+            end: '2018-10-04 23:00'
             city: Leuven
             country: Belgium
             longitude: 4.72613
@@ -112,6 +124,7 @@ parameters:
             name: '6. PHP Symfony User Group Basel'
             userGroup: 'PHP Symfony User Group Basel'
             start: '2018-11-08 18:00'
+            end: '2018-11-08 21:00'
             city: Basel
             country: Switzerland
             longitude: 7.593108
@@ -121,6 +134,7 @@ parameters:
             name: 'Barcamp November 2018'
             userGroup: 'Salzburg Web Dev'
             start: '2018-11-09 10:00'
+            end: '2018-11-10 17:00'
             city: Puch
             country: Austria
             longitude: 13.086338
