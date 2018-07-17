@@ -6,11 +6,7 @@ layout: "_layouts/default.twig"
 {% block content %}
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div id="mapid"></div>
-                </div>
-            </div>
+            <div id="mapid"></div>
 
             <br>
 
@@ -38,18 +34,15 @@ layout: "_layouts/default.twig"
                     {% if daysFromToday <= 30 %}
                         <tr>
                             <td class="text-center{% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
+                                <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm pull-left add-to-calendar-button mr-2">
+                                    <em class="fa fa-calendar-plus-o fa-fw"></em>
+                                </a>
+
                                 <strong>{{ meetup.start|date("F j") }}</strong>
                                 &nbsp;
                                 &nbsp;
-                                &nbsp;
                                 <small>{{ meetup.start|date("H:i") }}</small>
-
-                                <p>
-                                    <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm mt-3">
-                                        <em class="fa fa-calendar-plus-o fa-fw"></em>
-                                        Add to Google Calendar
-                                    </a>
-                                </p>
+                                {#</p>#}
                             </td>
                             <td>{{ meetup.city }}, {{ meetup.country }}</td>
                             <td>
