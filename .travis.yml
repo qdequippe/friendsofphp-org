@@ -6,12 +6,22 @@ install:
     - composer update
 
 script:
+    - vendor/bin/phpunit  --coverage-clover coverage.xml
+
     # test that website is generated
     - vendor/bin/statie generate source
     # coding standard run
-    - vendor/bin/ecs check bin src
+    - composer check-cs
     # static analysis
-    - vendor/bin/phpstan analyse bin src --level max --configuration phpstan.neon
+    - composer phpstan
+
+after_script:
+    # upload coverage.xml file to Coveralls to analyze it
+    - |
+        if [[ $PHPUNIT_FLAGS != "" ]]; then
+            wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar;
+            php coveralls.phar --verbose;
+        fi
 
 # see docs: https://www.statie.org/docs/github-pages/
 deploy:
