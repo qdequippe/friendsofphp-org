@@ -29,3 +29,21 @@ body {
 #subhead {
     font-size: 1.5rem;
 }
+
+#footer {
+    background: hsl(229, 30%, 44%);
+    color: #DDD;
+}
+
+#footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+#footer a:hover {
+    text-decoration: none;
+}
+
+#footer ul {
+    padding-left: 1em;
+}
