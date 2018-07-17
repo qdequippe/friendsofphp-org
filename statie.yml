@@ -8,3 +8,11 @@ parameters:
     # its still public in the footer, so no need to hide it
     # setup & manage here: https://console.cloud.google.com/apis/credentials
     google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'
+
+    # open
+    map:
+        europe:
+            location:
+                latitude: 50.7007456
+                longitude: 8.1220082
+            zoom: 6
