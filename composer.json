@@ -3,7 +3,7 @@
     "require": {
         "php": "^7.2",
         "guzzlehttp/guzzle": "^6.3",
-        "symfony/var-dumper": "^4.0",
+        "symfony/var-dumper": "^4.1",
         "nette/utils": "^2.5",
         "symplify/statie": "^4.5",
         "rinvex/country": "^3.1",
@@ -12,10 +12,9 @@
         "symfony/http-kernel": "^4.1"
     },
     "require-dev": {
-        "symplify/easy-coding-standard": "^4.4",
+        "symplify/easy-coding-standard": "^4.5",
         "slam/php-cs-fixer-extensions": "^1.16",
-        "phpstan/phpstan": "0.10.*",
-        "phpstan/phpdoc-parser": "0.3 as 0.2",
+        "phpstan/phpstan": "0.10.1",
         "phpunit/phpunit": "^7.2"
     },
     "autoload": {
@@ -26,6 +25,6 @@
     "scripts": {
         "check-cs": "vendor/bin/ecs check bin src",
         "fix-cs": "vendor/bin/ecs check bin src --fix",
-        "phpstan": "vendor/bin/phpstan analyse bin src --level max --configuration phpstan.neon"
+        "phpstan": "vendor/bin/phpstan analyse bin src --level max"
     }
 }
