@@ -1,53 +1,14 @@
 parameters:
     meetups:
         -
-            name: 'PHPAmersfoort July 2018'
-            userGroup: PHPAmersfoort
-            start: '2018-07-10 19:00'
-            city: Amersfoort
-            country: Netherlands
-            longitude: 5.415305
-            latitude: 52.180676
-        -
-            name: 'Let''s Go "Neos and Flow" meetup @ gesagt getan'
-            userGroup: 'Salzburg Web Dev'
-            start: '2018-07-11 19:00'
-            city: Grödig
-            country: Austria
-            longitude: 13.007371
-            latitude: 47.74803
-        -
-            name: 'Group Discussion: Exploring Deployment Processes in web projects'
+            name: 'Group Discussion: Exploring Deployment Processes in web projects (rescheduled)'
             userGroup: 'PHP Cambridge'
-            start: '2018-07-11 20:30'
+            start: '2018-07-18 20:30'
             city: Cambridge
             country: 'United Kingdom'
             longitude: 0.141326
             latitude: 52.235432
-        -
-            name: '3 Talks: How to build an app in two years, Testing Fatigue and Over-engineering'
-            userGroup: 'Web Engineering Düsseldorf'
-            start: '2018-07-12 18:30'
-            city: Düsseldorf
-            country: Germany
-            longitude: 6.74945
-            latitude: 51.214321
-        -
-            name: 'PHP Meetup Tilburg #7: Tim Huijzers My first year with event sourcing'
-            userGroup: 'Tilburg PHP Meetup'
-            start: '2018-07-12 19:00'
-            city: Tilburg
-            country: Netherlands
-            longitude: 5.095313
-            latitude: 51.558067
-        -
-            name: 'What''s new in Xdebug - Derick Rethans'
-            userGroup: PHPMiNDS
-            start: '2018-07-12 20:00'
-            city: Nottingham
-            country: 'United Kingdom'
-            longitude: -1.14304
-            latitude: 52.951992
+            url: 'https://www.meetup.com/phpcambridge/events/252188938/'
         -
             name: '#ViennaPHP monthly gathering'
             userGroup: 'Vienna PHP Community'
@@ -56,6 +17,16 @@ parameters:
             country: Austria
             longitude: 16.33595
             latitude: 48.192005
+            url: 'https://www.meetup.com/viennaphp/events/249258848/'
+        -
+            name: 'Symfony User Group Cologne - July''18'
+            userGroup: 'Symfony User Group Cologne'
+            start: '2018-07-25 18:30'
+            city: Köln
+            country: Germany
+            longitude: 6.957003
+            latitude: 50.952335
+            url: 'https://www.meetup.com/sfugcgn/events/252699045/'
         -
             name: 'Triff die Drupal Community in Karlsruhe'
             userGroup: 'Drupal Karlsruhe'
@@ -64,6 +35,34 @@ parameters:
             country: Germany
             longitude: 8.432104
             latitude: 49.004978
+            url: 'https://www.meetup.com/Drupal-Karlsruhe/events/pqvbppyxkbhc/'
+        -
+            name: 'July Meetup at BossData & Beatswitch'
+            userGroup: 'Full Stack Antwerp'
+            start: '2018-07-25 19:00'
+            city: Antwerp
+            country: Belgium
+            longitude: 4.39295
+            latitude: 51.20315
+            url: 'https://www.meetup.com/fullstackantwerp/events/249702027/'
+        -
+            name: 'NMGN.tech Juli 2018 - Moving from legacy to event-driven with Kafka'
+            userGroup: NMGN.tech
+            start: '2018-07-25 19:00'
+            city: Nijmegen
+            country: Netherlands
+            longitude: 5.854814
+            latitude: 51.846607
+            url: 'https://www.meetup.com/NMGNtech/events/252596432/'
+        -
+            name: 'Pipelines and Generators in PHP & Doctrine ODM'
+            userGroup: 'Symfony User Group Berlin'
+            start: '2018-07-25 19:30'
+            city: Berlin
+            country: Germany
+            longitude: 13.328264
+            latitude: 52.520927
+            url: 'https://www.meetup.com/sfugberlin/events/252672703/'
         -
             name: 'DeventerPHP - The developer''s model for talking to managers'
             userGroup: DeventerPHP
@@ -72,6 +71,7 @@ parameters:
             country: Netherlands
             longitude: 6.19297
             latitude: 52.236748
+            url: 'https://www.meetup.com/DeventerPHP/events/243014385/'
         -
             name: 'Treffen der Symfony User Group Hamburg'
             userGroup: 'Symfony User Group Hamburg'
@@ -80,14 +80,25 @@ parameters:
             country: Germany
             longitude: 10.02516
             latitude: 53.58453
+            url: 'https://www.meetup.com/sfughh/events/245635422/'
         -
-            name: 'September Meetup at Wunderman'
-            userGroup: 'Full Stack Antwerp'
-            start: '2018-09-26 19:00'
-            city: Antwerpen
-            country: Belgium
-            longitude: 4.411315
-            latitude: 51.194706
+            name: 'PHPAmersfoort 5 year anniversary'
+            userGroup: PHPAmersfoort
+            start: '2018-08-14 18:00'
+            city: Amersfoort
+            country: Netherlands
+            longitude: 5.374795
+            latitude: 52.152905
+            url: 'https://www.meetup.com/PHPAmersfoort/events/250771529/'
+        -
+            name: 'brumPHP August: Introduction to Serverless PHP'
+            userGroup: BrumPHP
+            start: '2018-08-30 19:30'
+            city: Birmingham
+            country: 'United Kingdom'
+            longitude: -1.912747
+            latitude: 52.486179
+            url: 'https://www.meetup.com/brumphp/events/252625865/'
         -
             name: 'First Thursday of the month (placeholder)'
             userGroup: 'PHP Leuven - Web Innovation Group'
@@ -96,6 +107,7 @@ parameters:
             country: Belgium
             longitude: 4.72613
             latitude: 50.85187
+            url: 'https://www.meetup.com/PHP-Leuven-Web-Innovation-Group/events/251644332/'
         -
             name: '6. PHP Symfony User Group Basel'
             userGroup: 'PHP Symfony User Group Basel'
@@ -104,3 +116,13 @@ parameters:
             country: Switzerland
             longitude: 7.593108
             latitude: 47.540962
+            url: 'https://www.meetup.com/sfubsl/events/251981891/'
+        -
+            name: 'Barcamp November 2018'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-11-09 10:00'
+            city: Puch
+            country: Austria
+            longitude: 13.086338
+            latitude: 47.724117
+            url: 'https://www.meetup.com/salzburgwebdev/events/248534871/'
