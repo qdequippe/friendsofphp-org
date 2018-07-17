@@ -6,8 +6,6 @@ layout: "_layouts/default.twig"
 {% block content %}
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center pt-5 pb-5">Friends of PHP - European PHP Meetups at 1 place</h1>
-
             {# https://developers.google.com/maps/documentation/javascript/markers #}
             <div class="card">
                 <div class="card-body">
@@ -18,20 +16,29 @@ layout: "_layouts/default.twig"
             <br>
 
             <table class="table table-striped table-bordered">
-                <tr>
-                    <thead class="thead-inverse">
+                <thead class="thead-inverse">
+                    <tr>
                         <th>When</th>
                         <th>Where</th>
                         <th>Name</th>
-                    </thead>
-                </tr>
+                    </tr>
+                </thead>
                 {% for meetup in meetups %}
                     <tr>
-                        <td>{{ meetup.start|date("Y-m-d H:i") }}</td>
                         <td>
-                            {{ meetup.city }}, {{ meetup.country }}
+                            {{ meetup.start|date("Y-m-d H:i") < }}
                         </td>
-                        <td>{{ meetup.name }}</td>
+                        <td>
+                            {{ meetup.start|date("Y-m-d H:i") }}
+
+                            <p>
+                                <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.startDateTime|date('Ymd\\THi00\\Z') }}/{{ meetup.endDateTime|date('Ymd\\THi00\\Z') }}" class="btn btn-primary btn-sm">Add to Google Calendar</a>
+                            </p>
+                        </td>
+                        <td>{{ meetup.city }}, {{ meetup.country }}</td>
+                        <td>
+                            <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </table>

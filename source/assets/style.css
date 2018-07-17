@@ -1,7 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     color: #333;
-    padding-bottom: 2em;
     font-size: 17px;
     line-height: 1.5em;
 }
@@ -12,4 +11,22 @@ body {
 #map {
     width: 100%;
     height: 40em;
+}
+
+#head {
+    background: hsl(229, 30%, 44%);
+    color: #DDD;
+}
+
+#head h1 {
+    font-size: 3.4rem;
+}
+
+#head span {
+    font-weight: 600;
+    color: hsl(229, 30%, 55%);
+}
+
+#subhead {
+    font-size: 1.5rem;
 }
