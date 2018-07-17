@@ -29,3 +29,23 @@ gulp
 And open [http://localhost:8000](localhost:8000) in your browser.
 
 That's all!
+
+
+## Work Notes
+
+do you want to add a meetup? let me know :)
+
+no programming content, just link to existing contente! -> slack =)
+brands
+
+
+# how to spread?)
+
+- go to meetup personally
+- spread connections, come to visit us
+- all php stuffs, even non php :) like ... e.g. @todo
+- add train trips and a price, or a plane
+- or place to sleep - přijeďte do prahy, ubytuju vás :) jít příkladem
+
+- integrovat developeow?
+- get a job, connect on meetup in another country
