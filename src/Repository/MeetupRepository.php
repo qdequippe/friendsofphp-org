@@ -33,11 +33,13 @@ final class MeetupRepository
             $meetupsAsArray[] = [
                 'name' => $meetup->getName(),
                 'userGroup' => $meetup->getUserGroup(),
-                'start' => $meetup->getDateTime()->format('Y-m-d H:i'),
+                'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
+                'end' => ($meetup->getEndDateTime() !== null) ? $meetup->getEndDateTime()->format('Y-m-d H:i') : null,
                 'city' => $meetup->getLocatoin()->getCity(),
                 'country' => $meetup->getLocatoin()->getCountry(),
                 'longitude' => $meetup->getLocatoin()->getLongitude(),
                 'latitude' => $meetup->getLocatoin()->getLatitude(),
+                'url' => $meetup->getUrl(),
             ];
         }
 

@@ -75,6 +75,13 @@ final class ImportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
+        if (! $input->getOption(self::OPTION_GROUPS) && ! $input->getOption(self::OPTION_MEETUPS)) {
+            $this->symfonyStyle->note(
+                sprintf('Add "--%s" or "--%s" option to start import.', self::OPTION_GROUPS, self::OPTION_MEETUPS)
+            );
+            return;
+        }
+
         if ($input->getOption(self::OPTION_GROUPS)) {
             $this->symfonyStyle->note('Importing groups from php.ug');
             $this->importsGroups();

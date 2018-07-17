@@ -3,10 +3,20 @@
     {% include "_snippets/head.twig" %}
 
     <body>
+        <div id="head" class="text-center pt-4 pb-4">
+            <h1>
+                <strong>Friends</strong> of <strong>PHP</strong>
+            </h1>
+
+            <div id="subhead" class="pt-2 pb-2">
+                European PHP Meetups <span>at 1 place</span>
+            </div>
+        </div>
+
         <div class="container">
             {%  block content %}{% endblock %}
         </div>
-    </body>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initMap"></script>
+        {% include "_snippets/footer.twig" %}
+    </body>
 </html>

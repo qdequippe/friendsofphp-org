@@ -6,6 +6,7 @@ use DateTimeInterface;
 use Fop\Api\MeetupComApi;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
+use Fop\Entity\TimeSpan;
 use Nette\Utils\DateTime;
 
 final class MeetupsFromMeetupComImporter
@@ -38,18 +39,16 @@ final class MeetupsFromMeetupComImporter
     public function importForGroupIds(array $groupIds): array
     {
         $meetups = [];
-        $groupsHavingMeetup = [];
+        $this->groupsHavingMeetup = [];
 
         foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIds) as $meetup) {
-            // not sure why, but probably some bug
-            $time = substr((string) $meetup['time'], 0, -3);
-            $startDateTime = DateTime::from($time);
+            $timeSpan = $this->createTimeSpanFromEventData($meetup);
 
-            if ($this->shouldSkipMeetup($startDateTime, $meetup)) {
+            if ($this->shouldSkipMeetup($timeSpan, $meetup)) {
                 continue;
             }
 
-            $meetups[] = $this->createMeetupFromEventData($meetup, $startDateTime);
+            $meetups[] = $this->createMeetupFromEventData($meetup, $timeSpan);
         }
 
         return $meetups;
@@ -58,10 +57,10 @@ final class MeetupsFromMeetupComImporter
     /**
      * @param mixed[] $meetup
      */
-    private function shouldSkipMeetup(DateTimeInterface $startDateTime, array $meetup): bool
+    private function shouldSkipMeetup(TimeSpan $timeSpan, array $meetup): bool
     {
         // skip past meetups
-        if ($startDateTime < $this->nowDateTime) {
+        if ($timeSpan->getStartDateTime() < $this->nowDateTime) {
             return true;
         }
         // draft event, not ready yet
@@ -84,12 +83,31 @@ final class MeetupsFromMeetupComImporter
     /**
      * @param mixed[] $event
      */
-    private function createMeetupFromEventData(array $event, DateTimeInterface $startDateTime): Meetup
+    private function createMeetupFromEventData(array $event, TimeSpan $timeSpan): Meetup
     {
         $venue = $event['venue'];
 
         $location = new Location($venue['city'], $venue['localized_country_name'], $venue['lon'], $venue['lat']);
 
-        return new Meetup($event['name'], $event['group']['name'], $startDateTime, $location);
+        return new Meetup($event['name'], $event['group']['name'], $timeSpan, $location, $event['event_url']);
+    }
+
+    /**
+     * @param mixed[] $meetup
+     */
+    private function createTimeSpanFromEventData(array $meetup): TimeSpan
+    {
+        // not sure why it adds extra "000" in the end
+        $time = substr((string) $meetup['time'], 0, -3);
+        $startDateTime = DateTime::from($time);
+
+        if (isset($meetup['duration']) && $meetup['duration']) {
+            $duration = substr((string) $meetup['duration'], 0, -3);
+            $endDateTime = $startDateTime->modifyClone('+' . $duration . ' seconds');
+        } else {
+            $endDateTime = null;
+        }
+
+        return new TimeSpan($startDateTime, $endDateTime);
     }
 }

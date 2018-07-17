@@ -1,7 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     color: #333;
-    padding-bottom: 2em;
     font-size: 17px;
     line-height: 1.5em;
 }
@@ -9,7 +8,42 @@ body {
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 
-#map {
-    width: 100%;
+#mapid {
     height: 40em;
+}
+
+#head {
+    background: hsl(229, 30%, 44%);
+    color: #DDD;
+}
+
+#head h1 {
+    font-size: 3.4rem;
+}
+
+#head span {
+    font-weight: 600;
+    color: hsl(229, 30%, 55%);
+}
+
+#subhead {
+    font-size: 1.5rem;
+}
+
+#footer {
+    background: hsl(229, 30%, 44%);
+    color: #DDD;
+}
+
+#footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+#footer a:hover {
+    text-decoration: none;
+}
+
+#footer ul {
+    padding-left: 1em;
 }
