@@ -14,8 +14,11 @@ npm install
 ### Update Data
 
 ```markdown
-bin/fop import-groups-from-php-ug # imports groups from http://php.ug
-bin/fop import-meetups-from-meetups-com # based on groups, import meetups from http://php.ug
+# imports groups from http://php.ug
+bin/fop import --groups 
+
+# based on groups, import meetups from https://meetup.com
+bin/fop import --meetups
 ```
 
 ## Run the website
