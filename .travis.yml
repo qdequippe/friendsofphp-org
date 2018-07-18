@@ -8,12 +8,15 @@ install:
 script:
     - vendor/bin/phpunit  --coverage-clover coverage.xml
 
-    # test that website is generated
-    - vendor/bin/statie generate source
     # coding standard run
     - composer check-cs
     # static analysis
     - composer phpstan
+
+    # generate website to "/output" directory, it will be deployed later in "deploy"
+    - vendor/bin/statie generate source
+    - bin/fop import --groups
+    - bin/fop import --meetups
 
 after_script:
     # upload coverage.xml file to Coveralls to analyze it
