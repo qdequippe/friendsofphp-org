@@ -21,11 +21,11 @@ final class GroupRepository
     /**
      * @var string
      */
-    private $importGroupsStorage;
+    private $importedGroupsStorage;
 
-    public function __construct(string $groupsStorage, string $importGroupsStorage, YamlFileSystem $yamlFileSystem)
+    public function __construct(string $groupsStorage, string $importedGroupsStorage, YamlFileSystem $yamlFileSystem)
     {
-        $this->importGroupsStorage = $importGroupsStorage;
+        $this->importedGroupsStorage = $importedGroupsStorage;
 
         $groupsArray = Yaml::parseFile($groupsStorage);
         $this->groups = $groupsArray['parameters']['groups'] ?? [];
@@ -37,7 +37,7 @@ final class GroupRepository
      */
     public function saveImportToFile(array $groupsByContinent): void
     {
-        $this->saveToFileAndStorage($groupsByContinent, $this->importGroupsStorage);
+        $this->saveToFileAndStorage($groupsByContinent, $this->importedGroupsStorage);
     }
 
     /**

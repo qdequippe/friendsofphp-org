@@ -2,7 +2,6 @@ parameters:
     groups_storage: '%kernel.project_dir%/source/_data/groups.yml'
     imported_groups_storage: '%kernel.project_dir%/source/_data/imported/imported_groups.yml'
 
-    meetups_storage: '%kernel.project_dir%/source/_data/meetups.yml'
     imported_meetups_storage: '%kernel.project_dir%/source/_data/imported/imported_meetups.yml'
 
     # setup here: https://secure.meetup.com/meetup_api/key/
@@ -13,9 +12,8 @@ services:
         autowire: true
         bind:
             $groupsStorage: '%groups_storage%'
-            $importedgroupsStorage: '%imported_groups_storage%'
+            $importedGroupsStorage: '%imported_groups_storage%'
 
-            $meetupsStorage: '%meetups_storage%'
             $importedMeetupsStorage: '%imported_meetups_storage%'
 
             $meetupComApiKey: '%meetup_com_api_key%'

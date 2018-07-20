@@ -8,14 +8,14 @@ use Fop\FileSystem\YamlFileSystem;
 final class MeetupRepository
 {
     /**
-     * @var YamlFileSystem
-     */
-    private $yamlFileSystem;
-
-    /**
      * @var string
      */
     private $importedMeetupsStorage;
+
+    /**
+     * @var YamlFileSystem
+     */
+    private $yamlFileSystem;
 
     public function __construct(string $importedMeetupsStorage, YamlFileSystem $yamlFileSystem)
     {
@@ -52,6 +52,7 @@ final class MeetupRepository
     private function turnsObjectsToArrays(array $meetups): array
     {
         $meetupsAsArray = [];
+
         foreach ($meetups as $meetup) {
             $meetupsAsArray[] = [
                 'name' => $meetup->getName(),
