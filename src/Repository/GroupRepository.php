@@ -9,11 +9,6 @@ use Symfony\Component\Yaml\Yaml;
 final class GroupRepository
 {
     /**
-     * @var string
-     */
-    private $groupsStorage;
-
-    /**
      * @var mixed[]
      */
     private $groups = [];
@@ -22,6 +17,7 @@ final class GroupRepository
      * @var YamlFileSystem
      */
     private $yamlFileSystem;
+
     /**
      * @var string
      */
@@ -29,7 +25,6 @@ final class GroupRepository
 
     public function __construct(string $groupsStorage, string $importGroupsStorage, YamlFileSystem $yamlFileSystem)
     {
-        $this->groupsStorage = $groupsStorage;
         $this->importGroupsStorage = $importGroupsStorage;
 
         $groupsArray = Yaml::parseFile($groupsStorage);
@@ -37,6 +32,9 @@ final class GroupRepository
         $this->yamlFileSystem = $yamlFileSystem;
     }
 
+    /**
+     * @param mixed[] $groupsByContinent
+     */
     public function saveImportToFile(array $groupsByContinent): void
     {
         $this->saveToFileAndStorage($groupsByContinent, $this->importGroupsStorage);

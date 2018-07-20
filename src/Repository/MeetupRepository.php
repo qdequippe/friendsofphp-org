@@ -8,22 +8,17 @@ use Fop\FileSystem\YamlFileSystem;
 final class MeetupRepository
 {
     /**
-     * @var string
-     */
-    private $meetupsStorage;
-
-    /**
      * @var YamlFileSystem
      */
     private $yamlFileSystem;
+
     /**
      * @var string
      */
     private $importedMeetupsStorage;
 
-    public function __construct(string $meetupsStorage, string $importedMeetupsStorage, YamlFileSystem $yamlFileSystem)
+    public function __construct(string $importedMeetupsStorage, YamlFileSystem $yamlFileSystem)
     {
-        $this->meetupsStorage = $meetupsStorage;
         $this->importedMeetupsStorage = $importedMeetupsStorage;
         $this->yamlFileSystem = $yamlFileSystem;
     }
@@ -50,6 +45,10 @@ final class MeetupRepository
         $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
     }
 
+    /**
+     * @param Meetup[] $meetups
+     * @return mixed[]
+     */
     private function turnsObjectsToArrays(array $meetups): array
     {
         $meetupsAsArray = [];
@@ -66,6 +65,7 @@ final class MeetupRepository
                 'url' => $meetup->getUrl(),
             ];
         }
+
         return $meetupsAsArray;
     }
 }

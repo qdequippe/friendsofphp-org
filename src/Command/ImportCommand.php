@@ -5,8 +5,8 @@ namespace Fop\Command;
 use Fop\Entity\Group;
 use Fop\Importer\GroupsFromPhpUgImporter;
 use Fop\Importer\MeetupsFromMeetupComImporter;
-use Fop\Repository\MeetupRepository;
 use Fop\Repository\GroupRepository;
+use Fop\Repository\MeetupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -104,7 +104,7 @@ final class ImportCommand extends Command
                 $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group->getName()));
             }
         }
-        $this->groupRepository->saveToFile($groupsByContinent);
+        $this->groupRepository->saveImportToFile($groupsByContinent);
     }
 
     private function importMeetups(): void
@@ -116,6 +116,6 @@ final class ImportCommand extends Command
 
         $this->symfonyStyle->note(sprintf('Loaded %d meetups', count($meetups)));
 
-        $this->meetupRepository->saveToFileAndStorage($meetups);
+        $this->meetupRepository->saveImportsToFile($meetups);
     }
 }
