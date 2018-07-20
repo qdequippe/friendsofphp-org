@@ -1,0 +1,12 @@
+imports:
+    # do not touch that file
+    - { resource: 'imported/imported_meetups.yml' }
+
+parameters:
+    groups:
+        europe:
+            -
+                name: 'Berlin PHP Usergroup'
+                meetup_com_id: 20148431
+                meetup_com_url: 'https://www.meetup.com/Berlin-PHP-Usergroup/'
+                country: Germany
