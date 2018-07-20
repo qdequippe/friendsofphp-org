@@ -33,7 +33,6 @@
         "phpstan": "vendor/bin/phpstan analyse bin src tests --level max",
         "generate": [
             "vendor/bin/statie generate source",
-            "bin/fop import --groups",
             "bin/fop import --meetups"
         ]
     }
