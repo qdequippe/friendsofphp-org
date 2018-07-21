@@ -50,13 +50,18 @@ final class ImportCommand extends Command
      * @var SymfonyStyle
      */
     private $symfonyStyle;
+    /**
+     * @var int
+     */
+    private $maxForecastDays;
 
     public function __construct(
         GroupsFromPhpUgImporter $groupsFromPhpUgImporter,
         GroupRepository $userGroupRepository,
         MeetupRepository $meetupRepository,
         MeetupsFromMeetupComImporter $meetupsFromMeetupComImporter,
-        SymfonyStyle $symfonyStyle
+        SymfonyStyle $symfonyStyle,
+        int $maxForecastDays
     ) {
         parent::__construct();
         $this->groupsFromPhpUgImporter = $groupsFromPhpUgImporter;
@@ -64,6 +69,7 @@ final class ImportCommand extends Command
         $this->meetupRepository = $meetupRepository;
         $this->meetupsFromMeetupComImporter = $meetupsFromMeetupComImporter;
         $this->symfonyStyle = $symfonyStyle;
+        $this->maxForecastDays = $maxForecastDays;
     }
 
     protected function configure(): void
@@ -114,7 +120,7 @@ final class ImportCommand extends Command
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
         $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);
 
-        $this->symfonyStyle->note(sprintf('Loaded %d meetups', count($meetups)));
+        $this->symfonyStyle->note(sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays));
 
         $this->meetupRepository->saveImportsToFile($meetups);
     }
