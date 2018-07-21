@@ -25,6 +25,8 @@ services:
     Symfony\Component\Console\Application:
         public: true
 
+    Symplify\PackageBuilder\Yaml\ParametersMergingYamlLoader: ~
+
     GuzzleHttp\Client:
 
     # Symfony\Console
