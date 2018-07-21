@@ -50,6 +50,7 @@ final class ImportCommand extends Command
      * @var SymfonyStyle
      */
     private $symfonyStyle;
+
     /**
      * @var int
      */
@@ -120,7 +121,9 @@ final class ImportCommand extends Command
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
         $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);
 
-        $this->symfonyStyle->note(sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays));
+        $this->symfonyStyle->note(
+            sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
+        );
 
         $this->meetupRepository->saveImportsToFile($meetups);
     }
