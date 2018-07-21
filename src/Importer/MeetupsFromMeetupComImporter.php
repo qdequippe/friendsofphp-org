@@ -24,11 +24,11 @@ final class MeetupsFromMeetupComImporter
     /**
      * @var DateTimeInterface
      */
-    private $in30DaysDateTime;
+    private $maxForecastDateTime;
 
-    public function __construct(MeetupComApi $meetupComApi)
+    public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi)
     {
-        $this->in30DaysDateTime = DateTime::from('+30 days');
+        $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
         $this->meetupComApi = $meetupComApi;
     }
 
@@ -65,7 +65,7 @@ final class MeetupsFromMeetupComImporter
         }
 
         // skip meetups to far in the future
-        if ($timeSpan->getStartDateTime() > $this->in30DaysDateTime) {
+        if ($timeSpan->getStartDateTime() > $this->maxForecastDateTime) {
             return true;
         }
 

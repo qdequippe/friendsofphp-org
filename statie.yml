@@ -10,7 +10,7 @@ parameters:
     # setup & manage here: https://console.cloud.google.com/apis/credentials
     google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'
 
-    # open
+    # open street map setup
     map:
         europe:
             location:
