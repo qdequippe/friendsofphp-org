@@ -1,0 +1,32 @@
+services:
+    _defaults:
+        autowire: true
+        bind:
+            $maxForecastDays: '%max_forecast_days%'
+            $groupsStorage: '%groups_storage%'
+            $importedGroupsStorage: '%imported_groups_storage%'
+            $importedMeetupsStorage: '%imported_meetups_storage%'
+
+            $meetupComApiKey: '%meetup_com_api_key%'
+
+    Fop\:
+        resource: '../'
+        exclude: '../{Entity}'
+
+    Symfony\Component\Console\Application:
+        public: true
+
+    Symplify\PackageBuilder\Yaml\ParametersMergingYamlLoader: ~
+
+    GuzzleHttp\Client:
+
+    # Symfony\Console
+    Symfony\Component\Console\Style\SymfonyStyle:
+
+    Symfony\Component\Console\Input\ArgvInput: ~
+    Symfony\Component\Console\Input\InputInterface:
+        alias: Symfony\Component\Console\Input\ArgvInput
+
+    Symfony\Component\Console\Output\ConsoleOutput: ~
+    Symfony\Component\Console\Output\OutputInterface:
+        alias: Symfony\Component\Console\Output\ConsoleOutput

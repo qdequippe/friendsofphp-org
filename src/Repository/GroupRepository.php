@@ -4,46 +4,59 @@ namespace Fop\Repository;
 
 use Fop\Entity\Group;
 use Fop\FileSystem\YamlFileSystem;
-use Symfony\Component\Yaml\Yaml;
+use Symplify\PackageBuilder\Yaml\ParametersMergingYamlLoader;
 
-final class UserGroupRepository
+final class GroupRepository
 {
-    /**
-     * @var string
-     */
-    private $userGroupsStorage;
-
     /**
      * @var mixed[]
      */
-    private $userGroups = [];
+    private $groups = [];
 
     /**
      * @var YamlFileSystem
      */
     private $yamlFileSystem;
 
-    public function __construct(string $userGroupsStorage, YamlFileSystem $yamlFileSystem)
-    {
-        $this->userGroupsStorage = $userGroupsStorage;
+    /**
+     * @var string
+     */
+    private $importedGroupsStorage;
 
-        $userGroupsArray = Yaml::parseFile($userGroupsStorage);
-        $this->userGroups = $userGroupsArray['parameters']['meetup_groups'] ?? [];
+    public function __construct(
+        string $groupsStorage,
+        string $importedGroupsStorage,
+        YamlFileSystem $yamlFileSystem,
+        ParametersMergingYamlLoader $parametersMergingYamlLoader
+    ) {
+        $this->importedGroupsStorage = $importedGroupsStorage;
+
+        $parameterBag = $parametersMergingYamlLoader->loadParameterBagFromFile($groupsStorage);
+        $this->groups = $parameterBag->get('groups');
+
         $this->yamlFileSystem = $yamlFileSystem;
+    }
+
+    /**
+     * @param mixed[] $groupsByContinent
+     */
+    public function saveImportToFile(array $groupsByContinent): void
+    {
+        $this->saveToFileAndStorage($groupsByContinent, $this->importedGroupsStorage);
     }
 
     /**
      * @param Group[][] $groupsByContinent
      */
-    public function saveToFile(array $groupsByContinent): void
+    private function saveToFileAndStorage(array $groupsByContinent, string $storage): void
     {
         $meetupsYamlStructure = [
             'parameters' => [
-                'meetup_groups' => $this->turnObjectsToArrays($groupsByContinent),
+                'groups' => $this->turnObjectsToArrays($groupsByContinent),
             ],
         ];
 
-        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $this->userGroupsStorage);
+        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
     }
 
     /**
@@ -51,7 +64,7 @@ final class UserGroupRepository
      */
     public function fetchByContinent(string $continent): array
     {
-        return $this->userGroups[strtolower($continent)] ?? [];
+        return $this->groups[strtolower($continent)] ?? [];
     }
 
     /**

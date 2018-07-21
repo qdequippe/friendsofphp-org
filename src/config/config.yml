@@ -1,33 +1,3 @@
-parameters:
-    user_groups_storage: '%kernel.project_dir%/source/_data/user_groups.yml'
-    meetups_storage: '%kernel.project_dir%/source/_data/meetups.yml'
-    # setup here: https://secure.meetup.com/meetup_api/key/
-    meetup_com_api_key: '3862c18323629314e5c596422581378'
-
-services:
-    _defaults:
-        autowire: true
-        bind:
-            $userGroupsStorage: '%user_groups_storage%'
-            $meetupsStorage: '%meetups_storage%'
-            $meetupComApiKey: '%meetup_com_api_key%'
-
-    Fop\:
-        resource: '../'
-        exclude: '../{Entity}'
-
-    Symfony\Component\Console\Application:
-        public: true
-
-    GuzzleHttp\Client:
-
-    # Symfony\Console
-    Symfony\Component\Console\Style\SymfonyStyle:
-
-    Symfony\Component\Console\Input\ArgvInput: ~
-    Symfony\Component\Console\Input\InputInterface:
-        alias: Symfony\Component\Console\Input\ArgvInput
-
-    Symfony\Component\Console\Output\ConsoleOutput: ~
-    Symfony\Component\Console\Output\OutputInterface:
-        alias: Symfony\Component\Console\Output\ConsoleOutput
+imports:
+    - { resource: 'parameters.yml' }
+    - { resource: 'services.yml' }

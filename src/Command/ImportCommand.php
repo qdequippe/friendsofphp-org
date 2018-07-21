@@ -5,8 +5,8 @@ namespace Fop\Command;
 use Fop\Entity\Group;
 use Fop\Importer\GroupsFromPhpUgImporter;
 use Fop\Importer\MeetupsFromMeetupComImporter;
+use Fop\Repository\GroupRepository;
 use Fop\Repository\MeetupRepository;
-use Fop\Repository\UserGroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -32,9 +32,9 @@ final class ImportCommand extends Command
     private $groupsFromPhpUgImporter;
 
     /**
-     * @var UserGroupRepository
+     * @var GroupRepository
      */
-    private $userGroupRepository;
+    private $groupRepository;
 
     /**
      * @var MeetupRepository
@@ -51,19 +51,26 @@ final class ImportCommand extends Command
      */
     private $symfonyStyle;
 
+    /**
+     * @var int
+     */
+    private $maxForecastDays;
+
     public function __construct(
         GroupsFromPhpUgImporter $groupsFromPhpUgImporter,
-        UserGroupRepository $userGroupRepository,
+        GroupRepository $userGroupRepository,
         MeetupRepository $meetupRepository,
         MeetupsFromMeetupComImporter $meetupsFromMeetupComImporter,
-        SymfonyStyle $symfonyStyle
+        SymfonyStyle $symfonyStyle,
+        int $maxForecastDays
     ) {
         parent::__construct();
         $this->groupsFromPhpUgImporter = $groupsFromPhpUgImporter;
-        $this->userGroupRepository = $userGroupRepository;
+        $this->groupRepository = $userGroupRepository;
         $this->meetupRepository = $meetupRepository;
         $this->meetupsFromMeetupComImporter = $meetupsFromMeetupComImporter;
         $this->symfonyStyle = $symfonyStyle;
+        $this->maxForecastDays = $maxForecastDays;
     }
 
     protected function configure(): void
@@ -104,18 +111,20 @@ final class ImportCommand extends Command
                 $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group->getName()));
             }
         }
-        $this->userGroupRepository->saveToFile($groupsByContinent);
+        $this->groupRepository->saveImportToFile($groupsByContinent);
     }
 
     private function importMeetups(): void
     {
-        $europeanGroups = $this->userGroupRepository->fetchByContinent('Europe');
+        $europeanGroups = $this->groupRepository->fetchByContinent('Europe');
 
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
         $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);
 
-        $this->symfonyStyle->note(sprintf('Loaded %d meetups', count($meetups)));
+        $this->symfonyStyle->note(
+            sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
+        );
 
-        $this->meetupRepository->saveToFile($meetups);
+        $this->meetupRepository->saveImportsToFile($meetups);
     }
 }

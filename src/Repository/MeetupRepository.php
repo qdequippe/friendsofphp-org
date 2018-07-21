@@ -10,25 +10,49 @@ final class MeetupRepository
     /**
      * @var string
      */
-    private $meetupsStorage;
+    private $importedMeetupsStorage;
 
     /**
      * @var YamlFileSystem
      */
     private $yamlFileSystem;
 
-    public function __construct(string $meetupsStorage, YamlFileSystem $yamlFileSystem)
+    public function __construct(string $importedMeetupsStorage, YamlFileSystem $yamlFileSystem)
     {
-        $this->meetupsStorage = $meetupsStorage;
+        $this->importedMeetupsStorage = $importedMeetupsStorage;
         $this->yamlFileSystem = $yamlFileSystem;
     }
 
     /**
      * @param Meetup[] $meetups
      */
-    public function saveToFile(array $meetups): void
+    public function saveImportsToFile(array $meetups): void
+    {
+        $this->saveToFileAndStorage($meetups, $this->importedMeetupsStorage);
+    }
+
+    /**
+     * @param Meetup[] $meetups
+     */
+    private function saveToFileAndStorage(array $meetups, string $storage): void
+    {
+        $meetupsYamlStructure = [
+            'parameters' => [
+                'meetups' => $this->turnsObjectsToArrays($meetups),
+            ],
+        ];
+
+        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
+    }
+
+    /**
+     * @param Meetup[] $meetups
+     * @return mixed[]
+     */
+    private function turnsObjectsToArrays(array $meetups): array
     {
         $meetupsAsArray = [];
+
         foreach ($meetups as $meetup) {
             $meetupsAsArray[] = [
                 'name' => $meetup->getName(),
@@ -43,12 +67,6 @@ final class MeetupRepository
             ];
         }
 
-        $meetupsYamlStructure = [
-            'parameters' => [
-                'meetups' => $meetupsAsArray,
-            ],
-        ];
-
-        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $this->meetupsStorage);
+        return $meetupsAsArray;
     }
 }

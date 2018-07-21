@@ -10,10 +10,16 @@ layout: "_layouts/default.twig"
 
             <br>
 
+            <h2 class="text-center">
+                Get Up and Go to Meetup, Bro
+            </h2>
+
+            <br>
+
             <table class="table table-striped">
                 <thead class="thead-inverse">
                     <tr>
-                        <th class="text-center">
+                        <th class="text-center" colspan="2">
                             <em class="fa fa-calendar fa-fw"></em>
                             When
                         </th>
@@ -30,26 +36,23 @@ layout: "_layouts/default.twig"
                 {% for meetup in meetups %}
                     {% set daysFromToday = date(meetup.start).diff(date('now')).days %}
 
-                    {# show only near future to prevent cognitive overload #}
-                    {% if daysFromToday <= 30 %}
-                        <tr>
-                            <td class="text-center{% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
-                                <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm pull-left add-to-calendar-button mr-2">
-                                    <em class="fa fa-calendar-plus-o fa-fw"></em>
-                                </a>
-
-                                <strong>{{ meetup.start|date("F j") }}</strong>
-                                &nbsp;
-                                &nbsp;
-                                <small>{{ meetup.start|date("H:i") }}</small>
-                                {#</p>#}
-                            </td>
-                            <td>{{ meetup.city }}, {{ meetup.country }}</td>
-                            <td>
-                                <a href="{{ meetup.url }}">{{ meetup.name }}</a>
-                            </td>
-                        </tr>
-                    {% endif %}
+                    <tr>
+                        <td class="text-center {% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
+                            <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm add-to-calendar-button">
+                                <em class="fa fa-calendar-plus-o fa-fw"></em>
+                            </a>
+                        </td>
+                        <td class="text-center{% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
+                            <strong>{{ meetup.start|date("F j") }}</strong>
+                            &nbsp;
+                            &nbsp;
+                            <small>{{ meetup.start|date("H:i") }}</small>
+                        </td>
+                        <td>{{ meetup.city }}, {{ meetup.country }}</td>
+                        <td>
+                            <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                        </td>
+                    </tr>
                 {% endfor %}
             </table>
 

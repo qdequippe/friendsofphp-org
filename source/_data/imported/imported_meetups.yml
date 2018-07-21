@@ -1,0 +1,92 @@
+parameters:
+    meetups:
+        -
+            name: 'Symfony User Group Cologne - July''18'
+            userGroup: 'Symfony User Group Cologne'
+            start: '2018-07-25 18:30'
+            end: '2018-07-25 22:00'
+            city: Köln
+            country: Germany
+            longitude: 6.957003
+            latitude: 50.952335
+            url: 'https://www.meetup.com/sfugcgn/events/252699045/'
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-07-25 19:00'
+            end: '2018-07-25 22:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.432104
+            latitude: 49.004978
+            url: 'https://www.meetup.com/Drupal-Karlsruhe/events/252946290/'
+        -
+            name: 'July Meetup at BossData & Beatswitch'
+            userGroup: 'Full Stack Antwerp'
+            start: '2018-07-25 19:00'
+            end: '2018-07-25 22:00'
+            city: Antwerp
+            country: Belgium
+            longitude: 4.39295
+            latitude: 51.20315
+            url: 'https://www.meetup.com/fullstackantwerp/events/249702027/'
+        -
+            name: 'NMGN.tech Juli 2018 - Moving from legacy to event-driven with Kafka'
+            userGroup: NMGN.tech
+            start: '2018-07-25 19:00'
+            end: '2018-07-25 21:00'
+            city: Nijmegen
+            country: Netherlands
+            longitude: 5.854814
+            latitude: 51.846607
+            url: 'https://www.meetup.com/NMGNtech/events/252596432/'
+        -
+            name: 'Pipelines and Generators in PHP & Doctrine ODM'
+            userGroup: 'Symfony User Group Berlin'
+            start: '2018-07-25 19:30'
+            end: '2018-07-25 22:00'
+            city: Berlin
+            country: Germany
+            longitude: 13.328264
+            latitude: 52.520927
+            url: 'https://www.meetup.com/sfugberlin/events/252672703/'
+        -
+            name: 'DeventerPHP - The developer''s model for talking to managers'
+            userGroup: DeventerPHP
+            start: '2018-08-02 18:00'
+            end: '2018-08-02 21:00'
+            city: Deventer
+            country: Netherlands
+            longitude: 6.19297
+            latitude: 52.236748
+            url: 'https://www.meetup.com/DeventerPHP/events/243014385/'
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            userGroup: 'Symfony User Group Hamburg'
+            start: '2018-08-07 18:30'
+            end: null
+            city: Hamburg
+            country: Germany
+            longitude: 10.02516
+            latitude: 53.58453
+            url: 'https://www.meetup.com/sfughh/events/245635422/'
+        -
+            name: 'August 2018 - Casual Thursday'
+            userGroup: 'PHP Dublin'
+            start: '2018-08-09 20:00'
+            end: '2018-08-09 23:00'
+            city: Dublin
+            country: Ireland
+            longitude: -6.25105
+            latitude: 53.350094
+            url: 'https://www.meetup.com/PHP-Dublin/events/252903151/'
+        -
+            name: 'PHPAmersfoort 5 year anniversary'
+            userGroup: PHPAmersfoort
+            start: '2018-08-14 18:00'
+            end: '2018-08-14 22:30'
+            city: Amersfoort
+            country: Netherlands
+            longitude: 5.374795
+            latitude: 52.152905
+            url: 'https://www.meetup.com/PHPAmersfoort/events/250771529/'

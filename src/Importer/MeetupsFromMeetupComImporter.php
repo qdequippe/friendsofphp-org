@@ -12,11 +12,6 @@ use Nette\Utils\DateTime;
 final class MeetupsFromMeetupComImporter
 {
     /**
-     * @var DateTimeInterface
-     */
-    private $nowDateTime;
-
-    /**
      * @var MeetupComApi
      */
     private $meetupComApi;
@@ -26,9 +21,14 @@ final class MeetupsFromMeetupComImporter
      */
     private $groupsHavingMeetup = [];
 
-    public function __construct(MeetupComApi $meetupComApi)
+    /**
+     * @var DateTimeInterface
+     */
+    private $maxForecastDateTime;
+
+    public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi)
     {
-        $this->nowDateTime = DateTime::from('now');
+        $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
         $this->meetupComApi = $meetupComApi;
     }
 
@@ -60,9 +60,15 @@ final class MeetupsFromMeetupComImporter
     private function shouldSkipMeetup(TimeSpan $timeSpan, array $meetup): bool
     {
         // skip past meetups
-        if ($timeSpan->getStartDateTime() < $this->nowDateTime) {
+        if ($meetup['status'] !== 'upcoming') {
             return true;
         }
+
+        // skip meetups to far in the future
+        if ($timeSpan->getStartDateTime() > $this->maxForecastDateTime) {
+            return true;
+        }
+
         // draft event, not ready yet
         if (! isset($meetup['venue'])) {
             return true;

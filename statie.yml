@@ -1,5 +1,7 @@
 imports:
-    - { resource: 'source/_data/*.yml' }
+    - { resource: 'source/_data/meetups.yml' }
+    - { resource: 'source/_data/groups.yml' }
+    - { resource: 'src/config/parameters.yml' }
 
 parameters:
     site_title: 'European PHP Meetups at 1 place'
@@ -9,7 +11,7 @@ parameters:
     # setup & manage here: https://console.cloud.google.com/apis/credentials
     google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'
 
-    # open
+    # open street map setup
     map:
         europe:
             location:
