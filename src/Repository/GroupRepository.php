@@ -23,8 +23,12 @@ final class GroupRepository
      */
     private $importedGroupsStorage;
 
-    public function __construct(string $groupsStorage, string $importedGroupsStorage, YamlFileSystem $yamlFileSystem, ParametersMergingYamlLoader $parametersMergingYamlLoader)
-    {
+    public function __construct(
+        string $groupsStorage,
+        string $importedGroupsStorage,
+        YamlFileSystem $yamlFileSystem,
+        ParametersMergingYamlLoader $parametersMergingYamlLoader
+    ) {
         $this->importedGroupsStorage = $importedGroupsStorage;
 
         $parameterBag = $parametersMergingYamlLoader->loadParameterBagFromFile($groupsStorage);
