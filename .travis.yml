@@ -6,7 +6,7 @@ install:
     - composer update
 
 script:
-    - vendor/bin/phpunit  --coverage-clover coverage.xml
+    - vendor/bin/phpunit --coverage-clover coverage.xml
 
     # coding standard run
     - composer check-cs
@@ -19,11 +19,8 @@ script:
 
 after_script:
     # upload coverage.xml file to Coveralls to analyze it
-    - |
-        if [[ $PHPUNIT_FLAGS != "" ]]; then
-            wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar;
-            php coveralls.phar --verbose;
-        fi
+    - wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar
+    - php php-coveralls.phar --verbose
 
 # see docs: https://www.statie.org/docs/github-pages/
 deploy:
