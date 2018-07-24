@@ -15,6 +15,11 @@ parameters:
     map:
         europe:
             location:
-                latitude: 51.10
-                longitude: 8.12
-            zoom: 6
+                # use bounds to fit map into display and satisfy both mobile and desktop
+                # https://leafletjs.com/reference-1.3.2.html#fitbounds-options
+                top_left_bound:
+                    latitude: 54.14
+                    longitude: -4.16
+                bottom_right_bound:
+                    latitude: 48.10
+                    longitude: 14.45
