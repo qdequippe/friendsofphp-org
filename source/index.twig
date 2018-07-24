@@ -106,10 +106,20 @@ layout: "_layouts/default.twig"
                     grouped[marker.location].markers.push(marker);
                 }
 
-                var map = L.map('mapid').setView(
-                    [{{ map.europe.location.latitude }}, {{ map.europe.location.longitude }}],
-                    {{ map.europe.zoom }}
+                var map = L.map('mapid');
+
+                // fit to bounds, so pc and mobile have sime content
+                // https://leafletjs.com/reference-1.3.2.html#latlngbounds
+                var topLeftBound = L.latLng(
+                    {{ map.europe.location.top_left_bound.latitude }},
+                    {{ map.europe.location.top_left_bound.longitude }}
                 );
+                var bottomRightBound = L.latLng(
+                    {{ map.europe.location.bottom_right_bound.latitude }},
+                    {{ map.europe.location.bottom_right_bound.longitude }}
+                );
+                var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
+                map.fitBounds(bounds);
 
                 // required and nice to have promotion
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
