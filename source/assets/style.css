@@ -1,7 +1,7 @@
 body {
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
     color: #333;
-    font-size: 17px;
+    font-size: 19px;
     line-height: 1.5em;
 }
 
@@ -54,4 +54,8 @@ body {
 
 .add-to-calendar-button {
     margin-top: -.2em;
+}
+
+p {
+    font-size: 1em;
 }
