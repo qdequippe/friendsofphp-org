@@ -11,7 +11,7 @@ services:
 
     Fop\:
         resource: '../'
-        exclude: '../{Entity}'
+        exclude: '../{Entity,DependencyInjection/FopKernel.php}'
 
     Symfony\Component\Console\Application:
         public: true

@@ -7,6 +7,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\PublicForTestsCompilerPass;
 
 final class FopKernel extends Kernel
 {
@@ -36,5 +37,6 @@ final class FopKernel extends Kernel
     protected function build(ContainerBuilder $containerBuilder): void
     {
         $containerBuilder->addCompilerPass(new CollectorCompilerPass());
+        $containerBuilder->addCompilerPass(new PublicForTestsCompilerPass());
     }
 }
