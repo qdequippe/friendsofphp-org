@@ -50,29 +50,6 @@ final class MeetupComApi
         return $result['results'];
     }
 
-    /**
-     * @param int[] $groupIds
-     */
-    private function createUrlFromGroupIds(array $groupIds): string
-    {
-        $groupIdsAsString = implode(',', $groupIds);
-
-        return self::API_EVENTS_BY_GROUPS_URL . '?' . build_query([
-            # https://www.meetup.com/meetup_api/docs/2/events/#params
-            'group_id' => $groupIdsAsString,
-            # https://www.meetup.com/meetup_api/auth/#keys
-            'key' => $this->meetupComApiKey,
-        ]);
-    }
-
-    /**
-     * @return mixed
-     */
-    private function getResultFromResponse(ResponseInterface $response)
-    {
-        return Json::decode($response->getBody(), Json::FORCE_ARRAY);
-    }
-
     public function getIdForGroupUrl(string $url): ?int
     {
         try {
@@ -100,6 +77,29 @@ final class MeetupComApi
         $response = $this->client->request('get', self::API_GROUP_DETAIL_URL . $groupPart);
 
         return $this->getResultFromResponse($response);
+    }
+
+    /**
+     * @param int[] $groupIds
+     */
+    private function createUrlFromGroupIds(array $groupIds): string
+    {
+        $groupIdsAsString = implode(',', $groupIds);
+
+        return self::API_EVENTS_BY_GROUPS_URL . '?' . build_query([
+            # https://www.meetup.com/meetup_api/docs/2/events/#params
+            'group_id' => $groupIdsAsString,
+            # https://www.meetup.com/meetup_api/auth/#keys
+            'key' => $this->meetupComApiKey,
+        ]);
+    }
+
+    /**
+     * @return mixed
+     */
+    private function getResultFromResponse(ResponseInterface $response)
+    {
+        return Json::decode($response->getBody(), Json::FORCE_ARRAY);
     }
 
     private function resolveGroupUrlNameFromGroupUrl(string $url): string

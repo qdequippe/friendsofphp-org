@@ -26,11 +26,6 @@ final class Meetup
      */
     private $timeSpan;
 
-    public function getLocatoin(): Location
-    {
-        return $this->location;
-    }
-
     /**
      * @var Location
      */
@@ -48,6 +43,11 @@ final class Meetup
         $this->location = $location;
         $this->url = $url;
         $this->timeSpan = $timeSpan;
+    }
+
+    public function getLocatoin(): Location
+    {
+        return $this->location;
     }
 
     public function getUrl(): string

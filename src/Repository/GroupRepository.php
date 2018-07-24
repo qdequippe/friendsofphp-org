@@ -46,6 +46,14 @@ final class GroupRepository
     }
 
     /**
+     * @return mixed[]
+     */
+    public function fetchByContinent(string $continent): array
+    {
+        return $this->groups[strtolower($continent)] ?? [];
+    }
+
+    /**
      * @param Group[][] $groupsByContinent
      */
     private function saveToFileAndStorage(array $groupsByContinent, string $storage): void
@@ -57,14 +65,6 @@ final class GroupRepository
         ];
 
         $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function fetchByContinent(string $continent): array
-    {
-        return $this->groups[strtolower($continent)] ?? [];
     }
 
     /**
