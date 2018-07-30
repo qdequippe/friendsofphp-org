@@ -33,7 +33,7 @@
         "fix-cs": "vendor/bin/ecs check bin src tests --fix",
         "phpstan": "vendor/bin/phpstan analyse bin src tests --level max",
         "generate": [
-            "bin/fop import --meetup",
+            "bin/fop import --meetups",
             "vendor/bin/statie generate source"
         ]
     },
