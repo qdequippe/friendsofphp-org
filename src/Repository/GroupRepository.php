@@ -4,7 +4,7 @@ namespace Fop\Repository;
 
 use Fop\Entity\Group;
 use Fop\FileSystem\YamlFileSystem;
-use Symplify\PackageBuilder\Yaml\ParametersMergingYamlLoader;
+use Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader;
 
 final class GroupRepository
 {
@@ -27,11 +27,11 @@ final class GroupRepository
         string $groupsStorage,
         string $importedGroupsStorage,
         YamlFileSystem $yamlFileSystem,
-        ParametersMergingYamlLoader $parametersMergingYamlLoader
+        ParameterMergingYamlLoader $parameterMergingYamlLoader
     ) {
         $this->importedGroupsStorage = $importedGroupsStorage;
 
-        $parameterBag = $parametersMergingYamlLoader->loadParameterBagFromFile($groupsStorage);
+        $parameterBag = $parameterMergingYamlLoader->loadParameterBagFromFile($groupsStorage);
         $this->groups = $parameterBag->get('groups');
 
         $this->yamlFileSystem = $yamlFileSystem;
