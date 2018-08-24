@@ -36,7 +36,5 @@
             "bin/fop import --meetups",
             "vendor/bin/statie generate source"
         ]
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
