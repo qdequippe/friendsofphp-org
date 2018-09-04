@@ -58,7 +58,7 @@ final class MeetupRepository
                 'name' => $meetup->getName(),
                 'userGroup' => $meetup->getUserGroup(),
                 'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
-                'end' => ($meetup->getEndDateTime() !== null) ? $meetup->getEndDateTime()->format('Y-m-d H:i') : null,
+                'end' => $meetup->getEndDateTime() !== null ? $meetup->getEndDateTime()->format('Y-m-d H:i') : null,
                 'city' => $meetup->getLocatoin()->getCity(),
                 'country' => $meetup->getLocatoin()->getCountry(),
                 'longitude' => $meetup->getLocatoin()->getLongitude(),

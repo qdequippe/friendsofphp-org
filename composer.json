@@ -5,18 +5,18 @@
         "guzzlehttp/guzzle": "^6.3",
         "symfony/var-dumper": "^4.1",
         "nette/utils": "^2.5",
-        "symplify/statie": "^4.5",
-        "symplify/package-builder": "^4.6",
+        "symplify/statie": "^4.7",
+        "symplify/package-builder": "^4.7",
         "rinvex/country": "^3.1",
         "symfony/console": "^4.1",
         "symfony/dependency-injection": "^4.1",
         "symfony/http-kernel": "^4.1"
     },
     "require-dev": {
-        "symplify/easy-coding-standard": "^4.5",
+        "symplify/easy-coding-standard": "^4.7",
         "slam/php-cs-fixer-extensions": "^1.16",
-        "phpstan/phpstan": "0.10.1",
-        "phpunit/phpunit": "^7.2"
+        "phpstan/phpstan": "^0.10.3",
+        "phpunit/phpunit": "^7.3"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +33,7 @@
         "fix-cs": "vendor/bin/ecs check bin src tests --fix",
         "phpstan": "vendor/bin/phpstan analyse bin src tests --level max",
         "generate": [
-            "bin/fop import --meetups",
+            "bin/fop meetup-com-import",
             "vendor/bin/statie generate source"
         ]
     }

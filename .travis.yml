@@ -2,11 +2,17 @@ language: php
 
 php: 7.2
 
+before_install:
+    # configure timezone: https://stackoverflow.com/a/27052708/1348344
+    - date
+    - export TZ=Europe/Prague
+    - date
+
 install:
     - composer update
 
 script:
-    - vendor/bin/phpunit --coverage-clover coverage.xml
+    - vendor/bin/phpunit
 
     # coding standard run
     - composer check-cs
@@ -16,11 +22,6 @@ script:
 
     # generate website to "/output" directory, it will be deployed later in "deploy" + imports groups and meetups
     - composer generate
-
-after_script:
-    # upload coverage.xml file to Coveralls to analyze it
-    - wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.1.0/php-coveralls.phar
-    - php php-coveralls.phar --verbose
 
 # see docs: https://www.statie.org/docs/github-pages/
 deploy:

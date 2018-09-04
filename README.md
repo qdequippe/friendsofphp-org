@@ -15,10 +15,10 @@ npm install
 
 ```markdown
 # imports groups from http://php.ug
-bin/fop import --groups 
+bin/fop php-ug-import 
 
 # based on groups, import meetups from https://meetup.com
-bin/fop import --meetups
+bin/fop meetup-com-import
 ```
 
 ## Run the website
