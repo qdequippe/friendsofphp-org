@@ -1,7 +1,6 @@
 parameters:
     groups:
         europe:
-
             # imported from php.ug
             -
                 name: 'Symfony User Group Stuttgart'
