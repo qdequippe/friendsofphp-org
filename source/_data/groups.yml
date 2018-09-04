@@ -20,3 +20,8 @@ parameters:
                 meetup_com_id: 19114422
                 meetup_com_url: 'https://www.meetup.com/Symfony-Bucharest/'
                 country: 'Romania'
+            -
+                name: 'Bucharest PHP Meetup'
+                meetup_com_id: 27698424
+                meetup_com_url: 'https://www.meetup.com/Bucharest-PHP-Meetup/'
+                country: 'Romania'
