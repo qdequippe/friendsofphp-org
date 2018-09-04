@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class GroupDetailCommand extends Command
+final class MeetupComGroupDetailCommand extends Command
 {
     /**
      * @var string
@@ -47,6 +47,9 @@ final class GroupDetailCommand extends Command
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
+        $this->setDescription(
+            'Shows details for meetup group, use like "bin/fop meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/"'
+        );
         $this->addArgument(
             self::ARGUMENT_GROUP_URL,
             InputArgument::REQUIRED,
