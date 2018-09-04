@@ -32,4 +32,4 @@ deploy:
     local_dir: output
 
 notifications:
-    email: newer
+    email: false

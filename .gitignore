@@ -1,5 +1,4 @@
-config/config.local.yml
 /output
 /vendor
-composer.lock
 /node_modules
+composer.lock
