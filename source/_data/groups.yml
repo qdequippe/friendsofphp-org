@@ -5,15 +5,18 @@ imports:
 parameters:
     groups:
         europe:
-            # Berlin, Germany
             -
                 name: 'Berlin PHP Usergroup'
                 meetup_com_id: 20148431
                 meetup_com_url: 'https://www.meetup.com/Berlin-PHP-Usergroup/'
                 country: Germany
-            # Prague, Czech Republic
             -
                 name: 'Friends of PHP - Prague'
                 meetup_com_id: 29709429
                 meetup_com_url: 'https://www.meetup.com/friends-of-php-prague/'
                 country: 'Czech Republic'
+            -
+                name: 'Symfony Bucharest'
+                meetup_com_id: 19114422
+                meetup_com_url: 'https://www.meetup.com/Symfony-Bucharest/'
+                country: 'Romania'
