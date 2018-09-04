@@ -13,9 +13,6 @@ services:
     # class should be Abstact or Final
     SlamCsFixer\FinalInternalClassFixer: ~
 
-    # nulling from psr12.yml fixed in ECS 4.6-dev
-    PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer:
-
 parameters:
     exclude_checkers:
         # mutually conflicting
