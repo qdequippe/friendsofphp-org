@@ -2,6 +2,12 @@ language: php
 
 php: 7.2
 
+before_install:
+    # configure timezone: https://stackoverflow.com/a/27052708/1348344
+    - date
+    - export TZ=Europe/Prague
+    - date
+
 install:
     - composer update
 
