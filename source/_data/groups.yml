@@ -5,6 +5,7 @@ imports:
 parameters:
     groups:
         europe:
+            # Berlin, Germany
             -
                 name: 'Berlin PHP Usergroup'
                 meetup_com_id: 20148431

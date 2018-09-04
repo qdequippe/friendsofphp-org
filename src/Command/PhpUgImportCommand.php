@@ -42,6 +42,7 @@ final class PhpUgImportCommand extends Command
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
+        $this->setDescription('Import groups from php.ug.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): void

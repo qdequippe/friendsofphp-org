@@ -2,7 +2,6 @@
 
 namespace Fop\Command;
 
-use Fop\Importer\GroupsFromPhpUgImporter;
 use Fop\Importer\MeetupsFromMeetupComImporter;
 use Fop\Repository\GroupRepository;
 use Fop\Repository\MeetupRepository;
@@ -40,7 +39,6 @@ final class MeetupComImportCommand extends Command
     private $maxForecastDays;
 
     public function __construct(
-        GroupsFromPhpUgImporter $groupsFromPhpUgImporter,
         GroupRepository $userGroupRepository,
         MeetupRepository $meetupRepository,
         MeetupsFromMeetupComImporter $meetupsFromMeetupComImporter,
@@ -48,7 +46,6 @@ final class MeetupComImportCommand extends Command
         int $maxForecastDays
     ) {
         parent::__construct();
-        $this->groupsFromPhpUgImporter = $groupsFromPhpUgImporter;
         $this->groupRepository = $userGroupRepository;
         $this->meetupRepository = $meetupRepository;
         $this->meetupsFromMeetupComImporter = $meetupsFromMeetupComImporter;
@@ -59,6 +56,7 @@ final class MeetupComImportCommand extends Command
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
+        $this->setDescription('Import meetups from meetup.com based on group ids.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): void
