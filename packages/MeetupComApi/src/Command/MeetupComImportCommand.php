@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\MeetupComApi\Command;
 
 use Fop\Importer\MeetupsFromMeetupComImporter;
 use Fop\Repository\GroupRepository;

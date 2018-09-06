@@ -1,0 +1,7 @@
+services:
+    _defaults:
+        autowire: true
+        public: true
+
+    Fop\MeetupComApi\:
+        resource: ".."

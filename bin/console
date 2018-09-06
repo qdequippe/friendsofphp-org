@@ -6,10 +6,8 @@ use Symfony\Component\Console\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$containerFactory = new ContainerFactory();
-$container = $containerFactory->create();
+$container = (new ContainerFactory())->create();
 
 /** @var Application $application */
 $application = $container->get(Application::class);
 $application->run();
-

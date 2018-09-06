@@ -22,6 +22,7 @@ final class FopKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load(__DIR__ . '/../config/config.yml');
+        $loader->load(__DIR__ . '/../../packages/*/config/config.yml', 'glob');
     }
 
     public function getCacheDir(): string
@@ -39,4 +40,6 @@ final class FopKernel extends Kernel
         $containerBuilder->addCompilerPass(new CollectorCompilerPass());
         $containerBuilder->addCompilerPass(new PublicForTestsCompilerPass());
     }
+
+    // @todo add merge paramters loader
 }

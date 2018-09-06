@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\MeetupComApi\Command;
 
-use Fop\Api\MeetupComApi;
 use Fop\Country\CountryResolver;
+use Fop\MeetupComApi\Api\MeetupComApi;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
