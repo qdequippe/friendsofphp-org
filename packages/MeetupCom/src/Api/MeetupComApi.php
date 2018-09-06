@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\MeetupComApi\Api;
+namespace Fop\MeetupCom\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;

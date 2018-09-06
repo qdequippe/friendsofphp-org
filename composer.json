@@ -22,7 +22,7 @@
     "autoload": {
         "psr-4": {
             "Fop\\": "src",
-            "Fop\\MeetupComApi\\": "packages/MeetupComApi/src"
+            "Fop\\MeetupCom\\": "packages/MeetupComApi/src"
         }
     },
     "autoload-dev": {

@@ -3,5 +3,5 @@ services:
         autowire: true
         public: true
 
-    Fop\MeetupComApi\:
+    Fop\MeetupCom\:
         resource: ".."
