@@ -3,7 +3,7 @@
 namespace Fop\Importer;
 
 use DateTimeInterface;
-use Fop\Api\MeetupComApi;
+use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Entity\TimeSpan;

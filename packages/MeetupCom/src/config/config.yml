@@ -1,2 +1,5 @@
 imports:
     - { resource: 'services.yml' }
+
+parameters:
+    meetup_com_api_key: ''

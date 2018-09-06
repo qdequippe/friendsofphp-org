@@ -30,4 +30,4 @@ parameters:
 # https://www.meetup.com/Laravel-Frameworkers-Vienna/
 
 # 2. @todo add all groups foudn via simple search :)
-        https://www.meetup.com/find/?allMeetups=false&keywords=php&radius=Infinity&userFreeform=Brno%2C+Czech+Republic&mcId=z1007436&mcName=Brno%2C+CZ&sort=recommended&eventFilter=mysugg
+#       https://www.meetup.com/find/?allMeetups=false&keywords=php&radius=Infinity&userFreeform=Brno%2C+Czech+Republic&mcId=z1007436&mcName=Brno%2C+CZ&sort=recommended&eventFilter=mysugg

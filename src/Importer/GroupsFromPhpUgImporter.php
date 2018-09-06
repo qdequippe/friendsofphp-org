@@ -2,7 +2,7 @@
 
 namespace Fop\Importer;
 
-use Fop\Api\MeetupComApi;
+use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
 use Fop\Entity\Group;
