@@ -80,6 +80,18 @@ final class MeetupComApi
     }
 
     /**
+     * @return mixed[]
+     */
+    public function findMeetupsGroupsByKeyword(string $keyword): array
+    {
+        $url = sprintf('http://api.meetup.com/topics?search=%s&only=id,name&key=%s', $keyword, $this->meetupComApiKey);
+        $response = $this->client->request('GET', $url);
+        $result = $this->getResultFromResponse($response);
+
+        return $result['results'];
+    }
+
+    /**
      * @param int[] $groupIds
      */
     private function createUrlFromGroupIds(array $groupIds): string

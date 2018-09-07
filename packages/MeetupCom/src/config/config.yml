@@ -3,3 +3,4 @@ imports:
 
 parameters:
     meetup_com_api_key: ''
+    found_meetups_storage_file: '%kernel.project_dir%/source/_data/generated/found_meetups.yml'

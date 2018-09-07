@@ -2,10 +2,10 @@
 
 namespace Fop\Importer;
 
-use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
 use Fop\Entity\Group;
+use Fop\MeetupCom\Api\MeetupComApi;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
 

@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class MeetupComGroupDetailCommand extends Command
+final class ShowMeetupDetailCommand extends Command
 {
     /**
      * @var string

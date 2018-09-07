@@ -2,9 +2,8 @@
 
 namespace Fop\MeetupCom\Command;
 
-use Fop\Importer\MeetupsFromMeetupComImporter;
-use Fop\Repository\GroupRepository;
-use Fop\Repository\MeetupRepository;
+use Fop\FileSystem\YamlFileSystem;
+use Fop\MeetupCom\Api\MeetupComApi;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -14,43 +13,36 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class SearchPhpGroupsCommand extends Command
 {
     /**
-     * @var GroupRepository
-     */
-    private $groupRepository;
-
-    /**
-     * @var MeetupRepository
-     */
-    private $meetupRepository;
-
-    /**
-     * @var MeetupsFromMeetupComImporter
-     */
-    private $meetupsFromMeetupComImporter;
-
-    /**
      * @var SymfonyStyle
      */
     private $symfonyStyle;
 
     /**
-     * @var int
+     * @var MeetupComApi
      */
-    private $maxForecastDays;
+    private $meetupComApi;
+
+    /**
+     * @var YamlFileSystem
+     */
+    private $yamlFileSystem;
+
+    /**
+     * @var string
+     */
+    private $foundMeetupsStorageFile;
 
     public function __construct(
-        GroupRepository $userGroupRepository,
-        MeetupRepository $meetupRepository,
-        MeetupsFromMeetupComImporter $meetupsFromMeetupComImporter,
+        MeetupComApi $meetupComApi,
         SymfonyStyle $symfonyStyle,
-        int $maxForecastDays
+        YamlFileSystem $yamlFileSystem,
+        string $foundMeetupsStorageFile
     ) {
         parent::__construct();
-        $this->groupRepository = $userGroupRepository;
-        $this->meetupRepository = $meetupRepository;
-        $this->meetupsFromMeetupComImporter = $meetupsFromMeetupComImporter;
+        $this->meetupComApi = $meetupComApi;
         $this->symfonyStyle = $symfonyStyle;
-        $this->maxForecastDays = $maxForecastDays;
+        $this->yamlFileSystem = $yamlFileSystem;
+        $this->foundMeetupsStorageFile = $foundMeetupsStorageFile;
     }
 
     protected function configure(): void
@@ -61,26 +53,16 @@ final class SearchPhpGroupsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
+        $this->symfonyStyle->note('Searching meetups with "php" from meetup.com');
 
-        dump('EE');
-        die;
+        $foundMeetups = $this->meetupComApi->findMeetupsGroupsByKeyword('php');
+        $data = [
+            'parameters' => [
+                'meetups' => $foundMeetups,
+            ],
+        ];
+        $this->yamlFileSystem->saveArrayToFile($data, $this->foundMeetupsStorageFile);
 
-        $this->symfonyStyle->note('Importing meetups from meetup.com');
-        $this->importMeetups();
-        $this->symfonyStyle->success('Done');
-    }
-
-    private function importMeetups(): void
-    {
-        $europeanGroups = $this->groupRepository->fetchByContinent('Europe');
-
-        $groupIds = array_column($europeanGroups, 'meetup_com_id');
-        $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);
-
-        $this->symfonyStyle->note(
-            sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
-        );
-
-        $this->meetupRepository->saveImportsToFile($meetups);
+        $this->symfonyStyle->success(sprintf('Done - %d meetups added', count($foundMeetups)));
     }
 }

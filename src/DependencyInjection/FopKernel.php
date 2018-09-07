@@ -22,8 +22,8 @@ final class FopKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
-        $loader->load(__DIR__ . '/../config/config.yml');
         $loader->load(__DIR__ . '/../../packages/*/src/config/config.yml', 'glob');
+        $loader->load(__DIR__ . '/../config/config.yml');
     }
 
     public function getCacheDir(): string
