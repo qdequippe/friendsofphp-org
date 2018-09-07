@@ -10,3 +10,28 @@ parameters:
             bottom_right:
                 latitude: 36
                 longitude: 26.126861
+
+        north_america:
+            top_left:
+                latitude: 51.553718
+                longitude: -130.547382
+            bottom_right:
+                latitude: 17.094802
+                longitude: -77.827630
+
+        south_america:
+            top_left:
+                latitude: 6.021085
+                longitude: -88.334293
+            bottom_right:
+                latitude: -42.100410
+                longitude: -32.290539
+
+        # central around Singapore
+        asia:
+            top_left:
+                latitude: 38.111852
+                longitude: 71.058463
+            bottom_right:
+                latitude: -8.613086
+                longitude: 135.196262

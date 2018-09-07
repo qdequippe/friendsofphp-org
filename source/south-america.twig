@@ -1,0 +1,20 @@
+---
+title: "South America"
+layout: "_layouts/default.twig"
+id: "south_america"
+---
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {% include "_snippets/area_menu.twig" %}
+
+            <div id="mapid"></div>
+
+            <br>
+
+            {% include "_snippets/meetups_table.twig" with {'area': areas.south_america } %}
+            {% include "_snippets/meetups_map.twig" with {'area': areas.south_america } %}
+        </div>
+    </div>
+{% endblock %}
