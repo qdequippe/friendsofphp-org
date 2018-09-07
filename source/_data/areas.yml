@@ -35,3 +35,19 @@ parameters:
             bottom_right:
                 latitude: -8.613086
                 longitude: 135.196262
+
+        africa:
+            top_left:
+                latitude: 34.141898
+                longitude: -15.133246
+            bottom_right:
+                latitude: -26.016419
+                longitude: 52.492083
+
+        australia:
+            top_left:
+                latitude: -3.992096
+                longitude: 111.481468
+            bottom_right:
+                latitude: -45.041243
+                longitude: 177.328030
