@@ -1,0 +1,160 @@
+---
+title: "Friends of PHP in America"
+layout: "_layouts/default.twig"
+---
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div id="mapid"></div>
+
+            <br>
+
+            {# snippet #}
+            <table class="table table-striped">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th class="text-center" colspan="2">
+                            <em class="fa fa-calendar fa-fw"></em>
+                            When
+                        </th>
+                        <th class="text-center">
+                            <em class="fa fa-map-marker fa-fw"></em>
+                            Where
+                        </th>
+                        <th class="text-center">
+                            <em class="fa fa-meetup fa-fw"></em>
+                            Meetup
+                        </th>
+                    </tr>
+                </thead>
+                {% for meetup in meetups %}
+                    {% set daysFromToday = date(meetup.start).diff(date('now')).days %}
+
+                    <tr>
+                        <td class="text-center {% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
+                            <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm add-to-calendar-button">
+                                <em class="fa fa-calendar-plus-o fa-fw"></em>
+                            </a>
+                        </td>
+                        <td class="text-center{% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
+                            <strong>{{ meetup.start|date("F j") }}</strong>
+                            &nbsp;
+                            &nbsp;
+                            <small>{{ meetup.start|date("H:i") }}</small>
+                        </td>
+                        <td>{{ meetup.city }}, {{ meetup.country }}</td>
+                        <td>
+                            <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            {# open maps start #}
+
+            <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
+                    integrity="sha512-2fA79E27MOeBgLjmBrtAgM/20clVSV8vJERaW/EcnnWCVGwQRazzKtQS1kIusCZv1PtaQxosDZZ0F1Oastl55w=="
+                    crossorigin=""></script>
+
+            {# @todo snippet #}
+            <script type="text/javascript">
+                var icons = {
+                    in_a_week: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+                    in_a_month: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png'
+                };
+
+                var markers = [
+                    {% set markers %}
+                        {% for meetup in meetups %}
+                            {% set daysFromToday = date(meetup.start).diff(date('now')).days %}
+
+                            {# show only near future to prevent cognitive overload #}
+                            {% if daysFromToday <= 30 %}
+                                {
+                                    "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
+                                    "title": "{{ meetup.name }}",
+                                    "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
+                                    "date": "{{ meetup.start|date("F j") }}",
+                                    "location": "{{ meetup.city }}, {{ meetup.country }}",
+                                    "link": "{{ meetup.url }}"
+                                },
+                            {% endif %}
+                        {% endfor %}
+                    {% endset %}
+
+                    {{ markers|trim|trim(',', 'right')|raw }}
+                ];
+
+                var grouped = {};
+
+                for (var i in markers) {
+                    var marker = markers[i];
+
+                    if (typeof grouped[marker.location] == 'undefined') {
+                        grouped[marker.location] = {
+                            type: marker.type,
+                            position: marker.position,
+                            markers: []
+                        };
+                    }
+
+                    grouped[marker.location].markers.push(marker);
+                }
+
+                var map = L.map('mapid');
+
+                // fit to bounds, so pc and mobile have sime content
+                // https://leafletjs.com/reference-1.3.2.html#latlngbounds
+                var topLeftBound = L.latLng(
+                    {{ areas.europe.top_left.latitude }},
+                    {{ areas.europe.top_left.longitude }}
+                );
+                var bottomRightBound = L.latLng(
+                    {{ areas.europe.bottom_right.latitude }},
+                    {{ areas.europe.bottom_right.longitude }}
+                );
+                var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
+                map.fitBounds(bounds);
+
+                // required and nice to have promotion
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                for (var i in grouped) {
+                    var group = grouped[i];
+
+                    var description = '';
+                    for (var j in group.markers) {
+                        var marker = group.markers[j];
+
+                        var link = marker.title+' (finished)';
+                        if (! marker.finished) {
+                            link = '<a class="text-bold block" href="'+marker.link+'" target="_blank" rel="noreferrer noopener">'+marker.title+'</a>';
+                        }
+
+                        description +=
+                            '<p class="m-b-5" style="font-size: 14px">' + link + '</p>' +
+                            '<p class="text-small m-b-5 m-t-0">' + marker.location + '</p>' +
+                            '<p class="text-small m-b-15 m-t-0">' + marker.date + '</p>'
+                        ;
+                    }
+
+                    var icon = new L.Icon({
+                        iconUrl: icons[group.type],
+                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
+                    });
+
+                    L.marker(group.position, { icon: icon }).bindPopup(description).addTo(map);
+                }
+            </script>
+
+            {# open maps end #}
+        </div>
+    </div>
+{% endblock %}

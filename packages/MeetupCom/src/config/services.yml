@@ -5,3 +5,5 @@ services:
 
     Fop\MeetupCom\:
         resource: ".."
+
+    GuzzleHttp\Client:

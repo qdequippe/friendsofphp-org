@@ -1,6 +1,5 @@
 imports:
-    - { resource: 'source/_data/meetups.yml' }
-    - { resource: 'source/_data/groups.yml' }
+    - { resource: 'source/_data/*.yml' }
     - { resource: 'src/config/parameters.yml' }
 
 parameters:
@@ -11,15 +10,5 @@ parameters:
     # setup & manage here: https://console.cloud.google.com/apis/credentials
     google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'
 
-    # open street map setup
-    map:
-        europe:
-            location:
-                # use bounds to fit map into display and satisfy both mobile and desktop
-                # https://leafletjs.com/reference-1.3.2.html#fitbounds-options
-                top_left_bound:
-                    latitude: 54.14
-                    longitude: -4.16
-                bottom_right_bound:
-                    latitude: 48.10
-                    longitude: 14.45
+services:
+    Fop\MeetupCom\Twig\MeetupAreaMatchFilterProvider: ~
