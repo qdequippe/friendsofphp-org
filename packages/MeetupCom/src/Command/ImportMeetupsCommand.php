@@ -68,7 +68,7 @@ final class ImportMeetupsCommand extends Command
 
     private function importMeetups(): void
     {
-        $europeanGroups = $this->groupRepository->fetchByContinent('Europe');
+        $europeanGroups = $this->groupRepository->fetchAll();
 
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
         $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);

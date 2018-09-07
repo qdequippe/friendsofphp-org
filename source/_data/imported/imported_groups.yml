@@ -1,508 +1,503 @@
 parameters:
     groups:
-        europe:
-            # imported from php.ug
-            -
-                name: 'Symfony User Group Stuttgart'
-                meetup_com_id: 4197452
-                meetup_com_url: 'https://www.meetup.com/sfugstr/'
-                country: Germany
-            -
-                name: 'Symfony User Group Hamburg'
-                meetup_com_id: 3262432
-                meetup_com_url: 'https://www.meetup.com/sfughh/'
-                country: Germany
-            -
-                name: 'Symfony User Group Cologne'
-                meetup_com_id: 2789772
-                meetup_com_url: 'https://www.meetup.com/sfugcgn'
-                country: Germany
-            -
-                name: 'Salzburg Web Dev'
-                meetup_com_id: 4033532
-                meetup_com_url: 'https://www.meetup.com/de-DE/salzburgwebdev/'
-                country: Austria
-            -
-                name: Vienna
-                meetup_com_id: 8251612
-                meetup_com_url: 'http://www.meetup.com/viennaphp'
-                country: Austria
-            -
-                name: 'Laravel Brussels'
-                meetup_com_id: 10013052
-                meetup_com_url: 'https://www.meetup.com/Laravel-Brussels/'
-                country: Belgium
-            -
-                name: 'PHP Limburg BE'
-                meetup_com_id: 18393172
-                meetup_com_url: 'http://www.meetup.com/Hasselt-PHP-Meetup'
-                country: Belgium
-            -
-                name: 'PHP Leuven - Web Innovation Group'
-                meetup_com_id: 18381650
-                meetup_com_url: 'http://www.meetup.com/PHP-Leuven-Web-Innovation-Group/'
-                country: Belgium
-            -
-                name: BrusselsPHP
-                meetup_com_id: 18227031
-                meetup_com_url: 'http://www.meetup.com/Brussels-PHP-Meetup/'
-                country: Belgium
-            -
-                name: 'Symfony User Group Belgium'
-                meetup_com_id: 11031632
-                meetup_com_url: 'http://www.meetup.com/Symfony-User-Group-Belgium/'
-                country: Belgium
-            -
-                name: 'PHP Antwerp'
-                meetup_com_id: 18624482
-                meetup_com_url: 'http://www.meetup.com/phpantwerp/'
-                country: Belgium
-            -
-                name: 'PHP Varna'
-                meetup_com_id: 23601198
-                meetup_com_url: 'https://meetup.com/phpvarna'
-                country: Bulgaria
-            -
-                name: Copenhagen
-                meetup_com_id: 382528
-                meetup_com_url: 'http://www.meetup.com/copenhagenphp'
-                country: Denmark
-            -
-                name: 'PHP Finland'
-                meetup_com_id: 17002722
-                meetup_com_url: 'http://www.meetup.com/PHP-User-Group-Finland/'
-                country: Finland
-            -
-                name: 'AFUP Montpellier'
-                meetup_com_id: 18724486
-                meetup_com_url: 'https://www.meetup.com/fr-FR/Montpellier-PHP-Meetup/'
-                country: France
-            -
-                name: PHPUG-Koblenz
-                meetup_com_id: 18713943
-                meetup_com_url: 'http://www.meetup.com/PHPUG-Koblenz/'
-                country: Germany
-            -
-                name: Neuss
-                meetup_com_id: 18611769
-                meetup_com_url: 'http://www.meetup.com/de/PHP-Usergroup-Neuss'
-                country: Germany
-            -
-                name: 'Drupal Usergroup Karlsruhe'
-                meetup_com_id: 22727461
-                meetup_com_url: 'https://www.meetup.com/Drupal-User-Group-Karlsruhe/'
-                country: Germany
-            -
-                name: 'PHP Usergroup Düsseldorf'
-                meetup_com_id: 9194512
-                meetup_com_url: 'http://www.meetup.com/PHP-Usergroup-Duesseldorf'
-                country: Germany
-            -
-                name: 'Symfony User Group Berlin'
-                meetup_com_id: 3357042
-                meetup_com_url: 'https://www.meetup.com/sfugberlin/'
-                country: Germany
-            -
-                name: 'PHP User Group Stuttgart '
-                meetup_com_id: 27205500
-                meetup_com_url: 'https://www.meetup.com/PHP-User-Group-Stuttgart/'
-                country: Germany
-            -
-                name: Budapest
-                meetup_com_id: 3917992
-                meetup_com_url: 'http://www.meetup.com/phpmeetup/'
-                country: Hungary
-            -
-                name: Dublin
-                meetup_com_id: 9805392
-                meetup_com_url: 'https://www.meetup.com/de-DE/PHP-Dublin'
-                country: Ireland
-            -
-                name: PolderPHP
-                meetup_com_id: 18611769
-                meetup_com_url: 'http://www.meetup.com/PolderPHP/'
-                country: Netherlands
-            -
-                name: DeventerPHP
-                meetup_com_id: 22684344
-                meetup_com_url: 'https://www.meetup.com/DeventerPHP/'
-                country: Netherlands
-            -
-                name: LimburgPHP
-                meetup_com_id: 18063722
-                meetup_com_url: 'http://www.meetup.com/Limburg-PHP-Meetup'
-                country: Netherlands
-            -
-                name: 'Tilburg PHP'
-                meetup_com_id: 21699802
-                meetup_com_url: 'http://www.meetup.com/Tilburg-PHP-Meetup'
-                country: Netherlands
-            -
-                name: EindhovenPHP
-                meetup_com_id: 18063722
-                meetup_com_url: 'http://www.meetup.com/Limburg-PHP-Meetup'
-                country: Netherlands
-            -
-                name: 'PHP Zwolle'
-                meetup_com_id: 18592373
-                meetup_com_url: 'http://www.meetup.com/PHP-Zwolle/'
-                country: Netherlands
-            -
-                name: BredaPHP
-                meetup_com_id: 18405351
-                meetup_com_url: 'http://www.meetup.com/BredaPHP/'
-                country: Netherlands
-            -
-                name: 'Apeldoorn Webdevs'
-                meetup_com_id: 17512592
-                meetup_com_url: 'http://www.meetup.com/Apeldoorn-Webdevs'
-                country: Netherlands
-            -
-                name: PhpTwente
-                meetup_com_id: 8691402
-                meetup_com_url: 'http://meetup.com/PHPTwente/'
-                country: Netherlands
-            -
-                name: Amersfoort
-                meetup_com_id: 9186002
-                meetup_com_url: 'http://www.meetup.com/PHPAmersfoort/'
-                country: Netherlands
-            -
-                name: NijmegenPHP
-                meetup_com_id: 17809942
-                meetup_com_url: 'http://www.meetup.com/NijmegenPHP/'
-                country: Netherlands
-            -
-                name: 'Trondheim PHP Meetup'
-                meetup_com_id: 18660395
-                meetup_com_url: 'http://www.meetup.com/Trondheim-PHP-Meetup/'
-                country: Norway
-            -
-                name: KristiansandPHP
-                meetup_com_id: 18472763
-                meetup_com_url: 'http://www.meetup.com/kristiansandphp/'
-                country: Norway
-            -
-                name: 'Szczecin PHP User Group'
-                meetup_com_id: 18884863
-                meetup_com_url: 'http://www.meetup.com/Szczecin-PHP-Meetup/'
-                country: Poland
-            -
-                name: 'PHP Cluj'
-                meetup_com_id: 6832182
-                meetup_com_url: 'http://www.meetup.com/php-cluj/'
-                country: Romania
-            -
-                name: 'Iasi PHP Usergroup'
-                meetup_com_id: 19042186
-                meetup_com_url: 'http://www.meetup.com/Iasi-PHP-Meetup/'
-                country: Romania
-            -
-                name: 'PHP Valencia'
-                meetup_com_id: 18577011
-                meetup_com_url: 'http://www.meetup.com/de/PHP-Valencia'
-                country: Spain
-            -
-                name: 'PHP Cáceres'
-                meetup_com_id: 15352252
-                meetup_com_url: 'http://www.meetup.com/phpcaceres/'
-                country: Spain
-            -
-                name: 'PHP Granada'
-                meetup_com_id: 19126328
-                meetup_com_url: 'http://www.meetup.com/PHPGranada/'
-                country: Spain
-            -
-                name: 'PHP Sevilla'
-                meetup_com_id: 14934322
-                meetup_com_url: 'http://www.meetup.com/PHP-Sevilla'
-                country: Spain
-            -
-                name: AsturPHP
-                meetup_com_id: 19301383
-                meetup_com_url: 'http://www.meetup.com/AsturPHP'
-                country: Spain
-            -
-                name: PHP-Göteborg
-                meetup_com_id: 18529571
-                meetup_com_url: 'http://www.meetup.com/PHP-Goteborg/'
-                country: Sweden
-            -
-                name: PHP-Stockholm
-                meetup_com_id: 3494032
-                meetup_com_url: 'http://www.meetup.com/php-stockholm/'
-                country: Sweden
-            -
-                name: 'PHP Symfony User Group Basel'
-                meetup_com_id: 21819560
-                meetup_com_url: 'https://www.meetup.com/sfubsl'
-                country: Switzerland
-            -
-                name: 'Symfony User Group Zurich'
-                meetup_com_id: 4675492
-                meetup_com_url: 'http://www.meetup.com/de/sfugzh/'
-                country: Switzerland
-            -
-                name: 'Bristol PHP Training'
-                meetup_com_id: 19857898
-                meetup_com_url: 'https://www.meetup.com/Bristol-PHP-Training/'
-                country: 'United Kingdom'
-            -
-                name: 'PHP Milton Keynes'
-                meetup_com_id: 23036166
-                meetup_com_url: 'http://www.meetup.com/php-milton-keynes'
-                country: 'United Kingdom'
-            -
-                name: brumPHP
-                meetup_com_id: 19913602
-                meetup_com_url: 'https://www.meetup.com/brumphp/'
-                country: 'United Kingdom'
-            -
-                name: 'PHPMiNDS Nottingham'
-                meetup_com_id: 18902351
-                meetup_com_url: 'http://www.meetup.com/PHPMiNDS-Nottingham/'
-                country: 'United Kingdom'
-            -
-                name: Cambridge
-                meetup_com_id: 10699632
-                meetup_com_url: 'http://www.meetup.com/phpcambridge/'
-                country: 'United Kingdom'
-        americas:
-            -
-                name: 'PHPSP Santos '
-                meetup_com_id: 20121958
-                meetup_com_url: 'https://www.meetup.com/PHPSP-Santos/'
-                country: Brazil
-            -
-                name: 'PHPSP Campinas'
-                meetup_com_id: 15335842
-                meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
-                country: Brazil
-            -
-                name: 'Vancouver PHP Meetup'
-                meetup_com_id: 7280982
-                meetup_com_url: 'https://www.meetup.com/Vancouver-PHP/'
-                country: Canada
-            -
-                name: 'Burlington PHP UG'
-                meetup_com_id: 21651396
-                meetup_com_url: 'https://www.meetup.com/Burlington-PHP-Meetup/'
-                country: Canada
-            -
-                name: Columbia
-                meetup_com_id: 7620542
-                meetup_com_url: 'http://www.meetup.com/PHPColMeetup'
-                country: Colombia
-            -
-                name: 'PHP Jalisco'
-                meetup_com_id: 18817728
-                meetup_com_url: 'http://www.meetup.com/Comunidad-de-PHP-de-Jalisco/'
-                country: Mexico
-            -
-                name: 'PHP México'
-                meetup_com_id: 18259219
-                meetup_com_url: 'http://www.meetup.com/es-ES/PHP-The-Right-Way/'
-                country: Mexico
-            -
-                name: Philadelphia
-                meetup_com_id: 360158
-                meetup_com_url: 'http://www.meetup.com/phillyphp/'
-                country: 'United States'
-            -
-                name: Orlando
-                meetup_com_id: 120882
-                meetup_com_url: 'http://www.meetup.com/orlandophp/'
-                country: 'United States'
-            -
-                name: 'Utah PHP User Group'
-                meetup_com_id: 20459295
-                meetup_com_url: 'http://www.meetup.com/Utah-PHP-User-Group/'
-                country: 'United States'
-            -
-                name: Indianapolis
-                meetup_com_id: 577068
-                meetup_com_url: 'http://meetup.com/indyphp'
-                country: 'United States'
-            -
-                name: Louisville
-                meetup_com_id: 3962572
-                meetup_com_url: 'http://www.meetup.com/Louisville-PHP-User-Group/'
-                country: 'United States'
-            -
-                name: Seattle
-                meetup_com_id: 120908
-                meetup_com_url: 'http://www.meetup.com/php-49'
-                country: 'United States'
-            -
-                name: 'Orange County'
-                meetup_com_id: 234832
-                meetup_com_url: 'http://www.meetup.com/oc-php'
-                country: 'United States'
-            -
-                name: TrianglePHP
-                meetup_com_id: 229107
-                meetup_com_url: 'http://www.meetup.com/trianglephp/'
-                country: 'United States'
-            -
-                name: 'Baltimore PHP'
-                meetup_com_id: 435268
-                meetup_com_url: 'http://www.meetup.com/baltimorephp/'
-                country: 'United States'
-            -
-                name: Buffalo
-                meetup_com_id: 225746
-                meetup_com_url: 'http://www.meetup.com/buffalophp'
-                country: 'United States'
-            -
-                name: 'Washington D.C.'
-                meetup_com_id: 1649006
-                meetup_com_url: 'http://www.meetup.com/DC-PHP/'
-                country: 'United States'
-            -
-                name: 'Dayton PHP'
-                meetup_com_id: 19717863
-                meetup_com_url: 'http://www.meetup.com/Dayton-PHP'
-                country: 'United States'
-            -
-                name: 'Ann Arbor'
-                meetup_com_id: 1771989
-                meetup_com_url: 'http://www.meetup.com/ann-arbor-php-mysql/'
-                country: 'United States'
-            -
-                name: 'North Alabama Web Developers'
-                meetup_com_id: 323739
-                meetup_com_url: 'http://www.meetup.com/web-99/'
-                country: 'United States'
-            -
-                name: 'South Bay PHP Users'
-                meetup_com_id: 17979092
-                meetup_com_url: 'http://www.meetup.com/South-Bay-PHP-User-Group/'
-                country: 'United States'
-            -
-                name: Chicago-PHP-User-Group
-                meetup_com_id: 14630102
-                meetup_com_url: 'http://www.meetup.com/Chicago-PHP-User-Group/'
-                country: 'United States'
-            -
-                name: Houston
-                meetup_com_id: 120848
-                meetup_com_url: 'http://www.meetup.com/houston-php-users-group/'
-                country: 'United States'
-            -
-                name: 'Idaho PHP User Group'
-                meetup_com_id: 18399848
-                meetup_com_url: 'http://www.meetup.com/idaho-php'
-                country: 'United States'
-            -
-                name: 'Chattanooga PHP'
-                meetup_com_id: 546809
-                meetup_com_url: 'http://www.meetup.com/chattanoogaphp/'
-                country: 'United States'
-            -
-                name: 'Las Vegas'
-                meetup_com_id: 7427812
-                meetup_com_url: 'http://www.meetup.com/Las-Vegas-PHP-Users-Group/'
-                country: 'United States'
-            -
-                name: 'JaxPHP / JaxWeb'
-                meetup_com_id: 1412696
-                meetup_com_url: 'https://www.meetup.com/JaxPHP-JaxWeb/'
-                country: 'United States'
-            -
-                name: 'Fox Cities'
-                meetup_com_id: 2136411
-                meetup_com_url: 'http://www.meetup.com/fox-cities-php/'
-                country: 'United States'
-            -
-                name: 'Northern IL PHP Group'
-                meetup_com_id: 9443972
-                meetup_com_url: 'http://www.meetup.com/Rockford-PHP-Developers-Group/'
-                country: 'United States'
-            -
-                name: 'Frederick Web Tech'
-                meetup_com_id: 1463375
-                meetup_com_url: 'http://www.meetup.com/FredWebTech/'
-                country: 'United States'
-            -
-                name: 'Spokane PHP User Group'
-                meetup_com_id: 16123692
-                meetup_com_url: 'http://www.meetup.com/Spokane-PHP-Meetup/'
-                country: 'United States'
-            -
-                name: PDX-PHP
-                meetup_com_id: 8138812
-                meetup_com_url: 'http://www.meetup.com/PDX-PHP'
-                country: 'United States'
-            -
-                name: Oklahoma
-                meetup_com_id: 11586302
-                meetup_com_url: 'http://www.meetup.com/OklahomaPHP/'
-                country: 'United States'
-            -
-                name: Dallas
-                meetup_com_id: 120830
-                meetup_com_url: 'http://www.meetup.com/dallasphp/'
-                country: 'United States'
-        asia:
-            -
-                name: 'PHP Reboot'
-                meetup_com_id: 13099202
-                meetup_com_url: 'http://www.meetup.com/phpreboot/'
-                country: India
-            -
-                name: 'Drupal Bangalore Group'
-                meetup_com_id: 2589702
-                meetup_com_url: 'http://www.meetup.com/drupalbangalore/'
-                country: India
-            -
-                name: TLV-PHP-Meetup
-                meetup_com_id: 18496271
-                meetup_com_url: 'http://www.meetup.com/TLV-PHP-Meetup/'
-                country: Israel
-            -
-                name: Singapore
-                meetup_com_id: 390620
-                meetup_com_url: 'http://www.meetup.com/sgphpug'
-                country: Singapore
-            -
-                name: 'Sri Lanka'
-                meetup_com_id: 2778002
-                meetup_com_url: 'https://www.meetup.com/PHP-developers-Sri-Lanka'
-                country: 'Sri Lanka'
-            -
-                name: 'İstanbul PHP UG'
-                meetup_com_id: 15388462
-                meetup_com_url: 'http://www.meetup.com/IstanbulPHP/'
-                country: Turkey
-            -
-                name: 'Saigon PHP Developer Group'
-                meetup_com_id: 15953912
-                meetup_com_url: 'http://www.meetup.com/PHP-Saigon/'
-                country: Vietnam
-        africa:
-            -
-                name: 'PHP User Group Kenya'
-                meetup_com_id: 18820087
-                meetup_com_url: 'http://www.meetup.com/phpkenya/'
-                country: Kenya
-            -
-                name: 'PHP Pretoria'
-                meetup_com_id: 20417627
-                meetup_com_url: 'http://www.meetup.com/PHP-Pretoria/'
-                country: 'South Africa'
-            -
-                name: 'Cape Town PHP Group'
-                meetup_com_id: 7039672
-                meetup_com_url: 'http://www.meetup.com/Cape-Town-PHP-Group/'
-                country: 'South Africa'
-        oceania:
-            -
-                name: 'Auckland PHP Meetup'
-                meetup_com_id: 120985
-                meetup_com_url: 'http://www.meetup.com/php-auckland/'
-                country: 'New Zealand'
-            -
-                name: 'PHP User Group Wellington'
-                meetup_com_id: 5633722
-                meetup_com_url: 'http://www.meetup.com/PHP-Usergroup-Wellington'
-                country: 'New Zealand'
+        # imported from php.ug
+        -
+            name: 'Symfony User Group Stuttgart'
+            meetup_com_id: 4197452
+            meetup_com_url: 'https://www.meetup.com/sfugstr/'
+            country: Germany
+        -
+            name: 'Symfony User Group Hamburg'
+            meetup_com_id: 3262432
+            meetup_com_url: 'https://www.meetup.com/sfughh/'
+            country: Germany
+        -
+            name: 'Symfony User Group Cologne'
+            meetup_com_id: 2789772
+            meetup_com_url: 'https://www.meetup.com/sfugcgn'
+            country: Germany
+        -
+            name: 'Salzburg Web Dev'
+            meetup_com_id: 4033532
+            meetup_com_url: 'https://www.meetup.com/de-DE/salzburgwebdev/'
+            country: Austria
+        -
+            name: Vienna
+            meetup_com_id: 8251612
+            meetup_com_url: 'http://www.meetup.com/viennaphp'
+            country: Austria
+        -
+            name: 'Laravel Brussels'
+            meetup_com_id: 10013052
+            meetup_com_url: 'https://www.meetup.com/Laravel-Brussels/'
+            country: Belgium
+        -
+            name: 'PHP Limburg BE'
+            meetup_com_id: 18393172
+            meetup_com_url: 'http://www.meetup.com/Hasselt-PHP-Meetup'
+            country: Belgium
+        -
+            name: 'PHP Leuven - Web Innovation Group'
+            meetup_com_id: 18381650
+            meetup_com_url: 'http://www.meetup.com/PHP-Leuven-Web-Innovation-Group/'
+            country: Belgium
+        -
+            name: BrusselsPHP
+            meetup_com_id: 18227031
+            meetup_com_url: 'http://www.meetup.com/Brussels-PHP-Meetup/'
+            country: Belgium
+        -
+            name: 'Symfony User Group Belgium'
+            meetup_com_id: 11031632
+            meetup_com_url: 'http://www.meetup.com/Symfony-User-Group-Belgium/'
+            country: Belgium
+        -
+            name: 'PHP Antwerp'
+            meetup_com_id: 18624482
+            meetup_com_url: 'http://www.meetup.com/phpantwerp/'
+            country: Belgium
+        -
+            name: 'PHP Varna'
+            meetup_com_id: 23601198
+            meetup_com_url: 'https://meetup.com/phpvarna'
+            country: Bulgaria
+        -
+            name: Copenhagen
+            meetup_com_id: 382528
+            meetup_com_url: 'http://www.meetup.com/copenhagenphp'
+            country: Denmark
+        -
+            name: 'PHP Finland'
+            meetup_com_id: 17002722
+            meetup_com_url: 'http://www.meetup.com/PHP-User-Group-Finland/'
+            country: Finland
+        -
+            name: 'AFUP Montpellier'
+            meetup_com_id: 18724486
+            meetup_com_url: 'https://www.meetup.com/fr-FR/Montpellier-PHP-Meetup/'
+            country: France
+        -
+            name: PHPUG-Koblenz
+            meetup_com_id: 18713943
+            meetup_com_url: 'http://www.meetup.com/PHPUG-Koblenz/'
+            country: Germany
+        -
+            name: Neuss
+            meetup_com_id: 18611769
+            meetup_com_url: 'http://www.meetup.com/de/PHP-Usergroup-Neuss'
+            country: Germany
+        -
+            name: 'Drupal Usergroup Karlsruhe'
+            meetup_com_id: 22727461
+            meetup_com_url: 'https://www.meetup.com/Drupal-User-Group-Karlsruhe/'
+            country: Germany
+        -
+            name: 'PHP Usergroup Düsseldorf'
+            meetup_com_id: 9194512
+            meetup_com_url: 'http://www.meetup.com/PHP-Usergroup-Duesseldorf'
+            country: Germany
+        -
+            name: 'Symfony User Group Berlin'
+            meetup_com_id: 3357042
+            meetup_com_url: 'https://www.meetup.com/sfugberlin/'
+            country: Germany
+        -
+            name: 'PHP User Group Stuttgart '
+            meetup_com_id: 27205500
+            meetup_com_url: 'https://www.meetup.com/PHP-User-Group-Stuttgart/'
+            country: Germany
+        -
+            name: Budapest
+            meetup_com_id: 3917992
+            meetup_com_url: 'http://www.meetup.com/phpmeetup/'
+            country: Hungary
+        -
+            name: Dublin
+            meetup_com_id: 9805392
+            meetup_com_url: 'https://www.meetup.com/de-DE/PHP-Dublin'
+            country: Ireland
+        -
+            name: PolderPHP
+            meetup_com_id: 18611769
+            meetup_com_url: 'http://www.meetup.com/PolderPHP/'
+            country: Netherlands
+        -
+            name: DeventerPHP
+            meetup_com_id: 22684344
+            meetup_com_url: 'https://www.meetup.com/DeventerPHP/'
+            country: Netherlands
+        -
+            name: LimburgPHP
+            meetup_com_id: 18063722
+            meetup_com_url: 'http://www.meetup.com/Limburg-PHP-Meetup'
+            country: Netherlands
+        -
+            name: 'Tilburg PHP'
+            meetup_com_id: 21699802
+            meetup_com_url: 'http://www.meetup.com/Tilburg-PHP-Meetup'
+            country: Netherlands
+        -
+            name: EindhovenPHP
+            meetup_com_id: 18063722
+            meetup_com_url: 'http://www.meetup.com/Limburg-PHP-Meetup'
+            country: Netherlands
+        -
+            name: 'PHP Zwolle'
+            meetup_com_id: 18592373
+            meetup_com_url: 'http://www.meetup.com/PHP-Zwolle/'
+            country: Netherlands
+        -
+            name: BredaPHP
+            meetup_com_id: 18405351
+            meetup_com_url: 'http://www.meetup.com/BredaPHP/'
+            country: Netherlands
+        -
+            name: 'Apeldoorn Webdevs'
+            meetup_com_id: 17512592
+            meetup_com_url: 'http://www.meetup.com/Apeldoorn-Webdevs'
+            country: Netherlands
+        -
+            name: PhpTwente
+            meetup_com_id: 8691402
+            meetup_com_url: 'http://meetup.com/PHPTwente/'
+            country: Netherlands
+        -
+            name: Amersfoort
+            meetup_com_id: 9186002
+            meetup_com_url: 'http://www.meetup.com/PHPAmersfoort/'
+            country: Netherlands
+        -
+            name: NijmegenPHP
+            meetup_com_id: 17809942
+            meetup_com_url: 'http://www.meetup.com/NijmegenPHP/'
+            country: Netherlands
+        -
+            name: 'Trondheim PHP Meetup'
+            meetup_com_id: 18660395
+            meetup_com_url: 'http://www.meetup.com/Trondheim-PHP-Meetup/'
+            country: Norway
+        -
+            name: KristiansandPHP
+            meetup_com_id: 18472763
+            meetup_com_url: 'http://www.meetup.com/kristiansandphp/'
+            country: Norway
+        -
+            name: 'Szczecin PHP User Group'
+            meetup_com_id: 18884863
+            meetup_com_url: 'http://www.meetup.com/Szczecin-PHP-Meetup/'
+            country: Poland
+        -
+            name: 'PHP Cluj'
+            meetup_com_id: 6832182
+            meetup_com_url: 'http://www.meetup.com/php-cluj/'
+            country: Romania
+        -
+            name: 'Iasi PHP Usergroup'
+            meetup_com_id: 19042186
+            meetup_com_url: 'http://www.meetup.com/Iasi-PHP-Meetup/'
+            country: Romania
+        -
+            name: 'PHP Valencia'
+            meetup_com_id: 18577011
+            meetup_com_url: 'http://www.meetup.com/de/PHP-Valencia'
+            country: Spain
+        -
+            name: 'PHP Cáceres'
+            meetup_com_id: 15352252
+            meetup_com_url: 'http://www.meetup.com/phpcaceres/'
+            country: Spain
+        -
+            name: 'PHP Granada'
+            meetup_com_id: 19126328
+            meetup_com_url: 'http://www.meetup.com/PHPGranada/'
+            country: Spain
+        -
+            name: 'PHP Sevilla'
+            meetup_com_id: 14934322
+            meetup_com_url: 'http://www.meetup.com/PHP-Sevilla'
+            country: Spain
+        -
+            name: AsturPHP
+            meetup_com_id: 19301383
+            meetup_com_url: 'http://www.meetup.com/AsturPHP'
+            country: Spain
+        -
+            name: PHP-Göteborg
+            meetup_com_id: 18529571
+            meetup_com_url: 'http://www.meetup.com/PHP-Goteborg/'
+            country: Sweden
+        -
+            name: PHP-Stockholm
+            meetup_com_id: 3494032
+            meetup_com_url: 'http://www.meetup.com/php-stockholm/'
+            country: Sweden
+        -
+            name: 'PHP Symfony User Group Basel'
+            meetup_com_id: 21819560
+            meetup_com_url: 'https://www.meetup.com/sfubsl'
+            country: Switzerland
+        -
+            name: 'Symfony User Group Zurich'
+            meetup_com_id: 4675492
+            meetup_com_url: 'http://www.meetup.com/de/sfugzh/'
+            country: Switzerland
+        -
+            name: 'Bristol PHP Training'
+            meetup_com_id: 19857898
+            meetup_com_url: 'https://www.meetup.com/Bristol-PHP-Training/'
+            country: 'United Kingdom'
+        -
+            name: 'PHP Milton Keynes'
+            meetup_com_id: 23036166
+            meetup_com_url: 'http://www.meetup.com/php-milton-keynes'
+            country: 'United Kingdom'
+        -
+            name: brumPHP
+            meetup_com_id: 19913602
+            meetup_com_url: 'https://www.meetup.com/brumphp/'
+            country: 'United Kingdom'
+        -
+            name: 'PHPMiNDS Nottingham'
+            meetup_com_id: 18902351
+            meetup_com_url: 'http://www.meetup.com/PHPMiNDS-Nottingham/'
+            country: 'United Kingdom'
+        -
+            name: Cambridge
+            meetup_com_id: 10699632
+            meetup_com_url: 'http://www.meetup.com/phpcambridge/'
+            country: 'United Kingdom'
+        -
+            name: 'PHPSP Santos '
+            meetup_com_id: 20121958
+            meetup_com_url: 'https://www.meetup.com/PHPSP-Santos/'
+            country: Brazil
+        -
+            name: 'PHPSP Campinas'
+            meetup_com_id: 15335842
+            meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
+            country: Brazil
+        -
+            name: 'Vancouver PHP Meetup'
+            meetup_com_id: 7280982
+            meetup_com_url: 'https://www.meetup.com/Vancouver-PHP/'
+            country: Canada
+        -
+            name: 'Burlington PHP UG'
+            meetup_com_id: 21651396
+            meetup_com_url: 'https://www.meetup.com/Burlington-PHP-Meetup/'
+            country: Canada
+        -
+            name: Columbia
+            meetup_com_id: 7620542
+            meetup_com_url: 'http://www.meetup.com/PHPColMeetup'
+            country: Colombia
+        -
+            name: 'PHP Jalisco'
+            meetup_com_id: 18817728
+            meetup_com_url: 'http://www.meetup.com/Comunidad-de-PHP-de-Jalisco/'
+            country: Mexico
+        -
+            name: 'PHP México'
+            meetup_com_id: 18259219
+            meetup_com_url: 'http://www.meetup.com/es-ES/PHP-The-Right-Way/'
+            country: Mexico
+        -
+            name: Philadelphia
+            meetup_com_id: 360158
+            meetup_com_url: 'http://www.meetup.com/phillyphp/'
+            country: 'United States'
+        -
+            name: Orlando
+            meetup_com_id: 120882
+            meetup_com_url: 'http://www.meetup.com/orlandophp/'
+            country: 'United States'
+        -
+            name: 'Utah PHP User Group'
+            meetup_com_id: 20459295
+            meetup_com_url: 'http://www.meetup.com/Utah-PHP-User-Group/'
+            country: 'United States'
+        -
+            name: Indianapolis
+            meetup_com_id: 577068
+            meetup_com_url: 'http://meetup.com/indyphp'
+            country: 'United States'
+        -
+            name: Louisville
+            meetup_com_id: 3962572
+            meetup_com_url: 'http://www.meetup.com/Louisville-PHP-User-Group/'
+            country: 'United States'
+        -
+            name: Seattle
+            meetup_com_id: 120908
+            meetup_com_url: 'http://www.meetup.com/php-49'
+            country: 'United States'
+        -
+            name: 'Orange County'
+            meetup_com_id: 234832
+            meetup_com_url: 'http://www.meetup.com/oc-php'
+            country: 'United States'
+        -
+            name: TrianglePHP
+            meetup_com_id: 229107
+            meetup_com_url: 'http://www.meetup.com/trianglephp/'
+            country: 'United States'
+        -
+            name: 'Baltimore PHP'
+            meetup_com_id: 435268
+            meetup_com_url: 'http://www.meetup.com/baltimorephp/'
+            country: 'United States'
+        -
+            name: Buffalo
+            meetup_com_id: 225746
+            meetup_com_url: 'http://www.meetup.com/buffalophp'
+            country: 'United States'
+        -
+            name: 'Washington D.C.'
+            meetup_com_id: 1649006
+            meetup_com_url: 'http://www.meetup.com/DC-PHP/'
+            country: 'United States'
+        -
+            name: 'Dayton PHP'
+            meetup_com_id: 19717863
+            meetup_com_url: 'http://www.meetup.com/Dayton-PHP'
+            country: 'United States'
+        -
+            name: 'Ann Arbor'
+            meetup_com_id: 1771989
+            meetup_com_url: 'http://www.meetup.com/ann-arbor-php-mysql/'
+            country: 'United States'
+        -
+            name: 'North Alabama Web Developers'
+            meetup_com_id: 323739
+            meetup_com_url: 'http://www.meetup.com/web-99/'
+            country: 'United States'
+        -
+            name: 'South Bay PHP Users'
+            meetup_com_id: 17979092
+            meetup_com_url: 'http://www.meetup.com/South-Bay-PHP-User-Group/'
+            country: 'United States'
+        -
+            name: Chicago-PHP-User-Group
+            meetup_com_id: 14630102
+            meetup_com_url: 'http://www.meetup.com/Chicago-PHP-User-Group/'
+            country: 'United States'
+        -
+            name: Houston
+            meetup_com_id: 120848
+            meetup_com_url: 'http://www.meetup.com/houston-php-users-group/'
+            country: 'United States'
+        -
+            name: 'Idaho PHP User Group'
+            meetup_com_id: 18399848
+            meetup_com_url: 'http://www.meetup.com/idaho-php'
+            country: 'United States'
+        -
+            name: 'Chattanooga PHP'
+            meetup_com_id: 546809
+            meetup_com_url: 'http://www.meetup.com/chattanoogaphp/'
+            country: 'United States'
+        -
+            name: 'Las Vegas'
+            meetup_com_id: 7427812
+            meetup_com_url: 'http://www.meetup.com/Las-Vegas-PHP-Users-Group/'
+            country: 'United States'
+        -
+            name: 'JaxPHP / JaxWeb'
+            meetup_com_id: 1412696
+            meetup_com_url: 'https://www.meetup.com/JaxPHP-JaxWeb/'
+            country: 'United States'
+        -
+            name: 'Fox Cities'
+            meetup_com_id: 2136411
+            meetup_com_url: 'http://www.meetup.com/fox-cities-php/'
+            country: 'United States'
+        -
+            name: 'Northern IL PHP Group'
+            meetup_com_id: 9443972
+            meetup_com_url: 'http://www.meetup.com/Rockford-PHP-Developers-Group/'
+            country: 'United States'
+        -
+            name: 'Frederick Web Tech'
+            meetup_com_id: 1463375
+            meetup_com_url: 'http://www.meetup.com/FredWebTech/'
+            country: 'United States'
+        -
+            name: 'Spokane PHP User Group'
+            meetup_com_id: 16123692
+            meetup_com_url: 'http://www.meetup.com/Spokane-PHP-Meetup/'
+            country: 'United States'
+        -
+            name: PDX-PHP
+            meetup_com_id: 8138812
+            meetup_com_url: 'http://www.meetup.com/PDX-PHP'
+            country: 'United States'
+        -
+            name: Oklahoma
+            meetup_com_id: 11586302
+            meetup_com_url: 'http://www.meetup.com/OklahomaPHP/'
+            country: 'United States'
+        -
+            name: Dallas
+            meetup_com_id: 120830
+            meetup_com_url: 'http://www.meetup.com/dallasphp/'
+            country: 'United States'
+        -
+            name: 'PHP Reboot'
+            meetup_com_id: 13099202
+            meetup_com_url: 'http://www.meetup.com/phpreboot/'
+            country: India
+        -
+            name: 'Drupal Bangalore Group'
+            meetup_com_id: 2589702
+            meetup_com_url: 'http://www.meetup.com/drupalbangalore/'
+            country: India
+        -
+            name: TLV-PHP-Meetup
+            meetup_com_id: 18496271
+            meetup_com_url: 'http://www.meetup.com/TLV-PHP-Meetup/'
+            country: Israel
+        -
+            name: Singapore
+            meetup_com_id: 390620
+            meetup_com_url: 'http://www.meetup.com/sgphpug'
+            country: Singapore
+        -
+            name: 'Sri Lanka'
+            meetup_com_id: 2778002
+            meetup_com_url: 'https://www.meetup.com/PHP-developers-Sri-Lanka'
+            country: 'Sri Lanka'
+        -
+            name: 'İstanbul PHP UG'
+            meetup_com_id: 15388462
+            meetup_com_url: 'http://www.meetup.com/IstanbulPHP/'
+            country: Turkey
+        -
+            name: 'Saigon PHP Developer Group'
+            meetup_com_id: 15953912
+            meetup_com_url: 'http://www.meetup.com/PHP-Saigon/'
+            country: Vietnam
+        -
+            name: 'PHP User Group Kenya'
+            meetup_com_id: 18820087
+            meetup_com_url: 'http://www.meetup.com/phpkenya/'
+            country: Kenya
+        -
+            name: 'PHP Pretoria'
+            meetup_com_id: 20417627
+            meetup_com_url: 'http://www.meetup.com/PHP-Pretoria/'
+            country: 'South Africa'
+        -
+            name: 'Cape Town PHP Group'
+            meetup_com_id: 7039672
+            meetup_com_url: 'http://www.meetup.com/Cape-Town-PHP-Group/'
+            country: 'South Africa'
+        -
+            name: 'Auckland PHP Meetup'
+            meetup_com_id: 120985
+            meetup_com_url: 'http://www.meetup.com/php-auckland/'
+            country: 'New Zealand'
+        -
+            name: 'PHP User Group Wellington'
+            meetup_com_id: 5633722
+            meetup_com_url: 'http://www.meetup.com/PHP-Usergroup-Wellington'
+            country: 'New Zealand'

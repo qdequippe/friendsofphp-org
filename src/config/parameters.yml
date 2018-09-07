@@ -1,6 +1,6 @@
 parameters:
-    groups_storage: '%kernel.root_dir%/source/_data/groups.yml'
-    imported_groups_storage: '%kernel.root_dir%/source/_data/imported/imported_groups.yml'
+    groups_storage: '%kernel.project_dir%/source/_data/groups.yml'
+    imported_groups_storage: '%kernel.project_dir%/source/_data/imported/imported_groups.yml'
 
     imported_meetups_storage: '%kernel.project_dir%/source/_data/imported/imported_meetups.yml'
 
