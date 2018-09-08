@@ -61,8 +61,9 @@ final class MeetupComApi
 
             return $group['id'];
         } catch (ClientException $clientException) {
-            if ($clientException->getCode() === 404) {
-                // the group doesn't exist anymore, skip it
+            if (in_array($clientException->getCode(), [410, 404], true)) {
+                // 410: the group is not accessible
+                // 410: the group doesn't exist anymore
                 return null;
             }
 
@@ -112,9 +113,7 @@ final class MeetupComApi
     private function resolveGroupUrlNameFromGroupUrl(string $url): string
     {
         $url = rtrim($url, '/');
-
         $array = explode('/', $url);
-
         return $array[count($array) - 1];
     }
 }

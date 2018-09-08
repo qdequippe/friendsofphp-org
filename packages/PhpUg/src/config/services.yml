@@ -3,7 +3,5 @@ services:
         autowire: true
         public: true
 
-    Fop\MeetupCom\:
+    Fop\PhpUg\:
         resource: ".."
-
-    GuzzleHttp\Client: ~

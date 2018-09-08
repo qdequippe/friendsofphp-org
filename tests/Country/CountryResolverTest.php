@@ -3,10 +3,11 @@
 namespace Fop\Tests\Country;
 
 use Fop\Country\CountryResolver;
+use Fop\Tests\AbstractContainerAwareTestCase;
 use PHPUnit\Framework\TestCase;
 use Rinvex\Country\Country;
 
-final class CountryResolverTest extends TestCase
+final class CountryResolverTest extends AbstractContainerAwareTestCase
 {
     /**
      * @var CountryResolver
@@ -15,7 +16,7 @@ final class CountryResolverTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->countryResolver = new CountryResolver();
+        $this->countryResolver = $this->container->get(CountryResolver::class);
     }
 
     public function test(): void

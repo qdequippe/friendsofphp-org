@@ -2,6 +2,8 @@
 
 namespace Fop\Country;
 
+use Fop\Guzzle\ResponseFormatter;
+use GuzzleHttp\Client;
 use Nette\Utils\Json;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
@@ -9,28 +11,54 @@ use Rinvex\Country\CountryLoader;
 final class CountryResolver
 {
     /**
+     * @var Client
+     */
+    private $client;
+    /**
+     * @var ResponseFormatter
+     */
+    private $responseFormatter;
+
+    public function __construct(Client $client, ResponseFormatter $responseFormatter)
+    {
+        $this->client = $client;
+        $this->responseFormatter = $responseFormatter;
+    }
+
+    /**
      * @param mixed[] $group
      */
-    public function resolveFromGroup(array $group): ?Country
+    public function resolveFromGroup(array $group): string
     {
         if (isset($group['country']) && $group['country']) {
-            return CountryLoader::country($group['country']);
+            // invalid country
+            if ($group['country'] === '-') {
+                return 'unknown';
+            }
+
+            $country = CountryLoader::country($group['country']);
+            if ($country instanceof Country) {
+                return $country->getName();
+            }
         }
 
         $geocode = $this->resolveGeocodeFromGoogleMapsByLatitudeAndLongitude($group['latitude'], $group['longitude']);
 
         $geocodeJson = Json::decode($geocode, Json::FORCE_ARRAY);
         if ($geocodeJson['status'] !== 'OK') {
-            return null;
+            return 'unknown';
         }
 
         foreach ($geocodeJson['results'][0]['address_components'] as $addressComponent) {
             if (in_array('country', $addressComponent['types'], true)) {
-                return CountryLoader::country($addressComponent['short_name']);
+                $country = CountryLoader::country($addressComponent['short_name']);
+                if ($country instanceof Country) {
+                    return $country->getName();
+                }
             }
         }
 
-        return null;
+        return 'unknown';
     }
 
     /**
@@ -44,6 +72,10 @@ final class CountryResolver
             $longitude
         );
 
-        return file_get_contents($url);
+        $response = $this->client->request('GET', $url);
+        $json = $this->responseFormatter->formatResponseToJson($response, $url);
+
+        dump($json);
+        die;
     }
 }

@@ -7,7 +7,6 @@ use Fop\Country\CountryResolver;
 use Fop\Entity\Group;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Nette\Utils\Strings;
-use Rinvex\Country\Country;
 
 final class GroupsFromPhpUgImporter
 {
@@ -34,7 +33,7 @@ final class GroupsFromPhpUgImporter
     }
 
     /**
-     * @return Group[][]
+     * @return Group[]
      */
     public function import(): array
     {
@@ -59,14 +58,7 @@ final class GroupsFromPhpUgImporter
             );
         }
 
-        $groups = $this->sortByCountry($groups);
-
-        // resolve country to string
-        foreach ($groups as $key => $group) {
-            $groups[$key]['country'] = $group['country'] ? $group['country']->getName() : 'unknown';
-        }
-
-        return $groups;
+        return $this->sortByCountry($groups);
     }
 
     /**
