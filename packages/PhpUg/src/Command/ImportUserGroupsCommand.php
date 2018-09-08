@@ -2,7 +2,7 @@
 
 namespace Fop\PhpUg\Command;
 
-use Fop\Importer\GroupsFromPhpUgImporter;
+use Fop\PhpUg\UserGroupImporter;
 use Fop\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,9 +13,9 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class ImportUserGroupsCommand extends Command
 {
     /**
-     * @var GroupsFromPhpUgImporter
+     * @var UserGroupImporter
      */
-    private $groupsFromPhpUgImporter;
+    private $userGroupImporter;
 
     /**
      * @var GroupRepository
@@ -28,12 +28,12 @@ final class ImportUserGroupsCommand extends Command
     private $symfonyStyle;
 
     public function __construct(
-        GroupsFromPhpUgImporter $groupsFromPhpUgImporter,
+        UserGroupImporter $userGroupImporter,
         GroupRepository $userGroupRepository,
         SymfonyStyle $symfonyStyle
     ) {
         parent::__construct();
-        $this->groupsFromPhpUgImporter = $groupsFromPhpUgImporter;
+        $this->userGroupImporter = $userGroupImporter;
         $this->groupRepository = $userGroupRepository;
         $this->symfonyStyle = $symfonyStyle;
     }
@@ -48,7 +48,7 @@ final class ImportUserGroupsCommand extends Command
     {
         $this->symfonyStyle->note('Importing groups from php.ug');
 
-        $groups = $this->groupsFromPhpUgImporter->import();
+        $groups = $this->userGroupImporter->import();
         foreach ($groups as $group) {
             $this->symfonyStyle->note(sprintf('Group "%s" imported', $group->getName()));
         }

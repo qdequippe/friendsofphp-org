@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Importer;
+namespace Fop\PhpUg;
 
 use Fop\Country\CountryResolver;
 use Fop\Entity\Group;
@@ -8,7 +8,7 @@ use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\PhpUg\Api\PhpUgApi;
 use Nette\Utils\Strings;
 
-final class GroupsFromPhpUgImporter
+final class UserGroupImporter
 {
     /**
      * @var CountryResolver

@@ -1,15 +1,6 @@
+# this file was generated on 2018-09-08 14:29:27, do not edit it manually
 parameters:
     meetups:
-        -
-            name: 'Intro to Web Development with PHP - Lesson 2'
-            userGroup: 'The Singapore PHP User Group Meetup'
-            start: '2018-09-08 06:00'
-            end: '2018-09-08 08:00'
-            city: Singapore
-            country: Singapore
-            longitude: 103.84842
-            latitude: 1.342616
-            url: 'https://www.meetup.com/sgphpug/events/254143302/'
         -
             name: 'PHP møte - september 2018'
             userGroup: KristiansandPHP
@@ -260,6 +251,16 @@ parameters:
             longitude: 6.732471
             latitude: 51.235832
             url: 'https://www.meetup.com/Web-Engineering-Duesseldorf/events/253127755/'
+        -
+            name: 'Singapore PHP Community Combined Meetup 2018'
+            userGroup: 'The Singapore PHP User Group Meetup'
+            start: '2018-09-26 13:00'
+            end: '2018-09-26 15:00'
+            city: Singapore
+            country: Singapore
+            longitude: 103.819839
+            latitude: 1.352083
+            url: 'https://www.meetup.com/sgphpug/events/254293718/'
         -
             name: 'Triff die Drupal Community in Karlsruhe'
             userGroup: 'Drupal Karlsruhe'
