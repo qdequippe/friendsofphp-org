@@ -7,6 +7,17 @@ id: "europe"
 {% block content %}
     <div class="row">
         <div class="col-md-12">
+            {% include "_snippets/area_menu.twig" %}
+
+            <div id="mapid"></div>
+
+            <br>
+
+            {% include "_snippets/meetups_table.twig" with {'area': areas.europe } %}
+            {% include "_snippets/meetups_map.twig" with {'area': areas.europe } %}
+
+            <hr>
+
             <h2 class="text-center pt-4 pb-4">
                 Get Up and Go to Meetup, Bro... Why?
             </h2>
@@ -16,15 +27,6 @@ id: "europe"
             <p>Do you still doubt yourself? Look at
                 <a href="https://www.tomasvotruba.cz/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">5 Signs You Should Never Have a Talk Abroad</a>
             </p>
-
-            {% include "_snippets/area_menu.twig" %}
-
-            <div id="mapid"></div>
-
-            <br>
-
-            {% include "_snippets/meetups_table.twig" with {'area': areas.europe } %}
-            {% include "_snippets/meetups_map.twig" with {'area': areas.europe } %}
         </div>
     </div>
 {% endblock %}

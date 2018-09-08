@@ -21,9 +21,13 @@ body {
     font-size: 3.4rem;
 }
 
-#head span {
-    font-weight: 600;
-    color: hsl(229, 30%, 55%);
+#head h1 a {
+    color: #EEE;
+}
+
+#head h1 a:hover {
+    color: #FFF;
+    text-decoration: none;
 }
 
 #subhead {
