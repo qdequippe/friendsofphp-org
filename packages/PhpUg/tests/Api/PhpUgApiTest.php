@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Tests\Api;
+namespace Fop\PhpUg\Tests\Api;
 
-use Fop\Api\PhpUgApi;
+use Fop\PhpUg\Api\PhpUgApi;
 use Fop\Tests\AbstractContainerAwareTestCase;
 
 final class PhpUgApiTest extends AbstractContainerAwareTestCase

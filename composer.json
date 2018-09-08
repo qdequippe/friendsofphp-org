@@ -22,12 +22,13 @@
     "autoload": {
         "psr-4": {
             "Fop\\": "src",
-            "Fop\\MeetupCom\\": "packages/MeetupCom/src"
+            "Fop\\MeetupCom\\": "packages/MeetupCom/src",
+            "Fop\\PhpUg\\": "packages/PhpUg/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Fop\\Tests\\": "tests"
+            "Fop\\PhpUg\\Tests\\": "packages/PhpUg/tests"
         }
     },
     "scripts": {
