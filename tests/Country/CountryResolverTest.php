@@ -4,8 +4,7 @@ namespace Fop\Tests\Country;
 
 use Fop\Country\CountryResolver;
 use Fop\Tests\AbstractContainerAwareTestCase;
-use PHPUnit\Framework\TestCase;
-use Rinvex\Country\Country;
+use Iterator;
 
 final class CountryResolverTest extends AbstractContainerAwareTestCase
 {
@@ -19,14 +18,20 @@ final class CountryResolverTest extends AbstractContainerAwareTestCase
         $this->countryResolver = $this->container->get(CountryResolver::class);
     }
 
-    public function test(): void
+    /**
+     * @dataProvider provideData()
+     */
+    public function test(string $input, string $expecedCountry): void
     {
         $country = $this->countryResolver->resolveFromGroup([
-            'country' => 'CZ',
+            'country' => $input,
         ]);
 
-        $this->assertInstanceOf(Country::class, $country);
+        $this->assertSame($expecedCountry, $country);
+    }
 
-        $this->assertSame('Czech Republic', $country->getName());
+    public function provideData(): Iterator
+    {
+        yield ['CZ', 'Czech Republic'];
     }
 }

@@ -16,3 +16,6 @@ parameters:
         autoload:
             psr-4:
                 Fop\: "src"
+        autoload-dev:
+            psr-4:
+                Fop\Tests\: "tests"

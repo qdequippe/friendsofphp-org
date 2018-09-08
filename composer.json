@@ -28,7 +28,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Fop\\PhpUg\\Tests\\": "packages/PhpUg/tests"
+            "Fop\\PhpUg\\Tests\\": "packages/PhpUg/tests",
+            "Fop\\Tests\\": "tests"
         }
     },
     "scripts": {
