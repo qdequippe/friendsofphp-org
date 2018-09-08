@@ -13,8 +13,12 @@ final class YamlFileSystem
     public function saveArrayToFile(array $data, string $file): void
     {
         $yamlDump = Yaml::dump($data, 10, 4);
-        $yamlDump = '# this file was generated, do not edit it manually' . PHP_EOL . $yamlDump;
 
-        FileSystem::write($file, $yamlDump);
+        $timestampComment = sprintf(
+            '# this file was generated on %s, do not edit it manually' . PHP_EOL,
+             (new \DateTime())->format('Y-m-d H:i:s')
+        );
+
+        FileSystem::write($file, $timestampComment . $yamlDump);
     }
 }
