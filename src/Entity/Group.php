@@ -2,8 +2,6 @@
 
 namespace Fop\Entity;
 
-use Rinvex\Country\Country;
-
 final class Group
 {
     /**
@@ -22,11 +20,11 @@ final class Group
     private $meetupComUrl;
 
     /**
-     * @var Country|null
+     * @var string
      */
     private $country;
 
-    public function __construct(string $name, int $meetupComId, string $meetupComUrl, ?Country $country)
+    public function __construct(string $name, int $meetupComId, string $meetupComUrl, string $country)
     {
         $this->name = $name;
         $this->meetupComId = $meetupComId;
@@ -49,7 +47,7 @@ final class Group
         return $this->meetupComUrl;
     }
 
-    public function getCountry(): ?Country
+    public function getCountry(): string
     {
         return $this->country;
     }

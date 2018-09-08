@@ -2,10 +2,9 @@
 
 namespace Fop\MeetupCom\Api;
 
+use Fop\Guzzle\ResponseFormatter;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
-use Nette\Utils\Json;
-use Psr\Http\Message\ResponseInterface;
 use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupComApi
@@ -31,10 +30,16 @@ final class MeetupComApi
      */
     private $client;
 
-    public function __construct(string $meetupComApiKey, Client $client)
+    /**
+     * @var ResponseFormatter
+     */
+    private $responseFormatter;
+
+    public function __construct(string $meetupComApiKey, Client $client, ResponseFormatter $responseFormatter)
     {
         $this->meetupComApiKey = $meetupComApiKey;
         $this->client = $client;
+        $this->responseFormatter = $responseFormatter;
     }
 
     /**
@@ -45,9 +50,8 @@ final class MeetupComApi
     {
         $url = $this->createUrlFromGroupIds($groupIds);
         $response = $this->client->request('GET', $url);
-        $result = $this->getResultFromResponse($response);
 
-        return $result['results'];
+        return $this->responseFormatter->formatResponseToJson($response, $url)['results'];
     }
 
     public function getIdForGroupUrl(string $url): ?int
@@ -57,8 +61,9 @@ final class MeetupComApi
 
             return $group['id'];
         } catch (ClientException $clientException) {
-            if ($clientException->getCode() === 404) {
-                // the group doesn't exist anymore, skip it
+            if (in_array($clientException->getCode(), [410, 404], true)) {
+                // 410: the group is not accessible
+                // 410: the group doesn't exist anymore
                 return null;
             }
 
@@ -74,9 +79,9 @@ final class MeetupComApi
     {
         $groupPart = $this->resolveGroupUrlNameFromGroupUrl($url);
 
-        $response = $this->client->request('get', self::API_GROUP_DETAIL_URL . $groupPart);
-
-        return $this->getResultFromResponse($response);
+        $url = self::API_GROUP_DETAIL_URL . $groupPart;
+        $response = $this->client->request('get', $url);
+        return $this->responseFormatter->formatResponseToJson($response, $url);
     }
 
     /**
@@ -86,9 +91,8 @@ final class MeetupComApi
     {
         $url = sprintf('http://api.meetup.com/topics?search=%s&only=id,name&key=%s', $keyword, $this->meetupComApiKey);
         $response = $this->client->request('GET', $url);
-        $result = $this->getResultFromResponse($response);
 
-        return $result['results'];
+        return $this->responseFormatter->formatResponseToJson($response, $url)['results'];
     }
 
     /**
@@ -106,20 +110,10 @@ final class MeetupComApi
         ]);
     }
 
-    /**
-     * @return mixed
-     */
-    private function getResultFromResponse(ResponseInterface $response)
-    {
-        return Json::decode($response->getBody(), Json::FORCE_ARRAY);
-    }
-
     private function resolveGroupUrlNameFromGroupUrl(string $url): string
     {
         $url = rtrim($url, '/');
-
         $array = explode('/', $url);
-
         return $array[count($array) - 1];
     }
 }

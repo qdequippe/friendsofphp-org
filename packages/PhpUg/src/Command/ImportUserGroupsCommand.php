@@ -1,9 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\PhpUg\Command;
 
-use Fop\Entity\Group;
-use Fop\Importer\GroupsFromPhpUgImporter;
+use Fop\PhpUg\UserGroupImporter;
 use Fop\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -11,12 +10,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class PhpUgImportCommand extends Command
+final class ImportUserGroupsCommand extends Command
 {
     /**
-     * @var GroupsFromPhpUgImporter
+     * @var UserGroupImporter
      */
-    private $groupsFromPhpUgImporter;
+    private $userGroupImporter;
 
     /**
      * @var GroupRepository
@@ -29,12 +28,12 @@ final class PhpUgImportCommand extends Command
     private $symfonyStyle;
 
     public function __construct(
-        GroupsFromPhpUgImporter $groupsFromPhpUgImporter,
+        UserGroupImporter $userGroupImporter,
         GroupRepository $userGroupRepository,
         SymfonyStyle $symfonyStyle
     ) {
         parent::__construct();
-        $this->groupsFromPhpUgImporter = $groupsFromPhpUgImporter;
+        $this->userGroupImporter = $userGroupImporter;
         $this->groupRepository = $userGroupRepository;
         $this->symfonyStyle = $symfonyStyle;
     }
@@ -48,19 +47,13 @@ final class PhpUgImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $this->symfonyStyle->note('Importing groups from php.ug');
-        $this->importsGroups();
-        $this->symfonyStyle->success('Done');
-    }
 
-    private function importsGroups(): void
-    {
-        $groupsByContinent = $this->groupsFromPhpUgImporter->import();
-        foreach ($groupsByContinent as $groups) {
-            /** @var Group $group */
-            foreach ($groups as $group) {
-                $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group->getName()));
-            }
+        $groups = $this->userGroupImporter->import();
+        foreach ($groups as $group) {
+            $this->symfonyStyle->note(sprintf('Group "%s" imported', $group->getName()));
         }
-        $this->groupRepository->saveImportToFile($groupsByContinent);
+        $this->groupRepository->saveImportToFile($groups);
+
+        $this->symfonyStyle->success('Done');
     }
 }

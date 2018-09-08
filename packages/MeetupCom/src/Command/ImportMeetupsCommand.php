@@ -2,7 +2,7 @@
 
 namespace Fop\MeetupCom\Command;
 
-use Fop\Importer\MeetupsFromMeetupComImporter;
+use Fop\MeetupCom\MeetupImporter;
 use Fop\Repository\GroupRepository;
 use Fop\Repository\MeetupRepository;
 use Symfony\Component\Console\Command\Command;
@@ -24,9 +24,9 @@ final class ImportMeetupsCommand extends Command
     private $meetupRepository;
 
     /**
-     * @var MeetupsFromMeetupComImporter
+     * @var MeetupImporter
      */
-    private $meetupsFromMeetupComImporter;
+    private $meetupImporter;
 
     /**
      * @var SymfonyStyle
@@ -41,14 +41,14 @@ final class ImportMeetupsCommand extends Command
     public function __construct(
         GroupRepository $userGroupRepository,
         MeetupRepository $meetupRepository,
-        MeetupsFromMeetupComImporter $meetupsFromMeetupComImporter,
+        MeetupImporter $meetupImporter,
         SymfonyStyle $symfonyStyle,
         int $maxForecastDays
     ) {
         parent::__construct();
         $this->groupRepository = $userGroupRepository;
         $this->meetupRepository = $meetupRepository;
-        $this->meetupsFromMeetupComImporter = $meetupsFromMeetupComImporter;
+        $this->meetupImporter = $meetupImporter;
         $this->symfonyStyle = $symfonyStyle;
         $this->maxForecastDays = $maxForecastDays;
     }
@@ -71,7 +71,7 @@ final class ImportMeetupsCommand extends Command
         $europeanGroups = $this->groupRepository->fetchAll();
 
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
-        $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);
+        $meetups = $this->meetupImporter->importForGroupIds($groupIds);
 
         $this->symfonyStyle->note(
             sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)

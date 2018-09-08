@@ -1,15 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Importer;
+namespace Fop\PhpUg;
 
-use Fop\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
 use Fop\Entity\Group;
 use Fop\MeetupCom\Api\MeetupComApi;
+use Fop\PhpUg\Api\PhpUgApi;
 use Nette\Utils\Strings;
-use Rinvex\Country\Country;
 
-final class GroupsFromPhpUgImporter
+final class UserGroupImporter
 {
     /**
      * @var CountryResolver
@@ -34,7 +33,7 @@ final class GroupsFromPhpUgImporter
     }
 
     /**
-     * @return Group[][]
+     * @return Group[]
      */
     public function import(): array
     {
@@ -59,14 +58,7 @@ final class GroupsFromPhpUgImporter
             );
         }
 
-        $groups = $this->sortByCountry($groups);
-
-        // resolve country to string
-        foreach ($groups as $key => $group) {
-            $groups[$key]['country'] = $group['country'] ? $group['country']->getName() : 'unknown';
-        }
-
-        return $groups;
+        return $this->sortByCountry($groups);
     }
 
     /**
@@ -75,8 +67,8 @@ final class GroupsFromPhpUgImporter
      */
     private function sortByCountry(array $groups): array
     {
-        uasort($groups, function (array $firstGroup, array $secondGroup) {
-            return $firstGroup['country'] > $secondGroup['country'];
+        uasort($groups, function (Group $firstGroup, Group $secondGroup) {
+            return $firstGroup->getCountry() > $secondGroup->getCountry();
         });
 
         return $groups;

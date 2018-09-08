@@ -6,8 +6,8 @@
 ## Install
 
 ```sh
-git clone ...
-cd ...
+git clone your-fork.git
+cd your-fork
 npm install
 ```
 
@@ -18,7 +18,7 @@ npm install
 bin/console php-ug-import
 
 # based on groups, import meetups from https://meetup.com
-bin/console meetup-com-import
+bin/console import-meetups
 ```
 
 ## Run the website
@@ -33,7 +33,7 @@ And open [http://localhost:8000](localhost:8000) in your browser.
 
 That's all!
 
-
+<!--
 ## Work Notes
 
 do you want to add a meetup? let me know :)
@@ -46,9 +46,9 @@ brands
 
 - go to meetup personally
 - spread connections, come to visit us
-- all php stuffs, even non php :) like ... e.g. @todo
 - add train trips and a price, or a plane
 - or place to sleep - přijeďte do prahy, ubytuju vás :) jít příkladem
 
 - integrovat developeow?
 - get a job, connect on meetup in another country
+-->

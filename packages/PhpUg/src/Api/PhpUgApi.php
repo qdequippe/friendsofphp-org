@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Api;
+namespace Fop\PhpUg\Api;
 
+use Fop\Guzzle\ResponseFormatter;
 use GuzzleHttp\Client;
-use Nette\Utils\Json;
 
 final class PhpUgApi
 {
@@ -17,9 +17,15 @@ final class PhpUgApi
      */
     private $client;
 
-    public function __construct(Client $client)
+    /**
+     * @var ResponseFormatter
+     */
+    private $responseFormatter;
+
+    public function __construct(Client $client, ResponseFormatter $responseFormatter)
     {
         $this->client = $client;
+        $this->responseFormatter = $responseFormatter;
     }
 
     /**
@@ -29,8 +35,7 @@ final class PhpUgApi
     {
         $response = $this->client->request('get', self::API_ALL_GROUPS_URL);
 
-        $result = Json::decode($response->getBody(), Json::FORCE_ARRAY);
-
-        return $result['groups'] ?? [];
+        $json = $this->responseFormatter->formatResponseToJson($response, self::API_ALL_GROUPS_URL);
+        return $json['groups'] ?? [];
     }
 }

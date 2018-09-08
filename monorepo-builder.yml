@@ -1,15 +1,21 @@
 parameters:
+    symplify_version: '^4.8'
+    symfony_version: '^4.1'
+
     data_to_append:
         require:
             guzzlehttp/guzzle: '^6.3'
             symfony/var-dumper: '^4.1'
             nette/utils: '^2.5'
-            symplify/statie: '^4.7'
-            symplify/package-builder: '^4.7'
+            symplify/statie: '%symplify_version%'
+            symplify/package-builder: '%symplify_version%'
             rinvex/country: '^3.1'
-            symfony/console: '^4.1'
-            symfony/dependency-injection: '^4.1'
-            symfony/http-kernel: '^4.1'
+            symfony/console: '%symfony_version%'
+            symfony/dependency-injection: '%symfony_version%'
+            symfony/http-kernel: '%symfony_version%'
         autoload:
             psr-4:
                 Fop\: "src"
+        autoload-dev:
+            psr-4:
+                Fop\Tests\: "tests"

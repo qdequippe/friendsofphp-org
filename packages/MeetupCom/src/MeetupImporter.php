@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Importer;
+namespace Fop\MeetupCom;
 
 use DateTimeInterface;
 use Fop\Entity\Location;
@@ -9,7 +9,7 @@ use Fop\Entity\TimeSpan;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Nette\Utils\DateTime;
 
-final class MeetupsFromMeetupComImporter
+final class MeetupImporter
 {
     /**
      * @var MeetupComApi

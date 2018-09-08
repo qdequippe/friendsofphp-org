@@ -3,10 +3,10 @@
 namespace Fop\Tests\Country;
 
 use Fop\Country\CountryResolver;
-use PHPUnit\Framework\TestCase;
-use Rinvex\Country\Country;
+use Fop\Tests\AbstractContainerAwareTestCase;
+use Iterator;
 
-final class CountryResolverTest extends TestCase
+final class CountryResolverTest extends AbstractContainerAwareTestCase
 {
     /**
      * @var CountryResolver
@@ -15,17 +15,25 @@ final class CountryResolverTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->countryResolver = new CountryResolver();
+        $this->countryResolver = $this->container->get(CountryResolver::class);
     }
 
-    public function test(): void
+    /**
+     * @param mixed[] $group
+     * @dataProvider provideData()
+     */
+    public function test(array $group, string $expecedCountry): void
     {
-        $country = $this->countryResolver->resolveFromGroup([
-            'country' => 'CZ',
-        ]);
+        $this->assertSame($expecedCountry, $this->countryResolver->resolveFromGroup($group));
+    }
 
-        $this->assertInstanceOf(Country::class, $country);
-
-        $this->assertSame('Czech Republic', $country->getName());
+    public function provideData(): Iterator
+    {
+        yield [['country' => 'CZ'], 'Czech Republic'];
+        yield [[
+            'latitude' => 50.847572953654,
+            'longitude' => 4.3535041809082,
+        ], 'Belgium'];
+        yield [['country' => 'random'], 'unknown'];
     }
 }

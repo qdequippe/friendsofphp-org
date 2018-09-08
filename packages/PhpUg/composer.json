@@ -1,0 +1,18 @@
+{
+    "description": "Imports groups from php.ug.",
+    "require": {
+        "php": "^7.2",
+        "guzzlehttp/guzzle": "^6.3",
+        "nette/utils": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fop\\PhpUg\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fop\\PhpUg\\Tests\\": "tests"
+        }
+    }
+}

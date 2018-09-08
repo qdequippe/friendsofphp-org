@@ -48,7 +48,7 @@ final class ShowMeetupDetailCommand extends Command
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription(
-            'Shows details for meetup group, use like "bin/fop meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/"'
+            'Shows details for meetup group, use like "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/"'
         );
         $this->addArgument(
             self::ARGUMENT_GROUP_URL,
@@ -66,6 +66,6 @@ final class ShowMeetupDetailCommand extends Command
         $this->symfonyStyle->writeln(sprintf("name: '%s'", $group['name']));
         $this->symfonyStyle->writeln(sprintf('meetup_com_id: %s', $group['id']));
         $this->symfonyStyle->writeln(sprintf("meetup_com_url: '%s'", $group['link']));
-        $this->symfonyStyle->writeln(sprintf("country: '%s'", ($country ? $country->getName() : 'unknown')));
+        $this->symfonyStyle->writeln(sprintf("country: '%s'", $country));
     }
 }

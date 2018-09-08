@@ -2,48 +2,108 @@
 
 namespace Fop\Country;
 
-use Nette\Utils\Json;
-use Rinvex\Country\Country;
+use Fop\Guzzle\ResponseFormatter;
+use GuzzleHttp\Client;
 use Rinvex\Country\CountryLoader;
+use Throwable;
 
 final class CountryResolver
 {
     /**
-     * @param mixed[] $group
+     * @var string
      */
-    public function resolveFromGroup(array $group): ?Country
+    private const UNKNOWN_COUNTRY = 'unknown';
+
+    /**
+     * @var string
+     */
+    private const API_LOCATION_TO_COUNTRY = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s';
+
+    /**
+     * @var Client
+     */
+    private $client;
+
+    /**
+     * @var ResponseFormatter
+     */
+    private $responseFormatter;
+
+    /**
+     * @var string[]
+     */
+    private $cachedCountryCodeByLatitudeAndLongitude = [];
+
+    public function __construct(Client $client, ResponseFormatter $responseFormatter)
     {
-        if (isset($group['country']) && $group['country']) {
-            return CountryLoader::country($group['country']);
-        }
-
-        $geocode = $this->resolveGeocodeFromGoogleMapsByLatitudeAndLongitude($group['latitude'], $group['longitude']);
-
-        $geocodeJson = Json::decode($geocode, Json::FORCE_ARRAY);
-        if ($geocodeJson['status'] !== 'OK') {
-            return null;
-        }
-
-        foreach ($geocodeJson['results'][0]['address_components'] as $addressComponent) {
-            if (in_array('country', $addressComponent['types'], true)) {
-                return CountryLoader::country($addressComponent['short_name']);
-            }
-        }
-
-        return null;
+        $this->client = $client;
+        $this->responseFormatter = $responseFormatter;
     }
 
     /**
-     * @return bool|string
+     * @param mixed[] $group
      */
-    private function resolveGeocodeFromGoogleMapsByLatitudeAndLongitude(float $latitude, float $longitude)
+    public function resolveFromGroup(array $group): string
     {
-        $url = sprintf(
-            'http://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&sensor=false',
-            $latitude,
-            $longitude
-        );
+        $countryCode = $this->resolveCountryCodeFromGroup($group);
+        if ($countryCode === null) {
+            return self::UNKNOWN_COUNTRY;
+        }
 
-        return file_get_contents($url);
+        try {
+            $countryOrCountries = CountryLoader::country($countryCode);
+            if (is_array($countryOrCountries)) {
+                $country = array_pop($countryOrCountries);
+            } else {
+                $country = $countryOrCountries;
+            }
+
+            return $country->getName();
+        } catch (Throwable $throwable) {
+            return self::UNKNOWN_COUNTRY;
+        }
+    }
+
+    /**
+     * @param mixed[] $group
+     */
+    private function resolveCountryCodeFromGroup(array $group): ?string
+    {
+        if (isset($group['country']) && $group['country'] && $group['country'] !== '-') {
+            return $group['country'];
+        }
+
+        if (! isset($group['latitude'], $group['longitude'])) {
+            return null;
+        }
+
+        return $this->getCountryCodeByLatitudeAndLongitude($group['latitude'], $group['longitude']);
+    }
+
+    /**
+     * @see https://stackoverflow.com/a/45826290/1348344
+     */
+    private function getCountryCodeByLatitudeAndLongitude(float $latitude, float $longitude): ?string
+    {
+        $cacheKey = sha1($longitude . $longitude);
+        if (isset($this->cachedCountryCodeByLatitudeAndLongitude[$cacheKey])) {
+            return $this->cachedCountryCodeByLatitudeAndLongitude[$cacheKey];
+        }
+
+        $url = sprintf(self::API_LOCATION_TO_COUNTRY, $latitude, $longitude);
+
+        $response = $this->client->request('GET', $url);
+        // unable to resolve country
+        if ($response->getStatusCode() !== 200) {
+            return null;
+        }
+
+        $json = $this->responseFormatter->formatResponseToJson($response, $url);
+
+        $countryCode = $json['address']['country_code'];
+
+        $this->cachedCountryCodeByLatitudeAndLongitude[$cacheKey] = $countryCode;
+
+        return $countryCode;
     }
 }

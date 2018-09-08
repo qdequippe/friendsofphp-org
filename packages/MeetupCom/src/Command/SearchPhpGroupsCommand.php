@@ -61,6 +61,7 @@ final class SearchPhpGroupsCommand extends Command
                 'meetups' => $foundMeetups,
             ],
         ];
+
         $this->yamlFileSystem->saveArrayToFile($data, $this->foundMeetupsStorageFile);
 
         $this->symfonyStyle->success(sprintf('Done - %d meetups added', count($foundMeetups)));
