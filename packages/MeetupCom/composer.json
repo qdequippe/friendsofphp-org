@@ -1,0 +1,12 @@
+{
+    "require": {
+        "php": "^7.2",
+        "guzzlehttp/guzzle": "^6.3",
+        "nette/utils": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fop\\MeetupCom\\": "src"
+        }
+    }
+}

@@ -4,24 +4,29 @@ imports:
 
 parameters:
     groups:
-        europe:
-            -
-                name: 'Berlin PHP Usergroup'
-                meetup_com_id: 20148431
-                meetup_com_url: 'https://www.meetup.com/Berlin-PHP-Usergroup/'
-                country: Germany
-            -
-                name: 'Friends of PHP - Prague'
-                meetup_com_id: 29709429
-                meetup_com_url: 'https://www.meetup.com/friends-of-php-prague/'
-                country: 'Czech Republic'
-            -
-                name: 'Symfony Bucharest'
-                meetup_com_id: 19114422
-                meetup_com_url: 'https://www.meetup.com/Symfony-Bucharest/'
-                country: 'Romania'
-            -
-                name: 'Bucharest PHP Meetup'
-                meetup_com_id: 27698424
-                meetup_com_url: 'https://www.meetup.com/Bucharest-PHP-Meetup/'
-                country: 'Romania'
+        -
+            name: 'Berlin PHP Usergroup'
+            meetup_com_id: 20148431
+            meetup_com_url: 'https://www.meetup.com/Berlin-PHP-Usergroup/'
+            country: Germany
+        -
+            name: 'Friends of PHP - Prague'
+            meetup_com_id: 29709429
+            meetup_com_url: 'https://www.meetup.com/friends-of-php-prague/'
+            country: 'Czech Republic'
+        -
+            name: 'Symfony Bucharest'
+            meetup_com_id: 19114422
+            meetup_com_url: 'https://www.meetup.com/Symfony-Bucharest/'
+            country: 'Romania'
+        -
+            name: 'Bucharest PHP Meetup'
+            meetup_com_id: 27698424
+            meetup_com_url: 'https://www.meetup.com/Bucharest-PHP-Meetup/'
+            country: 'Romania'
+
+        # 1. add command to add a group by copy-paste url :)
+        # https://www.meetup.com/Laravel-Frameworkers-Vienna/
+
+        # 2. @todo add all groups foudn via simple search :)
+        #       https://www.meetup.com/find/?allMeetups=false&keywords=php&radius=Infinity&userFreeform=Brno%2C+Czech+Republic&mcId=z1007436&mcName=Brno%2C+CZ&sort=recommended&eventFilter=mysugg

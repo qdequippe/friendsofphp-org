@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\MeetupCom\Command;
 
-use Fop\Api\MeetupComApi;
 use Fop\Country\CountryResolver;
+use Fop\MeetupCom\Api\MeetupComApi;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class MeetupComGroupDetailCommand extends Command
+final class ShowMeetupDetailCommand extends Command
 {
     /**
      * @var string

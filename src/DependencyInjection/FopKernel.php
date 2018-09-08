@@ -7,6 +7,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Kernel;
+use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\PublicForTestsCompilerPass;
 
 final class FopKernel extends Kernel
@@ -21,6 +22,7 @@ final class FopKernel extends Kernel
 
     public function registerContainerConfiguration(LoaderInterface $loader): void
     {
+        $loader->load(__DIR__ . '/../../packages/*/src/config/config.yml', 'glob');
         $loader->load(__DIR__ . '/../config/config.yml');
     }
 
@@ -38,5 +40,8 @@ final class FopKernel extends Kernel
     {
         $containerBuilder->addCompilerPass(new CollectorCompilerPass());
         $containerBuilder->addCompilerPass(new PublicForTestsCompilerPass());
+        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
     }
+
+    // @todo add merge paramters loader
 }

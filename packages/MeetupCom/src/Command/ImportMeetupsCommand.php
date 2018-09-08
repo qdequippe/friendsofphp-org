@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\MeetupCom\Command;
 
 use Fop\Importer\MeetupsFromMeetupComImporter;
 use Fop\Repository\GroupRepository;
@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class MeetupComImportCommand extends Command
+final class ImportMeetupsCommand extends Command
 {
     /**
      * @var GroupRepository
@@ -68,7 +68,7 @@ final class MeetupComImportCommand extends Command
 
     private function importMeetups(): void
     {
-        $europeanGroups = $this->groupRepository->fetchByContinent('Europe');
+        $europeanGroups = $this->groupRepository->fetchAll();
 
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
         $meetups = $this->meetupsFromMeetupComImporter->importForGroupIds($groupIds);

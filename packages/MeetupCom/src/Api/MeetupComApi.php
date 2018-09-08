@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Api;
+namespace Fop\MeetupCom\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -77,6 +77,18 @@ final class MeetupComApi
         $response = $this->client->request('get', self::API_GROUP_DETAIL_URL . $groupPart);
 
         return $this->getResultFromResponse($response);
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function findMeetupsGroupsByKeyword(string $keyword): array
+    {
+        $url = sprintf('http://api.meetup.com/topics?search=%s&only=id,name&key=%s', $keyword, $this->meetupComApiKey);
+        $response = $this->client->request('GET', $url);
+        $result = $this->getResultFromResponse($response);
+
+        return $result['results'];
     }
 
     /**

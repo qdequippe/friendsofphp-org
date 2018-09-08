@@ -1,0 +1,56 @@
+parameters:
+    meetups:
+        -
+            name: PHP
+            id: '455'
+        -
+            name: 'PHP Application Development'
+            id: '23837'
+        -
+            name: 'PHP Framework'
+            id: '100119'
+        -
+            name: 'PHP CMS'
+            id: '422312'
+        -
+            name: 'programming with html css php mysql'
+            id: '863592'
+        -
+            name: 'php Women'
+            id: '332201'
+        -
+            name: 'beginner php programming'
+            id: '864492'
+        -
+            name: 'HTML CSS PHP MYSQL Programming'
+            id: '1515240'
+        -
+            name: 'Phalcon PHP'
+            id: '1502332'
+        -
+            name: 'PHP HTML5 Nginx MongoDB Linux'
+            id: '1494012'
+        -
+            name: 'C#/Java/PHP...'
+            id: '1511204'
+        -
+            name: 'LMS - Learning Management Systems Moodle php LAMP'
+            id: '163375'
+        -
+            name: 'WAMP - Windows MySQL Apachie PHP'
+            id: '605672'
+        -
+            name: 'Integrando Mongo DB con PHP'
+            id: '498962'
+        -
+            name: 'PHP Bible'
+            id: '1441942'
+        -
+            name: 'PHP-Nuke & PostNuke'
+            id: '1656'
+        -
+            name: 'php crm'
+            id: '166634'
+        -
+            name: 'Beginner PHP'
+            id: '1504770'

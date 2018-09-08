@@ -48,9 +48,9 @@ final class GroupRepository
     /**
      * @return mixed[]
      */
-    public function fetchByContinent(string $continent): array
+    public function fetchAll(): array
     {
-        return $this->groups[strtolower($continent)] ?? [];
+        return $this->groups;
     }
 
     /**

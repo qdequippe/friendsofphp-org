@@ -2,10 +2,10 @@
 
 namespace Fop\Importer;
 
-use Fop\Api\MeetupComApi;
 use Fop\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
 use Fop\Entity\Group;
+use Fop\MeetupCom\Api\MeetupComApi;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
 
@@ -61,56 +61,24 @@ final class GroupsFromPhpUgImporter
 
         $groups = $this->sortByCountry($groups);
 
-        return $this->groupMeetupsByContinent($groups);
+        // resolve country to string
+        foreach ($groups as $key => $group) {
+            $groups[$key]['country'] = $group['country'] ? $group['country']->getName() : 'unknown';
+        }
+
+        return $groups;
     }
 
     /**
-     * @param mixed[] $meetupGroups
+     * @param mixed[] $groups
      * @return mixed[]
      */
-    private function sortByCountry(array $meetupGroups): array
+    private function sortByCountry(array $groups): array
     {
-        uasort($meetupGroups, function (array $firstMeetupGroup, array $secondMeetupGroup) {
-            return $firstMeetupGroup['country'] > $secondMeetupGroup['country'];
+        uasort($groups, function (array $firstGroup, array $secondGroup) {
+            return $firstGroup['country'] > $secondGroup['country'];
         });
 
-        return $meetupGroups;
-    }
-
-    /**
-     * @param mixed[] $meetupGroups
-     * @return mixed[]
-     */
-    private function groupMeetupsByContinent(array $meetupGroups): array
-    {
-        $meetupGroupsByContinent = [];
-
-        foreach ($meetupGroups as $meetupGroup) {
-            $regionKey = $this->resolveRegionKey($meetupGroup);
-            $meetupGroup['country'] = $meetupGroup['country'] ? $meetupGroup['country']->getName() : 'unknown';
-
-            $meetupGroupsByContinent[$regionKey][] = $meetupGroup;
-        }
-
-        return $meetupGroupsByContinent;
-    }
-
-    /**
-     * @param mixed[] $meetupGroup
-     */
-    private function resolveRegionKey(array $meetupGroup): string
-    {
-        if ($meetupGroup['country']) {
-            /** @var Country $country */
-            $country = $meetupGroup['country'];
-
-            if ($country->getRegion() === null) {
-                return 'unknown';
-            }
-
-            return strtolower($country->getRegion());
-        }
-
-        return 'unknown';
+        return $groups;
     }
 }

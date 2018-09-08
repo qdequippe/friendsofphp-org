@@ -1,0 +1,53 @@
+parameters:
+    # open street map setup
+    areas:
+        # use bounds to fit map into display and satisfy both mobile and desktop
+        # https://leafletjs.com/reference-1.3.2.html#fitbounds-options
+        europe:
+            top_left:
+                latitude: 60
+                longitude: -12.845173
+            bottom_right:
+                latitude: 36
+                longitude: 26.126861
+
+        north_america:
+            top_left:
+                latitude: 51.553718
+                longitude: -130.547382
+            bottom_right:
+                latitude: 17.094802
+                longitude: -77.827630
+
+        south_america:
+            top_left:
+                latitude: 6.021085
+                longitude: -88.334293
+            bottom_right:
+                latitude: -42.100410
+                longitude: -32.290539
+
+        # central around Singapore
+        asia:
+            top_left:
+                latitude: 38.111852
+                longitude: 71.058463
+            bottom_right:
+                latitude: -8.613086
+                longitude: 135.196262
+
+        africa:
+            top_left:
+                latitude: 34.141898
+                longitude: -15.133246
+            bottom_right:
+                latitude: -26.016419
+                longitude: 52.492083
+
+        australia:
+            top_left:
+                latitude: -3.992096
+                longitude: 111.481468
+            bottom_right:
+                latitude: -45.041243
+                longitude: 177.328030

@@ -1,13 +1,7 @@
 services:
     _defaults:
         autowire: true
-        bind:
-            $maxForecastDays: '%max_forecast_days%'
-            $groupsStorage: '%groups_storage%'
-            $importedGroupsStorage: '%imported_groups_storage%'
-            $importedMeetupsStorage: '%imported_meetups_storage%'
-
-            $meetupComApiKey: '%meetup_com_api_key%'
+        public: true
 
     Fop\:
         resource: '../'

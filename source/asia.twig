@@ -1,0 +1,20 @@
+---
+title: "Asia"
+layout: "_layouts/default.twig"
+id: "asia"
+---
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            {% include "_snippets/area_menu.twig" %}
+
+            <div id="mapid"></div>
+
+            <br>
+
+            {% include "_snippets/meetups_table.twig" with {'area': areas.asia } %}
+            {% include "_snippets/meetups_map.twig" with {'area': areas.asia } %}
+        </div>
+    </div>
+{% endblock %}
