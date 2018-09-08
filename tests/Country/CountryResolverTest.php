@@ -19,19 +19,21 @@ final class CountryResolverTest extends AbstractContainerAwareTestCase
     }
 
     /**
+     * @param mixed[] $group
      * @dataProvider provideData()
      */
-    public function test(string $input, string $expecedCountry): void
+    public function test(array $group, string $expecedCountry): void
     {
-        $country = $this->countryResolver->resolveFromGroup([
-            'country' => $input,
-        ]);
-
-        $this->assertSame($expecedCountry, $country);
+        $this->assertSame($expecedCountry, $this->countryResolver->resolveFromGroup($group));
     }
 
     public function provideData(): Iterator
     {
-        yield ['CZ', 'Czech Republic'];
+        yield [['country' => 'CZ'], 'Czech Republic'];
+        yield [[
+            'latitude' => 50.847572953654,
+            'longitude' => 4.3535041809082,
+        ], 'Belgium'];
+        yield [['country' => 'random'], 'unknown'];
     }
 }

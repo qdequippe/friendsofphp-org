@@ -4,12 +4,21 @@ namespace Fop\Country;
 
 use Fop\Guzzle\ResponseFormatter;
 use GuzzleHttp\Client;
-use Nette\Utils\Json;
-use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
+use Throwable;
 
 final class CountryResolver
 {
+    /**
+     * @var string
+     */
+    private const UNKNOWN_COUNTRY = 'unknown';
+
+    /**
+     * @var string
+     */
+    private const API_LOCATION_TO_COUNTRY = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s';
+
     /**
      * @var Client
      */
@@ -21,9 +30,9 @@ final class CountryResolver
     private $responseFormatter;
 
     /**
-     * @var string
+     * @var string[]
      */
-    private const UNKNOWN_COUNTRY = 'unknown';
+    private $cachedCountryCodeByLatitudeAndLongitude = [];
 
     public function __construct(Client $client, ResponseFormatter $responseFormatter)
     {
@@ -36,46 +45,65 @@ final class CountryResolver
      */
     public function resolveFromGroup(array $group): string
     {
-        if (isset($group['country']) && $group['country'] && $group['country'] !== '-') {
-
-            dump($group['country']);
-
-            $country = CountryLoader::country($group['country']);
-            if ($country instanceof Country) {
-                return $country->getName();
-            }
+        $countryCode = $this->resolveCountryCodeFromGroup($group);
+        if ($countryCode === null) {
+            return self::UNKNOWN_COUNTRY;
         }
 
-        return $this->getCountryByLatitudeAndLongitude($group['latitude'], $group['longitude']);
+        try {
+            $countryOrCountries = CountryLoader::country($countryCode);
+            if (is_array($countryOrCountries)) {
+                $country = array_pop($countryOrCountries);
+            } else {
+                $country = $countryOrCountries;
+            }
+
+            return $country->getName();
+        } catch (Throwable $throwable) {
+            return self::UNKNOWN_COUNTRY;
+        }
+    }
+
+    /**
+     * @param mixed[] $group
+     */
+    private function resolveCountryCodeFromGroup(array $group): ?string
+    {
+        if (isset($group['country']) && $group['country'] && $group['country'] !== '-') {
+            return $group['country'];
+        }
+
+        if (! isset($group['latitude'], $group['longitude'])) {
+            return null;
+        }
+
+        return $this->getCountryCodeByLatitudeAndLongitude($group['latitude'], $group['longitude']);
     }
 
     /**
      * @see https://stackoverflow.com/a/45826290/1348344
      */
-    private function getCountryByLatitudeAndLongitude(float $latitude, float $longitude): string
+    private function getCountryCodeByLatitudeAndLongitude(float $latitude, float $longitude): ?string
     {
-        $url = sprintf(
-            'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s',
-            $latitude,
-            $longitude
-        );
+        $cacheKey = sha1($longitude . $longitude);
+        if (isset($this->cachedCountryCodeByLatitudeAndLongitude[$cacheKey])) {
+            return $this->cachedCountryCodeByLatitudeAndLongitude[$cacheKey];
+        }
+
+        $url = sprintf(self::API_LOCATION_TO_COUNTRY, $latitude, $longitude);
 
         $response = $this->client->request('GET', $url);
         // unable to resolve country
         if ($response->getStatusCode() !== 200) {
-            return self::UNKNOWN_COUNTRY;
+            return null;
         }
 
         $json = $this->responseFormatter->formatResponseToJson($response, $url);
 
-        if (isset($json['address']['country'])) {
-            return $json['address']['country'];
-        }
+        $countryCode = $json['address']['country_code'];
 
-        if (isset($json['address']['state'])) {
-            return $json['address']['state'];
-        }
+        $this->cachedCountryCodeByLatitudeAndLongitude[$cacheKey] = $countryCode;
 
-        return self::UNKNOWN_COUNTRY;
+        return $countryCode;
     }
 }

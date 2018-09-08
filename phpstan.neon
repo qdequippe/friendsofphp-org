@@ -1,6 +1,0 @@
-parameters:
-    ignoreErrors:
-        # bugged
-        - '#Cannot call method getName\(\) on Rinvex\\Country\\Country\|null#'
-
-        - '#Function resolveCountry\(\) should return Rinvex\\Country\\Country|null but returns array\|Rinvex\\Country\\Country#'
