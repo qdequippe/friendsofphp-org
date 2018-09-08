@@ -67,8 +67,8 @@ final class GroupsFromPhpUgImporter
      */
     private function sortByCountry(array $groups): array
     {
-        uasort($groups, function (array $firstGroup, array $secondGroup) {
-            return $firstGroup['country'] > $secondGroup['country'];
+        uasort($groups, function (Group $firstGroup, Group $secondGroup) {
+            return $firstGroup->getCountry() > $secondGroup->getCountry();
         });
 
         return $groups;
