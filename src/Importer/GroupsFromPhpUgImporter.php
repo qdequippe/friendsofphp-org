@@ -2,10 +2,10 @@
 
 namespace Fop\Importer;
 
-use Fop\PhpUg\Api\PhpUgApi;
 use Fop\Country\CountryResolver;
 use Fop\Entity\Group;
 use Fop\MeetupCom\Api\MeetupComApi;
+use Fop\PhpUg\Api\PhpUgApi;
 use Nette\Utils\Strings;
 
 final class GroupsFromPhpUgImporter

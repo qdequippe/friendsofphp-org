@@ -2,7 +2,6 @@
 
 namespace Fop\PhpUg\Command;
 
-use Fop\Entity\Group;
 use Fop\Importer\GroupsFromPhpUgImporter;
 use Fop\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;

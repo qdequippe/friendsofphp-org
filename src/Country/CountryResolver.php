@@ -14,10 +14,16 @@ final class CountryResolver
      * @var Client
      */
     private $client;
+
     /**
      * @var ResponseFormatter
      */
     private $responseFormatter;
+
+    /**
+     * @var string
+     */
+    private const UNKNOWN_COUNTRY = 'unknown';
 
     public function __construct(Client $client, ResponseFormatter $responseFormatter)
     {
@@ -30,11 +36,9 @@ final class CountryResolver
      */
     public function resolveFromGroup(array $group): string
     {
-        if (isset($group['country']) && $group['country']) {
-            // invalid country
-            if ($group['country'] === '-') {
-                return 'unknown';
-            }
+        if (isset($group['country']) && $group['country'] && $group['country'] !== '-') {
+
+            dump($group['country']);
 
             $country = CountryLoader::country($group['country']);
             if ($country instanceof Country) {
@@ -42,40 +46,36 @@ final class CountryResolver
             }
         }
 
-        $geocode = $this->resolveGeocodeFromGoogleMapsByLatitudeAndLongitude($group['latitude'], $group['longitude']);
-
-        $geocodeJson = Json::decode($geocode, Json::FORCE_ARRAY);
-        if ($geocodeJson['status'] !== 'OK') {
-            return 'unknown';
-        }
-
-        foreach ($geocodeJson['results'][0]['address_components'] as $addressComponent) {
-            if (in_array('country', $addressComponent['types'], true)) {
-                $country = CountryLoader::country($addressComponent['short_name']);
-                if ($country instanceof Country) {
-                    return $country->getName();
-                }
-            }
-        }
-
-        return 'unknown';
+        return $this->getCountryByLatitudeAndLongitude($group['latitude'], $group['longitude']);
     }
 
     /**
-     * @return bool|string
+     * @see https://stackoverflow.com/a/45826290/1348344
      */
-    private function resolveGeocodeFromGoogleMapsByLatitudeAndLongitude(float $latitude, float $longitude)
+    private function getCountryByLatitudeAndLongitude(float $latitude, float $longitude): string
     {
         $url = sprintf(
-            'http://maps.googleapis.com/maps/api/geocode/json?latlng=%s,%s&sensor=false',
+            'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s',
             $latitude,
             $longitude
         );
 
         $response = $this->client->request('GET', $url);
+        // unable to resolve country
+        if ($response->getStatusCode() !== 200) {
+            return self::UNKNOWN_COUNTRY;
+        }
+
         $json = $this->responseFormatter->formatResponseToJson($response, $url);
 
-        dump($json);
-        die;
+        if (isset($json['address']['country'])) {
+            return $json['address']['country'];
+        }
+
+        if (isset($json['address']['state'])) {
+            return $json['address']['state'];
+        }
+
+        return self::UNKNOWN_COUNTRY;
     }
 }

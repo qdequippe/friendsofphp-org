@@ -2,6 +2,7 @@
 
 namespace Fop\FileSystem;
 
+use DateTime;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Yaml\Yaml;
 
@@ -16,7 +17,7 @@ final class YamlFileSystem
 
         $timestampComment = sprintf(
             '# this file was generated on %s, do not edit it manually' . PHP_EOL,
-             (new \DateTime())->format('Y-m-d H:i:s')
+            (new DateTime())->format('Y-m-d H:i:s')
         );
 
         FileSystem::write($file, $timestampComment . $yamlDump);
