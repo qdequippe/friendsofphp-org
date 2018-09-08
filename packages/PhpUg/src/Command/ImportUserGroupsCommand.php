@@ -51,7 +51,7 @@ final class ImportUserGroupsCommand extends Command
 
         $groups = $this->groupsFromPhpUgImporter->import();
         foreach ($groups as $group) {
-            $this->symfonyStyle->note(sprintf('Groups "%s" imported', $group->getName()));
+            $this->symfonyStyle->note(sprintf('Group "%s" imported', $group->getName()));
         }
         $this->groupRepository->saveImportToFile($groups);
 
