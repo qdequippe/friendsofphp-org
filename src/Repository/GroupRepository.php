@@ -38,11 +38,11 @@ final class GroupRepository
     }
 
     /**
-     * @param mixed[] $groupsByContinent
+     * @param mixed[] $groups
      */
-    public function saveImportToFile(array $groupsByContinent): void
+    public function saveImportToFile(array $groups): void
     {
-        $this->saveToFileAndStorage($groupsByContinent, $this->importedGroupsStorage);
+        $this->saveToFileAndStorage($groups, $this->importedGroupsStorage);
     }
 
     /**
@@ -54,13 +54,13 @@ final class GroupRepository
     }
 
     /**
-     * @param Group[][] $groupsByContinent
+     * @param Group[] $groups
      */
-    private function saveToFileAndStorage(array $groupsByContinent, string $storage): void
+    private function saveToFileAndStorage(array $groups, string $storage): void
     {
         $meetupsYamlStructure = [
             'parameters' => [
-                'groups' => $this->turnObjectsToArrays($groupsByContinent),
+                'groups' => $this->turnObjectsToArrays($groups),
             ],
         ];
 
@@ -68,28 +68,23 @@ final class GroupRepository
     }
 
     /**
-     * @param Group[][] $groupsByContinent
+     * @param Group[] $groups
      * @return mixed[][]
      */
-    private function turnObjectsToArrays(array $groupsByContinent): array
+    private function turnObjectsToArrays(array $groups): array
     {
-        $arrayGroupsByContinent = [];
+        $arrayGroups = [];
 
-        foreach ($groupsByContinent as $continent => $groups) {
-            $arrayGroups = [];
-            /** @var Group $group */
-            foreach ($groups as $group) {
-                $arrayGroups[] = [
-                    'name' => $group->getName(),
-                    'meetup_com_id' => $group->getMeetupComId(),
-                    'meetup_com_url' => $group->getMeetupComUrl(),
-                    'country' => $group->getCountry() ? $group->getCountry()->getName() : 'unknown',
-                ];
-            }
-
-            $arrayGroupsByContinent[$continent] = $arrayGroups;
+        /** @var Group $group */
+        foreach ($groups as $group) {
+            $arrayGroups[] = [
+                'name' => $group->getName(),
+                'meetup_com_id' => $group->getMeetupComId(),
+                'meetup_com_url' => $group->getMeetupComUrl(),
+                'country' => $group->getCountry(),
+            ];
         }
 
-        return $arrayGroupsByContinent;
+        return $arrayGroups;
     }
 }
