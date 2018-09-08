@@ -48,7 +48,7 @@ final class ShowMeetupDetailCommand extends Command
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription(
-            'Shows details for meetup group, use like "bin/fop meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/"'
+            'Shows details for meetup group, use like "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/"'
         );
         $this->addArgument(
             self::ARGUMENT_GROUP_URL,
