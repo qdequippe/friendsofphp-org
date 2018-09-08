@@ -20,11 +20,11 @@ final class Group
     private $meetupComUrl;
 
     /**
-     * @var string|null
+     * @var string
      */
     private $country;
 
-    public function __construct(string $name, int $meetupComId, string $meetupComUrl, ?string $country)
+    public function __construct(string $name, int $meetupComId, string $meetupComUrl, string $country)
     {
         $this->name = $name;
         $this->meetupComId = $meetupComId;
@@ -47,7 +47,7 @@ final class Group
         return $this->meetupComUrl;
     }
 
-    public function getstring(): ?string
+    public function getCountry(): string
     {
         return $this->country;
     }
