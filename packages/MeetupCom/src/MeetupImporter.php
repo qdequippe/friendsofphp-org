@@ -3,6 +3,7 @@
 namespace Fop\MeetupCom;
 
 use DateTimeInterface;
+use DateTimeZone;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Entity\TimeSpan;
@@ -64,7 +65,7 @@ final class MeetupImporter
             return true;
         }
 
-        // skip meetups to far in the future
+        // skip meetups too far in the future
         if ($timeSpan->getStartDateTime() > $this->maxForecastDateTime) {
             return true;
         }
@@ -104,16 +105,29 @@ final class MeetupImporter
     private function createTimeSpanFromEventData(array $meetup): TimeSpan
     {
         // not sure why it adds extra "000" in the end
-        $time = substr((string) $meetup['time'], 0, -3);
-        $startDateTime = DateTime::from($time);
+        $time = $this->normalizeTimestamp($meetup['time']);
+        $utcOffset = $this->normalizeTimestamp($meetup['utc_offset']);
+
+        $startDateTime = $this->createUtcDateTime($time, $utcOffset);
 
         if (isset($meetup['duration']) && $meetup['duration']) {
-            $duration = substr((string) $meetup['duration'], 0, -3);
+            $duration = $this->normalizeTimestamp($meetup['duration']);
             $endDateTime = $startDateTime->modifyClone('+' . $duration . ' seconds');
         } else {
             $endDateTime = null;
         }
 
         return new TimeSpan($startDateTime, $endDateTime);
+    }
+
+    private function createUtcDateTime(int $time, int $utcOffset): DateTime
+    {
+        return DateTime::from($time + $utcOffset)
+            ->setTimezone(new DateTimeZone('UTC'));
+    }
+
+    private function normalizeTimestamp(int $timestamp): int
+    {
+        return (int) substr((string) $timestamp, 0, -3);
     }
 }
