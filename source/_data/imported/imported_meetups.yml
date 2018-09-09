@@ -1,4 +1,4 @@
-# this file was generated on 2018-09-08 14:29:27, do not edit it manually
+# this file was generated on 2018-09-09 10:56:31, do not edit it manually
 parameters:
     meetups:
         -
@@ -24,8 +24,8 @@ parameters:
         -
             name: 'Defining Your Target User - BJ McKenzie of DealNews'
             userGroup: 'North Alabama Web Developers'
-            start: '2018-09-12 19:00'
-            end: '2018-09-12 20:00'
+            start: '2018-09-12 12:00'
+            end: '2018-09-12 13:00'
             city: Huntsville
             country: USA
             longitude: -86.583435
@@ -34,8 +34,8 @@ parameters:
         -
             name: 'ATK Data/UI Workshop'
             userGroup: 'PHP Cambridge'
-            start: '2018-09-12 20:30'
-            end: '2018-09-12 23:00'
+            start: '2018-09-12 19:30'
+            end: '2018-09-12 22:00'
             city: Cambridge
             country: 'United Kingdom'
             longitude: 0.141326
@@ -44,8 +44,8 @@ parameters:
         -
             name: 'Ann Arbor PHP with special guest, Sebastian Bergmann'
             userGroup: 'Ann Arbor PHP'
-            start: '2018-09-13 00:00'
-            end: '2018-09-13 02:00'
+            start: '2018-09-12 18:00'
+            end: '2018-09-12 20:00'
             city: 'Ann Arbor'
             country: USA
             longitude: -83.741646
@@ -54,8 +54,8 @@ parameters:
         -
             name: 'Bucharest PHP Meetup #3'
             userGroup: 'Bucharest PHP Meetup'
-            start: '2018-09-13 17:45'
-            end: '2018-09-13 20:00'
+            start: '2018-09-13 18:45'
+            end: '2018-09-13 21:00'
             city: Bucharest
             country: Romania
             longitude: 26.114326
@@ -84,8 +84,8 @@ parameters:
         -
             name: 'An intro to MDD'
             userGroup: PHPMiNDS
-            start: '2018-09-13 20:00'
-            end: '2018-09-13 22:00'
+            start: '2018-09-13 19:00'
+            end: '2018-09-13 21:00'
             city: Nottingham
             country: 'United Kingdom'
             longitude: -1.14304
@@ -94,8 +94,8 @@ parameters:
         -
             name: 'DB Seminar CodeDaze Edition'
             userGroup: 'Buffalo Web Developers'
-            start: '2018-09-14 00:30'
-            end: '2018-09-14 03:30'
+            start: '2018-09-13 18:30'
+            end: '2018-09-13 21:30'
             city: Buffalo
             country: USA
             longitude: -78.778122
@@ -104,8 +104,8 @@ parameters:
         -
             name: 'Cascadia PHP Conference'
             userGroup: PHPDX
-            start: '2018-09-14 18:00'
-            end: '2018-09-16 06:00'
+            start: '2018-09-14 09:00'
+            end: '2018-09-15 21:00'
             city: Portland
             country: USA
             longitude: -122.680611
@@ -114,8 +114,8 @@ parameters:
         -
             name: 'Open Workshop — Combined Frederick Technology Groups'
             userGroup: 'Frederick Web Technology Group'
-            start: '2018-09-15 16:00'
-            end: '2018-09-15 19:00'
+            start: '2018-09-15 10:00'
+            end: '2018-09-15 13:00'
             city: Frederick
             country: USA
             longitude: -77.410439
@@ -124,8 +124,8 @@ parameters:
         -
             name: 'DI Containers: An Overview'
             userGroup: 'Idaho PHP User Group'
-            start: '2018-09-18 02:15'
-            end: '2018-09-18 04:15'
+            start: '2018-09-17 18:15'
+            end: '2018-09-17 20:15'
             city: Boise
             country: USA
             longitude: -116.21149
@@ -134,7 +134,7 @@ parameters:
         -
             name: 'PHP+Beer DT'
             userGroup: 'The Indianapolis PHP Meetup Group'
-            start: '2018-09-19 00:30'
+            start: '2018-09-18 18:30'
             end: null
             city: Indianapolis
             country: USA
@@ -144,8 +144,8 @@ parameters:
         -
             name: 'JaxPHP/JaxWeb - Docker basics for web developers - by Cayce Balara'
             userGroup: 'JaxPHP / JaxWeb'
-            start: '2018-09-20 00:00'
-            end: '2018-09-20 02:00'
+            start: '2018-09-19 18:00'
+            end: '2018-09-19 20:00'
             city: Jacksonville
             country: USA
             longitude: -81.59436
@@ -154,8 +154,8 @@ parameters:
         -
             name: 'Main monthly meeting'
             userGroup: 'DC PHP Developer''s Community'
-            start: '2018-09-20 00:30'
-            end: '2018-09-20 02:30'
+            start: '2018-09-19 18:30'
+            end: '2018-09-19 20:30'
             city: Vienna
             country: USA
             longitude: -77.24707
@@ -164,8 +164,8 @@ parameters:
         -
             name: 'Talking about PHP with Philly PHP'
             userGroup: 'The Philadelphia Area PHP Meetup Group'
-            start: '2018-09-20 01:00'
-            end: '2018-09-20 03:00'
+            start: '2018-09-19 19:00'
+            end: '2018-09-19 21:00'
             city: 'King of Prussia'
             country: USA
             longitude: -75.338295
@@ -194,8 +194,8 @@ parameters:
         -
             name: 'PHPSP Campinas + PUB'
             userGroup: 'PHPSP Campinas'
-            start: '2018-09-21 00:00'
-            end: '2018-09-21 03:00'
+            start: '2018-09-20 19:00'
+            end: '2018-09-20 22:00'
             city: Campinas
             country: Brazil
             longitude: -47.051292
@@ -204,8 +204,8 @@ parameters:
         -
             name: PHP
             userGroup: TrianglePHP
-            start: '2018-09-21 00:00'
-            end: '2018-09-21 03:00'
+            start: '2018-09-20 18:00'
+            end: '2018-09-20 21:00'
             city: Morrisville
             country: USA
             longitude: -78.7944
@@ -214,8 +214,8 @@ parameters:
         -
             name: '#PHPMx: Septiembre'
             userGroup: 'PHP Mexico'
-            start: '2018-09-21 02:00'
-            end: '2018-09-21 05:00'
+            start: '2018-09-20 19:00'
+            end: '2018-09-20 22:00'
             city: México
             country: Mexico
             longitude: -99.16356
@@ -224,8 +224,8 @@ parameters:
         -
             name: 'Debugging PHP with Xdebug by Mark Niebergall'
             userGroup: 'Utah PHP User Group'
-            start: '2018-09-21 03:00'
-            end: '2018-09-21 05:00'
+            start: '2018-09-20 19:00'
+            end: '2018-09-20 21:00'
             city: Lehi
             country: USA
             longitude: -111.904655
@@ -234,8 +234,8 @@ parameters:
         -
             name: 'September Meetup - Doctrine: from skeptic to convert'
             userGroup: 'PHP UserGroup Wellington'
-            start: '2018-09-24 08:00'
-            end: '2018-09-24 10:00'
+            start: '2018-09-24 18:00'
+            end: '2018-09-24 20:00'
             city: Wellington
             country: 'New Zealand'
             longitude: 174.77934
@@ -254,8 +254,8 @@ parameters:
         -
             name: 'Singapore PHP Community Combined Meetup 2018'
             userGroup: 'The Singapore PHP User Group Meetup'
-            start: '2018-09-26 13:00'
-            end: '2018-09-26 15:00'
+            start: '2018-09-26 19:00'
+            end: '2018-09-26 21:00'
             city: Singapore
             country: Singapore
             longitude: 103.819839
@@ -294,8 +294,8 @@ parameters:
         -
             name: 'PHP Talk, Networking, Collaboration, and Socializing'
             userGroup: 'Chattanooga PHP Developers'
-            start: '2018-10-03 18:00'
-            end: '2018-10-03 19:00'
+            start: '2018-10-03 12:00'
+            end: '2018-10-03 13:00'
             city: Chattanooga
             country: USA
             longitude: -85.333054
@@ -324,8 +324,8 @@ parameters:
         -
             name: 'PHP User Group Meeting'
             userGroup: 'PHP Vegas'
-            start: '2018-10-05 03:00'
-            end: '2018-10-05 05:00'
+            start: '2018-10-04 18:00'
+            end: '2018-10-04 20:00'
             city: 'Las Vegas'
             country: USA
             longitude: -115.212517
