@@ -1,3 +1,7 @@
+imports:
+    # do not touch these files
+    - { resource: 'generated/*_groups.yml' }
+
 parameters:
     groups:
         -
