@@ -58,14 +58,14 @@ final class UserGroupImporter
             );
         }
 
-        return $this->sortByCountry($groups);
+        return $this->sortByCountryName($groups);
     }
 
     /**
      * @param mixed[] $groups
      * @return mixed[]
      */
-    private function sortByCountry(array $groups): array
+    private function sortByCountryName(array $groups): array
     {
         uasort($groups, function (Group $firstGroup, Group $secondGroup) {
             return $firstGroup->getCountry() > $secondGroup->getCountry();

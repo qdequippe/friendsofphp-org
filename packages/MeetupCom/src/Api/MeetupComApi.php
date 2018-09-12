@@ -22,6 +22,17 @@ final class MeetupComApi
 
     /**
      * @var string
+     * @see https://www.meetup.com/meetup_api/docs/find/groups/
+     */
+    private const API_SEARCH_GROUPS = 'http://api.meetup.com/find/groups?page=500';
+
+    /**
+     * @var int[]
+     */
+    private $nonPhpGroupIds = [29203124];
+
+    /**
+     * @var string
      */
     private $meetupComApiKey;
 
@@ -57,12 +68,10 @@ final class MeetupComApi
     public function getIdForGroupUrl(string $url): ?int
     {
         try {
-            $group = $this->getGroupForUrl($url);
-
-            return $group['id'];
+            return $this->getGroupForUrl($url)['id'];
         } catch (ClientException $clientException) {
-            if (in_array($clientException->getCode(), [410, 404], true)) {
-                // 410: the group is not accessible
+            if (in_array($clientException->getCode(), [404, 410], true)) {
+                // 404: the group is not accessible
                 // 410: the group doesn't exist anymore
                 return null;
             }
@@ -87,12 +96,34 @@ final class MeetupComApi
     /**
      * @return mixed[]
      */
-    public function findMeetupsGroupsByKeyword(string $keyword): array
+    public function findMeetupsGroupsByKeywords(): array
     {
-        $url = sprintf('http://api.meetup.com/topics?search=%s&only=id,name&key=%s', $keyword, $this->meetupComApiKey);
-        $response = $this->client->request('GET', $url);
+        $keywords = ['php', 'symfony', 'nette', 'doctrine', 'laravel', 'wordpress'];
 
-        return $this->responseFormatter->formatResponseToJson($response, $url)['results'];
+        $results = [];
+
+        foreach ($keywords as $keyword) {
+            $url = self::API_SEARCH_GROUPS . '&' . build_query([
+                'text' => $keyword,
+                'ordering' => 'most_active',
+                # https://www.meetup.com/meetup_api/auth/#keys
+                'key' => $this->meetupComApiKey,
+            ]);
+
+            $response = $this->client->request('GET', $url);
+            $json = $this->responseFormatter->formatResponseToJson($response, $url);
+
+            $results = array_merge($results, $json);
+        }
+
+        // filter out excluded groups
+        foreach ($results as $key => $group) {
+            if (in_array($group['id'], $this->nonPhpGroupIds, true)) {
+                unset($results[$key]);
+            }
+        }
+
+        return $results;
     }
 
     /**
