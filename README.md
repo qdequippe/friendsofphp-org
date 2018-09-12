@@ -10,15 +10,13 @@ cd your-fork
 npm install
 ```
 
-### Update Data
+### Update Group and Meetup Data
 
-```markdown
-# imports groups from http://php.ug
-bin/console php-ug-import
-
-# based on groups, import meetups from https://meetup.com
-bin/console import-meetups
+```bash
+composer generate
 ```
+
+You'll find new or updated files in `/source/_data/generated/` directory.
 
 ## Run the website
 
