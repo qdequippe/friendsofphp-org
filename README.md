@@ -1,7 +1,6 @@
 # [FriendsOfPhp.org](https://www.friendsofphp.org)
 
 [![Build Status](https://img.shields.io/travis/TomasVotruba/friendsofphp.org/master.svg?style=flat-square)](https://travis-ci.org/TomasVotruba/friendsofphp.org)
-[![Coverage Status](https://img.shields.io/coveralls/TomasVotruba/friendsofphp.org/master.svg?style=flat-square)](https://coveralls.io/github/TomasVotruba/friendsofphp.org?branch=master)
 
 ## Install
 
