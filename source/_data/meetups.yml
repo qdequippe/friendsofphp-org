@@ -1,6 +1,6 @@
 imports:
     # do not touch that file
-    - { resource: 'imported/imported_meetups.yml' }
+    - { resource: 'generated/imported_meetups.yml' }
 
 parameters:
     meetups:

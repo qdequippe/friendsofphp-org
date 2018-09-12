@@ -1,8 +1,8 @@
 parameters:
     groups_storage: '%kernel.project_dir%/source/_data/groups.yml'
-    imported_groups_storage: '%kernel.project_dir%/source/_data/imported/imported_groups.yml'
+    imported_groups_storage: '%kernel.project_dir%/source/_data/generated/imported_groups.yml'
 
-    imported_meetups_storage: '%kernel.project_dir%/source/_data/imported/imported_meetups.yml'
+    imported_meetups_storage: '%kernel.project_dir%/source/_data/generated/imported_meetups.yml'
 
     # setup here: https://secure.meetup.com/meetup_api/key/
     meetup_com_api_key: '3862c18323629314e5c596422581378'
