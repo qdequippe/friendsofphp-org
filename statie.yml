@@ -1,5 +1,6 @@
 imports:
     - { resource: 'source/_data/*.yml' }
+    - { resource: 'source/_data/generated/*.yml' }
     - { resource: 'src/config/parameters.yml' }
 
 parameters:

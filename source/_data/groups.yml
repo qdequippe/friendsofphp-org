@@ -1,7 +1,3 @@
-imports:
-    # do not touch that file
-    - { resource: 'generated/imported_groups.yml' }
-
 parameters:
     groups:
         -
