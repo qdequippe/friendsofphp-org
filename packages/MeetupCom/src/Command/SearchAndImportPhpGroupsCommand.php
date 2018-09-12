@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
-final class SearchPhpGroupsCommand extends Command
+final class SearchAndImportPhpGroupsCommand extends Command
 {
     /**
      * @var SymfonyStyle
