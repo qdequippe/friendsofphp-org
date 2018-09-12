@@ -94,6 +94,12 @@ final class MeetupImporter
     {
         $venue = $event['venue'];
 
+        // base location of the meetup, use it for event location
+        if ($venue['lon'] === 0 || $venue['lat'] === 0) {
+            $venue['lon'] = $event['group']['group_lon'];
+            $venue['lat'] = $event['group']['group_lat'];
+        }
+
         $location = new Location($venue['city'], $venue['localized_country_name'], $venue['lon'], $venue['lat']);
 
         return new Meetup($event['name'], $event['group']['name'], $timeSpan, $location, $event['event_url']);
