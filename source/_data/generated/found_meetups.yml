@@ -1,57 +1,193 @@
-# this file was generated, do not edit it manually
+# this file was generated on 2018-09-12 10:29:44, do not edit it manually
 parameters:
-    meetups:
+    groups:
         -
-            name: PHP
-            id: '455'
+            name: 'Vienna PHP Community'
+            meetup_com_id: 8251612
+            meetup_com_url: 'https://www.meetup.com/viennaphp/'
+            country: Austria
         -
-            name: 'PHP Application Development'
-            id: '23837'
+            name: 'BRNO php'
+            meetup_com_id: 8451632
+            meetup_com_url: 'https://www.meetup.com/Brno-PHP/'
+            country: 'Czech Republic'
         -
-            name: 'PHP Framework'
-            id: '100119'
+            name: 'Laravel Vienna Meetup'
+            meetup_com_id: 9111612
+            meetup_com_url: 'https://www.meetup.com/Laravel-Frameworkers-Vienna/'
+            country: Austria
         -
-            name: 'PHP CMS'
-            id: '422312'
+            name: 'SilverStripe Austria'
+            meetup_com_id: 4178522
+            meetup_com_url: 'https://www.meetup.com/SilverStripe-Austria/'
+            country: Austria
         -
-            name: 'programming with html css php mysql'
-            id: '863592'
+            name: 'Zlín Web Session Meetup'
+            meetup_com_id: 28213294
+            meetup_com_url: 'https://www.meetup.com/Zlin-Web-Session-Meetup/'
+            country: 'Czech Republic'
         -
-            name: 'php Women'
-            id: '332201'
+            name: 'Drupal Slovensko'
+            meetup_com_id: 19399334
+            meetup_com_url: 'https://www.meetup.com/Drupal-Slovensko/'
+            country: Slovakia
         -
-            name: 'beginner php programming'
-            id: '864492'
+            name: 'Neos CMS and Flow Meetup Vienna'
+            meetup_com_id: 19884632
+            meetup_com_url: 'https://www.meetup.com/Neos-CMS-and-Flow-Meetup-Vienna/'
+            country: Austria
         -
-            name: 'HTML CSS PHP MYSQL Programming'
-            id: '1515240'
+            name: 'No Bugs Allowed'
+            meetup_com_id: 29594851
+            meetup_com_url: 'https://www.meetup.com/No-Bugs-Allowed/'
+            country: 'Czech Republic'
         -
-            name: 'Phalcon PHP'
-            id: '1502332'
+            name: 'TUGA - TYPO3 User Group Austria'
+            meetup_com_id: 11328352
+            meetup_com_url: 'https://www.meetup.com/TUGA-TYPO3-User-Group-Austria/'
+            country: Austria
         -
-            name: 'PHP HTML5 Nginx MongoDB Linux'
-            id: '1494012'
+            name: 'Vienna WordPress Meetup'
+            meetup_com_id: 6057312
+            meetup_com_url: 'https://www.meetup.com/Vienna-WordPress-Meetup/'
+            country: Austria
         -
-            name: 'C#/Java/PHP...'
-            id: '1511204'
+            name: 'Brno Python Meetup'
+            meetup_com_id: 27087302
+            meetup_com_url: 'https://www.meetup.com/Brno-Python-Meetup/'
+            country: 'Czech Republic'
         -
-            name: 'LMS - Learning Management Systems Moodle php LAMP'
-            id: '163375'
+            name: Webclash
+            meetup_com_id: 10569902
+            meetup_com_url: 'https://www.meetup.com/Webclash/'
+            country: Austria
         -
-            name: 'WAMP - Windows MySQL Apachie PHP'
-            id: '605672'
+            name: 'Joomla User Group Wien'
+            meetup_com_id: 19536761
+            meetup_com_url: 'https://www.meetup.com/Joomla-User-Group-Wien/'
+            country: Austria
         -
-            name: 'Integrando Mongo DB con PHP'
-            id: '498962'
+            name: '#hackyourstart'
+            meetup_com_id: 20100502
+            meetup_com_url: 'https://www.meetup.com/hackyourstart/'
+            country: 'Czech Republic'
         -
-            name: 'PHP Bible'
-            id: '1441942'
+            name: 'Symfony User Group Vienna'
+            meetup_com_id: 4016002
+            meetup_com_url: 'https://www.meetup.com/sfugvienna/'
+            country: Austria
         -
-            name: 'PHP-Nuke & PostNuke'
-            id: '1656'
+            name: 'Vienna Perl Mongers'
+            meetup_com_id: 6711922
+            meetup_com_url: 'https://www.meetup.com/Vienna-Perl-Mongers/'
+            country: Austria
         -
-            name: 'php crm'
-            id: '166634'
+            name: 'Magento Meetup Austria'
+            meetup_com_id: 16504542
+            meetup_com_url: 'https://www.meetup.com/magento-meetup-austria/'
+            country: Austria
         -
-            name: 'Beginner PHP'
-            id: '1504770'
+            name: 'Vienna Voice Control Meetup'
+            meetup_com_id: 27237651
+            meetup_com_url: 'https://www.meetup.com/Vienna-Voice-Control-Meetup/'
+            country: Austria
+        -
+            name: 'PrestaShop - Vienna Ecommerce Meetup'
+            meetup_com_id: 26816692
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Vienna-Ecommerce-Meetup/'
+            country: Austria
+        -
+            name: 'Drupal Austria'
+            meetup_com_id: 11250462
+            meetup_com_url: 'https://www.meetup.com/Drupal-Austria/'
+            country: Austria
+        -
+            name: 'TechForce Meetup'
+            meetup_com_id: 28635193
+            meetup_com_url: 'https://www.meetup.com/TechForce-Meetup/'
+            country: Slovakia
+        -
+            name: 'Vienna Tech Meetups'
+            meetup_com_id: 27764476
+            meetup_com_url: 'https://www.meetup.com/meetup-group-TULTsUGD/'
+            country: Austria
+        -
+            name: 'Guerilla Coworker @ coworking.camp'
+            meetup_com_id: 18995832
+            meetup_com_url: 'https://www.meetup.com/coworker/'
+            country: Austria
+        -
+            name: defdev.eu/vienna
+            meetup_com_id: 28269801
+            meetup_com_url: 'https://www.meetup.com/defdev-vie/'
+            country: Austria
+        -
+            name: 'Symfony User Group Vienna'
+            meetup_com_id: 4016002
+            meetup_com_url: 'https://www.meetup.com/sfugvienna/'
+            country: Austria
+        -
+            name: 'Vienna Happiness Meetup'
+            meetup_com_id: 20712827
+            meetup_com_url: 'https://www.meetup.com/Vienna-Happiness-Meetup/'
+            country: Austria
+        -
+            name: 'Wien - Healthy Eating für Energie & Fokus im Alltag'
+            meetup_com_id: 28045817
+            meetup_com_url: 'https://www.meetup.com/Wien-Healthy-Eating/'
+            country: Austria
+        -
+            name: 'HostedBy - Evening Activities'
+            meetup_com_id: 19177751
+            meetup_com_url: 'https://www.meetup.com/HostedBy-Evening-Activities/'
+            country: Austria
+        -
+            name: 'Vienna Christian Singles'
+            meetup_com_id: 29203124
+            meetup_com_url: 'https://www.meetup.com/Vienna-Christian-Singles/'
+            country: Austria
+        -
+            name: 'Laravel Vienna Meetup'
+            meetup_com_id: 9111612
+            meetup_com_url: 'https://www.meetup.com/Laravel-Frameworkers-Vienna/'
+            country: Austria
+        -
+            name: 'Bratislava WordPress Community'
+            meetup_com_id: 19010313
+            meetup_com_url: 'https://www.meetup.com/Bratislava-WordPress-Community/'
+            country: Slovakia
+        -
+            name: 'Vienna WordPress Meetup'
+            meetup_com_id: 6057312
+            meetup_com_url: 'https://www.meetup.com/Vienna-WordPress-Meetup/'
+            country: Austria
+        -
+            name: 'WordPress Brno Meetups'
+            meetup_com_id: 20304794
+            meetup_com_url: 'https://www.meetup.com/WordPress-Brno-Meetups/'
+            country: 'Czech Republic'
+        -
+            name: 'Bratislava SEO / Internet Marketing Meetup'
+            meetup_com_id: 18687867
+            meetup_com_url: 'https://www.meetup.com/Bratislava-SEO-Search-Engine-Optimization-Meetup/'
+            country: Slovakia
+        -
+            name: 'Brno SEO Meetup'
+            meetup_com_id: 19390877
+            meetup_com_url: 'https://www.meetup.com/Brno-SEO-Meetup/'
+            country: 'Czech Republic'
+        -
+            name: 'Search Engines & Marketing'
+            meetup_com_id: 19597608
+            meetup_com_url: 'https://www.meetup.com/Search-Engines-Talk/'
+            country: Austria
+        -
+            name: 'Vienna Blogger & YouTuber Meetup'
+            meetup_com_id: 24857336
+            meetup_com_url: 'https://www.meetup.com/Vienna-Blogger-YouTuber-Meetup/'
+            country: Austria
+        -
+            name: 'Guerilla Coworker @ coworking.camp'
+            meetup_com_id: 18995832
+            meetup_com_url: 'https://www.meetup.com/coworker/'
+            country: Austria

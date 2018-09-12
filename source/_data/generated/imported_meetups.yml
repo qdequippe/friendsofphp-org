@@ -1,26 +1,6 @@
-# this file was generated on 2018-09-09 10:56:31, do not edit it manually
+# this file was generated on 2018-09-12 10:36:04, do not edit it manually
 parameters:
     meetups:
-        -
-            name: 'PHP møte - september 2018'
-            userGroup: KristiansandPHP
-            start: '2018-09-11 18:00'
-            end: '2018-09-11 21:00'
-            city: Kristiansand
-            country: Norway
-            longitude: !!float 0
-            latitude: !!float 0
-            url: 'https://www.meetup.com/KristiansandPHP/events/254347002/'
-        -
-            name: 'PHPAmersfoort September 2018'
-            userGroup: PHPAmersfoort
-            start: '2018-09-11 19:00'
-            end: '2018-09-11 22:00'
-            city: Amersfoort
-            country: Netherlands
-            longitude: 5.415171
-            latitude: 52.17703
-            url: 'https://www.meetup.com/PHPAmersfoort/events/253102934/'
         -
             name: 'Defining Your Target User - BJ McKenzie of DealNews'
             userGroup: 'North Alabama Web Developers'
@@ -98,8 +78,8 @@ parameters:
             end: '2018-09-13 21:30'
             city: Buffalo
             country: USA
-            longitude: -78.778122
-            latitude: 43.010811
+            longitude: -78.77812
+            latitude: 43.01081
             url: 'https://www.meetup.com/buffalowebdevelopers/events/254488948/'
         -
             name: 'Cascadia PHP Conference'
@@ -141,6 +121,26 @@ parameters:
             longitude: -86.153496
             latitude: 39.768822
             url: 'https://www.meetup.com/indyphp/events/kfsxdlyxmbxb/'
+        -
+            name: 'RabbitMQ: Qué es y cómo trabajar con él & Presentación del Proyecto TAU'
+            userGroup: 'PHP Sevilla'
+            start: '2018-09-19 19:00'
+            end: '2018-09-19 21:00'
+            city: Sevilla
+            country: Spain
+            longitude: -5.982182
+            latitude: 37.3726
+            url: 'https://www.meetup.com/PHP-Sevilla/events/254576398/'
+        -
+            name: 'September Meetup @ Aranere'
+            userGroup: 'PHP Limburg BE'
+            start: '2018-09-19 19:00'
+            end: '2018-09-19 21:00'
+            city: Hasselt
+            country: Belgium
+            longitude: 5.35386
+            latitude: 50.91969
+            url: 'https://www.meetup.com/PHP-Limburg-BE/events/254504519/'
         -
             name: 'JaxPHP/JaxWeb - Docker basics for web developers - by Cayce Balara'
             userGroup: 'JaxPHP / JaxWeb'
@@ -282,6 +282,16 @@ parameters:
             latitude: 51.194706
             url: 'https://www.meetup.com/fullstackantwerp/events/250802266/'
         -
+            name: 'Clean Code, API Development & Barbecue'
+            userGroup: 'Symfony User Group Berlin'
+            start: '2018-09-26 19:30'
+            end: '2018-09-26 22:00'
+            city: Berlin
+            country: Germany
+            longitude: !!float 0
+            latitude: !!float 0
+            url: 'https://www.meetup.com/sfugberlin/events/254581524/'
+        -
             name: 'Treffen der Symfony User Group Hamburg'
             userGroup: 'Symfony User Group Hamburg'
             start: '2018-10-02 18:30'
@@ -322,12 +332,22 @@ parameters:
             latitude: 50.85187
             url: 'https://www.meetup.com/PHP-Leuven-Web-Innovation-Group/events/251644332/'
         -
-            name: 'PHP User Group Meeting'
-            userGroup: 'PHP Vegas'
-            start: '2018-10-04 18:00'
-            end: '2018-10-04 20:00'
-            city: 'Las Vegas'
-            country: USA
-            longitude: -115.212517
-            latitude: 36.065964
-            url: 'https://www.meetup.com/PHP-Vegas/events/252484457/'
+            name: 'PHP Meetup Tilburg #9: Harrie Verveer Machine Learning, and why it isn’t magic'
+            userGroup: 'Tilburg PHP Meetup'
+            start: '2018-10-10 19:00'
+            end: '2018-10-10 22:00'
+            city: Tilburg
+            country: Netherlands
+            longitude: 5.07717
+            latitude: 51.566406
+            url: 'https://www.meetup.com/Tilburg-PHP-Meetup/events/254012219/'
+        -
+            name: 'Meetup bei Pixelart - neu in Bergheim!'
+            userGroup: 'Salzburg Web Dev'
+            start: '2018-10-11 18:00'
+            end: '2018-10-11 20:45'
+            city: Bergheim
+            country: Austria
+            longitude: 13.039661
+            latitude: 47.841637
+            url: 'https://www.meetup.com/salzburgwebdev/events/254406795/'

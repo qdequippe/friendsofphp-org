@@ -1,6 +1,6 @@
 imports:
     # do not touch that file
-    - { resource: 'imported/imported_groups.yml' }
+    - { resource: 'generated/imported_groups.yml' }
 
 parameters:
     groups:
