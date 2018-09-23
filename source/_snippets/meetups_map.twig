@@ -11,17 +11,17 @@
     var markers = [
         {% set markers %}
         {% for meetup in meetups %}
-        {% set daysFromToday = date(meetup.start).diff(date('now')).days %}
+            {% set daysFromToday = date(meetup.start).diff(date('now')).days %}
 
-        {
-            "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
-            "title": "{{ meetup.name }}",
-            "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
-            "date": "{{ meetup.start|date("F j") }}",
-            "location": "{{ meetup.city }}, {{ meetup.country }}",
-            "link": "{{ meetup.url }}"
-        },
-        {% endfor %}
+            {
+                "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
+                "title": "{{ meetup.name }}",
+                "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
+                "date": "{{ meetup.start|date("F j") }}",
+                "location": "{{ meetup.city }}, {{ meetup.country }}",
+                "link": "{{ meetup.url }}"
+            },
+            {% endfor %}
         {% endset %}
 
         {{ markers|trim|trim(',', 'right')|raw }}
@@ -43,20 +43,28 @@
         grouped[marker.location].markers.push(marker);
     }
 
-    var map = L.map('mapid');
+    var map = L.map('{{ map_id }}');
 
     // fit to bounds, so pc and mobile have sime content
     // https://leafletjs.com/reference-1.3.2.html#latlngbounds
-    var topLeftBound = L.latLng(
-            {{ area.top_left.latitude }},
-            {{ area.top_left.longitude }}
-    );
-    var bottomRightBound = L.latLng(
-            {{ area.bottom_right.latitude }},
-            {{ area.bottom_right.longitude }}
-    );
+    var topLeftBound = L.latLng({{ default_area.top_left.latitude }}, {{ default_area.top_left.longitude }});
+    var bottomRightBound = L.latLng({{ default_area.bottom_right.latitude }}, {{ default_area.bottom_right.longitude }});
     var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
+
     map.fitBounds(bounds);
+
+    var changeMapArea = function (selected_area_key) {
+        {% for area in areas %}
+        if (selected_area_key == '{{ area.key }}') {
+            var topLeftBound = L.latLng({{ area.top_left.latitude }}, {{ area.top_left.longitude }});
+            var bottomRightBound = L.latLng({{ area.bottom_right.latitude }}, {{ area.bottom_right.longitude }});
+            var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
+        }
+
+        {% endfor %}
+
+        map.fitBounds(bounds);
+    };
 
     // required and nice to have promotion
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
