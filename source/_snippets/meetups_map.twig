@@ -13,7 +13,6 @@
         {% for meetup in meetups %}
         {% set daysFromToday = date(meetup.start).diff(date('now')).days %}
 
-        {% if is_meetup_area_match(meetup, area) %}
         {
             "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
             "title": "{{ meetup.name }}",
@@ -22,7 +21,6 @@
             "location": "{{ meetup.city }}, {{ meetup.country }}",
             "link": "{{ meetup.url }}"
         },
-        {% endif %}
         {% endfor %}
         {% endset %}
 
