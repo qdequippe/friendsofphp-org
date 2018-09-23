@@ -25,5 +25,17 @@
 
         {% include "_snippets/footer.twig" %}
         {% include "_snippets/googleAnalytics.twig" %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+        {# need to be run after jQuery #}
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#area-menu a").click(function() {
+                    $("#area-menu a").removeClass("btn-danger").addClass("btn-outline-danger");
+                    $(this).addClass("btn-danger").removeClass("btn-outline-danger");
+                });
+            });
+        </script>
     </body>
 </html>

@@ -1,20 +1,25 @@
 ---
 title: "When & where your friends meet?"
 layout: "_layouts/default.twig"
-id: "europe"
 ---
 
 {% block content %}
     <div class="row">
         <div class="col-md-12 pb-5">
-            {% include "_snippets/area_menu.twig" %}
+            <div class="text-center mt-4 mb-4" id="area-menu">
+                {% for area in areas %}
+                    <a onclick="changeMapArea('{{ area.key }}');" class="btn mr-2 btn-lg btn-outline-danger">
+                        {{ area.title }}
+                    </a>
+                {% endfor %}
+            </div>
 
-            <div id="mapid"></div>
+            <div id="{{ map_id }}"></div>
 
             <br>
 
-            {% include "_snippets/meetups_table.twig" with {'area': areas.europe } %}
-            {% include "_snippets/meetups_map.twig" with {'area': areas.europe } %}
+            {% include "_snippets/meetups_table.twig" %}
+            {% include "_snippets/meetups_map.twig" %}
 
             <hr>
 

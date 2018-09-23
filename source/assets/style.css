@@ -59,3 +59,15 @@ body {
 .add-to-calendar-button {
     margin-top: -.2em;
 }
+
+#area-menu .btn {
+    cursor: pointer;
+}
+
+#area-menu .btn:hover, #area-menu .btn-danger {
+    color: white;
+}
+
+#area-menu .btn-outline-danger {
+    color: #dc3545;
+}

@@ -1,4 +1,6 @@
 parameters:
+    map_id: 'mapid'
+
     groups_storage: '%kernel.project_dir%/source/_data/groups.yml'
     imported_groups_storage: '%kernel.project_dir%/source/_data/generated/imported_groups.yml'
 

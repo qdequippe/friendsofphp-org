@@ -1,9 +1,19 @@
 parameters:
+    default_area:
+        top_left:
+            latitude: 60
+            longitude: -12.845173
+        bottom_right:
+            latitude: 36
+            longitude: 26.126861
+
     # open street map setup
     areas:
         # use bounds to fit map into display and satisfy both mobile and desktop
         # https://leafletjs.com/reference-1.3.2.html#fitbounds-options
-        europe:
+        -
+            key: 'europe'
+            title: 'Europe'
             top_left:
                 latitude: 60
                 longitude: -12.845173
@@ -11,7 +21,9 @@ parameters:
                 latitude: 36
                 longitude: 26.126861
 
-        north_america:
+        -
+            key: 'north_america'
+            title: 'North America'
             top_left:
                 latitude: 51.553718
                 longitude: -130.547382
@@ -19,7 +31,9 @@ parameters:
                 latitude: 17.094802
                 longitude: -77.827630
 
-        south_america:
+        -
+            key: 'south_america'
+            title: 'South America'
             top_left:
                 latitude: 6.021085
                 longitude: -88.334293
@@ -28,7 +42,9 @@ parameters:
                 longitude: -32.290539
 
         # central around Singapore
-        asia:
+        -
+            key: 'asia'
+            title: 'Asia'
             top_left:
                 latitude: 38.111852
                 longitude: 71.058463
@@ -36,7 +52,9 @@ parameters:
                 latitude: -8.613086
                 longitude: 135.196262
 
-        africa:
+        -
+            key: 'africa'
+            title: 'Africa'
             top_left:
                 latitude: 34.141898
                 longitude: -15.133246
@@ -44,7 +62,9 @@ parameters:
                 latitude: -26.016419
                 longitude: 52.492083
 
-        australia:
+        -
+            key: 'australia'
+            title: 'Australia'
             top_left:
                 latitude: -3.992096
                 longitude: 111.481468
