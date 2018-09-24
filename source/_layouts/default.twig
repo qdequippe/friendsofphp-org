@@ -13,7 +13,7 @@
             </h1>
 
             <div id="subhead" class="pt-2 pb-2">
-                World PHP Meetups in next <strong>30 days at 1 place</strong>
+                World PHP Meetups in next <strong>30&nbsp;days&nbsp;at&nbsp;1&nbsp;place</strong>
             </div>
         </div>
 
@@ -29,7 +29,8 @@
         {# need to be run after jQuery #}
         <script type="text/javascript">
             // first active element or local storage (@todo)
-            $("#area-menu li:first").addClass("active");
+            $("nav .hidden-sm-down li:first").addClass("active");
+            $("nav .hidden-md-up li:first").addClass("active");
 
             $(document).ready(function(){
                 $("#area-menu li a").click(function() {

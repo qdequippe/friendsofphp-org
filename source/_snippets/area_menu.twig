@@ -12,14 +12,16 @@
             </div>
 
             <div class="hidden-md-up">
-                <ul>
-                    {% for area in areas %}
-                        <li>
-                            <a onclick="changeMapArea('{{ area.key }}');">{{ area.short_title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
+                <div class="row">
+                    <ul>
+                        {% for area in areas %}
+                            <li>
+                                <a onclick="changeMapArea('{{ area.key }}');">{{ area.short_title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </div>
