@@ -10,17 +10,21 @@
 
     var markers = [
         {% set markers %}
-        {% for meetup in meetups %}
-            {% set daysFromToday = date(meetup.start).diff(date('now')).days %}
+            {% for meetup in meetups %}
+                {% set diffFromToday = date(meetup.start).diff(date('now')) %}
+                {% set daysFromToday = diffFromToday.days %}
+                {% set isFuture = diffFromToday.invert %}
 
-            {
-                "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
-                "title": "{{ meetup.name }}",
-                "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
-                "date": "{{ meetup.start|date("F j") }}",
-                "location": "{{ meetup.city }}, {{ meetup.country }}",
-                "link": "{{ meetup.url }}"
-            },
+                {% if isFuture %}
+                    {
+                        "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
+                        "title": "{{ meetup.name }}",
+                        "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
+                        "date": "{{ meetup.start|date("F j") }}",
+                        "location": "{{ meetup.city }}, {{ meetup.country }}",
+                        "link": "{{ meetup.url }}"
+                    },
+                {% endif %}
             {% endfor %}
         {% endset %}
 
