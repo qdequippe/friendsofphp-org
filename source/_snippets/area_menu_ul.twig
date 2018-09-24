@@ -1,0 +1,12 @@
+<ul>
+    {% for area in areas %}
+        <li>
+            <a onclick="changeMapArea('{{ area.key }}');" class="mr-2" data-key="{{ area.key }}">
+                {# see https://stackoverflow.com/a/38990556/1348344 #}
+                {% if attribute(area, title_key) is defined %}
+                    {{ attribute(area, title_key) }}
+                {% endif %}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

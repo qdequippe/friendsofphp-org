@@ -2,30 +2,12 @@
     <nav class="navbar text-center">
         <div class="container">
             <div class="hidden-sm-down">
-                {# decouple snippet with "title" #}
-                <ul>
-                    {% for area in areas %}
-                        <li>
-                            <a onclick="changeMapArea('{{ area.key }}');" class="mr-2" data-key="{{ area.key }}">
-                                {{ area.title }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
+                {% include('_snippets/area_menu_ul.twig') with  { 'title_key': 'title' } %}
             </div>
 
             <div class="hidden-md-up">
                 <div class="row">
-                    {# decouple snippet with "short_title" #}
-                    <ul>
-                        {% for area in areas %}
-                            <li>
-                                <a onclick="changeMapArea('{{ area.key }}');" class="mr-2" data-key="{{ area.key }}">
-                                    {{ area.short_title }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    {% include('_snippets/area_menu_ul.twig') with  { 'title_key': 'short_title' } %}
                 </div>
             </div>
         </div>
