@@ -59,7 +59,7 @@ parameters:
         -
             key: 'africa'
             title: 'Africa'
-            short_title: 'Africa'
+            short_title: 'AFR'
             top_left:
                 latitude: 34.141898
                 longitude: -15.133246
