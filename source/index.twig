@@ -15,7 +15,6 @@ layout: "_layouts/default.twig"
                 <br>
 
                 {% include "_snippets/meetups_table.twig" %}
-                {% include "_snippets/meetups_map.twig" %}
 
                 <hr>
 
@@ -32,4 +31,12 @@ layout: "_layouts/default.twig"
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+    {# need to be run after jQuery #}
+    <script src="/assets/js/menu-area-pick.js"></script>
+    {# generated javascript using jQuery #}
+    {% include "_snippets/meetups_map_js.twig" %}
+
 {% endblock %}
