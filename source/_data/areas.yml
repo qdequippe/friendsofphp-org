@@ -14,6 +14,7 @@ parameters:
         -
             key: 'europe'
             title: 'Europe'
+            short_title: 'EU'
             top_left:
                 latitude: 60
                 longitude: -12.845173
@@ -24,6 +25,7 @@ parameters:
         -
             key: 'north_america'
             title: 'North America'
+            short_title: '↑ AM'
             top_left:
                 latitude: 51.553718
                 longitude: -130.547382
@@ -34,6 +36,7 @@ parameters:
         -
             key: 'south_america'
             title: 'South America'
+            short_title: '↓ AM'
             top_left:
                 latitude: 6.021085
                 longitude: -88.334293
@@ -45,6 +48,7 @@ parameters:
         -
             key: 'asia'
             title: 'Asia'
+            short_title: 'Asia'
             top_left:
                 latitude: 38.111852
                 longitude: 71.058463
@@ -55,6 +59,7 @@ parameters:
         -
             key: 'africa'
             title: 'Africa'
+            short_title: 'Africa'
             top_left:
                 latitude: 34.141898
                 longitude: -15.133246
@@ -65,6 +70,7 @@ parameters:
         -
             key: 'australia'
             title: 'Australia'
+            short_title: 'AUS'
             top_left:
                 latitude: -3.992096
                 longitude: 111.481468

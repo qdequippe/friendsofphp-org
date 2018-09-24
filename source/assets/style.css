@@ -31,7 +31,7 @@ body {
 }
 
 #subhead {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 #footer {
@@ -70,4 +70,16 @@ body {
 
 #area-menu .btn-outline-danger {
     color: #dc3545;
+}
+
+/* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
+@media (max-width: 768px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+}
+@media (min-width: 769px) {
+    .hidden-md-up {
+        display: none !important;
+    }
 }
