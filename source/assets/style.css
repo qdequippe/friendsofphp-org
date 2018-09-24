@@ -63,14 +63,13 @@ body {
 /* menu */
 .navbar {
     text-align: center;
-    background: hsl(214, 42%, 30%);
+    background: hsl(229, 30%, 44%);
     padding: 0;
     margin: auto;
 }
 
 .navbar li a, .navbar li a:active, .navbar li a:focus {
     background: white;
-    color: hsl(229, 30%, 44%);
 }
 
 nav ul {
@@ -87,8 +86,8 @@ nav ul li {
     position: relative;
 }
 
-nav ul li a, nav a {
-    padding: .81em 1em;
+nav ul li a {
+    padding: .5em .7em;
     display: block;
     color: #FFF;
 }
@@ -102,6 +101,7 @@ nav ul li a, nav a {
 
 #area-menu li.active a, #area-menu li:hover a {
     background: white;
+    border-radius: 0.5em 0.5em 0 0;
     color: hsl(229, 30%, 44%);
 }
 
