@@ -1,11 +1,5 @@
 parameters:
-    default_area:
-        top_left:
-            latitude: 60
-            longitude: -12.845173
-        bottom_right:
-            latitude: 36
-            longitude: 26.126861
+    default_area_key: 'europe'
 
     # open street map setup
     areas:

@@ -52,12 +52,6 @@
     // fit to bounds, so pc and mobile have same content
     // https://leafletjs.com/reference-1.3.2.html#latlngbounds
 
-    // use local storage
-    $active_area = window.localStorage.getItem('active_area');
-    if ($active_area === null) {
-        $active_area = 'europe';
-    }
-
     // function to change the map focus after click on menu item
     var changeMapArea = function (selected_area_key) {
         {% for area in areas %}
@@ -73,7 +67,7 @@
     };
 
     // set location to active area
-    changeMapArea($active_area);
+    changeMapArea(window.localStorage.getItem('active_area'));
 
     // required and nice to have promotion
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
