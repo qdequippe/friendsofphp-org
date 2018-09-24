@@ -4,29 +4,32 @@ layout: "_layouts/default.twig"
 ---
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-12 pb-5">
-            {% include "_snippets/area_menu.twig" %}
+    {% include "_snippets/area_menu.twig" %}
 
-            <div id="{{ map_id }}"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 pb-5">
 
-            <br>
+                <div id="{{ map_id }}"></div>
 
-            {% include "_snippets/meetups_table.twig" %}
-            {% include "_snippets/meetups_map.twig" %}
+                <br>
 
-            <hr>
+                {% include "_snippets/meetups_table.twig" %}
+                {% include "_snippets/meetups_map.twig" %}
 
-            <h2 class="text-center pt-4 pb-4">
-                Why Get Up and Go to Meetup?
-            </h2>
+                <hr>
 
-            <p>Go out, <strong>meet new people, share your ideas in another country</strong> and grow. You'll be surprised how valuable feedback you can get on meetups abroad and how easy is to get your talk there. Pick meetup, write the organizer and go!</p>
+                <h2 class="text-center pt-4 pb-4">
+                    Why Get Up and Go to Meetup?
+                </h2>
 
-            <p>
-                Do you still doubt yourself? Look at
-                <a href="https://www.tomasvotruba.cz/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">5 Signs You Should Never Have a Talk Abroad</a>
-            </p>
+                <p>Go out, <strong>meet new people, share your ideas in another country</strong> and grow. You'll be surprised how valuable feedback you can get on meetups abroad and how easy is to get your talk there. Pick meetup, write the organizer and go!</p>
+
+                <p>
+                    Do you still doubt yourself? Look at
+                    <a href="https://www.tomasvotruba.cz/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">5 Signs You Should Never Have a Talk Abroad</a>
+                </p>
+            </div>
         </div>
     </div>
 {% endblock %}

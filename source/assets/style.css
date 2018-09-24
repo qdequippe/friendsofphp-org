@@ -60,16 +60,49 @@ body {
     margin-top: -.2em;
 }
 
-#area-menu .btn {
-    cursor: pointer;
+/* menu */
+.navbar {
+    text-align: center;
+    background: hsl(214, 42%, 30%);
+    padding: 0;
+    margin: auto;
 }
 
-#area-menu .btn:hover, #area-menu .btn-danger {
+.navbar li a, .navbar li a:active, .navbar li a:focus {
+    background: white;
+    color: hsl(229, 30%, 44%);
+}
+
+nav ul {
+    list-style: none;
+    display: block;
+    float: left;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+nav ul li {
+    float: left;
+    display: block;
+    position: relative;
+}
+
+nav ul li a, nav a {
+    padding: .81em 1em;
+    display: block;
+    color: #FFF;
+}
+
+#area-menu a {
+    cursor: pointer;
+    display: block;
+    background: hsl(229, 30%, 44%);
     color: white;
 }
 
-#area-menu .btn-outline-danger {
-    color: #dc3545;
+#area-menu li.active a, #area-menu li:hover a {
+    background: white;
+    color: hsl(229, 30%, 44%);
 }
 
 /* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
