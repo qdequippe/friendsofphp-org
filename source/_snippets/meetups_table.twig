@@ -25,7 +25,7 @@
                 </a>
             </td>
             <td class="text-center{% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
-                <strong>{{ meetup.start|date("F j") }}</strong>
+                <strong>{{ meetup.start|date("D m-d") }}</strong>
                 &nbsp;
                 &nbsp;
                 <small>{{ meetup.start|date("H:i") }}</small>

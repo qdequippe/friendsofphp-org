@@ -1,15 +1,25 @@
-<div class="text-center mt-4 mb-4 hidden-sm-down" id="area-menu">
-    {% for area in areas %}
-        <a onclick="changeMapArea('{{ area.key }}');" class="btn mr-2 btn-lg btn-outline-danger">
-            {{ area.title }}
-        </a>
-    {% endfor %}
-</div>
+<div id="area-menu" class="mb-4">
+    <nav class="navbar text-center">
+        <div class="container">
+            <div class="hidden-sm-down">
+                <ul>
+                    {% for area in areas %}
+                        <li>
+                            <a onclick="changeMapArea('{{ area.key }}');" class="mr-2">{{ area.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
 
-<div class="text-center mt-4 mb-4 hidden-md-up" id="area-menu">
-    {% for area in areas %}
-        <a onclick="changeMapArea('{{ area.key }}');" class="btn mr-1 btn-lg btn-outline-danger">
-            {{ area.short_title }}
-        </a>
-    {% endfor %}
+            <div class="hidden-md-up">
+                <ul>
+                    {% for area in areas %}
+                        <li>
+                            <a onclick="changeMapArea('{{ area.key }}');">{{ area.short_title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>

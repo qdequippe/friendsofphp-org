@@ -19,9 +19,7 @@
 
         <a href="https://github.com/tomasvotruba/friendsofphp.org"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
 
-        <div class="container">
-            {%  block content %}{% endblock %}
-        </div>
+        {%  block content %}{% endblock %}
 
         {% include "_snippets/footer.twig" %}
         {% include "_snippets/googleAnalytics.twig" %}
@@ -30,10 +28,13 @@
 
         {# need to be run after jQuery #}
         <script type="text/javascript">
+            // first active element or local storage (@todo)
+            $("#area-menu li:first").addClass("active");
+
             $(document).ready(function(){
-                $("#area-menu a").click(function() {
-                    $("#area-menu a").removeClass("btn-danger").addClass("btn-outline-danger");
-                    $(this).addClass("btn-danger").removeClass("btn-outline-danger");
+                $("#area-menu li a").click(function() {
+                    $("#area-menu li").removeClass("active");
+                    $(this).parent().addClass("active");
                 });
             });
         </script>
