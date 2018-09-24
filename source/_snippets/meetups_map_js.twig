@@ -49,26 +49,31 @@
 
     var map = L.map('{{ map_id }}');
 
-    // fit to bounds, so pc and mobile have sime content
+    // fit to bounds, so pc and mobile have same content
     // https://leafletjs.com/reference-1.3.2.html#latlngbounds
-    var topLeftBound = L.latLng({{ default_area.top_left.latitude }}, {{ default_area.top_left.longitude }});
-    var bottomRightBound = L.latLng({{ default_area.bottom_right.latitude }}, {{ default_area.bottom_right.longitude }});
-    var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
 
-    map.fitBounds(bounds);
+    // use local storage
+    $active_area = window.localStorage.getItem('active_area');
+    if ($active_area === null) {
+        $active_area = 'europe';
+    }
 
+    // function to change the map focus after click on menu item
     var changeMapArea = function (selected_area_key) {
         {% for area in areas %}
-            if (selected_area_key == '{{ area.key }}') {
-                var topLeftBound = L.latLng({{ area.top_left.latitude }}, {{ area.top_left.longitude }});
-                var bottomRightBound = L.latLng({{ area.bottom_right.latitude }}, {{ area.bottom_right.longitude }});
-                var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
-            }
+        if (selected_area_key == '{{ area.key }}') {
+            var topLeftBound = L.latLng({{ area.top_left.latitude }}, {{ area.top_left.longitude }});
+            var bottomRightBound = L.latLng({{ area.bottom_right.latitude }}, {{ area.bottom_right.longitude }});
+            var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
+        }
 
         {% endfor %}
 
         map.fitBounds(bounds);
     };
+
+    // set location to active area
+    changeMapArea($active_area);
 
     // required and nice to have promotion
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

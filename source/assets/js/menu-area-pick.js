@@ -2,7 +2,7 @@
 
 $(function() {
     // set default area if empty
-    if (window.localStorage.getItem('active_area') == null) {
+    if (window.localStorage.getItem('active_area') === null) {
         window.localStorage.setItem('active_area', 'europe');
     }
 
@@ -10,6 +10,7 @@ $(function() {
     var $menu_items = $('#area-menu li a');
 
     // active area found in localStorage
+    // use "data-key=VALUE", see https://stackoverflow.com/a/39294578/1348344
     $menu_items.each(function() {
         if ($(this).data('key') === $active_area) {
             $(this).parent().addClass("active");
