@@ -15,7 +15,6 @@
     "require-dev": {
         "phpstan/phpstan": "^0.10.3",
         "phpunit/phpunit": "^7.3",
-        "slam/php-cs-fixer-extensions": "^1.17",
         "symplify/easy-coding-standard": "^5.1",
         "symplify/monorepo-builder": "^5.1"
     },
@@ -42,7 +41,5 @@
             "bin/console import-meetups",
             "vendor/bin/statie generate source"
         ]
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
