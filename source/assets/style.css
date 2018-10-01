@@ -116,3 +116,15 @@ nav ul li a {
         display: none !important;
     }
 }
+
+
+/* mobile version */
+@media (max-width: 768px) {
+    #head h1 {
+        font-size: 1.7em;
+    }
+
+    #subhead {
+        font-size: 1.1em;
+    }
+}
