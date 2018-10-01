@@ -1,16 +1,16 @@
-# this file was generated on 2018-10-01 19:45:20, do not edit it manually
+# this file was generated on 2018-10-02 00:10:07, do not edit it manually
 parameters:
     groups:
-        -
-            name: 'Vienna PHP Community'
-            meetup_com_id: 8251612
-            meetup_com_url: 'https://www.meetup.com/viennaphp/'
-            country: Austria
         -
             name: 'BRNO php'
             meetup_com_id: 8451632
             meetup_com_url: 'https://www.meetup.com/Brno-PHP/'
             country: 'Czech Republic'
+        -
+            name: 'Vienna PHP Community'
+            meetup_com_id: 8251612
+            meetup_com_url: 'https://www.meetup.com/viennaphp/'
+            country: Austria
         -
             name: 'Laravel Vienna Meetup'
             meetup_com_id: 9111612
