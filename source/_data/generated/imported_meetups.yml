@@ -1,336 +1,6 @@
-# this file was generated on 2018-09-12 14:49:38, do not edit it manually
+# this file was generated on 2018-10-01 19:45:22, do not edit it manually
 parameters:
     meetups:
-        -
-            name: 'Defining Your Target User - BJ McKenzie of DealNews'
-            userGroup: 'North Alabama Web Developers'
-            start: '2018-09-12 12:00'
-            end: '2018-09-12 13:00'
-            city: Huntsville
-            country: USA
-            longitude: -86.583435
-            latitude: 34.731426
-            url: 'https://www.meetup.com/web-99/events/253554766/'
-        -
-            name: 'ATK Data/UI Workshop'
-            userGroup: 'PHP Cambridge'
-            start: '2018-09-12 19:30'
-            end: '2018-09-12 22:00'
-            city: Cambridge
-            country: 'United Kingdom'
-            longitude: 0.141326
-            latitude: 52.235432
-            url: 'https://www.meetup.com/phpcambridge/events/253384198/'
-        -
-            name: 'Ann Arbor PHP with special guest, Sebastian Bergmann'
-            userGroup: 'Ann Arbor PHP'
-            start: '2018-09-12 18:00'
-            end: '2018-09-12 20:00'
-            city: 'Ann Arbor'
-            country: USA
-            longitude: -83.741646
-            latitude: 42.278656
-            url: 'https://www.meetup.com/ann-arbor-php/events/254414061/'
-        -
-            name: 'Bucharest PHP Meetup #3'
-            userGroup: 'Bucharest PHP Meetup'
-            start: '2018-09-13 18:45'
-            end: '2018-09-13 21:00'
-            city: Bucharest
-            country: Romania
-            longitude: 26.114326
-            latitude: 44.417107
-            url: 'https://www.meetup.com/Bucharest-PHP-Meetup/events/254036583/'
-        -
-            name: 'TechForce Meetup Vol.3'
-            userGroup: 'TechForce Meetup'
-            start: '2018-09-13 18:00'
-            end: '2018-09-13 20:00'
-            city: Bratislava
-            country: Slovakia
-            longitude: 17.107042
-            latitude: 48.129967
-            url: 'https://www.meetup.com/TechForce-Meetup/events/254347771/'
-        -
-            name: 'Friends of PHP in Prague #30 - at LMC '
-            userGroup: 'Friends of PHP - Prague'
-            start: '2018-09-13 18:00'
-            end: '2018-09-13 20:00'
-            city: Prague
-            country: 'Czech Republic'
-            longitude: 14.45677
-            latitude: 50.102848
-            url: 'https://www.meetup.com/friends-of-php-prague/events/254388973/'
-        -
-            name: 'Accessibility meetup'
-            userGroup: 'PHP Stockholm'
-            start: '2018-09-13 18:00'
-            end: '2018-09-13 20:00'
-            city: Stockholm
-            country: Sweden
-            longitude: 18.046358
-            latitude: 59.331203
-            url: 'https://www.meetup.com/php-stockholm/events/253837044/'
-        -
-            name: 'No Bugs Allowed #1: Page Object Model v automatizaci'
-            userGroup: 'No Bugs Allowed'
-            start: '2018-09-13 18:00'
-            end: '2018-09-13 21:00'
-            city: Brno
-            country: 'Czech Republic'
-            longitude: 16.572847
-            latitude: 49.23312
-            url: 'https://www.meetup.com/No-Bugs-Allowed/events/254004629/'
-        -
-            name: 'An intro to MDD'
-            userGroup: PHPMiNDS
-            start: '2018-09-13 19:00'
-            end: '2018-09-13 21:00'
-            city: Nottingham
-            country: 'United Kingdom'
-            longitude: -1.14304
-            latitude: 52.951992
-            url: 'https://www.meetup.com/PHPMiNDS-in-Nottingham/events/254081212/'
-        -
-            name: 'DB Seminar CodeDaze Edition'
-            userGroup: 'Buffalo Web Developers'
-            start: '2018-09-13 18:30'
-            end: '2018-09-13 21:30'
-            city: Buffalo
-            country: USA
-            longitude: -78.77812
-            latitude: 43.01081
-            url: 'https://www.meetup.com/buffalowebdevelopers/events/254488948/'
-        -
-            name: 'Cascadia PHP Conference'
-            userGroup: PHPDX
-            start: '2018-09-14 09:00'
-            end: '2018-09-15 21:00'
-            city: Portland
-            country: USA
-            longitude: -122.680611
-            latitude: 45.507179
-            url: 'https://www.meetup.com/PDX-PHP/events/253389614/'
-        -
-            name: 'Open Workshop — Combined Frederick Technology Groups'
-            userGroup: 'Frederick Web Technology Group'
-            start: '2018-09-15 10:00'
-            end: '2018-09-15 13:00'
-            city: Frederick
-            country: USA
-            longitude: -77.410439
-            latitude: 39.415821
-            url: 'https://www.meetup.com/FredWebTech/events/254217006/'
-        -
-            name: 'WordPress Meetup Bratislava'
-            userGroup: 'Bratislava WordPress Community'
-            start: '2018-09-17 18:00'
-            end: '2018-09-17 20:00'
-            city: Bratislava
-            country: Slovakia
-            longitude: 17.115763
-            latitude: 48.150093
-            url: 'https://www.meetup.com/Bratislava-WordPress-Community/events/252832312/'
-        -
-            name: 'DI Containers: An Overview'
-            userGroup: 'Idaho PHP User Group'
-            start: '2018-09-17 18:15'
-            end: '2018-09-17 20:15'
-            city: Boise
-            country: USA
-            longitude: -116.21149
-            latitude: 43.59131
-            url: 'https://www.meetup.com/Idaho-PHP/events/254095570/'
-        -
-            name: 'PHP+Beer DT'
-            userGroup: 'The Indianapolis PHP Meetup Group'
-            start: '2018-09-18 18:30'
-            end: null
-            city: Indianapolis
-            country: USA
-            longitude: -86.153496
-            latitude: 39.768822
-            url: 'https://www.meetup.com/indyphp/events/kfsxdlyxmbxb/'
-        -
-            name: 'RabbitMQ: Qué es y cómo trabajar con él & Presentación del Proyecto TAU'
-            userGroup: 'PHP Sevilla'
-            start: '2018-09-19 19:00'
-            end: '2018-09-19 21:00'
-            city: Sevilla
-            country: Spain
-            longitude: -5.982182
-            latitude: 37.3726
-            url: 'https://www.meetup.com/PHP-Sevilla/events/254576398/'
-        -
-            name: 'September Meetup @ Aranere'
-            userGroup: 'PHP Limburg BE'
-            start: '2018-09-19 19:00'
-            end: '2018-09-19 21:00'
-            city: Hasselt
-            country: Belgium
-            longitude: 5.35386
-            latitude: 50.91969
-            url: 'https://www.meetup.com/PHP-Limburg-BE/events/254504519/'
-        -
-            name: 'JaxPHP/JaxWeb - Docker basics for web developers - by Cayce Balara'
-            userGroup: 'JaxPHP / JaxWeb'
-            start: '2018-09-19 18:00'
-            end: '2018-09-19 20:00'
-            city: Jacksonville
-            country: USA
-            longitude: -81.59436
-            latitude: 30.333359
-            url: 'https://www.meetup.com/JaxPHP-JaxWeb/events/253841278/'
-        -
-            name: 'Main monthly meeting'
-            userGroup: 'DC PHP Developer''s Community'
-            start: '2018-09-19 18:30'
-            end: '2018-09-19 20:30'
-            city: Vienna
-            country: USA
-            longitude: -77.24707
-            latitude: 38.929745
-            url: 'https://www.meetup.com/DC-PHP/events/253909973/'
-        -
-            name: 'Talking about PHP with Philly PHP'
-            userGroup: 'The Philadelphia Area PHP Meetup Group'
-            start: '2018-09-19 19:00'
-            end: '2018-09-19 21:00'
-            city: 'King of Prussia'
-            country: USA
-            longitude: -75.338295
-            latitude: 40.0914
-            url: 'https://www.meetup.com/phillyphp/events/253821930/'
-        -
-            name: 'Symfony User Group Cologne - September''18'
-            userGroup: 'Symfony User Group Cologne'
-            start: '2018-09-20 18:30'
-            end: '2018-09-20 22:00'
-            city: Cologne
-            country: Germany
-            longitude: 6.94534
-            latitude: 50.94821
-            url: 'https://www.meetup.com/sfugcgn/events/253709792/'
-        -
-            name: '#ViennaPHP monthly gathering'
-            userGroup: 'Vienna PHP Community'
-            start: '2018-09-20 18:30'
-            end: '2018-09-20 21:30'
-            city: Vienna
-            country: Austria
-            longitude: 16.335951
-            latitude: 48.192005
-            url: 'https://www.meetup.com/viennaphp/events/252862016/'
-        -
-            name: 'PHPSP Campinas + PUB'
-            userGroup: 'PHPSP Campinas'
-            start: '2018-09-20 19:00'
-            end: '2018-09-20 22:00'
-            city: Campinas
-            country: Brazil
-            longitude: -47.051292
-            latitude: -22.896162
-            url: 'https://www.meetup.com/PHPSP-Campinas/events/253417204/'
-        -
-            name: PHP
-            userGroup: TrianglePHP
-            start: '2018-09-20 18:00'
-            end: '2018-09-20 21:00'
-            city: Morrisville
-            country: USA
-            longitude: -78.7944
-            latitude: 35.85148
-            url: 'https://www.meetup.com/trianglephp/events/251293415/'
-        -
-            name: '#PHPMx: Septiembre'
-            userGroup: 'PHP Mexico'
-            start: '2018-09-20 19:00'
-            end: '2018-09-20 22:00'
-            city: México
-            country: Mexico
-            longitude: -99.16356
-            latitude: 19.417202
-            url: 'https://www.meetup.com/PHP-The-Right-Way/events/246124198/'
-        -
-            name: 'Debugging PHP with Xdebug by Mark Niebergall'
-            userGroup: 'Utah PHP User Group'
-            start: '2018-09-20 19:00'
-            end: '2018-09-20 21:00'
-            city: Lehi
-            country: USA
-            longitude: -111.904655
-            latitude: 40.440453
-            url: 'https://www.meetup.com/Utah-PHP-User-Group/events/252972856/'
-        -
-            name: 'September Meetup - Doctrine: from skeptic to convert'
-            userGroup: 'PHP UserGroup Wellington'
-            start: '2018-09-24 18:00'
-            end: '2018-09-24 20:00'
-            city: Wellington
-            country: 'New Zealand'
-            longitude: 174.77934
-            latitude: -41.290398
-            url: 'https://www.meetup.com/PHP-Usergroup-Wellington/events/253234898/'
-        -
-            name: '2 Talks: Redux in Swift (iOS) && Flutter - a UI framework from the future?'
-            userGroup: 'Web Engineering Düsseldorf'
-            start: '2018-09-25 18:30'
-            end: '2018-09-25 22:30'
-            city: Düsseldorf
-            country: Germany
-            longitude: 6.732471
-            latitude: 51.235832
-            url: 'https://www.meetup.com/Web-Engineering-Duesseldorf/events/253127755/'
-        -
-            name: 'Singapore PHP Community Combined Meetup 2018'
-            userGroup: 'The Singapore PHP User Group Meetup'
-            start: '2018-09-26 19:00'
-            end: '2018-09-26 21:00'
-            city: Singapore
-            country: Singapore
-            longitude: 103.819839
-            latitude: 1.352083
-            url: 'https://www.meetup.com/sgphpug/events/254293718/'
-        -
-            name: '27. Joomla User Group Wien Treffen'
-            userGroup: 'Joomla User Group Wien'
-            start: '2018-09-26 17:15'
-            end: '2018-09-26 21:00'
-            city: Vienna
-            country: Austria
-            longitude: 16.36627
-            latitude: 48.19796
-            url: 'https://www.meetup.com/Joomla-User-Group-Wien/events/252327967/'
-        -
-            name: 'Triff die Drupal Community in Karlsruhe'
-            userGroup: 'Drupal Karlsruhe'
-            start: '2018-09-26 19:00'
-            end: '2018-09-26 22:00'
-            city: Karlsruhe
-            country: Germany
-            longitude: 8.432104
-            latitude: 49.004978
-            url: 'https://www.meetup.com/Drupal-Karlsruhe/events/pqvbppyxmbjc/'
-        -
-            name: 'September Meetup at Wunderman'
-            userGroup: 'Full Stack Antwerp'
-            start: '2018-09-26 19:00'
-            end: '2018-09-26 22:00'
-            city: Antwerpen
-            country: Belgium
-            longitude: 4.411315
-            latitude: 51.194706
-            url: 'https://www.meetup.com/fullstackantwerp/events/250802266/'
-        -
-            name: 'Clean Code, API Development & Barbecue'
-            userGroup: 'Symfony User Group Berlin'
-            start: '2018-09-26 19:30'
-            end: '2018-09-26 22:00'
-            city: Berlin
-            country: Germany
-            longitude: 13.380000114441
-            latitude: 52.520000457764
-            url: 'https://www.meetup.com/sfugberlin/events/254581524/'
         -
             name: 'Releaseparty für TYPO3 9'
             userGroup: 'TUGA - TYPO3 User Group Austria'
@@ -342,15 +12,45 @@ parameters:
             latitude: 48.21829
             url: 'https://www.meetup.com/TUGA-TYPO3-User-Group-Austria/events/254609570/'
         -
-            name: 'Treffen der Symfony User Group Hamburg'
+            name: 'Doctrine - Genie oder Wahnsinn?'
             userGroup: 'Symfony User Group Hamburg'
             start: '2018-10-02 18:30'
-            end: null
+            end: '2018-10-02 21:30'
             city: Hamburg
             country: Germany
             longitude: 10.02516
             latitude: 53.58453
             url: 'https://www.meetup.com/sfughh/events/245635424/'
+        -
+            name: 'October Meetup'
+            userGroup: 'Berlin PHP Usergroup'
+            start: '2018-10-02 19:00'
+            end: '2018-10-02 21:00'
+            city: Berlin
+            country: Germany
+            longitude: 13.41973
+            latitude: 52.50038
+            url: 'https://www.meetup.com/Berlin-PHP-Usergroup/events/255054285/'
+        -
+            name: 'What is gRPC?'
+            userGroup: 'Frederick Web Technology Group'
+            start: '2018-10-02 18:30'
+            end: '2018-10-02 20:30'
+            city: Frederick
+            country: USA
+            longitude: -77.41044
+            latitude: 39.41582
+            url: 'https://www.meetup.com/FredWebTech/events/254475732/'
+        -
+            name: 'Bob Majdak: Basic Online Payments with Stripe'
+            userGroup: 'Dallas PHP'
+            start: '2018-10-02 19:00'
+            end: '2018-10-02 21:00'
+            city: Dallas
+            country: USA
+            longitude: -96.820114
+            latitude: 32.96619
+            url: 'https://www.meetup.com/dallasphp/events/254766058/'
         -
             name: 'PHP Talk, Networking, Collaboration, and Socializing'
             userGroup: 'Chattanooga PHP Developers'
@@ -360,7 +60,27 @@ parameters:
             country: USA
             longitude: -85.333054
             latitude: 35.105934
-            url: 'https://www.meetup.com/chattanoogaphp/events/lsbsbqyxnbfb/'
+            url: 'https://www.meetup.com/chattanoogaphp/events/255063229/'
+        -
+            name: 'Dockerize your dev environment'
+            userGroup: 'Bristol PHP Training'
+            start: '2018-10-03 18:30'
+            end: '2018-10-03 20:30'
+            city: 'Bristol, BS1 6QA'
+            country: 'United Kingdom'
+            longitude: -2.581826
+            latitude: 51.448204
+            url: 'https://www.meetup.com/Bristol-PHP-Training/events/254858418/'
+        -
+            name: 'PHP Meetup'
+            userGroup: 'PHP Stockholm'
+            start: '2018-10-04 17:30'
+            end: '2018-10-04 20:00'
+            city: Stockholm
+            country: Sweden
+            longitude: 18.043798
+            latitude: 59.316147
+            url: 'https://www.meetup.com/php-stockholm/events/254879661/'
         -
             name: 'DeventerPHP - Improve your team synergy: The Attitude Model'
             userGroup: DeventerPHP
@@ -372,25 +92,75 @@ parameters:
             latitude: 52.236748
             url: 'https://www.meetup.com/DeventerPHP/events/254170989/'
         -
-            name: 'First Thursday of the month (placeholder)'
+            name: 'Don''t complain, watch your dashboard'
             userGroup: 'PHP Leuven - Web Innovation Group'
             start: '2018-10-04 19:00'
-            end: '2018-10-04 23:00'
+            end: '2018-10-04 22:00'
             city: Leuven
             country: Belgium
             longitude: 4.72613
             latitude: 50.85187
-            url: 'https://www.meetup.com/PHP-Leuven-Web-Innovation-Group/events/251644332/'
+            url: 'https://www.meetup.com/PHP-Leuven-Web-Innovation-Group/events/254962278/'
         -
-            name: 'Webclash 10/2018'
-            userGroup: Webclash
-            start: '2018-10-09 18:00'
+            name: 'Rendez-Vous PHP · C''est la rentrée.'
+            userGroup: 'AFUP Montpellier'
+            start: '2018-10-04 19:00'
+            end: '2018-10-04 21:30'
+            city: Montpellier
+            country: France
+            longitude: 3.913094
+            latitude: 43.607388
+            url: 'https://www.meetup.com/Montpellier-PHP-Meetup/events/254844537/'
+        -
+            name: 'Intro to Web Development with PHP - Lesson 3'
+            userGroup: 'The Singapore PHP User Group Meetup'
+            start: '2018-10-06 10:00'
+            end: '2018-10-06 12:30'
+            city: Singapore
+            country: Singapore
+            longitude: 103.84842
+            latitude: 1.342616
+            url: 'https://www.meetup.com/sgphpug/events/254807061/'
+        -
+            name: 'Understanding Amazon Web Services'
+            userGroup: 'PHP Reboot'
+            start: '2018-10-06 11:00'
+            end: '2018-10-06 13:00'
+            city: Pune
+            country: India
+            longitude: 73.91374
+            latitude: 18.542665
+            url: 'https://www.meetup.com/PHPReboot/events/254984846/'
+        -
+            name: 'Coffee and Code'
+            userGroup: 'Seattle PHP User Group'
+            start: '2018-10-06 10:00'
+            end: '2018-10-06 12:00'
+            city: Seattle
+            country: USA
+            longitude: -122.3381
+            latitude: 47.623417
+            url: 'https://www.meetup.com/seaphp/events/255006484/'
+        -
+            name: 'October 2018 - Deploying Static Sites on Netlify'
+            userGroup: 'PHP Dublin'
+            start: '2018-10-09 19:00'
             end: '2018-10-09 21:00'
-            city: 'Sankt Pölten'
-            country: Austria
-            longitude: 15.625596
-            latitude: 48.204678
-            url: 'https://www.meetup.com/Webclash/events/253093783/'
+            city: Dublin
+            country: Ireland
+            longitude: -6.24757
+            latitude: 53.349262
+            url: 'https://www.meetup.com/PHP-Dublin/events/255018451/'
+        -
+            name: 'The Current State of SEO'
+            userGroup: 'North Alabama Web Developers'
+            start: '2018-10-10 12:00'
+            end: '2018-10-10 13:00'
+            city: Huntsville
+            country: USA
+            longitude: -86.583435
+            latitude: 34.731426
+            url: 'https://www.meetup.com/web-99/events/254582381/'
         -
             name: 'PHP Meetup Tilburg #9: Harrie Verveer Machine Learning, and why it isn’t magic'
             userGroup: 'Tilburg PHP Meetup'
@@ -402,12 +172,212 @@ parameters:
             latitude: 51.566406
             url: 'https://www.meetup.com/Tilburg-PHP-Meetup/events/254012219/'
         -
+            name: 'Drupal-Austria Vienna Meetup October 2018'
+            userGroup: 'Drupal Austria'
+            start: '2018-10-10 19:00'
+            end: '2018-10-10 21:00'
+            city: Vienna
+            country: Austria
+            longitude: 16.349255
+            latitude: 48.208614
+            url: 'https://www.meetup.com/Drupal-Austria/events/254817725/'
+        -
+            name: 'PHP Pretoria Monthly Meetup'
+            userGroup: 'PHP Pretoria'
+            start: '2018-10-10 19:00'
+            end: '2018-10-10 22:00'
+            city: Pretoria
+            country: 'South Africa'
+            longitude: 28.190067
+            latitude: -25.865126
+            url: 'https://www.meetup.com/PHP-Pretoria/events/254991906/'
+        -
             name: 'Meetup bei Pixelart - neu in Bergheim!'
             userGroup: 'Salzburg Web Dev'
-            start: '2018-10-11 18:00'
-            end: '2018-10-11 20:45'
+            start: '2018-10-11 17:30'
+            end: '2018-10-11 21:00'
             city: Bergheim
             country: Austria
             longitude: 13.039661
             latitude: 47.841637
             url: 'https://www.meetup.com/salzburgwebdev/events/254406795/'
+        -
+            name: 'Friends of PHP in Prague #31 - at Driveto'
+            userGroup: 'Friends of PHP - Prague'
+            start: '2018-10-11 18:00'
+            end: '2018-10-11 20:00'
+            city: Prague
+            country: 'Czech Republic'
+            longitude: 14.450615
+            latitude: 50.09205
+            url: 'https://www.meetup.com/friends-of-php-prague/events/254665976/'
+        -
+            name: 'Bucharest PHP Meetup #4'
+            userGroup: 'Bucharest PHP Meetup'
+            start: '2018-10-11 19:00'
+            end: '2018-10-11 21:00'
+            city: Bucharest
+            country: Romania
+            longitude: 26.114326
+            latitude: 44.417107
+            url: 'https://www.meetup.com/Bucharest-PHP-Meetup/events/255159933/'
+        -
+            name: 'The Serverless Way'
+            userGroup: PHPMiNDS
+            start: '2018-10-11 19:00'
+            end: '2018-10-11 21:00'
+            city: Nottingham
+            country: 'United Kingdom'
+            longitude: -1.14304
+            latitude: 52.951992
+            url: 'https://www.meetup.com/PHPMiNDS-in-Nottingham/events/254784037/'
+        -
+            name: 'PHP+Beer DT'
+            userGroup: 'The Indianapolis PHP Meetup Group'
+            start: '2018-10-16 18:30'
+            end: null
+            city: Indianapolis
+            country: USA
+            longitude: -86.153496
+            latitude: 39.768822
+            url: 'https://www.meetup.com/indyphp/events/255038399/'
+        -
+            name: 'Static Sites: Use Your Smarts to Build Something Dumb'
+            userGroup: PHPDX
+            start: '2018-10-16 18:30'
+            end: '2018-10-16 21:30'
+            city: Portland
+            country: USA
+            longitude: -122.66443
+            latitude: 45.519382
+            url: 'https://www.meetup.com/PDX-PHP/events/254777258/'
+        -
+            name: 'JaxPHP / JaxWeb meetup'
+            userGroup: 'JaxPHP / JaxWeb'
+            start: '2018-10-17 18:00'
+            end: '2018-10-17 20:00'
+            city: Jacksonville
+            country: USA
+            longitude: -81.59436
+            latitude: 30.333359
+            url: 'https://www.meetup.com/JaxPHP-JaxWeb/events/254849229/'
+        -
+            name: 'Main monthly meeting'
+            userGroup: 'DC PHP Developer''s Community'
+            start: '2018-10-17 18:30'
+            end: '2018-10-17 20:30'
+            city: Vienna
+            country: USA
+            longitude: -77.24707
+            latitude: 38.929745
+            url: 'https://www.meetup.com/DC-PHP/events/254943199/'
+        -
+            name: 'Talking about PHP with Philly PHP'
+            userGroup: 'The Philadelphia Area PHP Meetup Group'
+            start: '2018-10-17 19:00'
+            end: '2018-10-17 21:00'
+            city: 'King of Prussia'
+            country: USA
+            longitude: -75.338295
+            latitude: 40.0914
+            url: 'https://www.meetup.com/phillyphp/events/qpchfpyxnbwb/'
+        -
+            name: 'ZendCon Meetup! Talks TBD'
+            userGroup: 'PHP Vegas'
+            start: '2018-10-17 18:30'
+            end: '2018-10-17 20:30'
+            city: 'Las Vegas'
+            country: USA
+            longitude: -115.21252
+            latitude: 36.065964
+            url: 'https://www.meetup.com/PHP-Vegas/events/252484457/'
+        -
+            name: '#ViennaPHP monthly gathering'
+            userGroup: 'Vienna PHP Community'
+            start: '2018-10-18 18:30'
+            end: '2018-10-18 21:30'
+            city: Vienna
+            country: Austria
+            longitude: 16.335951
+            latitude: 48.192005
+            url: 'https://www.meetup.com/viennaphp/events/254415093/'
+        -
+            name: PHP
+            userGroup: TrianglePHP
+            start: '2018-10-18 18:00'
+            end: '2018-10-18 21:00'
+            city: Morrisville
+            country: USA
+            longitude: -78.7944
+            latitude: 35.85148
+            url: 'https://www.meetup.com/trianglephp/events/251293426/'
+        -
+            name: 'PHPSP Campinas + PUB'
+            userGroup: 'PHPSP Campinas'
+            start: '2018-10-18 19:00'
+            end: '2018-10-18 22:00'
+            city: Campinas
+            country: Brazil
+            longitude: -47.051292
+            latitude: -22.896162
+            url: 'https://www.meetup.com/PHPSP-Campinas/events/254885636/'
+        -
+            name: 'GraphQL by Tom Anderson'
+            userGroup: 'Utah PHP User Group'
+            start: '2018-10-18 19:00'
+            end: '2018-10-18 21:00'
+            city: Lehi
+            country: USA
+            longitude: -111.904655
+            latitude: 40.440453
+            url: 'https://www.meetup.com/Utah-PHP-User-Group/events/252972776/'
+        -
+            name: 'WordPress Meetup Bratislava'
+            userGroup: 'Bratislava WordPress Community'
+            start: '2018-10-22 18:00'
+            end: '2018-10-22 20:00'
+            city: Bratislava
+            country: Slovakia
+            longitude: 17.115763
+            latitude: 48.150093
+            url: 'https://www.meetup.com/Bratislava-WordPress-Community/events/254682871/'
+        -
+            name: 'Laravel Autumn with Food & Beer'
+            userGroup: 'Laravel Vienna Meetup'
+            start: '2018-10-23 18:00'
+            end: '2018-10-23 22:00'
+            city: Vienna
+            country: Austria
+            longitude: 16.37332
+            latitude: 48.206123
+            url: 'https://www.meetup.com/Laravel-Frameworkers-Vienna/events/253854755/'
+        -
+            name: 'October Meetup at KdG Zuid'
+            userGroup: 'Full Stack Antwerp'
+            start: '2018-10-24 19:00'
+            end: '2018-10-24 21:30'
+            city: Antwerpen
+            country: Belgium
+            longitude: 4.390473
+            latitude: 51.20229
+            url: 'https://www.meetup.com/fullstackantwerp/events/253161086/'
+        -
+            name: 'Triff die Drupal Community in Karlsruhe'
+            userGroup: 'Drupal Karlsruhe'
+            start: '2018-10-25 19:00'
+            end: '2018-10-25 21:00'
+            city: Karlsruhe
+            country: Germany
+            longitude: 8.430824
+            latitude: 49.005318
+            url: 'https://www.meetup.com/Drupal-Karlsruhe/events/vmgxgqyxnbhc/'
+        -
+            name: 'Open Code Night with Amy Shah'
+            userGroup: 'Louisville Software Engineering Meetup'
+            start: '2018-10-25 18:00'
+            end: '2018-10-25 21:00'
+            city: Louisville
+            country: USA
+            longitude: -85.72961
+            latitude: 38.257084
+            url: 'https://www.meetup.com/Louisville-Software-Engineering/events/254924095/'
