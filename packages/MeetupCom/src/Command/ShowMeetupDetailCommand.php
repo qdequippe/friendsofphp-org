@@ -59,7 +59,9 @@ final class ShowMeetupDetailCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $group = $this->meetupComApi->getGroupForUrl((string) $input->getArgument(self::ARGUMENT_GROUP_URL));
+        /** @var string $groupUrl */
+        $groupUrl = $input->getArgument(self::ARGUMENT_GROUP_URL);
+        $group = $this->meetupComApi->getGroupForUrl($groupUrl);
 
         $country = $this->countryResolver->resolveFromGroup($group);
 

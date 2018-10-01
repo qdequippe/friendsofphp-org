@@ -38,12 +38,21 @@ final class ImportMeetupsCommand extends Command
      */
     private $maxForecastDays;
 
+    /**
+     * @var int[]
+     */
+    private $excludeMeetupComGroupIds = [];
+
+    /**
+     * @param int[] $excludeMeetupComGroupIds
+     */
     public function __construct(
         GroupRepository $userGroupRepository,
         MeetupRepository $meetupRepository,
         MeetupImporter $meetupImporter,
         SymfonyStyle $symfonyStyle,
-        int $maxForecastDays
+        int $maxForecastDays,
+        array $excludeMeetupComGroupIds = []
     ) {
         parent::__construct();
         $this->groupRepository = $userGroupRepository;
@@ -51,6 +60,7 @@ final class ImportMeetupsCommand extends Command
         $this->meetupImporter = $meetupImporter;
         $this->symfonyStyle = $symfonyStyle;
         $this->maxForecastDays = $maxForecastDays;
+        $this->excludeMeetupComGroupIds = $excludeMeetupComGroupIds;
     }
 
     protected function configure(): void
@@ -66,6 +76,8 @@ final class ImportMeetupsCommand extends Command
         $europeanGroups = $this->groupRepository->fetchAll();
 
         $groupIds = array_column($europeanGroups, 'meetup_com_id');
+        $groupIds = array_diff($groupIds, $this->excludeMeetupComGroupIds);
+
         $meetups = $this->meetupImporter->importForGroupIds($groupIds);
         $this->symfonyStyle->note(
             sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
