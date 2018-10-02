@@ -20,8 +20,12 @@ script:
     # static analysis
     - composer phpstan
 
+    # import useful data
+    - bin/console import-user-groups -vvv
+    - bin/console search-and-import-php-groups -vvv
+    - bin/console import-meetups -vvv
     # generate website to "/output" directory, it will be deployed later in "deploy" + imports groups and meetups
-    - composer generate
+    - vendor/bin/statie generate source -vvv
 
 # see docs: https://www.statie.org/docs/github-pages/
 deploy:

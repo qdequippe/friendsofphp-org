@@ -1,4 +1,4 @@
-# this file was generated on 2018-10-02 00:10:09, do not edit it manually
+# this file was generated on 2018-10-02 10:52:44, do not edit it manually
 parameters:
     meetups:
         -
@@ -262,7 +262,7 @@ parameters:
             latitude: 45.519382
             url: 'https://www.meetup.com/PDX-PHP/events/254777258/'
         -
-            name: 'JaxPHP / JaxWeb meetup'
+            name: 'JaxPHP/JaxWeb - Modern CSS: CSS grid & flex box - by Erik Thorelli'
             userGroup: 'JaxPHP / JaxWeb'
             start: '2018-10-17 18:00'
             end: '2018-10-17 20:00'
@@ -332,6 +332,16 @@ parameters:
             latitude: -22.896162
             url: 'https://www.meetup.com/PHPSP-Campinas/events/254885636/'
         -
+            name: 'PHP Meetup: October 18th 2018'
+            userGroup: 'Vancouver PHP'
+            start: '2018-10-18 18:00'
+            end: '2018-10-18 20:30'
+            city: Vancouver
+            country: Canada
+            longitude: -123.10959
+            latitude: 49.28174
+            url: 'https://www.meetup.com/Vancouver-PHP/events/255177679/'
+        -
             name: 'GraphQL by Tom Anderson'
             userGroup: 'Utah PHP User Group'
             start: '2018-10-18 19:00'
@@ -341,6 +351,16 @@ parameters:
             longitude: -111.904655
             latitude: 40.440453
             url: 'https://www.meetup.com/Utah-PHP-User-Group/events/252972776/'
+        -
+            name: '#HackTheVille OpenStreetMap 101 with Jeff McAdams + #Hacktoberfest'
+            userGroup: 'Louisville Software Engineering Meetup'
+            start: '2018-10-20 13:00'
+            end: '2018-10-20 15:00'
+            city: Jeffersonville
+            country: USA
+            longitude: -85.744812
+            latitude: 38.275436
+            url: 'https://www.meetup.com/Louisville-Software-Engineering/events/255169662/'
         -
             name: 'WordPress Meetup Bratislava'
             userGroup: 'Bratislava WordPress Community'
@@ -381,13 +401,3 @@ parameters:
             longitude: 8.430824
             latitude: 49.005318
             url: 'https://www.meetup.com/Drupal-Karlsruhe/events/vmgxgqyxnbhc/'
-        -
-            name: 'Open Code Night with Amy Shah'
-            userGroup: 'Louisville Software Engineering Meetup'
-            start: '2018-10-25 18:00'
-            end: '2018-10-25 21:00'
-            city: Louisville
-            country: USA
-            longitude: -85.72961
-            latitude: 38.257084
-            url: 'https://www.meetup.com/Louisville-Software-Engineering/events/254924095/'
