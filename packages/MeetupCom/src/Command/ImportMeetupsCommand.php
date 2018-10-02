@@ -79,6 +79,12 @@ final class ImportMeetupsCommand extends Command
         $groupIds = array_diff($groupIds, $this->excludeMeetupComGroupIds);
 
         $meetups = $this->meetupImporter->importForGroupIds($groupIds);
+
+        $meetupListToDisplay = [];
+        foreach ($meetups as $meetup) {
+            $meetupListToDisplay[] = $meetup->getStartDateTime()->format('Y-m-d') . ' - ' . $meetup->getName();
+        }
+        $this->symfonyStyle->listing($meetupListToDisplay);
         $this->symfonyStyle->note(
             sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
         );
