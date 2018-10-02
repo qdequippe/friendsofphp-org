@@ -22,17 +22,6 @@ final class MeetupComApi
 
     /**
      * @var string
-     * @see https://www.meetup.com/meetup_api/docs/find/groups/
-     */
-    private const API_SEARCH_GROUPS = 'http://api.meetup.com/find/groups?page=500';
-
-    /**
-     * @var int[]
-     */
-    private $nonPhpGroupIds = [29203124];
-
-    /**
-     * @var string
      */
     private $meetupComApiKey;
 

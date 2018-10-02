@@ -20,7 +20,7 @@ final class GroupsFilterProvider implements FilterProviderInterface
             },
             'countGroups' => function (array $groups): int {
                 return count($this->arrayUnique($groups));
-            }
+            },
         ];
     }
 
