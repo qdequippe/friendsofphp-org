@@ -4,7 +4,7 @@ namespace Fop\Twig;
 
 use Symplify\Statie\Contract\Templating\FilterProviderInterface;
 
-final class SortGroupsFilterProvider implements FilterProviderInterface
+final class GroupsFilterProvider implements FilterProviderInterface
 {
     /**
      * @return callable[]
@@ -18,6 +18,9 @@ final class SortGroupsFilterProvider implements FilterProviderInterface
 
                 return $this->groupByCountry($groups);
             },
+            'countGroups' => function (array $groups): int {
+                return count($this->arrayUnique($groups));
+            }
         ];
     }
 
