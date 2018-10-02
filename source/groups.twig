@@ -27,7 +27,7 @@ layout: "_layouts/default.twig"
                         </tr>
                     </thead>
 
-                    {# @todo sort by country + by meetup name #}
+                    {% set groups = sortGroupsByCountry(groups) %}
 
                     {% for group in groups %}
                         <tr class="row" id="{{ group.country|webalize }}">

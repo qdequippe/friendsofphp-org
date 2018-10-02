@@ -14,3 +14,4 @@ parameters:
 services:
     Fop\MeetupCom\Twig\MeetupAreaFilterProvider: ~
     Fop\Twig\DatingFilterProvider: ~
+    Fop\Twig\SortGroupsFilterProvider: ~
