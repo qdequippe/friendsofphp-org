@@ -1,0 +1,9 @@
+<h2 class="text-center pt-3 pb-3 text-success">Comming Next Week</h2>
+
+{% include "_snippets/meetups/table_by_days_from_today.twig" with { minDays: 0, maxDays: 7 } %}
+
+<hr>
+
+<h2 class="text-center pt-3 pb-3 text-primary">Comming Next Month</h2>
+
+{% include "_snippets/meetups/table_by_days_from_today.twig" with { minDays: 8, maxDays: 30 } %}

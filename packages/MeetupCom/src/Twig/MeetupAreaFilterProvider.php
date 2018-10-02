@@ -19,7 +19,7 @@ final class MeetupAreaFilterProvider implements FilterProviderInterface
     /**
      * @var mixed[]
      */
-    private $areas;
+    private $areas = [];
 
     /**
      * @param mixed[] $areas
@@ -40,7 +40,6 @@ final class MeetupAreaFilterProvider implements FilterProviderInterface
                     if ($this->isAreaMatch($meetup, $area)) {
                         return $area['key'];
                     }
-
                 }
 
                 return 'other';

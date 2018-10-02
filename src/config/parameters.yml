@@ -16,3 +16,6 @@ parameters:
     exclude_meetup_com_group_ids:
         - 24857336 # https://www.meetup.com/Vienna-Blogger-YouTuber-Meetup
         - 27087302 # https://www.meetup.com/Brno-Python-Meetup
+
+    # default empty value
+    areas: []
