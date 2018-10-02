@@ -21,7 +21,7 @@ final class DatingFilterProvider implements FilterProviderInterface
                 }
 
                 return $dateInterval->days;
-            }
+            },
         ];
     }
 }
