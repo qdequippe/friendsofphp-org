@@ -12,6 +12,8 @@ parameters:
 #            meetup_com_url: 'https://www.meetup.com/Web-Developer-Chemnitz/'
 #            country: 'Germany'
 
+        # from time to time, search for new groups: https://www.google.com/search?q=php+site%3Ameetup.com
+
         -   name: 'PHP Quebec'
             meetup_com_id: 14619422
             meetup_com_url: 'https://www.meetup.com/PHPQuebec/'
