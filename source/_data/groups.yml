@@ -12,6 +12,16 @@ parameters:
 #            meetup_com_url: 'https://www.meetup.com/Web-Developer-Chemnitz/'
 #            country: 'Germany'
 
+        -   name: 'PHP Quebec'
+            meetup_com_id: 14619422
+            meetup_com_url: 'https://www.meetup.com/PHPQuebec/'
+            country: 'Canada'
+
+        -   name: 'PHP Ghent'
+            meetup_com_id: 18395855
+            meetup_com_url: 'https://www.meetup.com/phpgent/'
+            country: 'Belgium'
+
         -   name: 'PHPSP Campinas'
             meetup_com_id: 15335842
             meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
@@ -36,11 +46,6 @@ parameters:
             meetup_com_id: 20121958
             meetup_com_url: 'https://www.meetup.com/PHPSP-Santos/'
             country: 'Brazil'
-
-        -   name: "DC PHP Developer's Community"
-            meetup_com_id: 1649006
-            meetup_com_url: 'https://www.meetup.com/DC-PHP/'
-            country: 'United States'
 
         -   name: 'PHP Berkshire'
             meetup_com_id: 18473940
