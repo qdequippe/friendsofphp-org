@@ -34,26 +34,23 @@ body {
     font-size: 1.7rem;
 }
 
-#footer {
+footer {
     background: hsl(229, 30%, 44%);
     color: #EEE;
 }
 
-#footer h3 {
+footer h3 {
     padding-bottom: .5em;
 }
 
-#footer a {
+footer a {
     color: white;
     text-decoration: underline;
 }
 
-#footer a:hover {
+footer a:hover {
+    color: #DDD;
     text-decoration: none;
-}
-
-#footer ul {
-    padding-left: 1em;
 }
 
 .add-to-calendar-button {
@@ -105,17 +102,27 @@ nav ul li a {
     color: hsl(229, 30%, 44%);
 }
 
+/* fluid container with break on top dimension */
+@media (min-width: 1200px) {
+    .container-fluid {
+        max-width: 1140px;
+    }
+}
+
 /* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
 @media (max-width: 768px) {
     .hidden-sm-down {
         display: none !important;
     }
 }
+
 @media (min-width: 769px) {
     .hidden-md-up {
         display: none !important;
     }
 }
+
+
 
 
 /* mobile version */
@@ -130,5 +137,12 @@ nav ul li a {
 }
 
 footer .dim {
+    font-size: .9em;
     color: #DDD;
+}
+
+
+/* reset left indent */
+footer ul, #groups ul {
+    padding-left: 1.2em;
 }
