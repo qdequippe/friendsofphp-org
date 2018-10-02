@@ -1,17 +1,17 @@
 <table class="table table-striped table-responsive">
     <thead class="thead-inverse">
-        <tr class="row">
-            <th class="col-2 text-center" colspan="2">
+        <tr>
+            <th class="w-25 text-center">
                 <em class="fa fa-calendar fa-fw"></em>
-                When
+                <span class="hidden-sm-down">When</span>
             </th>
-            <th class="col-3 text-center">
+            <th class="w-25 text-center">
                 <em class="fa fa-map-marker fa-fw"></em>
-                Where
+                <span class="hidden-sm-down">Where</span>
             </th>
-            <th class="col-7 text-center">
+            <th class="w-50 text-center">
                 <em class="fa fa-meetup fa-fw"></em>
-                Meetup
+                <span class="hidden-sm-down">Meetup</span>
             </th>
         </tr>
     </thead>
@@ -20,14 +20,14 @@
         {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
 
         {% if daysFromToday >= minDays and daysFromToday < maxDays %}
-            <tr class="meetup-with-area-{{ detect_meetup_area(meetup) }} row">
-                <td class="col-2 text-center">
-                    <strong>{{ meetup.start|date("D m-d") }}</strong>
+            <tr class="meetup-with-area-{{ detect_meetup_area(meetup) }}">
+                <td class="w-25 text-center">
+                    <nobr><strong>{{ meetup.start|date("D m-d") }}</strong></nobr>
                     &nbsp;
                     <small>{{ meetup.start|date("H:i") }}</small>
                 </td>
-                <td class="col-3">{{ meetup.city }}, {{ meetup.country }}</td>
-                <td class="col-7">
+                <td class="w-25">{{ meetup.city }}, {{ meetup.country }}</td>
+                <td class="w-50">
                     <a href="{{ meetup.url }}">{{ meetup.name }}</a>
                 </td>
             </tr>
