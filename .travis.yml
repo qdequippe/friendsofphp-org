@@ -25,9 +25,6 @@ script:
     - bin/console search-and-import-php-groups -vvv
     - bin/console import-meetups -vvv
 
-    # debug
-    - cat source/_data/generated/imported_meetups.yml
-
     # generate website to "/output" directory, it will be deployed later in "deploy" + imports groups and meetups
     - vendor/bin/statie generate source -vvv
 
