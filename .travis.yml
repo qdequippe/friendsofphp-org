@@ -14,13 +14,11 @@ install:
 script:
     - vendor/bin/phpunit
 
-    # coding standard run
+    # code analysis
     - composer check-cs
-
-    # static analysis
     - composer phpstan
 
-    # import useful data
+    # import data
     - bin/console import-user-groups -vvv
     - bin/console search-and-import-php-groups -vvv
     - bin/console import-meetups -vvv
