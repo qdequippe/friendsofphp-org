@@ -13,6 +13,11 @@ parameters:
 #            meetup_com_url: 'https://www.meetup.com/Web-Developer-Chemnitz/'
 #            country: 'Germany'
         -
+            name: 'PHPSP - São Paulo PHP Developers Group'
+            meetup_com_id: 13728432
+            meetup_com_url: 'https://www.meetup.com/php-sp/'
+            country: 'Brazil'
+        -
             name: 'Kuala Lumpur PHP'
             meetup_com_id: 4397052
             meetup_com_url: 'https://www.meetup.com/kuala-lumpur-php/'
