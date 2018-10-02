@@ -43,7 +43,7 @@ footer h3 {
     padding-bottom: .5em;
 }
 
-footer a {
+#subhead a, footer a {
     color: white;
     text-decoration: underline;
 }
@@ -52,7 +52,7 @@ footer a.btn {
     text-decoration: none;
 }
 
-footer a:hover {
+#subhead a:hover, footer a:hover {
     color: #DDD;
     text-decoration: none;
 }
