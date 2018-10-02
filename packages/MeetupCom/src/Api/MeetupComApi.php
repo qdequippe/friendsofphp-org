@@ -94,39 +94,6 @@ final class MeetupComApi
     }
 
     /**
-     * @return mixed[]
-     */
-    public function findMeetupsGroupsByKeywords(): array
-    {
-        $keywords = ['php', 'symfony', 'nette', 'doctrine', 'laravel', 'wordpress'];
-
-        $results = [];
-
-        foreach ($keywords as $keyword) {
-            $url = self::API_SEARCH_GROUPS . '&' . build_query([
-                'text' => $keyword,
-                'ordering' => 'most_active',
-                # https://www.meetup.com/meetup_api/auth/#keys
-                'key' => $this->meetupComApiKey,
-            ]);
-
-            $response = $this->client->request('GET', $url);
-            $json = $this->responseFormatter->formatResponseToJson($response, $url);
-
-            $results = array_merge($results, $json);
-        }
-
-        // filter out excluded groups
-        foreach ($results as $key => $group) {
-            if (in_array($group['id'], $this->nonPhpGroupIds, true)) {
-                unset($results[$key]);
-            }
-        }
-
-        return $results;
-    }
-
-    /**
      * @param int[] $groupIds
      */
     private function createUrlFromGroupIds(array $groupIds): string
