@@ -12,10 +12,5 @@ parameters:
     # how many days into the future the meetups should be imported
     max_forecast_days: 30
 
-    # non-PHP groups, false positives in "PHP" filter
-    exclude_meetup_com_group_ids:
-        - 24857336 # https://www.meetup.com/Vienna-Blogger-YouTuber-Meetup
-        - 27087302 # https://www.meetup.com/Brno-Python-Meetup
-
     # default empty value
     areas: []

@@ -22,17 +22,6 @@ final class MeetupComApi
 
     /**
      * @var string
-     * @see https://www.meetup.com/meetup_api/docs/find/groups/
-     */
-    private const API_SEARCH_GROUPS = 'http://api.meetup.com/find/groups?page=500';
-
-    /**
-     * @var int[]
-     */
-    private $nonPhpGroupIds = [29203124];
-
-    /**
-     * @var string
      */
     private $meetupComApiKey;
 
@@ -91,39 +80,6 @@ final class MeetupComApi
         $url = self::API_GROUP_DETAIL_URL . $groupPart;
         $response = $this->client->request('get', $url);
         return $this->responseFormatter->formatResponseToJson($response, $url);
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function findMeetupsGroupsByKeywords(): array
-    {
-        $keywords = ['php', 'symfony', 'nette', 'doctrine', 'laravel', 'wordpress'];
-
-        $results = [];
-
-        foreach ($keywords as $keyword) {
-            $url = self::API_SEARCH_GROUPS . '&' . build_query([
-                'text' => $keyword,
-                'ordering' => 'most_active',
-                # https://www.meetup.com/meetup_api/auth/#keys
-                'key' => $this->meetupComApiKey,
-            ]);
-
-            $response = $this->client->request('GET', $url);
-            $json = $this->responseFormatter->formatResponseToJson($response, $url);
-
-            $results = array_merge($results, $json);
-        }
-
-        // filter out excluded groups
-        foreach ($results as $key => $group) {
-            if (in_array($group['id'], $this->nonPhpGroupIds, true)) {
-                unset($results[$key]);
-            }
-        }
-
-        return $results;
     }
 
     /**
