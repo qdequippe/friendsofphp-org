@@ -66,8 +66,8 @@ parameters:
             title: 'Australia'
             short_title: 'AUS'
             top_left:
-                latitude: -3.992096
-                longitude: 111.481468
+                latitude: -5.668476
+                longitude: 110.584495
             bottom_right:
-                latitude: -45.041243
-                longitude: 177.328030
+                latitude: -43.3
+                longitude: 177.441725

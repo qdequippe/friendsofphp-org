@@ -48,6 +48,10 @@ footer a {
     text-decoration: underline;
 }
 
+footer a.btn {
+    text-decoration: none;
+}
+
 footer a:hover {
     color: #DDD;
     text-decoration: none;
