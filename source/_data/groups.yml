@@ -4,6 +4,19 @@ imports:
 
 parameters:
     groups:
+         # add your group! duplicate this ↓ and update
+         # or make use of command that generates all this from group url:
+         # "bin/console show-meetup-detail https://www.meetup.com/kuala-lumpur-php/"
+#        -
+#            name: 'Web Developer Chemnitz'
+#            meetup_com_id: 22201000
+#            meetup_com_url: 'https://www.meetup.com/Web-Developer-Chemnitz/'
+#            country: 'Germany'
+        -
+            name: 'Kuala Lumpur PHP'
+            meetup_com_id: 4397052
+            meetup_com_url: 'https://www.meetup.com/kuala-lumpur-php/'
+            country: 'Malaysia'
         -
             name: 'Web Developer Chemnitz'
             meetup_com_id: 22201000
