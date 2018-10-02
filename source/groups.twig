@@ -4,43 +4,26 @@ layout: "_layouts/default.twig"
 ---
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 pb-5">
-
-                <div class="text-center">
-                    <h2 class="pt-3 pb-3">PHP Groups</h2>
-                    <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/source/_data/groups.yml" class="btn btn-success mt-1 mb-4">Add Your Group!</a>
-                </div>
-
-                <table class="table table-striped table-responsive">
-                    <thead class="thead-inverse">
-                        <tr class="row">
-                            <th class="col-4 text-center">
-                                <em class="fa fa-map-marker fa-fw"></em>
-                                Country
-                            </th>
-                            <th class="col-8 text-center" colspan="2">
-                                <em class="fa fa-meetup fa-fw"></em>
-                                Name
-                            </th>
-                        </tr>
-                    </thead>
-
-                    {% set groups = sortGroupsByCountry(groups) %}
-
-                    {% for group in groups %}
-                        <tr class="row" id="{{ group.country|webalize }}">
-                            <td class="col-4">
-                                <a href="#{{ group.country|webalize }}">{{ group.country }}</a>
-                            </td>
-                            <td class="col-8">
-                                <a href="{{ group.meetup_com_url }}">{{ group.name }}</a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
+    <div class="container-fluid" id="groups">
+        <div class="text-center">
+            <h2 class="pt-3 pb-3">PHP Groups</h2>
+            <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/source/_data/groups.yml" class="btn btn-success btn-lg mt-1 mb-4">Add Your Group!</a>
         </div>
+
+        {% set groupsByCountry = sortGroupsAndGroupByCountry(groups) %}
+
+        {% for country, groups in groupsByCountry %}
+            <h3 id="{{ country|webalize }}" class="mt-4">
+                <a href="#{{ country|webalize }}">{{ country }}</a>
+            </h3>
+
+            <ul>
+                {% for group in groups %}
+                    <li>
+                        <a href="{{ group.meetup_com_url }}">{{ group.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
     </div>
 {% endblock %}

@@ -12,19 +12,11 @@ final class SortGroupsFilterProvider implements FilterProviderInterface
     public function provide(): array
     {
         return [
-            'sortGroupsByCountry' => function (array $groups): array {
+            'sortGroupsAndGroupByCountry' => function (array $groups): array {
                 $groups = $this->arrayUnique($groups);
+                $groups = $this->sortGroupsByCountryAndGroupName($groups);
 
-                usort($groups, function (array $firstGroup, array $secondGroup) {
-                    $compareStatus = $firstGroup['country'] <=> $secondGroup['country'];
-                    if ($compareStatus !== 0) {
-                        return $compareStatus;
-                    }
-
-                    return $firstGroup['name'] <=> $secondGroup['name'];
-                });
-
-                return $groups;
+                return $this->groupByCountry($groups);
             },
         ];
     }
@@ -38,5 +30,37 @@ final class SortGroupsFilterProvider implements FilterProviderInterface
     private function arrayUnique(array $array): array
     {
         return array_map('unserialize', array_unique(array_map('serialize', $array)));
+    }
+
+    /**
+     * @param mixed[] $groups
+     * @return mixed[]
+     */
+    private function sortGroupsByCountryAndGroupName(array $groups): array
+    {
+        usort($groups, function (array $firstGroup, array $secondGroup) {
+            $compareStatus = $firstGroup['country'] <=> $secondGroup['country'];
+            if ($compareStatus !== 0) {
+                return $compareStatus;
+            }
+
+            return $firstGroup['name'] <=> $secondGroup['name'];
+        });
+
+        return $groups;
+    }
+
+    /**
+     * @param mixed[] $groups
+     * @return mixed[]
+     */
+    private function groupByCountry(array $groups): array
+    {
+        $groupsByCountry = [];
+        foreach ($groups as $group) {
+            $groupsByCountry[$group['country']][] = $group;
+        }
+
+        return $groupsByCountry;
     }
 }
