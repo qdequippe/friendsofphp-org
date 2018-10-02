@@ -24,9 +24,7 @@
         {% if daysFromToday >= 0 %}
             <tr>
                 <td class="text-center {% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
-                    <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm add-to-calendar-button">
-                        <em class="fa fa-calendar-plus-o fa-fw"></em>
-                    </a>
+                    {% include "_snippets/add_to_calendar_button.twig" %}
                 </td>
                 <td class="text-center{% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
                     <strong>{{ meetup.start|date("D m-d") }}</strong>
