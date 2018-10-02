@@ -11,11 +11,9 @@
     var markers = [
         {% set markers %}
             {% for meetup in meetups %}
-                {% set diffFromToday = date(meetup.start).diff(date('now')) %}
-                {% set daysFromToday = diffFromToday.days %}
-                {% set isFuture = diffFromToday.invert %}
+                {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
 
-                {% if isFuture %}
+                {% if daysFromToday >= 0 %}
                     {
                         "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
                         "title": "{{ meetup.name }}",

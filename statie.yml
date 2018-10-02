@@ -13,3 +13,4 @@ parameters:
 
 services:
     Fop\MeetupCom\Twig\MeetupAreaMatchFilterProvider: ~
+    Fop\Twig\DatingFilterProvider: ~

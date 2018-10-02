@@ -15,13 +15,13 @@
         </th>
     </tr>
     </thead>
-    {% for meetup in meetups %}
-        {% set diffFromToday = date(meetup.start).diff(date('now')) %}
-        {% set daysFromToday = diffFromToday.days %}
-        {% set isFuture = diffFromToday.invert %}
 
-        {# look only to the future, mainly for local dev #}
-        {% if isFuture %}
+    <p>There are {{ meetups|length }} upcoming meetups</p>
+
+    {% for meetup in meetups %}
+        {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
+
+        {% if daysFromToday >= 0 %}
             <tr>
                 <td class="text-center {% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
                     <a href="https://www.google.com/calendar/event?action=TEMPLATE&location={{ meetup.city }},+{{ meetup.country }}&text={{ meetup.name }}&dates={{ meetup.start|date('Ymd\\THi00\\Z') }}{% if meetup.end %}/{{ meetup.end|date('Ymd\\THi00\\Z') }}{% endif %}" class="btn btn-primary btn-sm add-to-calendar-button">
