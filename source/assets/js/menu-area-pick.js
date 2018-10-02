@@ -19,5 +19,12 @@ $(function() {
 
         // store
         window.localStorage.setItem('active_area', $(this).data('key'));
+
+        // hide all area-rows
+        $("tr[class^='meetup-with-area-']").hide();
+        // show only selected area rows
+        $("tr.meetup-with-area-" + $(this).data("key")).show();
+
+        console.log('ok');
     });
 });
