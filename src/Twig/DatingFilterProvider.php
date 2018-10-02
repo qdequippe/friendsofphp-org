@@ -17,10 +17,10 @@ final class DatingFilterProvider implements FilterProviderInterface
                 $dateTime = new DateTime($dateTime);
                 $dateInterval = $dateTime->diff(new DateTime('now'));
                 if (! $dateInterval->invert) {
-                    return - $dateInterval->days;
+                    return (int) - $dateInterval->days;
                 }
 
-                return $dateInterval->days;
+                return (int) $dateInterval->days;
             },
         ];
     }
