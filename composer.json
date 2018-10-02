@@ -1,5 +1,5 @@
 {
-    "name": "allfriendsofphp/allfriendsofphp",
+    "name": "friends-of-php/friends-of-php",
     "require": {
         "php": "^7.2",
         "guzzlehttp/guzzle": "^6.3",

@@ -12,5 +12,5 @@ parameters:
     google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'
 
 services:
-    Fop\MeetupCom\Twig\MeetupAreaMatchFilterProvider: ~
+    Fop\MeetupCom\Twig\MeetupAreaFilterProvider: ~
     Fop\Twig\DatingFilterProvider: ~

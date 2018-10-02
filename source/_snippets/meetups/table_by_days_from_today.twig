@@ -1,0 +1,36 @@
+<table class="table table-striped table-responsive">
+    <thead class="thead-inverse">
+        <tr class="row">
+            <th class="col-2 text-center" colspan="2">
+                <em class="fa fa-calendar fa-fw"></em>
+                When
+            </th>
+            <th class="col-3 text-center">
+                <em class="fa fa-map-marker fa-fw"></em>
+                Where
+            </th>
+            <th class="col-7 text-center">
+                <em class="fa fa-meetup fa-fw"></em>
+                Meetup
+            </th>
+        </tr>
+    </thead>
+
+    {% for meetup in meetups %}
+        {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
+
+        {% if daysFromToday >= minDays and daysFromToday < maxDays %}
+            <tr class="meetup-with-area-{{ detect_meetup_area(meetup) }} row">
+                <td class="col-2 text-center">
+                    <strong>{{ meetup.start|date("D m-d") }}</strong>
+                    &nbsp;
+                    <small>{{ meetup.start|date("H:i") }}</small>
+                </td>
+                <td class="col-3">{{ meetup.city }}, {{ meetup.country }}</td>
+                <td class="col-7">
+                    <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>

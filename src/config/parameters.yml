@@ -1,9 +1,9 @@
 parameters:
+    # id of map element for javascript
     map_id: 'mapid'
 
     groups_storage: '%kernel.project_dir%/source/_data/groups.yml'
     imported_groups_storage: '%kernel.project_dir%/source/_data/generated/imported_groups.yml'
-
     imported_meetups_storage: '%kernel.project_dir%/source/_data/generated/imported_meetups.yml'
 
     # setup here: https://secure.meetup.com/meetup_api/key/
@@ -12,7 +12,10 @@ parameters:
     # how many days into the future the meetups should be imported
     max_forecast_days: 30
 
-    # not PHP-related, false positives in "PHP" filter
+    # non-PHP groups, false positives in "PHP" filter
     exclude_meetup_com_group_ids:
         - 24857336 # https://www.meetup.com/Vienna-Blogger-YouTuber-Meetup
         - 27087302 # https://www.meetup.com/Brno-Python-Meetup
+
+    # default empty value
+    areas: []

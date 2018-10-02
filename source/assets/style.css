@@ -128,3 +128,7 @@ nav ul li a {
         font-size: 1.1em;
     }
 }
+
+footer .dim {
+    color: #DDD;
+}
