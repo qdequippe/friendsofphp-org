@@ -22,7 +22,7 @@
         {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
 
         {% if daysFromToday >= 0 %}
-            <tr>
+            <tr class="meetup-with-area-{{ detect_meetup_area(meetup) }}">
                 <td class="text-center {% if daysFromToday <= 7 %} bg-success text-white{% endif %}">
                     {% include "_snippets/add_to_calendar_button.twig" %}
                 </td>

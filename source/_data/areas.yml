@@ -21,11 +21,11 @@ parameters:
             title: 'North America'
             short_title: '↑ AM'
             top_left:
-                latitude: 51.553718
-                longitude: -130.547382
+                latitude: 53.316648
+                longitude: -131.668675
             bottom_right:
-                latitude: 17.094802
-                longitude: -77.827630
+                latitude: 20.626135
+                longitude: -67.264613
 
         -
             key: 'south_america'
