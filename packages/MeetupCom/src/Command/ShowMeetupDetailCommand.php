@@ -17,7 +17,7 @@ final class ShowMeetupDetailCommand extends Command
     /**
      * @var string
      */
-    private const ARGUMENT_SOURCE = 'group-url';
+    private const ARGUMENT_SOURCE = 'source';
 
     /**
      * @var SymfonyStyle
