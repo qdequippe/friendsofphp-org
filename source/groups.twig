@@ -14,8 +14,8 @@ layout: "_layouts/default.twig"
 
         {% for country, groups in groupsByCountry %}
             <h3 id="{{ country|webalize }}" class="mt-4">
-                <a href="#{{ country|webalize }}">{{ country }}</a> -
-                {% if groups|length == 1 %}1 group{% else %}{{ groups|length }} groups{% endif %}
+                <a href="#{{ country|webalize }}">{{ country }}</a>
+                {% if groups|length > 1 %}- {{ groups|length }} groups{% endif %}
             </h3>
 
             <ul>
