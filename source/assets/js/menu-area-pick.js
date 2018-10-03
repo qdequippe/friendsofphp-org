@@ -12,6 +12,14 @@ $(function() {
         }
     });
 
+    // load only default active area items
+    function showRowsFromArea(area) {
+        $("tr[class^='meetup-with-area-']").hide();
+        $("tr.meetup-with-area-" + area).show();
+    }
+
+    showRowsFromArea($active_area);
+
     $menu_items.click(function () {
         // change classes
         $("#area-menu li").removeClass("active");
@@ -20,11 +28,6 @@ $(function() {
         // store
         window.localStorage.setItem('active_area', $(this).data('key'));
 
-        // hide all area-rows
-        $("tr[class^='meetup-with-area-']").hide();
-        // show only selected area rows
-        $("tr.meetup-with-area-" + $(this).data("key")).show();
-
-        console.log('ok');
+        showRowsFromArea($(this).data("key"));
     });
 });
