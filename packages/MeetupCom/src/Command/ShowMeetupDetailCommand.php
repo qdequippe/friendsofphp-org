@@ -73,7 +73,6 @@ final class ShowMeetupDetailCommand extends Command
                 $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
                 $this->printGroup($group);
             }
-
         } else {
             $group = $this->getGroupDetailForMeetupComUrl($source);
             $this->printGroup($group);
