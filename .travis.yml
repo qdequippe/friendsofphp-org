@@ -19,7 +19,6 @@ script:
     - composer phpstan
 
     # import data
-    - bin/console import-user-groups -vvv
     - bin/console import-meetups -vvv
 
     # generate website to "/output" directory, it will be deployed later in "deploy" + imports groups and meetups

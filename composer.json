@@ -34,7 +34,6 @@
         "fix-cs": "vendor/bin/ecs check bin src tests packages --fix",
         "phpstan": "vendor/bin/phpstan analyse bin src tests packages --level max",
         "generate": [
-            "bin/console import-user-groups",
             "bin/console import-meetups",
             "vendor/bin/statie generate source"
         ]
