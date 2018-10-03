@@ -4,7 +4,325 @@ parameters:
         # add your group here
         # if you can't find the "meetup_com_id", pass the url and comment it; we'll handle it for you
 
-        # for maintainers: from time to time, search for new groups: https://www.google.com/search?q=php+site%3Ameetup.com
+        # for maintainers: from time to time, search for new groups: https://www.google.com/search?q=php+<state>+site%3Ameetup.com
+
+        -   name: 'Cape Town Laravel'
+            meetup_com_id: 16030882
+            meetup_com_url: 'https://www.meetup.com/Cape-Town-Laravel/'
+            country: 'South Africa'
+
+        -   name: 'Drupal Durban'
+            meetup_com_id: 15476802
+            meetup_com_url: 'https://www.meetup.com/Drupal-Durban/'
+            country: 'South Africa'
+
+        -   name: 'Drupal Cape Town'
+            meetup_com_id: 14088662
+            meetup_com_url: 'https://www.meetup.com/Drupal-Cape-Town/'
+            country: 'South Africa'
+
+        -   name: 'Drupal Johannesburg'
+            meetup_com_id: 8314922
+            meetup_com_url: 'https://www.meetup.com/Drupal-Johannesburg/'
+            country: 'South Africa'
+
+        -   name: 'PHP Pretoria'
+            meetup_com_id: 20417627
+            meetup_com_url: 'https://www.meetup.com/PHP-Pretoria/'
+            country: 'South Africa'
+
+        -   name: 'PHP Johannesburg Meetup Group'
+            meetup_com_id: 12415802
+            meetup_com_url: 'https://www.meetup.com/PHP-Johannesburg-Meetup-Group/'
+            country: 'South Africa'
+
+        -   name: 'Cape Town PHP Group'
+            meetup_com_id: 7039672
+            meetup_com_url: 'https://www.meetup.com/Cape-Town-PHP-Group/'
+            country: 'South Africa'
+
+        -   name: 'WordPress Istanbul'
+            meetup_com_id: 18809924
+            meetup_com_url: 'https://www.meetup.com/WordPress-Istanbul/'
+            country: 'Turkey'
+
+        -   name: 'İzmir PHP'
+            meetup_com_id: 19130147
+            meetup_com_url: 'https://www.meetup.com/izmirphp/'
+            country: 'Turkey'
+
+        -   name: 'laravel.istanbul'
+            meetup_com_id: 26609131
+            meetup_com_url: 'https://www.meetup.com/laravelistanbul/'
+            country: 'Turkey'
+
+        -   name: 'İstanbul PHP User Group'
+            meetup_com_id: 15388462
+            meetup_com_url: 'https://www.meetup.com/IstanbulPHP/'
+            country: 'Turkey'
+
+        -   name: 'Magento Istanbul Meetup'
+            meetup_com_id: 21219671
+            meetup_com_url: 'https://www.meetup.com/Magento-Istanbul-Meetup/'
+            country: 'Turkey'
+
+        -   name: 'PrestaShop - Istanbul Ecommerce Meetup'
+            meetup_com_id: 21208309
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Istanbul-Ecommerce-Meetup/'
+            country: 'Turkey'
+
+        -   name: 'Ankara PHP Meetup'
+            meetup_com_id: 26863822
+            meetup_com_url: 'https://www.meetup.com/Ankara-PHP-Meetup/'
+            country: 'Turkey'
+
+        -   name: 'Bucharest PHP Meetup'
+            meetup_com_id: 27698424
+            meetup_com_url: 'https://www.meetup.com/Bucharest-PHP-Meetup/'
+            country: 'Romania'
+
+        -   name: 'ClujPHP'
+            meetup_com_id: 15575302
+            meetup_com_url: 'https://www.meetup.com/ClujPHP/'
+            country: 'Romania'
+
+        -   name: 'PHP Cluj'
+            meetup_com_id: 6832182
+            meetup_com_url: 'https://www.meetup.com/PHP-Cluj/'
+            country: 'Romania'
+
+        -   name: 'PrestaShop - Bucharest Ecommerce Meetup'
+            meetup_com_id: 19328312
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Bucharest-Ecommerce-Meetup/'
+            country: 'Romania'
+
+        -   name: 'Symfony Bucharest'
+            meetup_com_id: 19114422
+            meetup_com_url: 'https://www.meetup.com/Symfony-Bucharest/'
+            country: 'Romania'
+
+        -   name: 'LAPHP: The Los Angeles PHP Developers Group'
+            meetup_com_id: 582093
+            meetup_com_url: 'https://www.meetup.com/laphpdev/'
+            country: 'United States'
+
+        -   name: 'PrestaShop - Islamabad Ecommerce Meetup'
+            meetup_com_id: 19328354
+            meetup_com_url: 'https://www.meetup.com/Islamabad-PrestaShop-Ecommerce-Meetup/'
+            country: 'Pakistan'
+
+        -   name: 'Bharatpur WordPress Meetup'
+            meetup_com_id: 28714869
+            meetup_com_url: 'https://www.meetup.com/Bharatpur-WordPress-Meetup/'
+            country: 'Nepal'
+
+        -   name: 'PrestaShop - Kathmandu Ecommerce Meetup'
+            meetup_com_id: 20045228
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Kathmandu-Ecommerce-Meetup/'
+            country: 'Nepal'
+
+        -   name: 'WordPress Nepal'
+            meetup_com_id: 4332842
+            meetup_com_url: 'https://www.meetup.com/wpnepal/'
+            country: 'Nepal'
+
+        -   name: 'PHP Developers Nepal'
+            meetup_com_id: 4396462
+            meetup_com_url: 'https://www.meetup.com/phpnepal/'
+            country: 'Nepal'
+
+        -   name: 'PrestaShop - Dhaka Ecommerce Meetup'
+            meetup_com_id: 25595899
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Dhaka-Ecommerce-Meetup/'
+            country: 'Bangladesh'
+
+        -   name: 'Dhaka Magento Meetup'
+            meetup_com_id: 28725873
+            meetup_com_url: 'https://www.meetup.com/Dhaka-Magento-Meetup/'
+            country: 'Bangladesh'
+
+        -   name: 'Delhi PHP Meetup'
+            meetup_com_id: 15238642
+            meetup_com_url: 'https://www.meetup.com/Delhi-PHP-Meetup/'
+            country: 'India'
+
+        -   name: 'Delhi PHP Application Development Meetup'
+            meetup_com_id: 17586692
+            meetup_com_url: 'https://www.meetup.com/Delhi-PHP-Application-Development-Meetup/'
+            country: 'India'
+
+        -   name: 'Bangalore Drupal User Group'
+            meetup_com_id: 18782517
+            meetup_com_url: 'https://www.meetup.com/Bangalore-Drupal-User-Group/'
+            country: 'India'
+
+        -   name: 'Bangalore PHP Users'
+            meetup_com_id: 1515822
+            meetup_com_url: 'https://www.meetup.com/Bangalore-PHP-Users/'
+            country: 'India'
+
+        -   name: 'Drupal Bangalore'
+            meetup_com_id: 2589702
+            meetup_com_url: 'https://www.meetup.com/drupalbangalore/'
+            country: 'India'
+
+        -   name: 'SilverStripe Christchurch Meetup'
+            meetup_com_id: 16238382
+            meetup_com_url: 'https://www.meetup.com/SilverStripe-Christchurch-Meetup/'
+            country: 'New Zealand'
+
+        -   name: 'Laravel Wellington'
+            meetup_com_id: 14891872
+            meetup_com_url: 'https://www.meetup.com/LaraWell/'
+            country: 'New Zealand'
+
+        -   name: 'The Auckland Drupal Meetup Group'
+            meetup_com_id: 1507823
+            meetup_com_url: 'https://www.meetup.com/drupalnz/'
+            country: 'New Zealand'
+
+        -   name: 'Laravel Auckland'
+            meetup_com_id: 18544626
+            meetup_com_url: 'https://www.meetup.com/Laravel-Auckland/'
+            country: 'New Zealand'
+
+        -   name: 'The Auckland PHP Meetup Group'
+            meetup_com_id: 120985
+            meetup_com_url: 'https://www.meetup.com/php-auckland/'
+            country: 'New Zealand'
+
+        -   name: 'PHP UserGroup Wellington'
+            meetup_com_id: 5633722
+            meetup_com_url: 'https://www.meetup.com/PHP-Usergroup-Wellington/'
+            country: 'New Zealand'
+
+        -   name: 'WordPress Sydney'
+            meetup_com_id: 1721110
+            meetup_com_url: 'https://www.meetup.com/WordPress-Sydney/'
+            country: 'Australia'
+
+        -   name: 'Melbourne laravel Meetup'
+            meetup_com_id: 18560254
+            meetup_com_url: 'https://www.meetup.com/Melbourne-laravel-Meetup/'
+            country: 'Australia'
+
+        -   name: 'SilverStripe Partners'
+            meetup_com_id: 3135442
+            meetup_com_url: 'https://www.meetup.com/SilverStripePartners/'
+            country: 'Australia'
+
+        -   name: 'Sydney Symfony PHP Users Group'
+            meetup_com_id: 5143172
+            meetup_com_url: 'https://www.meetup.com/Sydney-Symfony-PHP-Users-Group/'
+            country: 'Australia'
+
+        -   name: 'Melbourne Symfony Developers'
+            meetup_com_id: 2166321
+            meetup_com_url: 'https://www.meetup.com/Melbourne-Symfony/'
+            country: 'Australia'
+
+        -   name: 'Brisbane & Gold Coast Laravel Meetup'
+            meetup_com_id: 19644535
+            meetup_com_url: 'https://www.meetup.com/Brisbane-Laravel-PHP-Catch-Up/'
+            country: 'Australia'
+
+        -   name: 'use \BNE\PHP;'
+            meetup_com_id: 21080575
+            meetup_com_url: 'https://www.meetup.com/BrisPHP/'
+            country: 'Australia'
+
+        -   name: 'PHP Adelaide'
+            meetup_com_id: 20319228
+            meetup_com_url: 'https://www.meetup.com/PHP-Adelaide/'
+            country: 'Australia'
+
+        -   name: 'Melbourne PHP Users Group'
+            meetup_com_id: 7861172
+            meetup_com_url: 'https://www.meetup.com/Melbourne-PHP-Users-Group/'
+            country: 'Australia'
+
+        -   name: 'PHP Laravel Framework Sydney'
+            meetup_com_id: 14909682
+            meetup_com_url: 'https://www.meetup.com/PHP-Laravel-Framework-Sydney/'
+            country: 'Australia'
+
+        -   name: 'Sydney PHP'
+            meetup_com_id: 2673602
+            meetup_com_url: 'https://www.meetup.com/SydPHP/'
+            country: 'Australia'
+
+        -   name: 'Tech Bali'
+            meetup_com_id: 14113932
+            meetup_com_url: 'https://www.meetup.com/IT-Meetup-Bali/'
+            country: 'Indonesia'
+
+        -   name: 'Bandung WordPress Meetup'
+            meetup_com_id: 29547443
+            meetup_com_url: 'https://www.meetup.com/Bandung-WordPress-Meetup/'
+            country: 'Indonesia'
+
+        -   name: 'Drupal Meetup (Jakarta Based)'
+            meetup_com_id: 2445912
+            meetup_com_url: 'https://www.meetup.com/Drupal-Jakarta/'
+            country: 'Indonesia'
+
+        -   name: 'Jakarta PHP User Group Meetup'
+            meetup_com_id: 17258592
+            meetup_com_url: 'https://www.meetup.com/Jakarta-PHP-User-Group-Meetup/'
+            country: 'Indonesia'
+
+        -   name: 'Yogyakarta PHP Group'
+            meetup_com_id: 25107798
+            meetup_com_url: 'https://www.meetup.com/Yogyakarta-PHP-Group/'
+            country: 'Indonesia'
+
+        -   name: 'PHP Developers'
+            meetup_com_id: 21274484
+            meetup_com_url: 'https://www.meetup.com/PHP-Developers/'
+            country: 'Indonesia'
+
+        -   name: 'Cambodia WordPress Community'
+            meetup_com_id: 18888955
+            meetup_com_url: 'https://www.meetup.com/Cambodia-WordPress-Community/'
+            country: 'Cambodia'
+
+        -   name: 'PHP Davao'
+            meetup_com_id: 16805542
+            meetup_com_url: 'https://www.meetup.com/php-davao/'
+            country: 'Philippines'
+
+        -   name: 'Drupal Philippines'
+            meetup_com_id: 3808962
+            meetup_com_url: 'https://www.meetup.com/drupal-ph/'
+            country: 'Philippines'
+
+        -   name: 'Laravel Philippines'
+            meetup_com_id: 17067102
+            meetup_com_url: 'https://www.meetup.com/Laravel-Philippines/'
+            country: 'Philippines'
+
+        -   name: 'Laravel Cebu'
+            meetup_com_id: 19342179
+            meetup_com_url: 'https://www.meetup.com/Laravel-Cebu/'
+            country: 'Philippines'
+
+        -   name: 'Drupal Philippines'
+            meetup_com_id: 3808962
+            meetup_com_url: 'https://www.meetup.com/drupal-ph/'
+            country: 'Philippines'
+
+        -   name: 'Baguio WordPress Meetup'
+            meetup_com_id: 24940397
+            meetup_com_url: 'https://www.meetup.com/Baguio-WordPress-Meetup/'
+            country: 'Philippines'
+
+        -   name: 'Magento Meetup Philippines'
+            meetup_com_id: 18898559
+            meetup_com_url: 'https://www.meetup.com/Magento-Meetup-Philippines/'
+            country: 'Philippines'
+
+
+
         -   name: 'Salzburg Web Dev'
             meetup_com_id: 4033532
             meetup_com_url: 'https://www.meetup.com/de-DE/salzburgwebdev/'
@@ -786,3 +1104,93 @@ parameters:
             meetup_com_id: 20304794
             meetup_com_url: 'https://www.meetup.com/WordPress-Brno-Meetups/'
             country: 'Czech Republic'
+
+        -   name: 'Davao WordPress Meetup'
+            meetup_com_id: 20133709
+            meetup_com_url: 'https://www.meetup.com/WordPress-Davao-PH/'
+            country: 'Philippines'
+
+        -   name: 'Drupal Developer Network (Singapore)'
+            meetup_com_id: 1653716
+            meetup_com_url: 'https://www.meetup.com/Drupal-SG/'
+            country: 'Singapore'
+
+        -   name: 'Singapore Magento User Group'
+            meetup_com_id: 19488686
+            meetup_com_url: 'https://www.meetup.com/Singapore-Magento-User-Group/'
+            country: 'Singapore'
+
+        -   name: 'Kuala Lumpur PHP'
+            meetup_com_id: 4397052
+            meetup_com_url: 'https://www.meetup.com/kuala-lumpur-php/'
+            country: 'Malaysia'
+
+        -   name: 'PrestaShop - Kuala Lumpur Ecommerce Meetup'
+            meetup_com_id: 19509457
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Kuala-Lumpur-Ecommerce-Meetup/'
+            country: 'Malaysia'
+
+        -   name: 'Kuala Lumpur WordPress Meetup'
+            meetup_com_id: 19743516
+            meetup_com_url: 'https://www.meetup.com/Kuala-Lumpur-WordPress-Meetup/'
+            country: 'Malaysia'
+
+        -   name: 'Thailand PHP User Group'
+            meetup_com_id: 18756486
+            meetup_com_url: 'https://www.meetup.com/Thailand-PHP-User-Group/'
+            country: 'Thailand'
+
+        -   name: 'Chiang Mai Drupal Meetup'
+            meetup_com_id: 18217046
+            meetup_com_url: 'https://www.meetup.com/Chiang-Mai-Drupal-Meetup/'
+            country: 'Thailand'
+
+        -   name: 'Saigon Developer Group'
+            meetup_com_id: 15953912
+            meetup_com_url: 'https://www.meetup.com/Engineers-Saigon/'
+            country: 'Vietnam'
+
+        -   name: 'Open Dev Study Saigon'
+            meetup_com_id: 19171008
+            meetup_com_url: 'https://www.meetup.com/Open-Study-Group-Saigon/'
+            country: 'Vietnam'
+
+        -   name: 'The Hanoi WordPress Meetup Group'
+            meetup_com_id: 3022832
+            meetup_com_url: 'https://www.meetup.com/hanoi-wordpress/'
+            country: 'Vietnam'
+
+        -   name: 'Ha Noi Web Developer Meetup'
+            meetup_com_id: 17368202
+            meetup_com_url: 'https://www.meetup.com/Ha-Noi-Php-Meetup/'
+            country: 'Vietnam'
+
+        -   name: 'SF PHP Community'
+            meetup_com_id: 120903
+            meetup_com_url: 'https://www.meetup.com/sf-php/'
+            country: 'United States'
+
+        -   name: 'Laravel PHP Tokyo'
+            meetup_com_id: 27972671
+            meetup_com_url: 'https://www.meetup.com/Laravel-PHP-Tokyo/'
+            country: 'Japan'
+
+        -   name: 'Dev Japan'
+            meetup_com_id: 18308823
+            meetup_com_url: 'https://www.meetup.com/devjapan/'
+            country: 'Japan'
+
+        -   name: 'Tokyo WordPress Meetup'
+            meetup_com_id: 8041842
+            meetup_com_url: 'https://www.meetup.com/Tokyo-WordPress-Meetup/'
+            country: 'Japan'
+
+        -   name: 'Magento Meetup Tokyo'
+            meetup_com_id: 20012713
+            meetup_com_url: 'https://www.meetup.com/Magento-Meetup-Tokyo/'
+            country: 'Japan'
+
+        -   name: 'Aichi WordPress Meetup'
+            meetup_com_id: 29228098
+            meetup_com_url: 'https://www.meetup.com/Aichi-WordPress-Meetup/'
+            country: 'Japan'
