@@ -11,10 +11,8 @@ final class GroupRepository
      */
     private $groups = [];
 
-    public function __construct(
-        string $groupsStorage,
-        ParameterMergingYamlLoader $parameterMergingYamlLoader
-    ) {
+    public function __construct(string $groupsStorage, ParameterMergingYamlLoader $parameterMergingYamlLoader)
+    {
         $parameterBag = $parameterMergingYamlLoader->loadParameterBagFromFile($groupsStorage);
         $this->groups = $parameterBag->get('groups');
     }
