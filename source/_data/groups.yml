@@ -286,8 +286,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Magento-Meetup-Philippines/'
             country: 'Philippines'
 
-
-
         -   name: 'Salzburg Web Dev'
             meetup_com_id: 4033532
             meetup_com_url: 'https://www.meetup.com/de-DE/salzburgwebdev/'
@@ -738,7 +736,6 @@ parameters:
             meetup_com_url: 'http://www.meetup.com/PHP-Saigon/'
             country: Vietnam
 
-
         -   name: 'PHP Quebec'
             meetup_com_id: 14619422
             meetup_com_url: 'https://www.meetup.com/PHPQuebec/'
@@ -898,7 +895,6 @@ parameters:
             meetup_com_id: 3814032
             meetup_com_url: 'https://www.meetup.com/phpughh/'
             country: 'Germany'
-
 
         -   name: 'WordPress São Paulo'
             meetup_com_id: 5440232
