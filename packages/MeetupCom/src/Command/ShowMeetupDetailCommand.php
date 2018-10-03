@@ -4,6 +4,7 @@ namespace Fop\MeetupCom\Command;
 
 use Fop\Country\CountryResolver;
 use Fop\MeetupCom\Api\MeetupComApi;
+use Fop\Repository\GroupRepository;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -34,15 +35,27 @@ final class ShowMeetupDetailCommand extends Command
      */
     private $countryResolver;
 
+    /**
+     * @var GroupRepository
+     */
+    private $groupRepository;
+
+    /**
+     * @var int[]
+     */
+    private $alreadyImportedIds = [];
+
     public function __construct(
         MeetupComApi $meetupComApi,
         SymfonyStyle $symfonyStyle,
-        CountryResolver $countryResolver
+        CountryResolver $countryResolver,
+        GroupRepository $groupRepository
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
         $this->meetupComApi = $meetupComApi;
         $this->countryResolver = $countryResolver;
+        $this->groupRepository = $groupRepository;
     }
 
     protected function configure(): void
@@ -54,29 +67,31 @@ final class ShowMeetupDetailCommand extends Command
         $this->addArgument(
             self::ARGUMENT_SOURCE,
             InputArgument::REQUIRED,
-            'Group url on meetup.com, e.g. https://www.meetup.com/Berlin-PHP-Usergroup/'
+            'Group url on meetup.com, e.g. https://www.meetup.com/Berlin-PHP-Usergroup/, or path to file with list of urls separated by newline'
         );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var string $source */
         $source = $input->getArgument(self::ARGUMENT_SOURCE);
 
         if (is_file($source)) {
-            $fileContent = FileSystem::read($source);
-            $groupUrls = explode(PHP_EOL, $fileContent);
-            // remove empty
-            $groupUrls = array_filter($groupUrls);
+            $this->processFileSource($source);
 
-            foreach ($groupUrls as $groupUrl) {
-                $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
-                $this->printGroup($group);
-            }
+            // success
+            return 0;
+        }
+
+        $group = $this->getGroupDetailForMeetupComUrl($source);
+        if ($this->isGroupAlreadyImported($group)) {
+            $this->symfonyStyle->error(sprintf('Group "%s" is already imported.', $source));
         } else {
-            $group = $this->getGroupDetailForMeetupComUrl($source);
             $this->printGroup($group);
         }
+
+        // success
+        return 0;
     }
 
     /**
@@ -100,5 +115,49 @@ final class ShowMeetupDetailCommand extends Command
         $this->symfonyStyle->writeln(sprintf("            meetup_com_url: '%s'", $group['link']));
         $this->symfonyStyle->writeln(sprintf("            country: '%s'", $group['country']));
         $this->symfonyStyle->newLine();
+    }
+
+    /**
+     * @param mixed[] $group
+     */
+    private function isGroupAlreadyImported(array $group): bool
+    {
+        if (in_array($group['id'], $this->getAlreadyImportedsIds(), true)) {
+            return true;
+        }
+
+        $this->alreadyImportedIds[] = $group['id'];
+
+        return false;
+    }
+
+    /**
+     * @return int[]
+     */
+    private function getAlreadyImportedsIds(): array
+    {
+        if (! count($this->alreadyImportedIds)) {
+            $this->alreadyImportedIds = array_column($this->groupRepository->fetchAll(), 'meetup_com_id');
+        }
+
+        return $this->alreadyImportedIds;
+    }
+
+    private function processFileSource(string $file): void
+    {
+        $fileContent = FileSystem::read($file);
+
+        $groupUrls = explode(PHP_EOL, $fileContent);
+        // remove empty
+        $groupUrls = array_filter($groupUrls);
+
+        foreach ($groupUrls as $groupUrl) {
+            $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
+            if ($this->isGroupAlreadyImported($group)) {
+                continue;
+            }
+
+            $this->printGroup($group);
+        }
     }
 }
