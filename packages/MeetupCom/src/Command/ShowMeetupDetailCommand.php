@@ -4,6 +4,7 @@ namespace Fop\MeetupCom\Command;
 
 use Fop\Country\CountryResolver;
 use Fop\MeetupCom\Api\MeetupComApi;
+use Nette\Utils\FileSystem;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,7 +17,7 @@ final class ShowMeetupDetailCommand extends Command
     /**
      * @var string
      */
-    private const ARGUMENT_GROUP_URL = 'group-url';
+    private const ARGUMENT_SOURCE = 'group-url';
 
     /**
      * @var SymfonyStyle
@@ -48,10 +49,10 @@ final class ShowMeetupDetailCommand extends Command
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription(
-            'Shows details for meetup group, use like "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/"'
+            'Shows details for meetup group(s). You can provide either 1 group link: "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/", or a file with multiple such links, each on single row.'
         );
         $this->addArgument(
-            self::ARGUMENT_GROUP_URL,
+            self::ARGUMENT_SOURCE,
             InputArgument::REQUIRED,
             'Group url on meetup.com, e.g. https://www.meetup.com/Berlin-PHP-Usergroup/'
         );
@@ -59,15 +60,46 @@ final class ShowMeetupDetailCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        /** @var string $groupUrl */
-        $groupUrl = $input->getArgument(self::ARGUMENT_GROUP_URL);
-        $group = $this->meetupComApi->getGroupForUrl($groupUrl);
+        /** @var string $source */
+        $source = $input->getArgument(self::ARGUMENT_SOURCE);
 
-        $country = $this->countryResolver->resolveFromGroup($group);
+        if (is_file($source)) {
+            $fileContent = FileSystem::read($source);
+            $groupUrls = explode(PHP_EOL, $fileContent);
+            // remove empty
+            $groupUrls = array_filter($groupUrls);
 
-        $this->symfonyStyle->writeln(sprintf("name: '%s'", $group['name']));
-        $this->symfonyStyle->writeln(sprintf('meetup_com_id: %s', $group['id']));
-        $this->symfonyStyle->writeln(sprintf("meetup_com_url: '%s'", $group['link']));
-        $this->symfonyStyle->writeln(sprintf("country: '%s'", $country));
+            foreach ($groupUrls as $groupUrl) {
+                $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
+                $this->printGroup($group);
+            }
+
+        } else {
+            $group = $this->getGroupDetailForMeetupComUrl($source);
+            $this->printGroup($group);
+        }
+    }
+
+    /**
+     * @return mixed[]
+     */
+    private function getGroupDetailForMeetupComUrl(string $source): array
+    {
+        $group = $this->meetupComApi->getGroupForUrl($source);
+        $group['country'] = $this->countryResolver->resolveFromGroup($group);
+
+        return $group;
+    }
+
+    /**
+     * @param mixed[] $group
+     */
+    private function printGroup(array $group): void
+    {
+        $this->symfonyStyle->writeln(sprintf("    -   name: '%s'", $group['name']));
+        $this->symfonyStyle->writeln(sprintf('        meetup_com_id: %s', $group['id']));
+        $this->symfonyStyle->writeln(sprintf("        meetup_com_url: '%s'", $group['link']));
+        $this->symfonyStyle->writeln(sprintf("        country: '%s'", $group['country']));
+        $this->symfonyStyle->newLine();
     }
 }
