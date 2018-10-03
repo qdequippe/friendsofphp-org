@@ -13,26 +13,14 @@ final class GroupsFilterProvider implements FilterProviderInterface
     {
         return [
             'sortGroupsAndGroupByCountry' => function (array $groups): array {
-                $groups = $this->arrayUnique($groups);
                 $groups = $this->sortGroupsByCountryAndGroupName($groups);
 
                 return $this->groupByCountry($groups);
             },
             'countGroups' => function (array $groups): int {
-                return count($this->arrayUnique($groups));
+                return count($groups);
             },
         ];
-    }
-
-    /**
-     * @see https://stackoverflow.com/a/946300/1348344
-     *
-     * @param mixed[] $array
-     * @return mixed[]
-     */
-    private function arrayUnique(array $array): array
-    {
-        return array_map('unserialize', array_unique(array_map('serialize', $array)));
     }
 
     /**

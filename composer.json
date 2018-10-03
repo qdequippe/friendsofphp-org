@@ -21,13 +21,11 @@
     "autoload": {
         "psr-4": {
             "Fop\\": "src",
-            "Fop\\MeetupCom\\": "packages/MeetupCom/src",
-            "Fop\\PhpUg\\": "packages/PhpUg/src"
+            "Fop\\MeetupCom\\": "packages/MeetupCom/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Fop\\PhpUg\\Tests\\": "packages/PhpUg/tests",
             "Fop\\Tests\\": "tests"
         }
     },
@@ -36,7 +34,6 @@
         "fix-cs": "vendor/bin/ecs check bin src tests packages --fix",
         "phpstan": "vendor/bin/phpstan analyse bin src tests packages --level max",
         "generate": [
-            "bin/console import-user-groups",
             "bin/console import-meetups",
             "vendor/bin/statie generate source"
         ]
