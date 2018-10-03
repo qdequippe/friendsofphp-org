@@ -26,21 +26,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Drupal-Johannesburg/'
             country: 'South Africa'
 
-        -   name: 'PHP Pretoria'
-            meetup_com_id: 20417627
-            meetup_com_url: 'https://www.meetup.com/PHP-Pretoria/'
-            country: 'South Africa'
-
-        -   name: 'PHP Johannesburg Meetup Group'
-            meetup_com_id: 12415802
-            meetup_com_url: 'https://www.meetup.com/PHP-Johannesburg-Meetup-Group/'
-            country: 'South Africa'
-
-        -   name: 'Cape Town PHP Group'
-            meetup_com_id: 7039672
-            meetup_com_url: 'https://www.meetup.com/Cape-Town-PHP-Group/'
-            country: 'South Africa'
-
         -   name: 'WordPress Istanbul'
             meetup_com_id: 18809924
             meetup_com_url: 'https://www.meetup.com/WordPress-Istanbul/'
@@ -76,11 +61,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Ankara-PHP-Meetup/'
             country: 'Turkey'
 
-        -   name: 'Bucharest PHP Meetup'
-            meetup_com_id: 27698424
-            meetup_com_url: 'https://www.meetup.com/Bucharest-PHP-Meetup/'
-            country: 'Romania'
-
         -   name: 'ClujPHP'
             meetup_com_id: 15575302
             meetup_com_url: 'https://www.meetup.com/ClujPHP/'
@@ -94,11 +74,6 @@ parameters:
         -   name: 'PrestaShop - Bucharest Ecommerce Meetup'
             meetup_com_id: 19328312
             meetup_com_url: 'https://www.meetup.com/PrestaShop-Bucharest-Ecommerce-Meetup/'
-            country: 'Romania'
-
-        -   name: 'Symfony Bucharest'
-            meetup_com_id: 19114422
-            meetup_com_url: 'https://www.meetup.com/Symfony-Bucharest/'
             country: 'Romania'
 
         -   name: 'LAPHP: The Los Angeles PHP Developers Group'
@@ -291,16 +266,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/php-davao/'
             country: 'Philippines'
 
-        -   name: 'Drupal Philippines'
-            meetup_com_id: 3808962
-            meetup_com_url: 'https://www.meetup.com/drupal-ph/'
-            country: 'Philippines'
-
-        -   name: 'Laravel Philippines'
-            meetup_com_id: 17067102
-            meetup_com_url: 'https://www.meetup.com/Laravel-Philippines/'
-            country: 'Philippines'
-
         -   name: 'Laravel Cebu'
             meetup_com_id: 19342179
             meetup_com_url: 'https://www.meetup.com/Laravel-Cebu/'
@@ -443,11 +408,6 @@ parameters:
             meetup_com_url: 'http://www.meetup.com/phpreboot/'
             country: India
 
-        -   name: 'Drupal Bangalore Group'
-            meetup_com_id: 2589702
-            meetup_com_url: 'http://www.meetup.com/drupalbangalore/'
-            country: India
-
         -   name: Dublin
             meetup_com_id: 9805392
             meetup_com_url: 'https://www.meetup.com/de-DE/PHP-Dublin'
@@ -523,16 +483,6 @@ parameters:
             meetup_com_url: 'http://www.meetup.com/Apeldoorn-Webdevs'
             country: Netherlands
 
-        -   name: 'PHP User Group Wellington'
-            meetup_com_id: 5633722
-            meetup_com_url: 'http://www.meetup.com/PHP-Usergroup-Wellington'
-            country: 'New Zealand'
-
-        -   name: 'Auckland PHP Meetup'
-            meetup_com_id: 120985
-            meetup_com_url: 'http://www.meetup.com/php-auckland/'
-            country: 'New Zealand'
-
         -   name: 'Trondheim PHP Meetup'
             meetup_com_id: 18660395
             meetup_com_url: 'http://www.meetup.com/Trondheim-PHP-Meetup/'
@@ -547,11 +497,6 @@ parameters:
             meetup_com_id: 18884863
             meetup_com_url: 'http://www.meetup.com/Szczecin-PHP-Meetup/'
             country: Poland
-
-        -   name: 'PHP Cluj'
-            meetup_com_id: 6832182
-            meetup_com_url: 'http://www.meetup.com/php-cluj/'
-            country: Romania
 
         -   name: 'Iasi PHP Usergroup'
             meetup_com_id: 19042186
@@ -622,11 +567,6 @@ parameters:
             meetup_com_id: 21819560
             meetup_com_url: 'https://www.meetup.com/sfubsl'
             country: Switzerland
-
-        -   name: 'İstanbul PHP UG'
-            meetup_com_id: 15388462
-            meetup_com_url: 'http://www.meetup.com/IstanbulPHP/'
-            country: Turkey
 
         -   name: 'PHPMiNDS Nottingham'
             meetup_com_id: 18902351
@@ -970,11 +910,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/php-sp/'
             country: 'Brazil'
 
-        -   name: 'Kuala Lumpur PHP'
-            meetup_com_id: 4397052
-            meetup_com_url: 'https://www.meetup.com/kuala-lumpur-php/'
-            country: 'Malaysia'
-
         -   name: 'Web Developer Chemnitz'
             meetup_com_id: 22201000
             meetup_com_url: 'https://www.meetup.com/Web-Developer-Chemnitz/'
@@ -1144,11 +1079,6 @@ parameters:
             meetup_com_id: 18217046
             meetup_com_url: 'https://www.meetup.com/Chiang-Mai-Drupal-Meetup/'
             country: 'Thailand'
-
-        -   name: 'Saigon Developer Group'
-            meetup_com_id: 15953912
-            meetup_com_url: 'https://www.meetup.com/Engineers-Saigon/'
-            country: 'Vietnam'
 
         -   name: 'Open Dev Study Saigon'
             meetup_com_id: 19171008
