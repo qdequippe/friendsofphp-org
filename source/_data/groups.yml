@@ -1,10 +1,10 @@
 parameters:
+    # groups on meetup.com
     groups:
-        # add your group here - how do you find the id?
-        # @todo
+        # add your group here
+        # if you can't find the "meetup_com_id", pass the url and comment it; we'll handle it for you
 
-        # maintainers: from time to time, search for new groups: https://www.google.com/search?q=php+site%3Ameetup.com
-
+        # for maintainers: from time to time, search for new groups: https://www.google.com/search?q=php+site%3Ameetup.com
         -   name: 'Salzburg Web Dev'
             meetup_com_id: 4033532
             meetup_com_url: 'https://www.meetup.com/de-DE/salzburgwebdev/'
@@ -39,16 +39,6 @@ parameters:
             meetup_com_id: 18393172
             meetup_com_url: 'http://www.meetup.com/Hasselt-PHP-Meetup'
             country: Belgium
-
-        -   name: 'PHPSP Campinas'
-            meetup_com_id: 15335842
-            meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
-            country: Brazil
-
-        -   name: 'PHPSP Santos '
-            meetup_com_id: 20121958
-            meetup_com_url: 'https://www.meetup.com/PHPSP-Santos/'
-            country: Brazil
 
         -   name: 'PHP Varna'
             meetup_com_id: 23601198
@@ -188,11 +178,6 @@ parameters:
         -   name: 'Tilburg PHP'
             meetup_com_id: 21699802
             meetup_com_url: 'http://www.meetup.com/Tilburg-PHP-Meetup'
-            country: Netherlands
-
-        -   name: EindhovenPHP
-            meetup_com_id: 18063722
-            meetup_com_url: 'http://www.meetup.com/Limburg-PHP-Meetup'
             country: Netherlands
 
         -   name: BredaPHP
@@ -450,7 +435,7 @@ parameters:
             meetup_com_url: 'http://www.meetup.com/fox-cities-php/'
             country: 'United States'
 
-        -   name: 'Las Vegas'
+        -   name: 'Las Vegas PHP'
             meetup_com_id: 7427812
             meetup_com_url: 'http://www.meetup.com/Las-Vegas-PHP-Users-Group/'
             country: 'United States'
@@ -591,11 +576,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/PHPmvd/'
             country: 'Uruguay'
 
-        -   name: 'Santiago PHP Meetup'
-            meetup_com_id: 18594845
-            meetup_com_url: 'https://www.meetup.com/Santiago-PHP-Meetup/'
-            country: 'Chile'
-
         -   name: 'Symfony Chile'
             meetup_com_id: 19968460
             meetup_com_url: 'https://www.meetup.com/Symfony-Chile/'
@@ -636,11 +616,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Laravel-SP/'
             country: 'Brazil'
 
-        -   name: 'PHP MVD'
-            meetup_com_id: 8660592
-            meetup_com_url: 'https://www.meetup.com/PHPmvd/'
-            country: 'Uruguay'
-
         -   name: 'PHP User Group Munich'
             meetup_com_id: 6604672
             meetup_com_url: 'https://www.meetup.com/phpugmunich/'
@@ -656,16 +631,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Drupalcz/'
             country: 'Czech Republic'
 
-        -   name: 'Laravel Vienna Meetup'
-            meetup_com_id: 9111612
-            meetup_com_url: 'https://www.meetup.com/Laravel-Frameworkers-Vienna/'
-            country: 'Austria'
-
-        -   name: 'PHP Vegas'
-            meetup_com_id: 7427812
-            meetup_com_url: 'https://www.meetup.com/PHP-Vegas/'
-            country: 'United States'
-
         -   name: 'Vilnius PHP Meetups'
             meetup_com_id: 18204759
             meetup_com_url: 'https://www.meetup.com/vilniusphp/'
@@ -680,11 +645,6 @@ parameters:
         -   name: 'WordPress São Paulo'
             meetup_com_id: 5440232
             meetup_com_url: 'https://www.meetup.com/wpsampa/'
-            country: 'Brazil'
-
-        -   name: 'PHPSP Campinas'
-            meetup_com_id: 15335842
-            meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
             country: 'Brazil'
 
         -   name: 'PHPSP - São Paulo PHP Developers Group'
