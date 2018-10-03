@@ -1785,3 +1785,18 @@ parameters:
             meetup_com_id: 13117192
             meetup_com_url: 'https://www.meetup.com/php-si/'
             country: 'Slovenia'
+
+        -   name: 'The Vancouver WordPress Meetup Group'
+            meetup_com_id: 1438007
+            meetup_com_url: 'https://www.meetup.com/Vancouver-WordPress-Meetup-Group/'
+            country: 'Canada'
+
+        -   name: 'Laravel Montreal'
+            meetup_com_id: 14489962
+            meetup_com_url: 'https://www.meetup.com/Laravel-Montreal/'
+            country: 'Canada'
+
+        -   name: 'York Region Laravel'
+            meetup_com_id: 23808414
+            meetup_com_url: 'https://www.meetup.com/York-Region-Laravel/'
+            country: 'Canada'
