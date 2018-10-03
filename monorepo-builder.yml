@@ -1,5 +1,5 @@
 parameters:
-    symplify_version: '^4.8'
+    symplify_version: '^5.1'
     symfony_version: '^4.1'
 
     data_to_append:
