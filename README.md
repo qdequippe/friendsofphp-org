@@ -24,3 +24,15 @@ gulp
 ```
 
 You'll find new or updated files in `/source/_data/generated/` directory.
+
+## Maintenance
+
+How to keep fit and slim!
+
+### Check Status Code of All Links
+
+Once couple of months, check if all external links are still alive, so people won't get lost.
+
+```bash
+vendor/bin/http-status-check scan https://friendsofphp.org/groups/
+```
