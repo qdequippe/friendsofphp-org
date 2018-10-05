@@ -16,7 +16,8 @@
         "phpstan/phpstan": "^0.10.3",
         "phpunit/phpunit": "^7.3",
         "symplify/easy-coding-standard": "^5.1",
-        "symplify/monorepo-builder": "^5.1"
+        "symplify/monorepo-builder": "^5.1",
+        "spatie/http-status-check": "^3.1"
     },
     "autoload": {
         "psr-4": {
