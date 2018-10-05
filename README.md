@@ -5,47 +5,22 @@
 ## Install
 
 ```sh
-git clone your-fork.git
-cd your-fork
+git clone git@github.com:TomasVotruba/friendsofphp.org.git # use your fork to contribute
+cd friendsofphp.org
+composer intalll
 npm install
+gulp # see gulpfile.js for more
 ```
 
-### Update Group and Meetup Data
+### Update Meetup Data
+
+To see new meetups, import them first:
 
 ```bash
-composer generate
-```
+bin/console import-meetups
 
-You'll find new or updated files in `/source/_data/generated/` directory.
-
-## Run the website
-
-Now all you gotta do it move to the directory and run the gulp (see [gulpfile.js](/gulpfile.js) for more details):
-
-```sh
+# then run website
 gulp
 ```
 
-And open [http://localhost:8000](localhost:8000) in your browser.
-
-That's all!
-
-<!--
-## Work Notes
-
-do you want to add a meetup? let me know :)
-
-no programming content, just link to existing contente! -> slack =)
-brands
-
-
-# how to spread?)
-
-- go to meetup personally
-- spread connections, come to visit us
-- add train trips and a price, or a plane
-- or place to sleep - přijeďte do prahy, ubytuju vás :) jít příkladem
-
-- integrovat developeow?
-- get a job, connect on meetup in another country
--->
+You'll find new or updated files in `/source/_data/generated/` directory.
