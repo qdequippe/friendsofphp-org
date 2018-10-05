@@ -42,14 +42,18 @@ final class MeetupImporter
         $meetups = [];
         $this->groupsHavingMeetup = [];
 
-        foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIds) as $meetup) {
-            $timeSpan = $this->createTimeSpanFromEventData($meetup);
+        $groupIdsChunks = array_chunk($groupIds, 200);
 
-            if ($this->shouldSkipMeetup($timeSpan, $meetup)) {
-                continue;
+        foreach ($groupIdsChunks as $groupIdsChunk) {
+            foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIdsChunk) as $meetup) {
+                $timeSpan = $this->createTimeSpanFromEventData($meetup);
+
+                if ($this->shouldSkipMeetup($timeSpan, $meetup)) {
+                    continue;
+                }
+
+                $meetups[] = $this->createMeetupFromEventData($meetup, $timeSpan);
             }
-
-            $meetups[] = $this->createMeetupFromEventData($meetup, $timeSpan);
         }
 
         return $meetups;
