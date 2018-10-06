@@ -19,3 +19,8 @@ parameters:
         - 'PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer'
         - 'PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer'
         - 'Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff'
+
+    skip:
+        Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff:
+            # helper class
+            - 'src/Utils/Arrays.php'

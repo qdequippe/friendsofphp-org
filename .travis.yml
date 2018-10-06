@@ -14,6 +14,8 @@ install:
 script:
     - vendor/bin/phpunit
 
+    - bin/console crawl
+
     # code analysis
     - composer check-cs
     - composer phpstan

@@ -10,7 +10,8 @@
         "rinvex/country": "^3.1",
         "symfony/console": "^4.1",
         "symfony/dependency-injection": "^4.1",
-        "symfony/http-kernel": "^4.1"
+        "symfony/http-kernel": "^4.1",
+        "symfony/dom-crawler": "^4.1"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.10.3",
@@ -27,6 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Fop\\MeetupCom\\Tests\\": "packages/MeetupCom/tests",
             "Fop\\Tests\\": "tests"
         }
     },

@@ -2,6 +2,7 @@
 
 namespace Fop\Repository;
 
+use Fop\Entity\Group;
 use Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader;
 
 final class GroupRepository
@@ -23,5 +24,19 @@ final class GroupRepository
     public function fetchAll(): array
     {
         return $this->groups;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function findByUrl(string $groupUrl): ?array
+    {
+        foreach ($this->groups as $group) {
+            if (rtrim($group[Group::URL], '/') === rtrim($groupUrl, '/')) {
+                return $group;
+            }
+        }
+
+        return null;
     }
 }
