@@ -100,6 +100,14 @@ nav ul li a {
     color: white;
 }
 
+table a {
+    text-decoration: underline;
+}
+
+table a:hover {
+    text-decoration: none;
+}
+
 #area-menu li.active a, #area-menu li:hover a {
     background: white;
     border-radius: 0.5em 0.5em 0 0;

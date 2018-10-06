@@ -55,11 +55,11 @@ parameters:
             title: 'Africa'
             short_title: 'AFR'
             top_left:
-                latitude: 34.141898
-                longitude: -15.133246
+                latitude: 36.141898
+                longitude: -18.133246
             bottom_right:
-                latitude: -26.016419
-                longitude: 52.492083
+                latitude: -38.016419
+                longitude: 54.492083
 
         -
             key: 'australia'
