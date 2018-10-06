@@ -39,6 +39,10 @@ footer {
     color: #EEE;
 }
 
+footer .dim {
+    line-height: 2.5em;
+}
+
 footer h3 {
     padding-bottom: .5em;
 }
