@@ -65,6 +65,11 @@ footer a:hover {
     margin-top: -.2em;
 }
 
+/* precise colors */
+.text-next-month {
+    color: #2981CA;
+}
+
 /* menu */
 .navbar {
     text-align: center;
@@ -104,11 +109,11 @@ nav ul li a {
     color: white;
 }
 
-table a {
+#content a {
     text-decoration: underline;
 }
 
-table a:hover {
+#content a:hover {
     text-decoration: none;
 }
 
