@@ -110,7 +110,7 @@ final class ShowMeetupDetailCommand extends Command
      */
     private function printGroup(array $group): void
     {
-        $this->symfonyStyle->writeln(sprintf("        -   name: '%s'", $group['name']));
+        $this->symfonyStyle->writeln(sprintf("        -   name: '%s'", str_replace("'", '"', $group['name'])));
         $this->symfonyStyle->writeln(sprintf('            meetup_com_id: %s', $group['id']));
         $this->symfonyStyle->writeln(sprintf("            meetup_com_url: '%s'", $group['link']));
         $this->symfonyStyle->writeln(sprintf("            country: '%s'", $group['country']));
