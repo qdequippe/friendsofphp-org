@@ -88,8 +88,10 @@ final class CrawlCommand extends Command
                 continue;
             }
 
+            $this->symfonyStyle->note(sprintf('Looking for meetups in "%s"', $country->getName()));
+
             foreach ($this->topicsToCrawl as $keyword) {
-                $this->processKeywordAndCountry($keyword, $countryCode, $country);
+                $this->processKeywordAndCountry($keyword, $countryCode);
             }
         }
 
@@ -103,17 +105,10 @@ final class CrawlCommand extends Command
         return 0;
     }
 
-    private function processKeywordAndCountry(string $keyword, string $countryCode, Country $country): void
+    private function processKeywordAndCountry(string $keyword, string $countryCode): void
     {
         $crawlUrl = sprintf('https://www.meetup.com/topics/%s/%s/', $keyword, $countryCode);
-        $this->symfonyStyle->note(sprintf(
-            'Looking for meetups with "%s" topic in "%s" country code (%s):%s%s',
-            $keyword,
-            $countryCode,
-            $country->getName(),
-            PHP_EOL,
-            $crawlUrl
-        ));
+        $this->symfonyStyle->newLine( ' * ' . $crawlUrl);
 
         // init
         if (! isset($this->groupsByCountry[$countryCode])) {
