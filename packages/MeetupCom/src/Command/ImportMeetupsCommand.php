@@ -61,11 +61,11 @@ final class ImportMeetupsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
-        $this->symfonyStyle->note('Importing meetups from meetup.com');
+        $groups = $this->groupRepository->fetchAll();
 
-        $europeanGroups = $this->groupRepository->fetchAll();
+        $this->symfonyStyle->note(sprintf('Importing meetups from meetup.com for %d groups', count($groups)));
 
-        $groupIds = array_column($europeanGroups, 'meetup_com_id');
+        $groupIds = array_column($groups, 'meetup_com_id');
 
         $meetups = $this->meetupImporter->importForGroupIds($groupIds);
 

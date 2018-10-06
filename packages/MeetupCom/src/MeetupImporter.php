@@ -106,7 +106,10 @@ final class MeetupImporter
 
         $location = new Location($venue['city'], $venue['localized_country_name'], $venue['lon'], $venue['lat']);
 
-        return new Meetup(trim($event['name']), $event['group']['name'], $timeSpan, $location, $event['event_url']);
+        $event['name'] = trim($event['name']);
+        $event['name'] = str_replace('@', '', $event['name']);
+
+        return new Meetup($event['name'], $event['group']['name'], $timeSpan, $location, $event['event_url']);
     }
 
     /**

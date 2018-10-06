@@ -13,6 +13,7 @@ parameters:
             symfony/console: '%symfony_version%'
             symfony/dependency-injection: '%symfony_version%'
             symfony/http-kernel: '%symfony_version%'
+            symfony/dom-crawler: '%symfony_version%'
         autoload:
             psr-4:
                 Fop\: "src"

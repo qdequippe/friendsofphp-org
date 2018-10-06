@@ -44,10 +44,10 @@ parameters:
             title: 'Asia'
             short_title: 'Asia'
             top_left:
-                latitude: 38.111852
-                longitude: 71.058463
+                latitude: 51.738375
+                longitude: 44.926265
             bottom_right:
-                latitude: -8.613086
+                latitude: -11.464378
                 longitude: 135.196262
 
         -

@@ -9,5 +9,10 @@
         "psr-4": {
             "Fop\\MeetupCom\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fop\\MeetupCom\\Tests\\": "tests"
+        }
     }
 }
