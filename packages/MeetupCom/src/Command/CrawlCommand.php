@@ -108,7 +108,7 @@ final class CrawlCommand extends Command
     private function processKeywordAndCountry(string $keyword, string $countryCode): void
     {
         $crawlUrl = sprintf('https://www.meetup.com/topics/%s/%s/', $keyword, $countryCode);
-        $this->symfonyStyle->newLine( ' * ' . $crawlUrl);
+        $this->symfonyStyle->writeln(' * ' . $crawlUrl);
 
         // init
         if (! isset($this->groupsByCountry[$countryCode])) {
