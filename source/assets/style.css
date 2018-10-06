@@ -31,7 +31,7 @@ body {
 }
 
 #subhead {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 footer {
@@ -43,7 +43,7 @@ footer h3 {
     padding-bottom: .5em;
 }
 
-#subhead a, footer a {
+footer a {
     color: white;
     text-decoration: underline;
 }
@@ -52,7 +52,7 @@ footer a.btn {
     text-decoration: none;
 }
 
-#subhead a:hover, footer a:hover {
+footer a:hover {
     color: #DDD;
     text-decoration: none;
 }

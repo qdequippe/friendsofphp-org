@@ -28,7 +28,9 @@
                 </td>
                 <td class="w-25">{{ meetup.city }}, {{ meetup.country }}</td>
                 <td class="w-50">
-                    <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                    <strong>
+                        <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                    </strong>
                 </td>
             </tr>
         {% endif %}
