@@ -15,7 +15,7 @@
 
                 {% if daysFromToday >= 0 %}
                     {
-                        "type": "{% if daysFromToday <= 7 %}green{% else %}blue{% endif %}",
+                        "type": "{% if daysFromToday < 7 %}green{% else %}blue{% endif %}",
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
                         "date": "{{ meetup.start|date("m-d") }}",
