@@ -102,21 +102,8 @@ nav ul li a {
     color: #FFF;
 }
 
-#area-menu a {
-    cursor: pointer;
-    display: block;
-    background: hsl(229, 30%, 44%);
-    color: white;
-}
-
 #content a:hover {
     text-decoration: none;
-}
-
-#area-menu li.active a, #area-menu li:hover a {
-    background: white;
-    border-radius: 0.5em 0.5em 0 0;
-    color: hsl(229, 30%, 44%);
 }
 
 /* fluid container with break on top dimension */

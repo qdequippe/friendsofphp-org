@@ -15,7 +15,7 @@
 
                 {% if daysFromToday >= 0 %}
                     {
-                        "type": "{% if daysFromToday <= 7 %}green{% else %}blue{% endif %}",
+                        "type": "{% if daysFromToday < 7 %}green{% else %}blue{% endif %}",
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
                         "date": "{{ meetup.start|date("m-d") }}",
@@ -50,20 +50,6 @@
     // fit to bounds, so pc and mobile have same content
     // https://leafletjs.com/reference-1.3.2.html#latlngbounds
 
-    // function to change the map focus after click on menu item
-    var changeMapArea = function (selected_area_key) {
-        {% for area in areas %}
-            if (selected_area_key == '{{ area.key }}') {
-                var bounds = L.latLngBounds(
-                    L.latLng({{ area.top_left.latitude }}, {{ area.top_left.longitude }}),
-                    L.latLng({{ area.bottom_right.latitude }}, {{ area.bottom_right.longitude }})
-                );
-            }
-        {% endfor %}
-
-        map.fitBounds(bounds);
-    };
-
     // reconstruction from serialized object is not completely working, so we need to restore it manually
     var restoreBoundFromString = function(stringBound) {
         pastBounds = JSON.parse(stringBound);
@@ -76,9 +62,6 @@
     var pastBounds = window.localStorage.getItem('bounds');
     if (pastBounds) {
         map.fitBounds(restoreBoundFromString(pastBounds));
-    } else {
-        // not past bounds → set location to active area
-        changeMapArea(window.localStorage.getItem('active_area'));
     }
 
     // store past location when map mooves
