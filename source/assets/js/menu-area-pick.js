@@ -21,9 +21,6 @@ $(function() {
     var showRowsInBounds = function(bounds) {
         $("tr.meetup").each(function () {
             var meetupLatLng = L.latLng($(this).data('latitude'), $(this).data('longitude'));
-
-            console.log(bounds.contains(meetupLatLng));
-
             if (bounds.contains(meetupLatLng)) {
                 $(this).show();
             } else {
