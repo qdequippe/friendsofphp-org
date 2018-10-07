@@ -23,10 +23,10 @@
             <tr class="meetup-with-area-{{ detect_meetup_area(meetup) }}" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}">
                 <td class="w-25 text-center">
                     <div class="hidden-md-up">
-                        <nobr><strong>{{ meetup.start|date("m-d") }}</strong></nobr>
+                        <nobr>{{ meetup.start|date("m-d") }}</nobr>
                     </div>
                     <div class="hidden-sm-down">
-                        <nobr><strong>{{ meetup.start|date("D m-d") }}</strong></nobr>
+                        <nobr>{{ meetup.start|date("D m-d") }}</nobr>
                     </div>
                     &nbsp;
                     <small>{{ meetup.start|date("H:i") }}</small>

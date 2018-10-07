@@ -78,12 +78,12 @@
         for (var j in group.markers) {
             var marker = group.markers[j];
 
-            var link = '<a class="text-bold block text-primary" href="'+marker.link+'" target="_blank" rel="noreferrer noopener">'+marker.title+'</a>';
+            var link = '<a class="text-bold block text-primary" href="'+marker.link+'" target="_blank" rel="noreferrer noopener"><strong>'+marker.title+'</strong></a>';
 
             description +=
                 '<div class="text-center"><p class="m-b-5">' + link + '</p>' +
                 '<p class="m-b-5 m-t-0">' +
-                '<em class="fa fa-calendar fa-fw"></em> <strong>' + marker.date + '</strong>' +
+                '<em class="fa fa-calendar fa-fw"></em>&nbsp; ' + marker.date +
                 '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
                 '<em class="fa fa-map-marker fa-fw"></em> '+ marker.location +
                 '</p></div>'
