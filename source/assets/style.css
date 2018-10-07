@@ -158,6 +158,9 @@ footer .dim {
     color: #DDD;
 }
 
+#groups a:hover {
+    text-decoration: none;
+}
 
 /* reset left indent */
 footer ul, #groups ul {
