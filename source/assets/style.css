@@ -1,6 +1,6 @@
 body {
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-    color: #333;
+    color: #222;
     font-size: 19px;
     line-height: 1.5em;
 }
@@ -109,10 +109,6 @@ nav ul li a {
     color: white;
 }
 
-#content a {
-    text-decoration: underline;
-}
-
 #content a:hover {
     text-decoration: none;
 }
@@ -162,8 +158,17 @@ footer .dim {
     color: #DDD;
 }
 
+#groups a:hover {
+    text-decoration: none;
+}
 
 /* reset left indent */
 footer ul, #groups ul {
     padding-left: 1.2em;
+}
+
+/*!* map pop-ups *!*/
+.leaflet-container {
+    font-size: 1em;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }

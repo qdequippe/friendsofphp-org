@@ -4,8 +4,8 @@
 
 <script type="text/javascript">
     var icons = {
-        in_a_week: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
-        in_a_month: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png'
+        green: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        blue: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png'
     };
 
     var markers = [
@@ -15,10 +15,10 @@
 
                 {% if daysFromToday >= 0 %}
                     {
-                        "type": "{% if daysFromToday <= 7 %}in_a_week{% else %}in_a_month{% endif %}",
+                        "type": "{% if daysFromToday <= 7 %}green{% else %}blue{% endif %}",
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
-                        "date": "{{ meetup.start|date("F j") }}",
+                        "date": "{{ meetup.start|date("m-d") }}",
                         "location": "{{ meetup.city }}, {{ meetup.country }}",
                         "link": "{{ meetup.url }}"
                     },
@@ -78,15 +78,15 @@
         for (var j in group.markers) {
             var marker = group.markers[j];
 
-            var link = marker.title+' (finished)';
-            if (! marker.finished) {
-                link = '<a class="text-bold block text-primary" href="'+marker.link+'" target="_blank" rel="noreferrer noopener">'+marker.title+'</a>';
-            }
+            var link = '<a class="text-bold block text-primary" href="'+marker.link+'" target="_blank" rel="noreferrer noopener"><strong>'+marker.title+'</strong></a>';
 
             description +=
-                '<p class="m-b-5" style="font-size: 14px">' + link + '</p>' +
-                '<p class="text-small m-b-5 m-t-0">' + marker.location + '</p>' +
-                '<p class="text-small m-b-15 m-t-0">' + marker.date + '</p>'
+                '<div class="text-center"><p class="m-b-5">' + link + '</p>' +
+                '<p class="m-b-5 m-t-0">' +
+                '<em class="fa fa-calendar fa-fw"></em>&nbsp; ' + marker.date +
+                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
+                '<em class="fa fa-map-marker fa-fw"></em> '+ marker.location +
+                '</p></div>'
             ;
         }
 
