@@ -4,16 +4,14 @@ layout: "_layouts/default.twig"
 ---
 
 {% block content %}
-    {% include "_snippets/area_menu.twig" %}
-
     <div class="container-fluid" id="content">
         <div class="row">
-            <div class="col-md-12 pb-5">
+            <div class="col-md-12 pb-5 pt-4">
                 <div id="subhead" class="pt-0 pb-4 text-center">
                     <strong>{{ meetups|length }} meetups</strong> from <a href="/groups/">{{ groups|length }} groups</a> all over the world
                 </div>
 
-                <p class="text-center">Don't like the map? <a href="#table">Jump to the table ↓</a></p>
+                <p class="text-center pb-2">Don't like the map? <a href="#table">Jump to the table ↓</a></p>
 
                 <div id="{{ map_id }}" class="mr-4"></div>
 
