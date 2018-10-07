@@ -20,9 +20,14 @@
         {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
 
         {% if daysFromToday >= minDays and daysFromToday < maxDays %}
-            <tr class="meetup-with-area-{{ detect_meetup_area(meetup) }}">
+            <tr class="meetup-with-area-{{ detect_meetup_area(meetup) }}" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}">
                 <td class="w-25 text-center">
-                    <nobr><strong>{{ meetup.start|date("D m-d") }}</strong></nobr>
+                    <div class="hidden-md-up">
+                        <nobr><strong>{{ meetup.start|date("m-d") }}</strong></nobr>
+                    </div>
+                    <div class="hidden-sm-down">
+                        <nobr><strong>{{ meetup.start|date("D m-d") }}</strong></nobr>
+                    </div>
                     &nbsp;
                     <small>{{ meetup.start|date("H:i") }}</small>
                 </td>
