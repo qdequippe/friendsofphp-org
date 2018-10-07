@@ -54,19 +54,47 @@
     var changeMapArea = function (selected_area_key) {
         {% for area in areas %}
             if (selected_area_key == '{{ area.key }}') {
-                var topLeftBound = L.latLng({{ area.top_left.latitude }}, {{ area.top_left.longitude }});
-                var bottomRightBound = L.latLng({{ area.bottom_right.latitude }}, {{ area.bottom_right.longitude }});
-                var bounds = L.latLngBounds(topLeftBound, bottomRightBound);
+                var bounds = L.latLngBounds(
+                    L.latLng({{ area.top_left.latitude }}, {{ area.top_left.longitude }}),
+                    L.latLng({{ area.bottom_right.latitude }}, {{ area.bottom_right.longitude }})
+                );
             }
         {% endfor %}
 
         map.fitBounds(bounds);
     };
 
-    // set location to active area
-    changeMapArea(window.localStorage.getItem('active_area'));
+    // reconstruction from serialized object is not completely working, so we need to restore it manually
+    var restoreBoundFromString = function(stringBound) {
+        pastBounds = JSON.parse(stringBound);
 
-    // required and nice to have promotion
+        var topLeftBound = L.latLng(pastBounds._northEast.lat, pastBounds._northEast.lng);
+        var bottomRightBound  = L.latLng(pastBounds._southWest.lat, pastBounds._southWest.lng);
+
+        return L.latLngBounds(topLeftBound, bottomRightBound);
+    }
+
+    var pastBounds = window.localStorage.getItem('bounds');
+    if (pastBounds) {
+        // pastBounds = JSON.parse(pastBounds);
+        // reconstruction from json was not with all objects, so we need to restory it manually
+        // var topLeftBound = L.latLng(pastBounds._northEast.lat, pastBounds._northEast.lng);
+        // var bottomRightBound  = L.latLng(pastBounds._southWest.lat, pastBounds._southWest.lng);
+        // pastBounds = L.latLngBounds(topLeftBound, bottomRightBound);
+        map.fitBounds(restoreBoundFromString(pastBounds));
+    } else {
+        // not past bounds → set location to active area
+        changeMapArea(window.localStorage.getItem('active_area'));
+    }
+
+    // store past location when map mooves
+    map.on('moveend', function(e) {
+        var bounds = map.getBounds();
+        // objects needs to serialize, since only string can be saved: https://stackoverflow.com/a/2010948/1348344
+        window.localStorage.setItem('bounds', JSON.stringify(bounds));
+    });
+
+    // required and nice to have promotion to great tool
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
@@ -76,7 +104,7 @@
 
         var description = '';
         for (var j in group.markers) {
-            var marker = group.markers[j];
+            marker = group.markers[j];
 
             var link = '<a class="text-bold block text-primary" href="'+marker.link+'" target="_blank" rel="noreferrer noopener"><strong>'+marker.title+'</strong></a>';
 
