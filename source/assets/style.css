@@ -1,6 +1,6 @@
 body {
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-    color: #333;
+    color: #222;
     font-size: 19px;
     line-height: 1.5em;
 }
@@ -107,10 +107,6 @@ nav ul li a {
     display: block;
     background: hsl(229, 30%, 44%);
     color: white;
-}
-
-#content a {
-    text-decoration: underline;
 }
 
 #content a:hover {
