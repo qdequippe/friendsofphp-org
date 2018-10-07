@@ -67,11 +67,10 @@
     // reconstruction from serialized object is not completely working, so we need to restore it manually
     var restoreBoundFromString = function(stringBound) {
         pastBounds = JSON.parse(stringBound);
-
-        var topLeftBound = L.latLng(pastBounds._northEast.lat, pastBounds._northEast.lng);
-        var bottomRightBound  = L.latLng(pastBounds._southWest.lat, pastBounds._southWest.lng);
-
-        return L.latLngBounds(topLeftBound, bottomRightBound);
+        return L.latLngBounds(
+            L.latLng(pastBounds._northEast.lat, pastBounds._northEast.lng),
+            L.latLng(pastBounds._southWest.lat, pastBounds._southWest.lng)
+        );
     }
 
     var pastBounds = window.localStorage.getItem('bounds');
