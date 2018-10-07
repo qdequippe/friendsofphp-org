@@ -18,7 +18,32 @@ $(function() {
         $("tr.meetup-with-area-" + area).show();
     }
 
-    showRowsFromArea($active_area);
+    var showRowsInBounds = function(bounds) {
+        $("tr.meetup").each(function () {
+            var meetupLatLng = L.latLng($(this).data('latitude'), $(this).data('longitude'));
+
+            console.log(bounds.contains(meetupLatLng));
+
+            if (bounds.contains(meetupLatLng)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+
+    // show relevant meetups when map mooes
+    map.on('moveend', function() {
+        showRowsInBounds(map.getBounds());
+    });
+
+    var pastBounds = window.localStorage.getItem('bounds');
+    if (pastBounds) {
+        showRowsInBounds(restoreBoundFromString(pastBounds));
+    } else {
+        // not past bounds → set location to active area
+        showRowsFromArea($active_area);
+    }
 
     $menu_items.click(function () {
         // change classes

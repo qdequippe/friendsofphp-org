@@ -76,11 +76,6 @@
 
     var pastBounds = window.localStorage.getItem('bounds');
     if (pastBounds) {
-        // pastBounds = JSON.parse(pastBounds);
-        // reconstruction from json was not with all objects, so we need to restory it manually
-        // var topLeftBound = L.latLng(pastBounds._northEast.lat, pastBounds._northEast.lng);
-        // var bottomRightBound  = L.latLng(pastBounds._southWest.lat, pastBounds._southWest.lng);
-        // pastBounds = L.latLngBounds(topLeftBound, bottomRightBound);
         map.fitBounds(restoreBoundFromString(pastBounds));
     } else {
         // not past bounds → set location to active area
