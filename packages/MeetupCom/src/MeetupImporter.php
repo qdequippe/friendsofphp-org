@@ -56,7 +56,7 @@ final class MeetupImporter
             }
         }
 
-        return $meetups;
+        return $this->sortByStartDateTime($meetups);
     }
 
     /**
@@ -142,5 +142,18 @@ final class MeetupImporter
     private function normalizeTimestamp(int $timestamp): int
     {
         return (int) substr((string) $timestamp, 0, -3);
+    }
+
+    /**
+     * @param Meetup[] $meetups
+     * @return Meetup[]
+     */
+    private function sortByStartDateTime(array $meetups): array
+    {
+        usort($meetups, function (Meetup $firstMeetup, Meetup $secondMeetup): int {
+            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
+        });
+
+        return $meetups;
     }
 }
