@@ -14,7 +14,8 @@ install:
 script:
     - vendor/bin/phpunit
 
-    - bin/console crawl
+    # run from time to time
+    # - bin/console crawl
 
     # code analysis
     - composer check-cs
@@ -24,7 +25,7 @@ script:
     - bin/console validate-groups
 
     # import data
-    - bin/console import-meetups -vvv
+    - bin/console import-meetups
 
     # generate website to "/output" directory, it will be deployed later in "deploy" + imports groups and meetups
     - vendor/bin/statie generate source -vvv
