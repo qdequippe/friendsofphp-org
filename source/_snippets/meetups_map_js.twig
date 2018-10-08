@@ -62,6 +62,9 @@
     var pastBounds = window.localStorage.getItem('bounds');
     if (pastBounds) {
         map.fitBounds(restoreBoundFromString(pastBounds));
+    } else {
+        // default map - the whole world
+        map.setView([25, 0], 2);
     }
 
     // store past location when map mooves
