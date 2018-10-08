@@ -10,6 +10,3 @@ parameters:
 
     # how many days into the future the meetups should be imported
     max_forecast_days: 30
-
-    # default empty value
-    areas: []
