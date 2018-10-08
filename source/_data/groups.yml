@@ -318,7 +318,7 @@ parameters:
 
         -   name: 'PHP Limburg BE'
             meetup_com_id: 18393172
-            meetup_com_url: 'https://www.meetup.com/Hasselt-PHP-Meetup'
+            meetup_com_url: 'https://www.meetup.com/PHP-Limburg-BE/'
             country: Belgium
 
         -   name: 'PHP Varna'
@@ -368,7 +368,7 @@ parameters:
 
         -   name: 'Drupal Usergroup Karlsruhe'
             meetup_com_id: 22727461
-            meetup_com_url: 'https://www.meetup.com/Drupal-User-Group-Karlsruhe/'
+            meetup_com_url: 'https://www.meetup.com/Drupal-Karlsruhe/'
             country: Germany
 
         -   name: 'Symfony User Group Stuttgart'
