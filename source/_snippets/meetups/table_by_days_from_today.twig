@@ -25,10 +25,16 @@
                     <div class="hidden-md-up">
                         <nobr>{{ meetup.start|date("m-d") }}</nobr>
                     </div>
-                    <div class="hidden-sm-down">
-                        <nobr>{{ meetup.start|date("D m-d") }}</nobr>
+                    <div class="hidden-md-up">
+                        <small>{{ meetup.start|date("H:i") }}</small>
                     </div>
-                    <small>{{ meetup.start|date("H:i") }}</small>
+
+                    <div class="hidden-sm-down">
+                        {{ meetup.start|date("D m-d") }}
+                        &nbsp;
+                        &nbsp;
+                        <small>{{ meetup.start|date("H:i") }}</small>
+                    </div>
                 </td>
                 <td class="w-25">{{ meetup.city }}, {{ meetup.country }}</td>
                 <td class="w-50">
