@@ -126,9 +126,6 @@ nav ul li a {
     }
 }
 
-
-
-
 /* mobile version */
 @media (max-width: 768px) {
     #head h1 {
@@ -137,6 +134,13 @@ nav ul li a {
 
     #subhead {
         font-size: 1.1em;
+    }
+}
+
+/* mobile narrow */
+@media (max-width: 460px) {
+    #head h1 {
+        font-size: 1.5em;
     }
 }
 
