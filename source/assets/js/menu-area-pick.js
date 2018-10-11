@@ -12,7 +12,7 @@ $(function() {
         });
     }
 
-    // show relevant meetups when map mooes
+    // show relevant meetups when map moves
     map.on('moveend', function() {
         showRowsInBounds(map.getBounds());
     });
