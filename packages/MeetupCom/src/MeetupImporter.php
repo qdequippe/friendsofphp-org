@@ -64,6 +64,11 @@ final class MeetupImporter
      */
     private function shouldSkipMeetup(TimeSpan $timeSpan, array $meetup): bool
     {
+        // not announced yet
+        if (isset($meetup['announced']) && $meetup['announced'] === false) {
+            return true;
+        }
+
         // skip past meetups
         if ($meetup['status'] !== 'upcoming') {
             return true;
