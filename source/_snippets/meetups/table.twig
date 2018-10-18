@@ -1,13 +1,22 @@
-<h2 class="text-center pt-5 pb-5 text-success" id="table">
-    Meetups in Next 7 Days
-</h2>
+<div id="table"></div>
 
-{% include "_snippets/meetups/table_by_days_from_today.twig" with { minDays: 0, maxDays: 7 } %}
+<div id="table-block-week" class="mb-5">
+    <h2 class="text-center pt-5 pb-5 text-success">
+        Meetups in Next 7 Days
+    </h2>
 
-<br>
+    {% include "_snippets/meetups/table_by_days_from_today.twig" with { name: 'week', minDays: 0, maxDays: 7 } %}
+</div>
 
-<h2 class="text-center pt-5 pb-5 text-next-month">
-    Meetups Next Month
-</h2>
+<div id="table-block-month">
+    <h2 class="text-center pt-5 pb-5 text-next-month">
+        Meetups Next Month
+    </h2>
 
-{% include "_snippets/meetups/table_by_days_from_today.twig" with { minDays: 8, maxDays: 30 } %}
+    {% include "_snippets/meetups/table_by_days_from_today.twig" with { name: 'month', minDays: 8, maxDays: max_forecast_days } %}
+</div>
+
+
+<div id="block-zoomout" class="text-center pt-5 pb-5">
+    <h2>No meetups in this area. Try to zoom out a bit!</h2>
+</div>
