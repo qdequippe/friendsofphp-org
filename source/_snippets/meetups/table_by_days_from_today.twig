@@ -33,7 +33,7 @@
                         {{ meetup.start|date("D m-d") }}
                         &nbsp;
                         &nbsp;
-                        <small>{{ meetup.start|date("H:i") }}</small>
+                        <small class="text-secondary">{{ meetup.start|date("H:i") }}</small>
                     </div>
                 </td>
                 <td class="w-25">{{ meetup.city }}, {{ meetup.country }}</td>
@@ -41,6 +41,8 @@
                     <strong>
                         <a href="{{ meetup.url }}">{{ meetup.name }}</a>
                     </strong>
+                    <br>
+                        <small class="text-secondary">{{ meetup.userGroup }}</small>
                 </td>
             </tr>
         {% endif %}
