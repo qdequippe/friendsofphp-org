@@ -1,15 +1,13 @@
-<h2 class="text-center pt-3 pb-3 text-success" id="table">
-    <em class="fa fa-map-marker fa-fw"></em>
-    Next Week
+<h2 class="text-center pt-5 pb-5 text-success" id="table">
+    Meetups in Next 7 Days
 </h2>
 
 {% include "_snippets/meetups/table_by_days_from_today.twig" with { minDays: 0, maxDays: 7 } %}
 
-<hr>
+<br>
 
-<h2 class="text-center pt-3 pb-3 text-next-month">
-    <em class="fa fa-map-marker fa-fw"></em>
-    Next Month
+<h2 class="text-center pt-5 pb-5 text-next-month">
+    Meetups Next Month
 </h2>
 
 {% include "_snippets/meetups/table_by_days_from_today.twig" with { minDays: 8, maxDays: 30 } %}
