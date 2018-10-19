@@ -27,6 +27,13 @@ final class MeetupImporter
      */
     private $maxForecastDateTime;
 
+    /**
+     * @var string[]
+     */
+    private $cityNormalizationMap = [
+        'Hlavní město Praha' => 'Prague',
+    ];
+
     public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi)
     {
         $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
@@ -109,6 +116,7 @@ final class MeetupImporter
             $venue['lat'] = $event['group']['group_lat'];
         }
 
+        $venue['city'] = $this->normalizeCity($venue['city']);
         $location = new Location($venue['city'], $venue['localized_country_name'], $venue['lon'], $venue['lat']);
 
         $event['name'] = trim($event['name']);
@@ -160,5 +168,10 @@ final class MeetupImporter
         });
 
         return $meetups;
+    }
+
+    private function normalizeCity(string $city): string
+    {
+        return $this->cityNormalizationMap[$city] ?? $city;
     }
 }

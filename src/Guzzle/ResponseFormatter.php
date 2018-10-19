@@ -4,6 +4,7 @@ namespace Fop\Guzzle;
 
 use Fop\Exception\ApiException;
 use Nette\Utils\Json;
+use Nette\Utils\JsonException;
 use Psr\Http\Message\ResponseInterface;
 
 final class ResponseFormatter
@@ -21,6 +22,10 @@ final class ResponseFormatter
             ));
         }
 
-        return Json::decode((string) $response->getBody(), Json::FORCE_ARRAY);
+        try {
+            return Json::decode((string) $response->getBody(), Json::FORCE_ARRAY);
+        } catch (JsonException $jsonException) {
+            throw new JsonException('Syntax error while decoding:' . (string) $response->getBody());
+        }
     }
 }
