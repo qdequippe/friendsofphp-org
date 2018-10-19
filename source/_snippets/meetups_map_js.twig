@@ -19,7 +19,7 @@
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
                         "date": "{{ meetup.start|date("m-d") }}",
-                        "location": "{{ meetup.city }}, {{ meetup.country }}",
+                        "location": "{{ meetup.city }}",
                         "url": "{{ meetup.url }}"
                     },
                 {% endif %}
