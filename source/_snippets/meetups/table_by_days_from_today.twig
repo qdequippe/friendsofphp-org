@@ -21,28 +21,22 @@
 
         {% if daysFromToday >= minDays and daysFromToday < maxDays %}
             <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}">
-                <td class="w-25 text-center">
-                    <div class="hidden-md-up">
-                        <nobr>{{ meetup.start|date("m-d") }}</nobr>
-                    </div>
-                    <div class="hidden-md-up">
-                        <small>{{ meetup.start|date("H:i") }}</small>
-                    </div>
-
-                    <div class="hidden-sm-down">
-                        {{ meetup.start|date("D m-d") }}
-                        &nbsp;
-                        &nbsp;
-                        <small class="text-secondary">{{ meetup.start|date("H:i") }}</small>
-                    </div>
+                <td class="w-25">
+                    <nobr>{{ meetup.start|date("D m-d") }}</nobr>
+                    <br>
+                    <small class="text-secondary">{{ meetup.start|date("H:i") }}</small>
                 </td>
-                <td class="w-25">{{ meetup.city }}, {{ meetup.country }}</td>
+                <td class="w-25">
+                    {{ meetup.city }}
+                    <br>
+                    <small class="text-secondary">{{ meetup.country }}</small>
+                </td>
                 <td class="w-50">
                     <strong>
                         <a href="{{ meetup.url }}">{{ meetup.name }}</a>
                     </strong>
                     <br>
-                        <small class="text-secondary">{{ meetup.userGroup }}</small>
+                    <small class="text-secondary">{{ meetup.userGroup }}</small>
                 </td>
             </tr>
         {% endif %}
