@@ -32,6 +32,11 @@ final class MeetupImporter
      */
     private $cityNormalizationMap = [
         'Hlavní město Praha' => 'Prague',
+        'EC2A 2BA' => 'London',
+        '1065 Budapest' => 'Budapest',
+        '22765 Hamburg' => 'Hamburg',
+        'Wien' => 'Vienna',
+        'Oxford OX1 3BY' => 'Oxford',
     ];
 
     public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi)
