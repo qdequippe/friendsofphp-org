@@ -15,6 +15,7 @@ layout: "_layouts/default.twig"
 
                 <p class="text-center pb-2">
                     <a href="#-" onclick="locateme();">Locate me!</a>
+                    <a href="" onclick="share();" class="share-link btn btn-warning ml-3">Share Current Map</a>
                 </p>
 
                 <div id="{{ map_id }}" class="mr-4"></div>
@@ -39,6 +40,21 @@ layout: "_layouts/default.twig"
                 var currentLatLng = new L.LatLng(currentLocation.coords.latitude, currentLocation.coords.longitude);
                 map.setView(currentLatLng, 8);
             });
+        };
+
+        // set current center locatoin to href link and click it
+        var share = function(e) {
+            var currentCenter = map.getCenter();
+            var currentLocationUrl = '?lat=' + round(currentCenter.lat, 2)
+                + '&lon=' + round(currentCenter.lng, 2);
+
+            console.log(currentLocationUrl);
+            $(".share-link").attr("href", currentLocationUrl);
+        };
+
+        var round = function (number, precission) {
+            var precissionHelper = Math.pow(10, precission);
+            return Math.round(number * precissionHelper) / precissionHelper;
         }
     </script>
 

@@ -15,9 +15,6 @@ $(function() {
         var nextWeekVisibleMeetups = $("table#table-week tr:visible").length - 1;
         var nextMonthVisibleMeetups = $("table#table-month tr:visible").length - 1;
 
-        console.log(nextWeekVisibleMeetups);
-        console.log(nextMonthVisibleMeetups);
-
         if (nextWeekVisibleMeetups === 0) {
             // hide week tab
             $("#table-block-week").hide();
