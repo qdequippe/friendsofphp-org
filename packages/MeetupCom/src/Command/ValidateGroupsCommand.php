@@ -12,6 +12,11 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class ValidateGroupsCommand extends Command
 {
     /**
+     * @var string
+     */
+    private $groupsStorage;
+
+    /**
      * @var SymfonyStyle
      */
     private $symfonyStyle;
@@ -20,11 +25,6 @@ final class ValidateGroupsCommand extends Command
      * @var GroupRepository
      */
     private $groupRepository;
-
-    /**
-     * @var string
-     */
-    private $groupsStorage;
 
     public function __construct(
         SymfonyStyle $symfonyStyle,

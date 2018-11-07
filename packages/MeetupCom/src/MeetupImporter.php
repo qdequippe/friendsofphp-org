@@ -13,19 +13,9 @@ use Nette\Utils\DateTime;
 final class MeetupImporter
 {
     /**
-     * @var MeetupComApi
-     */
-    private $meetupComApi;
-
-    /**
      * @var string[]
      */
     private $groupsHavingMeetup = [];
-
-    /**
-     * @var DateTimeInterface
-     */
-    private $maxForecastDateTime;
 
     /**
      * @var string[]
@@ -38,6 +28,16 @@ final class MeetupImporter
         'Wien' => 'Vienna',
         'Oxford OX1 3BY' => 'Oxford',
     ];
+
+    /**
+     * @var MeetupComApi
+     */
+    private $meetupComApi;
+
+    /**
+     * @var DateTimeInterface
+     */
+    private $maxForecastDateTime;
 
     public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi)
     {
@@ -69,6 +69,27 @@ final class MeetupImporter
         }
 
         return $this->sortByStartDateTime($meetups);
+    }
+
+    /**
+     * @param mixed[] $meetup
+     */
+    private function createTimeSpanFromEventData(array $meetup): TimeSpan
+    {
+        // not sure why it adds extra "000" in the end
+        $time = $this->normalizeTimestamp($meetup['time']);
+        $utcOffset = $this->normalizeTimestamp($meetup['utc_offset']);
+
+        $startDateTime = $this->createUtcDateTime($time, $utcOffset);
+
+        if (isset($meetup['duration']) && $meetup['duration']) {
+            $duration = $this->normalizeTimestamp($meetup['duration']);
+            $endDateTime = $startDateTime->modifyClone('+' . $duration . ' seconds');
+        } else {
+            $endDateTime = null;
+        }
+
+        return new TimeSpan($startDateTime, $endDateTime);
     }
 
     /**
@@ -131,38 +152,6 @@ final class MeetupImporter
     }
 
     /**
-     * @param mixed[] $meetup
-     */
-    private function createTimeSpanFromEventData(array $meetup): TimeSpan
-    {
-        // not sure why it adds extra "000" in the end
-        $time = $this->normalizeTimestamp($meetup['time']);
-        $utcOffset = $this->normalizeTimestamp($meetup['utc_offset']);
-
-        $startDateTime = $this->createUtcDateTime($time, $utcOffset);
-
-        if (isset($meetup['duration']) && $meetup['duration']) {
-            $duration = $this->normalizeTimestamp($meetup['duration']);
-            $endDateTime = $startDateTime->modifyClone('+' . $duration . ' seconds');
-        } else {
-            $endDateTime = null;
-        }
-
-        return new TimeSpan($startDateTime, $endDateTime);
-    }
-
-    private function createUtcDateTime(int $time, int $utcOffset): DateTime
-    {
-        return DateTime::from($time + $utcOffset)
-            ->setTimezone(new DateTimeZone('UTC'));
-    }
-
-    private function normalizeTimestamp(int $timestamp): int
-    {
-        return (int) substr((string) $timestamp, 0, -3);
-    }
-
-    /**
      * @param Meetup[] $meetups
      * @return Meetup[]
      */
@@ -173,6 +162,17 @@ final class MeetupImporter
         });
 
         return $meetups;
+    }
+
+    private function normalizeTimestamp(int $timestamp): int
+    {
+        return (int) substr((string) $timestamp, 0, -3);
+    }
+
+    private function createUtcDateTime(int $time, int $utcOffset): DateTime
+    {
+        return DateTime::from($time + $utcOffset)
+            ->setTimezone(new DateTimeZone('UTC'));
     }
 
     private function normalizeCity(string $city): string

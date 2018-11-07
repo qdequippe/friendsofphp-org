@@ -20,6 +20,11 @@ final class CountryResolver
     private const API_LOCATION_TO_COUNTRY = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s';
 
     /**
+     * @var string[]
+     */
+    private $cachedCountryCodeByLatitudeAndLongitude = [];
+
+    /**
      * @var Client
      */
     private $client;
@@ -28,11 +33,6 @@ final class CountryResolver
      * @var ResponseFormatter
      */
     private $responseFormatter;
-
-    /**
-     * @var string[]
-     */
-    private $cachedCountryCodeByLatitudeAndLongitude = [];
 
     public function __construct(Client $client, ResponseFormatter $responseFormatter)
     {

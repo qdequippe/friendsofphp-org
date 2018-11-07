@@ -14,6 +14,11 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class ImportCommand extends Command
 {
     /**
+     * @var int
+     */
+    private $maxForecastDays;
+
+    /**
      * @var GroupRepository
      */
     private $groupRepository;
@@ -32,11 +37,6 @@ final class ImportCommand extends Command
      * @var SymfonyStyle
      */
     private $symfonyStyle;
-
-    /**
-     * @var int
-     */
-    private $maxForecastDays;
 
     public function __construct(
         GroupRepository $userGroupRepository,

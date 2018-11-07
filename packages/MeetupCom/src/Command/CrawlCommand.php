@@ -20,9 +20,9 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class CrawlCommand extends Command
 {
     /**
-     * @var SymfonyStyle
+     * @var string[]
      */
-    private $symfonyStyle;
+    private $topicsToCrawl = [];
 
     /**
      * @var mixed[][]
@@ -30,9 +30,9 @@ final class CrawlCommand extends Command
     private $groupsByCountry = [];
 
     /**
-     * @var string[]
+     * @var SymfonyStyle
      */
-    private $topicsToCrawl = [];
+    private $symfonyStyle;
 
     /**
      * @var GroupRepository
@@ -125,6 +125,19 @@ final class CrawlCommand extends Command
         $this->collectGroups($crawler, $countryCode);
     }
 
+    private function reportEmptyCountries(): void
+    {
+        $this->symfonyStyle->section('Empty country codes');
+
+        foreach ($this->groupsByCountry as $country => $groups) {
+            if (count($groups)) {
+                continue;
+            }
+
+            $this->symfonyStyle->writeln($country);
+        }
+    }
+
     private function reportFoundGroups(): void
     {
         $this->symfonyStyle->section('Found groups');
@@ -164,18 +177,5 @@ final class CrawlCommand extends Command
                 ];
             }
         );
-    }
-
-    private function reportEmptyCountries(): void
-    {
-        $this->symfonyStyle->section('Empty country codes');
-
-        foreach ($this->groupsByCountry as $country => $groups) {
-            if (count($groups)) {
-                continue;
-            }
-
-            $this->symfonyStyle->writeln($country);
-        }
     }
 }

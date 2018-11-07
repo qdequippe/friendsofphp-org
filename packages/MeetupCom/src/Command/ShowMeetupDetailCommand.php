@@ -21,6 +21,11 @@ final class ShowMeetupDetailCommand extends Command
     private const ARGUMENT_SOURCE = 'source';
 
     /**
+     * @var int[]
+     */
+    private $alreadyImportedIds = [];
+
+    /**
      * @var SymfonyStyle
      */
     private $symfonyStyle;
@@ -39,11 +44,6 @@ final class ShowMeetupDetailCommand extends Command
      * @var GroupRepository
      */
     private $groupRepository;
-
-    /**
-     * @var int[]
-     */
-    private $alreadyImportedIds = [];
 
     public function __construct(
         MeetupComApi $meetupComApi,
@@ -94,6 +94,24 @@ final class ShowMeetupDetailCommand extends Command
         return 0;
     }
 
+    private function processFileSource(string $file): void
+    {
+        $fileContent = FileSystem::read($file);
+
+        $groupUrls = explode(PHP_EOL, $fileContent);
+        // remove empty
+        $groupUrls = array_filter($groupUrls);
+
+        foreach ($groupUrls as $groupUrl) {
+            $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
+            if ($this->isGroupAlreadyImported($group)) {
+                continue;
+            }
+
+            $this->printGroup($group);
+        }
+    }
+
     /**
      * @return mixed[]
      */
@@ -103,18 +121,6 @@ final class ShowMeetupDetailCommand extends Command
         $group['country'] = $this->countryResolver->resolveFromGroup($group);
 
         return $group;
-    }
-
-    /**
-     * @param mixed[] $group
-     */
-    private function printGroup(array $group): void
-    {
-        $this->symfonyStyle->writeln(sprintf("        -   name: '%s'", str_replace("'", '"', $group['name'])));
-        $this->symfonyStyle->writeln(sprintf('            meetup_com_id: %s', $group['id']));
-        $this->symfonyStyle->writeln(sprintf("            meetup_com_url: '%s'", $group['link']));
-        $this->symfonyStyle->writeln(sprintf("            country: '%s'", $group['country']));
-        $this->symfonyStyle->newLine();
     }
 
     /**
@@ -132,6 +138,18 @@ final class ShowMeetupDetailCommand extends Command
     }
 
     /**
+     * @param mixed[] $group
+     */
+    private function printGroup(array $group): void
+    {
+        $this->symfonyStyle->writeln(sprintf("        -   name: '%s'", str_replace("'", '"', $group['name'])));
+        $this->symfonyStyle->writeln(sprintf('            meetup_com_id: %s', $group['id']));
+        $this->symfonyStyle->writeln(sprintf("            meetup_com_url: '%s'", $group['link']));
+        $this->symfonyStyle->writeln(sprintf("            country: '%s'", $group['country']));
+        $this->symfonyStyle->newLine();
+    }
+
+    /**
      * @return int[]
      */
     private function getAlreadyImportedsIds(): array
@@ -141,23 +159,5 @@ final class ShowMeetupDetailCommand extends Command
         }
 
         return $this->alreadyImportedIds;
-    }
-
-    private function processFileSource(string $file): void
-    {
-        $fileContent = FileSystem::read($file);
-
-        $groupUrls = explode(PHP_EOL, $fileContent);
-        // remove empty
-        $groupUrls = array_filter($groupUrls);
-
-        foreach ($groupUrls as $groupUrl) {
-            $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
-            if ($this->isGroupAlreadyImported($group)) {
-                continue;
-            }
-
-            $this->printGroup($group);
-        }
     }
 }
