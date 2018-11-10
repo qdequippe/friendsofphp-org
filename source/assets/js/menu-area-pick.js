@@ -12,14 +12,15 @@ $(function() {
         });
 
         // see https://stackoverflow.com/a/20064911/1348344
-        var nextWeekVisibleMeetups = $("table#table-week tr:visible").length - 1;
+        var visibleMeetups = $("table#table-meetups tr:visible").length - 1;
 
-        if (nextWeekVisibleMeetups === 0) {
-            // hide week tab
-            $("#table-block-week").hide();
+        console.log(visibleMeetups);
+
+        if (visibleMeetups === 0) {
+            $("#table-meetups").hide();
             $("#block-zoomout").show();
         } else {
-            $("#table-block-week").show();
+            $("#table-meetups").show();
             $("#block-zoomout").hide();
         }
     };

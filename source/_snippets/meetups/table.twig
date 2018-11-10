@@ -1,8 +1,6 @@
 <div id="table"></div>
 
-<div id="table-block-week" class="mb-3">
-    {% include "_snippets/meetups/table_by_days_from_today.twig" with { name: 'week', minDays: 0, maxDays: max_forecast_days } %}
-</div>
+{% include "_snippets/meetups/table_by_days_from_today.twig" with { minDays: 0, maxDays: max_forecast_days } %}
 
 <div id="block-zoomout" class="text-center pt-5 pb-5">
     <h2>No meetups in this area. Try to zoom out a bit!</h2>

@@ -109,7 +109,7 @@
         var group = grouped[i];
 
         let [first] = group.markers;
-        var description = '<div class="text-center mb-3" style="width:450px"><em class="fa fa-map-marker fa-fw"></em>'
+        var description = '<div class="text-center mb-3" style="width:450px">🗺&nbsp;&nbsp;'
             + first.location
             + "</div>";
 
@@ -119,7 +119,7 @@
             var url = '<a class="text-bold block text-primary ml-3" href="' + marker.url + '" target="_blank" rel="noreferrer noopener"><strong>' + marker.title.truncate(38) + '</strong></a>';
 
             description += '<div class="mb-3">'
-                + '<em class="fa fa-calendar fa-fw"></em>&nbsp; ' + marker.date
+                + '📅&nbsp; ' + marker.date
                 + url + '</div>'
             ;
         }
