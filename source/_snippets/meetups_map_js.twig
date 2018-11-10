@@ -4,7 +4,10 @@
 
 <script type="text/javascript">
     var icons = {
-        green: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png'
+        // pick from: https://github.com/pointhi/leaflet-color-markers
+        green: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        orange: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+        red: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png'
     };
 
     var markers = [
@@ -14,7 +17,7 @@
 
                 {% if daysFromToday >= 0 %}
                     {
-                        "type": "green",
+                        "type": "{% if daysFromToday < 7 %}green{% elseif daysFromToday < 14 %}orange{% else %}red{% endif %}",
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
                         "date": "{{ meetup.start|date("m-d") }}",
