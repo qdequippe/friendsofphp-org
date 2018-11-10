@@ -8,13 +8,13 @@ layout: "_layouts/default.twig"
         <div class="row">
             <div class="col-md-12 pb-5 pt-4">
                 <div id="subhead" class="pt-0 pb-4 text-center">
-                    <strong>{{ meetups|length }} meetups</strong> from <a href="/groups/">{{ groups|length }} groups</a> all over the world
+                    <strong>{{ meetups|length }} meetups</strong> in next {{ max_forecast_days }} days from <a href="/groups/">{{ groups|length }} groups</a> all over the world
                 </div>
 
                 <p class="text-center pb-2">Don't like the map? <a href="#table">Jump to the table ↓</a></p>
 
                 <p class="text-center pb-2">
-                    <a href="#-" onclick="locateme();">Locate me!</a>
+                    <a href="#-" onclick="locateme();" class="btn btn-primary">Locate me</a>
                     <a href="" onclick="share();" class="share-link btn btn-warning ml-3">Share Current Map</a>
                 </p>
 

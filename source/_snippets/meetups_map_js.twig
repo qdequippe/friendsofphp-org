@@ -4,7 +4,10 @@
 
 <script type="text/javascript">
     var icons = {
-        green: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png'
+        // pick from: https://github.com/pointhi/leaflet-color-markers
+        green: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        orange: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+        red: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png'
     };
 
     var markers = [
@@ -14,7 +17,7 @@
 
                 {% if daysFromToday >= 0 %}
                     {
-                        "type": "green",
+                        "type": "{% if daysFromToday < 7 %}green{% elseif daysFromToday < 14 %}orange{% else %}red{% endif %}",
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
                         "date": "{{ meetup.start|date("m-d") }}",
@@ -33,6 +36,7 @@
     for (var i in markers) {
         var marker = markers[i];
 
+        // group meetups in one location
         if (typeof grouped[marker.location] == 'undefined') {
             grouped[marker.location] = {
                 type: marker.type,
@@ -96,7 +100,7 @@
     }).addTo(map);
 
     // @see https://stackoverflow.com/a/1199420/1348344
-    String.prototype.trunc = String.prototype.trunc ||
+    String.prototype.truncate = String.prototype.truncate ||
         function(n){
             return (this.length > n) ? this.substr(0, n-1) + '&hellip;' : this;
         };
@@ -105,17 +109,17 @@
         var group = grouped[i];
 
         let [first] = group.markers;
-        var description = '<div class="text-center mb-3"><em class="fa fa-map-marker fa-fw"></em>'
+        var description = '<div class="text-center mb-3" style="width:450px">📍&nbsp;&nbsp;'
             + first.location
             + "</div>";
 
         for (var j in group.markers) {
             marker = group.markers[j];
 
-            var url = '<a class="text-bold block text-primary ml-2" href="'+marker.url+'" target="_blank" rel="noreferrer noopener"><strong>'+marker.title.trunc(20) +'</strong></a>';
+            var url = '<a class="text-bold block text-primary ml-3" href="' + marker.url + '" target="_blank" rel="noreferrer noopener"><strong>' + marker.title.truncate(38) + '</strong></a>';
 
             description += '<div class="mb-3">'
-                + '<em class="fa fa-calendar fa-fw"></em>&nbsp; ' + marker.date
+                + '📅&nbsp; ' + marker.date
                 + url + '</div>'
             ;
         }
@@ -127,6 +131,9 @@
             popupAnchor: [1, -34]
         });
 
-        L.marker(group.position, { icon: icon }).bindPopup(description).addTo(map);
+        // width: @see https://stackoverflow.com/a/38007764/1348344
+        L.marker(group.position, { icon: icon }).addTo(map).bindPopup(description, {
+            maxWidth: 450
+        });
     }
 </script>
