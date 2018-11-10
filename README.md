@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/TomasVotruba/friendsofphp.org/master.svg?style=flat-square)](https://travis-ci.org/TomasVotruba/friendsofphp.org)
 
 <div align="center">
-   <img src="/docs/preview.png">
+   <img src="/docs/preview.png?v=1">
 </div>
 
 ## Install
