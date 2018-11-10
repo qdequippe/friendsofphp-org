@@ -1,6 +1,10 @@
-# [FriendsOfPhp.org](https://www.friendsofphp.org)
+# [FriendsOfPhp.org](https://www.friendsofphp.org) - Every PHP Meetup in next 30 days in 1 Place
 
 [![Build Status](https://img.shields.io/travis/TomasVotruba/friendsofphp.org/master.svg?style=flat-square)](https://travis-ci.org/TomasVotruba/friendsofphp.org)
+
+<div align="center">
+   <img src="/docs/preview.png">
+</div>
 
 ## Install
 
