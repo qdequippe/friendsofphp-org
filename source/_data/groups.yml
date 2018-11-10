@@ -396,6 +396,11 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/sfugberlin/'
             country: Germany
 
+        -   name: 'PHP User Group Metropolregion Rhein-Neckar'
+            meetup_com_id: 19147348
+            meetup_com_url: 'https://www.meetup.com/PHPUG-Rhein-Neckar/'
+            country: Germany
+
         -   name: Budapest
             meetup_com_id: 3917992
             meetup_com_url: 'https://www.meetup.com/phpmeetup/'
