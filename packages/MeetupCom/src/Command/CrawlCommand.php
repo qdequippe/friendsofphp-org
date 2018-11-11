@@ -81,8 +81,6 @@ final class CrawlCommand extends Command
                 continue;
             }
 
-            /* slovenia testing data: 'https://www.meetup.com/topics/php/si/' */
-            // $country = CountryLoader::country('si');
             $countryCode = strtolower($country->getIsoAlpha2());
             if (in_array($countryCode, $emptyCountriesOnPhp, true)) {
                 continue;
