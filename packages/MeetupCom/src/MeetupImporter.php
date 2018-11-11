@@ -23,6 +23,7 @@ final class MeetupImporter
     private $cityNormalizationMap = [
         'Hlavní město Praha' => 'Prague',
         '1065 Budapest' => 'Budapest',
+        'ISTANBUL' => 'Istanbul',
         # Germany
         '10997 Berlin' => 'Berlin',
         '22765 Hamburg' => 'Hamburg',
