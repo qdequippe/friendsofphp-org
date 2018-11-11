@@ -5130,3 +5130,8 @@ parameters:
             meetup_com_id: 29882525
             meetup_com_url: 'https://www.meetup.com/PHP-North-East/'
             country: 'United Kingdom'
+
+        -   name: 'PHP Interior - SP'
+            meetup_com_id: 25146683
+            meetup_com_url: 'https://www.meetup.com/php-interior-sp/'
+            country: 'Brazil'
