@@ -30,6 +30,11 @@ final class CrawlCommand extends Command
     private $groupsByCountry = [];
 
     /**
+     * @var string[]
+     */
+    private $countryCodesWithNoPhpGroups = [];
+
+    /**
      * @var SymfonyStyle
      */
     private $symfonyStyle;
@@ -58,6 +63,8 @@ final class CrawlCommand extends Command
         $this->groupRepository = $groupRepository;
         $this->phpRelatedFilter = $phpRelatedFilter;
         $this->topicsToCrawl = $topicsToCrawl;
+
+        $this->countryCodesWithNoPhpGroups = $this->loadCountryCodesWithNoPhpGroups();
     }
 
     protected function configure(): void
@@ -71,25 +78,18 @@ final class CrawlCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $emptyCountriesOnPhpFileContent = FileSystem::read(__DIR__ . '/../data/empty_countries_on_php.txt');
-        $emptyCountriesOnPhp = explode(PHP_EOL, $emptyCountriesOnPhpFileContent);
-
         foreach (CountryLoader::countries() as $country) {
             /** @var Country $country */
             $country = CountryLoader::country($country['iso_3166_1_alpha2']);
-            if ($country->getIsoAlpha2() === null) {
-                continue;
-            }
 
-            $countryCode = strtolower($country->getIsoAlpha2());
-            if (in_array($countryCode, $emptyCountriesOnPhp, true)) {
+            if ($this->shouldSkipCountry($country)) {
                 continue;
             }
 
             $this->symfonyStyle->note(sprintf('Looking for meetups in "%s"', $country->getName()));
 
             foreach ($this->topicsToCrawl as $keyword) {
-                $this->processKeywordAndCountry($keyword, $countryCode);
+                $this->processKeywordAndCountry($keyword, strtolower($country->getIsoAlpha2()));
             }
         }
 
@@ -101,6 +101,26 @@ final class CrawlCommand extends Command
         $this->symfonyStyle->success('OK');
 
         return 0;
+    }
+
+    /**
+     * @return string[]
+     */
+    private function loadCountryCodesWithNoPhpGroups(): array
+    {
+        $data = FileSystem::read(__DIR__ . '/../data/empty_countries_on_php.txt');
+        return explode(PHP_EOL, $data);
+    }
+
+    private function shouldSkipCountry(Country $country): bool
+    {
+        if ($country->getIsoAlpha2() === null) {
+            return true;
+        }
+
+        $countryCode = strtolower($country->getIsoAlpha2());
+
+        return in_array($countryCode, $this->countryCodesWithNoPhpGroups, true);
     }
 
     private function processKeywordAndCountry(string $keyword, string $countryCode): void
