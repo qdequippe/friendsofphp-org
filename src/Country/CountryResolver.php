@@ -25,6 +25,11 @@ final class CountryResolver
     private $cachedCountryCodeByLatitudeAndLongitude = [];
 
     /**
+     * @var string[]
+     */
+    private $usaStates = [];
+
+    /**
      * @var Client
      */
     private $client;
@@ -33,11 +38,6 @@ final class CountryResolver
      * @var ResponseFormatter
      */
     private $responseFormatter;
-
-    /**
-     * @var string[]
-     */
-    private $usaStates = [];
 
     /**
      * @param string[] $usaStates
