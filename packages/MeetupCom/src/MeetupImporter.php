@@ -4,6 +4,7 @@ namespace Fop\MeetupCom;
 
 use DateTimeInterface;
 use DateTimeZone;
+use Fop\Country\CountryResolver;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Entity\TimeSpan;
@@ -46,10 +47,16 @@ final class MeetupImporter
      */
     private $maxForecastDateTime;
 
-    public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi)
+    /**
+     * @var CountryResolver
+     */
+    private $countryResolver;
+
+    public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi, CountryResolver $countryResolver)
     {
         $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
         $this->meetupComApi = $meetupComApi;
+        $this->countryResolver = $countryResolver;
     }
 
     /**
@@ -150,7 +157,9 @@ final class MeetupImporter
         }
 
         $venue['city'] = $this->normalizeCity($venue['city']);
-        $location = new Location($venue['city'], $venue['localized_country_name'], $venue['lon'], $venue['lat']);
+        $country = $this->countryResolver->resolveByVenue($venue);
+
+        $location = new Location($venue['city'], $country, $venue['lon'], $venue['lat']);
 
         $event['name'] = trim($event['name']);
         $event['name'] = str_replace('@', '', $event['name']);
