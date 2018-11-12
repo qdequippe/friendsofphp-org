@@ -2,6 +2,7 @@
 
 namespace Fop\MeetupCom\Command;
 
+use Fop\MeetupCom\Exception\ShouldNotHappenException;
 use Fop\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -49,6 +50,16 @@ final class ValidateGroupsCommand extends Command
 
         $existingGroupIds = [];
         $duplicatedGroupIds = [];
+
+        foreach ($groups as $group) {
+            if ($group['country'] === 'United States') {
+                throw new ShouldNotHappenException(sprintf(
+                    'Group "%s" has country as too generic "%s". Change it to specific state.',
+                    $group['name'],
+                    'United States'
+                ));
+            }
+        }
 
         foreach ($groups as $group) {
             if (! isset($existingGroupIds[$group['meetup_com_id']])) {
