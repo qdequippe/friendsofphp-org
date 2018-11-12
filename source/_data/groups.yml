@@ -5250,3 +5250,464 @@ parameters:
             meetup_com_id: 30441537
             meetup_com_url: 'https://www.meetup.com/Wordpress-Meetup-Guarenas/'
             country: 'Venezuela'
+
+        # American groups
+        -   name: 'Birmingham Alabama Magento Meetup'
+            meetup_com_id: 22195686
+            meetup_com_url: 'https://www.meetup.com/Birmingham-Alabama-Magento/'
+            country: 'Alabama'
+
+        -   name: 'OC DRUPAL | Orange County Drupal'
+            meetup_com_id: 1511407
+            meetup_com_url: 'https://www.meetup.com/ocdrupal/'
+            country: 'California'
+
+        -   name: 'Los Angeles Drupal'
+            meetup_com_id: 1388153
+            meetup_com_url: 'https://www.meetup.com/ladrupal/'
+            country: 'California'
+
+        -   name: 'OC Magento Group'
+            meetup_com_id: 19744643
+            meetup_com_url: 'https://www.meetup.com/OC-Magento-Meetup/'
+            country: 'California'
+
+        -   name: 'Louisville Laravel Meetup'
+            meetup_com_id: 18170272
+            meetup_com_url: 'https://www.meetup.com/Louisville-Laravel-Meetup/'
+            country: 'Colorado'
+
+        -   name: 'The Denver Linux, Apache, MySQL and PHP (LAMP) Meetup Group'
+            meetup_com_id: 472209
+            meetup_com_url: 'https://www.meetup.com/denverlamp/'
+            country: 'Colorado'
+
+        -   name: 'DenverPHP'
+            meetup_com_id: 27351121
+            meetup_com_url: 'https://www.meetup.com/DenverPHP/'
+            country: 'Colorado'
+
+        -   name: 'Colorado Drupal Meetups'
+            meetup_com_id: 1063333
+            meetup_com_url: 'https://www.meetup.com/drupal-colorado/'
+            country: 'Colorado'
+
+        -   name: 'Craft CMS/Commerce - Colorado Front Range'
+            meetup_com_id: 19614562
+            meetup_com_url: 'https://www.meetup.com/Craft-CMS-Commerce/'
+            country: 'Colorado'
+
+        -   name: 'Colorado Magento Meetup'
+            meetup_com_id: 24041430
+            meetup_com_url: 'https://www.meetup.com/Colorado-Magento-Meetup/'
+            country: 'Colorado'
+
+        -   name: 'Hudson Valley WordPress Group'
+            meetup_com_id: 1558737
+            meetup_com_url: 'https://www.meetup.com/hudsonvalleywordpress/'
+            country: 'New York'
+
+        -   name: 'Long Island Drupal Group'
+            meetup_com_id: 2792682
+            meetup_com_url: 'https://www.meetup.com/Long-Island-Drupal-Group/'
+            country: 'New York'
+
+        -   name: 'WordPress User Group Long Island'
+            meetup_com_id: 10942202
+            meetup_com_url: 'https://www.meetup.com/Long-Island-Wordpress-Users/'
+            country: 'New York'
+
+        -   name: 'WordPress Orlando'
+            meetup_com_id: 2752572
+            meetup_com_url: 'https://www.meetup.com/WordPress-Orlando/'
+            country: 'Florida'
+
+        -   name: 'Orlando Drupal'
+            meetup_com_id: 11158012
+            meetup_com_url: 'https://www.meetup.com/Orlando-Drupal/'
+            country: 'Florida'
+
+        -   name: 'PrestaShop - Orlando Ecommerce Meetup Group'
+            meetup_com_id: 18934970
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Orlando-Ecommerce-Meetup-Group/'
+            country: 'Florida'
+
+        -   name: 'Broward Drupal Users Group'
+            meetup_com_id: 1800210
+            meetup_com_url: 'https://www.meetup.com/broward-drupal/'
+            country: 'Florida'
+
+        -   name: 'South Florida Drupal Users Group'
+            meetup_com_id: 18683623
+            meetup_com_url: 'https://www.meetup.com/South-Florida-Drupal/'
+            country: 'Florida'
+
+        -   name: 'Sarasota WordPress Users Meetup Group'
+            meetup_com_id: 1725526
+            meetup_com_url: 'https://www.meetup.com/SarasotaWordPress/'
+            country: 'Florida'
+
+        -   name: 'Tampa Bay PHP'
+            meetup_com_id: 299723
+            meetup_com_url: 'https://www.meetup.com/tampa-bay-php/'
+            country: 'Florida'
+
+        -   name: 'Tampa Bay Laravel'
+            meetup_com_id: 6044572
+            meetup_com_url: 'https://www.meetup.com/Laravel/'
+            country: 'Florida'
+
+        -   name: 'Atlanta Laravel Group'
+            meetup_com_id: 18355801
+            meetup_com_url: 'https://www.meetup.com/Atlanta-Laravel/'
+            country: 'Georgia'
+
+        -   name: 'Chicago Symfony Meetup'
+            meetup_com_id: 28126816
+            meetup_com_url: 'https://www.meetup.com/Chicago-Symfony-Meetup/'
+            country: 'Illinois'
+
+        -   name: 'Drupal Chicago'
+            meetup_com_id: 4329572
+            meetup_com_url: 'https://www.meetup.com/drupalchicago/'
+            country: 'Illinois'
+
+        -   name: 'WordPress Lake County (IL) Meetup Group'
+            meetup_com_id: 2340541
+            meetup_com_url: 'https://www.meetup.com/wordpress-lake-county/'
+            country: 'Illinois'
+
+        -   name: 'Fox Valley Drupal'
+            meetup_com_id: 1352294
+            meetup_com_url: 'https://www.meetup.com/Fox-Valley-Drupal/'
+            country: 'Illinois'
+
+        -   name: 'Chicago Drupal Meet Up Group'
+            meetup_com_id: 258402
+            meetup_com_url: 'https://www.meetup.com/drupal-1/'
+            country: 'Illinois'
+
+        -   name: 'Northwest Drupal Meetup Group'
+            meetup_com_id: 9974682
+            meetup_com_url: 'https://www.meetup.com/Northwest-Drupal-Meetup-Group/'
+            country: 'Illinois'
+
+        -   name: 'Laravel Chicago'
+            meetup_com_id: 10530722
+            meetup_com_url: 'https://www.meetup.com/laravel-chicago/'
+            country: 'Illinois'
+
+        -   name: 'The New St. Louis PHP Meetup'
+            meetup_com_id: 1095144
+            meetup_com_url: 'https://www.meetup.com/php-425/'
+            country: 'Missouri'
+
+        -   name: 'St. Louis Drupal Users Group (STLDUG)'
+            meetup_com_id: 14278952
+            meetup_com_url: 'https://www.meetup.com/drupalstl/'
+            country: 'Missouri'
+
+        -   name: 'Laravel St. Louis'
+            meetup_com_id: 20394673
+            meetup_com_url: 'https://www.meetup.com/Laravel-St-Louis/'
+            country: 'Missouri'
+
+        -   name: 'Central Illinois Drupal Meetup'
+            meetup_com_id: 1804555
+            meetup_com_url: 'https://www.meetup.com/Central-Illinois-Drupal-Meetup/'
+            country: 'Illinois'
+
+        -   name: 'Cincinnati PHP Meetup'
+            meetup_com_id: 21500687
+            meetup_com_url: 'https://www.meetup.com/Cincinnati-PHP-Meetup/'
+            country: 'Ohio'
+
+        -   name: 'CincinnatiPHP'
+            meetup_com_id: 29017271
+            meetup_com_url: 'https://www.meetup.com/CincinnatiPHP/'
+            country: 'Ohio'
+
+        -   name: 'Greater Portland, Maine WordPress Meetup'
+            meetup_com_id: 6310402
+            meetup_com_url: 'https://www.meetup.com/Southern-Maine-WordPress-Meetup/'
+            country: 'Maine'
+
+        -   name: 'Baltimore Laravel'
+            meetup_com_id: 7328402
+            meetup_com_url: 'https://www.meetup.com/Baltimore-Laravel/'
+            country: 'Maryland'
+
+        -   name: 'Baltimore Drupal Meetup'
+            meetup_com_id: 1657414
+            meetup_com_url: 'https://www.meetup.com/Baltimore-Drupal-Meetup/'
+            country: 'Maryland'
+
+        -   name: 'WordPress & PHP (Northern Virginia)'
+            meetup_com_id: 3144612
+            meetup_com_url: 'https://www.meetup.com/dc-WordPress-Developers/'
+            country: 'Virginia'
+
+        -   name: 'Capital Laravel Group'
+            meetup_com_id: 9202282
+            meetup_com_url: 'https://www.meetup.com/Capital-Laravel-Group/'
+            country: 'District Of Columbia'
+
+        -   name: 'WordPress DC'
+            meetup_com_id: 1564312
+            meetup_com_url: 'https://www.meetup.com/wordpressdc/'
+            country: 'District Of Columbia'
+
+        -   name: 'DC Area Drupal Meetup Group'
+            meetup_com_id: 1287330
+            meetup_com_url: 'https://www.meetup.com/drupal-dc/'
+            country: 'District Of Columbia'
+
+        -   name: 'Drupal Developers - Committed to Ending Homelessness'
+            meetup_com_id: 30352165
+            meetup_com_url: 'https://www.meetup.com/HopeOneSource-Social-Technology-For-Good/'
+            country: 'Virginia'
+
+        -   name: 'Drupal Rocks Rockville'
+            meetup_com_id: 22588312
+            meetup_com_url: 'https://www.meetup.com/Drupal-Rocks-Rockville/'
+            country: 'Maryland'
+
+        -   name: 'Boston PHP'
+            meetup_com_id: 120818
+            meetup_com_url: 'https://www.meetup.com/bostonphp/'
+            country: 'Massachusetts'
+
+        -   name: 'Laravel Boston'
+            meetup_com_id: 19123554
+            meetup_com_url: 'https://www.meetup.com/Laravel-Boston/'
+            country: 'Massachusetts'
+
+        -   name: 'Boston WordPress'
+            meetup_com_id: 1340213
+            meetup_com_url: 'https://www.meetup.com/boston-wordpress-meetup/'
+            country: 'Massachusetts'
+
+        -   name: 'Providence PHP Meetup'
+            meetup_com_id: 282097
+            meetup_com_url: 'https://www.meetup.com/php-338/'
+            country: 'Rhode Island'
+
+        -   name: 'The WordPress RI Meetup Group'
+            meetup_com_id: 2908692
+            meetup_com_url: 'https://www.meetup.com/WordPressRI/'
+            country: 'Rhode Island'
+
+        -   name: 'Drupal Providence'
+            meetup_com_id: 8988712
+            meetup_com_url: 'https://www.meetup.com/DrupalPVD/'
+            country: 'Rhode Island'
+
+        -   name: 'New Hampshire PHP'
+            meetup_com_id: 3990792
+            meetup_com_url: 'https://www.meetup.com/NH-PHP/'
+            country: 'New Hampshire'
+
+        -   name: 'New Hampshire WordPress for Fun, Profit and Not-for-Profits'
+            meetup_com_id: 1488811
+            meetup_com_url: 'https://www.meetup.com/WordPressDevNH/'
+            country: 'New Hampshire'
+
+        -   name: 'Ann Arbor Magento Developers Meetup'
+            meetup_com_id: 18343032
+            meetup_com_url: 'https://www.meetup.com/a2magento/'
+            country: 'Michigan'
+
+        -   name: 'Detroit Laravel Meetup'
+            meetup_com_id: 17229792
+            meetup_com_url: 'https://www.meetup.com/Laravel-Detroit/'
+            country: 'Michigan'
+
+        -   name: 'Kansas City"s PHP User Group'
+            meetup_com_id: 3964682
+            meetup_com_url: 'https://www.meetup.com/kcphpug/'
+            country: 'Missouri'
+
+        -   name: 'CakePHP KC'
+            meetup_com_id: 3206532
+            meetup_com_url: 'https://www.meetup.com/CakePHP-KC/'
+            country: 'Missouri'
+
+        -   name: 'PrestaShop - Kansas City Ecommerce Meetup'
+            meetup_com_id: 21207798
+            meetup_com_url: 'https://www.meetup.com/PrestaShop-Kansas-City-Ecommerce-Meetup/'
+            country: 'Missouri'
+
+        -   name: 'Kansas City Magento Meetup'
+            meetup_com_id: 26985222
+            meetup_com_url: 'https://www.meetup.com/Kansas-City-Magento-Meetup/'
+            country: 'Kansas'
+
+        -   name: 'PHP Business Networking'
+            meetup_com_id: 28580333
+            meetup_com_url: 'https://www.meetup.com/PHP-Business-Networking/'
+            country: 'Missouri'
+
+        -   name: 'Laravel Omaha'
+            meetup_com_id: 26674149
+            meetup_com_url: 'https://www.meetup.com/Laravel-Omaha/'
+            country: 'Nebraska'
+
+        -   name: 'Seacoast Drupal User Group'
+            meetup_com_id: 8302262
+            meetup_com_url: 'https://www.meetup.com/Seacoast-Drupal/'
+            country: 'New Hampshire'
+
+        -   name: 'Upstate New York Drupal Meetup'
+            meetup_com_id: 19807451
+            meetup_com_url: 'https://www.meetup.com/Upstate-New-York-Drupal-Meetup/'
+            country: 'New York'
+
+        -   name: 'North Jersey PHP & Programmers" Convergence'
+            meetup_com_id: 120930
+            meetup_com_url: 'https://www.meetup.com/nnjppc/'
+            country: 'New Jersey'
+
+        -   name: 'New York PHP Meetup'
+            meetup_com_id: 1112242
+            meetup_com_url: 'https://www.meetup.com/new-york-php/'
+            country: 'New York'
+
+        -   name: 'NY Symfony - The PHP Framework Meetup'
+            meetup_com_id: 1589848
+            meetup_com_url: 'https://www.meetup.com/NYSymfony/'
+            country: 'New York'
+
+        -   name: 'CodeIgniter PHP NYC - MVC web application framework'
+            meetup_com_id: 1592365
+            meetup_com_url: 'https://www.meetup.com/codeigniter/'
+            country: 'New York'
+
+        -   name: 'New York eZ Publish Community'
+            meetup_com_id: 2752452
+            meetup_com_url: 'https://www.meetup.com/newyorkezusercommunity/'
+            country: 'New York'
+
+        -   name: 'New York Laravel'
+            meetup_com_id: 8765042
+            meetup_com_url: 'https://www.meetup.com/New-York-Laravel/'
+            country: 'New York'
+
+        -   name: 'WordPress NYC Meetup Group'
+            meetup_com_id: 273731
+            meetup_com_url: 'https://www.meetup.com/WordPressNYC/'
+            country: 'New York'
+
+        -   name: 'WordPress Montclair Meetup'
+            meetup_com_id: 19081898
+            meetup_com_url: 'https://www.meetup.com/WordPress-Montclair-Meetup/'
+            country: 'New Jersey'
+
+        -   name: 'New York Magento Meetup'
+            meetup_com_id: 1638668
+            meetup_com_url: 'https://www.meetup.com/New-York-Magento-Group/'
+            country: 'New York'
+
+        -   name: 'Drupal Training Meetup'
+            meetup_com_id: 19360548
+            meetup_com_url: 'https://www.meetup.com/NYC-Drupal-Training-Meetup/'
+            country: 'New York'
+
+        -   name: 'New York Craft CMS Meetup'
+            meetup_com_id: 19619268
+            meetup_com_url: 'https://www.meetup.com/New-York-Craft-CMS-Meetup/'
+            country: 'New York'
+
+        -   name: 'Women In Wordpress NYC'
+            meetup_com_id: 26470971
+            meetup_com_url: 'https://www.meetup.com/Women-In-Wordpress-NYC/'
+            country: 'New York'
+
+        -   name: 'Chapel Hill / Durham PHP User Group'
+            meetup_com_id: 19013985
+            meetup_com_url: 'https://www.meetup.com/Chapel-Hill-Durham-PHP-User-Group/'
+            country: 'North Carolina'
+
+        -   name: 'Triangle Drupal Users" Group'
+            meetup_com_id: 1226388
+            meetup_com_url: 'https://www.meetup.com/triDUG/'
+            country: 'North Carolina'
+
+        -   name: 'Raleigh-Durham Magento Developers'
+            meetup_com_id: 29750863
+            meetup_com_url: 'https://www.meetup.com/Raleigh-Durham-Magento-Developers/'
+            country: 'North Carolina'
+
+        -   name: 'Chapel Hill Magento Meetup'
+            meetup_com_id: 29767936
+            meetup_com_url: 'https://www.meetup.com/Chapel-Hill-Magento-Meetup/'
+            country: 'North Carolina'
+
+        -   name: 'Asheville Area WordPress Group'
+            meetup_com_id: 3695462
+            meetup_com_url: 'https://www.meetup.com/Asheville-Area-WordPress-Group/'
+            country: 'North Carolina'
+
+        -   name: 'Asheville Laravel Meetup'
+            meetup_com_id: 21290094
+            meetup_com_url: 'https://www.meetup.com/Asheville-Laravel-Meetup/'
+            country: 'North Carolina'
+
+        -   name: 'Queen City PHP'
+            meetup_com_id: 1589581
+            meetup_com_url: 'https://www.meetup.com/PHPDevs/'
+            country: 'North Carolina'
+
+        -   name: 'Greater Charlotte Area WordPress Group'
+            meetup_com_id: 1389977
+            meetup_com_url: 'https://www.meetup.com/Greater-Charlotte-Area-WordPress-Group/'
+            country: 'North Carolina'
+
+        -   name: 'Charlotte Drupal User Group'
+            meetup_com_id: 1700320
+            meetup_com_url: 'https://www.meetup.com/charDUG/'
+            country: 'North Carolina'
+
+        -   name: 'Charlotte North Carolina Magento Meetup'
+            meetup_com_id: 27575264
+            meetup_com_url: 'https://www.meetup.com/Charlotte-North-Carolina-Magento-Meetup/'
+            country: 'North Carolina'
+
+        -   name: 'Lehigh Valley PHP Meetup'
+            meetup_com_id: 1773780
+            meetup_com_url: 'https://www.meetup.com/lehighvalleyphp/'
+            country: 'Pennsylvania'
+
+        -   name: 'Nashville PHP'
+            meetup_com_id: 1360698
+            meetup_com_url: 'https://www.meetup.com/nashvillephp/'
+            country: 'Tennessee'
+
+        -   name: 'Memphis PHP User Group Meetup'
+            meetup_com_id: 19762032
+            meetup_com_url: 'https://www.meetup.com/Memphis-PHP-Meetup/'
+            country: 'Tennessee'
+
+        -   name: 'Utah Laravel'
+            meetup_com_id: 19973530
+            meetup_com_url: 'https://www.meetup.com/Utah-Laravel/'
+            country: 'Utah'
+
+        -   name: 'Utah Drupal Users Group'
+            meetup_com_id: 16631602
+            meetup_com_url: 'https://www.meetup.com/Utah-Drupal-Users-Group/'
+            country: 'Utah'
+
+        -   name: 'Salt Lake City Laravel'
+            meetup_com_id: 25518750
+            meetup_com_url: 'https://www.meetup.com/Salt-Lake-City-Laravel/'
+            country: 'Utah'
+
+        -   name: 'Milwaukee PHP Users Group'
+            meetup_com_id: 1564340
+            meetup_com_url: 'https://www.meetup.com/Milwaukee-PHP-Users-Group/'
+            country: 'Wisconsin'
+
+        -   name: 'Laravel Milwaukee'
+            meetup_com_id: 12420992
+            meetup_com_url: 'https://www.meetup.com/LaravelMKE/'
+            country: 'Wisconsin'
