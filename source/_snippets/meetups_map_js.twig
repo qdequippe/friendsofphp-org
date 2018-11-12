@@ -87,6 +87,14 @@
         map.setView([25, 0], 2);
     }
 
+    // ref https://github.com/php-ug/php.ug/issues/221#issuecomment-437917289
+    var currentCenter = map.getCenter();
+    if (currentCenter.lng > 300 || currentCenter.lng < -300) {
+        // default map - the whole world
+        alert('Whoa, you fell of the main map! Lets get back to center.');
+        map.setView([25, 0], 2);
+    }
+
     // store past location when map mooves
     map.on('moveend', function(e) {
         var bounds = map.getBounds();

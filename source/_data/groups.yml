@@ -79,7 +79,7 @@ parameters:
         -   name: 'LAPHP: The Los Angeles PHP Developers Group'
             meetup_com_id: 582093
             meetup_com_url: 'https://www.meetup.com/laphpdev/'
-            country: 'United States'
+            country: 'California'
 
         -   name: 'PrestaShop - Islamabad Ecommerce Meetup'
             meetup_com_id: 19328354
@@ -599,142 +599,142 @@ parameters:
         -   name: 'JaxPHP / JaxWeb'
             meetup_com_id: 1412696
             meetup_com_url: 'https://www.meetup.com/JaxPHP-JaxWeb/'
-            country: 'United States'
+            country: 'Florida'
 
         -   name: Dallas
             meetup_com_id: 120830
             meetup_com_url: 'https://www.meetup.com/dallasphp/'
-            country: 'United States'
+            country: 'Texas'
 
         -   name: 'Spokane PHP User Group'
             meetup_com_id: 16123692
             meetup_com_url: 'https://www.meetup.com/Spokane-PHP-Meetup/'
-            country: 'United States'
+            country: 'Washington'
 
         -   name: 'Ann Arbor'
             meetup_com_id: 1771989
             meetup_com_url: 'https://www.meetup.com/ann-arbor-php-mysql/'
-            country: 'United States'
+            country: 'Michigan'
 
         -   name: TrianglePHP
             meetup_com_id: 229107
             meetup_com_url: 'https://www.meetup.com/trianglephp/'
-            country: 'United States'
+            country: 'North Carolina'
 
         -   name: Louisville
             meetup_com_id: 3962572
             meetup_com_url: 'https://www.meetup.com/Louisville-PHP-User-Group/'
-            country: 'United States'
+            country: 'Kentucky'
 
         -   name: 'Washington D.C.'
             meetup_com_id: 1649006
             meetup_com_url: 'https://www.meetup.com/DC-PHP/'
-            country: 'United States'
+            country: 'Washington, D.C.'
 
         -   name: 'Baltimore PHP'
             meetup_com_id: 435268
             meetup_com_url: 'https://www.meetup.com/baltimorephp/'
-            country: 'United States'
+            country: 'Maryland'
 
         -   name: Orlando
             meetup_com_id: 120882
             meetup_com_url: 'https://www.meetup.com/orlandophp/'
-            country: 'United States'
+            country: 'Florida'
 
         -   name: Seattle
             meetup_com_id: 120908
             meetup_com_url: 'https://www.meetup.com/php-49'
-            country: 'United States'
+            country: 'Washington'
 
         -   name: Buffalo
             meetup_com_id: 225746
             meetup_com_url: 'https://www.meetup.com/buffalophp'
-            country: 'United States'
+            country: 'New York'
 
         -   name: 'Utah PHP User Group'
             meetup_com_id: 20459295
             meetup_com_url: 'https://www.meetup.com/Utah-PHP-User-Group/'
-            country: 'United States'
+            country: 'Utah'
 
         -   name: Indianapolis
             meetup_com_id: 577068
             meetup_com_url: 'https://meetup.com/indyphp'
-            country: 'United States'
+            country: 'Indiana'
 
         -   name: Philadelphia
             meetup_com_id: 360158
             meetup_com_url: 'https://www.meetup.com/phillyphp/'
-            country: 'United States'
+            country: 'Pennsylvania'
 
         -   name: 'Orange County'
             meetup_com_id: 234832
             meetup_com_url: 'https://www.meetup.com/oc-php'
-            country: 'United States'
+            country: 'California'
 
         -   name: Oklahoma
             meetup_com_id: 11586302
             meetup_com_url: 'https://www.meetup.com/OklahomaPHP/'
-            country: 'United States'
+            country: 'Oklahoma'
 
         -   name: 'Dayton PHP'
             meetup_com_id: 19717863
             meetup_com_url: 'https://www.meetup.com/Dayton-PHP'
-            country: 'United States'
+            country: 'Ohio'
 
         -   name: PDX-PHP
             meetup_com_id: 8138812
             meetup_com_url: 'https://www.meetup.com/PDX-PHP'
-            country: 'United States'
+            country: 'Oregon'
 
         -   name: 'Northern IL PHP Group'
             meetup_com_id: 9443972
             meetup_com_url: 'https://www.meetup.com/Rockford-PHP-Developers-Group/'
-            country: 'United States'
+            country: 'Illinois'
 
         -   name: 'Fox Cities'
             meetup_com_id: 2136411
             meetup_com_url: 'https://www.meetup.com/fox-cities-php/'
-            country: 'United States'
+            country: 'Wisconsin'
 
         -   name: 'Las Vegas PHP'
             meetup_com_id: 7427812
             meetup_com_url: 'https://www.meetup.com/Las-Vegas-PHP-Users-Group/'
-            country: 'United States'
+            country: 'Nevada'
 
         -   name: 'South Bay PHP Users'
             meetup_com_id: 17979092
             meetup_com_url: 'https://www.meetup.com/South-Bay-PHP-User-Group/'
-            country: 'United States'
+            country: 'California'
 
         -   name: Houston
             meetup_com_id: 120848
             meetup_com_url: 'https://www.meetup.com/houston-php-users-group/'
-            country: 'United States'
+            country: 'Texas'
 
         -   name: 'Idaho PHP User Group'
             meetup_com_id: 18399848
             meetup_com_url: 'https://www.meetup.com/idaho-php'
-            country: 'United States'
+            country: 'Idaho'
 
         -   name: 'Chattanooga PHP'
             meetup_com_id: 546809
             meetup_com_url: 'https://www.meetup.com/chattanoogaphp/'
-            country: 'United States'
+            country: 'Tennessee'
 
         -   name: 'North Alabama Web Developers'
             meetup_com_id: 323739
             meetup_com_url: 'https://www.meetup.com/web-99/'
-            country: 'United States'
+            country: 'Alabama'
 
         -   name: 'Frederick Web Tech'
             meetup_com_id: 1463375
             meetup_com_url: 'https://www.meetup.com/FredWebTech/'
-            country: 'United States'
+            country: 'Maryland'
 
         -   name: Chicago-PHP-User-Group
             meetup_com_id: 14630102
             meetup_com_url: 'https://www.meetup.com/Chicago-PHP-User-Group/'
-            country: 'United States'
+            country: 'Illinois'
 
         -   name: 'Saigon PHP Developer Group'
             meetup_com_id: 15953912
@@ -754,7 +754,7 @@ parameters:
         -   name: 'PHPSP Campinas'
             meetup_com_id: 15335842
             meetup_com_url: 'https://www.meetup.com/PHPSP-Campinas/'
-            country: 'Brazil'
+            country: 'Brail'
 
         -   name: 'PHPPR - Grupo de desenvolvedores de PHP do estado do Paraná'
             meetup_com_id: 17768822
@@ -1099,7 +1099,7 @@ parameters:
         -   name: 'SF PHP Community'
             meetup_com_id: 120903
             meetup_com_url: 'https://www.meetup.com/sf-php/'
-            country: 'United States'
+            country: 'San Francisco'
 
         -   name: 'Laravel PHP Tokyo'
             meetup_com_id: 27972671
@@ -1229,7 +1229,7 @@ parameters:
         -   name: 'South Florida PHP User Group (SoFloPHP)'
             meetup_com_id: 1667346
             meetup_com_url: 'https://www.meetup.com/South-Florida-PHP-Users-Group/'
-            country: 'United States'
+            country: 'Florida'
 
         -   name: 'Russia Laravel Meetup'
             meetup_com_id: 18590186

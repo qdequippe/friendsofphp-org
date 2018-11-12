@@ -74,7 +74,6 @@ final class CountryResolver
         }
 
         $countryCode = $this->resolveCountryCodeFromGroup($group);
-
         $countryOrCountries = CountryLoader::country($countryCode);
 
         if (is_array($countryOrCountries)) {
@@ -143,7 +142,7 @@ final class CountryResolver
             return $group['country'];
         }
 
-        $countryJson = $this->getCountryJsonByLatitudeAndLongitude($group['latitude'], $group['latitude']);
+        $countryJson = $this->getCountryJsonByLatitudeAndLongitude($group['latitude'], $group['longitude']);
 
         return $countryJson['address']['country_code'];
     }
