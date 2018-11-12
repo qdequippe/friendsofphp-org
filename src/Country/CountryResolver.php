@@ -6,16 +6,11 @@ use Fop\Guzzle\ResponseFormatter;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Request;
+use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
-use Throwable;
 
 final class CountryResolver
 {
-    /**
-     * @var string
-     */
-    private const UNKNOWN_COUNTRY = 'unknown';
-
     /**
      * @var string
      */
@@ -79,22 +74,16 @@ final class CountryResolver
         }
 
         $countryCode = $this->resolveCountryCodeFromGroup($group);
-        if ($countryCode === null) {
-            return self::UNKNOWN_COUNTRY;
-        }
 
-        try {
-            $countryOrCountries = CountryLoader::country($countryCode);
-            if (is_array($countryOrCountries)) {
-                $country = array_pop($countryOrCountries);
-            } else {
-                $country = $countryOrCountries;
-            }
+        $countryOrCountries = CountryLoader::country($countryCode);
 
+        if (is_array($countryOrCountries)) {
+            /** @var Country $country */
+            $country = array_pop($countryOrCountries);
             return $country->getName();
-        } catch (Throwable $throwable) {
-            return self::UNKNOWN_COUNTRY;
         }
+
+        return $countryOrCountries->getName();
     }
 
     /**
@@ -148,14 +137,10 @@ final class CountryResolver
      *
      * @param mixed[] $group
      */
-    private function resolveCountryCodeFromGroup(array $group): ?string
+    private function resolveCountryCodeFromGroup(array $group): string
     {
         if (isset($group['country']) && $group['country'] && $group['country'] !== '-') {
             return $group['country'];
-        }
-
-        if (! isset($group['latitude'], $group['longitude'])) {
-            return null;
         }
 
         $countryJson = $this->getCountryJsonByLatitudeAndLongitude($group['latitude'], $group['latitude']);

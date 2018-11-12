@@ -34,6 +34,5 @@ final class CountryResolverTest extends AbstractContainerAwareTestCase
             'latitude' => 50.847572953654,
             'longitude' => 4.3535041809082,
         ], 'Belgium'];
-        yield [['country' => 'random'], 'unknown'];
     }
 }
