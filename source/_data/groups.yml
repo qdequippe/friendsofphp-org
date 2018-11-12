@@ -2,9 +2,9 @@ parameters:
     # groups on meetup.com
     groups:
         # add your group here
-        # if you can't find the "meetup_com_id", pass the url and comment it; we'll handle it for you
+        # can't you find the "meetup_com_id"? pass the url and comment it; we'll handle it for you
 
-        # for maintainers: from time to time, search for new groups: https://www.google.com/search?q=php+<state>+site%3Ameetup.com
+        # for maintainers: from time to time, run "bin/console crawl" + "bin/console crawl --america"
 
         -   name: 'Cape Town Laravel'
             meetup_com_id: 16030882
