@@ -25,6 +25,11 @@ final class CountryResolver
     private $cachedCountryCodeByLatitudeAndLongitude = [];
 
     /**
+     * @var string[]
+     */
+    private $usaStates = [];
+
+    /**
      * @var Client
      */
     private $client;
@@ -34,10 +39,14 @@ final class CountryResolver
      */
     private $responseFormatter;
 
-    public function __construct(Client $client, ResponseFormatter $responseFormatter)
+    /**
+     * @param string[] $usaStates
+     */
+    public function __construct(Client $client, ResponseFormatter $responseFormatter, array $usaStates)
     {
         $this->client = $client;
         $this->responseFormatter = $responseFormatter;
+        $this->usaStates = $usaStates;
     }
 
     /**
@@ -45,6 +54,17 @@ final class CountryResolver
      */
     public function resolveFromGroup(array $group): string
     {
+        // Special case for USA, since there are many federate states
+        if (isset($group['country']) && $group['country'] === 'US') {
+            $stateCode = strtolower($group['state']);
+
+            if (isset($this->usaStates[$stateCode])) {
+                return $this->usaStates[$stateCode];
+            }
+
+            // unknown state :(, fallback
+        }
+
         $countryCode = $this->resolveCountryCodeFromGroup($group);
         if ($countryCode === null) {
             return self::UNKNOWN_COUNTRY;
