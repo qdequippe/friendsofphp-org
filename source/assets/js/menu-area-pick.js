@@ -12,9 +12,9 @@ $(function() {
         });
 
         // see https://stackoverflow.com/a/20064911/1348344
-        var visibleMeetups = $("table#table-meetups tr:visible").length - 2;
+        var visibleMeetups = $("table#table-meetups tr.meetup:visible").length;
 
-        if (visibleMeetups < 1) {
+        if (visibleMeetups === 0) {
             $("#block-zoomout").show();
         } else {
             $("#block-zoomout").hide();

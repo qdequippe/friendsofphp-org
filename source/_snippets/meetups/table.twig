@@ -2,32 +2,32 @@
 
 <table class="table table-bordered table-responsive" id="table-meetups">
     <thead class="thead-inverse">
-    <tr>
-        <th class="w-25 text-center">
-            📅
-            &nbsp;
-            <span class="hidden-sm-down">When</span>
-        </th>
-        <th class="w-25 text-center">
-            📍
+        <tr>
+            <th class="w-25 text-center">
+                📅
+                &nbsp;
+                <span class="hidden-sm-down">When</span>
+            </th>
+            <th class="w-25 text-center">
+                📍
 
-            <span class="hidden-sm-down">Where</span>
-        </th>
-        <th class="w-50 text-center">
-            <span class="hidden-sm-down">Meetup</span>
-        </th>
-    </tr>
+                <span class="hidden-sm-down">Where</span>
+            </th>
+            <th class="w-50 text-center">
+                <span class="hidden-sm-down">Meetup</span>
+            </th>
+        </tr>
+    </thead>
     <tr id="block-zoomout">
         <td colspan="3" class="text-center">
             No meetups in this area. Try to zoom out a bit!
         </td>
     </tr>
-    </thead>
 
     {% for meetup in meetups %}
         {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
 
-        {% if daysFromToday >= minDays and daysFromToday <= maxDays %}
+        {% if daysFromToday >= minDays and daysFromToday <= max_forecast_days %}
             <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}">
                 <td class="w-25">
                     <nobr>{{ meetup.start|date("D m-d") }}</nobr>
