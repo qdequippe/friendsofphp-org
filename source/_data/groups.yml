@@ -5711,3 +5711,8 @@ parameters:
             meetup_com_id: 12420992
             meetup_com_url: 'https://www.meetup.com/LaravelMKE/'
             country: 'Wisconsin'
+
+        -   name: 'azPHP'
+            meetup_com_id: 3376682
+            meetup_com_url: 'https://www.meetup.com/azPHPUG/'
+            country: 'Arizona'
