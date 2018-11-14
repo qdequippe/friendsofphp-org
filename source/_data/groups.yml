@@ -8,6 +8,11 @@ parameters:
 
         # for maintainers: from time to time, run "bin/console crawl" + "bin/console crawl --america"
 
+        -   name: 'pugRomagna: PHP User Group Romagnolo'
+            meetup_com_id: 27101726
+            meetup_com_url: 'https://www.meetup.com/PUG-Romagna-PHP-User-Group-Romagnolo/'
+            country: 'Italy'
+
         -   name: 'Cape Town Laravel'
             meetup_com_id: 16030882
             meetup_com_url: 'https://www.meetup.com/Cape-Town-Laravel/'
