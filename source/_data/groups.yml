@@ -6,7 +6,7 @@ parameters:
         # and entering the last segment of your meetup group url into the :urlname input
         # can't you find the "meetup_com_id"? pass the url and comment it; we'll handle it for you
 
-        # for maintainers: from time to time, run "bin/console crawl" + "bin/console crawl --america"
+        # for maintainers: from time to time, run "bin/console crawl"
 
         -   name: 'Cape Town Laravel'
             meetup_com_id: 16030882

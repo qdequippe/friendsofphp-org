@@ -92,7 +92,6 @@ final class CrawlCommand extends Command
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription('Crawl "meetup.com" api topic lists by every country.');
-        $this->addOption('america', null, InputOption::VALUE_NONE, 'Crawl all USA federate states');
     }
 
     /**
@@ -100,28 +99,26 @@ final class CrawlCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        if ($input->getOption('america')) {
-            $this->processUnitedStatesOfAmerica();
-        } else {
-            foreach (CountryLoader::countries() as $country) {
-                /** @var Country $country */
-                $country = CountryLoader::country($country['iso_3166_1_alpha2']);
+        $this->processUnitedStatesOfAmerica();
 
-                if ($this->shouldSkipCountry($country)) {
-                    continue;
-                }
+        foreach (CountryLoader::countries() as $country) {
+            /** @var Country $country */
+            $country = CountryLoader::country($country['iso_3166_1_alpha2']);
 
-                $this->symfonyStyle->note(sprintf('Looking for meetups in "%s"', $country->getName()));
-
-                foreach ($this->topicsToCrawl as $keyword) {
-                    $this->processKeywordAndCountry($keyword, strtolower($country->getIsoAlpha2()));
-                }
+            if ($this->shouldSkipCountry($country)) {
+                continue;
             }
 
-            // detect country codes that were empty on "PHP" search
-            // by excluding them, the followup search with other keywords can be faster
-            $this->reportEmptyCountries();
+            $this->symfonyStyle->note(sprintf('Looking for meetups in "%s"', $country->getName()));
+
+            foreach ($this->topicsToCrawl as $keyword) {
+                $this->processKeywordAndCountry($keyword, strtolower($country->getIsoAlpha2()));
+            }
         }
+
+        // detect country codes that were empty on "PHP" search
+        // by excluding them, the followup search with other keywords can be faster
+        $this->reportEmptyCountries();
 
         $this->reportFoundGroups();
 
