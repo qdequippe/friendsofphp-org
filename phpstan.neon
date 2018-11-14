@@ -1,8 +1,9 @@
 parameters:
     ignoreErrors:
         # known value, container is already created
-        - '#Method Fop\\DependencyInjection\\ContainerFactory::create\(\) should return Psr\\Container\\ContainerInterface but returns Symfony\\Component\\DependencyInjection\\ContainerInterface\|null#'
+        - '#Method Fop\\DependencyInjection\\ContainerFactory::(create|createWithConfig)\(\) should return Psr\\Container\\ContainerInterface but returns Symfony\\Component\\DependencyInjection\\ContainerInterface\|null#'
 
         # false positive, checked or @var doc above
         - '#Parameter \#1 \$str of function strtolower expects string, string\|null given#'
         - '#Method Fop\\Country\\CountryResolver::resolveFromGroup\(\) should return string but returns string\|null#'
+        - '#Parameter \#1 \$containerBuilder of class Symplify\\PackageBuilder\\Yaml\\FileLoader\\ParameterMergingYamlFileLoader constructor expects Symfony\\Component\\DependencyInjection\\ContainerBuilder, Symfony\\Component\\DependencyInjection\\ContainerInterface given#'

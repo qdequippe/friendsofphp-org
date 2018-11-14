@@ -13,4 +13,12 @@ final class ContainerFactory
 
         return $fopKernel->getContainer();
     }
+
+    public function createWithConfig(string $config): ContainerInterface
+    {
+        $fopKernel = new FopKernel();
+        $fopKernel->bootWithConfig($config);
+
+        return $fopKernel->getContainer();
+    }
 }

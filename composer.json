@@ -4,26 +4,28 @@
         "php": "^7.2",
         "guzzlehttp/guzzle": "^6.3",
         "nette/utils": "^2.5",
-        "symfony/var-dumper": "^4.1",
+        "rinvex/countries": "^3.1",
         "symplify/statie": "^5.2",
         "symplify/package-builder": "^5.2",
-        "rinvex/country": "^3.1",
         "symfony/console": "^4.1",
         "symfony/dependency-injection": "^4.1",
+        "symfony/dom-crawler": "^4.1",
         "symfony/http-kernel": "^4.1",
-        "symfony/dom-crawler": "^4.1"
+        "symfony/var-dumper": "^4.1",
+        "mjaschen/phpgeo": "^2.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.10.5",
-        "phpunit/phpunit": "^7.3",
+        "phpunit/phpunit": "^7.4",
+        "spatie/http-status-check": "^3.1",
         "symplify/easy-coding-standard": "^5.2",
-        "symplify/monorepo-builder": "^5.2",
-        "spatie/http-status-check": "^3.1"
+        "symplify/monorepo-builder": "^5.2"
     },
     "autoload": {
         "psr-4": {
             "Fop\\": "src",
-            "Fop\\MeetupCom\\": "packages/MeetupCom/src"
+            "Fop\\MeetupCom\\": "packages/MeetupCom/src",
+            "Fop\\Nomad\\": "packages/Nomad/src"
         }
     },
     "autoload-dev": {

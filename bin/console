@@ -6,7 +6,11 @@ use Symfony\Component\Console\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$container = (new ContainerFactory())->create();
+if (file_exists(__DIR__ . '/../friends-of-php.yml')) {
+    $container = (new ContainerFactory())->createWithConfig(__DIR__ . '/../friends-of-php.yml');
+} else {
+    $container = (new ContainerFactory())->create();
+}
 
 /** @var Application $application */
 $application = $container->get(Application::class);

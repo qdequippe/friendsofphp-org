@@ -12,11 +12,11 @@ use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DomCrawler\Crawler;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
+use Symplify\PackageBuilder\Console\ShellCode;
 
 final class CrawlCommand extends Command
 {
@@ -124,7 +124,7 @@ final class CrawlCommand extends Command
 
         $this->symfonyStyle->success('Crawling was successful');
 
-        return 0;
+        return ShellCode::SUCCESS;
     }
 
     /**

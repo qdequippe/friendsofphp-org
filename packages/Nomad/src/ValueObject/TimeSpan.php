@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Entity;
+namespace Fop\Nomad\ValueObject;
 
 use DateTimeInterface;
 
@@ -12,11 +12,11 @@ final class TimeSpan
     private $startDateTime;
 
     /**
-     * @var DateTimeInterface|null
+     * @var DateTimeInterface
      */
     private $endDateTime;
 
-    public function __construct(DateTimeInterface $startDateTime, ?DateTimeInterface $endDateTime)
+    public function __construct(DateTimeInterface $startDateTime, DateTimeInterface $endDateTime)
     {
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
@@ -27,8 +27,13 @@ final class TimeSpan
         return $this->startDateTime;
     }
 
-    public function getEndDateTime(): ?DateTimeInterface
+    public function getEndDateTime(): DateTimeInterface
     {
         return $this->endDateTime;
+    }
+
+    public function containsDateTime(DateTimeInterface $dateTime): bool
+    {
+        return $dateTime > $this->startDateTime && $dateTime < $this->endDateTime;
     }
 }

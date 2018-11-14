@@ -12,6 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
+use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ShowMeetupDetailCommand extends Command
 {
@@ -79,8 +80,7 @@ final class ShowMeetupDetailCommand extends Command
         if (is_file($source)) {
             $this->processFileSource($source);
 
-            // success
-            return 0;
+            return ShellCode::SUCCESS;
         }
 
         $group = $this->getGroupDetailForMeetupComUrl($source);
@@ -90,8 +90,7 @@ final class ShowMeetupDetailCommand extends Command
             $this->printGroup($group);
         }
 
-        // success
-        return 0;
+        return ShellCode::SUCCESS;
     }
 
     private function processFileSource(string $file): void

@@ -7,8 +7,8 @@ use DateTimeZone;
 use Fop\Country\CountryResolver;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
-use Fop\Entity\TimeSpan;
 use Fop\MeetupCom\Api\MeetupComApi;
+use Location\Coordinate;
 use Nette\Utils\DateTime;
 
 final class MeetupImporter
@@ -72,13 +72,13 @@ final class MeetupImporter
 
         foreach ($groupIdsChunks as $groupIdsChunk) {
             foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIdsChunk) as $meetup) {
-                $timeSpan = $this->createTimeSpanFromEventData($meetup);
+                $startDateTime = $this->createStartDateTimeFromEventData($meetup);
 
-                if ($this->shouldSkipMeetup($timeSpan, $meetup)) {
+                if ($this->shouldSkipMeetup($startDateTime, $meetup)) {
                     continue;
                 }
 
-                $meetups[] = $this->createMeetupFromEventData($meetup, $timeSpan);
+                $meetups[] = $this->createMeetupFromEventData($meetup, $startDateTime);
             }
         }
 
@@ -88,28 +88,19 @@ final class MeetupImporter
     /**
      * @param mixed[] $meetup
      */
-    private function createTimeSpanFromEventData(array $meetup): TimeSpan
+    private function createStartDateTimeFromEventData(array $meetup): DateTimeInterface
     {
         // not sure why it adds extra "000" in the end
         $time = $this->normalizeTimestamp($meetup['time']);
         $utcOffset = $this->normalizeTimestamp($meetup['utc_offset']);
 
-        $startDateTime = $this->createUtcDateTime($time, $utcOffset);
-
-        if (isset($meetup['duration']) && $meetup['duration']) {
-            $duration = $this->normalizeTimestamp($meetup['duration']);
-            $endDateTime = $startDateTime->modifyClone('+' . $duration . ' seconds');
-        } else {
-            $endDateTime = null;
-        }
-
-        return new TimeSpan($startDateTime, $endDateTime);
+        return $this->createUtcDateTime($time, $utcOffset);
     }
 
     /**
      * @param mixed[] $meetup
      */
-    private function shouldSkipMeetup(TimeSpan $timeSpan, array $meetup): bool
+    private function shouldSkipMeetup(DateTimeInterface $startDateTime, array $meetup): bool
     {
         // not announced yet
         if (isset($meetup['announced']) && $meetup['announced'] === false) {
@@ -122,7 +113,7 @@ final class MeetupImporter
         }
 
         // skip meetups too far in the future
-        if ($timeSpan->getStartDateTime() > $this->maxForecastDateTime) {
+        if ($startDateTime > $this->maxForecastDateTime) {
             return true;
         }
 
@@ -146,7 +137,7 @@ final class MeetupImporter
     /**
      * @param mixed[] $event
      */
-    private function createMeetupFromEventData(array $event, TimeSpan $timeSpan): Meetup
+    private function createMeetupFromEventData(array $event, DateTimeInterface $startDateTime): Meetup
     {
         $venue = $event['venue'];
 
@@ -159,12 +150,13 @@ final class MeetupImporter
         $venue['city'] = $this->normalizeCity($venue['city']);
         $country = $this->countryResolver->resolveByVenue($venue);
 
-        $location = new Location($venue['city'], $country, $venue['lon'], $venue['lat']);
+        $coordinate = new Coordinate($venue['lat'], $venue['lon']);
+        $location = new Location($venue['city'], $country, $coordinate);
 
         $event['name'] = trim($event['name']);
         $event['name'] = str_replace('@', '', $event['name']);
 
-        return new Meetup($event['name'], $event['group']['name'], $timeSpan, $location, $event['event_url']);
+        return new Meetup($event['name'], $event['group']['name'], $startDateTime, $location, $event['event_url']);
     }
 
     /**

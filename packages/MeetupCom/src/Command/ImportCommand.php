@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
+use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ImportCommand extends Command
 {
@@ -59,7 +60,7 @@ final class ImportCommand extends Command
         $this->setDescription('Import meetups from meetup.com based on group ids.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $groups = $this->groupRepository->fetchAll();
 
@@ -79,7 +80,8 @@ final class ImportCommand extends Command
         );
 
         $this->meetupRepository->saveImportsToFile($meetups);
-
         $this->symfonyStyle->success('Done');
+
+        return ShellCode::SUCCESS;
     }
 }

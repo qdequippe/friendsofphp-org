@@ -1,0 +1,21 @@
+parameters:
+    # "Nomad" feature
+    top_left_corner:
+        latitude: ~
+        longitude: ~
+    bottom_right_corner:
+        latitude: ~
+        longitude: ~
+    start_date: ~
+    end_date: ~
+
+services:
+    _defaults:
+        autowire: true
+        public: true
+
+    Fop\Nomad\:
+        resource: "../src"
+        exclude: "../src/{Exception,ValueObject}"
+
+    Location\Distance\Vincenty: ~

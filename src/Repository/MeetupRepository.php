@@ -4,6 +4,8 @@ namespace Fop\Repository;
 
 use Fop\Entity\Meetup;
 use Fop\FileSystem\YamlFileSystem;
+use Fop\Nomad\Exception\ConfigurationException;
+use Fop\Nomad\Factory\MeetupFactory;
 
 final class MeetupRepository
 {
@@ -17,10 +19,19 @@ final class MeetupRepository
      */
     private $yamlFileSystem;
 
-    public function __construct(string $importedMeetupsStorage, YamlFileSystem $yamlFileSystem)
-    {
+    /**
+     * @var MeetupFactory
+     */
+    private $meetupFactory;
+
+    public function __construct(
+        string $importedMeetupsStorage,
+        YamlFileSystem $yamlFileSystem,
+        MeetupFactory $meetupFactory
+    ) {
         $this->importedMeetupsStorage = $importedMeetupsStorage;
         $this->yamlFileSystem = $yamlFileSystem;
+        $this->meetupFactory = $meetupFactory;
     }
 
     /**
@@ -29,6 +40,19 @@ final class MeetupRepository
     public function saveImportsToFile(array $meetups): void
     {
         $this->saveToFileAndStorage($meetups, $this->importedMeetupsStorage);
+    }
+
+    /**
+     * @return Meetup[]
+     */
+    public function fetchAllAsObjects(): array
+    {
+        $this->ensureStorageExists();
+
+        $data = $this->yamlFileSystem->loadFileToArray($this->importedMeetupsStorage);
+        $meetups = $data['parameters']['meetups'] ?? [];
+
+        return $this->turnsArraysToObjects($meetups);
     }
 
     /**
@@ -45,6 +69,33 @@ final class MeetupRepository
         $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
     }
 
+    private function ensureStorageExists(): void
+    {
+        if (file_exists($this->importedMeetupsStorage)) {
+            return;
+        }
+
+        throw new ConfigurationException(sprintf(
+            'File "%s" is missing. Run "bin/console import" first.',
+            $this->importedMeetupsStorage
+        ));
+    }
+
+    /**
+     * @param mixed[] $meetups
+     * @return Meetup[]
+     */
+    private function turnsArraysToObjects(array $meetups): array
+    {
+        $meetupsAsObjects = [];
+
+        foreach ($meetups as $meetup) {
+            $meetupsAsObjects[] = $this->meetupFactory->createFromArray($meetup);
+        }
+
+        return $meetupsAsObjects;
+    }
+
     /**
      * @param Meetup[] $meetups
      * @return mixed[]
@@ -58,11 +109,10 @@ final class MeetupRepository
                 'name' => $meetup->getName(),
                 'userGroup' => $meetup->getUserGroup(),
                 'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
-                'end' => $meetup->getEndDateTime() !== null ? $meetup->getEndDateTime()->format('Y-m-d H:i') : null,
-                'city' => $meetup->getLocatoin()->getCity(),
-                'country' => $meetup->getLocatoin()->getCountry(),
-                'longitude' => $meetup->getLocatoin()->getLongitude(),
-                'latitude' => $meetup->getLocatoin()->getLatitude(),
+                'city' => $meetup->getCity(),
+                'country' => $meetup->getCountry(),
+                'latitude' => $meetup->getLatitude(),
+                'longitude' => $meetup->getLongitude(),
                 'url' => $meetup->getUrl(),
             ];
         }

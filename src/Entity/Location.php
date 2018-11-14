@@ -2,6 +2,8 @@
 
 namespace Fop\Entity;
 
+use Location\Coordinate;
+
 final class Location
 {
     /**
@@ -15,21 +17,15 @@ final class Location
     private $country;
 
     /**
-     * @var float
+     * @var Coordinate
      */
-    private $longitude;
+    private $coordinate;
 
-    /**
-     * @var float
-     */
-    private $latitude;
-
-    public function __construct(string $city, string $country, float $longitude, float $latitude)
+    public function __construct(string $city, string $country, Coordinate $coordinate)
     {
         $this->city = $city;
         $this->country = $country;
-        $this->longitude = $longitude;
-        $this->latitude = $latitude;
+        $this->coordinate = $coordinate;
     }
 
     public function getCity(): string
@@ -42,13 +38,8 @@ final class Location
         return $this->country;
     }
 
-    public function getLongitude(): float
+    public function getCoordinate(): Coordinate
     {
-        return $this->longitude;
-    }
-
-    public function getLatitude(): float
-    {
-        return $this->latitude;
+        return $this->coordinate;
     }
 }
