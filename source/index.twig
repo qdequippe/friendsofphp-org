@@ -16,6 +16,7 @@ layout: "_layouts/default.twig"
                 <p class="text-center pb-2">
                     <a href="#-" onclick="locateme();" class="btn btn-primary">Locate me</a>
                     <a href="" onclick="share();" class="share-link btn btn-warning ml-3">Share Current Map</a>
+                    <a href="" onclick="share_bounds();" class="share-link-bounds btn btn-warning ml-3">Share Current Map</a>
                 </p>
 
                 <a name="map"></a>
@@ -51,6 +52,12 @@ layout: "_layouts/default.twig"
 
             console.log(currentLocationUrl);
             $(".share-link").attr("href", currentLocationUrl);
+        };
+
+        var share_bounds = function(e) {
+            var currentBoundsInString = JSON.stringify(map.getBounds());
+            console.log(currentBoundsInString);
+            $(".share-link-bounds").attr("href", "?bounds=" + currentBoundsInString);
         };
 
         var round = function (number, precission) {
