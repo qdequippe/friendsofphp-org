@@ -2,16 +2,11 @@ parameters:
     # groups on meetup.com
     groups:
         # add your group here
-        # meetup_com_id can be found by using https://secure.meetup.com/meetup_api/console/?path=/:urlname 
+        # meetup_com_id can be found by using https://secure.meetup.com/meetup_api/console/?path=/:urlname
         # and entering the last segment of your meetup group url into the :urlname input
         # can't you find the "meetup_com_id"? pass the url and comment it; we'll handle it for you
 
         # for maintainers: from time to time, run "bin/console crawl" + "bin/console crawl --america"
-
-        -   name: 'pugRomagna: PHP User Group Romagnolo'
-            meetup_com_id: 27101726
-            meetup_com_url: 'https://www.meetup.com/PUG-Romagna-PHP-User-Group-Romagnolo/'
-            country: 'Italy'
 
         -   name: 'Cape Town Laravel'
             meetup_com_id: 16030882
