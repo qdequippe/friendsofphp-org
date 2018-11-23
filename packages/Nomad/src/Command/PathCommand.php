@@ -6,9 +6,7 @@ use DateTimeInterface;
 use Fop\Entity\Meetup;
 use Fop\Nomad\NomadPolygonFactory;
 use Fop\Nomad\TravelingSalesman\MeetupDistanceEvaluator;
-use Fop\Nomad\ValueObject\TimeSpan;
 use Fop\Repository\MeetupRepository;
-use Location\Polygon;
 use Nette\Utils\DateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -16,6 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
+use function League\Period\interval_around;
 
 /**
  * @see https://developers.google.com/optimization/routing/tsp
@@ -129,7 +128,7 @@ final class PathCommand extends Command
     private function filterMeetupsOutOfTimeAndSpace(array $meetups): array
     {
         $polygon = $this->nomadPolygonFactory->create();
-        $timeSpan = new TimeSpan($this->startDateTime, $this->endDateTime);
+        $timeSpan = interval_around($this->startDateTime, $this->endDateTime);
 
         foreach ($meetups as $key => $meetup) {
             // filter out meetups not located in the polygon
@@ -138,7 +137,7 @@ final class PathCommand extends Command
             }
 
             // filter out meetups out of date
-            if (! $timeSpan->containsDateTime($meetup->getStartDateTime())) {
+            if (! $timeSpan->contains($meetup->getStartDateTime())) {
                 unset($meetups[$key]);
             }
         }

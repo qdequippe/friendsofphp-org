@@ -44,10 +44,8 @@ final class FopKernel extends Kernel
     protected function build(ContainerBuilder $containerBuilder): void
     {
         $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
-
         $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
         $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
-        $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
     }
 
     /**
