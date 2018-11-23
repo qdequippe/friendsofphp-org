@@ -55,21 +55,13 @@
 
     // reconstruction from serialized object is not completely working, so we need to restore it manually
     var restoreBoundFromString = function(stringBound) {
+        stringBound = stringBound.replace(/%22/g, '"');
         pastBounds = JSON.parse(stringBound);
+
         return L.latLngBounds(
             L.latLng(pastBounds._northEast.lat, pastBounds._northEast.lng),
             L.latLng(pastBounds._southWest.lat, pastBounds._southWest.lng)
         );
-    };
-
-    // like $_GET['name'] in PHP
-    var get = function (name) {
-        var results = new RegExp('[\?&]' + name + '=([^&]*)').exec(window.location.href);
-        if (results == null) {
-            return null;
-        } else {
-            return results[1] || 0;
-        }
     };
 
     // get url bounds
@@ -78,14 +70,19 @@
     // @see https://stackoverflow.com/a/36444134/1348344
     var isRefreshed = performance.navigation.type;
 
-    if (get('lat') && get('lon') && isRefreshed === 0) {
-        map.setView([get('lat'), get('lon')], 7);
+    if (get('bounds') && isRefreshed === 0)  {
+        var boundsAsString = get('bounds');
+
+        map.fitBounds(restoreBoundFromString(boundsAsString));
     } else if (pastBounds) {
         map.fitBounds(restoreBoundFromString(pastBounds));
     } else {
         // default map - the whole world
         map.setView([25, 0], 2);
     }
+
+    // set metadata value under the map
+    $("#map_metadata").text(boundsToString(map.getBounds()));
 
     // ref https://github.com/php-ug/php.ug/issues/221#issuecomment-437917289
     var currentCenter = map.getCenter();
@@ -99,7 +96,11 @@
     map.on('moveend', function(e) {
         var bounds = map.getBounds();
         // objects needs to serialize, since only string can be saved: https://stackoverflow.com/a/2010948/1348344
-        window.localStorage.setItem('bounds', JSON.stringify(bounds));
+
+        var boundsAsString = boundsToString(bounds);
+        window.localStorage.setItem('bounds', boundsAsString);
+
+        $("#map_metadata").text(boundsAsString);
     });
 
     // required and nice to have promotion to great tool

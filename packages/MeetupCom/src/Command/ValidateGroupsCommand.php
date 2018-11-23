@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
+use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ValidateGroupsCommand extends Command
 {
@@ -74,13 +75,13 @@ final class ValidateGroupsCommand extends Command
         if (! count($duplicatedGroupIds)) {
             $this->symfonyStyle->success('Great job! There are no duplicated groups.');
 
-            return 0;
+            return ShellCode::SUCCESS;
         }
 
         $this->symfonyStyle->title('Found duplicated groups');
         $this->symfonyStyle->listing($duplicatedGroupIds);
         $this->symfonyStyle->error(sprintf('Cleanup "%s" file please.', $this->groupsStorage));
 
-        return 1;
+        return ShellCode::ERROR;
     }
 }

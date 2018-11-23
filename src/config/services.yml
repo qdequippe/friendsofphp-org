@@ -12,15 +12,7 @@ services:
 
     Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader: ~
 
-    GuzzleHttp\Client:
+    GuzzleHttp\Client: ~
 
     # Symfony\Console
-    Symfony\Component\Console\Style\SymfonyStyle:
-
-    Symfony\Component\Console\Input\ArgvInput: ~
-    Symfony\Component\Console\Input\InputInterface:
-        alias: Symfony\Component\Console\Input\ArgvInput
-
-    Symfony\Component\Console\Output\ConsoleOutput: ~
-    Symfony\Component\Console\Output\OutputInterface:
-        alias: Symfony\Component\Console\Output\ConsoleOutput
+    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~

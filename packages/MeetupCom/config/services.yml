@@ -4,6 +4,6 @@ services:
         public: true
 
     Fop\MeetupCom\:
-        resource: ".."
+        resource: "../src"
 
     GuzzleHttp\Client: ~

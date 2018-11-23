@@ -6,10 +6,10 @@ use Psr\Container\ContainerInterface;
 
 final class ContainerFactory
 {
-    public function create(): ContainerInterface
+    public function createWithConfig(string $config): ContainerInterface
     {
         $fopKernel = new FopKernel();
-        $fopKernel->boot();
+        $fopKernel->bootWithConfig($config);
 
         return $fopKernel->getContainer();
     }

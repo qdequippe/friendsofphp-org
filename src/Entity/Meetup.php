@@ -3,6 +3,7 @@
 namespace Fop\Entity;
 
 use DateTimeInterface;
+use Location\Coordinate;
 
 final class Meetup
 {
@@ -22,19 +23,19 @@ final class Meetup
     private $url;
 
     /**
-     * @var TimeSpan
-     */
-    private $timeSpan;
-
-    /**
      * @var Location
      */
     private $location;
 
+    /**
+     * @var DateTimeInterface
+     */
+    private $startDateTime;
+
     public function __construct(
         string $name,
         string $userGroupName,
-        TimeSpan $timeSpan,
+        DateTimeInterface $startDateTime,
         Location $location,
         string $url
     ) {
@@ -42,12 +43,27 @@ final class Meetup
         $this->userGroupName = $userGroupName;
         $this->location = $location;
         $this->url = $url;
-        $this->timeSpan = $timeSpan;
+        $this->startDateTime = $startDateTime;
     }
 
-    public function getLocatoin(): Location
+    public function getLocation(): Location
     {
         return $this->location;
+    }
+
+    public function getCity(): string
+    {
+        return $this->location->getCity();
+    }
+
+    public function getCountry(): string
+    {
+        return $this->location->getCountry();
+    }
+
+    public function getCoordinate(): Coordinate
+    {
+        return $this->location->getCoordinate();
     }
 
     public function getUrl(): string
@@ -62,12 +78,7 @@ final class Meetup
 
     public function getStartDateTime(): DateTimeInterface
     {
-        return $this->timeSpan->getStartDateTime();
-    }
-
-    public function getEndDateTime(): ?DateTimeInterface
-    {
-        return $this->timeSpan->getEndDateTime();
+        return $this->startDateTime;
     }
 
     public function getName(): string
@@ -80,13 +91,13 @@ final class Meetup
         return $this->userGroupName;
     }
 
-    public function getLongitude(): float
-    {
-        return $this->location->getLongitude();
-    }
-
     public function getLatitude(): float
     {
-        return $this->location->getLatitude();
+        return $this->location->getCoordinate()->getLat();
+    }
+
+    public function getLongitude(): float
+    {
+        return $this->location->getCoordinate()->getLng();
     }
 }
