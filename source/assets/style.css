@@ -163,3 +163,7 @@ footer ul, #groups ul {
     font-size: 1em;
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }
+
+#map_metadata {
+    text-align: center;
+}
