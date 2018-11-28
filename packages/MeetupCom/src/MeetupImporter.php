@@ -25,16 +25,22 @@ final class MeetupImporter
         'Hlavní město Praha' => 'Prague',
         '1065 Budapest' => 'Budapest',
         'ISTANBUL' => 'Istanbul',
+        'Wien' => 'Vienna',
+        '8000 Aarhus C' => 'Aarhus',
         # Germany
         '10997 Berlin' => 'Berlin',
         '22765 Hamburg' => 'Hamburg',
-        'Wien' => 'Vienna',
+        '76227 Karlsruhe' => 'Karlsruhe',
         # UK
         'EC2A 2BA' => 'London',
+        'London, EC2Y 9AE' => 'London',
         'Oxford OX1 3BY' => 'Oxford',
+        'Oxford OX2 6AE' => 'Oxford',
+        'Reading RG1 1DG' => 'Reading',
         'M4 2AH' => 'Manchester',
         'BH12 1AZ' => 'Poole',
         'LE2 7DR' => 'Leicester',
+        'BS2 0BY' => 'Bristol',
     ];
 
     /**
