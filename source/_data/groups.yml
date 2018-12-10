@@ -5718,3 +5718,8 @@ parameters:
             meetup_com_id: 3376682
             meetup_com_url: 'https://www.meetup.com/azPHPUG/'
             country: 'Arizona'
+            
+        -   name: 'Szczecin PHP Meetup'
+            meetup_com_id: 18884863
+            meetup_com_url: 'https://www.meetup.com/Szczecin-PHP-Meetup/'
+            country: 'Poland'
