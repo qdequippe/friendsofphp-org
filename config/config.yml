@@ -1,0 +1,31 @@
+imports:
+    - { resource: 'config.local.yml', ignore_errors: true }
+
+parameters:
+    # id of map element for javascript
+    map_id: 'mapid'
+
+    groups_storage: '%kernel.project_dir%/source/_data/groups.yml'
+    imported_meetups_storage: '%kernel.project_dir%/source/_data/generated/imported_meetups.yml'
+
+    # how many days into the future the meetups should be imported
+    max_forecast_days: 30
+
+services:
+    _defaults:
+        autowire: true
+        public: true
+
+    Fop\:
+        resource: '../src'
+        exclude: '../src/{Entity,DependencyInjection/FopKernel.php}'
+
+    Symfony\Component\Console\Application:
+        public: true
+
+    Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader: ~
+
+    GuzzleHttp\Client: ~
+
+    # Symfony\Console
+    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
