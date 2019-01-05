@@ -25,7 +25,7 @@ script:
     - bin/console validate-groups
 
     # import data
-    - bin/console import
+    - bin/console import -vvv
 
     # generate website to "/output" directory, it will be deployed later in "deploy" + imports groups and meetups
     - vendor/bin/statie generate source -vvv
