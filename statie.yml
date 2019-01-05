@@ -1,7 +1,7 @@
 imports:
     - { resource: 'source/_data/*.yml' }
     - { resource: 'source/_data/generated/*.yml' }
-    - { resource: 'src/config/parameters.yml' }
+    - { resource: 'config/parameters.yml' }
 
 parameters:
     site_title: 'European PHP Meetups at 1 place'
