@@ -31,6 +31,7 @@ final class MeetupImporter
         '10997 Berlin' => 'Berlin',
         '22765 Hamburg' => 'Hamburg',
         '76227 Karlsruhe' => 'Karlsruhe',
+        'Unterföhrin' => 'Munich',
         # UK
         'EC2A 2BA' => 'London',
         'London, EC2Y 9AE' => 'London',
