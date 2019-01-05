@@ -30,7 +30,7 @@
         {% if daysFromToday >= minDays and daysFromToday <= max_forecast_days %}
             <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}">
                 <td class="w-25">
-                    <nobr>{{ meetup.start|date("D m-d") }}</nobr>
+                    <nobr>{{ meetup.start|date("D, M d") }}</nobr>
                     <br>
                     <small class="text-secondary">{{ meetup.start|date("H:i") }}</small>
                 </td>
