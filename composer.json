@@ -5,22 +5,22 @@
         "guzzlehttp/guzzle": "^6.3",
         "nette/utils": "^2.5",
         "rinvex/countries": "^3.1",
-        "symplify/statie": "^5.2",
-        "symplify/package-builder": "^5.2",
-        "symfony/console": "^4.1",
-        "symfony/dependency-injection": "^4.1",
-        "symfony/dom-crawler": "^4.1",
-        "symfony/http-kernel": "^4.1",
-        "symfony/var-dumper": "^4.1",
+        "symplify/statie": "^5.3",
+        "symplify/package-builder": "^5.3",
+        "symfony/console": "^4.2",
+        "symfony/dependency-injection": "^4.2",
+        "symfony/dom-crawler": "^4.2",
+        "symfony/http-kernel": "^4.2",
+        "symfony/var-dumper": "^4.2",
         "mjaschen/phpgeo": "^2.0",
-        "league/period": "^4.0"
+        "league/period": "^4.3"
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.10.5",
-        "phpunit/phpunit": "^7.4",
+        "phpstan/phpstan": "^0.10.7",
+        "phpunit/phpunit": "^7.5",
         "spatie/http-status-check": "^3.1",
-        "symplify/easy-coding-standard": "^5.2",
-        "symplify/monorepo-builder": "^5.2"
+        "symplify/easy-coding-standard": "^5.3",
+        "symplify/monorepo-builder": "^5.3"
     },
     "autoload": {
         "psr-4": {
