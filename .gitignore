@@ -5,3 +5,5 @@ composer.lock
 package-lock.json
 
 /source/_data/generated
+
+config.local.yml
