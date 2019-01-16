@@ -5718,3 +5718,8 @@ parameters:
             meetup_com_id: 3376682
             meetup_com_url: 'https://www.meetup.com/azPHPUG/'
             country: 'Arizona'
+
+        -   name: 'Péhápkaři Brno'
+            meetup_com_id: 30881318
+            meetup_com_url: 'https://www.meetup.com/Pehapkari-Brno/'
+            country: 'Czech Republic'
