@@ -1,9 +1,13 @@
+# statie
 /output
-/vendor
+
+# npm
 /node_modules
-composer.lock
 package-lock.json
 
-/source/_data/generated
+# composer
+/vendor
+composer.lock
 
+/source/_data/generated
 config.local.yml

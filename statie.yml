@@ -5,7 +5,6 @@ imports:
 
 parameters:
     site_title: 'European PHP Meetups at 1 place'
-    templating: 'twig'
 
     # its still public in the footer, so no need to hide it
     # setup & manage here: https://console.cloud.google.com/apis/credentials
