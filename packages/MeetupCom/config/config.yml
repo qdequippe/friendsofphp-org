@@ -13,6 +13,7 @@ parameters:
         - 'drupal'
         - 'wordpress'
         - 'symfony'
+        - 'sylius'
         - 'cakephp'
         - 'magento'
         - 'prestashop'
