@@ -154,6 +154,8 @@ final class MeetupImporter
             $venue['lat'] = $event['group']['group_lat'];
         }
 
+        $venue = $this->normalizeCityStates($venue);
+
         $venue['city'] = $this->normalizeCity($venue['city']);
         $country = $this->countryResolver->resolveByVenue($venue);
 
@@ -188,6 +190,23 @@ final class MeetupImporter
     {
         return DateTime::from($time + $utcOffset)
             ->setTimezone(new DateTimeZone('UTC'));
+    }
+
+    /**
+     * @param mixed[] $venue
+     * @return mixed[]
+     */
+    private function normalizeCityStates(array $venue): array
+    {
+        if (isset($venue['city']) && $venue['city'] !== null) {
+            return $venue;
+        }
+
+        if ($venue['localized_country_name'] === 'Singapore') {
+            $venue['city'] = 'Singapore';
+        }
+
+        return $venue;
     }
 
     private function normalizeCity(string $city): string
