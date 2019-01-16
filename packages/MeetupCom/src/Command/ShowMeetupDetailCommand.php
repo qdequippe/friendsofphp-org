@@ -109,7 +109,7 @@ final class ShowMeetupDetailCommand extends Command
                 continue;
             }
 
-            $this->printGroup($group);
+            $this->groupReporter->printGroup($group);
         }
     }
 
