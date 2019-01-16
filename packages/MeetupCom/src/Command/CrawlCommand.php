@@ -40,7 +40,7 @@ final class CrawlCommand extends Command
     /**
      * @var mixed[][]
      */
-    private $groupsByCountry = [];
+    private $groups = [];
 
     /**
      * @var string[]
@@ -148,6 +148,11 @@ final class CrawlCommand extends Command
             return true;
         }
 
+        // invalid states
+        if (in_array($country->getIsoAlpha2(), ['ax'], true)) {
+            return true;
+        }
+
         return false;
     }
 
@@ -156,11 +161,6 @@ final class CrawlCommand extends Command
         $crawlUrl = sprintf('https://www.meetup.com/topics/%s/%s/', $keyword, $countryCode);
         $this->symfonyStyle->writeln(' * ' . $crawlUrl);
 
-        // init
-        if (! isset($this->groupsByCountry[$countryCode])) {
-            $this->groupsByCountry[$countryCode] = [];
-        }
-
         $crawler = $this->createCrawlerFromUrl($crawlUrl);
 
         // top 10 overall → nothing found and fallback to main page → skip
@@ -168,21 +168,19 @@ final class CrawlCommand extends Command
             return;
         }
 
-        $this->collectGroups($crawler, $countryCode);
+        $this->collectGroups($crawler);
     }
 
     private function reportFoundGroups(): void
     {
         $this->symfonyStyle->section('Found groups');
 
-        foreach ($this->groupsByCountry as $groups) {
-            $groups = Arrays::unique($groups);
-            $groups = $this->phpRelatedFilter->filterGroups($groups);
+        $groups = Arrays::unique($this->groups);
+        $groups = $this->phpRelatedFilter->filterGroups($groups);
 
-            foreach ($groups as $group) {
-                $group = $this->groupDetailResolver->resolveFromUrl($group[Group::URL]);
-                $this->groupReporter->printGroup($group);
-            }
+        foreach ($groups as $group) {
+            $group = $this->groupDetailResolver->resolveFromUrl($group[Group::URL]);
+            $this->groupReporter->printGroup($group);
         }
     }
 
@@ -222,7 +220,7 @@ final class CrawlCommand extends Command
                     }
 
                     // headlines + urls of found groups
-                    $this->groupsByCountry['us_' . $state][] = [
+                    $this->groups['us_' . $state][] = [
                         Group::NAME => $groupName = $node->filterXPath('//a')->text(),
                         Group::URL => $groupUrl,
                     ];
@@ -243,10 +241,10 @@ final class CrawlCommand extends Command
         return new Crawler($remoteContent);
     }
 
-    private function collectGroups(Crawler $crawler, string $countryCode): void
+    private function collectGroups(Crawler $crawler): void
     {
         $crawler->filterXPath('//span[@class="spreadable-item attachment"]')->each(
-            function (Crawler $node) use ($countryCode): void {
+            function (Crawler $node): void {
                 $groupUrl = $node->filterXPath('//a/@href')->text();
 
                 // is already among groups?
@@ -255,7 +253,7 @@ final class CrawlCommand extends Command
                 }
 
                 // headlines + urls of found groups
-                $this->groupsByCountry[$countryCode][] = [
+                $this->groups[] = [
                     Group::NAME => $node->filterXPath('//span[@class="text--bold display--block"]')->text(),
                     Group::URL => $groupUrl,
                 ];
