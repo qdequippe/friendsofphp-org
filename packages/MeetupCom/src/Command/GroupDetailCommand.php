@@ -15,7 +15,7 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
 use function Safe\sprintf;
 
-final class ShowMeetupDetailCommand extends Command
+final class GroupDetailCommand extends Command
 {
     /**
      * @var string
@@ -64,7 +64,7 @@ final class ShowMeetupDetailCommand extends Command
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription(
-            'Shows details for meetup group(s). You can provide either 1 group link: "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/", or a file with multiple such links, each on single row.'
+            'Shows details for group. Provide 1 group link: "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/", or a file with multiple urls, each on new line.'
         );
         $this->addArgument(
             self::ARGUMENT_SOURCE,
