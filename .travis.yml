@@ -15,7 +15,7 @@ script:
     - vendor/bin/phpunit
 
     # run from time to time
-    # - bin/console crawl
+    - bin/console crawl
 
     # code analysis
     - composer check-cs
