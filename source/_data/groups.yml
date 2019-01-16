@@ -615,7 +615,7 @@ parameters:
 
         -   name: 'Ann Arbor'
             meetup_com_id: 1771989
-            meetup_com_url: 'https://www.meetup.com/ann-arbor-php-mysql/'
+            meetup_com_url: 'https://www.meetup.com/ann-arbor-php/'
             country: 'Michigan'
 
         -   name: TrianglePHP
@@ -640,7 +640,7 @@ parameters:
 
         -   name: Orlando
             meetup_com_id: 120882
-            meetup_com_url: 'https://www.meetup.com/orlandophp/'
+            meetup_com_url: 'https://www.meetup.com/OrlandoPHP/'
             country: 'Florida'
 
         -   name: Seattle
