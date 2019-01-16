@@ -2,8 +2,7 @@
 
 namespace Fop\MeetupCom\Command;
 
-use Fop\Country\CountryResolver;
-use Fop\MeetupCom\Api\MeetupComApi;
+use Fop\MeetupCom\Group\GroupDetailResolver;
 use Fop\Repository\GroupRepository;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Console\Command\Command;
@@ -33,31 +32,24 @@ final class ShowMeetupDetailCommand extends Command
     private $symfonyStyle;
 
     /**
-     * @var MeetupComApi
-     */
-    private $meetupComApi;
-
-    /**
-     * @var CountryResolver
-     */
-    private $countryResolver;
-
-    /**
      * @var GroupRepository
      */
     private $groupRepository;
 
+    /**
+     * @var GroupDetailResolver
+     */
+    private $groupDetailResolver;
+
     public function __construct(
-        MeetupComApi $meetupComApi,
         SymfonyStyle $symfonyStyle,
-        CountryResolver $countryResolver,
-        GroupRepository $groupRepository
+        GroupRepository $groupRepository,
+        GroupDetailResolver $groupDetailResolver
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
-        $this->meetupComApi = $meetupComApi;
-        $this->countryResolver = $countryResolver;
         $this->groupRepository = $groupRepository;
+        $this->groupDetailResolver = $groupDetailResolver;
     }
 
     protected function configure(): void
@@ -84,7 +76,7 @@ final class ShowMeetupDetailCommand extends Command
             return ShellCode::SUCCESS;
         }
 
-        $group = $this->getGroupDetailForMeetupComUrl($source);
+        $group = $this->groupDetailResolver->resolveFromUrl($source);
         if ($this->isGroupAlreadyImported($group)) {
             $this->symfonyStyle->error(sprintf('Group "%s" is already imported.', $source));
         } else {
@@ -103,7 +95,7 @@ final class ShowMeetupDetailCommand extends Command
         $groupUrls = array_filter($groupUrls);
 
         foreach ($groupUrls as $groupUrl) {
-            $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
+            $group = $this->groupDetailResolver->resolveFromUrl($groupUrl);
             if ($this->isGroupAlreadyImported($group)) {
                 $this->symfonyStyle->note(sprintf('Group "%s" is already imported', $groupUrl));
                 continue;
@@ -111,17 +103,6 @@ final class ShowMeetupDetailCommand extends Command
 
             $this->printGroup($group);
         }
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function getGroupDetailForMeetupComUrl(string $source): array
-    {
-        $group = $this->meetupComApi->getGroupForUrl($source);
-        $group['country'] = $this->countryResolver->resolveFromGroup($group);
-
-        return $group;
     }
 
     /**
