@@ -2,6 +2,7 @@
 
 namespace Fop\MeetupCom\Command;
 
+use Fop\MeetupCom\Command\Reporter\GroupReporter;
 use Fop\MeetupCom\Group\GroupDetailResolver;
 use Fop\Repository\GroupRepository;
 use Nette\Utils\FileSystem;
@@ -41,15 +42,22 @@ final class ShowMeetupDetailCommand extends Command
      */
     private $groupDetailResolver;
 
+    /**
+     * @var GroupReporter
+     */
+    private $groupReporter;
+
     public function __construct(
         SymfonyStyle $symfonyStyle,
         GroupRepository $groupRepository,
-        GroupDetailResolver $groupDetailResolver
+        GroupDetailResolver $groupDetailResolver,
+        GroupReporter $groupReporter
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
         $this->groupRepository = $groupRepository;
         $this->groupDetailResolver = $groupDetailResolver;
+        $this->groupReporter = $groupReporter;
     }
 
     protected function configure(): void
@@ -80,7 +88,7 @@ final class ShowMeetupDetailCommand extends Command
         if ($this->isGroupAlreadyImported($group)) {
             $this->symfonyStyle->error(sprintf('Group "%s" is already imported.', $source));
         } else {
-            $this->printGroup($group);
+            $this->groupReporter->printGroup($group);
         }
 
         return ShellCode::SUCCESS;
@@ -117,18 +125,6 @@ final class ShowMeetupDetailCommand extends Command
         $this->alreadyImportedIds[] = $group['id'];
 
         return false;
-    }
-
-    /**
-     * @param mixed[] $group
-     */
-    private function printGroup(array $group): void
-    {
-        $this->symfonyStyle->writeln(sprintf("        -   name: '%s'", str_replace("'", '"', $group['name'])));
-        $this->symfonyStyle->writeln(sprintf('            meetup_com_id: %s', $group['id']));
-        $this->symfonyStyle->writeln(sprintf("            meetup_com_url: '%s'", $group['link']));
-        $this->symfonyStyle->writeln(sprintf("            country: '%s'", $group['country']));
-        $this->symfonyStyle->newLine();
     }
 
     /**

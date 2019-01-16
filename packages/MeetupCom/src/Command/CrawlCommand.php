@@ -3,6 +3,7 @@
 namespace Fop\MeetupCom\Command;
 
 use Fop\Entity\Group;
+use Fop\MeetupCom\Command\Reporter\GroupReporter;
 use Fop\MeetupCom\Filter\PhpRelatedFilter;
 use Fop\MeetupCom\Group\GroupDetailResolver;
 use Fop\Repository\GroupRepository;
@@ -72,6 +73,11 @@ final class CrawlCommand extends Command
     private $groupDetailResolver;
 
     /**
+     * @var GroupReporter
+     */
+    private $groupReporter;
+
+    /**
      * @param string[] $topicsToCrawl
      * @param string[] $usaStates
      * @param string[] $countryCodesWithNoPhpGroups
@@ -81,6 +87,7 @@ final class CrawlCommand extends Command
         GroupRepository $groupRepository,
         PhpRelatedFilter $phpRelatedFilter,
         GroupDetailResolver $groupDetailResolver,
+        GroupReporter $groupReporter,
         array $topicsToCrawl,
         array $usaStates,
         array $countryCodesWithNoPhpGroups
@@ -94,6 +101,7 @@ final class CrawlCommand extends Command
         $this->countryCodesWithNoPhpGroups = $countryCodesWithNoPhpGroups;
         $this->usaStates = $usaStates;
         $this->groupDetailResolver = $groupDetailResolver;
+        $this->groupReporter = $groupReporter;
     }
 
     protected function configure(): void
@@ -200,7 +208,7 @@ final class CrawlCommand extends Command
 
             foreach ($groups as $group) {
                 $group = $this->groupDetailResolver->resolveFromUrl($group[Group::URL]);
-                $this->printGroup($group);
+                $this->groupReporter->printGroup($group);
             }
         }
     }
@@ -280,17 +288,5 @@ final class CrawlCommand extends Command
                 ];
             }
         );
-    }
-
-    /**
-     * @param mixed[] $group
-     */
-    private function printGroup(array $group): void
-    {
-        $this->symfonyStyle->writeln(sprintf("        -   name: '%s'", str_replace("'", '"', $group['name'])));
-        $this->symfonyStyle->writeln(sprintf('            meetup_com_id: %s', $group['id']));
-        $this->symfonyStyle->writeln(sprintf("            meetup_com_url: '%s'", $group['link']));
-        $this->symfonyStyle->writeln(sprintf("            country: '%s'", $group['country']));
-        $this->symfonyStyle->newLine();
     }
 }
