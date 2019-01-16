@@ -45,11 +45,6 @@ final class CrawlCommand extends Command
     /**
      * @var string[]
      */
-    private $countryCodesWithNoPhpGroups = [];
-
-    /**
-     * @var string[]
-     */
     private $stateCityUrls = [];
 
     /**
@@ -80,7 +75,6 @@ final class CrawlCommand extends Command
     /**
      * @param string[] $topicsToCrawl
      * @param string[] $usaStates
-     * @param string[] $countryCodesWithNoPhpGroups
      */
     public function __construct(
         SymfonyStyle $symfonyStyle,
@@ -89,8 +83,7 @@ final class CrawlCommand extends Command
         GroupDetailResolver $groupDetailResolver,
         GroupReporter $groupReporter,
         array $topicsToCrawl,
-        array $usaStates,
-        array $countryCodesWithNoPhpGroups
+        array $usaStates
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
@@ -98,7 +91,6 @@ final class CrawlCommand extends Command
         $this->phpRelatedFilter = $phpRelatedFilter;
         $this->topicsToCrawl = $topicsToCrawl;
 
-        $this->countryCodesWithNoPhpGroups = $countryCodesWithNoPhpGroups;
         $this->usaStates = $usaStates;
         $this->groupDetailResolver = $groupDetailResolver;
         $this->groupReporter = $groupReporter;
@@ -132,10 +124,6 @@ final class CrawlCommand extends Command
             }
         }
 
-        // detect country codes that were empty on "PHP" search
-        // by excluding them, the followup search with other keywords can be faster
-        $this->reportEmptyCountries();
-
         $this->reportFoundGroups();
 
         $this->symfonyStyle->success('Crawling was successful');
@@ -160,9 +148,7 @@ final class CrawlCommand extends Command
             return true;
         }
 
-        $countryCode = strtolower($country->getIsoAlpha2());
-
-        return in_array($countryCode, $this->countryCodesWithNoPhpGroups, true);
+        return false;
     }
 
     private function processKeywordAndCountry(string $keyword, string $countryCode): void
@@ -183,19 +169,6 @@ final class CrawlCommand extends Command
         }
 
         $this->collectGroups($crawler, $countryCode);
-    }
-
-    private function reportEmptyCountries(): void
-    {
-        $this->symfonyStyle->section('Empty country codes');
-
-        foreach ($this->groupsByCountry as $country => $groups) {
-            if (count($groups)) {
-                continue;
-            }
-
-            $this->symfonyStyle->writeln($country);
-        }
     }
 
     private function reportFoundGroups(): void
