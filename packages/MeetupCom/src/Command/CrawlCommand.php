@@ -4,12 +4,11 @@ namespace Fop\MeetupCom\Command;
 
 use Fop\Entity\Group;
 use Fop\MeetupCom\Command\Reporter\GroupReporter;
+use Fop\MeetupCom\Crawler\CrawlerFactory;
 use Fop\MeetupCom\Filter\PhpRelatedFilter;
 use Fop\MeetupCom\Group\GroupDetailResolver;
 use Fop\Repository\GroupRepository;
 use Fop\Utils\Arrays;
-use Nette\IOException;
-use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
@@ -24,11 +23,6 @@ use Symplify\PackageBuilder\Console\ShellCode;
 
 final class CrawlCommand extends Command
 {
-    /**
-     * @var string
-     */
-    private const XML_CONDOM = '<?xml version="1.0" encoding="utf-8"?>';
-
     /**
      * @var string[]
      */
@@ -75,6 +69,11 @@ final class CrawlCommand extends Command
     private $groupReporter;
 
     /**
+     * @var CrawlerFactory
+     */
+    private $crawlerFactory;
+
+    /**
      * @param string[] $topicsToCrawl
      * @param string[] $usaStates
      * @param string[] $invalidCountryCodes
@@ -85,6 +84,7 @@ final class CrawlCommand extends Command
         PhpRelatedFilter $phpRelatedFilter,
         GroupDetailResolver $groupDetailResolver,
         GroupReporter $groupReporter,
+        CrawlerFactory $crawlerFactory,
         array $topicsToCrawl,
         array $usaStates,
         array $invalidCountryCodes
@@ -99,6 +99,7 @@ final class CrawlCommand extends Command
         $this->groupDetailResolver = $groupDetailResolver;
         $this->groupReporter = $groupReporter;
         $this->invalidCountryCodes = $invalidCountryCodes;
+        $this->crawlerFactory = $crawlerFactory;
     }
 
     protected function configure(): void
@@ -179,7 +180,7 @@ final class CrawlCommand extends Command
         $stateCityUrls = $this->collectUsaStateCityUrls($keyword, $state);
 
         foreach ($stateCityUrls as $stateCityUrl) {
-            $crawler = $this->createCrawlerFromUrl($stateCityUrl);
+            $crawler = $this->crawlerFactory->createFromUrl($stateCityUrl);
             if ($crawler === null) {
                 continue;
             }
@@ -228,7 +229,7 @@ final class CrawlCommand extends Command
         $crawlUrl = sprintf('https://www.meetup.com/topics/%s/%s/', $keyword, $countryCode);
         $this->symfonyStyle->writeln(' * ' . $crawlUrl);
 
-        $crawler = $this->createCrawlerFromUrl($crawlUrl);
+        $crawler = $this->crawlerFactory->createFromUrl($crawlUrl);
         if ($crawler === null) {
             return;
         }
@@ -251,7 +252,7 @@ final class CrawlCommand extends Command
         $crawlUrl = sprintf('https://www.meetup.com/topics/%s/us/%s/', $keyword, $state);
         $this->symfonyStyle->writeln(' * ' . $crawlUrl);
 
-        $crawler = $this->createCrawlerFromUrl($crawlUrl);
+        $crawler = $this->crawlerFactory->createFromUrl($crawlUrl);
         if ($crawler === null) {
             return [];
         }
@@ -263,23 +264,6 @@ final class CrawlCommand extends Command
         );
 
         return $stateCityUrls;
-    }
-
-    private function createCrawlerFromUrl(string $url): ?Crawler
-    {
-        try {
-            $remoteContent = trim(FileSystem::read($url));
-        } catch (IOException $iOException) {
-            $this->symfonyStyle->error($iOException->getMessage());
-            return null;
-        }
-
-        if (Strings::startsWith($remoteContent, self::XML_CONDOM)) {
-            $remoteContent = Strings::substring($remoteContent, strlen(self::XML_CONDOM));
-            $remoteContent = trim($remoteContent);
-        }
-
-        return new Crawler($remoteContent);
     }
 
     private function collectGroups(Crawler $crawler): void

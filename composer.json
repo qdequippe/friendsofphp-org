@@ -2,6 +2,7 @@
     "name": "friends-of-php/friends-of-php",
     "require": {
         "php": "^7.2",
+        "ext-simplexml": "*",
         "guzzlehttp/guzzle": "^6.3",
         "nette/utils": "^2.5",
         "rinvex/countries": "^3.1",

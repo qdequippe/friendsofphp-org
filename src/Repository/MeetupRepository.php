@@ -37,9 +37,10 @@ final class MeetupRepository
     /**
      * @param Meetup[] $meetups
      */
-    public function saveImportsToFile(array $meetups): void
+    public function saveImportsToFile(array $meetups, string $category): void
     {
-        $this->saveToFileAndStorage($meetups, $this->importedMeetupsStorage);
+        $fileName = $this->importedMeetupsStorage . '/' . $category . '-imported_meetups.yml';
+        $this->saveToFileAndStorage($meetups, $fileName);
     }
 
     /**

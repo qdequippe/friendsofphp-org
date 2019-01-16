@@ -1,4 +1,6 @@
 parameters:
+    level: max
+
     ignoreErrors:
         # known value, container is already created
         - '#Method Fop\\DependencyInjection\\ContainerFactory::(create|createWithConfig)\(\) should return Psr\\Container\\ContainerInterface but returns Symfony\\Component\\DependencyInjection\\ContainerInterface\|null#'
