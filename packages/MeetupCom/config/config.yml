@@ -10,14 +10,15 @@ parameters:
     topics_to_crawl:
         - 'php'
         - 'laravel'
-        - 'drupal'
-        - 'wordpress'
         - 'symfony'
         - 'sylius'
         - 'cakephp'
-        - 'magento'
-        - 'prestashop'
         - 'php-framework'
+        # skip these groups to get performance - they are probably all already imported
+        # - 'drupal'
+        # - 'wordpress'
+        # - 'magento'
+        # - 'prestashop'
 
     usa_states:
         al: 'Alabama'

@@ -13,6 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
+use function Safe\sprintf;
 
 final class ShowMeetupDetailCommand extends Command
 {
@@ -104,6 +105,7 @@ final class ShowMeetupDetailCommand extends Command
         foreach ($groupUrls as $groupUrl) {
             $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
             if ($this->isGroupAlreadyImported($group)) {
+                $this->symfonyStyle->note(sprintf('Group "%s" is already imported', $groupUrl));
                 continue;
             }
 
