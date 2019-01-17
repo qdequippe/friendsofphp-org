@@ -21,11 +21,12 @@ layout: "_layouts/default.twig"
             <a name="map"></a>
             <div id="{{ map_id }}" class="mr-4"></div>
 
-            <small class="text-secondary pt-3">
-                <div id="map_metadata"></div>
-            </small>
-
-            <br>
+            <div class="text-center pt-3 pb-3">
+                <small class="text-secondary">
+                    <span id="map_metadata"></span>
+                    <span class="pl-5">Regenerated at {{ "now"|date("D, M d - H:i") }}</span>
+                </small>
+            </div>
 
             {% include "_snippets/meetups/table.twig" %}
         </div>
