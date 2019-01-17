@@ -5,3 +5,4 @@ services:
 
     Fop\DouUa\:
         resource: "../src"
+        exclude: "../src/{Exception}"

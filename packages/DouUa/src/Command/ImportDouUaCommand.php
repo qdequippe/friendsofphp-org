@@ -3,6 +3,7 @@
 namespace Fop\DouUa\Command;
 
 use DateTimeInterface;
+use Fop\DouUa\Xml\XmlReader;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Location\LocationResolver;
@@ -22,6 +23,11 @@ use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ImportDouUaCommand extends Command
 {
+    /**
+     * @var string
+     */
+    private const XML_CALENDAR_FEED = 'https://dou.ua/calendar/feed/PHP/';
+
     /**
      * @var int
      */
@@ -52,12 +58,18 @@ final class ImportDouUaCommand extends Command
      */
     private $meetupRepository;
 
+    /**
+     * @var XmlReader
+     */
+    private $xmlReader;
+
     public function __construct(
         CrawlerFactory $crawlerFactory,
         LocationResolver $locationResolver,
         SymfonyStyle $symfonyStyle,
         int $maxForecastDays,
-        MeetupRepository $meetupRepository
+        MeetupRepository $meetupRepository,
+        XmlReader $xmlReader
     ) {
         parent::__construct();
         $this->crawlerFactory = $crawlerFactory;
@@ -67,6 +79,7 @@ final class ImportDouUaCommand extends Command
         $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
 
         $this->meetupRepository = $meetupRepository;
+        $this->xmlReader = $xmlReader;
     }
 
     protected function configure(): void
@@ -77,11 +90,7 @@ final class ImportDouUaCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $xmlFeedUrl = 'https://dou.ua/calendar/feed/PHP/';
-        $xml = simpleXML_load_file($xmlFeedUrl);
-        if ($xml === false) {
-            return ShellCode::ERROR;
-        }
+        $xml = $this->xmlReader->loadFile(self::XML_CALENDAR_FEED);
 
         $meetups = [];
         foreach ($xml->channel->item as $meetup) {
