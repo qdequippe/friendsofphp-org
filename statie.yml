@@ -13,10 +13,7 @@ parameters:
 services:
     _defaults:
         autowire: true
-        autoconfigure: true
 
     Fop\Twig\DatingFilterProvider: ~
     Fop\Twig\GroupsFilterProvider: ~
-
-    Snilius\Twig\SortByFieldExtension: ~
     Fop\Twig\SortingFilterProvider: ~

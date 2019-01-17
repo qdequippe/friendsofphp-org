@@ -12,9 +12,9 @@ final class SortingFilterProvider implements FilterProviderInterface
      */
     private $sortByFieldExtension;
 
-    public function __construct(SortByFieldExtension $sortByFieldExtension)
+    public function __construct()
     {
-        $this->sortByFieldExtension = $sortByFieldExtension;
+        $this->sortByFieldExtension = new SortByFieldExtension();
     }
 
     /**

@@ -22,11 +22,16 @@ final class MeetupImporter
      * @var string[]
      */
     private $cityNormalizationMap = [
+        'Brno-Královo Pole' => 'Brno',
         'Hlavní město Praha' => 'Prague',
         '1065 Budapest' => 'Budapest',
         'ISTANBUL' => 'Istanbul',
         'Wien' => 'Vienna',
         '8000 Aarhus C' => 'Aarhus',
+        'Le Kremlin-Bicêtre' => 'Paris',
+        'Parramatta' => 'Paris',
+        'Stellenbosch' => 'Cape Town',
+
         # Germany
         '10997 Berlin' => 'Berlin',
         '22765 Hamburg' => 'Hamburg',
