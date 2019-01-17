@@ -11,5 +11,12 @@ parameters:
     google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'
 
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
     Fop\Twig\DatingFilterProvider: ~
     Fop\Twig\GroupsFilterProvider: ~
+
+    Snilius\Twig\SortByFieldExtension: ~
+    Fop\Twig\SortingFilterProvider: ~

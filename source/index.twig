@@ -3,6 +3,9 @@ title: "Meet Your Friends of PHP"
 layout: "_layouts/default.twig"
 ---
 
+{# sort meetups from all imported files from nearest to the most further one #}
+{% set meetups = sortByField(meetups, 'start') %}
+
 <div class="container-fluid" id="content">
     <div class="row">
         <div class="col-md-12 pb-5 pt-4">

@@ -17,9 +17,6 @@ final class GroupsFilterProvider implements FilterProviderInterface
 
                 return $this->groupByCountry($groups);
             },
-            'countGroups' => function (array $groups): int {
-                return count($groups);
-            },
         ];
     }
 
