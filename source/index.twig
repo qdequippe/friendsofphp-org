@@ -3,53 +3,50 @@ title: "Meet Your Friends of PHP"
 layout: "_layouts/default.twig"
 ---
 
-{% block content %}
-    <div class="container-fluid" id="content">
-        <div class="row">
-            <div class="col-md-12 pb-5 pt-4">
-                <div id="subhead" class="pt-0 pb-4 text-center">
-                    <strong>{{ meetups|length }} meetups</strong> in next {{ max_forecast_days }} days from <a href="/groups/">{{ groups|length }} groups</a> all over the world
-                </div>
-
-                <p class="text-center pb-2">
-                    <a href="#-" onclick="locateme();" class="btn btn-primary">Locate me</a>
-                    <a href="" onclick="share_bounds();" class="share-link-bounds btn btn-warning ml-3">Share Current Map</a>
-                </p>
-
-                <a name="map"></a>
-                <div id="{{ map_id }}" class="mr-4"></div>
-
-                <small class="text-secondary pt-3">
-                    <div id="map_metadata"></div>
-                </small>
-
-                <br>
-
-                {% include "_snippets/meetups/table.twig" %}
+<div class="container-fluid" id="content">
+    <div class="row">
+        <div class="col-md-12 pb-5 pt-4">
+            <div id="subhead" class="pt-0 pb-4 text-center">
+                <strong>{{ meetups|length }} meetups</strong> in next {{ max_forecast_days }} days from <a href="/groups/">{{ groups|length }} groups</a> all over the world
             </div>
+
+            <p class="text-center pb-2">
+                <a href="#-" onclick="locateme();" class="btn btn-primary">Locate me</a>
+                <a href="" onclick="share_bounds();" class="share-link-bounds btn btn-warning ml-3">Share Current Map</a>
+            </p>
+
+            <a name="map"></a>
+            <div id="{{ map_id }}" class="mr-4"></div>
+
+            <small class="text-secondary pt-3">
+                <div id="map_metadata"></div>
+            </small>
+
+            <br>
+
+            {% include "_snippets/meetups/table.twig" %}
         </div>
     </div>
+</div>
 
-    <script src="/assets/js/utils.js?v={{ random() }}"></script>
+<script src="/assets/js/utils.js?v={{ random() }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
-    {# need to be run after jQuery #}
-    <script src="/assets/js/menu-area-pick.js?v={{ random() }}"></script>
-    {# generated javascript using jQuery #}
-    {% include "_snippets/meetups_map_js.twig" %}
+{# need to be run after jQuery #}
+<script src="/assets/js/menu-area-pick.js?v={{ random() }}"></script>
+{# generated javascript using jQuery #}
+{% include "_snippets/meetups_map_js.twig" %}
 
-    <script type="text/javascript">
-        var locateme = function(e) {
-            navigator.geolocation.getCurrentPosition(function(currentLocation) {
-                var currentLatLng = new L.LatLng(currentLocation.coords.latitude, currentLocation.coords.longitude);
-                map.setView(currentLatLng, 8);
-            });
-        };
+<script type="text/javascript">
+    var locateme = function(e) {
+        navigator.geolocation.getCurrentPosition(function(currentLocation) {
+            var currentLatLng = new L.LatLng(currentLocation.coords.latitude, currentLocation.coords.longitude);
+            map.setView(currentLatLng, 8);
+        });
+    };
 
-        var share_bounds = function(e) {
-            $(".share-link-bounds").attr("href", "?bounds=" + boundsToString(map.getBounds()));
-        };
-    </script>
-
-{% endblock %}
+    var share_bounds = function(e) {
+        $(".share-link-bounds").attr("href", "?bounds=" + boundsToString(map.getBounds()));
+    };
+</script>
