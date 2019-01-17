@@ -2,45 +2,21 @@
 
 namespace Fop\CrosswebPl\Command;
 
-use DateTimeInterface;
+use Fop\Command\AbstractImportCommand;
 use Fop\CrosswebPl\Meetup\CrosswebPlMeetupFactory;
 use Fop\DouUa\Xml\XmlReader;
-use Fop\Repository\MeetupRepository;
-use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
 
-final class ImportCrosswebPlCommand extends Command
+final class ImportCrosswebPlCommand extends AbstractImportCommand
 {
     /**
      * @var string
      */
     private const XML_CALENDAR_FEED = 'https://crossweb.pl/feed/wydarzenia/php/';
-
-    /**
-     * @var int
-     */
-    private $maxForecastDays;
-
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
-
-    /**
-     * @var DateTimeInterface
-     */
-    private $maxForecastDateTime;
-
-    /**
-     * @var MeetupRepository
-     */
-    private $meetupRepository;
 
     /**
      * @var XmlReader
@@ -52,19 +28,9 @@ final class ImportCrosswebPlCommand extends Command
      */
     private $crosswebPlMeetupFactory;
 
-    public function __construct(
-        SymfonyStyle $symfonyStyle,
-        int $maxForecastDays,
-        MeetupRepository $meetupRepository,
-        XmlReader $xmlReader,
-        CrosswebPlMeetupFactory $crosswebPlMeetupFactory
-    ) {
+    public function __construct(XmlReader $xmlReader, CrosswebPlMeetupFactory $crosswebPlMeetupFactory)
+    {
         parent::__construct();
-        $this->symfonyStyle = $symfonyStyle;
-        $this->maxForecastDays = $maxForecastDays;
-        $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
-
-        $this->meetupRepository = $meetupRepository;
         $this->xmlReader = $xmlReader;
         $this->crosswebPlMeetupFactory = $crosswebPlMeetupFactory;
     }
@@ -97,14 +63,14 @@ final class ImportCrosswebPlCommand extends Command
             $meetups[] = $meetup;
         }
 
-        $this->meetupRepository->saveImportsToFile($meetups, 'crossweb-pl');
-
-        $this->symfonyStyle->note(
-            sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
-        );
-        $this->symfonyStyle->success('Done');
+        $this->saveAndReportMeetups($meetups);
 
         return ShellCode::SUCCESS;
+    }
+
+    protected function getSourceName(): string
+    {
+        return 'crossweb-pl';
     }
 
     /**

@@ -2,8 +2,7 @@
 
 namespace Fop\MeetupCom\Api;
 
-use Fop\Guzzle\ResponseFormatter;
-use GuzzleHttp\Client;
+use Fop\Guzzle\RequestClient;
 use GuzzleHttp\Exception\ClientException;
 use function GuzzleHttp\Psr7\build_query;
 
@@ -26,20 +25,14 @@ final class MeetupComApi
     private $meetupComApiKey;
 
     /**
-     * @var Client
+     * @var RequestClient
      */
-    private $client;
+    private $requestClient;
 
-    /**
-     * @var ResponseFormatter
-     */
-    private $responseFormatter;
-
-    public function __construct(string $meetupComApiKey, Client $client, ResponseFormatter $responseFormatter)
+    public function __construct(string $meetupComApiKey, RequestClient $requestClient)
     {
         $this->meetupComApiKey = $meetupComApiKey;
-        $this->client = $client;
-        $this->responseFormatter = $responseFormatter;
+        $this->requestClient = $requestClient;
     }
 
     /**
@@ -49,9 +42,10 @@ final class MeetupComApi
     public function getMeetupsByGroupsIds(array $groupIds): array
     {
         $url = $this->createUrlFromGroupIds($groupIds);
-        $response = $this->client->request('GET', $url);
 
-        return $this->responseFormatter->formatResponseToJson($response, $url)['results'];
+        $json = $this->requestClient->requestToJson($url);
+
+        return $json['results'] ?? [];
     }
 
     public function getIdForGroupUrl(string $url): ?int
@@ -75,11 +69,9 @@ final class MeetupComApi
      */
     public function getGroupForUrl(string $url): array
     {
-        $groupPart = $this->resolveGroupUrlNameFromGroupUrl($url);
+        $url = self::API_GROUP_DETAIL_URL . $this->resolveGroupUrlNameFromGroupUrl($url);
 
-        $url = self::API_GROUP_DETAIL_URL . $groupPart;
-        $response = $this->client->request('get', $url);
-        return $this->responseFormatter->formatResponseToJson($response, $url);
+        return $this->requestClient->requestToJson($url);
     }
 
     /**

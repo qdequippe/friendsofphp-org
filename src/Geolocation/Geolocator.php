@@ -3,13 +3,8 @@
 namespace Fop\Geolocation;
 
 use Fop\Entity\Location;
-use Fop\Guzzle\ResponseFormatter;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\Request;
+use Fop\Guzzle\RequestClient;
 use Location\Coordinate;
-use Nette\Utils\Json;
-use Nette\Utils\JsonException;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
 
@@ -36,38 +31,24 @@ final class Geolocator
     private $usaStates = [];
 
     /**
-     * @var ResponseFormatter
+     * @var RequestClient
      */
-    private $responseFormatter;
-
-    /**
-     * @var Client
-     */
-    private $client;
+    private $requestClient;
 
     /**
      * @param string[] $usaStates
      */
-    public function __construct(Client $client, ResponseFormatter $responseFormatter, array $usaStates)
+    public function __construct(array $usaStates, RequestClient $requestClient)
     {
-        $this->client = $client;
-        $this->responseFormatter = $responseFormatter;
         $this->usaStates = $usaStates;
+        $this->requestClient = $requestClient;
     }
 
     public function createLocationFromCity(string $city): ?Location
     {
         $url = sprintf(self::API_CITY_TO_LOCATION, $city);
 
-        $responseBody = $this->getResponseForUrl($url);
-
-        try {
-            $json = Json::decode($responseBody, Json::FORCE_ARRAY);
-        } catch (JsonException $jsonException) {
-            // invalid response
-            return null;
-        }
-
+        $json = $this->requestClient->requestToJson($url);
         if (! isset($json[0]['lat']) || ! isset($json[0]['lat'])) {
             return null;
         }
@@ -161,28 +142,11 @@ final class Geolocator
         }
 
         $url = sprintf(self::API_LOCATION_TO_COUNTRY, $latitude, $longitude);
+        $json = $this->requestClient->requestToJson($url);
 
-        $request = new Request('GET', $url);
-        $response = $this->client->send($request);
+        $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey] = $json;
 
-        // unable to resolve country
-        if ($response->getStatusCode() !== 200) {
-            throw BadResponseException::create($request, $response);
-        }
-
-        $countryJson = $this->responseFormatter->formatResponseToJson($response, $url);
-
-        $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey] = $countryJson;
-
-        return $countryJson;
-    }
-
-    private function getResponseForUrl(string $url): string
-    {
-        $request = new Request('GET', $url);
-        $response = $this->client->send($request);
-
-        return (string) $response->getBody();
+        return $json;
     }
 
     /**
