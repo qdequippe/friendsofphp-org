@@ -2,56 +2,36 @@
 
 namespace Fop\MeetupCom\Command;
 
+use Fop\Command\AbstractImportCommand;
 use Fop\MeetupCom\MeetupImporter;
 use Fop\Repository\GroupRepository;
-use Fop\Repository\MeetupRepository;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
 
-final class ImportMeetupComCommand extends Command
+final class ImportMeetupComCommand extends AbstractImportCommand
 {
-    /**
-     * @var int
-     */
-    private $maxForecastDays;
-
     /**
      * @var GroupRepository
      */
     private $groupRepository;
 
     /**
-     * @var MeetupRepository
-     */
-    private $meetupRepository;
-
-    /**
      * @var MeetupImporter
      */
     private $meetupImporter;
 
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
-
-    public function __construct(
-        GroupRepository $userGroupRepository,
-        MeetupRepository $meetupRepository,
-        MeetupImporter $meetupImporter,
-        SymfonyStyle $symfonyStyle,
-        int $maxForecastDays
-    ) {
+    public function __construct(GroupRepository $userGroupRepository, MeetupImporter $meetupImporter)
+    {
         parent::__construct();
         $this->groupRepository = $userGroupRepository;
-        $this->meetupRepository = $meetupRepository;
         $this->meetupImporter = $meetupImporter;
-        $this->symfonyStyle = $symfonyStyle;
-        $this->maxForecastDays = $maxForecastDays;
+    }
+
+    public function getSourceName(): string
+    {
+        return 'meetup-com';
     }
 
     protected function configure(): void
@@ -69,18 +49,7 @@ final class ImportMeetupComCommand extends Command
         $groupIds = array_column($groups, 'meetup_com_id');
 
         $meetups = $this->meetupImporter->importForGroupIds($groupIds);
-
-        $meetupListToDisplay = [];
-        foreach ($meetups as $meetup) {
-            $meetupListToDisplay[] = $meetup->getStartDateTime()->format('Y-m-d') . ' - ' . $meetup->getName();
-        }
-        $this->symfonyStyle->listing($meetupListToDisplay);
-        $this->symfonyStyle->note(
-            sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
-        );
-
-        $this->meetupRepository->saveImportsToFile($meetups, 'meetup-com');
-        $this->symfonyStyle->success('Done');
+        $this->saveAndReportMeetups($meetups);
 
         return ShellCode::SUCCESS;
     }

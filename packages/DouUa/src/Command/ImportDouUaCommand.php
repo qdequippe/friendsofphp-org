@@ -2,44 +2,20 @@
 
 namespace Fop\DouUa\Command;
 
-use DateTimeInterface;
+use Fop\Command\AbstractImportCommand;
 use Fop\DouUa\Meetup\DouUaMeetupFactory;
 use Fop\DouUa\Xml\XmlReader;
-use Fop\Repository\MeetupRepository;
-use Nette\Utils\DateTime;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
 
-final class ImportDouUaCommand extends Command
+final class ImportDouUaCommand extends AbstractImportCommand
 {
     /**
      * @var string
      */
     private const XML_CALENDAR_FEED = 'https://dou.ua/calendar/feed/PHP/';
-
-    /**
-     * @var int
-     */
-    private $maxForecastDays;
-
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
-
-    /**
-     * @var DateTimeInterface
-     */
-    private $maxForecastDateTime;
-
-    /**
-     * @var MeetupRepository
-     */
-    private $meetupRepository;
 
     /**
      * @var XmlReader
@@ -51,19 +27,9 @@ final class ImportDouUaCommand extends Command
      */
     private $douUaMeetupFactory;
 
-    public function __construct(
-        SymfonyStyle $symfonyStyle,
-        int $maxForecastDays,
-        MeetupRepository $meetupRepository,
-        XmlReader $xmlReader,
-        DouUaMeetupFactory $douUaMeetupFactory
-    ) {
+    public function __construct(XmlReader $xmlReader, DouUaMeetupFactory $douUaMeetupFactory)
+    {
         parent::__construct();
-        $this->symfonyStyle = $symfonyStyle;
-        $this->maxForecastDays = $maxForecastDays;
-        $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
-
-        $this->meetupRepository = $meetupRepository;
         $this->xmlReader = $xmlReader;
         $this->douUaMeetupFactory = $douUaMeetupFactory;
     }
@@ -99,13 +65,13 @@ final class ImportDouUaCommand extends Command
             $meetups[] = $meetup;
         }
 
-        $this->meetupRepository->saveImportsToFile($meetups, 'dou-ua');
-
-        $this->symfonyStyle->note(
-            sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
-        );
-        $this->symfonyStyle->success('Done');
+        $this->saveAndReportMeetups($meetups);
 
         return ShellCode::SUCCESS;
+    }
+
+    protected function getSourceName(): string
+    {
+        return 'dou-ua';
     }
 }
