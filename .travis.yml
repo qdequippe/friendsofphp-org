@@ -35,6 +35,7 @@ script:
     # import data
     - bin/console import-meetup-com -vvv
     - bin/console import-dou-ua -vvv
+    - bin/console import-crossweb-pl -vvv
 
     # generate website to "/output" directory, it will be deployed later in "deploy" + imports groups and meetups
     - vendor/bin/statie generate source -vvv

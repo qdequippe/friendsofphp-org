@@ -182,7 +182,7 @@ final class ImportDouUaCommand extends Command
 
         $city = html_entity_decode($city);
 
-        return $this->locationResolver->resolveFromCity($city);
+        return $this->locationResolver->createFromCity($city);
     }
 
     /**

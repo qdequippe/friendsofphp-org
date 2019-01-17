@@ -33,7 +33,7 @@ final class LocationResolver
         $this->countryResolver = $countryResolver;
     }
 
-    public function resolveFromCity(string $city): ?Location
+    public function createFromCity(string $city): ?Location
     {
         $url = sprintf(self::API_CITY_TO_LOCATION, $city);
 

@@ -27,6 +27,7 @@
         "psr-4": {
             "Fop\\": "src",
             "Fop\\MeetupCom\\": "packages/MeetupCom/src",
+            "Fop\\CrosswebPl\\": "packages/CrosswebPl/src",
             "Fop\\DouUa\\": "packages/DouUa/src",
             "Fop\\Nomad\\": "packages/Nomad/src"
         }
