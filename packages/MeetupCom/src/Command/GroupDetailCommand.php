@@ -2,8 +2,8 @@
 
 namespace Fop\MeetupCom\Command;
 
-use Fop\Country\CountryResolver;
-use Fop\MeetupCom\Api\MeetupComApi;
+use Fop\MeetupCom\Command\Reporter\GroupReporter;
+use Fop\MeetupCom\Group\GroupDetailResolver;
 use Fop\Repository\GroupRepository;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Console\Command\Command;
@@ -13,8 +13,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
+use function Safe\sprintf;
 
-final class ShowMeetupDetailCommand extends Command
+final class GroupDetailCommand extends Command
 {
     /**
      * @var string
@@ -32,38 +33,38 @@ final class ShowMeetupDetailCommand extends Command
     private $symfonyStyle;
 
     /**
-     * @var MeetupComApi
-     */
-    private $meetupComApi;
-
-    /**
-     * @var CountryResolver
-     */
-    private $countryResolver;
-
-    /**
      * @var GroupRepository
      */
     private $groupRepository;
 
+    /**
+     * @var GroupDetailResolver
+     */
+    private $groupDetailResolver;
+
+    /**
+     * @var GroupReporter
+     */
+    private $groupReporter;
+
     public function __construct(
-        MeetupComApi $meetupComApi,
         SymfonyStyle $symfonyStyle,
-        CountryResolver $countryResolver,
-        GroupRepository $groupRepository
+        GroupRepository $groupRepository,
+        GroupDetailResolver $groupDetailResolver,
+        GroupReporter $groupReporter
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
-        $this->meetupComApi = $meetupComApi;
-        $this->countryResolver = $countryResolver;
         $this->groupRepository = $groupRepository;
+        $this->groupDetailResolver = $groupDetailResolver;
+        $this->groupReporter = $groupReporter;
     }
 
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription(
-            'Shows details for meetup group(s). You can provide either 1 group link: "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/", or a file with multiple such links, each on single row.'
+            'Shows details for group. Provide 1 group link: "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/", or a file with multiple urls, each on new line.'
         );
         $this->addArgument(
             self::ARGUMENT_SOURCE,
@@ -83,11 +84,11 @@ final class ShowMeetupDetailCommand extends Command
             return ShellCode::SUCCESS;
         }
 
-        $group = $this->getGroupDetailForMeetupComUrl($source);
+        $group = $this->groupDetailResolver->resolveFromUrl($source);
         if ($this->isGroupAlreadyImported($group)) {
             $this->symfonyStyle->error(sprintf('Group "%s" is already imported.', $source));
         } else {
-            $this->printGroup($group);
+            $this->groupReporter->printGroup($group);
         }
 
         return ShellCode::SUCCESS;
@@ -102,24 +103,14 @@ final class ShowMeetupDetailCommand extends Command
         $groupUrls = array_filter($groupUrls);
 
         foreach ($groupUrls as $groupUrl) {
-            $group = $this->getGroupDetailForMeetupComUrl($groupUrl);
+            $group = $this->groupDetailResolver->resolveFromUrl($groupUrl);
             if ($this->isGroupAlreadyImported($group)) {
+                $this->symfonyStyle->note(sprintf('Group "%s" is already imported', $groupUrl));
                 continue;
             }
 
-            $this->printGroup($group);
+            $this->groupReporter->printGroup($group);
         }
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function getGroupDetailForMeetupComUrl(string $source): array
-    {
-        $group = $this->meetupComApi->getGroupForUrl($source);
-        $group['country'] = $this->countryResolver->resolveFromGroup($group);
-
-        return $group;
     }
 
     /**
@@ -134,18 +125,6 @@ final class ShowMeetupDetailCommand extends Command
         $this->alreadyImportedIds[] = $group['id'];
 
         return false;
-    }
-
-    /**
-     * @param mixed[] $group
-     */
-    private function printGroup(array $group): void
-    {
-        $this->symfonyStyle->writeln(sprintf("        -   name: '%s'", str_replace("'", '"', $group['name'])));
-        $this->symfonyStyle->writeln(sprintf('            meetup_com_id: %s', $group['id']));
-        $this->symfonyStyle->writeln(sprintf("            meetup_com_url: '%s'", $group['link']));
-        $this->symfonyStyle->writeln(sprintf("            country: '%s'", $group['country']));
-        $this->symfonyStyle->newLine();
     }
 
     /**

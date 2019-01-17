@@ -13,20 +13,28 @@ final class PhpRelatedFilter
     private $yesKeywords = [
         'php',
         'PrestaShop',
+        'Presta Shop',
+        'PHPPers',
+        'PHP Pers',
         'Wordpress',
         'Drupal',
         'Laravel',
         'Symfony',
         'Zend',
+        'Nette',
+        'CodeIgniter',
+        'Code Igniter',
         'CakePHP',
+        'Cake PHP',
         'Magento',
         'Mautic',
         'SilverStripe',
+        'Silver Stripe',
         'craft cms',
+        'craftCms',
         'eZ',
         // misc
         'StripeGirls',
-        'Elastic',
     ];
 
     /**
@@ -35,14 +43,9 @@ final class PhpRelatedFilter
      */
     public function filterGroups(array $groups): array
     {
-        $matchedGroups = [];
-        foreach ($groups as $group) {
-            if ($this->isNameMatch((string) $group[Group::NAME])) {
-                $matchedGroups[] = $group;
-            }
-        }
-
-        return $matchedGroups;
+        return array_filter($groups, function ($group) {
+            return $this->isNameMatch((string) $group[Group::NAME]);
+        });
     }
 
     private function isNameMatch(string $name): bool
@@ -51,6 +54,6 @@ final class PhpRelatedFilter
             return true;
         }
 
-        return Strings::endsWith($name, 'PHP');
+        return Strings::startsWith($name, 'PHP') || Strings::endsWith($name, 'PHP');
     }
 }

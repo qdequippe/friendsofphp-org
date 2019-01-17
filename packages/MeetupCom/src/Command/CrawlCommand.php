@@ -3,15 +3,19 @@
 namespace Fop\MeetupCom\Command;
 
 use Fop\Entity\Group;
+use Fop\MeetupCom\Command\Reporter\GroupReporter;
 use Fop\MeetupCom\Filter\PhpRelatedFilter;
+use Fop\MeetupCom\Group\GroupDetailResolver;
 use Fop\Repository\GroupRepository;
 use Fop\Utils\Arrays;
+use Nette\IOException;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\DomCrawler\Crawler;
@@ -38,17 +42,12 @@ final class CrawlCommand extends Command
     /**
      * @var mixed[][]
      */
-    private $groupsByCountry = [];
+    private $groups = [];
 
     /**
      * @var string[]
      */
-    private $countryCodesWithNoPhpGroups = [];
-
-    /**
-     * @var string[]
-     */
-    private $stateCityUrls = [];
+    private $invalidCountryCodes = [];
 
     /**
      * @var SymfonyStyle
@@ -66,17 +65,29 @@ final class CrawlCommand extends Command
     private $phpRelatedFilter;
 
     /**
+     * @var GroupDetailResolver
+     */
+    private $groupDetailResolver;
+
+    /**
+     * @var GroupReporter
+     */
+    private $groupReporter;
+
+    /**
      * @param string[] $topicsToCrawl
      * @param string[] $usaStates
-     * @param string[] $countryCodesWithNoPhpGroups
+     * @param string[] $invalidCountryCodes
      */
     public function __construct(
         SymfonyStyle $symfonyStyle,
         GroupRepository $groupRepository,
         PhpRelatedFilter $phpRelatedFilter,
+        GroupDetailResolver $groupDetailResolver,
+        GroupReporter $groupReporter,
         array $topicsToCrawl,
         array $usaStates,
-        array $countryCodesWithNoPhpGroups
+        array $invalidCountryCodes
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
@@ -84,14 +95,18 @@ final class CrawlCommand extends Command
         $this->phpRelatedFilter = $phpRelatedFilter;
         $this->topicsToCrawl = $topicsToCrawl;
 
-        $this->countryCodesWithNoPhpGroups = $countryCodesWithNoPhpGroups;
         $this->usaStates = $usaStates;
+        $this->groupDetailResolver = $groupDetailResolver;
+        $this->groupReporter = $groupReporter;
+        $this->invalidCountryCodes = $invalidCountryCodes;
     }
 
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription('Crawl "meetup.com" api topic lists by every country.');
+        $this->addOption('usa', null, InputOption::VALUE_NONE, 'Run on USA only, for performance reasons');
+        $this->addOption('non-usa', null, InputOption::VALUE_NONE, 'Run on non-USA only, for performance reasons');
     }
 
     /**
@@ -99,26 +114,16 @@ final class CrawlCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->processUnitedStatesOfAmerica();
+        $isUsaOnly = (bool) $input->getOption('usa');
+        $isNonUsaOnly = (bool) $input->getOption('non-usa');
 
-        foreach (CountryLoader::countries() as $country) {
-            /** @var Country $country */
-            $country = CountryLoader::country($country['iso_3166_1_alpha2']);
-
-            if ($this->shouldSkipCountry($country)) {
-                continue;
-            }
-
-            $this->symfonyStyle->note(sprintf('Looking for meetups in "%s"', $country->getName()));
-
-            foreach ($this->topicsToCrawl as $keyword) {
-                $this->processKeywordAndCountry($keyword, strtolower($country->getIsoAlpha2()));
-            }
+        if ($isNonUsaOnly === false) {
+            $this->processUnitedStatesOfAmerica();
         }
 
-        // detect country codes that were empty on "PHP" search
-        // by excluding them, the followup search with other keywords can be faster
-        $this->reportEmptyCountries();
+        if ($isUsaOnly === false) {
+            $this->processNonUsaCountries();
+        }
 
         $this->reportFoundGroups();
 
@@ -138,47 +143,21 @@ final class CrawlCommand extends Command
         }
     }
 
-    private function shouldSkipCountry(Country $country): bool
+    private function processNonUsaCountries(): void
     {
-        if ($country->getIsoAlpha2() === null) {
-            return true;
-        }
+        foreach (CountryLoader::countries() as $country) {
+            /** @var Country $country */
+            $country = CountryLoader::country($country['iso_3166_1_alpha2']);
 
-        $countryCode = strtolower($country->getIsoAlpha2());
-
-        return in_array($countryCode, $this->countryCodesWithNoPhpGroups, true);
-    }
-
-    private function processKeywordAndCountry(string $keyword, string $countryCode): void
-    {
-        $crawlUrl = sprintf('https://www.meetup.com/topics/%s/%s/', $keyword, $countryCode);
-        $this->symfonyStyle->writeln(' * ' . $crawlUrl);
-
-        // init
-        if (! isset($this->groupsByCountry[$countryCode])) {
-            $this->groupsByCountry[$countryCode] = [];
-        }
-
-        $crawler = $this->createCrawlerFromUrl($crawlUrl);
-
-        // top 10 overall → nothing found and fallback to main page → skip
-        if (Strings::contains($crawler->text(), 'SQL NYC, The NoSQL & NewSQL Database Meetup')) {
-            return;
-        }
-
-        $this->collectGroups($crawler, $countryCode);
-    }
-
-    private function reportEmptyCountries(): void
-    {
-        $this->symfonyStyle->section('Empty country codes');
-
-        foreach ($this->groupsByCountry as $country => $groups) {
-            if (count($groups)) {
+            if ($this->shouldSkipCountry($country)) {
                 continue;
             }
 
-            $this->symfonyStyle->writeln($country);
+            $this->symfonyStyle->note(sprintf('Looking for meetups in "%s"', $country->getName()));
+
+            foreach ($this->topicsToCrawl as $keyword) {
+                $this->processKeywordAndCountry($keyword, strtolower($country->getIsoAlpha2()));
+            }
         }
     }
 
@@ -186,46 +165,35 @@ final class CrawlCommand extends Command
     {
         $this->symfonyStyle->section('Found groups');
 
-        foreach ($this->groupsByCountry as $groups) {
-            $groups = Arrays::unique($groups);
-            $groups = $this->phpRelatedFilter->filterGroups($groups);
+        $groups = Arrays::unique($this->groups);
+        $groups = $this->phpRelatedFilter->filterGroups($groups);
 
-            foreach ($groups as $group) {
-                $this->symfonyStyle->writeln('    -   name: "' . str_replace('"', "'", $group[Group::NAME]) . '"');
-                $this->symfonyStyle->writeln('        meetup_com_url: ' . $group[Group::URL]);
-                $this->symfonyStyle->newLine();
-            }
+        foreach ($groups as $group) {
+            $group = $this->groupDetailResolver->resolveFromUrl($group[Group::URL]);
+            $this->groupReporter->printGroup($group);
         }
     }
 
     private function processKeywordAndStateInUsa(string $keyword, string $state): void
     {
-        $this->stateCityUrls = [];
+        $stateCityUrls = $this->collectUsaStateCityUrls($keyword, $state);
 
-        $crawlUrl = sprintf('https://www.meetup.com/topics/%s/us/%s/', $keyword, $state);
-
-        $this->symfonyStyle->writeln(' * ' . $crawlUrl);
-
-        $crawler = $this->createCrawlerFromUrl($crawlUrl);
-        $crawler->filterXPath('//li[@class="gridList-item"]')->each(
-            function (Crawler $node): void {
-                $this->stateCityUrls[] = $node->filterXPath('//a/@href')->text();
-            }
-        );
-
-        foreach ($this->stateCityUrls as $stateCityUrl) {
+        foreach ($stateCityUrls as $stateCityUrl) {
             $crawler = $this->createCrawlerFromUrl($stateCityUrl);
+            if ($crawler === null) {
+                continue;
+            }
 
             // top 10 overall → nothing found and fallback to main page → skip
             if (Strings::contains($crawler->text(), 'There are no Meetups matching this search')) {
-                return;
+                continue;
             }
 
             $this->symfonyStyle->writeln(' * ' . $stateCityUrl);
 
             // @see https://stackoverflow.com/a/8681157/1348344
             $crawler->filterXPath('//li[contains(@class,"groupCard")]')->each(
-                function (Crawler $node) use ($state): void {
+                function (Crawler $node): void {
                     $groupUrl = $node->filterXPath('//a/@href')->text();
 
                     // is already among groups?
@@ -234,7 +202,7 @@ final class CrawlCommand extends Command
                     }
 
                     // headlines + urls of found groups
-                    $this->groupsByCountry['us_' . $state][] = [
+                    $this->groups[] = [
                         Group::NAME => $groupName = $node->filterXPath('//a')->text(),
                         Group::URL => $groupUrl,
                     ];
@@ -243,9 +211,68 @@ final class CrawlCommand extends Command
         }
     }
 
-    private function createCrawlerFromUrl(string $url): Crawler
+    private function shouldSkipCountry(Country $country): bool
     {
-        $remoteContent = trim(FileSystem::read($url));
+        if ($country->getIsoAlpha2() === null) {
+            return true;
+        }
+
+        // non-existing countries at meetup.com
+        $countryCode = strtolower($country->getIsoAlpha2());
+
+        return in_array($countryCode, $this->invalidCountryCodes, true);
+    }
+
+    private function processKeywordAndCountry(string $keyword, string $countryCode): void
+    {
+        $crawlUrl = sprintf('https://www.meetup.com/topics/%s/%s/', $keyword, $countryCode);
+        $this->symfonyStyle->writeln(' * ' . $crawlUrl);
+
+        $crawler = $this->createCrawlerFromUrl($crawlUrl);
+        if ($crawler === null) {
+            return;
+        }
+
+        // top 10 overall → nothing found and fallback to main page → skip
+        if (Strings::contains($crawler->text(), 'SQL NYC, The NoSQL & NewSQL Database Meetup')) {
+            return;
+        }
+
+        $this->collectGroups($crawler);
+    }
+
+    /**
+     * @return string[]
+     */
+    private function collectUsaStateCityUrls(string $keyword, string $state): array
+    {
+        $stateCityUrls = [];
+
+        $crawlUrl = sprintf('https://www.meetup.com/topics/%s/us/%s/', $keyword, $state);
+        $this->symfonyStyle->writeln(' * ' . $crawlUrl);
+
+        $crawler = $this->createCrawlerFromUrl($crawlUrl);
+        if ($crawler === null) {
+            return [];
+        }
+
+        $crawler->filterXPath('//li[@class="gridList-item"]')->each(
+            function (Crawler $node): void {
+                $stateCityUrls[] = $node->filterXPath('//a/@href')->text();
+            }
+        );
+
+        return $stateCityUrls;
+    }
+
+    private function createCrawlerFromUrl(string $url): ?Crawler
+    {
+        try {
+            $remoteContent = trim(FileSystem::read($url));
+        } catch (IOException $iOException) {
+            $this->symfonyStyle->error($iOException->getMessage());
+            return null;
+        }
 
         if (Strings::startsWith($remoteContent, self::XML_CONDOM)) {
             $remoteContent = Strings::substring($remoteContent, strlen(self::XML_CONDOM));
@@ -255,10 +282,10 @@ final class CrawlCommand extends Command
         return new Crawler($remoteContent);
     }
 
-    private function collectGroups(Crawler $crawler, string $countryCode): void
+    private function collectGroups(Crawler $crawler): void
     {
         $crawler->filterXPath('//span[@class="spreadable-item attachment"]')->each(
-            function (Crawler $node) use ($countryCode): void {
+            function (Crawler $node): void {
                 $groupUrl = $node->filterXPath('//a/@href')->text();
 
                 // is already among groups?
@@ -267,7 +294,7 @@ final class CrawlCommand extends Command
                 }
 
                 // headlines + urls of found groups
-                $this->groupsByCountry[$countryCode][] = [
+                $this->groups[] = [
                     Group::NAME => $node->filterXPath('//span[@class="text--bold display--block"]')->text(),
                     Group::URL => $groupUrl,
                 ];
