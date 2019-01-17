@@ -18,7 +18,7 @@ final class XmlReader
 
         $xml = simplexml_load_string($fileContent);
         if ($xml === false) {
-            throw new XmlException(sprintf('Failed to laod "%s" xml file', $file));
+            throw new XmlException(sprintf('Failed to load "%s" xml file', $file));
         }
 
         return $xml;

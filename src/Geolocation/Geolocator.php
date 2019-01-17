@@ -1,16 +1,25 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Country;
+namespace Fop\Geolocation;
 
+use Fop\Entity\Location;
 use Fop\Guzzle\ResponseFormatter;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Request;
+use Location\Coordinate;
+use Nette\Utils\Json;
+use Nette\Utils\JsonException;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
 
-final class CountryResolver
+final class Geolocator
 {
+    /**
+     * @var string
+     */
+    private const API_CITY_TO_LOCATION = 'https://nominatim.openstreetmap.org/search.php?q=%s&format=json';
+
     /**
      * @var string
      */
@@ -27,14 +36,14 @@ final class CountryResolver
     private $usaStates = [];
 
     /**
-     * @var Client
-     */
-    private $client;
-
-    /**
      * @var ResponseFormatter
      */
     private $responseFormatter;
+
+    /**
+     * @var Client
+     */
+    private $client;
 
     /**
      * @param string[] $usaStates
@@ -46,7 +55,32 @@ final class CountryResolver
         $this->usaStates = $usaStates;
     }
 
-    public function resolveByLatitudeAndLongitude(float $latitude, float $longitude): string
+    public function createLocationFromCity(string $city): ?Location
+    {
+        $url = sprintf(self::API_CITY_TO_LOCATION, $city);
+
+        $responseBody = $this->getResponseForUrl($url);
+
+        try {
+            $json = Json::decode($responseBody, Json::FORCE_ARRAY);
+        } catch (JsonException $jsonException) {
+            // invalid response
+            return null;
+        }
+
+        if (! isset($json[0]['lat']) || ! isset($json[0]['lat'])) {
+            return null;
+        }
+
+        $lat = (float) $json[0]['lat'];
+        $lon = (float) $json[0]['lon'];
+
+        $country = $this->resolveCountryByLatitudeAndLongitude($lat, $lon);
+
+        return new Location($city, $country, new Coordinate($lat, $lon));
+    }
+
+    public function resolveCountryByLatitudeAndLongitude(float $latitude, float $longitude): string
     {
         $countryJson = $this->getCountryJsonByLatitudeAndLongitude($latitude, $longitude);
 
@@ -71,7 +105,7 @@ final class CountryResolver
     /**
      * @param mixed[] $group
      */
-    public function resolveFromGroup(array $group): string
+    public function resolveCountryByGroup(array $group): ?string
     {
         // Special case for USA, since there are many federate states
         if (isset($group['country']) && $group['country'] === 'US') {
@@ -90,6 +124,7 @@ final class CountryResolver
         if (is_array($countryOrCountries)) {
             /** @var Country $country */
             $country = array_pop($countryOrCountries);
+
             return $country->getName();
         }
 
@@ -99,7 +134,7 @@ final class CountryResolver
     /**
      * @param mixed[] $venue
      */
-    public function resolveByVenue(array $venue): string
+    public function resolveCountryByVenue(array $venue): string
     {
         if ($venue['localized_country_name'] !== 'USA') {
             return $venue['localized_country_name'];
@@ -112,7 +147,7 @@ final class CountryResolver
             }
         }
 
-        return $this->resolveByLatitudeAndLongitude($venue['lat'], $venue['lon']);
+        return $this->resolveCountryByLatitudeAndLongitude($venue['lat'], $venue['lon']);
     }
 
     /**
@@ -140,6 +175,14 @@ final class CountryResolver
         $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey] = $countryJson;
 
         return $countryJson;
+    }
+
+    private function getResponseForUrl(string $url): string
+    {
+        $request = new Request('GET', $url);
+        $response = $this->client->send($request);
+
+        return (string) $response->getBody();
     }
 
     /**

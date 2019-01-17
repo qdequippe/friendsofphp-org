@@ -2,7 +2,7 @@
 
 namespace Fop\MeetupCom\Group;
 
-use Fop\Country\CountryResolver;
+use Fop\Geolocation\Geolocator;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Exception\InvalidGroupUrlException;
 use Nette\Utils\Strings;
@@ -17,14 +17,14 @@ final class GroupDetailResolver
     private $meetupComApi;
 
     /**
-     * @var CountryResolver
+     * @var Geolocator
      */
-    private $countryResolver;
+    private $geolocator;
 
-    public function __construct(MeetupComApi $meetupComApi, CountryResolver $countryResolver)
+    public function __construct(MeetupComApi $meetupComApi, Geolocator $geolocator)
     {
         $this->meetupComApi = $meetupComApi;
-        $this->countryResolver = $countryResolver;
+        $this->geolocator = $geolocator;
     }
 
     /**
@@ -35,7 +35,7 @@ final class GroupDetailResolver
         $this->ensureIsUrl($url);
 
         $group = $this->meetupComApi->getGroupForUrl($url);
-        $group['country'] = $this->countryResolver->resolveFromGroup($group);
+        $group['country'] = $this->geolocator->resolveCountryByGroup($group);
 
         return $group;
     }

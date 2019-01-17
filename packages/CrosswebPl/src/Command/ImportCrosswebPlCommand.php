@@ -97,7 +97,7 @@ final class ImportCrosswebPlCommand extends Command
             $meetups[] = $meetup;
         }
 
-        $this->meetupRepository->saveImportsToFile($meetups, 'dou-ua');
+        $this->meetupRepository->saveImportsToFile($meetups, 'crossweb-pl');
 
         $this->symfonyStyle->note(
             sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)

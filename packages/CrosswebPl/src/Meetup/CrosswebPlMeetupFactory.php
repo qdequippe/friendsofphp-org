@@ -5,7 +5,7 @@ namespace Fop\CrosswebPl\Meetup;
 use DateTimeInterface;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
-use Fop\Location\LocationResolver;
+use Fop\Geolocation\Geolocator;
 use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
@@ -13,13 +13,13 @@ use Nette\Utils\Strings;
 final class CrosswebPlMeetupFactory
 {
     /**
-     * @var LocationResolver
+     * @var Geolocator
      */
-    private $locationResolver;
+    private $geolocator;
 
-    public function __construct(LocationResolver $locationResolver)
+    public function __construct(Geolocator $geolocator)
     {
-        $this->locationResolver = $locationResolver;
+        $this->geolocator = $geolocator;
     }
 
     public function createMeetupFromMeetupUrl(string $url, string $name): ?Meetup
@@ -49,7 +49,7 @@ final class CrosswebPlMeetupFactory
             return null;
         }
 
-        return $this->locationResolver->createFromCity($city);
+        return $this->geolocator->createLocationFromCity($city);
     }
 
     private function resolveStartDateTime(string $content): ?DateTimeInterface
