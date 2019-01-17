@@ -54,7 +54,18 @@ final class CountryResolver
             return $countryJson['address']['state'];
         }
 
-        return $countryJson['address']['country'];
+        $countryCode = $countryJson['address']['country_code'];
+        if ($countryCode) {
+            // get English name
+            $country = CountryLoader::country($countryCode);
+            if (is_array($country)) {
+                $country = array_pop($country);
+            }
+
+            return $country->getName();
+        }
+
+        return $countryJson['address']['countrymp'];
     }
 
     /**
@@ -107,7 +118,7 @@ final class CountryResolver
     /**
      * @return mixed[]
      */
-    private function getCountryJsonByLatitudeAndLongitude(float $latitude, float $longitude): array
+    public function getCountryJsonByLatitudeAndLongitude(float $latitude, float $longitude): array
     {
         $cacheKey = sha1($longitude . $longitude);
         if (isset($this->countryJsonByLatitudeAndLongitudeCache[$cacheKey])) {

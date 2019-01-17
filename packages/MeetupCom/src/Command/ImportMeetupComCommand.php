@@ -12,7 +12,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
 
-final class ImportCommand extends Command
+final class ImportMeetupComCommand extends Command
 {
     /**
      * @var int
@@ -79,7 +79,7 @@ final class ImportCommand extends Command
             sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
         );
 
-        $this->meetupRepository->saveImportsToFile($meetups);
+        $this->meetupRepository->saveImportsToFile($meetups, 'meetup-com');
         $this->symfonyStyle->success('Done');
 
         return ShellCode::SUCCESS;

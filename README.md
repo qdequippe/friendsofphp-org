@@ -21,7 +21,8 @@ gulp # see gulpfile.js for more
 To see new meetups, import them first:
 
 ```bash
-bin/console import
+bin/console import-meetup-com
+bin/console import-dou-ua
 
 # then run website
 gulp
