@@ -4,9 +4,9 @@ namespace Fop\MeetupCom;
 
 use DateTimeInterface;
 use DateTimeZone;
-use Fop\Country\CountryResolver;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
+use Fop\Geolocation\Geolocator;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
@@ -60,15 +60,15 @@ final class MeetupImporter
     private $maxForecastDateTime;
 
     /**
-     * @var CountryResolver
+     * @var Geolocator
      */
-    private $countryResolver;
+    private $geolocator;
 
-    public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi, CountryResolver $countryResolver)
+    public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi, Geolocator $geolocator)
     {
         $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
         $this->meetupComApi = $meetupComApi;
-        $this->countryResolver = $countryResolver;
+        $this->geolocator = $geolocator;
     }
 
     /**
@@ -162,7 +162,7 @@ final class MeetupImporter
         $venue = $this->normalizeCityStates($venue);
 
         $venue['city'] = $this->normalizeCity($venue['city']);
-        $country = $this->countryResolver->resolveByVenue($venue);
+        $country = $this->geolocator->resolveCountryByVenue($venue);
 
         $coordinate = new Coordinate($venue['lat'], $venue['lon']);
         $location = new Location($venue['city'], $country, $coordinate);

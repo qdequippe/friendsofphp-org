@@ -1,12 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Fop\DouUa\Command;
+namespace Fop\CrosswebPl\Command;
 
 use DateTimeInterface;
-use Fop\DouUa\Meetup\DouUaMeetupFactory;
+use Fop\CrosswebPl\Meetup\CrosswebPlMeetupFactory;
 use Fop\DouUa\Xml\XmlReader;
 use Fop\Repository\MeetupRepository;
 use Nette\Utils\DateTime;
+use Nette\Utils\Strings;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -14,12 +15,12 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
 
-final class ImportDouUaCommand extends Command
+final class ImportCrosswebPlCommand extends Command
 {
     /**
      * @var string
      */
-    private const XML_CALENDAR_FEED = 'https://dou.ua/calendar/feed/PHP/';
+    private const XML_CALENDAR_FEED = 'https://crossweb.pl/feed/wydarzenia/php/';
 
     /**
      * @var int
@@ -47,16 +48,16 @@ final class ImportDouUaCommand extends Command
     private $xmlReader;
 
     /**
-     * @var DouUaMeetupFactory
+     * @var CrosswebPlMeetupFactory
      */
-    private $douUaMeetupFactory;
+    private $crosswebPlMeetupFactory;
 
     public function __construct(
         SymfonyStyle $symfonyStyle,
         int $maxForecastDays,
         MeetupRepository $meetupRepository,
         XmlReader $xmlReader,
-        DouUaMeetupFactory $douUaMeetupFactory
+        CrosswebPlMeetupFactory $crosswebPlMeetupFactory
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
@@ -65,13 +66,13 @@ final class ImportDouUaCommand extends Command
 
         $this->meetupRepository = $meetupRepository;
         $this->xmlReader = $xmlReader;
-        $this->douUaMeetupFactory = $douUaMeetupFactory;
+        $this->crosswebPlMeetupFactory = $crosswebPlMeetupFactory;
     }
 
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
-        $this->setDescription('Imports events from https://dou.ua/');
+        $this->setDescription('Imports events from https://crossweb.pl/');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -80,13 +81,10 @@ final class ImportDouUaCommand extends Command
 
         $meetups = [];
         foreach ($xml->channel->item as $meetup) {
-            // name
             $name = (string) $meetup->title;
+            $url = $this->clearUrl((string) $meetup->link);
 
-            // meetup link
-            $url = (string) $meetup->link;
-
-            $meetup = $this->douUaMeetupFactory->createMeetupFromUrlAndName($url, $name);
+            $meetup = $this->crosswebPlMeetupFactory->createMeetupFromMeetupUrl($url, $name);
             if ($meetup === null) {
                 continue;
             }
@@ -99,7 +97,7 @@ final class ImportDouUaCommand extends Command
             $meetups[] = $meetup;
         }
 
-        $this->meetupRepository->saveImportsToFile($meetups, 'dou-ua');
+        $this->meetupRepository->saveImportsToFile($meetups, 'crossweb-pl');
 
         $this->symfonyStyle->note(
             sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
@@ -107,5 +105,13 @@ final class ImportDouUaCommand extends Command
         $this->symfonyStyle->success('Done');
 
         return ShellCode::SUCCESS;
+    }
+
+    /**
+     * clear "utm_source", not needed
+     */
+    private function clearUrl(string $url): string
+    {
+        return Strings::replace($url, '#(https.*?)\?utm.*?$#', '$1');
     }
 }

@@ -1,21 +1,21 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Tests\Country;
+namespace Fop\Tests\Geolocator;
 
-use Fop\Country\CountryResolver;
+use Fop\Geolocation\Geolocator;
 use Fop\Tests\AbstractContainerAwareTestCase;
 use Iterator;
 
-final class CountryResolverTest extends AbstractContainerAwareTestCase
+final class GeolocatorTest extends AbstractContainerAwareTestCase
 {
     /**
-     * @var CountryResolver
+     * @var Geolocator
      */
-    private $countryResolver;
+    private $geolocator;
 
     protected function setUp(): void
     {
-        $this->countryResolver = $this->container->get(CountryResolver::class);
+        $this->geolocator = $this->container->get(Geolocator::class);
     }
 
     /**
@@ -24,7 +24,7 @@ final class CountryResolverTest extends AbstractContainerAwareTestCase
      */
     public function test(array $group, string $expecedCountry): void
     {
-        $this->assertSame($expecedCountry, $this->countryResolver->resolveFromGroup($group));
+        $this->assertSame($expecedCountry, $this->geolocator->resolveCountryByGroup($group));
     }
 
     public function provideData(): Iterator
