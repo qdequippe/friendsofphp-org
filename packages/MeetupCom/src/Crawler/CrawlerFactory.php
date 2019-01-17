@@ -15,12 +15,13 @@ final class CrawlerFactory
 
     public function createFromUrl(string $url): ?Crawler
     {
-        if (file_exists($url) === false) {
+        if (file_get_contents($url) === false) {
             return null;
         }
 
         $remoteContent = trim(FileSystem::read($url));
         $remoteContent = $this->removeXmlCondom($remoteContent);
+
         return new Crawler($remoteContent);
     }
 
