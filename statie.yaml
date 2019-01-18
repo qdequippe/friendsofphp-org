@@ -1,0 +1,11 @@
+imports:
+    - { resource: 'source/_data/*.yaml' }
+    - { resource: 'source/_data/generated/*.yaml' }
+    - { resource: 'config/parameters.yaml' }
+
+parameters:
+    site_title: 'European PHP Meetups at 1 place'
+
+    # its still public in the footer, so no need to hide it
+    # setup & manage here: https://console.cloud.google.com/apis/credentials
+    google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'

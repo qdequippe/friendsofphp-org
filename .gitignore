@@ -10,4 +10,4 @@ package-lock.json
 composer.lock
 
 /source/_data/generated
-config.local.yml
+*.local.yaml
