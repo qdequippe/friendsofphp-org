@@ -85,17 +85,23 @@
     $("#map_metadata").text(boundsToString(map.getBounds()));
 
     // ref https://github.com/php-ug/php.ug/issues/221#issuecomment-437917289
-    var currentCenter = map.getCenter();
-    if (currentCenter.lng > 300 || currentCenter.lng < -300) {
-        // default map - the whole world
-        alert('Whoa, you fell of the main map! Lets get back to center.');
-        map.setView([25, 0], 2);
-    }
+    var restoreDislocation = function(map) {
+        var currentCenter = map.getCenter();
+        if (currentCenter.lng > 300 || currentCenter.lng < -300) {
+            // default map - the whole world
+            alert('Whoa, you fell of the main map! Lets get back to center.');
+            map.setView([25, 0], 2);
+        }
+    };
+
+    restoreDislocation(map);
+
 
     // store past location when map mooves
     map.on('moveend', function(e) {
         var bounds = map.getBounds();
         // objects needs to serialize, since only string can be saved: https://stackoverflow.com/a/2010948/1348344
+        restoreDislocation(map);
 
         var boundsAsString = boundsToString(bounds);
         window.localStorage.setItem('bounds', boundsAsString);

@@ -26,8 +26,7 @@
 
     {% for meetup in meetups %}
         {% set days_from_today = diff_from_today_in_days(meetup.start) %}
-
-        {% if days_from_today >= minDays and days_from_today <= max_forecast_days %}
+        {% if days_from_today <= max_forecast_days %}
             <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}">
                 <td class="w-25">
                     <nobr>{{ meetup.start|date("D, M d") }}</nobr>
