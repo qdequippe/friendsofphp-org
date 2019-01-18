@@ -1,4 +1,4 @@
-# imported also by statie.yml
+# imported also by statie.yml - needs to be standalone
 parameters:
     # id of map element for javascript
     map_id: 'mapid'

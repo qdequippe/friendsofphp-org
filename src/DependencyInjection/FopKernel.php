@@ -58,6 +58,7 @@ final class FopKernel extends Kernel
             new GlobFileLoader($kernelFileLocator),
             new ParameterMergingYamlFileLoader($container, $kernelFileLocator),
         ]);
+
         return new DelegatingLoader($loaderResolver);
     }
 }
