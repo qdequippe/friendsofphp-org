@@ -1,6 +1,5 @@
 imports:
-    - { resource: 'config.local.yml', ignore_errors: true }
-    - { resource: 'services.yml' }
+    - { resource: 'services.yaml' }
 
 parameters:
     env(MEETUP_TOKEN): '' # completed in CI or config.local.yml

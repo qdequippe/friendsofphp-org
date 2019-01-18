@@ -18,7 +18,7 @@ abstract class AbstractContainerAwareTestCase extends TestCase
      */
     public function __construct(?string $name = null, array $data = [], string $dataName = '')
     {
-        $this->container = (new ContainerFactory())->createWithConfig(__DIR__ . '/../friends-of-php.yml');
+        $this->container = (new ContainerFactory())->createWithConfig(__DIR__ . '/../friends-of-php.yaml');
 
         parent::__construct($name, $data, $dataName);
     }

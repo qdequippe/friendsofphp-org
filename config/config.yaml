@@ -1,6 +1,6 @@
 imports:
-    - { resource: 'config.local.yml', ignore_errors: true }
-    - { resource: 'parameters.yml' }
+    - { resource: 'config.local.yaml', ignore_errors: true }
+    - { resource: 'parameters.yaml' }
 
 services:
     _defaults:

@@ -6,7 +6,7 @@ layout: "_layouts/default.twig"
 <div class="container-fluid" id="groups">
     <div class="text-center">
         <h2 class="pt-4 pb-4">We Check {{ groups|length }} PHP Groups Everyday!</h2>
-        <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/source/_data/groups.yml" class="btn btn-success btn-lg mt-1 mb-4">Add Your Group!</a>
+        <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/source/_data/groups.yaml" class="btn btn-success btn-lg mt-1 mb-4">Add Your Group!</a>
     </div>
 
     {% set groups_sorted_by_name = sort_by_field(groups, 'name') %}
