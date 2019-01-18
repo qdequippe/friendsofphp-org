@@ -13,11 +13,11 @@
     var markers = [
         {% set markers %}
             {% for meetup in meetups %}
-                {% set daysFromToday = diffFromTodayInDays(meetup.start) %}
+                {% set days_from_today = diff_from_today_in_days(meetup.start) %}
 
-                {% if daysFromToday >= 0 %}
+                {% if days_from_today >= 0 %}
                     {
-                        "type": "{% if daysFromToday < 7 %}green{% elseif daysFromToday < 14 %}orange{% else %}red{% endif %}",
+                        "type": "{% if days_from_today < 7 %}green{% elseif days_from_today < 14 %}orange{% else %}red{% endif %}",
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
                         "date": "{{ meetup.start|date("m-d") }}",

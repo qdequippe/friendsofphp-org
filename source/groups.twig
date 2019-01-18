@@ -3,28 +3,27 @@ title: "What PHP Groups are Out There?"
 layout: "_layouts/default.twig"
 ---
 
-{% block content %}
-    <div class="container-fluid" id="groups">
-        <div class="text-center">
-            <h2 class="pt-4 pb-4">We Check {{ groups|length }} PHP Groups Everyday!</h2>
-            <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/source/_data/groups.yml" class="btn btn-success btn-lg mt-1 mb-4">Add Your Group!</a>
-        </div>
-
-        {% set groupsByCountry = sortGroupsAndGroupByCountry(groups) %}
-
-        {% for country, groups in groupsByCountry %}
-            <h3 id="{{ country|webalize }}" class="mt-4">
-                <a href="#{{ country|webalize }}">{{ country }}</a>
-                {% if groups|length > 1 %}- {{ groups|length }} groups{% endif %}
-            </h3>
-
-            <ul>
-                {% for group in groups %}
-                    <li>
-                        <a href="{{ group.meetup_com_url }}">{{ group.name }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
+<div class="container-fluid" id="groups">
+    <div class="text-center">
+        <h2 class="pt-4 pb-4">We Check {{ groups|length }} PHP Groups Everyday!</h2>
+        <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/source/_data/groups.yml" class="btn btn-success btn-lg mt-1 mb-4">Add Your Group!</a>
     </div>
-{% endblock %}
+
+    {% set groups_sorted_by_name = sort_by_field(groups, 'name') %}
+    {% set groups_by_country = group_by_field(groups_sorted_by_name, 'country') %}
+
+    {% for country, groups in groups_by_country %}
+        <h3 id="{{ country|webalize }}" class="mt-4">
+            <a href="#{{ country|webalize }}">{{ country }}</a>
+            {% if groups|length > 1 %}- {{ groups|length }} groups{% endif %}
+        </h3>
+
+        <ul>
+            {% for group in groups %}
+                <li>
+                    <a href="{{ group.meetup_com_url }}">{{ group.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>

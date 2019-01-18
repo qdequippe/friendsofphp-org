@@ -6,7 +6,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "nette/utils": "^2.5",
         "rinvex/countries": "^3.1",
-        "symplify/statie": "^5.3",
+        "symplify/statie": "dev-master",
         "symplify/package-builder": "^5.3",
         "symfony/console": "^4.2",
         "symfony/dependency-injection": "^4.2",
@@ -46,5 +46,7 @@
             "bin/console import",
             "vendor/bin/statie generate source"
         ]
-    }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }
