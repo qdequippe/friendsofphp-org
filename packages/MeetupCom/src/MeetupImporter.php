@@ -26,7 +26,12 @@ final class MeetupImporter
         'Le Kremlin-Bicêtre' => 'Paris',
         'Parramatta' => 'Paris',
         'Stellenbosch' => 'Cape Town',
-
+        '台北' => 'Taipei',
+        'New Taipei City' => 'Taipei',
+        # Japan
+        '東京都' => 'Tokyo',
+        '愛知県' => 'Aichi Prefecture',
+        '兵庫県' => 'Hyōgo',
         # Germany
         'Köln' => 'Cologne',
         '10997 Berlin' => 'Berlin',
