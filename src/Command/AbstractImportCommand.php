@@ -58,11 +58,9 @@ abstract class AbstractImportCommand extends Command
         $this->displayMeetups($meetups);
 
         $this->meetupRepository->saveImportsToFile($meetups, $this->getSourceName());
-        $this->symfonyStyle->note(
+        $this->symfonyStyle->success(
             sprintf('Loaded %d meetups for next %d days', count($meetups), $this->maxForecastDays)
         );
-
-        $this->symfonyStyle->success('Done');
     }
 
     abstract protected function getSourceName(): string;
