@@ -5524,7 +5524,7 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Laravel-Detroit/'
             country: 'Michigan'
 
-        -   name: 'Kansas City"s PHP User Group'
+        -   name: "Kansas City's PHP User Group"
             meetup_com_id: 3964682
             meetup_com_url: 'https://www.meetup.com/kcphpug/'
             country: 'Missouri'

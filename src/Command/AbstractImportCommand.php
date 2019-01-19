@@ -4,6 +4,7 @@ namespace Fop\Command;
 
 use DateTimeInterface;
 use Fop\Entity\Meetup;
+use Fop\MeetupCom\Command\Reporter\MeetupReporter;
 use Fop\Repository\MeetupRepository;
 use Nette\Utils\DateTime;
 use Symfony\Component\Console\Command\Command;
@@ -32,16 +33,23 @@ abstract class AbstractImportCommand extends Command
     private $meetupRepository;
 
     /**
+     * @var MeetupReporter
+     */
+    private $meetupReporter;
+
+    /**
      * @required
      */
     public function setAbstractImportRequirements(
         SymfonyStyle $symfonyStyle,
         int $maxForecastDays,
-        MeetupRepository $meetupRepository
+        MeetupRepository $meetupRepository,
+        MeetupReporter $meetupReporter
     ): void {
         $this->symfonyStyle = $symfonyStyle;
         $this->maxForecastDays = $maxForecastDays;
         $this->meetupRepository = $meetupRepository;
+        $this->meetupReporter = $meetupReporter;
 
         $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
     }
@@ -55,7 +63,7 @@ abstract class AbstractImportCommand extends Command
             return;
         }
 
-        $this->displayMeetups($meetups);
+        $this->meetupReporter->printMeetups($meetups);
 
         $this->meetupRepository->saveImportsToFile($meetups, $this->getSourceName());
         $this->symfonyStyle->success(
@@ -64,17 +72,4 @@ abstract class AbstractImportCommand extends Command
     }
 
     abstract protected function getSourceName(): string;
-
-    /**
-     * @param Meetup[] $meetups
-     */
-    private function displayMeetups(array $meetups): void
-    {
-        $meetupListToDisplay = [];
-        foreach ($meetups as $meetup) {
-            $meetupListToDisplay[] = $meetup->getStartDateTime()->format('Y-m-d') . ' - ' . $meetup->getName();
-        }
-
-        $this->symfonyStyle->listing($meetupListToDisplay);
-    }
 }

@@ -16,11 +16,6 @@ final class MeetupImporter
     /**
      * @var string[]
      */
-    private $groupsHavingMeetup = [];
-
-    /**
-     * @var string[]
-     */
     private $cityNormalizationMap = [
         'Brno-Královo Pole' => 'Brno',
         'Hlavní město Praha' => 'Prague',
@@ -79,7 +74,6 @@ final class MeetupImporter
     public function importForGroupIds(array $groupIds): array
     {
         $meetups = [];
-        $this->groupsHavingMeetup = [];
 
         $groupIdsChunks = array_chunk($groupIds, 200);
 
@@ -134,15 +128,6 @@ final class MeetupImporter
         if (! isset($meetup['venue'])) {
             return true;
         }
-
-        $groupName = $meetup['group']['name'];
-
-        // keep only 1 nearest meetup for the group - keep it present and less crowded
-        if (in_array($groupName, $this->groupsHavingMeetup, true)) {
-            return true;
-        }
-
-        $this->groupsHavingMeetup[] = $groupName;
 
         return false;
     }
