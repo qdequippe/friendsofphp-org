@@ -33,6 +33,7 @@ final class MeetupImporter
         'Stellenbosch' => 'Cape Town',
 
         # Germany
+        'Köln' => 'Cologne',
         '10997 Berlin' => 'Berlin',
         '22765 Hamburg' => 'Hamburg',
         '76227 Karlsruhe' => 'Karlsruhe',
