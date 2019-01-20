@@ -1,16 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Fop\DouUa\Command;
+namespace Fop\DouUa;
 
-use Fop\Command\AbstractImportCommand;
+use Fop\Contract\MeetupImporterInterface;
 use Fop\DouUa\Meetup\DouUaMeetupFactory;
 use Fop\DouUa\Xml\XmlReader;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
+use Fop\Entity\Meetup;
 
-final class ImportDouUaCommand extends AbstractImportCommand
+final class DouUaMeetupImporter implements MeetupImporterInterface
 {
     /**
      * @var string
@@ -29,18 +26,19 @@ final class ImportDouUaCommand extends AbstractImportCommand
 
     public function __construct(XmlReader $xmlReader, DouUaMeetupFactory $douUaMeetupFactory)
     {
-        parent::__construct();
         $this->xmlReader = $xmlReader;
         $this->douUaMeetupFactory = $douUaMeetupFactory;
     }
 
-    protected function configure(): void
+    public function getKey(): string
     {
-        $this->setName(CommandNaming::classToName(self::class));
-        $this->setDescription('Imports events from https://dou.ua/');
+        return 'dou-ua';
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    /**
+     * @return Meetup[]
+     */
+    public function getMeetups(): array
     {
         $xml = $this->xmlReader->loadFile(self::XML_CALENDAR_FEED);
 
@@ -57,21 +55,9 @@ final class ImportDouUaCommand extends AbstractImportCommand
                 continue;
             }
 
-            // skip meetups too far in the future
-            if ($meetup->getStartDateTime() > $this->maxForecastDateTime) {
-                continue;
-            }
-
             $meetups[] = $meetup;
         }
 
-        $this->saveAndReportMeetups($meetups);
-
-        return ShellCode::SUCCESS;
-    }
-
-    protected function getSourceName(): string
-    {
-        return 'dou-ua';
+        return $meetups;
     }
 }

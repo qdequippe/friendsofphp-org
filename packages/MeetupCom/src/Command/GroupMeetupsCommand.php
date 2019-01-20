@@ -2,8 +2,9 @@
 
 namespace Fop\MeetupCom\Command;
 
+use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Command\Reporter\MeetupReporter;
-use Fop\MeetupCom\MeetupImporter;
+use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -26,24 +27,31 @@ final class GroupMeetupsCommand extends Command
     private $symfonyStyle;
 
     /**
-     * @var MeetupImporter
-     */
-    private $meetupImporter;
-
-    /**
      * @var MeetupReporter
      */
     private $meetupReporter;
 
+    /**
+     * @var MeetupComApi
+     */
+    private $meetupComApi;
+
+    /**
+     * @var MeetupComMeetupFactory
+     */
+    private $meetupComMeetupFactory;
+
     public function __construct(
         SymfonyStyle $symfonyStyle,
-        MeetupImporter $meetupImporter,
-        MeetupReporter $meetupReporter
+        MeetupReporter $meetupReporter,
+        MeetupComApi $meetupComApi,
+        MeetupComMeetupFactory $meetupComMeetupFactory
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
-        $this->meetupImporter = $meetupImporter;
         $this->meetupReporter = $meetupReporter;
+        $this->meetupComApi = $meetupComApi;
+        $this->meetupComMeetupFactory = $meetupComMeetupFactory;
     }
 
     protected function configure(): void
@@ -58,7 +66,16 @@ final class GroupMeetupsCommand extends Command
         /** @var int $groupId */
         $groupId = (int) $input->getArgument(self::GROUP_ID);
 
-        $meetups = $this->meetupImporter->importForGroupIds([$groupId]);
+        $meetups = [];
+        foreach ($this->meetupComApi->getMeetupsByGroupsIds([$groupId]) as $data) {
+            $meetup = $this->meetupComMeetupFactory->createFromData($data);
+            if ($meetup === null) {
+                continue;
+            }
+
+            $meetups[] = $meetup;
+        }
+
         $this->meetupReporter->printMeetups($meetups);
 
         $this->symfonyStyle->success(sprintf('Found %d meetups', count($meetups)));

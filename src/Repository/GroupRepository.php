@@ -39,4 +39,14 @@ final class GroupRepository
 
         return null;
     }
+
+    /**
+     * @return int[]
+     */
+    public function fetchGroupIds(): array
+    {
+        $groups = $this->fetchAll();
+
+        return array_column($groups, 'meetup_com_id');
+    }
 }

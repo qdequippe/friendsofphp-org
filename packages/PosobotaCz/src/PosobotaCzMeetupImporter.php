@@ -1,19 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Fop\PosobotaCz\Command;
+namespace Fop\PosobotaCz;
 
-use Fop\Command\AbstractImportCommand;
+use Fop\Contract\MeetupImporterInterface;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
-use Fop\PosobotaCz\IcalParser;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
 
-final class ImportPosobotaCzCommand extends AbstractImportCommand
+final class PosobotaCzMeetupImporter implements MeetupImporterInterface
 {
     /**
      * @var string
@@ -32,18 +27,14 @@ final class ImportPosobotaCzCommand extends AbstractImportCommand
 
     public function __construct(Geolocator $geolocator, IcalParser $icalParser)
     {
-        parent::__construct();
         $this->geolocator = $geolocator;
         $this->icalParser = $icalParser;
     }
 
-    protected function configure(): void
-    {
-        $this->setName(CommandNaming::classToName(self::class));
-        $this->setDescription('Imports events from https://posobota.cz/');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    /**
+     * @return Meetup[]
+     */
+    public function getMeetups(): array
     {
         $data = $this->icalParser->parseIcalUrlToArray(self::LAST_EVENT_CALENDAR);
 
@@ -51,26 +42,17 @@ final class ImportPosobotaCzCommand extends AbstractImportCommand
         $date = DateTime::from($data['DTSTAMP']);
         $location = $this->geolocator->createLocationFromCity($data['LOCATION']);
         if ($location === null) {
-            return ShellCode::ERROR;
+            return [];
         }
 
         $url = $data['URL'];
 
         $meetup = new Meetup($name, 'Posobota', $date, $location, $url);
 
-        // skip meetups too far in the future
-        if ($meetup->getStartDateTime() > $this->maxForecastDateTime) {
-            $this->symfonyStyle->note('No new meetup');
-
-            return ShellCode::SUCCESS;
-        }
-
-        $this->saveAndReportMeetups([$meetup]);
-
-        return ShellCode::SUCCESS;
+        return [$meetup];
     }
 
-    protected function getSourceName(): string
+    public function getKey(): string
     {
         return 'posobota-cz';
     }

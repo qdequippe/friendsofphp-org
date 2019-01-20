@@ -61,6 +61,8 @@ final class MeetupRepository
      */
     private function saveToFileAndStorage(array $meetups, string $storage): void
     {
+        $meetups = $this->sortByStartDateTime($meetups);
+
         $meetupsYamlStructure = [
             'parameters' => [
                 'meetups' => $this->turnsObjectsToArrays($meetups),
@@ -95,6 +97,19 @@ final class MeetupRepository
         }
 
         return $meetupsAsObjects;
+    }
+
+    /**
+     * @param Meetup[] $meetups
+     * @return Meetup[]
+     */
+    private function sortByStartDateTime(array $meetups): array
+    {
+        usort($meetups, function (Meetup $firstMeetup, Meetup $secondMeetup): int {
+            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
+        });
+
+        return $meetups;
     }
 
     /**

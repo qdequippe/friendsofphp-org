@@ -1,17 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace Fop\CrosswebPl\Command;
+namespace Fop\CrosswebPl;
 
-use Fop\Command\AbstractImportCommand;
+use Fop\Contract\MeetupImporterInterface;
 use Fop\CrosswebPl\Meetup\CrosswebPlMeetupFactory;
 use Fop\DouUa\Xml\XmlReader;
+use Fop\Entity\Meetup;
 use Nette\Utils\Strings;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
 
-final class ImportCrosswebPlCommand extends AbstractImportCommand
+final class CrosswebPlMeetupImporter implements MeetupImporterInterface
 {
     /**
      * @var string
@@ -30,22 +27,24 @@ final class ImportCrosswebPlCommand extends AbstractImportCommand
 
     public function __construct(XmlReader $xmlReader, CrosswebPlMeetupFactory $crosswebPlMeetupFactory)
     {
-        parent::__construct();
         $this->xmlReader = $xmlReader;
         $this->crosswebPlMeetupFactory = $crosswebPlMeetupFactory;
     }
 
-    protected function configure(): void
+    public function getKey(): string
     {
-        $this->setName(CommandNaming::classToName(self::class));
-        $this->setDescription('Imports events from https://crossweb.pl/');
+        return 'crossweb-pl';
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    /**
+     * @return Meetup[]
+     */
+    public function getMeetups(): array
     {
         $xml = $this->xmlReader->loadFile(self::XML_CALENDAR_FEED);
 
         $meetups = [];
+
         foreach ($xml->channel->item as $meetup) {
             $name = (string) $meetup->title;
             $url = $this->clearUrl((string) $meetup->link);
@@ -55,22 +54,10 @@ final class ImportCrosswebPlCommand extends AbstractImportCommand
                 continue;
             }
 
-            // skip meetups too far in the future
-            if ($meetup->getStartDateTime() > $this->maxForecastDateTime) {
-                continue;
-            }
-
             $meetups[] = $meetup;
         }
 
-        $this->saveAndReportMeetups($meetups);
-
-        return ShellCode::SUCCESS;
-    }
-
-    protected function getSourceName(): string
-    {
-        return 'crossweb-pl';
+        return $meetups;
     }
 
     /**
