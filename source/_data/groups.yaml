@@ -5723,3 +5723,13 @@ parameters:
             meetup_com_id: 30881318
             meetup_com_url: 'https://www.meetup.com/Pehapkari-Brno/'
             country: 'Czech Republic'
+
+        -   name: 'WordPress Edinburgh'
+            meetup_com_id: 14333522
+            meetup_com_url: 'https://www.meetup.com/WordPress-Edinburgh/'
+            country: 'United Kingdom'
+
+        -   name: 'Glasgow WordPress Meetup'
+            meetup_com_id: 20026058
+            meetup_com_url: 'https://www.meetup.com/Glasgow-WordPress-Meetup/'
+            country: 'United Kingdom'

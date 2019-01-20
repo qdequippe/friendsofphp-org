@@ -1,5 +1,4 @@
 imports:
-    - { resource: 'config.local.yaml', ignore_errors: true }
     - { resource: 'parameters.yaml' }
 
 services:
