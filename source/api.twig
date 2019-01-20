@@ -1,0 +1,47 @@
+---
+title: "What PHP Groups are Out There?"
+layout: "_layouts/default.twig"
+---
+
+<div class="container-fluid" id="groups">
+    <div class="text-center">
+        <h2 class="pt-4 pb-4">Meetups in JSON? Groups in JSON?</h2>
+
+        <p>
+            Feeds are updated at least once a 24 hours.
+        </p>
+
+        <p class="text-muted">
+            Last update: {{ "now"|date("D, M d - H:i") }}
+        </p>
+
+        <table class="table table-bordered table-responsive mt-5 mb-5">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-50 text-center">URL</th>
+                    <th class="w-50 text-center">Content</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <a href="/api/meetups.json">
+                        {{ website_url }}/api/meetups.json
+                    </a>
+                </td>
+                <td>
+                    {{ meetups|length }} meetups for next 30 days format</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/api/groups.json">
+                        {{ website_url }}/api/groups.json
+                    </a>
+                </td>
+                <td>
+                    {{ groups|length }} meetup.com groups we import meetups from</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
