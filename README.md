@@ -23,12 +23,22 @@ To see new meetups, import them first:
 ```bash
 bin/console import-meetup-com
 bin/console import-dou-ua
+bin/console import-crossweb-pl
+bin/console import-posobota-cz
+bin/console import-opentechcalendar-co-uk
 
 # then run website
 gulp
 ```
 
 You'll find new or updated files in `/source/_data/generated/` directory.
+
+## API?
+
+Do you want to get all groups and meetups? There you are:
+
+- https://friendsofphp.org/api/meetups.json 
+- https://friendsofphp.org/api/group.json
 
 ## Maintenance
 
