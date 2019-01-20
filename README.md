@@ -34,7 +34,7 @@ You'll find new or updated files in `/source/_data/generated/` directory.
 Do you want to get all groups and meetups? There you are:
 
 - https://friendsofphp.org/api/meetups.json 
-- https://friendsofphp.org/api/group.json
+- https://friendsofphp.org/api/groups.json
 
 ## Maintenance
 
