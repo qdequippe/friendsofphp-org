@@ -8,7 +8,7 @@ services:
 
     Fop\:
         resource: '../src'
-        exclude: '../src/{Entity,DependencyInjection/FopKernel.php}'
+        exclude: '../src/{Entity,DependencyInjection/FopKernel.php,Contract}'
 
     Symfony\Component\Console\Application:
         public: true

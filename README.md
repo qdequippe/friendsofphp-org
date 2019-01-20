@@ -18,14 +18,10 @@ gulp # see gulpfile.js for more
 
 ### Update Meetup Data
 
-To see new meetups, import them first:
+To see some meetups you must import them first:
 
 ```bash
-bin/console import-meetup-com
-bin/console import-dou-ua
-bin/console import-crossweb-pl
-bin/console import-posobota-cz
-bin/console import-opentechcalendar-co-uk
+bin/console import
 
 # then run website
 gulp

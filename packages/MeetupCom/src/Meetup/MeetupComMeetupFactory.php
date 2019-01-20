@@ -1,17 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace Fop\MeetupCom;
+namespace Fop\MeetupCom\Meetup;
 
 use DateTimeInterface;
 use DateTimeZone;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
-use Fop\MeetupCom\Api\MeetupComApi;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 
-final class MeetupImporter
+final class MeetupComMeetupFactory
 {
     /**
      * @var string[]
@@ -51,68 +50,36 @@ final class MeetupImporter
     ];
 
     /**
-     * @var MeetupComApi
-     */
-    private $meetupComApi;
-
-    /**
-     * @var DateTimeInterface
-     */
-    private $maxForecastDateTime;
-
-    /**
      * @var Geolocator
      */
     private $geolocator;
 
-    public function __construct(int $maxForecastDays, MeetupComApi $meetupComApi, Geolocator $geolocator)
+    public function __construct(Geolocator $geolocator)
     {
-        $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
-        $this->meetupComApi = $meetupComApi;
         $this->geolocator = $geolocator;
     }
 
     /**
-     * @param int[] $groupIds
-     * @return Meetup[]
+     * @param mixed[] $data
      */
-    public function importForGroupIds(array $groupIds): array
+    public function createFromData(array $data): ?Meetup
     {
-        $meetups = [];
-
-        $groupIdsChunks = array_chunk($groupIds, 200);
-
-        foreach ($groupIdsChunks as $groupIdsChunk) {
-            foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIdsChunk) as $meetup) {
-                $startDateTime = $this->createStartDateTimeFromEventData($meetup);
-
-                if ($this->shouldSkipMeetup($startDateTime, $meetup)) {
-                    continue;
-                }
-
-                $meetups[] = $this->createMeetupFromEventData($meetup, $startDateTime);
-            }
+        if ($this->shouldSkipMeetup($data)) {
+            return null;
         }
 
-        return $this->sortByStartDateTime($meetups);
+        $startDateTime = $this->createStartDateTimeFromEventData($data);
+        $location = $this->createLocation($data);
+
+        $name = $this->createName($data);
+
+        return new Meetup($name, $data['group']['name'], $startDateTime, $location, $data['event_url']);
     }
 
     /**
      * @param mixed[] $meetup
      */
-    private function createStartDateTimeFromEventData(array $meetup): DateTimeInterface
-    {
-        // not sure why it adds extra "000" in the end
-        $time = $this->normalizeTimestamp($meetup['time']);
-        $utcOffset = $this->normalizeTimestamp($meetup['utc_offset']);
-
-        return $this->createUtcDateTime($time, $utcOffset);
-    }
-
-    /**
-     * @param mixed[] $meetup
-     */
-    private function shouldSkipMeetup(DateTimeInterface $startDateTime, array $meetup): bool
+    private function shouldSkipMeetup(array $meetup): bool
     {
         // not announced yet
         if (isset($meetup['announced']) && $meetup['announced'] === false) {
@@ -121,11 +88,6 @@ final class MeetupImporter
 
         // skip past meetups
         if ($meetup['status'] !== 'upcoming') {
-            return true;
-        }
-
-        // skip meetups too far in the future
-        if ($startDateTime > $this->maxForecastDateTime) {
             return true;
         }
 
@@ -138,44 +100,49 @@ final class MeetupImporter
     }
 
     /**
-     * @param mixed[] $event
+     * @param mixed[] $data
      */
-    private function createMeetupFromEventData(array $event, DateTimeInterface $startDateTime): Meetup
+    private function createStartDateTimeFromEventData(array $data): DateTimeInterface
     {
-        $venue = $event['venue'];
+        // not sure why it adds extra "000" in the end
+        $time = $this->normalizeTimestamp($data['time']);
+        $utcOffset = $this->normalizeTimestamp($data['utc_offset']);
+
+        return $this->createUtcDateTime($time, $utcOffset);
+    }
+
+    /**
+     * @param mixed[] $data
+     */
+    private function createLocation(array $data): Location
+    {
+        $venue = $data['venue'];
 
         // base location of the meetup, use it for event location
         if ($venue['lon'] === 0 || $venue['lat'] === 0 || (isset($venue['city']) && $venue['city'] === 'Shenzhen')) {
             // correction for Shenzhen miss-location to America
-            $venue['lon'] = $event['group']['group_lon'];
-            $venue['lat'] = $event['group']['group_lat'];
+            $venue['lon'] = $data['group']['group_lon'];
+            $venue['lat'] = $data['group']['group_lat'];
         }
 
         $venue = $this->normalizeCityStates($venue);
-
         $venue['city'] = $this->normalizeCity($venue['city']);
+
         $country = $this->geolocator->resolveCountryByVenue($venue);
 
         $coordinate = new Coordinate($venue['lat'], $venue['lon']);
-        $location = new Location($venue['city'], $country, $coordinate);
 
-        $event['name'] = trim($event['name']);
-        $event['name'] = str_replace('@', '', $event['name']);
-
-        return new Meetup($event['name'], $event['group']['name'], $startDateTime, $location, $event['event_url']);
+        return new Location($venue['city'], $country, $coordinate);
     }
 
     /**
-     * @param Meetup[] $meetups
-     * @return Meetup[]
+     * @param mixed[] $data
      */
-    private function sortByStartDateTime(array $meetups): array
+    private function createName(array $data): string
     {
-        usort($meetups, function (Meetup $firstMeetup, Meetup $secondMeetup): int {
-            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
-        });
+        $name = trim($data['name']);
 
-        return $meetups;
+        return str_replace('@', '', $name);
     }
 
     private function normalizeTimestamp(int $timestamp): int
