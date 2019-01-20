@@ -16,6 +16,6 @@ services:
     Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader: ~
 
     GuzzleHttp\Client: ~
+    Symplify\PackageBuilder\Http\BetterGuzzleClient: ~
 
-    # Symfony\Console
     Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~

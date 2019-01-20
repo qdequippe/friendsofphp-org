@@ -2,8 +2,8 @@
 
 namespace Fop\MeetupCom\Api;
 
-use Fop\Guzzle\RequestClient;
 use GuzzleHttp\Exception\ClientException;
+use Symplify\PackageBuilder\Http\BetterGuzzleClient;
 use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupComApi
@@ -25,14 +25,14 @@ final class MeetupComApi
     private $meetupComApiKey;
 
     /**
-     * @var RequestClient
+     * @var BetterGuzzleClient
      */
-    private $requestClient;
+    private $betterGuzzleClient;
 
-    public function __construct(string $meetupComApiKey, RequestClient $requestClient)
+    public function __construct(string $meetupComApiKey, BetterGuzzleClient $betterGuzzleClient)
     {
         $this->meetupComApiKey = $meetupComApiKey;
-        $this->requestClient = $requestClient;
+        $this->betterGuzzleClient = $betterGuzzleClient;
     }
 
     /**
@@ -43,7 +43,7 @@ final class MeetupComApi
     {
         $url = $this->createUrlFromGroupIds($groupIds);
 
-        $json = $this->requestClient->requestToJson($url);
+        $json = $this->betterGuzzleClient->requestToJson($url);
 
         return $json['results'] ?? [];
     }
@@ -71,7 +71,7 @@ final class MeetupComApi
     {
         $url = self::API_GROUP_DETAIL_URL . $this->resolveGroupUrlNameFromGroupUrl($url);
 
-        return $this->requestClient->requestToJson($url);
+        return $this->betterGuzzleClient->requestToJson($url);
     }
 
     /**

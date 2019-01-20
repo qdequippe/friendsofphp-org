@@ -10,6 +10,7 @@ use Fop\Repository\MeetupRepository;
 use Nette\Utils\DateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
@@ -66,11 +67,17 @@ final class ImportCommand extends Command
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription('Import meetups from meetup providers');
+        $this->addOption('only', null, InputOption::VALUE_REQUIRED, 'Single provider key to run');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        foreach ($this->meetupImporters as $meetupImporter) {
+        /** @var string|null $provider */
+        $provider = $input->getOption('only');
+
+        $meetupImporters = $this->getMeetupImporters($provider);
+
+        foreach ($meetupImporters as $meetupImporter) {
             $this->symfonyStyle->note(sprintf('Importing meetups from "%s"', $meetupImporter->getKey()));
 
             $meetups = $meetupImporter->getMeetups();
@@ -82,6 +89,25 @@ final class ImportCommand extends Command
         $this->symfonyStyle->success('Import is done!');
 
         return ShellCode::SUCCESS;
+    }
+
+    /**
+     * @return MeetupImporterInterface[]
+     */
+    private function getMeetupImporters(?string $provider): array
+    {
+        if ($provider === null) {
+            return $this->meetupImporters;
+        }
+
+        foreach ($this->meetupImporters as $meetupImporter) {
+            if ($meetupImporter->getKey() === $provider) {
+                return [$meetupImporter];
+            }
+        }
+
+        // none found
+        return [];
     }
 
     /**

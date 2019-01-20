@@ -3,10 +3,10 @@
 namespace Fop\Geolocation;
 
 use Fop\Entity\Location;
-use Fop\Guzzle\RequestClient;
 use Location\Coordinate;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
+use Symplify\PackageBuilder\Http\BetterGuzzleClient;
 
 final class Geolocator
 {
@@ -31,24 +31,24 @@ final class Geolocator
     private $usaStates = [];
 
     /**
-     * @var RequestClient
+     * @var BetterGuzzleClient
      */
-    private $requestClient;
+    private $betterGuzzleClient;
 
     /**
      * @param string[] $usaStates
      */
-    public function __construct(array $usaStates, RequestClient $requestClient)
+    public function __construct(array $usaStates, BetterGuzzleClient $betterGuzzleClient)
     {
         $this->usaStates = $usaStates;
-        $this->requestClient = $requestClient;
+        $this->betterGuzzleClient = $betterGuzzleClient;
     }
 
     public function createLocationFromCity(string $city): ?Location
     {
         $url = sprintf(self::API_CITY_TO_LOCATION, $city);
 
-        $json = $this->requestClient->requestToJson($url);
+        $json = $this->betterGuzzleClient->requestToJson($url);
         if (! isset($json[0]['lat']) || ! isset($json[0]['lat'])) {
             return null;
         }
@@ -142,7 +142,7 @@ final class Geolocator
         }
 
         $url = sprintf(self::API_LOCATION_TO_COUNTRY, $latitude, $longitude);
-        $json = $this->requestClient->requestToJson($url);
+        $json = $this->betterGuzzleClient->requestToJson($url);
 
         $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey] = $json;
 
