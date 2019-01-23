@@ -403,6 +403,11 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/PHPUG-Rhein-Neckar/'
             country: Germany
 
+        -   name: 'PHP User Group Münster'
+            meetup_com_id: 18657952
+            meetup_com_url: 'https://www.meetup.com/phpugms/'
+            country: Germany
+
         -   name: Budapest
             meetup_com_id: 3917992
             meetup_com_url: 'https://www.meetup.com/phpmeetup/'
