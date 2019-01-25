@@ -16,6 +16,7 @@ final class MeetupComMeetupFactory
      * @var string[]
      */
     private $cityNormalizationMap = [
+        'Praha-Nové Město' => 'Prague',
         'Brno-Královo Pole' => 'Brno',
         'Hlavní město Praha' => 'Prague',
         '1065 Budapest' => 'Budapest',
