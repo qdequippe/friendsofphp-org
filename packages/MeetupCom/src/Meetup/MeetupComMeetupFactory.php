@@ -17,6 +17,7 @@ final class MeetupComMeetupFactory
      */
     private $cityNormalizationMap = [
         'Praha-Nové Město' => 'Prague',
+        'Praha' => 'Prague',
         'Brno-Královo Pole' => 'Brno',
         'Brno-střed-Veveří' => 'Brno',
         'Hlavní město Praha' => 'Prague',
