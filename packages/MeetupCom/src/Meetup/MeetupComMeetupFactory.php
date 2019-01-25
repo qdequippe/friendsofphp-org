@@ -18,10 +18,12 @@ final class MeetupComMeetupFactory
     private $cityNormalizationMap = [
         'Praha-Nové Město' => 'Prague',
         'Brno-Královo Pole' => 'Brno',
+        'Brno-střed-Veveří' => 'Brno',
         'Hlavní město Praha' => 'Prague',
         '1065 Budapest' => 'Budapest',
         'ISTANBUL' => 'Istanbul',
         'Wien' => 'Vienna',
+        '1190 Wien' => 'Vienna',
         '8000 Aarhus C' => 'Aarhus',
         'Le Kremlin-Bicêtre' => 'Paris',
         'Parramatta' => 'Paris',
