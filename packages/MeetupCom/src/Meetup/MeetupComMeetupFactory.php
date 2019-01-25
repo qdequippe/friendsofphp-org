@@ -126,6 +126,11 @@ final class MeetupComMeetupFactory
         }
 
         $venue = $this->normalizeCityStates($venue);
+        if (! isset($venue['city'])) {
+            $country = $this->geolocator->getCountryJsonByLatitudeAndLongitude($venue['lat'], $venue['lon']);
+            $venue['city'] = $country['address']['city'];
+        }
+
         $venue['city'] = $this->normalizeCity($venue['city']);
 
         $country = $this->geolocator->resolveCountryByVenue($venue);

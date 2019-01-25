@@ -136,7 +136,7 @@ final class Geolocator
      */
     public function getCountryJsonByLatitudeAndLongitude(float $latitude, float $longitude): array
     {
-        $cacheKey = sha1($longitude . $longitude);
+        $cacheKey = sha1((string) $longitude . (string) $longitude);
         if (isset($this->countryJsonByLatitudeAndLongitudeCache[$cacheKey])) {
             return $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey];
         }
