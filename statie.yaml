@@ -4,7 +4,6 @@ imports:
     - { resource: 'config/parameters.yaml' }
 
 parameters:
-    site_title: 'European PHP Meetups at 1 place'
     website_url: 'https://friendsofphp.org'
 
     # see https://github.com/symplify/statie#how-to-generate-api
