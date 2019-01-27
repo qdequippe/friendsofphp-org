@@ -1,10 +1,10 @@
+includes:
+    - vendor/symplify/phpstan-extensions/config/config.neon
+
 parameters:
     level: max
 
     ignoreErrors:
-        # known value, container is already created
-        - '#Method Fop\\DependencyInjection\\ContainerFactory::(create|createWithConfig)\(\) should return Psr\\Container\\ContainerInterface but returns Symfony\\Component\\DependencyInjection\\ContainerInterface\|null#'
-
         # false positive, checked or @var doc above
         - '#Parameter \#1 \$str of function strtolower expects string, string\|null given#'
         - '#Parameter \#1 \$containerBuilder of class Symplify\\PackageBuilder\\Yaml\\FileLoader\\ParameterMergingYamlFileLoader constructor expects Symfony\\Component\\DependencyInjection\\ContainerBuilder, Symfony\\Component\\DependencyInjection\\ContainerInterface given#'
