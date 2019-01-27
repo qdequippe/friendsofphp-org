@@ -5,6 +5,7 @@ namespace Fop\PosobotaCz;
 use Fop\Contract\MeetupImporterInterface;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
+use Fop\Utils\CityNormalizer;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 
@@ -25,10 +26,16 @@ final class PosobotaCzMeetupImporter implements MeetupImporterInterface
      */
     private $icalParser;
 
-    public function __construct(Geolocator $geolocator, IcalParser $icalParser)
+    /**
+     * @var CityNormalizer
+     */
+    private $cityNormalizer;
+
+    public function __construct(Geolocator $geolocator, IcalParser $icalParser, CityNormalizer $cityNormalizer)
     {
         $this->geolocator = $geolocator;
         $this->icalParser = $icalParser;
+        $this->cityNormalizer = $cityNormalizer;
     }
 
     /**
@@ -40,7 +47,9 @@ final class PosobotaCzMeetupImporter implements MeetupImporterInterface
 
         $name = $this->resolveName($data['UID']);
         $date = DateTime::from($data['DTSTAMP']);
-        $location = $this->geolocator->createLocationFromCity($data['LOCATION']);
+
+        $city = $this->cityNormalizer->normalize($data['LOCATION']);
+        $location = $this->geolocator->createLocationFromCity($city);
         if ($location === null) {
             return [];
         }
