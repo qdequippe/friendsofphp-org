@@ -117,6 +117,11 @@ final class ImportCommand extends Command
     private function filterOutTooFarMeetups(array $meetups): array
     {
         return array_filter($meetups, function (Meetup $meetup) {
+            // filter out past meetups
+            if ($meetup->getStartDateTime() <= DateTime::from('now')) {
+                return false;
+            }
+
             return $meetup->getStartDateTime() <= $this->maxForecastDateTime;
         });
     }
