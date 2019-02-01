@@ -30,6 +30,8 @@ final class CityNormalizer
         '東京都' => 'Tokyo',
         '愛知県' => 'Aichi Prefecture',
         '兵庫県' => 'Hyōgo',
+        '長野県松本市' => 'Matsumoto',
+        'Tōkyō-to ' => 'Tokyo',
         # Germany
         'Köln' => 'Cologne',
         '10997 Berlin' => 'Berlin',
@@ -37,6 +39,7 @@ final class CityNormalizer
         '76227 Karlsruhe' => 'Karlsruhe',
         'Unterföhrin' => 'Munich',
         # UK
+        'G1 1TF' => 'Glasgow',
         'EC2A 2BA' => 'London',
         'London, EC2Y 9AE' => 'London',
         'Oxford OX1 3BY' => 'Oxford',
