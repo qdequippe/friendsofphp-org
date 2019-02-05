@@ -6,7 +6,6 @@ use Fop\DouUa\Exception\XmlException;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use SimpleXMLElement;
-use function Safe\sprintf;
 
 final class XmlReader
 {

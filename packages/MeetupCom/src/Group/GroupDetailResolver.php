@@ -7,7 +7,6 @@ use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Exception\InvalidGroupUrlException;
 use Nette\Utils\Strings;
 use Nette\Utils\Validators;
-use function Safe\sprintf;
 
 final class GroupDetailResolver
 {
