@@ -5738,3 +5738,8 @@ parameters:
             meetup_com_id: 20026058
             meetup_com_url: 'https://www.meetup.com/Glasgow-WordPress-Meetup/'
             country: 'United Kingdom'
+
+        -   name: 'ColumbusPHP'
+            meetup_com_id: 120829
+            meetup_com_url: 'https://www.meetup.com/phpphp/'
+            country: 'Ohio'
