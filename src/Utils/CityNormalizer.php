@@ -2,6 +2,8 @@
 
 namespace Fop\Utils;
 
+use Nette\Utils\Strings;
+
 /**
  * Convert non-standard names to one format
  */
@@ -11,15 +13,12 @@ final class CityNormalizer
      * @var string[]
      */
     private $cityNormalizationMap = [
-        'Praha-Nové Město' => 'Prague',
-        'Praha' => 'Prague',
-        'Brno-Královo Pole' => 'Brno',
-        'Brno-střed-Veveří' => 'Brno',
+        '#Praha(.*?)#' => 'Prague',
+        '#Brno(.*?)#' => 'Brno',
         'Hlavní město Praha' => 'Prague',
-        '1065 Budapest' => 'Budapest',
+        '#(.*?) Budapest#' => 'Budapest',
         'ISTANBUL' => 'Istanbul',
-        'Wien' => 'Vienna',
-        '1190 Wien' => 'Vienna',
+        '#(.*?)Wien#' => 'Vienna',
         '8000 Aarhus C' => 'Aarhus',
         'Le Kremlin-Bicêtre' => 'Paris',
         'Parramatta' => 'Paris',
@@ -34,17 +33,16 @@ final class CityNormalizer
         'Tōkyō-to ' => 'Tokyo',
         # Germany
         'Köln' => 'Cologne',
-        '10997 Berlin' => 'Berlin',
-        '22765 Hamburg' => 'Hamburg',
-        '76227 Karlsruhe' => 'Karlsruhe',
+        '#(.*?) Berlin#' => 'Berlin',
+        '#(.*?) Hamburg#' => 'Hamburg',
+        '#(.*?) Karlsruhe#' => 'Karlsruhe',
         'Unterföhrin' => 'Munich',
         # UK
         'G1 1TF' => 'Glasgow',
         'EC2A 2BA' => 'London',
-        'London, EC2Y 9AE' => 'London',
-        'Oxford OX1 3BY' => 'Oxford',
-        'Oxford OX2 6AE' => 'Oxford',
-        'Reading RG1 1DG' => 'Reading',
+        '#London( |-)(.*?)#' => 'London',
+        '#Oxford( |-)(.*?)#' => 'Oxford',
+        '#Reading( |-)(.*?)#' => 'Reading',
         'M4 2AH' => 'Manchester',
         'BH12 1AZ' => 'Poole',
         'LE2 7DR' => 'Leicester',
@@ -53,6 +51,21 @@ final class CityNormalizer
 
     public function normalize(string $city): string
     {
-        return $this->cityNormalizationMap[$city] ?? $city;
+        foreach ($this->cityNormalizationMap as $pattern => $correct) {
+            if (Strings::match($city, $this->normalizePattern($pattern))) {
+                return $correct;
+            }
+        }
+
+        return $city;
+    }
+
+    private function normalizePattern(string $pattern): string
+    {
+        if ($pattern[0] === '#') {
+            return $pattern;
+        }
+
+        return '#' . preg_quote($pattern) . '#';
     }
 }
