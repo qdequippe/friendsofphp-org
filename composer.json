@@ -6,8 +6,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "nette/utils": "^2.5",
         "rinvex/countries": "^3.1",
-        "symplify/statie": "^5.4",
-        "symplify/package-builder": "^5.4",
+        "symplify/statie": "^5.5",
+        "symplify/package-builder": "^5.5",
         "symfony/console": "^4.2",
         "symfony/dependency-injection": "^4.2",
         "symfony/dom-crawler": "^4.2",
@@ -20,8 +20,8 @@
         "phpstan/phpstan": "^0.11",
         "phpunit/phpunit": "^7.5",
         "spatie/http-status-check": "^3.1",
-        "symplify/phpstan-extensions": "^5.4",
-        "symplify/easy-coding-standard": "^5.4"
+        "symplify/phpstan-extensions": "^5.5",
+        "symplify/easy-coding-standard": "^5.5"
     },
     "autoload": {
         "psr-4": {
@@ -48,5 +48,7 @@
             "bin/console import",
             "vendor/bin/statie generate source"
         ]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
