@@ -3,10 +3,11 @@
 namespace Fop\Tests\Geolocator;
 
 use Fop\Geolocation\Geolocator;
-use Fop\Tests\AbstractContainerAwareTestCase;
+use Fop\HttpKernel\FopKernel;
 use Iterator;
+use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
-final class GeolocatorTest extends AbstractContainerAwareTestCase
+final class GeolocatorTest extends AbstractKernelTestCase
 {
     /**
      * @var Geolocator
@@ -15,7 +16,9 @@ final class GeolocatorTest extends AbstractContainerAwareTestCase
 
     protected function setUp(): void
     {
-        $this->geolocator = $this->container->get(Geolocator::class);
+        $this->bootKernel(FopKernel::class);
+
+        $this->geolocator = self::$container->get(Geolocator::class);
     }
 
     /**
