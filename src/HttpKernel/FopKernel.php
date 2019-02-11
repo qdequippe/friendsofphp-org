@@ -25,6 +25,24 @@ final class FopKernel extends Kernel
         $loader->load(__DIR__ . '/../../config/config.yaml');
     }
 
+    public function getCacheDir(): string
+    {
+        return sys_get_temp_dir() . '/fop_cache';
+    }
+
+    public function getLogDir(): string
+    {
+        return sys_get_temp_dir() . '/fop_log';
+    }
+
+    /**
+     * @return BundleInterface[]
+     */
+    public function registerBundles(): iterable
+    {
+        return [];
+    }
+
     protected function build(ContainerBuilder $containerBuilder): void
     {
         $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
@@ -45,23 +63,5 @@ final class FopKernel extends Kernel
         ]);
 
         return new DelegatingLoader($loaderResolver);
-    }
-
-    public function getCacheDir(): string
-    {
-        return sys_get_temp_dir() . '/fop_cache';
-    }
-
-    public function getLogDir(): string
-    {
-        return sys_get_temp_dir() . '/fop_log';
-    }
-
-    /**
-     * @return BundleInterface[]
-     */
-    public function registerBundles(): iterable
-    {
-        return [];
     }
 }
