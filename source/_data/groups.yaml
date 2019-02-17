@@ -5751,5 +5751,5 @@ parameters:
             
         -   name: 'Symfony Usergroup Chemnitz/Südwestsachsen'
             meetup_com_id: 30993079
-            meetup_com_url: 'https://www.meetup.com/de-DE/Symfony-Usergroup-Chemnitz-Sudwestsachsen/'
+            meetup_com_url: 'https://www.meetup.com/Symfony-Usergroup-Chemnitz-Sudwestsachsen/'
             country: 'Germany'
