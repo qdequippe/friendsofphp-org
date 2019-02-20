@@ -11,3 +11,5 @@ composer.lock
 
 /source/_data/generated
 *.local.yaml
+
+.phpunit.result.cache

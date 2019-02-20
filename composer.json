@@ -21,7 +21,8 @@
         "phpunit/phpunit": "^8.0",
         "spatie/http-status-check": "^3.1",
         "symplify/phpstan-extensions": "^5.5",
-        "symplify/easy-coding-standard": "^5.5"
+        "symplify/easy-coding-standard": "^5.5",
+        "nette/caching": "^3.0"
     },
     "autoload": {
         "psr-4": {
