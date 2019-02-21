@@ -2,10 +2,20 @@
 
 $(function() {
     var showRowsInBounds = function(bounds) {
+        var now = new Date();
+
         $("tr.meetup").each(function () {
             var meetupLatLng = L.latLng($(this).data('latitude'), $(this).data('longitude'));
             if (bounds.contains(meetupLatLng)) {
-                $(this).show();
+                // is in the past?
+                var meetupDateTime = Date.parse($(this).data('datetime'));
+                var nowDateTime = Date.parse(now);
+
+                if (meetupDateTime < nowDateTime) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
             } else {
                 $(this).hide();
             }
