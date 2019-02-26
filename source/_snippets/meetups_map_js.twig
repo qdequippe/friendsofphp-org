@@ -38,14 +38,14 @@
     var tresholdDate = new Date();
     // go 2 hours in the future, so the running meetup is discoverable; e.g. when comming late like me :)
     tresholdDate.setHours(tresholdDate.getHours() - 2);
-    var tresholdDateDateTime = Date.parse(tresholdDate);
+    var tresholdDateTime = Date.parse(tresholdDate);
 
     for (var i in markers) {
         var marker = markers[i];
 
         // is in the past?
         var meetupDateTime = Date.parse(marker.datetime);
-        if (meetupDateTime < tresholdDateDateTime) {
+        if (meetupDateTime < tresholdDateTime) {
             continue;
         }
 

@@ -5,7 +5,7 @@ $(function() {
         var tresholdDate = new Date();
         // go 2 hours in the future, so the running meetup is discoverable; e.g. when comming late like me :)
         tresholdDate.setHours(tresholdDate.getHours() - 2);
-        var tresholdDateDateTime = Date.parse(tresholdDate);
+        var tresholdDateTime = Date.parse(tresholdDate);
 
         $("tr.meetup").each(function () {
             var meetupLatLng = L.latLng($(this).data('latitude'), $(this).data('longitude'));
@@ -13,7 +13,7 @@ $(function() {
                 // is in the past?
                 var meetupDateTime = Date.parse($(this).data('datetime'));
 
-                if (meetupDateTime < tresholdDateDateTime) {
+                if (meetupDateTime < tresholdDateTime) {
                     $(this).hide();
                 } else {
                     $(this).show();
