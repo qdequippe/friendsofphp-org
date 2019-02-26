@@ -14,7 +14,6 @@ use Symfony\Component\HttpKernel\Kernel;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\ConfigurableCollectorCompilerPass;
 use Symplify\PackageBuilder\Yaml\FileLoader\ParameterMergingYamlFileLoader;
 
 final class FopKernel extends Kernel
@@ -47,7 +46,6 @@ final class FopKernel extends Kernel
     {
         $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
         $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
-        $containerBuilder->addCompilerPass(new ConfigurableCollectorCompilerPass());
         $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
     }
 
