@@ -21,9 +21,6 @@ services:
         resource: '../src'
         exclude: '../src/{Entity,HttpKernel/FopKernel.php,Contract}'
 
-    Symfony\Component\Console\Application:
-        public: true
-
     Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader: ~
 
     GuzzleHttp\Client: ~

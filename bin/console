@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php declare(strict_types=1);
 
+use Fop\Console\FriendsOfPhpApplication;
 use Fop\HttpKernel\FopKernel;
 use Symfony\Component\Console\Application;
 
@@ -11,6 +12,5 @@ $fopKernel->boot();
 
 $container = $fopKernel->getContainer();
 
-/** @var Application $application */
-$application = $container->get(Application::class);
+$application = $container->get(FriendsOfPhpApplication::class);
 exit($application->run());
