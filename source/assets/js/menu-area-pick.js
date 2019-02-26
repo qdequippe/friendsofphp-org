@@ -2,16 +2,18 @@
 
 $(function() {
     var showRowsInBounds = function(bounds) {
-        var now = new Date();
+        var tresholdDate = new Date();
+        // go 2 hours in the future, so the running meetup is discoverable; e.g. when comming late like me :)
+        tresholdDate.setHours(tresholdDate.getHours() - 2);
+        var tresholdDateDateTime = Date.parse(tresholdDate);
 
         $("tr.meetup").each(function () {
             var meetupLatLng = L.latLng($(this).data('latitude'), $(this).data('longitude'));
             if (bounds.contains(meetupLatLng)) {
                 // is in the past?
                 var meetupDateTime = Date.parse($(this).data('datetime'));
-                var nowDateTime = Date.parse(now);
 
-                if (meetupDateTime < nowDateTime) {
+                if (meetupDateTime < tresholdDateDateTime) {
                     $(this).hide();
                 } else {
                     $(this).show();
