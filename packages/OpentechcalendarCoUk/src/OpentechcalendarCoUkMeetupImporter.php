@@ -4,7 +4,7 @@ namespace Fop\OpentechcalendarCoUk;
 
 use Fop\Contract\MeetupImporterInterface;
 use Fop\Entity\Meetup;
-use Fop\OpentechcalendarCoUk\Factory\MeetupFactory;
+use Fop\OpentechcalendarCoUk\Factory\OpentechcalendarCoUkMeetupFactory;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
@@ -17,13 +17,13 @@ final class OpentechcalendarCoUkMeetupImporter implements MeetupImporterInterfac
     private const EVENTS_JSON_URL = 'https://opentechcalendar.co.uk/api1/events.json';
 
     /**
-     * @var MeetupFactory
+     * @var OpentechcalendarCoUkMeetupFactory
      */
-    private $meetupFactory;
+    private $opentechcalendarCoUkMeetupFactory;
 
-    public function __construct(MeetupFactory $meetupFactory)
+    public function __construct(OpentechcalendarCoUkMeetupFactory $opentechcalendarCoUkMeetupFactory)
     {
-        $this->meetupFactory = $meetupFactory;
+        $this->opentechcalendarCoUkMeetupFactory = $opentechcalendarCoUkMeetupFactory;
     }
 
     /**
@@ -42,7 +42,7 @@ final class OpentechcalendarCoUkMeetupImporter implements MeetupImporterInterfac
                 continue;
             }
 
-            $meetup = $this->meetupFactory->createFromArray($eventJson);
+            $meetup = $this->opentechcalendarCoUkMeetupFactory->createFromArray($eventJson);
             if ($meetup === null) {
                 continue;
             }

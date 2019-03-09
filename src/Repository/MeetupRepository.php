@@ -5,7 +5,7 @@ namespace Fop\Repository;
 use Fop\Entity\Meetup;
 use Fop\FileSystem\YamlFileSystem;
 use Fop\Nomad\Exception\ConfigurationException;
-use Fop\Nomad\Factory\MeetupFactory;
+use Fop\Nomad\Factory\NomadMeetupFactory;
 
 final class MeetupRepository
 {
@@ -20,18 +20,18 @@ final class MeetupRepository
     private $yamlFileSystem;
 
     /**
-     * @var MeetupFactory
+     * @var NomadMeetupFactory
      */
-    private $meetupFactory;
+    private $nomadMeetupFactory;
 
     public function __construct(
         string $importedMeetupsStorage,
         YamlFileSystem $yamlFileSystem,
-        MeetupFactory $meetupFactory
+        NomadMeetupFactory $nomadMeetupFactory
     ) {
         $this->importedMeetupsStorage = $importedMeetupsStorage;
         $this->yamlFileSystem = $yamlFileSystem;
-        $this->meetupFactory = $meetupFactory;
+        $this->nomadMeetupFactory = $nomadMeetupFactory;
     }
 
     /**
@@ -93,7 +93,7 @@ final class MeetupRepository
         $meetupsAsObjects = [];
 
         foreach ($meetups as $meetup) {
-            $meetupsAsObjects[] = $this->meetupFactory->createFromArray($meetup);
+            $meetupsAsObjects[] = $this->nomadMeetupFactory->createFromArray($meetup);
         }
 
         return $meetupsAsObjects;

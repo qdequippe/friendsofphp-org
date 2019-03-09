@@ -7,7 +7,7 @@ use Fop\Entity\Meetup;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 
-final class MeetupFactory
+final class NomadMeetupFactory
 {
     /**
      * @param mixed[] $data

@@ -14,13 +14,11 @@ services:
     SlamCsFixer\FinalInternalClassFixer: ~
 
 parameters:
-    exclude_checkers:
-        # mutually conflicting
-        - 'PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer'
-        - 'PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer'
-        - 'Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff'
-
     skip:
+        PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
+        PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
+        Symplify\CodingStandard\Sniffs\DependencyInjection\NoClassInstantiationSniff: ~
+
         Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff:
             # helper class
             - 'src/Utils/Arrays.php'

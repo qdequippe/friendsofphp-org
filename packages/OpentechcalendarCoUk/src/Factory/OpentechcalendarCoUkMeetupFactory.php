@@ -9,7 +9,7 @@ use Location\Coordinate;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
 
-final class MeetupFactory
+final class OpentechcalendarCoUkMeetupFactory
 {
     /**
      * @var Geolocator
