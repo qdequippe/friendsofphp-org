@@ -31,8 +31,7 @@
             "Fop\\PosobotaCz\\": "packages/PosobotaCz/src",
             "Fop\\CrosswebPl\\": "packages/CrosswebPl/src",
             "Fop\\OpentechcalendarCoUk\\": "packages/OpentechcalendarCoUk/src",
-            "Fop\\DouUa\\": "packages/DouUa/src",
-            "Fop\\Nomad\\": "packages/Nomad/src"
+            "Fop\\DouUa\\": "packages/DouUa/src"
         }
     },
     "autoload-dev": {
