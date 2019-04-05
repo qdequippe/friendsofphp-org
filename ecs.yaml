@@ -1,17 +1,14 @@
 imports:
-    - { resource: 'vendor/symplify/easy-coding-standard/config/psr2.yml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/php71.yml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/clean-code.yml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/symplify.yml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/common.yml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/psr12.yml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr2.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/php71.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/clean-code.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/symplify.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/common.yaml' }
+    - { resource: 'vendor/symplify/easy-coding-standard/config/psr12.yaml' }
 
 services:
     Symplify\CodingStandard\Sniffs\CleanCode\CognitiveComplexitySniff:
-        maxCognitiveComplexity: 8
-
-    # class should be Abstact or Final
-    SlamCsFixer\FinalInternalClassFixer: ~
+        max_cognitive_complexity: 8
 
 parameters:
     skip:
