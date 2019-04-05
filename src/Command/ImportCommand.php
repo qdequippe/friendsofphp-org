@@ -2,12 +2,11 @@
 
 namespace Fop\Command;
 
-use DateTimeInterface;
 use Fop\Contract\MeetupImporterInterface;
 use Fop\Entity\Meetup;
+use Fop\Filter\MeetupFilterCollector;
 use Fop\MeetupCom\Command\Reporter\MeetupReporter;
 use Fop\Repository\MeetupRepository;
-use Nette\Utils\DateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -29,11 +28,6 @@ final class ImportCommand extends Command
     private $symfonyStyle;
 
     /**
-     * @var DateTimeInterface
-     */
-    private $maxForecastDateTime;
-
-    /**
      * @var MeetupRepository
      */
     private $meetupRepository;
@@ -44,14 +38,19 @@ final class ImportCommand extends Command
     private $meetupReporter;
 
     /**
+     * @var MeetupFilterCollector
+     */
+    private $meetupFilterCollector;
+
+    /**
      * @param MeetupImporterInterface[] $meetupImporters
      */
     public function __construct(
         array $meetupImporters,
-        int $maxForecastDays,
         SymfonyStyle $symfonyStyle,
         MeetupRepository $meetupRepository,
-        MeetupReporter $meetupReporter
+        MeetupReporter $meetupReporter,
+        MeetupFilterCollector $meetupFilterCollector
 ) {
         parent::__construct();
         $this->meetupImporters = $meetupImporters;
@@ -59,7 +58,7 @@ final class ImportCommand extends Command
         $this->meetupRepository = $meetupRepository;
         $this->meetupReporter = $meetupReporter;
 
-        $this->maxForecastDateTime = DateTime::from('+' . $maxForecastDays . 'days');
+        $this->meetupFilterCollector = $meetupFilterCollector;
     }
 
     protected function configure(): void
@@ -80,7 +79,7 @@ final class ImportCommand extends Command
             $this->symfonyStyle->note(sprintf('Importing meetups from "%s"', $meetupImporter->getKey()));
 
             $meetups = $meetupImporter->getMeetups();
-            $meetups = $this->filterOutTooFarMeetups($meetups);
+            $meetups = $this->meetupFilterCollector->filter($meetups);
 
             $this->saveAndReportMeetups($meetups, $meetupImporter->getKey());
         }
@@ -107,22 +106,6 @@ final class ImportCommand extends Command
 
         // none found
         return [];
-    }
-
-    /**
-     * @param Meetup[] $meetups
-     * @return Meetup[]
-     */
-    private function filterOutTooFarMeetups(array $meetups): array
-    {
-        return array_filter($meetups, function (Meetup $meetup) {
-            // filter out past meetups
-            if ($meetup->getStartDateTime() <= DateTime::from('now')) {
-                return false;
-            }
-
-            return $meetup->getStartDateTime() <= $this->maxForecastDateTime;
-        });
     }
 
     /**
