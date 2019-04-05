@@ -12,7 +12,6 @@
         "symfony/dependency-injection": "^4.2",
         "symfony/dom-crawler": "^4.2",
         "symfony/http-kernel": "^4.2",
-        "symfony/var-dumper": "^4.2",
         "mjaschen/phpgeo": "^2.0",
         "league/period": "^4.5"
     },
@@ -20,6 +19,7 @@
         "phpstan/phpstan": "^0.11",
         "phpunit/phpunit": "^8.0",
         "spatie/http-status-check": "^3.1",
+        "symfony/var-dumper": "^4.2",
         "symplify/phpstan-extensions": "^5.5",
         "symplify/easy-coding-standard": "^5.5",
         "nette/caching": "^3.0"
@@ -31,8 +31,7 @@
             "Fop\\PosobotaCz\\": "packages/PosobotaCz/src",
             "Fop\\CrosswebPl\\": "packages/CrosswebPl/src",
             "Fop\\OpentechcalendarCoUk\\": "packages/OpentechcalendarCoUk/src",
-            "Fop\\DouUa\\": "packages/DouUa/src",
-            "Fop\\Nomad\\": "packages/Nomad/src"
+            "Fop\\DouUa\\": "packages/DouUa/src"
         }
     },
     "autoload-dev": {

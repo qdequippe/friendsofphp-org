@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\MeetupCom\Exception;
+namespace Fop\Exception;
 
 use Exception;
 

@@ -3,9 +3,9 @@
 namespace Fop\Repository;
 
 use Fop\Entity\Meetup;
+use Fop\Exception\ShouldNotHappenException;
 use Fop\FileSystem\YamlFileSystem;
-use Fop\Nomad\Exception\ConfigurationException;
-use Fop\Nomad\Factory\NomadMeetupFactory;
+use Fop\Meetup\MeetupFactory;
 
 final class MeetupRepository
 {
@@ -20,18 +20,18 @@ final class MeetupRepository
     private $yamlFileSystem;
 
     /**
-     * @var NomadMeetupFactory
+     * @var MeetupFactory
      */
-    private $nomadMeetupFactory;
+    private $meetupFactory;
 
     public function __construct(
         string $importedMeetupsStorage,
         YamlFileSystem $yamlFileSystem,
-        NomadMeetupFactory $nomadMeetupFactory
+        MeetupFactory $meetupFactory
     ) {
         $this->importedMeetupsStorage = $importedMeetupsStorage;
         $this->yamlFileSystem = $yamlFileSystem;
-        $this->nomadMeetupFactory = $nomadMeetupFactory;
+        $this->meetupFactory = $meetupFactory;
     }
 
     /**
@@ -78,7 +78,7 @@ final class MeetupRepository
             return;
         }
 
-        throw new ConfigurationException(sprintf(
+        throw new ShouldNotHappenException(sprintf(
             'File "%s" is missing. Run "bin/console import" first.',
             $this->importedMeetupsStorage
         ));
@@ -93,7 +93,7 @@ final class MeetupRepository
         $meetupsAsObjects = [];
 
         foreach ($meetups as $meetup) {
-            $meetupsAsObjects[] = $this->nomadMeetupFactory->createFromArray($meetup);
+            $meetupsAsObjects[] = $this->meetupFactory->createFromArray($meetup);
         }
 
         return $meetupsAsObjects;
