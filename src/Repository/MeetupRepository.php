@@ -6,8 +6,6 @@ use Fop\Entity\Meetup;
 use Fop\Exception\ShouldNotHappenException;
 use Fop\FileSystem\YamlFileSystem;
 use Fop\Meetup\MeetupFactory;
-use Fop\Nomad\Exception\ConfigurationException;
-use Fop\Nomad\Factory\NomadMeetupFactory;
 
 final class MeetupRepository
 {

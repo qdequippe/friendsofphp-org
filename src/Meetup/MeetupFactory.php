@@ -1,10 +1,12 @@
 <?php declare(strict_types=1);
 
 namespace Fop\Meetup;
+
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
+
 final class MeetupFactory
 {
     /**
