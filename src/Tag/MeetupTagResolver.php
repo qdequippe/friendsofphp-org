@@ -21,13 +21,18 @@ final class MeetupTagResolver
     /**
      * @return string[]
      */
-    public function resolveFromName(string $name): array
+    public function resolveFromName(string $name, string $groupName): array
     {
         $tags = [];
 
         foreach ($this->tagsByMatches as $tag => $matches) {
             foreach ($matches as $match) {
                 if (Strings::match($name, '#' . preg_quote($match, '#') . '#i')) {
+                    /** @var string $tag */
+                    $tags[] = $tag;
+                }
+
+                if (Strings::match($groupName, '#' . preg_quote($match, '#') . '#i')) {
                     /** @var string $tag */
                     $tags[] = $tag;
                 }

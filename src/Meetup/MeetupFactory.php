@@ -28,7 +28,7 @@ final class MeetupFactory
         Location $location,
         string $url
     ): Meetup {
-        $tags = $this->meetupTagResolver->resolveFromName($name);
+        $tags = $this->meetupTagResolver->resolveFromName($name, $groupName);
 
         return new Meetup($name, $groupName, $startDateTime, $location, $url, $tags);
     }
