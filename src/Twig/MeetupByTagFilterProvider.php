@@ -12,10 +12,25 @@ final class MeetupByTagFilterProvider implements FilterProviderInterface
     public function provide(): array
     {
         return [
-            // usage in Twig: {% set meetups = filter_by_tag(meetups, 'wordpress' %}
-            'filter_by_tag' => function (array $meetups, string $tag): array {
-                return array_filter($meetups, function ($meetup) use ($tag): bool {
-                    return in_array($tag, $meetup['tags'], true);
+            // usage in Twig: {% set meetups = filter_meetups_including_tag(meetups, 'wordpress') %}
+            'filter_meetups_including_tags' => function (array $meetups, $tags): array {
+                if (is_string($tags)) {
+                    $tags = [$tags];
+                }
+
+                return array_filter($meetups, function ($meetup) use ($tags): bool {
+                    return (bool) array_intersect($tags, $meetup['tags']);
+                });
+            },
+
+            // usage in Twig: {% set meetups = filter_meetups_excluding_tag(meetups, 'wordpress') %}
+            'filter_meetups_excluding_tags' => function (array $meetups, $tags): array {
+                if (is_string($tags)) {
+                    $tags = [$tags];
+                }
+
+                return array_filter($meetups, function ($meetup) use ($tags): bool {
+                    return ! array_intersect($tags, $meetup['tags']);
                 });
             },
         ];

@@ -5,7 +5,7 @@ layout: "_layouts/map_layout.twig"
 
 {# sort meetups from all imported files from nearest to the most further one #}
 {% set meetups = sort_by_field(meetups, 'start') %}
-{% set meetups = filter_by_tag(meetups, 'wordpress') %}
+{% set meetups = filter_meetups_including_tags(meetups, 'wordpress') %}
 
 <div id="subhead" class="pt-0 pb-4 text-center">
     <strong>{{ meetups|length }} Wordpress meetups</strong> in next {{ max_forecast_days }} days
