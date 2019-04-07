@@ -408,9 +408,9 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/phpugms/'
             country: Germany
 
-        -   name: Budapest
+        -   name: 'Full Stack Meetup Budapest'
             meetup_com_id: 3917992
-            meetup_com_url: 'https://www.meetup.com/phpmeetup/'
+            meetup_com_url: 'https://www.meetup.com/fullstackbp/'
             country: Hungary
 
         -   name: 'PHP Reboot'

@@ -84,6 +84,9 @@ final class GroupDetailCommand extends Command
         }
 
         $group = $this->groupDetailResolver->resolveFromUrl($source);
+
+        dump($group);
+
         if ($this->isGroupAlreadyImported($group)) {
             $this->symfonyStyle->error(sprintf('Group "%s" is already imported.', $source));
         } else {

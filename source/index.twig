@@ -10,7 +10,7 @@ layout: "_layouts/map_layout.twig"
     <strong>{{ meetups|length }} meetups</strong> in next {{ max_forecast_days }} days from <a href="/groups/">{{ groups|length }} groups</a> all over the world
 </div>
 
-{% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal']) %}
+{% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal', 'magento', 'prestashop']) %}
 
 <p class="text-center pb-2">
     <a href="#-" onclick="locateme();" class="btn btn-primary">Locate me</a>
@@ -20,7 +20,9 @@ layout: "_layouts/map_layout.twig"
 
 <div class="text-center mb-3">
     <a href="/wordpress/" class="btn btn-sm btn-outline-primary mr-3">WordPress meetups</a>
-    <a href="/drupal/" class="btn btn-sm btn-outline-info">Drupal meetups</a>
+    <a href="/drupal/" class="btn btn-sm btn-outline-info mr-3">Drupal meetups</a>
+    <a href="/prestashop/" class="btn btn-sm btn-outline-warning mr-3">PrestaShop meetups</a>
+    <a href="/magento/" class="btn btn-sm btn-outline-danger">Magento meetups</a>
 </div>
 
 <a name="map"></a>

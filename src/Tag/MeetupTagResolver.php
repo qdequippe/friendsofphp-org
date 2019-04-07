@@ -14,6 +14,7 @@ final class MeetupTagResolver
         'wordpress' => ['wordpress', 'wp', 'ThinkWP'],
         'drupal' => ['drupal'],
         'magento' => ['magento'],
+        'prestashop' => ['prestashop', 'presta shop'],
         'symfony' => ['symfony'],
         'laravel' => ['laravel'],
     ];
