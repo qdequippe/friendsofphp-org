@@ -25,6 +25,7 @@ final class CityNormalizer
         'Stellenbosch' => 'Cape Town',
         '台北' => 'Taipei',
         'New Taipei City' => 'Taipei',
+        'харьков' => 'Kharkiv',
         # Japan
         '東京都' => 'Tokyo',
         '愛知県' => 'Aichi Prefecture',
