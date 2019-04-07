@@ -57,7 +57,6 @@ final class ImportCommand extends Command
         $this->symfonyStyle = $symfonyStyle;
         $this->meetupRepository = $meetupRepository;
         $this->meetupReporter = $meetupReporter;
-
         $this->meetupFilterCollector = $meetupFilterCollector;
     }
 

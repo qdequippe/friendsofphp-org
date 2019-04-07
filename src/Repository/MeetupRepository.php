@@ -123,13 +123,14 @@ final class MeetupRepository
         foreach ($meetups as $meetup) {
             $meetupsAsArray[] = [
                 'name' => $meetup->getName(),
-                'userGroup' => $meetup->getUserGroup(),
+                'user_group' => $meetup->getUserGroup(),
                 'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
                 'city' => $meetup->getCity(),
                 'country' => $meetup->getCountry(),
                 'latitude' => $meetup->getLatitude(),
                 'longitude' => $meetup->getLongitude(),
                 'url' => $meetup->getUrl(),
+                'tags' => $meetup->getTags(),
             ];
         }
 
