@@ -6,6 +6,7 @@ use DateTimeInterface;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
+use Fop\Meetup\MeetupFactory;
 use Fop\MeetupCom\Crawler\CrawlerFactory;
 use Nette\Utils\DateTime;
 use Nette\Utils\Json;
@@ -25,10 +26,16 @@ final class DouUaMeetupFactory
      */
     private $geolocator;
 
-    public function __construct(CrawlerFactory $crawlerFactory, Geolocator $geolocator)
+    /**
+     * @var MeetupFactory
+     */
+    private $meetupFactory;
+
+    public function __construct(CrawlerFactory $crawlerFactory, Geolocator $geolocator, MeetupFactory $meetupFactory)
     {
         $this->crawlerFactory = $crawlerFactory;
         $this->geolocator = $geolocator;
+        $this->meetupFactory = $meetupFactory;
     }
 
     public function createMeetupFromUrlAndName(string $url, string $name): ?Meetup
@@ -56,7 +63,7 @@ final class DouUaMeetupFactory
             return null;
         }
 
-        return new Meetup($name, $this->resolveGroupName($name), $startDateTime, $location, $url);
+        return $this->meetupFactory->create($name, $this->resolveGroupName($name), $startDateTime, $location, $url);
     }
 
     /**

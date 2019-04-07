@@ -5,6 +5,7 @@ namespace Fop\OpentechcalendarCoUk\Factory;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
+use Fop\Meetup\MeetupFactory;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
@@ -16,9 +17,15 @@ final class OpentechcalendarCoUkMeetupFactory
      */
     private $geolocator;
 
-    public function __construct(Geolocator $geolocator)
+    /**
+     * @var MeetupFactory
+     */
+    private $meetupFactory;
+
+    public function __construct(Geolocator $geolocator, MeetupFactory $meetupFactory)
     {
         $this->geolocator = $geolocator;
+        $this->meetupFactory = $meetupFactory;
     }
 
     /**
@@ -47,7 +54,7 @@ final class OpentechcalendarCoUkMeetupFactory
 
         $link = $data['siteurl'];
 
-        return new Meetup($name, $group, $start, $location, $link);
+        return $this->meetupFactory->create($name, $group, $start, $location, $link);
     }
 
     /**

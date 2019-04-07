@@ -23,6 +23,11 @@ final class Meetup
     private $url;
 
     /**
+     * @var string[]
+     */
+    private $tags = [];
+
+    /**
      * @var Location
      */
     private $location;
@@ -32,18 +37,23 @@ final class Meetup
      */
     private $startDateTime;
 
+    /**
+     * @param string[] $tags
+     */
     public function __construct(
         string $name,
         string $userGroupName,
         DateTimeInterface $startDateTime,
         Location $location,
-        string $url
+        string $url,
+        array $tags
     ) {
         $this->name = $name;
         $this->userGroupName = $userGroupName;
         $this->location = $location;
         $this->url = $url;
         $this->startDateTime = $startDateTime;
+        $this->tags = $tags;
     }
 
     public function getLocation(): Location
@@ -99,5 +109,13 @@ final class Meetup
     public function getLongitude(): float
     {
         return $this->location->getCoordinate()->getLng();
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getTags(): array
+    {
+        return $this->tags;
     }
 }

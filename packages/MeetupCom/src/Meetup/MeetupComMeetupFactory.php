@@ -7,6 +7,7 @@ use DateTimeZone;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
+use Fop\Meetup\MeetupFactory;
 use Fop\Utils\CityNormalizer;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
@@ -23,10 +24,16 @@ final class MeetupComMeetupFactory
      */
     private $cityNormalizer;
 
-    public function __construct(Geolocator $geolocator, CityNormalizer $cityNormalizer)
+    /**
+     * @var MeetupFactory
+     */
+    private $meetupFactory;
+
+    public function __construct(Geolocator $geolocator, CityNormalizer $cityNormalizer, MeetupFactory $meetupFactory)
     {
         $this->geolocator = $geolocator;
         $this->cityNormalizer = $cityNormalizer;
+        $this->meetupFactory = $meetupFactory;
     }
 
     /**
@@ -43,7 +50,13 @@ final class MeetupComMeetupFactory
 
         $name = $this->createName($data);
 
-        return new Meetup($name, $data['group']['name'], $startDateTime, $location, $data['event_url']);
+        return $this->meetupFactory->create(
+            $name,
+            $data['group']['name'],
+            $startDateTime,
+            $location,
+            $data['event_url']
+        );
     }
 
     /**

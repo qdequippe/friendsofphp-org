@@ -5,6 +5,7 @@ namespace Fop\PosobotaCz;
 use Fop\Contract\MeetupImporterInterface;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
+use Fop\Meetup\MeetupFactory;
 use Fop\Utils\CityNormalizer;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
@@ -31,11 +32,21 @@ final class PosobotaCzMeetupImporter implements MeetupImporterInterface
      */
     private $cityNormalizer;
 
-    public function __construct(Geolocator $geolocator, IcalParser $icalParser, CityNormalizer $cityNormalizer)
-    {
+    /**
+     * @var MeetupFactory
+     */
+    private $meetupFactory;
+
+    public function __construct(
+        Geolocator $geolocator,
+        IcalParser $icalParser,
+        CityNormalizer $cityNormalizer,
+        MeetupFactory $meetupFactory
+    ) {
         $this->geolocator = $geolocator;
         $this->icalParser = $icalParser;
         $this->cityNormalizer = $cityNormalizer;
+        $this->meetupFactory = $meetupFactory;
     }
 
     /**
@@ -56,7 +67,7 @@ final class PosobotaCzMeetupImporter implements MeetupImporterInterface
 
         $url = $data['URL'];
 
-        $meetup = new Meetup($name, 'Posobota', $date, $location, $url);
+        $meetup = $this->meetupFactory->create($name, 'Posobota', $date, $location, $url);
 
         return [$meetup];
     }
