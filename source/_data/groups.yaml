@@ -5758,3 +5758,8 @@ parameters:
             meetup_com_id: 28496095
             meetup_com_url: 'https://www.meetup.com/codehub/'
             country: 'Greece'
+
+        -   name: 'Symfony User Group Frankfurt am Main'
+            meetup_com_id: 22805036
+            meetup_com_url: 'https://www.meetup.com/Symfony-User-Group-Frankfurt-am-Main/'
+            country: 'Germany'
