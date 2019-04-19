@@ -38,6 +38,7 @@ final class CityNormalizer
         '#(.*?) Hamburg#' => 'Hamburg',
         '#(.*?) Karlsruhe#' => 'Karlsruhe',
         'Unterföhrin' => 'Munich',
+        'München ' => 'Munich',
         # UK
         'G1 1TF' => 'Glasgow',
         'EC2A 2BA' => 'London',
