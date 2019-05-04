@@ -5763,3 +5763,8 @@ parameters:
             meetup_com_id: 22805036
             meetup_com_url: 'https://www.meetup.com/Symfony-User-Group-Frankfurt-am-Main/'
             country: 'Germany'
+
+        -   name: 'Symfony User Group Osnabrück'
+            meetup_com_id: 31139455
+            meetup_com_url: 'https://www.meetup.com/sfugos/'
+            country: 'Germany'
