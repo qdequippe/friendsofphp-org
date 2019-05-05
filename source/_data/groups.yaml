@@ -295,7 +295,7 @@ parameters:
 
         -   name: BrusselsPHP
             meetup_com_id: 18227031
-            meetup_com_url: 'https://www.meetup.com/Brussels-PHP-Meetup/'
+            meetup_com_url: 'https://www.meetup.com/BrusselsPHP/'
             country: Belgium
 
         -   name: 'Laravel Brussels'
@@ -456,11 +456,6 @@ parameters:
         -   name: 'PHP Zwolle'
             meetup_com_id: 18592373
             meetup_com_url: 'https://www.meetup.com/PHP-Zwolle/'
-            country: Netherlands
-
-        -   name: PolderPHP
-            meetup_com_id: 18611769
-            meetup_com_url: 'https://www.meetup.com/PolderPHP/'
             country: Netherlands
 
         -   name: 'Tilburg PHP'
@@ -650,12 +645,12 @@ parameters:
 
         -   name: Seattle
             meetup_com_id: 120908
-            meetup_com_url: 'https://www.meetup.com/php-49'
+            meetup_com_url: 'https://www.meetup.com/seaphp'
             country: 'Washington'
 
         -   name: Buffalo
             meetup_com_id: 225746
-            meetup_com_url: 'https://www.meetup.com/buffalophp'
+            meetup_com_url: 'https://www.meetup.com/buffalowebdevelopers'
             country: 'New York'
 
         -   name: 'Utah PHP User Group'
@@ -677,11 +672,6 @@ parameters:
             meetup_com_id: 234832
             meetup_com_url: 'https://www.meetup.com/oc-php'
             country: 'California'
-
-        -   name: Oklahoma
-            meetup_com_id: 11586302
-            meetup_com_url: 'https://www.meetup.com/OklahomaPHP/'
-            country: 'Oklahoma'
 
         -   name: 'Dayton PHP'
             meetup_com_id: 19717863
@@ -705,7 +695,7 @@ parameters:
 
         -   name: 'Las Vegas PHP'
             meetup_com_id: 7427812
-            meetup_com_url: 'https://www.meetup.com/Las-Vegas-PHP-Users-Group/'
+            meetup_com_url: 'https://www.meetup.com/PHP-Vegas/'
             country: 'Nevada'
 
         -   name: 'South Bay PHP Users'
@@ -743,9 +733,9 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Chicago-PHP-User-Group/'
             country: 'Illinois'
 
-        -   name: 'Saigon PHP Developer Group'
+        -   name: 'Saigon Developer Group'
             meetup_com_id: 15953912
-            meetup_com_url: 'https://www.meetup.com/PHP-Saigon/'
+            meetup_com_url: 'https://www.meetup.com/Engineers-Saigon/'
             country: Vietnam
 
         -   name: 'PHP Quebec'
@@ -1038,11 +1028,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Bratislava-WordPress-Community/'
             country: Slovakia
 
-        -   name: 'Ostrava WordPress Meetup'
-            meetup_com_id: 29963438
-            meetup_com_url: 'https://www.meetup.com/Ostrava-WordPress-Meetup/'
-            country: 'Czech Republic'
-
         -   name: 'WordPress Brno Meetups'
             meetup_com_id: 20304794
             meetup_com_url: 'https://www.meetup.com/WordPress-Brno-Meetups/'
@@ -1148,11 +1133,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Santiago-WordPress-Meetup/'
             country: 'Chile'
 
-        -   name: 'Drupal Bolivia'
-            meetup_com_id: 29760253
-            meetup_com_url: 'https://www.meetup.com/Drupal-Bolivia/'
-            country: 'Bolivia'
-
         -   name: 'Drupal Ecuador'
             meetup_com_id: 18246710
             meetup_com_url: 'https://www.meetup.com/Drupal-Ecuador/'
@@ -1186,11 +1166,6 @@ parameters:
         -   name: 'Joomla! User Community Bogota'
             meetup_com_id: 18526704
             meetup_com_url: 'https://www.meetup.com/cms-bogota/'
-            country: 'Colombia'
-
-        -   name: 'Calima Framework PHP'
-            meetup_com_id: 18224111
-            meetup_com_url: 'https://www.meetup.com/CalimaFramework/'
             country: 'Colombia'
 
         -   name: 'Cali PHP Meetup'
@@ -1237,11 +1212,6 @@ parameters:
             meetup_com_id: 1667346
             meetup_com_url: 'https://www.meetup.com/South-Florida-PHP-Users-Group/'
             country: 'Florida'
-
-        -   name: 'Russia Laravel Meetup'
-            meetup_com_id: 18590186
-            meetup_com_url: 'https://www.meetup.com/Russia-Laravel-Meetup/'
-            country: 'Russia'
 
         -   name: 'Symfony St. Petersburg Meetup - Symfoniacs SPB'
             meetup_com_id: 22484276
@@ -1426,11 +1396,6 @@ parameters:
         -   name: 'Symfony Aix-Marseille'
             meetup_com_id: 19551888
             meetup_com_url: 'https://www.meetup.com/SymfonyAixMarseille/'
-            country: 'France'
-
-        -   name: 'Montpellier Symfony Meetup'
-            meetup_com_id: 18796537
-            meetup_com_url: 'https://www.meetup.com/Montpellier-Symfony-Meetup/'
             country: 'France'
 
         -   name: 'AFSY SfPots'
@@ -1628,11 +1593,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/KaunasPHP/'
             country: 'Lithuania'
 
-        -   name: 'Drupal Training Day Minsk'
-            meetup_com_id: 29603612
-            meetup_com_url: 'https://www.meetup.com/Drupal-Training-Day-Minsk/'
-            country: 'Belarus'
-
         -   name: 'PrestaShop - Minsk Ecommerce Meetup'
             meetup_com_id: 21244033
             meetup_com_url: 'https://www.meetup.com/PrestaShop-Minsk-Ecommerce-Meetup/'
@@ -1683,11 +1643,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Chisinau-Symfony-Meetup/'
             country: 'Moldova'
 
-        -   name: 'Drupal Moldova'
-            meetup_com_id: 25082045
-            meetup_com_url: 'https://www.meetup.com/Drupal-Moldova/'
-            country: 'Moldova'
-
         -   name: 'BrasovPHP'
             meetup_com_id: 18427608
             meetup_com_url: 'https://www.meetup.com/PHPBrasov/'
@@ -1706,11 +1661,6 @@ parameters:
         -   name: 'Veliko Tarnovo Drupal Meetup'
             meetup_com_id: 29537241
             meetup_com_url: 'https://www.meetup.com/Veliko-Tarnovo-Drupal-Meetup/'
-            country: 'Bulgaria'
-
-        -   name: 'Magento Bulgaria Meetup'
-            meetup_com_id: 21958229
-            meetup_com_url: 'https://www.meetup.com/Magento-Bulgaria-Meetup/'
             country: 'Bulgaria'
 
         -   name: 'Bulgaria Drupal User Group'
@@ -1778,11 +1728,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/TinelMeetup/'
             country: 'Croatia'
 
-        -   name: 'Laravel Zagreb Meetup'
-            meetup_com_id: 27742369
-            meetup_com_url: 'https://www.meetup.com/Laravel-Zagreb-Meetup/'
-            country: 'Croatia'
-
         -   name: 'Drupal Hrvatska'
             meetup_com_id: 19935991
             meetup_com_url: 'https://www.meetup.com/drupalhrvatska/'
@@ -1838,11 +1783,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Kota-Kinabalu-WordPress-Meetup/'
             country: 'Malaysia'
 
-        -   name: 'Supercharge your WordPress performance & security'
-            meetup_com_id: 25243253
-            meetup_com_url: 'https://www.meetup.com/Supercharge-your-WordPress-performance-security/'
-            country: 'Malaysia'
-
         -   name: 'Laravel Nigeria'
             meetup_com_id: 22908317
             meetup_com_url: 'https://www.meetup.com/Laravel-Nigeria/'
@@ -1861,11 +1801,6 @@ parameters:
         -   name: 'Lagos WordPress Community'
             meetup_com_id: 12003032
             meetup_com_url: 'https://www.meetup.com/Lagos-WordPress-Meetup-Group/'
-            country: 'Nigeria'
-
-        -   name: 'Abuja, WordPress For Small Business'
-            meetup_com_id: 25103457
-            meetup_com_url: 'https://www.meetup.com/Abuja-WordPress-For-Small-Business/'
             country: 'Nigeria'
 
         -   name: 'Ife WordPress Meetup'
@@ -2023,11 +1958,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Symfony-User-Group-NL/'
             country: 'Netherlands'
 
-        -   name: 'CakePHP-NL'
-            meetup_com_id: 6832742
-            meetup_com_url: 'https://www.meetup.com/CakePHP-NL/'
-            country: 'Netherlands'
-
         -   name: 'Magento User Group Noord-Holland'
             meetup_com_id: 8427172
             meetup_com_url: 'https://www.meetup.com/Magento-User-Group-Amsterdam/'
@@ -2111,11 +2041,6 @@ parameters:
         -   name: 'Drupal Bergen'
             meetup_com_id: 23340132
             meetup_com_url: 'https://www.meetup.com/Drupal-Bergen/'
-            country: 'Norway'
-
-        -   name: 'Trondheim Drupal Meetup'
-            meetup_com_id: 14192182
-            meetup_com_url: 'https://www.meetup.com/Trondheim-Drupal-Meetup/'
             country: 'Norway'
 
         -   name: 'Bergen WordPress'
@@ -2318,11 +2243,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Gdynia-WordPress-Meetup/'
             country: 'Poland'
 
-        -   name: 'AMIMOTO WordPress + Amazon Web Services: Europe Group'
-            meetup_com_id: 18538265
-            meetup_com_url: 'https://www.meetup.com/AMIMOTO-WordPress-Amazon-Web-Services-Europe-Group/'
-            country: 'Poland'
-
         -   name: 'Kalisz WordPress Meetup'
             meetup_com_id: 28289693
             meetup_com_url: 'https://www.meetup.com/Kalisz-WordPress-Meetup/'
@@ -2373,11 +2293,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Bydgoszcz-PrestaShop-Ecommerce-Meetup/'
             country: 'Poland'
 
-        -   name: 'Laravel Lisbon'
-            meetup_com_id: 26416540
-            meetup_com_url: 'https://www.meetup.com/Laravel-Lisbon/'
-            country: 'Portugal'
-
         -   name: 'Drupal Lisboa'
             meetup_com_id: 18970712
             meetup_com_url: 'https://www.meetup.com/drupal-lisboa/'
@@ -2391,11 +2306,6 @@ parameters:
         -   name: 'Aveiro WordPress Meetup'
             meetup_com_id: 18704128
             meetup_com_url: 'https://www.meetup.com/Aveiro-WordPress-Meetup/'
-            country: 'Portugal'
-
-        -   name: 'WordPress Coimbra'
-            meetup_com_id: 7899862
-            meetup_com_url: 'https://www.meetup.com/WordPress-Coimbra/'
             country: 'Portugal'
 
         -   name: 'Meetup WordPress de Braga'
@@ -2493,11 +2403,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Moscow-Magento-Meetup/'
             country: 'Russia'
 
-        -   name: 'لارافل السعودية - Laravel'
-            meetup_com_id: 29402637
-            meetup_com_url: 'https://www.meetup.com/Laravel_saudi_meetup/'
-            country: 'Saudi Arabia'
-
         -   name: 'دروبال السعودية - Drupal'
             meetup_com_id: 21818700
             meetup_com_url: 'https://www.meetup.com/drupal-sa/'
@@ -2507,11 +2412,6 @@ parameters:
             meetup_com_id: 18999707
             meetup_com_url: 'https://www.meetup.com/PrestaShop-Dakar-Ecommerce-Meetup/'
             country: 'Senegal'
-
-        -   name: 'AMIMOTO: WordPress +Amazon Web Services for ALL Tech Levels'
-            meetup_com_id: 18407600
-            meetup_com_url: 'https://www.meetup.com/AMIMOTO-WordPress-Amazon-Web-Services-for-ALL-Tech-Levels/'
-            country: 'Singapore'
 
         -   name: 'PrestaShop - Singapore Ecommerce Meetup'
             meetup_com_id: 24871962
@@ -2526,11 +2426,6 @@ parameters:
         -   name: 'Marketing Automation by Mautic'
             meetup_com_id: 19802096
             meetup_com_url: 'https://www.meetup.com/Marketing-Automation-by-Mautic/'
-            country: 'Singapore'
-
-        -   name: 'Running a WordPress website for Business Owners'
-            meetup_com_id: 20123127
-            meetup_com_url: 'https://www.meetup.com/running-a-wordpress-website-for-business-owners/'
             country: 'Singapore'
 
         -   name: 'WordPress Niš'
@@ -2563,11 +2458,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/WordPress-Ljubljana/'
             country: 'Slovenia'
 
-        -   name: 'Magento Slovenia'
-            meetup_com_id: 14676352
-            meetup_com_url: 'https://www.meetup.com/Magento-Slovenia/'
-            country: 'Slovenia'
-
         -   name: 'Göteborg Laravel Meetup'
             meetup_com_id: 21965950
             meetup_com_url: 'https://www.meetup.com/Goteborg-Laravel-Meetup-Fully-Studios/'
@@ -2591,11 +2481,6 @@ parameters:
         -   name: 'WordPress Norrköping'
             meetup_com_id: 19705535
             meetup_com_url: 'https://www.meetup.com/WordPress-Norrkoping/'
-            country: 'Sweden'
-
-        -   name: 'WordPress Uppsala'
-            meetup_com_id: 14610372
-            meetup_com_url: 'https://www.meetup.com/WordPress-Uppsala/'
             country: 'Sweden'
 
         -   name: 'WordPress Meetup Westeros'
@@ -2693,11 +2578,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Meetup-de-WordPress-en-Montevideo/'
             country: 'Uruguay'
 
-        -   name: 'Montevideo WordPress'
-            meetup_com_id: 29018095
-            meetup_com_url: 'https://www.meetup.com/Montevideo-WordPress/'
-            country: 'Uruguay'
-
         -   name: 'Magento Uruguay'
             meetup_com_id: 28625829
             meetup_com_url: 'https://www.meetup.com/Magento-Uruguay/'
@@ -2721,11 +2601,6 @@ parameters:
         -   name: 'PrestaShop Ho Chi Minh City Ecommerce Meetup'
             meetup_com_id: 25502678
             meetup_com_url: 'https://www.meetup.com/PrestaShop-Ho-Chi-Minh-City-Ecommerce-Meetup/'
-            country: 'Vietnam'
-
-        -   name: 'Ha Noi Drupal Meetup'
-            meetup_com_id: 14602172
-            meetup_com_url: 'https://www.meetup.com/Ha-Noi-Drupal-Meetup/'
             country: 'Vietnam'
 
         -   name: 'Saigon WordPress'
@@ -2816,11 +2691,6 @@ parameters:
         -   name: 'Stellenbosch WordPress Meetup'
             meetup_com_id: 28793839
             meetup_com_url: 'https://www.meetup.com/Stellenbosch-WordPress-Meetup/'
-            country: 'South Africa'
-
-        -   name: 'Magento Meetup South Africa'
-            meetup_com_id: 26534186
-            meetup_com_url: 'https://www.meetup.com/Magento-Meetup-South-Africa/'
             country: 'South Africa'
 
         -   name: 'PrestaShop - Johannesburg / Pretoria Ecommerce Meetup'
@@ -3028,11 +2898,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/tehran-wordpress-meetup/'
             country: 'Iran'
 
-        -   name: 'Babol WordPress Meetup'
-            meetup_com_id: 29347812
-            meetup_com_url: 'https://www.meetup.com/babol-wordPress-meetups/'
-            country: 'Iran'
-
         -   name: 'Drupal Israel'
             meetup_com_id: 1482070
             meetup_com_url: 'https://www.meetup.com/Drupal-Israel/'
@@ -3143,11 +3008,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/PrestaShop-Udine-Ecommerce-Meetup/'
             country: 'Italy'
 
-        -   name: 'Meetup Prestashop Parma'
-            meetup_com_id: 28585928
-            meetup_com_url: 'https://www.meetup.com/meetup-group-DGRcrdkQ/'
-            country: 'Italy'
-
         -   name: 'Kingston WordPress Meetup'
             meetup_com_id: 19599094
             meetup_com_url: 'https://www.meetup.com/Kingston-WordPress-Meetup/'
@@ -3253,11 +3113,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Seoul-Drupal-Meetup/'
             country: 'South Korea'
 
-        -   name: 'Seoul WordPress Meetup'
-            meetup_com_id: 13939592
-            meetup_com_url: 'https://www.meetup.com/WordPressSeoul/'
-            country: 'South Korea'
-
         -   name: 'WordPress Meetup - Jeonju'
             meetup_com_id: 18217118
             meetup_com_url: 'https://www.meetup.com/WordPress-Meetup-Jeonju/'
@@ -3337,11 +3192,6 @@ parameters:
             meetup_com_id: 29763788
             meetup_com_url: 'https://www.meetup.com/Casablanca-WordPress-Meetup/'
             country: 'Morocco'
-
-        -   name: 'WordPress Moldova Meetup'
-            meetup_com_id: 25992275
-            meetup_com_url: 'https://www.meetup.com/WordPress-Moldova-Meetup/'
-            country: 'Moldova'
 
         -   name: 'PrestaShop - Antananarivo Ecommerce Meetup'
             meetup_com_id: 19616425
@@ -3431,11 +3281,6 @@ parameters:
         -   name: 'Magento Meetup Dubai'
             meetup_com_id: 20450243
             meetup_com_url: 'https://www.meetup.com/Magento-Meetup-Dubai/'
-            country: 'United Arab Emirates'
-
-        -   name: 'Symfony Dubai'
-            meetup_com_id: 18483292
-            meetup_com_url: 'https://www.meetup.com/Symfony-Dubai/'
             country: 'United Arab Emirates'
 
         -   name: 'Dubai WordPress Meetup'
@@ -3596,11 +3441,6 @@ parameters:
         -   name: 'Graz PHP'
             meetup_com_id: 27518395
             meetup_com_url: 'https://www.meetup.com/Graz-PHP/'
-            country: 'Austria'
-
-        -   name: 'WordPress Tirol Meetup'
-            meetup_com_id: 27971766
-            meetup_com_url: 'https://www.meetup.com/wptirol/'
             country: 'Austria'
 
         -   name: 'WordPress Meetup Grado (deutschsprachig)'
@@ -3893,11 +3733,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Victoria-Drupal-User-Group/'
             country: 'Canada'
 
-        -   name: 'Drupal Training in Halifax'
-            meetup_com_id: 18475012
-            meetup_com_url: 'https://www.meetup.com/Drupal-Training-in-Halifax/'
-            country: 'Canada'
-
         -   name: 'The Toronto WordPress Group'
             meetup_com_id: 1573416
             meetup_com_url: 'https://www.meetup.com/WPToronto/'
@@ -3931,16 +3766,6 @@ parameters:
         -   name: 'Vancouver Symfony User Group (VanSUG)'
             meetup_com_id: 14689972
             meetup_com_url: 'https://www.meetup.com/Vancouver-Symfony-User-Group-VanSUG/'
-            country: 'Canada'
-
-        -   name: 'M3: Meetups Magento Montréal'
-            meetup_com_id: 20282447
-            meetup_com_url: 'https://www.meetup.com/M3-Meetups-Magento-Montreal/'
-            country: 'Canada'
-
-        -   name: 'Vancouver Magento Developers & Solution Specialists'
-            meetup_com_id: 22170035
-            meetup_com_url: 'https://www.meetup.com/magento-vancouver/'
             country: 'Canada'
 
         -   name: 'Vancouver Magento User Group - VanMagUG'
@@ -4136,11 +3961,6 @@ parameters:
         -   name: 'WordPress Tuluá'
             meetup_com_id: 19871412
             meetup_com_url: 'https://www.meetup.com/WordPress-Tulua/'
-            country: 'Colombia'
-
-        -   name: 'Desarrolladores WordPress'
-            meetup_com_id: 27748075
-            meetup_com_url: 'https://www.meetup.com/Desarrolladores-WordPress/'
             country: 'Colombia'
 
         -   name: 'PrestaShop - Cali Ecommerce Meetup'
@@ -4493,11 +4313,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Drupal-Las-Palmas/'
             country: 'Spain'
 
-        -   name: 'Meetup de Diseño web en Madrid con Drupal + Skeleton'
-            meetup_com_id: 20346938
-            meetup_com_url: 'https://www.meetup.com/Meetup-de-Diseno-web-en-Madrid-con-Drupal-Skeleton/'
-            country: 'Spain'
-
         -   name: 'WordPress Madrid'
             meetup_com_id: 3500192
             meetup_com_url: 'https://www.meetup.com/WordPress-Madrid/'
@@ -4648,11 +4463,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Seinajoki-WordPress-Meetup/'
             country: 'Finland'
 
-        -   name: 'Magento Meetup Nordics'
-            meetup_com_id: 24289430
-            meetup_com_url: 'https://www.meetup.com/Magento-Meetup-Nordics/'
-            country: 'Finland'
-
         -   name: 'Meetup associatif Zend Francophone'
             meetup_com_id: 26809750
             meetup_com_url: 'https://www.meetup.com/Meetup-associatif-Zend-Francophone/'
@@ -4663,19 +4473,9 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/magento-meetup-nantes/'
             country: 'France'
 
-        -   name: 'Drupal, Open Source & Agilité - Tarbes'
-            meetup_com_id: 26522522
-            meetup_com_url: 'https://www.meetup.com/Drupal-Open-Source-Agilite-Tarbes/'
-            country: 'France'
-
         -   name: 'Drupal à Paris'
             meetup_com_id: 29707081
             meetup_com_url: 'https://www.meetup.com/Drupal-a-Paris/'
-            country: 'France'
-
-        -   name: 'Meetup Développeurs Drupal Paris'
-            meetup_com_id: 29783370
-            meetup_com_url: 'https://www.meetup.com/Meetup-Developpeurs-Drupal-Paris/'
             country: 'France'
 
         -   name: 'WordPress Bordeaux'
@@ -4771,11 +4571,6 @@ parameters:
         -   name: 'Laravel London'
             meetup_com_id: 10089932
             meetup_com_url: 'https://www.meetup.com/London-Laravel/'
-            country: 'United Kingdom'
-
-        -   name: 'PHP East Midlands User Group (PHPem)'
-            meetup_com_id: 13577942
-            meetup_com_url: 'https://www.meetup.com/ugPHPem/'
             country: 'United Kingdom'
 
         -   name: 'PHP Warwickshire'
@@ -4896,11 +4691,6 @@ parameters:
         -   name: 'PHP, Android and iOS Developers, UX and UI Designers Group'
             meetup_com_id: 23979903
             meetup_com_url: 'https://www.meetup.com/Tbilisi-PHP-Meetup/'
-            country: 'Georgia'
-
-        -   name: 'Tbilisi E-commerce and Magento meetup'
-            meetup_com_id: 28726425
-            meetup_com_url: 'https://www.meetup.com/Tbilisi-E-commerce-and-Magento-meetup/'
             country: 'Georgia'
 
         -   name: 'DevLess - Getting started with Laravel & PHP Meetup'
@@ -5078,11 +4868,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Surakarta-WordPress-Meetup/'
             country: 'Indonesia'
 
-        -   name: 'Denpasar WordPress Workshop: From Zero To Hero'
-            meetup_com_id: 29083665
-            meetup_com_url: 'https://www.meetup.com/Denpasar-WordPress-Workshop-From-Zero-To-Hero/'
-            country: 'Indonesia'
-
         -   name: 'PrestaShop - Bandung Ecommerce Meetup'
             meetup_com_id: 20365333
             meetup_com_url: 'https://www.meetup.com/Prestashop-Bandung-Ecommerce-Meetup/'
@@ -5178,11 +4963,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/DrupalMalaga/'
             country: 'Spain'
 
-        -   name: 'Meet Magento Greece 2018'
-            meetup_com_id: 30321062
-            meetup_com_url: 'https://www.meetup.com/Meet-Magento-Greece-2018/'
-            country: 'Greece'
-
         -   name: 'India PHP Framework Meetup'
             meetup_com_id: 18046012
             meetup_com_url: 'https://www.meetup.com/India-PHP-Framework-Meetup/'
@@ -5247,11 +5027,6 @@ parameters:
             meetup_com_id: 30425984
             meetup_com_url: 'https://www.meetup.com/Krakow-WordPress-Meetup/'
             country: 'Poland'
-
-        -   name: 'Kocaeli WordPress Meetup'
-            meetup_com_id: 30488691
-            meetup_com_url: 'https://www.meetup.com/Kocaeli-WordPress-Meetup/'
-            country: 'Turkey'
 
         -   name: 'Wordpress Meetup Guarenas'
             meetup_com_id: 30441537
@@ -5439,11 +5214,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Southern-Maine-WordPress-Meetup/'
             country: 'Maine'
 
-        -   name: 'Baltimore Laravel'
-            meetup_com_id: 7328402
-            meetup_com_url: 'https://www.meetup.com/Baltimore-Laravel/'
-            country: 'Maryland'
-
         -   name: 'Baltimore Drupal Meetup'
             meetup_com_id: 1657414
             meetup_com_url: 'https://www.meetup.com/Baltimore-Drupal-Meetup/'
@@ -5549,11 +5319,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/Kansas-City-Magento-Meetup/'
             country: 'Kansas'
 
-        -   name: 'PHP Business Networking'
-            meetup_com_id: 28580333
-            meetup_com_url: 'https://www.meetup.com/PHP-Business-Networking/'
-            country: 'Missouri'
-
         -   name: 'Laravel Omaha'
             meetup_com_id: 26674149
             meetup_com_url: 'https://www.meetup.com/Laravel-Omaha/'
@@ -5624,11 +5389,6 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/New-York-Craft-CMS-Meetup/'
             country: 'New York'
 
-        -   name: 'Women In Wordpress NYC'
-            meetup_com_id: 26470971
-            meetup_com_url: 'https://www.meetup.com/Women-In-Wordpress-NYC/'
-            country: 'New York'
-
         -   name: 'Chapel Hill / Durham PHP User Group'
             meetup_com_id: 19013985
             meetup_com_url: 'https://www.meetup.com/Chapel-Hill-Durham-PHP-User-Group/'
@@ -5639,24 +5399,9 @@ parameters:
             meetup_com_url: 'https://www.meetup.com/triDUG/'
             country: 'North Carolina'
 
-        -   name: 'Raleigh-Durham Magento Developers'
-            meetup_com_id: 29750863
-            meetup_com_url: 'https://www.meetup.com/Raleigh-Durham-Magento-Developers/'
-            country: 'North Carolina'
-
-        -   name: 'Chapel Hill Magento Meetup'
-            meetup_com_id: 29767936
-            meetup_com_url: 'https://www.meetup.com/Chapel-Hill-Magento-Meetup/'
-            country: 'North Carolina'
-
         -   name: 'Asheville Area WordPress Group'
             meetup_com_id: 3695462
             meetup_com_url: 'https://www.meetup.com/Asheville-Area-WordPress-Group/'
-            country: 'North Carolina'
-
-        -   name: 'Asheville Laravel Meetup'
-            meetup_com_id: 21290094
-            meetup_com_url: 'https://www.meetup.com/Asheville-Laravel-Meetup/'
             country: 'North Carolina'
 
         -   name: 'Queen City PHP'
@@ -5703,16 +5448,6 @@ parameters:
             meetup_com_id: 16631602
             meetup_com_url: 'https://www.meetup.com/Utah-Drupal-Users-Group/'
             country: 'Utah'
-
-        -   name: 'Salt Lake City Laravel'
-            meetup_com_id: 25518750
-            meetup_com_url: 'https://www.meetup.com/Salt-Lake-City-Laravel/'
-            country: 'Utah'
-
-        -   name: 'Milwaukee PHP Users Group'
-            meetup_com_id: 1564340
-            meetup_com_url: 'https://www.meetup.com/Milwaukee-PHP-Users-Group/'
-            country: 'Wisconsin'
 
         -   name: 'Laravel Milwaukee'
             meetup_com_id: 12420992

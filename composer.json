@@ -47,7 +47,8 @@
         "generate": [
             "bin/console import",
             "vendor/bin/statie generate source"
-        ]
+        ],
+        "dead": "vendor/bin/http-status-check scan https://friendsofphp.org/groups/ --output=log.txt"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
