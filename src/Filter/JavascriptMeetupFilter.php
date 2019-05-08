@@ -14,7 +14,7 @@ final class JavascriptMeetupFilter implements MeetupFilterInterface
      */
     public function filter(array $meetups): array
     {
-        return array_filter($meetups, function (Meetup $meetup) {
+        return array_filter($meetups, function (Meetup $meetup): bool {
             return ! Strings::match($meetup->getName(), '#javascript#i');
         });
     }
