@@ -1,6 +1,7 @@
 ---
 title: "Meet Your Friends of PrestaShop"
 layout: "_layouts/map_layout.twig"
+id: "prestashop"
 ---
 
 {# sort meetups from all imported files from nearest to the most further one #}
@@ -11,8 +12,9 @@ layout: "_layouts/map_layout.twig"
     <strong>{{ meetups|length }} PrestaShop meetups</strong> in next {{ max_forecast_days }} days
 </div>
 
-<a name="map"></a>
+{% include "_snippets/menu.twig" %}
 
+<a name="map"></a>
 <div id="{{ map_id }}" class="mr-4"></div>
 
 <br>

@@ -18,3 +18,7 @@ parameters:
 services:
     # twig filters
     Fop\Twig\MeetupByTagFilterProvider: ~
+
+    # api decorators
+    Fop\Api\GroupsApiItemDecorator: ~
+    Fop\Api\MeetupsApiItemDecorator: ~

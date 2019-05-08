@@ -43,7 +43,7 @@ final class PhpRelatedFilter
      */
     public function filterGroups(array $groups): array
     {
-        return array_filter($groups, function ($group) {
+        return array_filter($groups, function ($group): bool {
             return $this->isNameMatch((string) $group[Group::NAME]);
         });
     }
