@@ -7,4 +7,4 @@ parameters:
     imported_meetups_storage: '%kernel.project_dir%/source/_data/generated/'
 
     # how many days into the future the meetups should be imported
-    max_forecast_days: 45
+    max_forecast_days: 30
