@@ -10,6 +10,7 @@ layout: "_layouts/map_layout.twig"
     <strong>{{ meetups|length }} meetups</strong> in next {{ max_forecast_days }} days from <a href="/groups/">{{ groups|length }} groups</a> all over the world
 </div>
 
+{% set all_meetups = meetups %}
 {% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal', 'magento', 'prestashop']) %}
 
 {% include "_snippets/menu.twig" %}
