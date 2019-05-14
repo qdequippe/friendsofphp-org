@@ -9,27 +9,19 @@
 
 <div class="text-center mb-3">
     <a href="/wordpress/" class="btn btn-sm btn-outline-primary mb-2 mr-3 {% if id == "wordpress" %} active{% endif %}">
+        {{ filter_meetups_including_tags(meetups, 'wordpress')|length }}
         WordPress meetups
-        <small>
-            ({{ filter_meetups_including_tags(meetups, 'wordpress')|length }})
-        </small>
     </a>
     <a href="/drupal/" class="btn btn-sm btn-outline-info mb-2 mr-3 {% if id == "drupal" %} active{% endif %}">
+        {{ filter_meetups_including_tags(meetups, 'drupal')|length }}
         Drupal meetups
-        <small>
-            ({{ filter_meetups_including_tags(meetups, 'drupal')|length }})
-        </small>
     </a>
     <a href="/prestashop/" class="btn btn-sm btn-outline-warning mb-2 mr-3 {% if id == "prestashop" %} active{% endif %}">
+        {{ filter_meetups_including_tags(meetups, 'prestashop')|length }}
         PrestaShop meetups
-        <small>
-            ({{ filter_meetups_including_tags(meetups, 'prestashop')|length }})
-        </small>
     </a>
     <a href="/magento/" class="btn btn-sm btn-outline-danger mb-2 {% if id == "magento" %} active{% endif %}">
+        {{ filter_meetups_including_tags(meetups, 'magento')|length }}
         Magento meetups
-        <small>
-            ({{ filter_meetups_including_tags(meetups, 'magento')|length }})
-        </small>
     </a>
 </div>
