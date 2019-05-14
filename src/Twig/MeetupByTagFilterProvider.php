@@ -18,7 +18,7 @@ final class MeetupByTagFilterProvider implements FilterProviderInterface
             },
 
             // usage in Twig: {{ count_meetups_including_tags(meetups, 'wordpress') }}
-            'count_meetups_including_tags' => function (array $meetups, $tags): array {
+            'count_meetups_including_tags' => function (array $meetups, $tags): int {
                 return count($this->filterMeetupsIncludingTags($meetups, $tags));
             },
 
