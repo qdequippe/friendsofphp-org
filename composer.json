@@ -6,8 +6,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "nette/utils": "^2.5",
         "rinvex/countries": "^3.1",
-        "symplify/statie": "^5.5",
-        "symplify/package-builder": "^5.5",
+        "symplify/statie": "^6.0",
+        "symplify/package-builder": "^6.0",
         "symfony/console": "^4.2",
         "symfony/dependency-injection": "^4.2",
         "symfony/dom-crawler": "^4.2",
@@ -20,8 +20,8 @@
         "phpunit/phpunit": "^8.0",
         "spatie/http-status-check": "^3.1",
         "symfony/var-dumper": "^4.2",
-        "symplify/phpstan-extensions": "^5.5",
-        "symplify/easy-coding-standard": "^5.5",
+        "symplify/phpstan-extensions": "^6.0",
+        "symplify/easy-coding-standard": "^6.0",
         "nette/caching": "^3.0"
     },
     "autoload": {
@@ -49,7 +49,5 @@
             "vendor/bin/statie generate source"
         ],
         "dead": "vendor/bin/http-status-check scan https://friendsofphp.org/groups/ --output=log.txt"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
