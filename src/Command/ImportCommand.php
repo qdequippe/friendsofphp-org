@@ -74,6 +74,16 @@ final class ImportCommand extends Command
 
         $meetupImporters = $this->getMeetupImporters($provider);
 
+        if ($meetupImporters === [] && $provider) {
+            $this->symfonyStyle->error(sprintf(
+                'The provider for "%s" was not found.%sPick one of "%s"',
+                $provider,
+                PHP_EOL,
+                implode('", "', $this->getMeetupImporterKeys())
+            ));
+            return ShellCode::ERROR;
+        }
+
         foreach ($meetupImporters as $meetupImporter) {
             $this->symfonyStyle->note(sprintf('Importing meetups from "%s"', $meetupImporter->getKey()));
 
@@ -105,6 +115,19 @@ final class ImportCommand extends Command
 
         // none found
         return [];
+    }
+
+    /**
+     * @return string[]
+     */
+    private function getMeetupImporterKeys(): array
+    {
+        $keys = [];
+        foreach ($this->meetupImporters as $meetupImporter) {
+            $keys[] = $meetupImporter->getKey();
+        }
+
+        return $keys;
     }
 
     /**

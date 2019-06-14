@@ -2,9 +2,9 @@ imports:
     - { resource: 'services.yaml' }
 
 parameters:
-    env(MEETUP_TOKEN): '' # completed in CI or config.local.yml
+    meetup_com_oauth_key: '%env(MEETUP_COM_OAUTH_KEY)%'
+    meetup_com_oauth_secret: '%env(MEETUP_COM_OAUTH_SECRET)%'
 
-    meetup_com_api_key: '%env(MEETUP_TOKEN)%'
     found_meetups_storage_file: '%kernel.project_dir%/source/_data/generated/found_meetups.yml'
     topics_to_crawl:
         # 1st wave

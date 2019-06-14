@@ -1,6 +1,7 @@
 imports:
     - { resource: 'parameters.yaml' }
     - { resource: '../packages/*/config/config.yaml' }
+    - { resource: 'config.local.yaml', ignore_errors: true }
 
 services:
     _defaults:
