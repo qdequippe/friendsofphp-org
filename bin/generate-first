@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php declare(strict_types=1);
+
+use Fop\Console\FriendsOfPhpApplication;
+use Fop\HttpKernel\FopKernel;
+use Symfony\Component\Console\Application;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+if (file_exists(__DIR__ . '/../source/_data/generated')) {
+    return;
+}
+
+fwrite(
+    STDERR,
+    'Run "bin/console import" first to import meetup data' . PHP_EOL
+);
+
+die(1);

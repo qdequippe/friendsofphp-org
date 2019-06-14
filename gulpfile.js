@@ -7,6 +7,14 @@ var exec = require('child_process').exec;
 
 gulp.task('default', function () {
     // Generate current version
+    exec('bin/generate-first', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.error(stderr);
+        if (err !== '') {
+            throw new Error();
+        }
+    });
+
     exec('vendor/bin/statie generate source', function (err, stdout, stderr) {
         console.log(stdout);
         console.error(stderr);
