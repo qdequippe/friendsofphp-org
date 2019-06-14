@@ -2,8 +2,12 @@
 
 namespace Fop\MeetupCom\Api;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
-use Symplify\PackageBuilder\Http\BetterGuzzleClient;
+use kamermans\OAuth2\GrantType\ClientCredentials;
+use kamermans\OAuth2\OAuth2Middleware;
+use Nette\Utils\Json;
+use Psr\Http\Message\ResponseInterface;
 use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupComApi
@@ -22,17 +26,17 @@ final class MeetupComApi
     /**
      * @var string
      */
-    private $meetupComApiKey;
+    private $meetupComOauthKey;
 
     /**
-     * @var BetterGuzzleClient
+     * @var string
      */
-    private $betterGuzzleClient;
+    private $meetupComOauthSecret;
 
-    public function __construct(string $meetupComApiKey, BetterGuzzleClient $betterGuzzleClient)
+    public function __construct(string $meetupComOauthKey, string $meetupComOauthSecret)
     {
-        $this->meetupComApiKey = $meetupComApiKey;
-        $this->betterGuzzleClient = $betterGuzzleClient;
+        $this->meetupComOauthKey = $meetupComOauthKey;
+        $this->meetupComOauthSecret = $meetupComOauthSecret;
     }
 
     /**
@@ -43,7 +47,9 @@ final class MeetupComApi
     {
         $url = $this->createUrlFromGroupIds($groupIds);
 
-        $json = $this->betterGuzzleClient->requestToJson($url);
+        $client = $this->createOauth2AwareHttpClient();
+        $response = $client->request('GET', $url);
+        $json = $this->getJsonFromResponse($response);
 
         return $json['results'] ?? [];
     }
@@ -71,7 +77,10 @@ final class MeetupComApi
     {
         $url = self::API_GROUP_DETAIL_URL . $this->resolveGroupUrlNameFromGroupUrl($url);
 
-        return $this->betterGuzzleClient->requestToJson($url);
+        $client = $this->createOauth2AwareHttpClient();
+        $response = $client->request('GET', $url);
+
+        return $this->getJsonFromResponse($response);
     }
 
     /**
@@ -85,8 +94,39 @@ final class MeetupComApi
             # https://www.meetup.com/meetup_api/docs/2/events/#params
             'group_id' => $groupIdsAsString,
             # https://www.meetup.com/meetup_api/auth/#keys
-            'key' => $this->meetupComApiKey,
         ]);
+    }
+
+    /**
+     * @see https://github.com/kamermans/guzzle-oauth2-subscriber#middleware-guzzle-6
+     */
+    private function createOauth2AwareHttpClient(): Client
+    {
+        $reauthClient = new Client([
+            // URL for access_token request
+            'base_uri' => 'https://secure.meetup.com/oauth2/access',
+        ]);
+
+        $reauthConfig = [
+            'client_id' => $this->meetupComOauthKey,
+            'client_secret' => $this->meetupComOauthSecret,
+        ];
+
+        $clientCredentials = new ClientCredentials($reauthClient, $reauthConfig);
+        $oAuth2Middleware = new OAuth2Middleware($clientCredentials);
+
+        $client = new Client();
+        $client->getConfig('handler')->push($oAuth2Middleware);
+
+        return $client;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    private function getJsonFromResponse(ResponseInterface $response): array
+    {
+        return Json::decode((string) $response->getBody(), Json::FORCE_ARRAY);
     }
 
     private function resolveGroupUrlNameFromGroupUrl(string $url): string
