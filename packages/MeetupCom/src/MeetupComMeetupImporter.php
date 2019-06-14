@@ -7,6 +7,7 @@ use Fop\Entity\Meetup;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
 use Fop\Repository\GroupRepository;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupComMeetupImporter implements MeetupImporterInterface
 {
@@ -24,15 +25,27 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
      * @var MeetupComApi
      */
     private $meetupComApi;
+    /**
+     * @var string
+     */
+    private $meetupComApiKey;
+    /**
+     * @var SymfonyStyle
+     */
+    private $symfonyStyle;
 
     public function __construct(
         GroupRepository $userGroupRepository,
         MeetupComMeetupFactory $meetupComMeetupFactory,
-        MeetupComApi $meetupComApi
+        MeetupComApi $meetupComApi,
+        string $meetupComApiKey,
+    SymfonyStyle $symfonyStyle
     ) {
         $this->groupRepository = $userGroupRepository;
         $this->meetupComMeetupFactory = $meetupComMeetupFactory;
         $this->meetupComApi = $meetupComApi;
+        $this->meetupComApiKey = $meetupComApiKey;
+        $this->symfonyStyle = $symfonyStyle;
     }
 
     /**
@@ -40,6 +53,12 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
      */
     public function getMeetups(): array
     {
+        if ($this->meetupComApiKey === '') {
+            $this->symfonyStyle->warning('Meetup.com data requires MEETUP_TOKEN=value for the access. Skipping.');
+
+            return [];
+        }
+
         $groupIds = $this->groupRepository->fetchGroupIds();
 
         $meetups = [];
