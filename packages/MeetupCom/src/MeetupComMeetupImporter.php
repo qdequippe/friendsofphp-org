@@ -12,6 +12,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 final class MeetupComMeetupImporter implements MeetupImporterInterface
 {
     /**
+     * @var string
+     */
+    private $meetupComApiKey;
+
+    /**
      * @var GroupRepository
      */
     private $groupRepository;
@@ -25,10 +30,7 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
      * @var MeetupComApi
      */
     private $meetupComApi;
-    /**
-     * @var string
-     */
-    private $meetupComApiKey;
+
     /**
      * @var SymfonyStyle
      */
@@ -39,7 +41,7 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
         MeetupComMeetupFactory $meetupComMeetupFactory,
         MeetupComApi $meetupComApi,
         string $meetupComApiKey,
-    SymfonyStyle $symfonyStyle
+        SymfonyStyle $symfonyStyle
     ) {
         $this->groupRepository = $userGroupRepository;
         $this->meetupComMeetupFactory = $meetupComMeetupFactory;
