@@ -2,28 +2,28 @@
 
 <p class="text-center pb-2">
     <a href="#-" onclick="locateme();" class="btn btn-primary">Locate me</a>
-    <a href="" onclick="share_bounds();" class="share-link-bounds btn btn-warning ml-3">Share <span class="hidden-sm-down">Current </span>Map</a>
-    <a href="/api/meetups.json" class="btn btn-danger ml-3">Meetups JSON</a>
-    <a href="/api/groups.json" class="btn btn-danger ml-3">Groups JSON</a>
+    <a href="" onclick="share_bounds();" class="share-link-bounds btn btn-warning ml-1 ml-sm-3">Share <span class="hidden-sm-down">Current </span>Map</a>
+    <a href="/api/meetups.json" class="btn btn-danger ml-1 ml-sm-3">Meetups JSON</a>
+    <a href="/api/groups.json" class="btn btn-danger ml-1 ml-sm-3">Groups JSON</a>
 </p>
 
 <div class="text-center mb-3">
-    <a href="/wordpress/" class="btn btn-sm btn-outline-primary mb-2 mr-3 {% if id == "wordpress" %} active{% endif %}">
+    <a href="/wordpress/" class="btn btn-sm btn-outline-primary mb-2 mr-1 mr-sm-3 {% if id == "wordpress" %} active{% endif %}">
         {{ count_meetups_including_tags(all_meetups, 'wordpress') }}
         WordPress <span class="hidden-sm-down">meetups</span>
     </a>
 
-    <a href="/drupal/" class="btn btn-sm btn-outline-info mb-2 mr-3 {% if id == "drupal" %} active{% endif %}">
+    <a href="/drupal/" class="btn btn-sm btn-outline-info mb-2 mr-1 mr-sm-3 {% if id == "drupal" %} active{% endif %}">
         {{ count_meetups_including_tags(all_meetups, 'drupal') }}
         Drupal <span class="hidden-sm-down">meetups</span>
     </a>
 
-    <a href="/prestashop/" class="btn btn-sm btn-outline-warning mb-2 mr-3 {% if id == "prestashop" %} active{% endif %}">
+    <a href="/prestashop/" class="btn btn-sm btn-outline-warning mb-2 mr-1 mr-sm-3 {% if id == "prestashop" %} active{% endif %}">
         {{ count_meetups_including_tags(all_meetups, 'prestashop') }}
         PrestaShop <span class="hidden-sm-down">meetups</span>
     </a>
 
-    <a href="/magento/" class="btn btn-sm btn-outline-danger mb-2 mr-3 {% if id == "magento" %} active{% endif %}">
+    <a href="/magento/" class="btn btn-sm btn-outline-danger mb-2 mr-1 mr-sm-3 {% if id == "magento" %} active{% endif %}">
         {{ count_meetups_including_tags(all_meetups, 'magento') }}
         Magento <span class="hidden-sm-down">meetups</span>
     </a>
