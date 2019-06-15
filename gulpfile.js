@@ -10,7 +10,7 @@ gulp.task('default', function () {
     exec('bin/generate-first', function (err, stdout, stderr) {
         console.log(stdout);
         console.error(stderr);
-        if (err !== '') {
+        if (stderr !== '') {
             throw new Error();
         }
     });

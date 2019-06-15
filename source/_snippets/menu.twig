@@ -12,16 +12,23 @@
         {{ count_meetups_including_tags(all_meetups, 'wordpress') }}
         WordPress <span class="hidden-sm-down">meetups</span>
     </a>
+
     <a href="/drupal/" class="btn btn-sm btn-outline-info mb-2 mr-3 {% if id == "drupal" %} active{% endif %}">
         {{ count_meetups_including_tags(all_meetups, 'drupal') }}
         Drupal <span class="hidden-sm-down">meetups</span>
     </a>
+
     <a href="/prestashop/" class="btn btn-sm btn-outline-warning mb-2 mr-3 {% if id == "prestashop" %} active{% endif %}">
         {{ count_meetups_including_tags(all_meetups, 'prestashop') }}
         PrestaShop <span class="hidden-sm-down">meetups</span>
     </a>
-    <a href="/magento/" class="btn btn-sm btn-outline-danger mb-2 {% if id == "magento" %} active{% endif %}">
+
+    <a href="/magento/" class="btn btn-sm btn-outline-danger mb-2 mr-3 {% if id == "magento" %} active{% endif %}">
         {{ count_meetups_including_tags(all_meetups, 'magento') }}
         Magento <span class="hidden-sm-down">meetups</span>
+    </a>
+
+    <a href="/english/" class="btn btn-sm btn-outline-dark mb-2 {% if id == "english" %} active{% endif %}">
+        🇬🇧
     </a>
 </div>
