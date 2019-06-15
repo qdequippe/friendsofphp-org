@@ -11,7 +11,7 @@
 ```sh
 git clone git@github.com:TomasVotruba/friendsofphp.org.git # use your fork to contribute
 cd friendsofphp.org
-composer intalll
+composer install
 npm install
 gulp # see gulpfile.js for more
 ```
