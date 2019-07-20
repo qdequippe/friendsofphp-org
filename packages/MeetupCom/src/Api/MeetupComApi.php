@@ -2,12 +2,15 @@
 
 namespace Fop\MeetupCom\Api;
 
+use Fop\Exception\ShouldNotHappenException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use kamermans\OAuth2\GrantType\ClientCredentials;
 use kamermans\OAuth2\OAuth2Middleware;
 use Nette\Utils\Json;
 use Psr\Http\Message\ResponseInterface;
+use ReflectionProperty;
+use Symplify\PackageBuilder\Strings\StringFormatConverter;
 use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupComApi
@@ -15,7 +18,7 @@ final class MeetupComApi
     /**
      * @var string
      */
-    private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/2/events';
+    private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events';
 
     /**
      * e.g. http://api.meetup.com/dallasphp
@@ -32,11 +35,16 @@ final class MeetupComApi
      * @var string
      */
     private $meetupComOauthSecret;
+    /**
+     * @var StringFormatConverter
+     */
+    private $stringFormatConverter;
 
-    public function __construct(string $meetupComOauthKey, string $meetupComOauthSecret)
+    public function __construct(string $meetupComOauthKey, string $meetupComOauthSecret, StringFormatConverter $stringFormatConverter)
     {
         $this->meetupComOauthKey = $meetupComOauthKey;
         $this->meetupComOauthSecret = $meetupComOauthSecret;
+        $this->stringFormatConverter = $stringFormatConverter;
     }
 
     /**
@@ -74,6 +82,7 @@ final class MeetupComApi
     {
         $groupIdsAsString = implode(',', $groupIds);
 
+        # https://www.meetup.com/meetup_api/docs/:urlname/events/#list
         return self::API_EVENTS_BY_GROUPS_URL . '?' . build_query([
             # https://www.meetup.com/meetup_api/docs/2/events/#params
             'group_id' => $groupIdsAsString,
@@ -86,6 +95,8 @@ final class MeetupComApi
      */
     private function createOauth2AwareHttpClient(): Client
     {
+        $this->ensureOAuthKeysAreSet();
+
         $reauthClient = new Client([
             // URL for access_token request
             'base_uri' => 'https://secure.meetup.com/oauth2/access',
@@ -118,5 +129,35 @@ final class MeetupComApi
         $url = rtrim($url, '/');
         $array = explode('/', $url);
         return $array[count($array) - 1];
+    }
+
+    private function ensureOAuthKeysAreSet()
+    {
+        if ($this->meetupComOauthKey === 'empty') {
+            $envValueName = $this->convertPropertyNameToEnvName('meetupComOauthKey');
+
+            throw new ShouldNotHappenException(sprintf(
+                'Env "%s" is needed to run this. Add it to CI or "%s=VALUE bin/console ..."',
+                $envValueName,
+                $envValueName
+            ));
+        }
+
+        if ($this->meetupComOauthSecret === 'empty') {
+            $envValueName = $this->convertPropertyNameToEnvName('meetupComOauthSecret');
+
+            throw new ShouldNotHappenException(sprintf(
+                'Env "%s" is needed to run this. Add it to CI or "%s=VALUE bin/console ..."',
+                $envValueName,
+                $envValueName
+            ));
+        }
+    }
+
+    private function convertPropertyNameToEnvName(string $name): string
+    {
+        $underscore = $this->stringFormatConverter->camelCaseToUnderscore($name);
+
+        return strtoupper($underscore);
     }
 }

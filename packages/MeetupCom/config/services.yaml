@@ -7,3 +7,4 @@ services:
         resource: "../src"
 
     GuzzleHttp\Client: ~
+    Symplify\PackageBuilder\Strings\StringFormatConverter: ~
