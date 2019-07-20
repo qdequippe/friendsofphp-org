@@ -40,6 +40,7 @@ final class GroupMeetupsCommand extends Command
      * @var MeetupComMeetupFactory
      */
     private $meetupComMeetupFactory;
+
     /**
      * @var GroupDetailResolver
      */
@@ -67,7 +68,7 @@ final class GroupMeetupsCommand extends Command
         $this->addArgument(
             self::GROUP_URL,
             InputArgument::REQUIRED,
-            'Group url, e.g. https://meetups.com/vilniusphp)'
+            'Group url, e.g. https://meetupf.com/vilniusphp)'
         );
     }
 
