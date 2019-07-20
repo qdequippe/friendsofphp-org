@@ -54,22 +54,6 @@ final class MeetupComApi
         return $json['results'] ?? [];
     }
 
-    public function getIdForGroupUrl(string $url): ?int
-    {
-        try {
-            return $this->getGroupForUrl($url)['id'];
-        } catch (ClientException $clientException) {
-            if (in_array($clientException->getCode(), [404, 410], true)) {
-                // 404: the group is not accessible
-                // 410: the group doesn't exist anymore
-                return null;
-            }
-
-            // other unknown error, show it
-            throw $clientException;
-        }
-    }
-
     /**
      * @return mixed[]
      */
