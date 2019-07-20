@@ -3,9 +3,7 @@
 namespace Fop\Repository;
 
 use Fop\Entity\Meetup;
-use Fop\Exception\ShouldNotHappenException;
 use Fop\FileSystem\YamlFileSystem;
-use Fop\Meetup\MeetupFactory;
 
 final class MeetupRepository
 {
@@ -19,19 +17,10 @@ final class MeetupRepository
      */
     private $yamlFileSystem;
 
-    /**
-     * @var MeetupFactory
-     */
-    private $meetupFactory;
-
-    public function __construct(
-        string $importedMeetupsStorage,
-        YamlFileSystem $yamlFileSystem,
-        MeetupFactory $meetupFactory
-    ) {
+    public function __construct(string $importedMeetupsStorage, YamlFileSystem $yamlFileSystem)
+    {
         $this->importedMeetupsStorage = $importedMeetupsStorage;
         $this->yamlFileSystem = $yamlFileSystem;
-        $this->meetupFactory = $meetupFactory;
     }
 
     /**
@@ -41,19 +30,6 @@ final class MeetupRepository
     {
         $fileName = $this->importedMeetupsStorage . '/' . $category . '-imported_meetups.yaml';
         $this->saveToFileAndStorage($meetups, $fileName);
-    }
-
-    /**
-     * @return Meetup[]
-     */
-    public function fetchAllAsObjects(): array
-    {
-        $this->ensureStorageExists();
-
-        $data = $this->yamlFileSystem->loadFileToArray($this->importedMeetupsStorage);
-        $meetups = $data['parameters']['meetups'] ?? [];
-
-        return $this->turnsArraysToObjects($meetups);
     }
 
     /**
@@ -70,33 +46,6 @@ final class MeetupRepository
         ];
 
         $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
-    }
-
-    private function ensureStorageExists(): void
-    {
-        if (file_exists($this->importedMeetupsStorage)) {
-            return;
-        }
-
-        throw new ShouldNotHappenException(sprintf(
-            'File "%s" is missing. Run "bin/console import" first.',
-            $this->importedMeetupsStorage
-        ));
-    }
-
-    /**
-     * @param mixed[] $meetups
-     * @return Meetup[]
-     */
-    private function turnsArraysToObjects(array $meetups): array
-    {
-        $meetupsAsObjects = [];
-
-        foreach ($meetups as $meetup) {
-            $meetupsAsObjects[] = $this->meetupFactory->createFromArray($meetup);
-        }
-
-        return $meetupsAsObjects;
     }
 
     /**
