@@ -7,6 +7,8 @@ use Fop\Entity\Meetup;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
 use Fop\Repository\GroupRepository;
+use GuzzleHttp\Exception\GuzzleException;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupComMeetupImporter implements MeetupImporterInterface
 {
@@ -25,14 +27,21 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
      */
     private $meetupComApi;
 
+    /**
+     * @var SymfonyStyle
+     */
+    private $symfonyStyle;
+
     public function __construct(
         GroupRepository $userGroupRepository,
         MeetupComMeetupFactory $meetupComMeetupFactory,
-        MeetupComApi $meetupComApi
+        MeetupComApi $meetupComApi,
+        SymfonyStyle $symfonyStyle
     ) {
         $this->groupRepository = $userGroupRepository;
         $this->meetupComMeetupFactory = $meetupComMeetupFactory;
         $this->meetupComApi = $meetupComApi;
+        $this->symfonyStyle = $symfonyStyle;
     }
 
     /**
@@ -43,15 +52,37 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
         $groupSlugs = $this->groupRepository->fetchGroupSlugs();
 
         $meetups = [];
+        $errors = [];
 
-        $meetupsData = $this->meetupComApi->getMeetupsByGroupSlugs($groupSlugs);
-        foreach ($meetupsData as $meetupData) {
-            $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
-            if ($meetup === null) {
+        $progressBar = $this->symfonyStyle->createProgressBar(count($groupSlugs));
+
+        foreach ($groupSlugs as $groupSlug) {
+            try {
+                $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
+                $progressBar->advance();
+
+                if ($meetupsData === []) {
+                    continue;
+                }
+
+                foreach ($meetupsData as $meetupData) {
+                    $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
+                    if ($meetup === null) {
+                        continue;
+                    }
+
+                    $meetups[] = $meetup;
+                }
+            } catch (GuzzleException $guzzleException) {
+                // the group might not exists anymore, but it should not be a blocker for existing groups
+                $errors[] = $guzzleException->getMessage();
                 continue;
             }
+        }
 
-            $meetups[] = $meetup;
+        // report errors
+        foreach ($errors as $error) {
+            $this->symfonyStyle->error($error);
         }
 
         return $meetups;

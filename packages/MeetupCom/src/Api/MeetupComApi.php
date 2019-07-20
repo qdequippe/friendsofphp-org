@@ -4,8 +4,6 @@ namespace Fop\MeetupCom\Api;
 
 use Fop\Guzzle\ResponseConverter;
 use Fop\MeetupCom\Guzzle\Oauth2AwareClient;
-use GuzzleHttp\Exception\GuzzleException;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupComApi
 {
@@ -14,11 +12,6 @@ final class MeetupComApi
      * @var string
      */
     private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events';
-
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
 
     /**
      * @var ResponseConverter
@@ -30,52 +23,20 @@ final class MeetupComApi
      */
     private $oauth2AwareClient;
 
-    public function __construct(
-        SymfonyStyle $symfonyStyle,
-        ResponseConverter $responseConverter,
-        Oauth2AwareClient $oauth2AwareClient
-    ) {
-        $this->symfonyStyle = $symfonyStyle;
+    public function __construct(ResponseConverter $responseConverter, Oauth2AwareClient $oauth2AwareClient)
+    {
         $this->responseConverter = $responseConverter;
         $this->oauth2AwareClient = $oauth2AwareClient;
     }
 
     /**
-     * @param string[] $groupSlugs
      * @return mixed[]
      */
-    public function getMeetupsByGroupSlugs(array $groupSlugs): array
+    public function getMeetupsByGroupSlug(string $groupSlug): array
     {
-        $meetups = [];
-        $errors = [];
+        $url = sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
 
-        $progressBar = $this->symfonyStyle->createProgressBar(count($groupSlugs));
-
-        foreach ($groupSlugs as $groupSlug) {
-            $url = sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
-
-            $progressBar->advance();
-
-            try {
-                $response = $this->oauth2AwareClient->request('GET', $url);
-            } catch (GuzzleException $guzzleException) {
-                // the group might not exists anymore, but it should not be a blocker for existing groups
-                $errors[] = $guzzleException->getMessage();
-                continue;
-            }
-
-            $json = $this->responseConverter->toJson($response);
-            if ($json === []) {
-                continue;
-            }
-
-            $meetups = array_merge($meetups, $json);
-        }
-
-        foreach ($errors as $error) {
-            $this->symfonyStyle->error($error);
-        }
-
-        return $meetups;
+        $response = $this->oauth2AwareClient->request('GET', $url);
+        return $this->responseConverter->toJson($response);
     }
 }
