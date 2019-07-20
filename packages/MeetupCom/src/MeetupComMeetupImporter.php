@@ -71,6 +71,8 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
                         continue;
                     }
 
+                    dump($meetup);
+
                     $meetups[] = $meetup;
                 }
             } catch (GuzzleException $guzzleException) {
