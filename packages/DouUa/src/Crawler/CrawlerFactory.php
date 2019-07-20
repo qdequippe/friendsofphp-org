@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\MeetupCom\Crawler;
+namespace Fop\DouUa\Crawler;
 
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;

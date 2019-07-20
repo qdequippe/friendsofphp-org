@@ -3,26 +3,21 @@
 namespace Fop\MeetupCom\Api;
 
 use Fop\Exception\ShouldNotHappenException;
+use Fop\Guzzle\ResponseConverter;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use kamermans\OAuth2\GrantType\ClientCredentials;
 use kamermans\OAuth2\OAuth2Middleware;
-use Nette\Utils\Json;
-use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class MeetupComApi
 {
     /**
+     * @see https://www.meetup.com/meetup_api/docs/:urlname/events/#list
      * @var string
      */
     private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events';
-
-    /**
-     * e.g. http://api.meetup.com/dallasphp
-     * @var string
-     */
-    private const API_GROUP_DETAIL_URL = 'http://api.meetup.com/';
 
     /**
      * @var string
@@ -44,16 +39,23 @@ final class MeetupComApi
      */
     private $symfonyStyle;
 
+    /**
+     * @var ResponseConverter
+     */
+    private $responseConverter;
+
     public function __construct(
         string $meetupComOauthKey,
         string $meetupComOauthSecret,
         StringFormatConverter $stringFormatConverter,
-        SymfonyStyle $symfonyStyle
+        SymfonyStyle $symfonyStyle,
+        ResponseConverter $responseConverter
     ) {
         $this->meetupComOauthKey = $meetupComOauthKey;
         $this->meetupComOauthSecret = $meetupComOauthSecret;
         $this->stringFormatConverter = $stringFormatConverter;
         $this->symfonyStyle = $symfonyStyle;
+        $this->responseConverter = $responseConverter;
     }
 
     /**
@@ -63,41 +65,37 @@ final class MeetupComApi
     public function getMeetupsByGroupSlugs(array $groupSlugs): array
     {
         $meetups = [];
+        $errors = [];
 
         $progressBar = $this->symfonyStyle->createProgressBar(count($groupSlugs));
+        $client = $this->createOauth2AwareHttpClient();
 
         foreach ($groupSlugs as $groupSlug) {
-            $url = $this->createUrlFromGroupSlug($groupSlug);
+            $url = sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
 
             $progressBar->advance();
 
-            $client = $this->createOauth2AwareHttpClient();
-            $response = $client->request('GET', $url);
-            $json = $this->getJsonFromResponse($response);
+            try {
+                $response = $client->request('GET', $url);
+            } catch (GuzzleException $guzzleException) {
+                // the group might not exists anymore, but it should not be a blocker for existing groups
+                $errors[] = $guzzleException->getMessage();
+                continue;
+            }
 
-            $meetups = array_merge($meetups, $json['results'] ?? []);
+            $json = $this->responseConverter->toJson($response);
+            if ($json === []) {
+                continue;
+            }
+
+            $meetups = array_merge($meetups, $json);
+        }
+
+        foreach ($errors as $error) {
+            $this->symfonyStyle->error($error);
         }
 
         return $meetups;
-    }
-
-    /**
-     * @return mixed[]
-     */
-    public function getGroupForUrl(string $url): array
-    {
-        $url = self::API_GROUP_DETAIL_URL . $this->resolveGroupUrlNameFromGroupUrl($url);
-
-        $client = $this->createOauth2AwareHttpClient();
-        $response = $client->request('GET', $url);
-
-        return $this->getJsonFromResponse($response);
-    }
-
-    private function createUrlFromGroupSlug(string $groupSlug): string
-    {
-        # https://www.meetup.com/meetup_api/docs/:urlname/events/#list
-        return sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
     }
 
     /**
@@ -124,21 +122,6 @@ final class MeetupComApi
         $client->getConfig('handler')->push($oAuth2Middleware);
 
         return $client;
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function getJsonFromResponse(ResponseInterface $response): array
-    {
-        return Json::decode((string) $response->getBody(), Json::FORCE_ARRAY);
-    }
-
-    private function resolveGroupUrlNameFromGroupUrl(string $url): string
-    {
-        $url = rtrim($url, '/');
-        $array = explode('/', $url);
-        return $array[count($array) - 1];
     }
 
     private function ensureOAuthKeysAreSet(): void
