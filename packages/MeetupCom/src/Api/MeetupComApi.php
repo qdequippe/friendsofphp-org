@@ -2,14 +2,10 @@
 
 namespace Fop\MeetupCom\Api;
 
-use Fop\Exception\ShouldNotHappenException;
 use Fop\Guzzle\ResponseConverter;
-use GuzzleHttp\Client;
+use Fop\MeetupCom\Guzzle\Oauth2AwareClient;
 use GuzzleHttp\Exception\GuzzleException;
-use kamermans\OAuth2\GrantType\ClientCredentials;
-use kamermans\OAuth2\OAuth2Middleware;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class MeetupComApi
 {
@@ -18,21 +14,6 @@ final class MeetupComApi
      * @var string
      */
     private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events';
-
-    /**
-     * @var string
-     */
-    private $meetupComOauthKey;
-
-    /**
-     * @var string
-     */
-    private $meetupComOauthSecret;
-
-    /**
-     * @var StringFormatConverter
-     */
-    private $stringFormatConverter;
 
     /**
      * @var SymfonyStyle
@@ -44,18 +25,19 @@ final class MeetupComApi
      */
     private $responseConverter;
 
+    /**
+     * @var Oauth2AwareClient
+     */
+    private $oauth2AwareClient;
+
     public function __construct(
-        string $meetupComOauthKey,
-        string $meetupComOauthSecret,
-        StringFormatConverter $stringFormatConverter,
         SymfonyStyle $symfonyStyle,
-        ResponseConverter $responseConverter
+        ResponseConverter $responseConverter,
+        Oauth2AwareClient $oauth2AwareClient
     ) {
-        $this->meetupComOauthKey = $meetupComOauthKey;
-        $this->meetupComOauthSecret = $meetupComOauthSecret;
-        $this->stringFormatConverter = $stringFormatConverter;
         $this->symfonyStyle = $symfonyStyle;
         $this->responseConverter = $responseConverter;
+        $this->oauth2AwareClient = $oauth2AwareClient;
     }
 
     /**
@@ -68,7 +50,6 @@ final class MeetupComApi
         $errors = [];
 
         $progressBar = $this->symfonyStyle->createProgressBar(count($groupSlugs));
-        $client = $this->createOauth2AwareHttpClient();
 
         foreach ($groupSlugs as $groupSlug) {
             $url = sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
@@ -76,7 +57,7 @@ final class MeetupComApi
             $progressBar->advance();
 
             try {
-                $response = $client->request('GET', $url);
+                $response = $this->oauth2AwareClient->request('GET', $url);
             } catch (GuzzleException $guzzleException) {
                 // the group might not exists anymore, but it should not be a blocker for existing groups
                 $errors[] = $guzzleException->getMessage();
@@ -96,61 +77,5 @@ final class MeetupComApi
         }
 
         return $meetups;
-    }
-
-    /**
-     * @see https://github.com/kamermans/guzzle-oauth2-subscriber#middleware-guzzle-6
-     */
-    private function createOauth2AwareHttpClient(): Client
-    {
-        $this->ensureOAuthKeysAreSet();
-
-        $reauthClient = new Client([
-            // URL for access_token request
-            'base_uri' => 'https://secure.meetup.com/oauth2/access',
-        ]);
-
-        $reauthConfig = [
-            'client_id' => $this->meetupComOauthKey,
-            'client_secret' => $this->meetupComOauthSecret,
-        ];
-
-        $clientCredentials = new ClientCredentials($reauthClient, $reauthConfig);
-        $oAuth2Middleware = new OAuth2Middleware($clientCredentials);
-
-        $client = new Client();
-        $client->getConfig('handler')->push($oAuth2Middleware);
-
-        return $client;
-    }
-
-    private function ensureOAuthKeysAreSet(): void
-    {
-        if ($this->meetupComOauthKey === 'empty') {
-            $envValueName = $this->convertPropertyNameToEnvName('meetupComOauthKey');
-
-            throw new ShouldNotHappenException(sprintf(
-                'Env "%s" is needed to run this. Add it to CI or "%s=VALUE bin/console ..."',
-                $envValueName,
-                $envValueName
-            ));
-        }
-
-        if ($this->meetupComOauthSecret === 'empty') {
-            $envValueName = $this->convertPropertyNameToEnvName('meetupComOauthSecret');
-
-            throw new ShouldNotHappenException(sprintf(
-                'Env "%s" is needed to run this. Add it to CI or "%s=VALUE bin/console ..."',
-                $envValueName,
-                $envValueName
-            ));
-        }
-    }
-
-    private function convertPropertyNameToEnvName(string $name): string
-    {
-        $underscore = $this->stringFormatConverter->camelCaseToUnderscore($name);
-
-        return strtoupper($underscore);
     }
 }
