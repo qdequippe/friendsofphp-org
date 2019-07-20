@@ -4,6 +4,7 @@ namespace Fop\MeetupCom\Command;
 
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Command\Reporter\MeetupReporter;
+use Fop\MeetupCom\Group\GroupDetailResolver;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -18,7 +19,7 @@ final class GroupMeetupsCommand extends Command
     /**
      * @var string
      */
-    private const GROUP_ID = 'group-id';
+    private const GROUP_URL = 'group-url';
 
     /**
      * @var SymfonyStyle
@@ -39,34 +40,45 @@ final class GroupMeetupsCommand extends Command
      * @var MeetupComMeetupFactory
      */
     private $meetupComMeetupFactory;
+    /**
+     * @var GroupDetailResolver
+     */
+    private $groupDetailResolver;
 
     public function __construct(
         SymfonyStyle $symfonyStyle,
         MeetupReporter $meetupReporter,
         MeetupComApi $meetupComApi,
-        MeetupComMeetupFactory $meetupComMeetupFactory
+        MeetupComMeetupFactory $meetupComMeetupFactory,
+        GroupDetailResolver $groupDetailResolver
     ) {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
         $this->meetupReporter = $meetupReporter;
         $this->meetupComApi = $meetupComApi;
         $this->meetupComMeetupFactory = $meetupComMeetupFactory;
+        $this->groupDetailResolver = $groupDetailResolver;
     }
 
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
-        $this->setDescription('Show meetups for group id');
-        $this->addArgument(self::GROUP_ID, InputArgument::REQUIRED, 'Group id, e.g. 3964682');
+        $this->setDescription('Show meetups for group url');
+        $this->addArgument(
+            self::GROUP_URL,
+            InputArgument::REQUIRED,
+            'Group url, e.g. https://meetups.com/vilniusphp)'
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        /** @var int $groupId */
-        $groupId = (int) $input->getArgument(self::GROUP_ID);
+        /** @var string $groupUrl */
+        $groupUrl = (string) $input->getArgument(self::GROUP_URL);
+        $groupSlug = $this->groupDetailResolver->resolveSlugFromUrl($groupUrl);
 
         $meetups = [];
-        foreach ($this->meetupComApi->getMeetupsByGroupsIds([$groupId]) as $data) {
+        foreach ($this->meetupComApi->getMeetupsByGroupSlugs([$groupSlug]) as $data) {
             $meetup = $this->meetupComMeetupFactory->createFromData($data);
             if ($meetup === null) {
                 continue;

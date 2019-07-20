@@ -2,7 +2,6 @@
 
 namespace Fop\Repository;
 
-use Fop\Entity\Group;
 use Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader;
 
 final class GroupRepository
@@ -27,26 +26,12 @@ final class GroupRepository
     }
 
     /**
-     * @return mixed[]
+     * @return string[]
      */
-    public function findByUrl(string $groupUrl): ?array
-    {
-        foreach ($this->groups as $group) {
-            if (rtrim($group[Group::URL], '/') === rtrim($groupUrl, '/')) {
-                return $group;
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * @return int[]
-     */
-    public function fetchGroupIds(): array
+    public function fetchGroupSlugs(): array
     {
         $groups = $this->fetchAll();
 
-        return array_column($groups, 'meetup_com_id');
+        return array_column($groups, 'meetup_com_slug');
     }
 }

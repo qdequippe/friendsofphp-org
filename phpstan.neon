@@ -3,8 +3,11 @@ includes:
 
 parameters:
     level: max
+
+    reportUnmatchedIgnoredErrors: false
+
     ignoreErrors:
-        # false positive, checked or @var doc above
+        - '#Cannot cast array<string\>\|string\|null to string#'
         - '#Parameter \#1 \$containerBuilder of class Symplify\\PackageBuilder\\Yaml\\FileLoader\\ParameterMergingYamlFileLoader constructor expects Symfony\\Component\\DependencyInjection\\ContainerBuilder, Symfony\\Component\\DependencyInjection\\ContainerInterface given#'
         - '#Cannot cast array<string>\|string\|null to int#'
         - '#Method Fop\\Tag\\MeetupTagResolver\:\:resolveFromName\(\) should return array<string\> but returns array<int, int\|string\>#'

@@ -4,14 +4,12 @@ namespace Fop\MeetupCom\Api;
 
 use Fop\Exception\ShouldNotHappenException;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use kamermans\OAuth2\GrantType\ClientCredentials;
 use kamermans\OAuth2\OAuth2Middleware;
 use Nette\Utils\Json;
 use Psr\Http\Message\ResponseInterface;
-use ReflectionProperty;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
-use function GuzzleHttp\Psr7\build_query;
 
 final class MeetupComApi
 {
@@ -35,31 +33,52 @@ final class MeetupComApi
      * @var string
      */
     private $meetupComOauthSecret;
+
     /**
      * @var StringFormatConverter
      */
     private $stringFormatConverter;
 
-    public function __construct(string $meetupComOauthKey, string $meetupComOauthSecret, StringFormatConverter $stringFormatConverter)
-    {
+    /**
+     * @var SymfonyStyle
+     */
+    private $symfonyStyle;
+
+    public function __construct(
+        string $meetupComOauthKey,
+        string $meetupComOauthSecret,
+        StringFormatConverter $stringFormatConverter,
+        SymfonyStyle $symfonyStyle
+    ) {
         $this->meetupComOauthKey = $meetupComOauthKey;
         $this->meetupComOauthSecret = $meetupComOauthSecret;
         $this->stringFormatConverter = $stringFormatConverter;
+        $this->symfonyStyle = $symfonyStyle;
     }
 
     /**
-     * @param int[] $groupIds
+     * @param string[] $groupSlugs
      * @return mixed[]
      */
-    public function getMeetupsByGroupsIds(array $groupIds): array
+    public function getMeetupsByGroupSlugs(array $groupSlugs): array
     {
-        $url = $this->createUrlFromGroupIds($groupIds);
+        $meetups = [];
 
-        $client = $this->createOauth2AwareHttpClient();
-        $response = $client->request('GET', $url);
-        $json = $this->getJsonFromResponse($response);
+        $progressBar = $this->symfonyStyle->createProgressBar(count($groupSlugs));
 
-        return $json['results'] ?? [];
+        foreach ($groupSlugs as $groupSlug) {
+            $url = $this->createUrlFromGroupSlug($groupSlug);
+
+            $progressBar->advance();
+
+            $client = $this->createOauth2AwareHttpClient();
+            $response = $client->request('GET', $url);
+            $json = $this->getJsonFromResponse($response);
+
+            $meetups = array_merge($meetups, $json['results'] ?? []);
+        }
+
+        return $meetups;
     }
 
     /**
@@ -75,19 +94,10 @@ final class MeetupComApi
         return $this->getJsonFromResponse($response);
     }
 
-    /**
-     * @param int[] $groupIds
-     */
-    private function createUrlFromGroupIds(array $groupIds): string
+    private function createUrlFromGroupSlug(string $groupSlug): string
     {
-        $groupIdsAsString = implode(',', $groupIds);
-
         # https://www.meetup.com/meetup_api/docs/:urlname/events/#list
-        return self::API_EVENTS_BY_GROUPS_URL . '?' . build_query([
-            # https://www.meetup.com/meetup_api/docs/2/events/#params
-            'group_id' => $groupIdsAsString,
-            # https://www.meetup.com/meetup_api/auth/#keys
-        ]);
+        return sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
     }
 
     /**
@@ -131,7 +141,7 @@ final class MeetupComApi
         return $array[count($array) - 1];
     }
 
-    private function ensureOAuthKeysAreSet()
+    private function ensureOAuthKeysAreSet(): void
     {
         if ($this->meetupComOauthKey === 'empty') {
             $envValueName = $this->convertPropertyNameToEnvName('meetupComOauthKey');

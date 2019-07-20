@@ -11,6 +11,12 @@ use Nette\Utils\Validators;
 final class GroupDetailResolver
 {
     /**
+     * Matches <https://meetup.com/>some-slug
+     * @var string
+     */
+    private const MEETUP_COM_BASIC_URL_PATTERN = '#^http(s)?:\/\/(www\.)?meetup\.com\/(?<slug>.*?)(\/)?$#';
+
+    /**
      * @var MeetupComApi
      */
     private $meetupComApi;
@@ -24,6 +30,15 @@ final class GroupDetailResolver
     {
         $this->meetupComApi = $meetupComApi;
         $this->geolocator = $geolocator;
+    }
+
+    public function resolveSlugFromUrl(string $url): string
+    {
+        $this->ensureIsUrl($url);
+
+        $match = Strings::match($url, self::MEETUP_COM_BASIC_URL_PATTERN);
+
+        return $match['slug'];
     }
 
     /**

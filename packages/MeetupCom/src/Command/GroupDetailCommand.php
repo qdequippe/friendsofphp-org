@@ -63,7 +63,7 @@ final class GroupDetailCommand extends Command
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription(
-            'Shows details for group. Provide 1 group link: "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup/", or a file with multiple urls, each on new line.'
+            'Shows details for group. Provide 1 group link: "bin/console meetup-com-group-detail https://www.meetup.com/Berlin-PHP-Usergroup", or a file with multiple urls, each on new line.'
         );
         $this->addArgument(
             self::ARGUMENT_SOURCE,

@@ -40,20 +40,18 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
      */
     public function getMeetups(): array
     {
-        $groupIds = $this->groupRepository->fetchGroupIds();
+        $groupSlugs = $this->groupRepository->fetchGroupSlugs();
 
         $meetups = [];
 
-        $groupIdsChunks = array_chunk($groupIds, 200);
-        foreach ($groupIdsChunks as $groupIdsChunk) {
-            foreach ($this->meetupComApi->getMeetupsByGroupsIds($groupIdsChunk) as $data) {
-                $meetup = $this->meetupComMeetupFactory->createFromData($data);
-                if ($meetup === null) {
-                    continue;
-                }
-
-                $meetups[] = $meetup;
+        $meetupsData = $this->meetupComApi->getMeetupsByGroupSlugs($groupSlugs);
+        foreach ($meetupsData as $meetupData) {
+            $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
+            if ($meetup === null) {
+                continue;
             }
+
+            $meetups[] = $meetup;
         }
 
         return $meetups;

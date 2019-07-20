@@ -49,8 +49,8 @@ final class ValidateGroupsCommand extends Command
     {
         $groups = $this->groupRepository->fetchAll();
 
-        $existingGroupIds = [];
-        $duplicatedGroupIds = [];
+        $existingGroupSlugs = [];
+        $duplicatedGroupSlugs = [];
 
         foreach ($groups as $group) {
             if ($group['country'] === 'United States') {
@@ -63,23 +63,23 @@ final class ValidateGroupsCommand extends Command
         }
 
         foreach ($groups as $group) {
-            if (! isset($existingGroupIds[$group['meetup_com_id']])) {
-                $existingGroupIds[$group['meetup_com_id']] = true;
+            if (! isset($existingGroupSlugs[$group['meetup_com_slug']])) {
+                $existingGroupSlugs[$group['meetup_com_slug']] = true;
             } else {
-                $duplicatedGroupIds[] = $group['meetup_com_id'];
+                $duplicatedGroupSlugs[] = $group['meetup_com_slug'];
             }
         }
 
-        $duplicatedGroupIds = array_unique($duplicatedGroupIds);
+        $duplicatedGroupSlugs = array_unique($duplicatedGroupSlugs);
 
-        if (! count($duplicatedGroupIds)) {
+        if (! count($duplicatedGroupSlugs)) {
             $this->symfonyStyle->success('Great job! There are no duplicated groups.');
 
             return ShellCode::SUCCESS;
         }
 
         $this->symfonyStyle->title('Found duplicated groups');
-        $this->symfonyStyle->listing($duplicatedGroupIds);
+        $this->symfonyStyle->listing($duplicatedGroupSlugs);
         $this->symfonyStyle->error(sprintf('Cleanup "%s" file please.', $this->groupsStorage));
 
         return ShellCode::ERROR;
