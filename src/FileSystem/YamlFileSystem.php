@@ -21,12 +21,4 @@ final class YamlFileSystem
 
         FileSystem::write($file, $timestampComment . $yamlDump);
     }
-
-    /**
-     * @return mixed[]
-     */
-    public function loadFileToArray(string $file): array
-    {
-        return Yaml::parseFile($file);
-    }
 }

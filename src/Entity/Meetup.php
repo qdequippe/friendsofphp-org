@@ -3,7 +3,6 @@
 namespace Fop\Entity;
 
 use DateTimeInterface;
-use Location\Coordinate;
 
 final class Meetup
 {
@@ -71,19 +70,9 @@ final class Meetup
         return $this->location->getCountry();
     }
 
-    public function getCoordinate(): Coordinate
-    {
-        return $this->location->getCoordinate();
-    }
-
     public function getUrl(): string
     {
         return $this->url;
-    }
-
-    public function getUserGroupName(): string
-    {
-        return $this->userGroupName;
     }
 
     public function getStartDateTime(): DateTimeInterface
