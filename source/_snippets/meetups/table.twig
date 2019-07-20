@@ -25,7 +25,7 @@
     </tr>
 
     {% for meetup in meetups %}
-        {# @var meetup \Fop\Twig\Autocomplete\Meetup #}
+        {# @var meetup \Fop\Twig\Autocomplete\MeetupAutocomplete #}
 
         {% set days_from_today = diff_from_today_in_days(meetup.start) %}
         {% if days_from_today <= max_forecast_days %}

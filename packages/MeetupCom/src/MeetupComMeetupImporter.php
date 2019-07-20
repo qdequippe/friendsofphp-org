@@ -65,16 +65,8 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
                     continue;
                 }
 
-                foreach ($meetupsData as $meetupData) {
-                    $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
-                    if ($meetup === null) {
-                        continue;
-                    }
-
-                    dump($meetup);
-
-                    $meetups[] = $meetup;
-                }
+                $groupMeetups = $this->createMeetupsFromMeetupsData($meetupsData);
+                $meetups = array_merge($meetups, $groupMeetups);
             } catch (GuzzleException $guzzleException) {
                 // the group might not exists anymore, but it should not be a blocker for existing groups
                 $errors[] = $guzzleException->getMessage();
@@ -93,5 +85,24 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
     public function getKey(): string
     {
         return 'meetup-com';
+    }
+
+    /**
+     * @return Meetup[]
+     */
+    private function createMeetupsFromMeetupsData(array $meetupsData): array
+    {
+        $meetups = [];
+
+        foreach ($meetupsData as $meetupData) {
+            $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
+            if ($meetup === null) {
+                continue;
+            }
+
+            $meetups[] = $meetup;
+        }
+
+        return $meetups;
     }
 }
