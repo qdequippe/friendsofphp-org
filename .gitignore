@@ -10,6 +10,7 @@ package-lock.json
 composer.lock
 
 /source/_data/generated
+!.gitkeep
 *.local.yaml
 
 .phpunit.result.cache

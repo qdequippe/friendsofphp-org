@@ -21,7 +21,7 @@ layout: "_layouts/default.twig"
         <ul>
             {% for group in groups %}
                 <li>
-                    <a href="{{ group.meetup_com_url }}">{{ group.name }}</a>
+                    <a href="https://meetup.com/{{ group.meetup_com_slug }}">{{ group.name }}</a>
                 </li>
             {% endfor %}
         </ul>

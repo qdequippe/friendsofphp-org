@@ -55,7 +55,7 @@ final class MeetupComMeetupFactory
             $data['group']['name'],
             $startDateTime,
             $location,
-            $data['event_url']
+            $data['link']
         );
     }
 

@@ -3,11 +3,11 @@
 namespace Fop\DouUa\Meetup;
 
 use DateTimeInterface;
+use Fop\DouUa\Crawler\CrawlerFactory;
 use Fop\Entity\Location;
 use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
 use Fop\Meetup\MeetupFactory;
-use Fop\MeetupCom\Crawler\CrawlerFactory;
 use Nette\Utils\DateTime;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;

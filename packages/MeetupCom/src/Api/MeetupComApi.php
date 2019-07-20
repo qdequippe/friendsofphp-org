@@ -2,137 +2,41 @@
 
 namespace Fop\MeetupCom\Api;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use kamermans\OAuth2\GrantType\ClientCredentials;
-use kamermans\OAuth2\OAuth2Middleware;
-use Nette\Utils\Json;
-use Psr\Http\Message\ResponseInterface;
-use function GuzzleHttp\Psr7\build_query;
+use Fop\Guzzle\ResponseConverter;
+use Fop\MeetupCom\Guzzle\Oauth2AwareClient;
 
 final class MeetupComApi
 {
     /**
+     * @see https://www.meetup.com/meetup_api/docs/:urlname/events/#list
      * @var string
      */
-    private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/2/events';
+    private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events';
 
     /**
-     * e.g. http://api.meetup.com/dallasphp
-     * @var string
+     * @var ResponseConverter
      */
-    private const API_GROUP_DETAIL_URL = 'http://api.meetup.com/';
+    private $responseConverter;
 
     /**
-     * @var string
+     * @var Oauth2AwareClient
      */
-    private $meetupComOauthKey;
+    private $oauth2AwareClient;
 
-    /**
-     * @var string
-     */
-    private $meetupComOauthSecret;
-
-    public function __construct(string $meetupComOauthKey, string $meetupComOauthSecret)
+    public function __construct(ResponseConverter $responseConverter, Oauth2AwareClient $oauth2AwareClient)
     {
-        $this->meetupComOauthKey = $meetupComOauthKey;
-        $this->meetupComOauthSecret = $meetupComOauthSecret;
-    }
-
-    /**
-     * @param int[] $groupIds
-     * @return mixed[]
-     */
-    public function getMeetupsByGroupsIds(array $groupIds): array
-    {
-        $url = $this->createUrlFromGroupIds($groupIds);
-
-        $client = $this->createOauth2AwareHttpClient();
-        $response = $client->request('GET', $url);
-        $json = $this->getJsonFromResponse($response);
-
-        return $json['results'] ?? [];
-    }
-
-    public function getIdForGroupUrl(string $url): ?int
-    {
-        try {
-            return $this->getGroupForUrl($url)['id'];
-        } catch (ClientException $clientException) {
-            if (in_array($clientException->getCode(), [404, 410], true)) {
-                // 404: the group is not accessible
-                // 410: the group doesn't exist anymore
-                return null;
-            }
-
-            // other unknown error, show it
-            throw $clientException;
-        }
+        $this->responseConverter = $responseConverter;
+        $this->oauth2AwareClient = $oauth2AwareClient;
     }
 
     /**
      * @return mixed[]
      */
-    public function getGroupForUrl(string $url): array
+    public function getMeetupsByGroupSlug(string $groupSlug): array
     {
-        $url = self::API_GROUP_DETAIL_URL . $this->resolveGroupUrlNameFromGroupUrl($url);
+        $url = sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
 
-        $client = $this->createOauth2AwareHttpClient();
-        $response = $client->request('GET', $url);
-
-        return $this->getJsonFromResponse($response);
-    }
-
-    /**
-     * @param int[] $groupIds
-     */
-    private function createUrlFromGroupIds(array $groupIds): string
-    {
-        $groupIdsAsString = implode(',', $groupIds);
-
-        return self::API_EVENTS_BY_GROUPS_URL . '?' . build_query([
-            # https://www.meetup.com/meetup_api/docs/2/events/#params
-            'group_id' => $groupIdsAsString,
-            # https://www.meetup.com/meetup_api/auth/#keys
-        ]);
-    }
-
-    /**
-     * @see https://github.com/kamermans/guzzle-oauth2-subscriber#middleware-guzzle-6
-     */
-    private function createOauth2AwareHttpClient(): Client
-    {
-        $reauthClient = new Client([
-            // URL for access_token request
-            'base_uri' => 'https://secure.meetup.com/oauth2/access',
-        ]);
-
-        $reauthConfig = [
-            'client_id' => $this->meetupComOauthKey,
-            'client_secret' => $this->meetupComOauthSecret,
-        ];
-
-        $clientCredentials = new ClientCredentials($reauthClient, $reauthConfig);
-        $oAuth2Middleware = new OAuth2Middleware($clientCredentials);
-
-        $client = new Client();
-        $client->getConfig('handler')->push($oAuth2Middleware);
-
-        return $client;
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function getJsonFromResponse(ResponseInterface $response): array
-    {
-        return Json::decode((string) $response->getBody(), Json::FORCE_ARRAY);
-    }
-
-    private function resolveGroupUrlNameFromGroupUrl(string $url): string
-    {
-        $url = rtrim($url, '/');
-        $array = explode('/', $url);
-        return $array[count($array) - 1];
+        $response = $this->oauth2AwareClient->request('GET', $url);
+        return $this->responseConverter->toJson($response);
     }
 }
