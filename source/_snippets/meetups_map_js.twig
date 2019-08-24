@@ -95,9 +95,6 @@
         map.setView([25, 0], 2);
     }
 
-    // set metadata value under the map
-    $("#map_metadata").text(boundsToString(map.getBounds()));
-
     // ref https://github.com/php-ug/php.ug/issues/221#issuecomment-437917289
     var restoreDislocation = function(map) {
         var currentCenter = map.getCenter();
@@ -119,8 +116,6 @@
 
         var boundsAsString = boundsToString(bounds);
         window.localStorage.setItem('bounds', boundsAsString);
-
-        $("#map_metadata").text(boundsAsString);
     });
 
     // required and nice to have promotion to great tool
