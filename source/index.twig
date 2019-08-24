@@ -1,5 +1,5 @@
 ---
-title: "Meet Your Friends of PHP"
+title: "Where are the Nearest PHP Friends?"
 layout: "_layouts/map_layout.twig"
 ---
 
@@ -11,7 +11,7 @@ layout: "_layouts/map_layout.twig"
 </div>
 
 {% set all_meetups = meetups %}
-{% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal', 'magento', 'prestashop']) %}
+{% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal']) %}
 
 {% include "_snippets/menu.twig" %}
 
@@ -20,7 +20,6 @@ layout: "_layouts/map_layout.twig"
 
 <div class="text-center pt-3 pb-3">
     <small class="text-secondary">
-        <span id="map_metadata"></span>
         <span class="pl-5">Regenerated at {{ "now"|date("D, M d - H:i") }} CET</span>
     </small>
 </div>

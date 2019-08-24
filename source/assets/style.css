@@ -167,3 +167,18 @@ footer ul, #groups ul {
 #map_metadata {
     text-align: center;
 }
+
+.text-muted a {
+    text-decoration: underline;
+    color: #999;
+}
+
+.text-muted a:hover {
+    text-decoration: none;
+    color: #555;
+}
+
+.text-bigger {
+    font-size: 1.3em;
+    line-height: 1.7em;
+}
