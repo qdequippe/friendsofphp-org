@@ -177,3 +177,8 @@ footer ul, #groups ul {
     text-decoration: none;
     color: #555;
 }
+
+.text-bigger {
+    font-size: 1.3em;
+    line-height: 1.7em;
+}
