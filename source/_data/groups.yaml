@@ -768,10 +768,6 @@ parameters:
             meetup_com_slug: Drupal-Slovensko
             country: Slovakia
         -
-            name: 'Zlín Web Session Meetup'
-            meetup_com_slug: Zlin-Web-Session-Meetup
-            country: 'Czech Republic'
-        -
             name: 'Neos CMS and Flow Meetup Vienna'
             meetup_com_slug: Neos-CMS-and-Flow-Meetup-Vienna
             country: Austria
@@ -847,10 +843,6 @@ parameters:
             name: 'Chiang Mai Drupal Meetup'
             meetup_com_slug: Chiang-Mai-Drupal-Meetup
             country: Thailand
-        -
-            name: 'Open Dev Study Saigon'
-            meetup_com_slug: Open-Study-Group-Saigon
-            country: Vietnam
         -
             name: 'The Hanoi WordPress Meetup Group'
             meetup_com_slug: hanoi-wordpress
@@ -1244,10 +1236,6 @@ parameters:
             meetup_com_slug: WordPress-Estonia-Meetup
             country: Estonia
         -
-            name: 'Riga Drupal Group'
-            meetup_com_slug: Riga-Drupal-Group
-            country: Latvia
-        -
             name: 'Laravel Riga Meetup'
             meetup_com_slug: Laravel-Riga
             country: Latvia
@@ -1302,10 +1290,6 @@ parameters:
         -
             name: BrasovPHP
             meetup_com_slug: PHPBrasov
-            country: Romania
-        -
-            name: 'PHP Mures'
-            meetup_com_slug: PHP-Mures
             country: Romania
         -
             name: 'Veliko Tarnovo PHP Meetup'
@@ -2620,10 +2604,6 @@ parameters:
             meetup_com_slug: Buenos-Aires-Drupal-Meetup
             country: Argentina
         -
-            name: 'Comunidad Drupal de Gobierno Meetup'
-            meetup_com_slug: Comunidad-Drupal-de-Gobierno-Meetup
-            country: Argentina
-        -
             name: 'Drupal Patagonia'
             meetup_com_slug: Drupal-Patagonia
             country: Argentina
@@ -3460,10 +3440,6 @@ parameters:
             meetup_com_slug: Magento-2-Beers
             country: Spain
         -
-            name: 'Magento eCommerce Alicante'
-            meetup_com_slug: Comercio-electronico-Magento-en-Alicante
-            country: Spain
-        -
             name: 'Magento, ecommerce and beers'
             meetup_com_slug: Magento-ecommerce-and-beers
             country: Spain
@@ -3888,10 +3864,6 @@ parameters:
             meetup_com_slug: Symfony-LATAM
             country: Mexico
         -
-            name: 'Laravel Developer Group Pretoria'
-            meetup_com_slug: Laravel-Pretoria
-            country: 'South Africa'
-        -
             name: 'PHP North East'
             meetup_com_slug: PHP-North-East
             country: 'United Kingdom'
@@ -4211,10 +4183,6 @@ parameters:
             name: 'Laravel Omaha'
             meetup_com_slug: Laravel-Omaha
             country: Nebraska
-        -
-            name: 'Seacoast Drupal User Group'
-            meetup_com_slug: Seacoast-Drupal
-            country: 'New Hampshire'
         -
             name: 'Upstate New York Drupal Meetup'
             meetup_com_slug: Upstate-New-York-Drupal-Meetup
