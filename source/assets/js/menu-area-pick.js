@@ -36,6 +36,10 @@ $(function() {
     // show relevant meetups when map moves
     map.on('moveend', function() {
         showRowsInBounds(map.getBounds());
+
+        // see https://stackoverflow.com/a/30764409/1348344
+        var bounds_link = '?bounds=' + boundsToString(map.getBounds());
+        history.pushState({}, null, bounds_link);
     });
 
     var pastBounds = window.localStorage.getItem('bounds');
