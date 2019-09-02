@@ -9,10 +9,6 @@ id: "wordpress"
 {% set meetups = sort_by_field(meetups, 'start') %}
 {% set meetups = filter_meetups_including_tags(meetups, 'wordpress') %}
 
-<div id="subhead" class="pt-0 pb-4 text-center">
-    <strong>{{ meetups|length }} WordPress meetups</strong> in next {{ max_forecast_days }} days
-</div>
-
 {% include "_snippets/menu.twig" %}
 
 <a name="map"></a>

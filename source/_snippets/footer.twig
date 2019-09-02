@@ -1,12 +1,3 @@
-<script type="text/javascript">
-    var locateme = function(e) {
-        navigator.geolocation.getCurrentPosition(function(currentLocation) {
-            var currentLatLng = new L.LatLng(currentLocation.coords.latitude, currentLocation.coords.longitude);
-            map.setView(currentLatLng, 8);
-        });
-    };
-</script>
-
 <footer class="pb-5 pt-5 mt-5">
     <div class="container-fluid">
         <blockquote class="blockquote text-bigger text-center mb-5">

@@ -2,7 +2,10 @@
 
 <div class="row mb-4 text-center">
     <div class="col-6 col-sm-4 col-md-2">
-        <a href="#-" onclick="locateme();" class="btn btn-outline-danger">📌  &nbsp;Locate me</a>
+        <a href="/" class="btn btn-outline-danger ml-3 {% if id == "" %} active{% endif %}">
+            {{ all_meetups|length }}
+            in PHP
+        </a>
     </div>
 
     <div class="col-6 col-sm-4 col-md-2">
@@ -19,19 +22,15 @@
         </a>
     </div>
 
-    <div class="col-6 col-sm-4 col-md-2 text-muted">
-        <small>
-            <a href="/api/meetups.json" class="mr-3">Meetups JSON</a>
-        </small>
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="/api/meetups.json" class="btn btn-light">Meetups JSON</a>
     </div>
-    <div class="col-6 col-sm-4 col-md-2 text-muted">
-        <small>
-            <a href="/api/groups.json" class="mr-3">Groups JSON</a>
-        </small>
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="/api/groups.json" class="btn btn-light">Groups JSON</a>
     </div>
-    <div class="col-6 col-sm-4 col-md-2 text-muted">
-        <small>
-            <span class="pl-5">{{ "now"|date("Y-m-d") }} CET</span>
-        </small>
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="https://travis-ci.org/TomasVotruba/friendsofphp.org" class="btn btn-light">
+            {{ "now"|date("Y-m-d") }} CET
+        </a>
     </div>
 </div>

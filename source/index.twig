@@ -6,10 +6,6 @@ layout: "_layouts/map_layout.twig"
 {# sort meetups from all imported files from nearest to the most further one #}
 {% set meetups = sort_by_field(meetups, 'start') %}
 
-<div id="subhead" class="pt-0 pb-4 text-center">
-    <strong>{{ meetups|length }} meetups</strong> in next {{ max_forecast_days }} days from <a href="/groups/">{{ groups|length }} groups</a> all over the world
-</div>
-
 {% set all_meetups = meetups %}
 {% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal']) %}
 
