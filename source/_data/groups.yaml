@@ -24,10 +24,6 @@ parameters:
             meetup_com_slug: WordPress-Istanbul
             country: Turkey
         -
-            name: 'İzmir PHP'
-            meetup_com_slug: izmirphp
-            country: Turkey
-        -
             name: laravel.istanbul
             meetup_com_slug: laravelistanbul
             country: Turkey
