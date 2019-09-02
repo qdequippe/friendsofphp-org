@@ -1,27 +1,37 @@
 {% if id is not defined %}{% set id = null %}{% endif %}
 
-<div class="row mb-4">
-    <div class="col-12 col-sm-6 text-center text-sm-right">
+<div class="row mb-4 text-center">
+    <div class="col-6 col-sm-4 col-md-2">
         <a href="#-" onclick="locateme();" class="btn btn-outline-danger">📌  &nbsp;Locate me</a>
     </div>
 
-    <div class="col-12 col-sm-6 text-center text-sm-left">
+    <div class="col-6 col-sm-4 col-md-2">
         <a href="/wordpress/" class="btn btn-outline-primary ml-3 {% if id == "wordpress" %} active{% endif %}">
             {{ count_meetups_including_tags(all_meetups, 'wordpress') }}
-            WordPress <span class="hidden-sm-down">meetups</span>
-        </a>
-        <a href="/drupal/" class="btn btn-outline-info ml-3 {% if id == "drupal" %} active{% endif %}">
-            {{ count_meetups_including_tags(all_meetups, 'drupal') }}
-            Drupal <span class="hidden-sm-down">meetups</span>
+            in WordPress
         </a>
     </div>
-</div>
 
-<div class="text-center mb-4 text-muted">
-    <small>
-        <a href="/api/meetups.json" class="mr-3">Meetups JSON</a>
-        <a href="/api/groups.json" class="mr-3">Groups JSON</a>
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="/drupal/" class="btn btn-outline-info ml-3 {% if id == "drupal" %} active{% endif %}">
+            {{ count_meetups_including_tags(all_meetups, 'drupal') }}
+            in Drupal
+        </a>
+    </div>
 
-        <span class="pl-5">Updated {{ "now"|date("Y-m-d - H:i") }} CET</span>
-    </small>
+    <div class="col-6 col-sm-4 col-md-2 text-muted">
+        <small>
+            <a href="/api/meetups.json" class="mr-3">Meetups JSON</a>
+        </small>
+    </div>
+    <div class="col-6 col-sm-4 col-md-2 text-muted">
+        <small>
+            <a href="/api/groups.json" class="mr-3">Groups JSON</a>
+        </small>
+    </div>
+    <div class="col-6 col-sm-4 col-md-2 text-muted">
+        <small>
+            <span class="pl-5">{{ "now"|date("Y-m-d") }} CET</span>
+        </small>
+    </div>
 </div>
