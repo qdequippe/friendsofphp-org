@@ -1,5 +1,5 @@
 ---
-title: "Where are The Nearest WordPress Friends?"
+title: "When is the NextWordPress Meetup?"
 layout: "_layouts/map_layout.twig"
 id: "wordpress"
 ---
@@ -8,10 +8,6 @@ id: "wordpress"
 {% set all_meetups = meetups %}
 {% set meetups = sort_by_field(meetups, 'start') %}
 {% set meetups = filter_meetups_including_tags(meetups, 'wordpress') %}
-
-<div id="subhead" class="pt-0 pb-4 text-center">
-    <strong>{{ meetups|length }} WordPress meetups</strong> in next {{ max_forecast_days }} days
-</div>
 
 {% include "_snippets/menu.twig" %}
 

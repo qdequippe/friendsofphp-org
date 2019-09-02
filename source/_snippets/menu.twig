@@ -1,26 +1,36 @@
 {% if id is not defined %}{% set id = null %}{% endif %}
 
-<div class="row mb-4">
-    <div class="col-12 col-sm-6 text-center text-sm-right">
-        <a href="#-" onclick="locateme();" class="btn btn-outline-danger">📌  &nbsp;Locate me</a>
-        <a href="" onclick="share_bounds();" class="share-link-bounds btn btn-outline-warning ml-3">🔗 &nbsp;Share <span class="hidden-sm-down">Current </span>Map</a>
+<div class="row mb-4 text-center">
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="/" class="btn btn-outline-danger ml-3 {% if id == "" %} active{% endif %}">
+            {{ all_meetups|length }}
+            in PHP
+        </a>
     </div>
 
-    <div class="col-12 col-sm-6 text-center text-sm-left">
+    <div class="col-6 col-sm-4 col-md-2">
         <a href="/wordpress/" class="btn btn-outline-primary ml-3 {% if id == "wordpress" %} active{% endif %}">
             {{ count_meetups_including_tags(all_meetups, 'wordpress') }}
-            WordPress <span class="hidden-sm-down">meetups</span>
-        </a>
-        <a href="/drupal/" class="btn btn-outline-info ml-3 {% if id == "drupal" %} active{% endif %}">
-            {{ count_meetups_including_tags(all_meetups, 'drupal') }}
-            Drupal <span class="hidden-sm-down">meetups</span>
+            in WordPress
         </a>
     </div>
-</div>
 
-<div class="text-center mb-4 text-muted">
-    <small>
-        <a href="/api/meetups.json" class="mr-3">Meetups JSON</a>
-        <a href="/api/groups.json" class="mr-3">Groups JSON</a>
-    </small>
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="/drupal/" class="btn btn-outline-info ml-3 {% if id == "drupal" %} active{% endif %}">
+            {{ count_meetups_including_tags(all_meetups, 'drupal') }}
+            in Drupal
+        </a>
+    </div>
+
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="/api/meetups.json" class="btn btn-light">Meetups JSON</a>
+    </div>
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="/api/groups.json" class="btn btn-light">Groups JSON</a>
+    </div>
+    <div class="col-6 col-sm-4 col-md-2">
+        <a href="https://travis-ci.org/TomasVotruba/friendsofphp.org" class="btn btn-light">
+            {{ "now"|date("Y-m-d") }} CET
+        </a>
+    </div>
 </div>

@@ -1,5 +1,5 @@
 ---
-title: "Where are the Nearest Drupal Friends?"
+title: "When is the Next Drupal Meetup?"
 layout: "_layouts/map_layout.twig"
 id: "drupal"
 ---
@@ -8,10 +8,6 @@ id: "drupal"
 {% set all_meetups = meetups %}
 {% set meetups = sort_by_field(meetups, 'start') %}
 {% set meetups = filter_meetups_including_tags(meetups, 'drupal') %}
-
-<div id="subhead" class="pt-0 pb-4 text-center">
-    <strong>{{ meetups|length }} Drupal meetups</strong> in next {{ max_forecast_days }} days
-</div>
 
 {% include "_snippets/menu.twig" %}
 

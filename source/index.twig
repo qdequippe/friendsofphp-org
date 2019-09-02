@@ -1,14 +1,10 @@
 ---
-title: "Where are the Nearest PHP Friends?"
+title: "When is the Next PHP Meetup?"
 layout: "_layouts/map_layout.twig"
 ---
 
 {# sort meetups from all imported files from nearest to the most further one #}
 {% set meetups = sort_by_field(meetups, 'start') %}
-
-<div id="subhead" class="pt-0 pb-4 text-center">
-    <strong>{{ meetups|length }} meetups</strong> in next {{ max_forecast_days }} days from <a href="/groups/">{{ groups|length }} groups</a> all over the world
-</div>
 
 {% set all_meetups = meetups %}
 {% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal']) %}
@@ -16,12 +12,6 @@ layout: "_layouts/map_layout.twig"
 {% include "_snippets/menu.twig" %}
 
 <a name="map"></a>
-<div id="{{ map_id }}" class="mr-4"></div>
-
-<div class="text-center pt-3 pb-3">
-    <small class="text-secondary">
-        <span class="pl-5">Regenerated at {{ "now"|date("D, M d - H:i") }} CET</span>
-    </small>
-</div>
+<div id="{{ map_id }}" class="mr-4 mb-5"></div>
 
 {% include "_snippets/meetups/map_and_table.twig" %}
