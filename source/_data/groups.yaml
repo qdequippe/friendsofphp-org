@@ -4,6 +4,10 @@ parameters:
         # add your group here
         # what is slug? "https://www.meetup.com/<slug>"
         -
+            name: 'Austin PHP Meetup'
+            meetup_com_slug: austinphp
+            country: 'USA'
+        -
             name: 'Cape Town Laravel'
             meetup_com_slug: Cape-Town-Laravel
             country: 'South Africa'
