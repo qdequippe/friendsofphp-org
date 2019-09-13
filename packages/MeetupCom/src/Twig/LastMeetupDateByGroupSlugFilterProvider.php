@@ -14,7 +14,7 @@ final class LastMeetupDateByGroupSlugFilterProvider implements FilterProviderInt
     /**
      * @param string[] $lastMeetupDateByGroupSlug
      */
-    public function __construct(array $lastMeetupDateByGroupSlug)
+    public function __construct(array $lastMeetupDateByGroupSlug = [])
     {
         $this->lastMeetupDateByGroupSlug = $lastMeetupDateByGroupSlug;
     }
