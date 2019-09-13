@@ -1,19 +1,13 @@
 {% if id is not defined %}{% set id = null %}{% endif %}
 
 <div class="row mb-4 text-center">
-    <div class="col-6 col-sm-4 col-md-2">
-        <a href="/" class="btn btn-outline-danger ml-3 {% if id == "" %} active{% endif %}">
-            All {{ meetups|length }}
-        </a>
-    </div>
-
-    <div class="col-6 col-sm-4 col-md-2">
+    <div class="col-6 col-sm-4">
         <a href="/api/meetups.json" class="btn btn-light">Meetups JSON</a>
     </div>
-    <div class="col-6 col-sm-4 col-md-2">
+    <div class="col-6 col-sm-4">
         <a href="/api/groups.json" class="btn btn-light">Groups JSON</a>
     </div>
-    <div class="col-6 col-sm-4 col-md-2">
+    <div class="col-6 col-sm-4">
         <a href="https://travis-ci.org/TomasVotruba/friendsofphp.org" class="btn btn-light">
             {{ "now"|date("Y-m-d") }} CET
         </a>
