@@ -6,12 +6,19 @@ layout: "_layouts/map_layout.twig"
 {# sort meetups from all imported files from nearest to the most further one #}
 {% set meetups = sort_by_field(meetups, 'start') %}
 
-{% set all_meetups = meetups %}
-{% set meetups = filter_meetups_excluding_tags(meetups, ['wordpress', 'drupal']) %}
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="row">
+            <div class="col-12">
+                <a name="map"></a>
+                <div id="{{ map_id }}" class="mb-3"></div>
+            </div>
+        </div>
 
-{% include "_snippets/menu.twig" %}
+        {% include "_snippets/menu.twig" %}
+    </div>
 
-<a name="map"></a>
-<div id="{{ map_id }}" class="mr-4 mb-5"></div>
-
-{% include "_snippets/meetups/map_and_table.twig" %}
+    <div class="col-12 col-md-6 pl-md-0">
+        {% include "_snippets/meetups/map_and_table.twig" %}
+    </div>
+</div>
