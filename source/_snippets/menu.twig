@@ -1,15 +1,9 @@
 {% if id is not defined %}{% set id = null %}{% endif %}
 
-<div class="row mb-4 text-center">
-    <div class="col-6 col-sm-4">
-        <a href="/api/meetups.json" class="btn btn-light">Meetups JSON</a>
-    </div>
-    <div class="col-6 col-sm-4">
-        <a href="/api/groups.json" class="btn btn-light">Groups JSON</a>
-    </div>
-    <div class="col-6 col-sm-4">
-        <a href="https://travis-ci.org/TomasVotruba/friendsofphp.org" class="btn btn-light">
-            {{ "now"|date("Y-m-d") }} CET
-        </a>
-    </div>
+<div class="row pl-3 pr-3">
+    <a href="/api/meetups.json" class="btn btn-light col-4">Meetups JSON</a>
+    <a href="/api/groups.json" class="btn btn-light col-4">Groups JSON</a>
+    <a href="https://travis-ci.org/TomasVotruba/friendsofphp.org" class="btn btn-light col-4">
+        {{ "now"|date("Y-m-d") }} CET
+    </a>
 </div>
