@@ -920,10 +920,6 @@ parameters:
             meetup_com_slug: Fwdays
             country: Ukraine
         -
-            name: 'WordCamp Kyiv'
-            meetup_com_slug: WordCamp-Kyiv
-            country: Ukraine
-        -
             name: 'ThinkPHP Kharkiv'
             meetup_com_slug: thinkphp
             country: Ukraine
@@ -1031,10 +1027,6 @@ parameters:
             name: 'Symfony User Group - NL'
             meetup_com_slug: Symfony-User-Group-NL
             country: Netherlands
-        -
-            name: 'eZ Oslo Meetup'
-            meetup_com_slug: eZ-Oslo-Meetup
-            country: Norway
         -
             name: 'Craft CMS Oslo Meetup'
             meetup_com_slug: Craft-CMS-Oslo-Meetup
@@ -1312,10 +1304,6 @@ parameters:
             meetup_com_slug: sfugmunich
             country: Germany
         -
-            name: 'Köln eZ Platform Meetup'
-            meetup_com_slug: Koln-eZ-Platform-Meetup
-            country: Germany
-        -
             name: 'CakePHP Germany'
             meetup_com_slug: CakePHP-DE
             country: Germany
@@ -1574,10 +1562,6 @@ parameters:
         -
             name: 'CodeIgniter PHP NYC - MVC web application framework'
             meetup_com_slug: codeigniter
-            country: 'New York'
-        -
-            name: 'New York eZ Publish Community'
-            meetup_com_slug: newyorkezusercommunity
             country: 'New York'
         -
             name: 'New York Laravel'
