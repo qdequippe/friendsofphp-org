@@ -20,10 +20,6 @@ parameters:
             meetup_com_slug: IstanbulPHP
             country: Turkey
         -
-            name: 'Magento Istanbul Meetup'
-            meetup_com_slug: Magento-Istanbul-Meetup
-            country: Turkey
-        -
             name: 'Ankara PHP Meetup'
             meetup_com_slug: Ankara-PHP-Meetup
             country: Turkey
@@ -43,10 +39,6 @@ parameters:
             name: 'PHP Developers Nepal'
             meetup_com_slug: phpnepal
             country: Nepal
-        -
-            name: 'Dhaka Magento Meetup'
-            meetup_com_slug: Dhaka-Magento-Meetup
-            country: Bangladesh
         -
             name: 'Delhi PHP Meetup'
             meetup_com_slug: Delhi-PHP-Meetup
@@ -138,10 +130,6 @@ parameters:
         -
             name: 'PHP Davao'
             meetup_com_slug: php-davao
-            country: Philippines
-        -
-            name: 'Magento Meetup Philippines'
-            meetup_com_slug: Magento-Meetup-Philippines
             country: Philippines
         -
             name: 'Salzburg Web Dev'
@@ -672,10 +660,6 @@ parameters:
             meetup_com_slug: TUGA-TYPO3-User-Group-Austria
             country: Austria
         -
-            name: 'Magento Meetup Austria'
-            meetup_com_slug: magento-meetup-austria
-            country: Austria
-        -
             name: 'Joomla User Group Wien'
             meetup_com_slug: Joomla-User-Group-Wien
             country: Austria
@@ -687,10 +671,6 @@ parameters:
             name: 'Symfony User Group Vienna'
             meetup_com_slug: sfugvienna
             country: Austria
-        -
-            name: 'Singapore Magento User Group'
-            meetup_com_slug: Singapore-Magento-User-Group
-            country: Singapore
         -
             name: 'Kuala Lumpur PHP'
             meetup_com_slug: kuala-lumpur-php
@@ -714,10 +694,6 @@ parameters:
         -
             name: 'Dev Japan'
             meetup_com_slug: devjapan
-            country: Japan
-        -
-            name: 'Magento Meetup Tokyo'
-            meetup_com_slug: Magento-Meetup-Tokyo
             country: Japan
         -
             name: 'Laravel UY'
@@ -936,25 +912,9 @@ parameters:
             meetup_com_slug: WebDev-Sorlandet
             country: Norway
         -
-            name: 'Meet Magento Sweden'
-            meetup_com_slug: meetmagentosweden
-            country: Sweden
-        -
             name: 'Laravel Stockholm'
             meetup_com_slug: Laravel-Stockholm
             country: Sweden
-        -
-            name: 'Magento Suomi Meetup'
-            meetup_com_slug: Magento-Suomi-Meetup
-            country: Finland
-        -
-            name: 'Magento Finland Meetup'
-            meetup_com_slug: Magento-Finland-Meetup
-            country: Finland
-        -
-            name: 'Nordic Magento User Group'
-            meetup_com_slug: Nordic-Magento-User-Group
-            country: Finland
         -
             name: 'Helsinki PHP / Symfony Meetup'
             meetup_com_slug: Helsinki-Symfony-Meetup
@@ -975,10 +935,6 @@ parameters:
             name: 'Kaunas PHP meetups'
             meetup_com_slug: KaunasPHP
             country: Lithuania
-        -
-            name: 'Magento Meetup Kharkiv'
-            meetup_com_slug: Magento-Meetup-Kharkiv
-            country: Ukraine
         -
             name: 'UA Laravel Group'
             meetup_com_slug: UA-Laravel-Group
@@ -1056,10 +1012,6 @@ parameters:
             meetup_com_slug: York-Region-Laravel
             country: Canada
         -
-            name: 'Magento Meetup Malta'
-            meetup_com_slug: Magento-Meetup-Malta
-            country: Malta
-        -
             name: 'PHP Mauritius UG'
             meetup_com_slug: PHP-Mauritius-UG
             country: Mauritius
@@ -1104,46 +1056,6 @@ parameters:
             meetup_com_slug: Symfony-User-Group-NL
             country: Netherlands
         -
-            name: 'Magento User Group Noord-Holland'
-            meetup_com_slug: Magento-User-Group-Amsterdam
-            country: Netherlands
-        -
-            name: 'Magento User Group Noord-Brabant'
-            meetup_com_slug: Magento-User-Group-Noord-Brabant
-            country: Netherlands
-        -
-            name: 'Magento User Group Zuid-Holland'
-            meetup_com_slug: Rotterdam-Magento-Meetup
-            country: Netherlands
-        -
-            name: 'Magento User Group Groningen'
-            meetup_com_slug: Magento-User-Group-Groningen
-            country: Netherlands
-        -
-            name: 'Magento User Group Utrecht'
-            meetup_com_slug: Magento-User-Group-Utrecht
-            country: Netherlands
-        -
-            name: 'Magento User Group Gelderland'
-            meetup_com_slug: Magento-User-Group-Gelderland
-            country: Netherlands
-        -
-            name: 'Magento User Group Limburg'
-            meetup_com_slug: Magento-User-Group-Limburg
-            country: Netherlands
-        -
-            name: 'Magento User Group Overijssel'
-            meetup_com_slug: Magento-User-Group-Overijssel
-            country: Netherlands
-        -
-            name: 'Magento Meetup Enschede'
-            meetup_com_slug: Magento-Meetup-Enschede
-            country: Netherlands
-        -
-            name: 'Magento User Group Friesland'
-            meetup_com_slug: Magento-User-Group-Friesland
-            country: Netherlands
-        -
             name: 'eZ Oslo Meetup'
             meetup_com_slug: eZ-Oslo-Meetup
             country: Norway
@@ -1168,18 +1080,6 @@ parameters:
             meetup_com_slug: Wellington-Stripe-Girls
             country: 'New Zealand'
         -
-            name: 'Auckland Magento User Group'
-            meetup_com_slug: Auckland-Magento-User-Group
-            country: 'New Zealand'
-        -
-            name: 'Magento Meetup karachi'
-            meetup_com_slug: magento-meetup-karchi
-            country: Pakistan
-        -
-            name: 'Magento Meetup Lahore'
-            meetup_com_slug: Magento-Meetup-Lahore
-            country: Pakistan
-        -
             name: 'Surigao PHP Users Group (SPUG) Meetup'
             meetup_com_slug: Surigao-PHP-Users-Group-SPUG-Meetup
             country: Philippines
@@ -1188,57 +1088,13 @@ parameters:
             meetup_com_slug: Laravel-Poznan-Meetup
             country: Poland
         -
-            name: 'Magento Lite Sessions - Kraków'
-            meetup_com_slug: Magento-Lite-Sessions-Krakow
-            country: Poland
-        -
-            name: 'Magento #madeInPoznan'
-            meetup_com_slug: MagentoPoznan
-            country: Poland
-        -
-            name: 'Meet Magento PL'
-            meetup_com_slug: MeetMagento
-            country: Poland
-        -
-            name: 'Magento Meetup Wrocław'
-            meetup_com_slug: magentomeetupwro
-            country: Poland
-        -
             name: 'Akademia Magento'
             meetup_com_slug: Akademia-Magento-2016
-            country: Poland
-        -
-            name: 'Magento 3City Sessions'
-            meetup_com_slug: Magento-3City-Sessions
-            country: Poland
-        -
-            name: 'Magento Contribution Day Rzeszów'
-            meetup_com_slug: Magento-Contribution-Day-Rzeszow
             country: Poland
         -
             name: 'Symfony Cluj'
             meetup_com_slug: Symfony-Cluj
             country: Romania
-        -
-            name: 'Bucharest Magento Meetup'
-            meetup_com_slug: Bucharest-Magento-Meetup
-            country: Romania
-        -
-            name: 'Meet Magento Romania'
-            meetup_com_slug: Meet-Magento-Romania
-            country: Romania
-        -
-            name: 'Magento Meetups -  Cluj-Napoca'
-            meetup_com_slug: Cluj-Napoca-Magento-Meetup
-            country: Romania
-        -
-            name: 'Magento User Group Bucharest'
-            meetup_com_slug: Magento-User-Group-Bucharest
-            country: Romania
-        -
-            name: 'Moscow Magento Meetup'
-            meetup_com_slug: Moscow-Magento-Meetup
-            country: Russia
         -
             name: 'Göteborg Laravel Meetup'
             meetup_com_slug: Goteborg-Laravel-Meetup-Fully-Studios
@@ -1247,18 +1103,6 @@ parameters:
             name: Laravel/VueJS
             meetup_com_slug: Laravel-VueJS
             country: Thailand
-        -
-            name: 'Magento Uruguay'
-            meetup_com_slug: Magento-Uruguay
-            country: Uruguay
-        -
-            name: 'Ha Noi Magento Meetup'
-            meetup_com_slug: Ha-Noi-Magento-Meetup
-            country: Vietnam
-        -
-            name: 'Magento Saigon'
-            meetup_com_slug: Magento-Saigon
-            country: Vietnam
         -
             name: 'Hyderabad Laravel Meetup'
             meetup_com_slug: Hyderabad-Laravel-Meetup
@@ -1276,44 +1120,8 @@ parameters:
             meetup_com_slug: Ahmedabad-CakePHP-Meetup
             country: India
         -
-            name: 'Ahmedabad Magento Meetup'
-            meetup_com_slug: Ahmedabad-Magento-Meetup
-            country: India
-        -
-            name: 'Magento Meetup Kolkata'
-            meetup_com_slug: Magento-Meetup-Kolkata
-            country: India
-        -
-            name: 'Chandigarh Magento Meetup'
-            meetup_com_slug: Chandigarh-Magento-Meetup
-            country: India
-        -
-            name: 'Chennai Magento Meetup'
-            meetup_com_slug: Chennai-Magento-Meetup
-            country: India
-        -
-            name: 'Surat Magento Meetup'
-            meetup_com_slug: Surat-Magento-Meetup
-            country: India
-        -
-            name: 'Bhubaneswar Magento Meetup'
-            meetup_com_slug: Bhubaneswar-Magento-Meetup
-            country: India
-        -
-            name: 'Nagpur Magento Meetup'
-            meetup_com_slug: Nagpur-Magento-Meetup
-            country: India
-        -
-            name: 'Magento Meetup Kochi'
-            meetup_com_slug: Magento-Meetup-Kochi
-            country: India
-        -
             name: 'Laravel Dublin'
             meetup_com_slug: Laravel-Vuejs-Dublin
-            country: Ireland
-        -
-            name: 'Magento Meetup Ireland'
-            meetup_com_slug: Magento-Meetup-Ireland
             country: Ireland
         -
             name: 'Laravel Israel'
@@ -1328,20 +1136,12 @@ parameters:
             meetup_com_slug: Meetup-PHP-Roma
             country: Italy
         -
-            name: 'Magento Meetup Roma'
-            meetup_com_slug: magento-roma
-            country: Italy
-        -
             name: 'Mautic Meetup Tokyo'
             meetup_com_slug: Mautic-Meetup-Tokyo
             country: Japan
         -
             name: 'Mautic Meetup Osaka'
             meetup_com_slug: Mautic-Meetup-Osaka
-            country: Japan
-        -
-            name: 'Magento Meetup Kansai'
-            meetup_com_slug: Magento-Meetup-Kansai
             country: Japan
         -
             name: 'Nairobi Laravel Meetup'
@@ -1356,16 +1156,8 @@ parameters:
             meetup_com_slug: Seoul-Laravel-Meetup
             country: 'South Korea'
         -
-            name: 'Seoul Magento & E-Commerce Meetup'
-            meetup_com_slug: Seoul-Magento-E-Commerce-Meetup
-            country: 'South Korea'
-        -
             name: 'Colombo Laravel Meetup'
             meetup_com_slug: Colombo-Laravel-Meetup
-            country: 'Sri Lanka'
-        -
-            name: 'Colombo Magento Meetup'
-            meetup_com_slug: ColomboMagentoMeetup
             country: 'Sri Lanka'
         -
             name: 'Luxembourg and Greater Region PHP Meetup Group'
@@ -1392,16 +1184,8 @@ parameters:
             meetup_com_slug: Ensenada-PHP-Meetup
             country: Mexico
         -
-            name: 'México City Magento Meetup'
-            meetup_com_slug: Mexico-City-Magento-Meetup
-            country: Mexico
-        -
             name: 'Dubai PHP'
             meetup_com_slug: dubai-php
-            country: 'United Arab Emirates'
-        -
-            name: 'Magento Meetup Dubai'
-            meetup_com_slug: Magento-Meetup-Dubai
             country: 'United Arab Emirates'
         -
             name: 'Laravel Argentina'
@@ -1412,38 +1196,6 @@ parameters:
             meetup_com_slug: PHP-Litoral
             country: Argentina
         -
-            name: 'Magento Meetup Mar del Plata'
-            meetup_com_slug: Magento-Meetup-Mar-del-Plata
-            country: Argentina
-        -
-            name: 'Magento Meetup Córdoba'
-            meetup_com_slug: Magento-Meetup-Cordoba
-            country: Argentina
-        -
-            name: 'Magento Meetup Tandil'
-            meetup_com_slug: Magento-Meetup-Tandil
-            country: Argentina
-        -
-            name: 'Buenos Aires Magento Meetup'
-            meetup_com_slug: meetup-group-bsTXTxLz
-            country: Argentina
-        -
-            name: 'The Sydney Magento Meetup'
-            meetup_com_slug: The-Sydney-Magento-Meetup
-            country: Australia
-        -
-            name: 'Magento Melbourne'
-            meetup_com_slug: Magento-Melbourne
-            country: Australia
-        -
-            name: 'Magento WA'
-            meetup_com_slug: MagentoWA
-            country: Australia
-        -
-            name: 'Brisbane Magento Meetup'
-            meetup_com_slug: Brisbane-Magento-Meetup
-            country: Australia
-        -
             name: 'Graz PHP'
             meetup_com_slug: Graz-PHP
             country: Austria
@@ -1451,14 +1203,6 @@ parameters:
             name: PHP-WVL
             meetup_com_slug: php-wvl
             country: Belgium
-        -
-            name: 'Magento Meetup Bangladesh'
-            meetup_com_slug: Magento-Meetup-Bangladesh
-            country: Bangladesh
-        -
-            name: 'Magento Bolivia (eCommerce)'
-            meetup_com_slug: MagentoBolivia
-            country: Bolivia
         -
             name: 'Belo Horizonte Laravel'
             meetup_com_slug: Belo-Horizonte-Laravel
@@ -1478,22 +1222,6 @@ parameters:
         -
             name: 'Belo Horizonte CakePHP Meetup'
             meetup_com_slug: Belo-Horizonte-CakePHP-Meetup
-            country: Brazil
-        -
-            name: 'Magento Meetup São Paulo'
-            meetup_com_slug: Magento-Meetup-Sao-Paulo
-            country: Brazil
-        -
-            name: 'Magento Meetup Powered by Webjump'
-            meetup_com_slug: Magento-Meetup-Powered-by-Webjump
-            country: Brazil
-        -
-            name: 'Magento Meetup Rio de Janeiro'
-            meetup_com_slug: Magento-Meetup-Rio-de-Janeiro
-            country: Brazil
-        -
-            name: 'Meetup de Magento Campinas'
-            meetup_com_slug: Meetup-de-Magento-Campinas
             country: Brazil
         -
             name: 'Natal PHP Meetup - Compartinhado experiências'
@@ -1524,28 +1252,12 @@ parameters:
             meetup_com_slug: Vancouver-Symfony-User-Group-VanSUG
             country: Canada
         -
-            name: 'Vancouver Magento User Group - VanMagUG'
-            meetup_com_slug: Vancouver-Magento-User-Group
-            country: Canada
-        -
-            name: 'Mage North: The Toronto Magento Meetup'
-            meetup_com_slug: Toronto-Magento-Meetup-Mage-North
-            country: Canada
-        -
-            name: 'Magento Meetup Québec'
-            meetup_com_slug: Magento-Meetup-Quebec
-            country: Canada
-        -
             name: 'Zurich Craft CMS Meetup'
             meetup_com_slug: Zurich-Craft-CMS-Meetup
             country: Switzerland
         -
             name: 'Laravel Bern'
             meetup_com_slug: laravel-bern
-            country: Switzerland
-        -
-            name: 'Magento Meetup Switzerland'
-            meetup_com_slug: magento-switzerland
             country: Switzerland
         -
             name: 'SilverStripe Meetup Switzerland'
@@ -1632,38 +1344,6 @@ parameters:
             meetup_com_slug: CakePHP-DE
             country: Germany
         -
-            name: 'Magento E-Commerce Meetup München'
-            meetup_com_slug: magento-e-commerce-meetup-muenchen
-            country: Germany
-        -
-            name: 'Magento Meetup Kiel'
-            meetup_com_slug: Magento-Stammtisch-Kiel
-            country: Germany
-        -
-            name: 'Magento Stammtisch Hamburg'
-            meetup_com_slug: Magento-Stammtisch-Hamburg
-            country: Germany
-        -
-            name: 'Magento Stammtisch Berlin'
-            meetup_com_slug: Magento-Stammtisch-Berlin
-            country: Germany
-        -
-            name: 'Magento Stammtisch Rhein-Main'
-            meetup_com_slug: Magento-Stammtisch-Rhein-Main
-            country: Germany
-        -
-            name: 'Magento-Stammtisch Aachen'
-            meetup_com_slug: Magento-Stammtisch-Aachen
-            country: Germany
-        -
-            name: 'Magento Stammtisch Köln'
-            meetup_com_slug: Magento-Stammtisch-Koln
-            country: Germany
-        -
-            name: 'Magento Stammtisch Saar'
-            meetup_com_slug: Magento-Stammtisch-Saar
-            country: Germany
-        -
             name: 'PHP Vigo Meetup'
             meetup_com_slug: PHPVigo
             country: Spain
@@ -1688,28 +1368,8 @@ parameters:
             meetup_com_slug: php-symfony
             country: Spain
         -
-            name: 'Magento Madrid Meetup'
-            meetup_com_slug: MagentoMadrid
-            country: Spain
-        -
-            name: 'Magento 2 & Beers'
-            meetup_com_slug: Magento-2-Beers
-            country: Spain
-        -
-            name: 'Magento, ecommerce and beers'
-            meetup_com_slug: Magento-ecommerce-and-beers
-            country: Spain
-        -
-            name: 'Be Magento _ Amantes del Comercio Electrónico'
-            meetup_com_slug: Be-Magento-_-Amantes-del-Comercio-Electronico
-            country: Spain
-        -
             name: 'Meetup associatif Zend Francophone'
             meetup_com_slug: Meetup-associatif-Zend-Francophone
-            country: France
-        -
-            name: 'Meetup Magento à Nantes'
-            meetup_com_slug: magento-meetup-nantes
             country: France
         -
             name: 'Antenne AFSY Bordeaux : Symfony/PHP'
@@ -1720,17 +1380,9 @@ parameters:
             meetup_com_slug: Lille-PHP-Meetup
             country: France
         -
-            name: 'Paris Magento Meetup'
-            meetup_com_slug: magento-paris
-            country: France
-        -
             name: 'PHP Paris Meetup Group'
             meetup_com_slug: phpparis
             country: France
-        -
-            name: 'London Magento Users Group'
-            meetup_com_slug: magento-london
-            country: 'United Kingdom'
         -
             name: 'Laravel London'
             meetup_com_slug: London-Laravel
@@ -1776,18 +1428,6 @@ parameters:
             meetup_com_slug: PHPDorset
             country: 'United Kingdom'
         -
-            name: 'Manchester Magento User Group'
-            meetup_com_slug: manchestermagento
-            country: 'United Kingdom'
-        -
-            name: 'Magento Minds of Manchester'
-            meetup_com_slug: Magento-Minds-of-Manchester
-            country: 'United Kingdom'
-        -
-            name: 'Magento Leeds'
-            meetup_com_slug: Magento-Leeds
-            country: 'United Kingdom'
-        -
             name: GlasgowPHP
             meetup_com_slug: GlasgowPHP
             country: 'United Kingdom'
@@ -1796,20 +1436,12 @@ parameters:
             meetup_com_slug: Tbilisi-PHP-Meetup
             country: Georgia
         -
-            name: 'Athens Magento Developers Meetup'
-            meetup_com_slug: Athens-Magento-Developers-Meetup
-            country: Greece
-        -
             name: 'PHP Roundtable Budapest'
             meetup_com_slug: PHP-Roundtable-Budapest
             country: Hungary
         -
             name: 'Laravel Hungary Meetup'
             meetup_com_slug: Laravel-Hungary-Meetup
-            country: Hungary
-        -
-            name: 'Magento Meetup Hungary'
-            meetup_com_slug: Magento-Meetup-Hungary
             country: Hungary
         -
             name: 'Veszprém PHP Meetup'
@@ -1852,24 +1484,8 @@ parameters:
             meetup_com_slug: php-interior-sp
             country: Brazil
         -
-            name: 'Magento Meetup Rosario'
-            meetup_com_slug: Rosario-Magento-Meetup
-            country: Argentina
-        -
-            name: 'Magento Meetup Bahía Blanca'
-            meetup_com_slug: Magento-Meetup-Bahia-Blanca
-            country: Argentina
-        -
-            name: 'Magento Meetup Ushuaia'
-            meetup_com_slug: Magento-Meetup-Ushuaia
-            country: Argentina
-        -
             name: 'India PHP Framework Meetup'
             meetup_com_slug: India-PHP-Framework-Meetup
-            country: India
-        -
-            name: 'Magento Meetup Ahmedabad'
-            meetup_com_slug: Magento-Meetup-Ahmedabad
             country: India
         -
             name: 'Meetup Laravel Bari'
@@ -1879,14 +1495,6 @@ parameters:
             name: '#pugMoRe: PHP User Group di Modena e Reggio Emilia'
             meetup_com_slug: pugMoRe-PHP-User-Group-di-Modena-e-Reggio-Emilia
             country: Italy
-        -
-            name: 'Birmingham Alabama Magento Meetup'
-            meetup_com_slug: Birmingham-Alabama-Magento
-            country: Alabama
-        -
-            name: 'OC Magento Group'
-            meetup_com_slug: OC-Magento-Meetup
-            country: California
         -
             name: 'Louisville Laravel Meetup'
             meetup_com_slug: Louisville-Laravel-Meetup
@@ -1902,10 +1510,6 @@ parameters:
         -
             name: 'Craft CMS/Commerce - Colorado Front Range'
             meetup_com_slug: Craft-CMS-Commerce
-            country: Colorado
-        -
-            name: 'Colorado Magento Meetup'
-            meetup_com_slug: Colorado-Magento-Meetup
             country: Colorado
         -
             name: 'Tampa Bay PHP'
@@ -1964,10 +1568,6 @@ parameters:
             meetup_com_slug: NH-PHP
             country: 'New Hampshire'
         -
-            name: 'Ann Arbor Magento Developers Meetup'
-            meetup_com_slug: a2magento
-            country: Michigan
-        -
             name: 'Detroit Laravel Meetup'
             meetup_com_slug: Laravel-Detroit
             country: Michigan
@@ -1979,10 +1579,6 @@ parameters:
             name: 'CakePHP KC'
             meetup_com_slug: CakePHP-KC
             country: Missouri
-        -
-            name: 'Kansas City Magento Meetup'
-            meetup_com_slug: Kansas-City-Magento-Meetup
-            country: Kansas
         -
             name: 'Laravel Omaha'
             meetup_com_slug: Laravel-Omaha
@@ -2012,10 +1608,6 @@ parameters:
             meetup_com_slug: New-York-Laravel
             country: 'New York'
         -
-            name: 'New York Magento Meetup'
-            meetup_com_slug: New-York-Magento-Group
-            country: 'New York'
-        -
             name: 'New York Craft CMS Meetup'
             meetup_com_slug: New-York-Craft-CMS-Meetup
             country: 'New York'
@@ -2026,10 +1618,6 @@ parameters:
         -
             name: 'Queen City PHP'
             meetup_com_slug: PHPDevs
-            country: 'North Carolina'
-        -
-            name: 'Charlotte North Carolina Magento Meetup'
-            meetup_com_slug: Charlotte-North-Carolina-Magento-Meetup
             country: 'North Carolina'
         -
             name: 'Lehigh Valley PHP Meetup'
