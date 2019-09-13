@@ -25,26 +25,40 @@
     </tr>
 
     {% for meetup in meetups %}
+        {% set days_from_today = diff_from_today_in_days(meetup.start) %}
+
         {# @var meetup \Fop\Twig\Autocomplete\MeetupAutocomplete #}
 
         {% set days_from_today = diff_from_today_in_days(meetup.start) %}
+
         {% if days_from_today <= max_forecast_days %}
             <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}" data-datetime="{{ meetup.start|date("Y-m-d H:i") }}">
                 <td class="w-25">
-                    <nobr>{{ meetup.start|date("D, M d") }}</nobr>
+                    <span class="text-nowrap text-{% if days_from_today < 7 %}success{% elseif days_from_today < 14 %}warning{% else %}danger{% endif %}">
+                        {{ meetup.start|date("D") }},
+                        <strong>{{ meetup.start|date("M d") }}</strong>
+                    </span>
+
                     <br>
+
                     <small class="text-secondary">{{ meetup.start|date("H:i") }}</small>
                 </td>
                 <td class="w-25">
-                    {{ meetup.city }}
+                    <a href="#" onclick="relocate({{ meetup.latitude }}, {{ meetup.longitude }})">
+                        {{ meetup.city }}
+                    </a>
+
                     <br>
+
                     <small class="text-secondary">{{ meetup.country }}</small>
                 </td>
                 <td class="w-50">
                     <strong>
                         <a href="{{ meetup.url }}">{{ meetup.name }}</a>
                     </strong>
+
                     <br>
+
                     <small class="text-secondary">{{ meetup.user_group }}</small>
                 </td>
             </tr>
