@@ -24,10 +24,6 @@ parameters:
             meetup_com_slug: Magento-Istanbul-Meetup
             country: Turkey
         -
-            name: 'PrestaShop - Istanbul Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Istanbul-Ecommerce-Meetup
-            country: Turkey
-        -
             name: 'Ankara PHP Meetup'
             meetup_com_slug: Ankara-PHP-Meetup
             country: Turkey
@@ -40,29 +36,13 @@ parameters:
             meetup_com_slug: PHP-Cluj
             country: Romania
         -
-            name: 'PrestaShop - Bucharest Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Bucharest-Ecommerce-Meetup
-            country: Romania
-        -
             name: 'LAPHP: The Los Angeles PHP Developers Group'
             meetup_com_slug: laphpdev
             country: California
         -
-            name: 'PrestaShop - Islamabad Ecommerce Meetup'
-            meetup_com_slug: Islamabad-PrestaShop-Ecommerce-Meetup
-            country: Pakistan
-        -
-            name: 'PrestaShop - Kathmandu Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Kathmandu-Ecommerce-Meetup
-            country: Nepal
-        -
             name: 'PHP Developers Nepal'
             meetup_com_slug: phpnepal
             country: Nepal
-        -
-            name: 'PrestaShop - Dhaka Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Dhaka-Ecommerce-Meetup
-            country: Bangladesh
         -
             name: 'Dhaka Magento Meetup'
             meetup_com_slug: Dhaka-Magento-Meetup
@@ -700,10 +680,6 @@ parameters:
             meetup_com_slug: Joomla-User-Group-Wien
             country: Austria
         -
-            name: 'PrestaShop - Vienna Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Vienna-Ecommerce-Meetup
-            country: Austria
-        -
             name: 'Guerilla Coworker @ coworking.camp'
             meetup_com_slug: coworker
             country: Austria
@@ -718,10 +694,6 @@ parameters:
         -
             name: 'Kuala Lumpur PHP'
             meetup_com_slug: kuala-lumpur-php
-            country: Malaysia
-        -
-            name: 'PrestaShop - Kuala Lumpur Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Kuala-Lumpur-Ecommerce-Meetup
             country: Malaysia
         -
             name: 'Thailand PHP User Group'
@@ -759,14 +731,6 @@ parameters:
             name: 'PHP Quito'
             meetup_com_slug: drupal-quito
             country: Ecuador
-        -
-            name: 'PrestaShop - Lima Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Lima-Ecommerce-Meetup
-            country: Peru
-        -
-            name: 'PrestaShop - Bogotá Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Bogota-Ecommerce-Meetup
-            country: Colombia
         -
             name: 'Joomla! User Community Bogota'
             meetup_com_slug: cms-bogota
@@ -838,14 +802,6 @@ parameters:
         -
             name: 'Laravel Meetup'
             meetup_com_slug: Laravel-Meetup
-            country: Italy
-        -
-            name: 'PrestaShop - Salerno Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Salerno-Ecommerce-Meetup
-            country: Italy
-        -
-            name: 'PrestaShop - Catania Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Catania-Ecommerce-Meetup
             country: Italy
         -
             name: 'PHP User Group Roma'
@@ -936,14 +892,6 @@ parameters:
             meetup_com_slug: afup-aix-marseille-php
             country: France
         -
-            name: 'PrestaShop - Málaga Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Malaga-Ecommerce-Meetup
-            country: Spain
-        -
-            name: 'PrestaShop Madrid'
-            meetup_com_slug: Prestashop-Madrid-Ecommerce-Meetup
-            country: Spain
-        -
             name: 'The Barcelona PHP Meetup Group'
             meetup_com_slug: php-377
             country: Spain
@@ -954,10 +902,6 @@ parameters:
         -
             name: PHPorto
             meetup_com_slug: PHPorto
-            country: Portugal
-        -
-            name: 'PrestaShop - Porto Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Porto-Ecommerce-Meetup
             country: Portugal
         -
             name: phplx
@@ -1032,10 +976,6 @@ parameters:
             meetup_com_slug: KaunasPHP
             country: Lithuania
         -
-            name: 'PrestaShop - Minsk Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Minsk-Ecommerce-Meetup
-            country: Belarus
-        -
             name: 'Magento Meetup Kharkiv'
             meetup_com_slug: Magento-Meetup-Kharkiv
             country: Ukraine
@@ -1076,14 +1016,6 @@ parameters:
             meetup_com_slug: bgphp-ug
             country: Bulgaria
         -
-            name: 'PrestaShop - Athens Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Athens-Ecommerce-Meetup
-            country: Greece
-        -
-            name: 'PrestaShop - Thessaloníki / Drama Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Thessaloniki-Drama-Ecommerce-Meetup
-            country: Greece
-        -
             name: 'Athens Symfony Meetup'
             meetup_com_slug: Athens-Symfony2-Meetup
             country: Greece
@@ -1112,10 +1044,6 @@ parameters:
             meetup_com_slug: TinelMeetup
             country: Croatia
         -
-            name: 'PrestaShop - Slovenia Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Ljubljana-Ecommerce-Meetup
-            country: Slovenia
-        -
             name: 'PHP Developers Slovenia'
             meetup_com_slug: php-si
             country: Slovenia
@@ -1132,20 +1060,12 @@ parameters:
             meetup_com_slug: Magento-Meetup-Malta
             country: Malta
         -
-            name: 'PrestaShop - Port Louis Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Mauritius-Ecommerce-Meetup
-            country: Mauritius
-        -
             name: 'PHP Mauritius UG'
             meetup_com_slug: PHP-Mauritius-UG
             country: Mauritius
         -
             name: 'Laravel Nigeria'
             meetup_com_slug: Laravel-Nigeria
-            country: Nigeria
-        -
-            name: 'PrestaShop - Lagos / Port Harcourt / Abuja Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Lagos-Port-Harcourt-Abuja-Ecommerce-Meetup
             country: Nigeria
         -
             name: AmsterdamPHP
@@ -1224,14 +1144,6 @@ parameters:
             meetup_com_slug: Magento-User-Group-Friesland
             country: Netherlands
         -
-            name: 'PrestaShop - The Hague / Delft / Rotterdam Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-The-Hague-Delft-Rotterdam-Ecommerce-Meetup
-            country: Netherlands
-        -
-            name: '[PrestaShop - Amsterdam Ecommerce Meetup]'
-            meetup_com_slug: PrestaShop-Amsterdam-Ecommerce-Meetup
-            country: Netherlands
-        -
             name: 'eZ Oslo Meetup'
             meetup_com_slug: eZ-Oslo-Meetup
             country: Norway
@@ -1260,10 +1172,6 @@ parameters:
             meetup_com_slug: Auckland-Magento-User-Group
             country: 'New Zealand'
         -
-            name: 'PrestaShop - Auckland Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Auckland-Ecommerce-Meetup
-            country: 'New Zealand'
-        -
             name: 'Magento Meetup karachi'
             meetup_com_slug: magento-meetup-karchi
             country: Pakistan
@@ -1274,10 +1182,6 @@ parameters:
         -
             name: 'Surigao PHP Users Group (SPUG) Meetup'
             meetup_com_slug: Surigao-PHP-Users-Group-SPUG-Meetup
-            country: Philippines
-        -
-            name: 'PrestaShop - Manila Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Manila-Ecommerce-Meetup
             country: Philippines
         -
             name: 'Laravel Poznań Meetup'
@@ -1312,18 +1216,6 @@ parameters:
             meetup_com_slug: Magento-Contribution-Day-Rzeszow
             country: Poland
         -
-            name: 'PrestaShop - Poznań Ecommerce Meetup'
-            meetup_com_slug: 'PrestaShop-Poznań-Ecommerce-Meetup'
-            country: Poland
-        -
-            name: 'PrestaShop - Bydgoszcz Ecommerce Meetup'
-            meetup_com_slug: Bydgoszcz-PrestaShop-Ecommerce-Meetup
-            country: Poland
-        -
-            name: 'PrestaShop - Lisbon Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Lisbon-Ecommerce-Meetup
-            country: Portugal
-        -
             name: 'Symfony Cluj'
             meetup_com_slug: Symfony-Cluj
             country: Romania
@@ -1344,57 +1236,21 @@ parameters:
             meetup_com_slug: Magento-User-Group-Bucharest
             country: Romania
         -
-            name: 'PrestaShop - Galați Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Galati-Ecommerce-Meetup
-            country: Romania
-        -
             name: 'Moscow Magento Meetup'
             meetup_com_slug: Moscow-Magento-Meetup
             country: Russia
-        -
-            name: 'PrestaShop - Dakar Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Dakar-Ecommerce-Meetup
-            country: Senegal
-        -
-            name: 'PrestaShop - Singapore Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Singapore-Ecommerce-Meetup
-            country: Singapore
-        -
-            name: 'PrestaShop - Serbia Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Serbia-Ecommerce-Meetup
-            country: Serbia
         -
             name: 'Göteborg Laravel Meetup'
             meetup_com_slug: Goteborg-Laravel-Meetup-Fully-Studios
             country: Sweden
         -
-            name: 'Bangkok Prestashop Meetup'
-            meetup_com_slug: Bangkok-Prestashop-Meetup
-            country: Thailand
-        -
             name: Laravel/VueJS
             meetup_com_slug: Laravel-VueJS
             country: Thailand
         -
-            name: 'PrestaShop - Tunis Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Tunis-Ecommerce-Meetup
-            country: Tunisia
-        -
-            name: 'PrestaShop - Ankara Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Ankara-Ecommerce-Meetup
-            country: Turkey
-        -
-            name: 'PrestaShop - Antalya Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Antalya-Ecommerce-Meetup
-            country: Turkey
-        -
             name: 'Magento Uruguay'
             meetup_com_slug: Magento-Uruguay
             country: Uruguay
-        -
-            name: 'PrestaShop Ho Chi Minh City Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Ho-Chi-Minh-City-Ecommerce-Meetup
-            country: Vietnam
         -
             name: 'Ha Noi Magento Meetup'
             meetup_com_slug: Ha-Noi-Magento-Meetup
@@ -1403,14 +1259,6 @@ parameters:
             name: 'Magento Saigon'
             meetup_com_slug: Magento-Saigon
             country: Vietnam
-        -
-            name: 'PrestaShop - Johannesburg / Pretoria Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Johannesburg-Pretoria-Ecommerce-Meetup
-            country: 'South Africa'
-        -
-            name: 'PrestaShop - Cape Town Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Cape-Town-Ecommerce-Meetup
-            country: 'South Africa'
         -
             name: 'Hyderabad Laravel Meetup'
             meetup_com_slug: Hyderabad-Laravel-Meetup
@@ -1460,22 +1308,6 @@ parameters:
             meetup_com_slug: Magento-Meetup-Kochi
             country: India
         -
-            name: 'PrestaShop - New Delhi Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-New-Delhi-Ecommerce-Meetup
-            country: India
-        -
-            name: 'PrestaShop - Pune Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Pune-Ecommerce-Meetup
-            country: India
-        -
-            name: 'PrestaShop - Lucknow Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Lucknow-Ecommerce-Meetup
-            country: India
-        -
-            name: 'PrestaShop - Ecommerce Meetup Thiruvananthapuram'
-            meetup_com_slug: PrestaShop-Ecommerce-Meetup-Thiruvananthapuram
-            country: India
-        -
             name: 'Laravel Dublin'
             meetup_com_slug: Laravel-Vuejs-Dublin
             country: Ireland
@@ -1483,10 +1315,6 @@ parameters:
             name: 'Magento Meetup Ireland'
             meetup_com_slug: Magento-Meetup-Ireland
             country: Ireland
-        -
-            name: 'PrestaShop - Tehran Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Tehran-Ecommerce-Meetup
-            country: Iran
         -
             name: 'Laravel Israel'
             meetup_com_slug: Laravel-Israel
@@ -1496,28 +1324,12 @@ parameters:
             meetup_com_slug: Symfony-Israel
             country: Israel
         -
-            name: 'PrestaShop - Tel Aviv Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Tel-Aviv-Ecommerce-Meetup
-            country: Israel
-        -
             name: 'Meetup PHP Developers Roma - incontra le aziende'
             meetup_com_slug: Meetup-PHP-Roma
             country: Italy
         -
             name: 'Magento Meetup Roma'
             meetup_com_slug: magento-roma
-            country: Italy
-        -
-            name: 'PrestaShop - Milano Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Milano-Ecommerce-Meetup
-            country: Italy
-        -
-            name: 'PrestaShop - Torino Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Torino-Ecommerce-Meetup
-            country: Italy
-        -
-            name: 'PrestaShop - Udine Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Udine-Ecommerce-Meetup
             country: Italy
         -
             name: 'Mautic Meetup Tokyo'
@@ -1534,10 +1346,6 @@ parameters:
         -
             name: 'Nairobi Laravel Meetup'
             meetup_com_slug: Nairobi-Laravel-Meetup
-            country: Kenya
-        -
-            name: 'PrestaShop - Nairobi Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Nairobi-Ecommerce-Meetup
             country: Kenya
         -
             name: 'Nairobi PHP OOP(object oriented development) Meetup'
@@ -1560,10 +1368,6 @@ parameters:
             meetup_com_slug: ColomboMagentoMeetup
             country: 'Sri Lanka'
         -
-            name: 'PrestaShop - Kaunas Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Kaunas-Ecommerce-Meetup
-            country: Lithuania
-        -
             name: 'Luxembourg and Greater Region PHP Meetup Group'
             meetup_com_slug: phplux
             country: Luxembourg
@@ -1571,18 +1375,6 @@ parameters:
             name: 'Deeper PHP'
             meetup_com_slug: Deeper-PHP
             country: Luxembourg
-        -
-            name: 'PrestaShop - Casablanca/Rabat Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Casablanca-Rabat-Ecommerce-Meetup
-            country: Morocco
-        -
-            name: 'PrestaShop - Marrakesh Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Marrakesh-Ecommerce-Meetup
-            country: Morocco
-        -
-            name: 'PrestaShop - Antananarivo Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Antananarivo-Ecommerce-Meetup
-            country: Madagascar
         -
             name: 'Laravel México'
             meetup_com_slug: laravel-mexico
@@ -1604,20 +1396,8 @@ parameters:
             meetup_com_slug: Mexico-City-Magento-Meetup
             country: Mexico
         -
-            name: 'PrestaShop - Monterrey Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Monterrey-Ecommerce-Meetup
-            country: Mexico
-        -
-            name: 'PrestaShop - Hermosillo Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Hermosillo-Ecommerce-Meetup
-            country: Mexico
-        -
             name: 'Dubai PHP'
             meetup_com_slug: dubai-php
-            country: 'United Arab Emirates'
-        -
-            name: 'PrestaShop - Dubai Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Dubai-Ecommerce-Meetup
             country: 'United Arab Emirates'
         -
             name: 'Magento Meetup Dubai'
@@ -1648,10 +1428,6 @@ parameters:
             meetup_com_slug: meetup-group-bsTXTxLz
             country: Argentina
         -
-            name: 'PrestaShop - Buenos Aires Meetup'
-            meetup_com_slug: PrestaShop-Buenos-Aires
-            country: Argentina
-        -
             name: 'The Sydney Magento Meetup'
             meetup_com_slug: The-Sydney-Magento-Meetup
             country: Australia
@@ -1672,29 +1448,13 @@ parameters:
             meetup_com_slug: Graz-PHP
             country: Austria
         -
-            name: 'PrestaShop GetTogether Wien'
-            meetup_com_slug: PrestaShop-GetTogether-Wien
-            country: Austria
-        -
             name: PHP-WVL
             meetup_com_slug: php-wvl
-            country: Belgium
-        -
-            name: 'PrestaShop Bruxelles Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Bruxelles-Ecommerce-Meetup
-            country: Belgium
-        -
-            name: 'PrestaShop - Liège Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Meetup-Liege
             country: Belgium
         -
             name: 'Magento Meetup Bangladesh'
             meetup_com_slug: Magento-Meetup-Bangladesh
             country: Bangladesh
-        -
-            name: 'PrestaShop - Bulgaria Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Bulgaria-Ecommerce-Meetup
-            country: Bulgaria
         -
             name: 'Magento Bolivia (eCommerce)'
             meetup_com_slug: MagentoBolivia
@@ -1734,30 +1494,6 @@ parameters:
         -
             name: 'Meetup de Magento Campinas'
             meetup_com_slug: Meetup-de-Magento-Campinas
-            country: Brazil
-        -
-            name: 'PrestaShop - Rio de Janeiro Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Rio-Ecommerce-Meetup
-            country: Brazil
-        -
-            name: 'PrestaShop - Goiânia Ecommerce Meetup'
-            meetup_com_slug: Goiania-Ecommerce-Meetup
-            country: Brazil
-        -
-            name: 'PrestaShop - São Paulo Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Sao-Paulo-Ecommerce-Meetup
-            country: Brazil
-        -
-            name: 'Prestashop e E-commerce (lojas virtuais) - Brasília'
-            meetup_com_slug: Prestashop-e-E-commerce-lojas-virtuais-Brasilia
-            country: Brazil
-        -
-            name: 'Meetup de Prestashop Osasco'
-            meetup_com_slug: Meetup-de-Prestashop-Osasco
-            country: Brazil
-        -
-            name: 'Meetup de Prestashop Curitiba'
-            meetup_com_slug: Meetup-de-Prestashop-Curitiba
             country: Brazil
         -
             name: 'Natal PHP Meetup - Compartinhado experiências'
@@ -1800,14 +1536,6 @@ parameters:
             meetup_com_slug: Magento-Meetup-Quebec
             country: Canada
         -
-            name: 'PrestaShop - Meetup E-commerce Montréal'
-            meetup_com_slug: PrestaShop-Montreal-Ecommerce-Meetup
-            country: Canada
-        -
-            name: 'PrestaShop - Québec Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Quebec-Ecommerce-Meetup
-            country: Canada
-        -
             name: 'Zurich Craft CMS Meetup'
             meetup_com_slug: Zurich-Craft-CMS-Meetup
             country: Switzerland
@@ -1823,22 +1551,6 @@ parameters:
             name: 'SilverStripe Meetup Switzerland'
             meetup_com_slug: SilverStripe-Meetup-Switzerland
             country: Switzerland
-        -
-            name: 'PrestaShop - Santiago Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Santiago-Ecommerce-Meetup
-            country: Chile
-        -
-            name: 'PrestaShop - Abidjan Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Abidjan-Ecommerce-Meetup
-            country: 'Ivory Coast'
-        -
-            name: 'PrestaShop - Yaoundé Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Yaounde-Ecommerce-Meetup
-            country: Cameroon
-        -
-            name: 'PrestaShop - Douala Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Douala-Ecommerce-Meetup
-            country: Cameroon
         -
             name: 'PHP Cali'
             meetup_com_slug: phpcali
@@ -1858,14 +1570,6 @@ parameters:
         -
             name: 'Laravel Montería'
             meetup_com_slug: Laravel-Monteria
-            country: Colombia
-        -
-            name: 'PrestaShop - Cali Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Cali-Ecommerce-Meetup
-            country: Colombia
-        -
-            name: 'PrestaShop - Bucaramanga Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Bucaramanga-Ecommerce-Meetup
             country: Colombia
         -
             name: 'Pasto PHP Meetup'
@@ -1960,38 +1664,6 @@ parameters:
             meetup_com_slug: Magento-Stammtisch-Saar
             country: Germany
         -
-            name: 'PrestaShop - Berlin Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Berlin-Ecommerce-Meetup
-            country: Germany
-        -
-            name: 'PrestaShop - Düsseldorf Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Dusseldorf-Ecommerce-Meetup
-            country: Germany
-        -
-            name: 'PrestaShop - Randers & Aarhus Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Randers-Aarhus-Ecommerce-Meetup
-            country: Denmark
-        -
-            name: 'PrestaShop - Copenhagen Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Copenhagen-Ecommerce-Meetup
-            country: Denmark
-        -
-            name: 'PrestaShop - Batna Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Batna-Ecommerce-Meetup
-            country: Algeria
-        -
-            name: 'PrestaShop - Alger Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Alger-Ecommerce-Meetup
-            country: Algeria
-        -
-            name: 'PrestaShop - Quito Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Quito
-            country: Ecuador
-        -
-            name: 'PrestaShop - Cairo Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Cairo-Ecommerce-Meetup
-            country: Egypt
-        -
             name: 'PHP Vigo Meetup'
             meetup_com_slug: PHPVigo
             country: Spain
@@ -2020,10 +1692,6 @@ parameters:
             meetup_com_slug: MagentoMadrid
             country: Spain
         -
-            name: 'Meetup PrestaShop Granada Ecommerce'
-            meetup_com_slug: Meetup-PrestaShop-Granada-Ecommerce
-            country: Spain
-        -
             name: 'Magento 2 & Beers'
             meetup_com_slug: Magento-2-Beers
             country: Spain
@@ -2035,34 +1703,6 @@ parameters:
             name: 'Be Magento _ Amantes del Comercio Electrónico'
             meetup_com_slug: Be-Magento-_-Amantes-del-Comercio-Electronico
             country: Spain
-        -
-            name: 'Prestashop Barcelona'
-            meetup_com_slug: Prestashop-Barcelona
-            country: Spain
-        -
-            name: 'PrestaShop - Barcelona Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Barcelona-Ecommerce-Meetup
-            country: Spain
-        -
-            name: 'PrestaShop - Valencia Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Valencia-Ecommerce-Meetup
-            country: Spain
-        -
-            name: 'PrestaShop - Bilbao eCommerce Meetup'
-            meetup_com_slug: PrestaShop-Bilbao-eCommerce-Meetup
-            country: Spain
-        -
-            name: 'PrestaShop - Asturias Meetup Group'
-            meetup_com_slug: PrestaShop-Asturias-Ecommerce-Meetup
-            country: Spain
-        -
-            name: 'PrestaShop - Córdoba Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Cordoba-Ecommerce-Meetup
-            country: Spain
-        -
-            name: 'PrestaShop - Tallinn Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Tallinn-Ecommerce-Meetup
-            country: Estonia
         -
             name: 'Meetup associatif Zend Francophone'
             meetup_com_slug: Meetup-associatif-Zend-Francophone
@@ -2082,34 +1722,6 @@ parameters:
         -
             name: 'Paris Magento Meetup'
             meetup_com_slug: magento-paris
-            country: France
-        -
-            name: 'PrestaShop - Paris Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Paris-Ecommerce-Meetup
-            country: France
-        -
-            name: 'PrestaShop - Montpellier Ecommerce Meetup'
-            meetup_com_slug: Prestashop-Montpellier-Ecommerce-Meetup
-            country: France
-        -
-            name: 'E-Commerce, Commerce Connecté et Prestashop'
-            meetup_com_slug: Bordeaux-Prestashop-Meetup
-            country: France
-        -
-            name: 'PrestaShop - Toulouse Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Toulouse-Ecommerce-Meetup
-            country: France
-        -
-            name: 'PrestaShop - Iasi Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Iasi-Ecommerce-Meetup
-            country: France
-        -
-            name: 'Meetup E-commerce & Prestashop Haut-Rhin'
-            meetup_com_slug: Meetup-E-commerce-Prestashop-Haut-Rhin
-            country: France
-        -
-            name: 'PrestaShop - La Paz Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-La-Paz-Ecommerce-Meetup
             country: France
         -
             name: 'PHP Paris Meetup Group'
@@ -2188,18 +1800,6 @@ parameters:
             meetup_com_slug: Athens-Magento-Developers-Meetup
             country: Greece
         -
-            name: 'PrestaShop - Crete eCommerce Meetup'
-            meetup_com_slug: PrestaShop-Crete-eCommerce-Meetup
-            country: Greece
-        -
-            name: 'PrestaShop - Guatemala Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Guatemala-Ecommerce-Meetup
-            country: Guatemala
-        -
-            name: 'PrestaShop - Hong Kong Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Hong-Kong-Ecommerce-Meetup
-            country: 'Hong Kong'
-        -
             name: 'PHP Roundtable Budapest'
             meetup_com_slug: PHP-Roundtable-Budapest
             country: Hungary
@@ -2212,17 +1812,9 @@ parameters:
             meetup_com_slug: Magento-Meetup-Hungary
             country: Hungary
         -
-            name: 'PrestaShop - Budapest / Esztergom Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Budapest-Ecommerce-Meetup
-            country: Hungary
-        -
             name: 'Veszprém PHP Meetup'
             meetup_com_slug: Veszprem-PHP-Meetup
             country: Hungary
-        -
-            name: 'PrestaShop - Bandung Ecommerce Meetup'
-            meetup_com_slug: Prestashop-Bandung-Ecommerce-Meetup
-            country: Indonesia
         -
             name: 'Bhubaneswar Laravel Group'
             meetup_com_slug: Bhubaneswar-Laravel-Group
@@ -2288,10 +1880,6 @@ parameters:
             meetup_com_slug: pugMoRe-PHP-User-Group-di-Modena-e-Reggio-Emilia
             country: Italy
         -
-            name: 'PrestaShop - Cosenza Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Cosenza-Ecommerce-Meetup
-            country: Italy
-        -
             name: 'Birmingham Alabama Magento Meetup'
             meetup_com_slug: Birmingham-Alabama-Magento
             country: Alabama
@@ -2319,10 +1907,6 @@ parameters:
             name: 'Colorado Magento Meetup'
             meetup_com_slug: Colorado-Magento-Meetup
             country: Colorado
-        -
-            name: 'PrestaShop - Orlando Ecommerce Meetup Group'
-            meetup_com_slug: PrestaShop-Orlando-Ecommerce-Meetup-Group
-            country: Florida
         -
             name: 'Tampa Bay PHP'
             meetup_com_slug: tampa-bay-php
@@ -2394,10 +1978,6 @@ parameters:
         -
             name: 'CakePHP KC'
             meetup_com_slug: CakePHP-KC
-            country: Missouri
-        -
-            name: 'PrestaShop - Kansas City Ecommerce Meetup'
-            meetup_com_slug: PrestaShop-Kansas-City-Ecommerce-Meetup
             country: Missouri
         -
             name: 'Kansas City Magento Meetup'
