@@ -4,10 +4,6 @@ matrix:
     include:
         - php: 7.3
           env: STATIC_ANAL=true
-#        - php: 7.3
-#          env: CRAWL_FLAGS="--usa"
-#        - php: 7.3
-#          env: CRAWL_FLAGS="--non-usa"
 
 before_install:
     # configure timezone: https://stackoverflow.com/a/27052708/1348344
@@ -20,9 +16,6 @@ install:
 
 script:
     - vendor/bin/phpunit
-
-    # run from time to time
-    - if [[ $CRAWL_FLAGS != "" ]]; then bin/console crawl $CRAWL_FLAGS; fi
 
     # code analysis
     - if [[ $STATIC_ANAL == true ]]; then composer check-cs; fi
