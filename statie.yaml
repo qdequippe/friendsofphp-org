@@ -17,7 +17,7 @@ parameters:
 
 services:
     # twig filters
-    Fop\Twig\MeetupByTagFilterProvider: ~
+    Fop\MeetupCom\Twig\LastMeetupDateByGroupSlugFilterProvider: ~
 
     # api decorators
     Fop\Api\GroupsApiItemDecorator: ~
