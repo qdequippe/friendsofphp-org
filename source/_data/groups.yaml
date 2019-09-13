@@ -1635,3 +1635,7 @@ parameters:
             name: 'BeerPHP Moscow'
             meetup_com_slug: BeerPHP-Moscow
             country: Russia
+        -
+            name: 'Meetup Laravel Lyon'
+            meetup_com_slug: Meetup-Laravel-Lyon
+            country: France
