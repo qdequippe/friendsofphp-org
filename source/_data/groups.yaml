@@ -20,17 +20,9 @@ parameters:
             meetup_com_slug: Ankara-PHP-Meetup
             country: Turkey
         -
-            name: 'PHP Cluj'
-            meetup_com_slug: PHP-Cluj
-            country: Romania
-        -
             name: 'LAPHP: The Los Angeles PHP Developers Group'
             meetup_com_slug: laphpdev
             country: California
-        -
-            name: 'PHP Developers Nepal'
-            meetup_com_slug: phpnepal
-            country: Nepal
         -
             name: 'SilverStripe Christchurch Meetup'
             meetup_com_slug: SilverStripe-Christchurch-Meetup
@@ -50,14 +42,6 @@ parameters:
         -
             name: 'Melbourne laravel Meetup'
             meetup_com_slug: Melbourne-laravel-Meetup
-            country: Australia
-        -
-            name: 'Melbourne Symfony Developers'
-            meetup_com_slug: Melbourne-Symfony
-            country: Australia
-        -
-            name: 'Brisbane & Gold Coast Laravel Meetup'
-            meetup_com_slug: Brisbane-Laravel-PHP-Catch-Up
             country: Australia
         -
             name: 'use \BNE\PHP;'
@@ -80,10 +64,6 @@ parameters:
             meetup_com_slug: SydPHP
             country: Australia
         -
-            name: 'PHP Davao'
-            meetup_com_slug: php-davao
-            country: Philippines
-        -
             name: 'Salzburg Web Dev'
             meetup_com_slug: salzburgwebdev
             country: Austria
@@ -98,10 +78,6 @@ parameters:
         -
             name: 'PHP Antwerp'
             meetup_com_slug: phpantwerp
-            country: Belgium
-        -
-            name: 'Symfony User Group Belgium'
-            meetup_com_slug: Symfony-User-Group-Belgium
             country: Belgium
         -
             name: 'PHP Leuven - Web Innovation Group'
@@ -120,17 +96,9 @@ parameters:
             meetup_com_slug: Vancouver-PHP
             country: Canada
         -
-            name: 'Burlington PHP UG'
-            meetup_com_slug: Burlington-PHP-Meetup
-            country: Canada
-        -
             name: Columbia
             meetup_com_slug: PHPColMeetup
             country: Colombia
-        -
-            name: Copenhagen
-            meetup_com_slug: copenhagenphp
-            country: Denmark
         -
             name: 'AFUP Montpellier'
             meetup_com_slug: Montpellier-PHP-Meetup
@@ -138,10 +106,6 @@ parameters:
         -
             name: 'PHP Usergroup Düsseldorf'
             meetup_com_slug: PHP-Usergroup-Duesseldorf
-            country: Germany
-        -
-            name: 'Symfony User Group Stuttgart'
-            meetup_com_slug: sfugstr
             country: Germany
         -
             name: 'Symfony User Group Hamburg'
@@ -168,10 +132,6 @@ parameters:
             meetup_com_slug: phpugms
             country: Germany
         -
-            name: 'Full Stack Meetup Budapest'
-            meetup_com_slug: fullstackbp
-            country: Hungary
-        -
             name: 'PHP Reboot'
             meetup_com_slug: phpreboot
             country: India
@@ -179,10 +139,6 @@ parameters:
             name: Dublin
             meetup_com_slug: PHP-Dublin
             country: Ireland
-        -
-            name: 'PHP User Group Kenya'
-            meetup_com_slug: phpkenya
-            country: Kenya
         -
             name: 'PHP México'
             meetup_com_slug: PHP-The-Right-Way
@@ -196,16 +152,8 @@ parameters:
             meetup_com_slug: Limburg-PHP-Meetup
             country: Netherlands
         -
-            name: 'PHP Zwolle'
-            meetup_com_slug: PHP-Zwolle
-            country: Netherlands
-        -
             name: 'Tilburg PHP'
             meetup_com_slug: Tilburg-PHP-Meetup
-            country: Netherlands
-        -
-            name: BredaPHP
-            meetup_com_slug: BredaPHP
             country: Netherlands
         -
             name: PhpTwente
@@ -218,10 +166,6 @@ parameters:
         -
             name: DeventerPHP
             meetup_com_slug: DeventerPHP
-            country: Netherlands
-        -
-            name: 'Apeldoorn Webdevs'
-            meetup_com_slug: Apeldoorn-Webdevs
             country: Netherlands
         -
             name: KristiansandPHP
@@ -268,20 +212,12 @@ parameters:
             meetup_com_slug: php-stockholm
             country: Sweden
         -
-            name: 'Symfony User Group Zurich'
-            meetup_com_slug: sfugzh
-            country: Switzerland
-        -
             name: 'PHP Symfony User Group Basel'
             meetup_com_slug: sfubsl
             country: Switzerland
         -
             name: 'PHPMiNDS Nottingham'
             meetup_com_slug: PHPMiNDS-Nottingham
-            country: 'United Kingdom'
-        -
-            name: 'PHP Milton Keynes'
-            meetup_com_slug: php-milton-keynes
             country: 'United Kingdom'
         -
             name: brumPHP
@@ -303,14 +239,6 @@ parameters:
             name: Dallas
             meetup_com_slug: dallasphp
             country: Texas
-        -
-            name: 'Spokane PHP User Group'
-            meetup_com_slug: Spokane-PHP-Meetup
-            country: Washington
-        -
-            name: 'Ann Arbor'
-            meetup_com_slug: ann-arbor-php
-            country: Michigan
         -
             name: TrianglePHP
             meetup_com_slug: trianglephp
@@ -360,17 +288,9 @@ parameters:
             meetup_com_slug: Rockford-PHP-Developers-Group
             country: Illinois
         -
-            name: 'Fox Cities'
-            meetup_com_slug: fox-cities-php
-            country: Wisconsin
-        -
             name: 'Las Vegas PHP'
             meetup_com_slug: PHP-Vegas
             country: Nevada
-        -
-            name: Houston
-            meetup_com_slug: houston-php-users-group
-            country: Texas
         -
             name: 'Idaho PHP User Group'
             meetup_com_slug: idaho-php
@@ -552,14 +472,6 @@ parameters:
             meetup_com_slug: MedellinPHP
             country: Colombia
         -
-            name: 'Laravel Monterrey'
-            meetup_com_slug: Laravel-Mty
-            country: Mexico
-        -
-            name: 'Comunidad de PHP'
-            meetup_com_slug: Comunidad-de-PHP
-            country: Mexico
-        -
             name: 'South Florida PHP User Group (SoFloPHP)'
             meetup_com_slug: South-Florida-PHP-Users-Group
             country: Florida
@@ -580,21 +492,9 @@ parameters:
             meetup_com_slug: PHPers-Warszawa
             country: Poland
         -
-            name: 'Symfony User Group Slovenia'
-            meetup_com_slug: symfony-slovenia
-            country: Slovenia
-        -
-            name: 'StripeCon - SilverStripe Europe Conference'
-            meetup_com_slug: stripecon
-            country: Austria
-        -
             name: 'Laravel Switzerland'
             meetup_com_slug: Laravel-Switzerland
             country: Switzerland
-        -
-            name: ZenaDev
-            meetup_com_slug: zenadev
-            country: Italy
         -
             name: '#PUG-Romagna: PHP User Group Romagnolo'
             meetup_com_slug: PUG-Romagna-PHP-User-Group-Romagnolo
@@ -668,10 +568,6 @@ parameters:
             meetup_com_slug: AFUP-Rennes
             country: France
         -
-            name: 'Symfony Aix-Marseille'
-            meetup_com_slug: SymfonyAixMarseille
-            country: France
-        -
             name: 'AFSY SfPots'
             meetup_com_slug: afsy-sfpot
             country: France
@@ -704,14 +600,6 @@ parameters:
             meetup_com_slug: php-lx
             country: Portugal
         -
-            name: PHPJutland
-            meetup_com_slug: PHPJutland
-            country: Denmark
-        -
-            name: 'Århus Laravel Meetup'
-            meetup_com_slug: Arhus-Laravel-Meetup
-            country: Denmark
-        -
             name: LaravelCPH
             meetup_com_slug: laravel-cph
             country: Denmark
@@ -720,14 +608,6 @@ parameters:
             meetup_com_slug: WebDev-Sorlandet
             country: Norway
         -
-            name: 'Laravel Helsinki'
-            meetup_com_slug: Laravel-Helsinki
-            country: Finland
-        -
-            name: 'Laravel Riga Meetup'
-            meetup_com_slug: Laravel-Riga
-            country: Latvia
-        -
             name: 'RIGA DEV DAYS 2019'
             meetup_com_slug: RIGA-DEV-DAYS
             country: Latvia
@@ -735,10 +615,6 @@ parameters:
             name: 'Kaunas PHP meetups'
             meetup_com_slug: KaunasPHP
             country: Lithuania
-        -
-            name: 'UA Laravel Group'
-            meetup_com_slug: UA-Laravel-Group
-            country: Ukraine
         -
             name: Fwdays
             meetup_com_slug: Fwdays
@@ -784,18 +660,6 @@ parameters:
             meetup_com_slug: Laravel-Montreal
             country: Canada
         -
-            name: 'York Region Laravel'
-            meetup_com_slug: York-Region-Laravel
-            country: Canada
-        -
-            name: 'PHP Mauritius UG'
-            meetup_com_slug: PHP-Mauritius-UG
-            country: Mauritius
-        -
-            name: 'Laravel Nigeria'
-            meetup_com_slug: Laravel-Nigeria
-            country: Nigeria
-        -
             name: AmsterdamPHP
             meetup_com_slug: AmsterdamPHP
             country: Netherlands
@@ -828,14 +692,6 @@ parameters:
             meetup_com_slug: Symfony-User-Group-NL
             country: Netherlands
         -
-            name: 'Laravel Developers Oslo'
-            meetup_com_slug: Laravel-Developers-Oslo
-            country: Norway
-        -
-            name: 'SilverStripe Auckland'
-            meetup_com_slug: SilverStripe-Auckland
-            country: 'New Zealand'
-        -
             name: 'Laravel Poznań Meetup'
             meetup_com_slug: Laravel-Poznan-Meetup
             country: Poland
@@ -848,25 +704,13 @@ parameters:
             meetup_com_slug: Laravel-VueJS
             country: Thailand
         -
-            name: 'Laravel Goa'
-            meetup_com_slug: Laravel-Goa
-            country: India
-        -
             name: 'Laravel Dublin'
             meetup_com_slug: Laravel-Vuejs-Dublin
             country: Ireland
         -
-            name: 'Laravel Israel'
-            meetup_com_slug: Laravel-Israel
-            country: Israel
-        -
             name: 'Meetup PHP Developers Roma - incontra le aziende'
             meetup_com_slug: Meetup-PHP-Roma
             country: Italy
-        -
-            name: 'Mautic Meetup Osaka'
-            meetup_com_slug: Mautic-Meetup-Osaka
-            country: Japan
         -
             name: 'Seoul Laravel Meetup'
             meetup_com_slug: Seoul-Laravel-Meetup
@@ -876,20 +720,12 @@ parameters:
             meetup_com_slug: Colombo-Laravel-Meetup
             country: 'Sri Lanka'
         -
-            name: 'Luxembourg and Greater Region PHP Meetup Group'
-            meetup_com_slug: phplux
-            country: Luxembourg
-        -
             name: 'Deeper PHP'
             meetup_com_slug: Deeper-PHP
             country: Luxembourg
         -
             name: 'Laravel México'
             meetup_com_slug: laravel-mexico
-            country: Mexico
-        -
-            name: 'PHP Cancún'
-            meetup_com_slug: PHP-Cancun
             country: Mexico
         -
             name: 'Laravel CDMX'
@@ -924,21 +760,9 @@ parameters:
             meetup_com_slug: York-Region-PHP-User-Group
             country: Canada
         -
-            name: 'Symfony Toronto'
-            meetup_com_slug: symfony-php-framework-toronto
-            country: Canada
-        -
             name: 'Laravel Bern'
             meetup_com_slug: laravel-bern
             country: Switzerland
-        -
-            name: 'SilverStripe Meetup Switzerland'
-            meetup_com_slug: SilverStripe-Meetup-Switzerland
-            country: Switzerland
-        -
-            name: 'PHP Cali'
-            meetup_com_slug: phpcali
-            country: Colombia
         -
             name: 'PHP Yii Framework'
             meetup_com_slug: PHP-Yii-Framework
@@ -968,10 +792,6 @@ parameters:
             meetup_com_slug: Laravel-Hamburg
             country: Germany
         -
-            name: 'Laravel Meetup Rhein-Main'
-            meetup_com_slug: Laravel-Meetup-Rhein-Main
-            country: Germany
-        -
             name: 'PHP User Group Rheinhessen'
             meetup_com_slug: PHP-User-Group-Rheinhessen
             country: Germany
@@ -984,16 +804,8 @@ parameters:
             meetup_com_slug: sfugmunich
             country: Germany
         -
-            name: 'CakePHP Germany'
-            meetup_com_slug: CakePHP-DE
-            country: Germany
-        -
             name: 'PHP Vigo Meetup'
             meetup_com_slug: PHPVigo
-            country: Spain
-        -
-            name: 'PHP Zaragoza'
-            meetup_com_slug: PHP-Zaragoza
             country: Spain
         -
             name: 'Las Palmas PHP Meetup'
@@ -1004,24 +816,8 @@ parameters:
             meetup_com_slug: PHP-Bilbao
             country: Spain
         -
-            name: Symfony
-            meetup_com_slug: php-symfony
-            country: Spain
-        -
-            name: 'Meetup associatif Zend Francophone'
-            meetup_com_slug: Meetup-associatif-Zend-Francophone
-            country: France
-        -
-            name: 'Antenne AFSY Bordeaux : Symfony/PHP'
-            meetup_com_slug: Symfony-User-Group-Bordeaux
-            country: France
-        -
             name: 'Laravel London'
             meetup_com_slug: London-Laravel
-            country: 'United Kingdom'
-        -
-            name: 'PHP Warwickshire'
-            meetup_com_slug: PHP-Warwickshire
             country: 'United Kingdom'
         -
             name: 'PHP Oxford'
@@ -1030,10 +826,6 @@ parameters:
         -
             name: 'edPUG - Edinburgh PHP User Group'
             meetup_com_slug: edinburgh-php-user-group
-            country: 'United Kingdom'
-        -
-            name: 'Laravel Mcr'
-            meetup_com_slug: Laravel-Mcr
             country: 'United Kingdom'
         -
             name: 'PHP Essex'
@@ -1055,10 +847,6 @@ parameters:
             name: GlasgowPHP
             meetup_com_slug: GlasgowPHP
             country: 'United Kingdom'
-        -
-            name: 'PHP, Android and iOS Developers, UX and UI Designers Group'
-            meetup_com_slug: Tbilisi-PHP-Meetup
-            country: Georgia
         -
             name: 'PHP Roundtable Budapest'
             meetup_com_slug: PHP-Roundtable-Budapest
@@ -1088,10 +876,6 @@ parameters:
             meetup_com_slug: Louisville-Laravel-Meetup
             country: Colorado
         -
-            name: DenverPHP
-            meetup_com_slug: DenverPHP
-            country: Colorado
-        -
             name: 'Tampa Bay PHP'
             meetup_com_slug: tampa-bay-php
             country: Florida
@@ -1100,17 +884,9 @@ parameters:
             meetup_com_slug: Laravel
             country: Florida
         -
-            name: 'Chicago Symfony Meetup'
-            meetup_com_slug: Chicago-Symfony-Meetup
-            country: Illinois
-        -
             name: 'Cincinnati PHP Meetup'
             meetup_com_slug: Cincinnati-PHP-Meetup
             country: Ohio
-        -
-            name: 'Capital Laravel Group'
-            meetup_com_slug: Capital-Laravel-Group
-            country: 'District Of Columbia'
         -
             name: 'Boston PHP'
             meetup_com_slug: bostonphp
@@ -1119,10 +895,6 @@ parameters:
             name: 'Laravel Boston'
             meetup_com_slug: Laravel-Boston
             country: Massachusetts
-        -
-            name: 'New Hampshire PHP'
-            meetup_com_slug: NH-PHP
-            country: 'New Hampshire'
         -
             name: 'Detroit Laravel Meetup'
             meetup_com_slug: Laravel-Detroit
@@ -1144,10 +916,6 @@ parameters:
             meetup_com_slug: new-york-php
             country: 'New York'
         -
-            name: 'NY Symfony - The PHP Framework Meetup'
-            meetup_com_slug: NYSymfony
-            country: 'New York'
-        -
             name: 'New York Craft CMS Meetup'
             meetup_com_slug: New-York-Craft-CMS-Meetup
             country: 'New York'
@@ -1163,10 +931,6 @@ parameters:
             name: 'Utah Laravel'
             meetup_com_slug: Utah-Laravel
             country: Utah
-        -
-            name: 'Laravel Milwaukee'
-            meetup_com_slug: LaravelMKE
-            country: Wisconsin
         -
             name: azPHP
             meetup_com_slug: azPHPUG
@@ -1187,10 +951,6 @@ parameters:
             name: 'Symfony Usergroup Chemnitz/Südwestsachsen'
             meetup_com_slug: Symfony-Usergroup-Chemnitz-Sudwestsachsen
             country: Germany
-        -
-            name: Code.Community
-            meetup_com_slug: codehub
-            country: Greece
         -
             name: 'Symfony User Group Frankfurt am Main'
             meetup_com_slug: Symfony-User-Group-Frankfurt-am-Main
