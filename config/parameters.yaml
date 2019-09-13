@@ -4,7 +4,7 @@ parameters:
     map_id: 'mapid'
 
     groups_storage: '%kernel.project_dir%/source/_data/groups.yaml'
-    imported_meetups_storage: '%kernel.project_dir%/source/_data/generated/'
+    generated_data_storage: '%kernel.project_dir%/source/_data/generated/'
 
     # how many days into the future the meetups should be imported
     max_forecast_days: 30

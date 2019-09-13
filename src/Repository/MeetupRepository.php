@@ -10,16 +10,16 @@ final class MeetupRepository
     /**
      * @var string
      */
-    private $importedMeetupsStorage;
+    private $generatedDataStorage;
 
     /**
      * @var YamlFileSystem
      */
     private $yamlFileSystem;
 
-    public function __construct(string $importedMeetupsStorage, YamlFileSystem $yamlFileSystem)
+    public function __construct(string $generatedDataStorage, YamlFileSystem $yamlFileSystem)
     {
-        $this->importedMeetupsStorage = $importedMeetupsStorage;
+        $this->generatedDataStorage = $generatedDataStorage;
         $this->yamlFileSystem = $yamlFileSystem;
     }
 
@@ -28,7 +28,7 @@ final class MeetupRepository
      */
     public function saveImportsToFile(array $meetups, string $category): void
     {
-        $fileName = $this->importedMeetupsStorage . '/' . $category . '-imported_meetups.yaml';
+        $fileName = $this->generatedDataStorage . '/' . $category . '-imported_meetups.yaml';
         $this->saveToFileAndStorage($meetups, $fileName);
     }
 
