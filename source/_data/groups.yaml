@@ -656,14 +656,6 @@ parameters:
             meetup_com_slug: Neos-CMS-and-Flow-Meetup-Vienna
             country: Austria
         -
-            name: 'TUGA - TYPO3 User Group Austria'
-            meetup_com_slug: TUGA-TYPO3-User-Group-Austria
-            country: Austria
-        -
-            name: 'Joomla User Group Wien'
-            meetup_com_slug: Joomla-User-Group-Wien
-            country: Austria
-        -
             name: 'Guerilla Coworker @ coworking.camp'
             meetup_com_slug: coworker
             country: Austria
@@ -704,24 +696,12 @@ parameters:
             meetup_com_slug: Laravel-Chile
             country: Chile
         -
-            name: 'PHP Quito'
-            meetup_com_slug: drupal-quito
-            country: Ecuador
-        -
-            name: 'Joomla! User Community Bogota'
-            meetup_com_slug: cms-bogota
-            country: Colombia
-        -
             name: 'Cali PHP Meetup'
             meetup_com_slug: Cali-PHP-Meetup
             country: Colombia
         -
             name: 'Medellín PHP'
             meetup_com_slug: MedellinPHP
-            country: Colombia
-        -
-            name: 'Joomla! JUG Bogotá Meetup'
-            meetup_com_slug: Joomla-Bogota-Meetup
             country: Colombia
         -
             name: 'Laravel Monterrey'
@@ -886,10 +866,6 @@ parameters:
         -
             name: 'Copenhagen Symfony User Group Meetup'
             meetup_com_slug: Copenhagen-Symfony-User-Group-Meetup
-            country: Denmark
-        -
-            name: 'Copenhagen / Malmö TYPO3 Usergroup'
-            meetup_com_slug: Copenhagen-Malmo-TYPO3
             country: Denmark
         -
             name: PHPJutland
