@@ -79,7 +79,6 @@ final class MeetupRepository
                 'latitude' => $meetup->getLatitude(),
                 'longitude' => $meetup->getLongitude(),
                 'url' => $meetup->getUrl(),
-                'tags' => $meetup->getTags(),
             ];
         }
 
