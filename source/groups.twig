@@ -14,26 +14,29 @@ layout: "_layouts/default.twig"
     {% set groups_sorted_by_name = sort_by_field(groups, 'name') %}
     {% set groups_by_country = group_by_field(groups_sorted_by_name, 'country') %}
 
-    {% for country, groups in groups_by_country %}
-        <h2 id="{{ country|webalize }}" class="mt-5 mb-1">
-            <strong>
-                <a href="#{{ country|webalize }}">{{ country }}</a>
-            </strong>
-        </h2>
+    <table class="table table-bordered table-responsive">
+        <thead class="thead-inverse">
+            <tr>
+                <th class="w-25 text-center">Group Name</th>
+                <th class="w-25 text-center">Last Meetup</th>
+            </tr>
+        </thead>
 
-        {% if groups|length > 3 %}
-            <p class="text-muted">
-                ({{ groups|length }} groups)
-            </p>
-        {% endif %}
-
-        <table class="table table-bordered table-responsive">
+        {% for country, groups in groups_by_country %}
             <thead class="thead-inverse">
                 <tr>
-                    <th class="w-25 text-center">Group Name</th>
-                    <th class="w-25 text-center">Last Meetup</th>
+                    <th colspan="2" class="text-center">
+                        <h3 id="{{ country|webalize }}">
+                            <a href="#{{ country|webalize }}">{{ country }}</a>
+                        </h3>
+
+                        {% if groups|length > 3 %}
+                            <div class="text-muted pull-right">({{ groups|length }} groups)</div>
+                        {% endif %}
+                    </th>
                 </tr>
             </thead>
+
             {% for group in groups %}
                 {% set last_meetup_date = last_meetup_date_by_group_slug(group.meetup_com_slug) %}
                 {% set days_from_today = diff_from_today_in_days(last_meetup_date) %}
@@ -51,6 +54,6 @@ layout: "_layouts/default.twig"
                     </td>
                 </tr>
             {% endfor %}
-        </table>
-    {% endfor %}
+        {% endfor %}
+    </table>
 </div>
