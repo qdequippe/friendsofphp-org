@@ -9,7 +9,7 @@ body {
  * element that contains the map. */
 
 #mapid {
-    height: 25em;
+    height: 30em;
 }
 
 #head {
@@ -183,4 +183,15 @@ footer ul, #groups ul {
 .text-bigger {
     font-size: 1.3em;
     line-height: 1.7em;
+}
+
+.thead-inverse th a {
+    display: block;
+    color: #DDD;
+    text-decoration: underline;
+}
+
+.thead-inverse th a:hover {
+    color: #FFF;
+    text-decoration: none;
 }
