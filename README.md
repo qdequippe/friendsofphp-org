@@ -29,6 +29,18 @@ gulp
 
 You'll find new or updated files in `/source/_data/generated/` directory.
 
+To **upgrade last meeting dates**:
+
+```bash
+bin/console last-group-meetup
+```
+
+Don't forget to use the API keys:
+
+```
+MEETUP_COM_OAUTH_KEY=xxx MEETUP_COM_OAUTH_SECRET=yyy bin/console last-group-meetup
+```
+
 ## API?
 
 Do you want to get all groups and meetups? There you are:
