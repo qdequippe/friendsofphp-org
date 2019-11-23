@@ -16,8 +16,11 @@ parameters:
     google_api_key:  'AIzaSyA6vhz7PGvf5rHjfnX6Ye6j6Gz2WVvIRvY'
 
 services:
-    # twig filters
-    Fop\MeetupCom\Twig\LastMeetupDateByGroupSlugFilterProvider: ~
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Fop\MeetupCom\Twig\LastMeetupDateByGroupSlugTwigExtension: ~
 
     # api decorators
     Fop\Api\GroupsApiItemDecorator: ~
