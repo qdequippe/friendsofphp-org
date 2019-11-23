@@ -2,9 +2,10 @@
 
 namespace Fop\MeetupCom\Twig;
 
-use Symplify\Statie\Contract\Templating\FilterProviderInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
-final class LastMeetupDateByGroupSlugFilterProvider implements FilterProviderInterface
+final class LastMeetupDateByGroupSlugTwigExtension extends AbstractExtension
 {
     /**
      * @var string[]
@@ -20,14 +21,14 @@ final class LastMeetupDateByGroupSlugFilterProvider implements FilterProviderInt
     }
 
     /**
-     * @return callable[]
+     * @return TwigFunction[]
      */
-    public function provide(): array
+    public function getFunctions(): array
     {
         return [
-            'last_meetup_date_by_group_slug' => function (string $groupSlug): ?string {
+            new TwigFunction('last_meetup_date_by_group_slug', function (string $groupSlug): ?string {
                 return $this->lastMeetupDateByGroupSlug[$groupSlug] ?? null;
-            },
+            }),
         ];
     }
 }

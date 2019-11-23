@@ -7,10 +7,4 @@ parameters:
     reportUnmatchedIgnoredErrors: false
 
     ignoreErrors:
-        - '#Cannot cast array<string\>\|string\|null to string#'
         - '#Parameter \#1 \$containerBuilder of class Symplify\\PackageBuilder\\Yaml\\FileLoader\\ParameterMergingYamlFileLoader constructor expects Symfony\\Component\\DependencyInjection\\ContainerBuilder, Symfony\\Component\\DependencyInjection\\ContainerInterface given#'
-        - '#Cannot cast array<string>\|string\|null to int#'
-        - '#Method Fop\\Tag\\MeetupTagResolver\:\:resolveFromName\(\) should return array<string\> but returns array<int, int\|string\>#'
-
-        # *.twig autocomplete dummy object
-        - '#PHPDoc tag @property\-read has invalid value \(.*?\)\: Unexpected token ".*?", expected TOKEN_IDENTIFIER at offset .*?#'
