@@ -59,9 +59,6 @@ final class DouUaMeetupFactory
         }
 
         $startDateTime = $this->resolveStartDateTime($crawler->text(), $json);
-        if ($startDateTime === null) {
-            return null;
-        }
 
         return $this->meetupFactory->create($name, $this->resolveGroupName($name), $startDateTime, $location, $url);
     }
@@ -102,7 +99,7 @@ final class DouUaMeetupFactory
     /**
      * @param mixed[] $json
      */
-    private function resolveStartDateTime(string $pageContent, array $json): ?DateTimeInterface
+    private function resolveStartDateTime(string $pageContent, array $json): DateTimeInterface
     {
         $date = html_entity_decode($json['startDate']);
         $pageContent = html_entity_decode($pageContent);

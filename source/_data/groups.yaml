@@ -212,10 +212,6 @@ parameters:
             meetup_com_slug: trianglephp
             country: 'North Carolina'
         -
-            name: Louisville
-            meetup_com_slug: Louisville-PHP-User-Group
-            country: Kentucky
-        -
             name: 'Washington D.C.'
             meetup_com_slug: DC-PHP
             country: 'Washington, D.C.'
