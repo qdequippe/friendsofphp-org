@@ -36,7 +36,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Fop\\MeetupCom\\Tests\\": "packages/MeetupCom/tests",
             "Fop\\Tests\\": "tests"
         }
     },

@@ -8,3 +8,8 @@ parameters:
 
     ignoreErrors:
         - '#Parameter \#1 \$containerBuilder of class Symplify\\PackageBuilder\\Yaml\\FileLoader\\ParameterMergingYamlFileLoader constructor expects Symfony\\Component\\DependencyInjection\\ContainerBuilder, Symfony\\Component\\DependencyInjection\\ContainerInterface given#'
+        # iterables
+        - '#return type has no value type specified in iterable type Iterator#'
+        - '#no value type specified in iterable type array#'
+
+        - '#Offset (.*?) does not exist on \(array\)\|null#'
