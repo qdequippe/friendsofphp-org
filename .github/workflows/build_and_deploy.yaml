@@ -1,0 +1,39 @@
+# see https://github.com/marketplace/actions/deploy-to-github-pages
+name: Build and Deploy
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            -
+                name: Checkout
+                uses: actions/checkout@v1
+
+            -
+                name: Install
+                run:
+                    composer install --no-progress
+
+            -
+                name: Build
+                run: |
+                    # configure timezone: https://stackoverflow.com/a/27052708/1348344
+                    export TZ=Europe/Prague
+                    bin/console import -vvv
+                    vendor/bin/statie generate source -vvv
+                env:
+                    MEETUP_COM_OAUTH_KEY: ${{ secrets.MEETUP_COM_OAUTH_KEY }}
+                    MEETUP_COM_OAUTH_SECRET: ${{ secrets.MEETUP_COM_OAUTH_SECRET }}
+
+            -
+                name: Deploy
+                uses: JamesIves/github-pages-deploy-action@releases/v3
+                with:
+                    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                    BRANCH: gh-pages
+                    FOLDER: output

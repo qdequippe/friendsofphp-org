@@ -1,6 +1,6 @@
 # [FriendsOfPhp.org](https://www.friendsofphp.org) - All PHP Meetups in next 30 days
 
-[![Build Status](https://img.shields.io/travis/TomasVotruba/friendsofphp.org/master.svg?style=flat-square)](https://travis-ci.org/TomasVotruba/friendsofphp.org)
+[![Build Status Github Actions](https://img.shields.io/github/workflow/status/tomasvotruba/friendsofphp.org/Code_Checks?style=flat-square)](https://github.com/TomasVotruba/friendsofphp.org/actions)
 
 <div align="center">
    <img src="/docs/preview.png?v=1">
