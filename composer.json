@@ -28,7 +28,6 @@
         "psr-4": {
             "Fop\\": "src",
             "Fop\\MeetupCom\\": "packages/MeetupCom/src",
-            "Fop\\PosobotaCz\\": "packages/PosobotaCz/src",
             "Fop\\CrosswebPl\\": "packages/CrosswebPl/src",
             "Fop\\OpentechcalendarCoUk\\": "packages/OpentechcalendarCoUk/src",
             "Fop\\DouUa\\": "packages/DouUa/src"
