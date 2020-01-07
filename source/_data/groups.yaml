@@ -236,10 +236,6 @@ parameters:
             meetup_com_slug: indyphp
             country: Indiana
         -
-            name: Philadelphia
-            meetup_com_slug: phillyphp
-            country: Pennsylvania
-        -
             name: PDX-PHP
             meetup_com_slug: PDX-PHP
             country: Oregon
