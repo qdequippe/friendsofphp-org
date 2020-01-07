@@ -11,9 +11,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\HttpKernel\Kernel;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoBindParametersCompilerPass;
+use Symplify\AutoBindParameter\DependencyInjection\CompilerPass\AutoBindParameterCompilerPass;
+use Symplify\AutowireArrayParameter\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
-use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
 use Symplify\PackageBuilder\Yaml\FileLoader\ParameterMergingYamlFileLoader;
 
 final class FopKernel extends Kernel
@@ -45,7 +45,7 @@ final class FopKernel extends Kernel
     {
         $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
         $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
-        $containerBuilder->addCompilerPass(new AutoBindParametersCompilerPass());
+        $containerBuilder->addCompilerPass(new AutoBindParameterCompilerPass());
     }
 
     /**
