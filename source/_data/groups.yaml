@@ -752,10 +752,6 @@ parameters:
             meetup_com_slug: atlantaphp
             country: Georgia
         -
-            name: 'Symfony Usergroup Chemnitz/Südwestsachsen'
-            meetup_com_slug: Symfony-Usergroup-Chemnitz-Sudwestsachsen
-            country: Germany
-        -
             name: 'Symfony User Group Frankfurt am Main'
             meetup_com_slug: Symfony-User-Group-Frankfurt-am-Main
             country: Germany
