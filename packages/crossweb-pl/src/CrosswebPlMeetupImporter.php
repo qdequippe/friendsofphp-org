@@ -4,7 +4,7 @@ namespace Fop\CrosswebPl;
 
 use Fop\Contract\MeetupImporterInterface;
 use Fop\CrosswebPl\Meetup\CrosswebPlMeetupFactory;
-use Fop\Entity\Meetup;
+use Fop\ValueObject\Meetup;
 use Fop\Xml\XmlReader;
 use Nette\Utils\Strings;
 

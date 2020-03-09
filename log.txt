@@ -1,2 +1,0 @@
-403: Forbidden - https://dou.ua/calendar/31630/ (found on https://friendsofphp.org/)
-404: Not Found - https://friendsofphp.org/'%20+%20marker.url%20+%20' (found on https://friendsofphp.org/)

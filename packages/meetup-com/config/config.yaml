@@ -3,11 +3,7 @@ imports:
 
 parameters:
     # https://secure.meetup.com/meetup_api/oauth_consumers/
-    # run like MEETUP_COM_OAUTH_KEY=xxx MEETUP_COM_OAUTH_SECRET=yyy bin/console import --only=meetup-com
-    env(MEETUP_COM_OAUTH_KEY): 'empty'
     meetup_com_oauth_key: '%env(MEETUP_COM_OAUTH_KEY)%'
-
-    env(MEETUP_COM_OAUTH_SECRET): 'empty'
     meetup_com_oauth_secret: '%env(MEETUP_COM_OAUTH_SECRET)%'
 
     # used in @see Fop\Geolocation\Geolocator

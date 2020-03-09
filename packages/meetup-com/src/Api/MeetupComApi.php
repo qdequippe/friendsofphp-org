@@ -2,8 +2,11 @@
 
 namespace Fop\MeetupCom\Api;
 
+use DateTimeInterface;
 use Fop\Guzzle\ResponseConverter;
 use Fop\MeetupCom\Guzzle\Oauth2AwareClient;
+use Fop\MeetupCom\ValueObject\RateLimits;
+use Nette\Utils\DateTime;
 
 final class MeetupComApi
 {
@@ -12,6 +15,12 @@ final class MeetupComApi
      * @var string
      */
     private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events';
+
+    /**
+     * @see https://www.meetup.com/meetup_api/docs/status/
+     * @var string
+     */
+    private const STATUS_URL = 'http://api.meetup.com/status';
 
     /**
      * @see https://www.meetup.com/meetup_api/docs/:urlname/events/#list
@@ -48,16 +57,36 @@ final class MeetupComApi
     }
 
     /**
-     * @return mixed[]|null
+     * Probably bit older, but @see https://github.com/jkutianski/meetup-api/wiki#limits
      */
-    public function getLastMeetupByGroupSlug(string $groupSlug): ?array
+    public function getRateLimits(): RateLimits
+    {
+        $response = $this->oauth2AwareClient->request('GET', self::STATUS_URL);
+
+        $limit = $response->getHeader('X-RateLimit-Limit')[0];
+        $remaining = $response->getHeader('X-RateLimit-Remaining')[0];
+        $reset = $response->getHeader('X-RateLimit-Reset')[0];
+
+        return new RateLimits((int) $limit, (int) $remaining, (int) $reset);
+    }
+
+    public function getRemainingRequestCount(): int
+    {
+        $rateLimits = $this->getRateLimits();
+        return $rateLimits->getRemainingRequests();
+    }
+
+    public function getLastMeetupDateTimeByGroupSlug(string $groupSlug): ?DateTimeInterface
     {
         $url = sprintf(self::API_LAST_EVENTS_BY_GROUPS_URL, $groupSlug);
 
         $response = $this->oauth2AwareClient->request('GET', $url);
-
         $data = $this->responseConverter->toJson($response);
 
-        return $data[0] ?? null;
+        if (! isset($data[0])) {
+            return null;
+        }
+
+        return DateTime::from($data[0]['local_date']);
     }
 }

@@ -1,0 +1,786 @@
+# this file was generated on 2020-03-10 15:35:47, do not edit it manually
+parameters:
+    meetups:
+        -
+            name: 'Monthly PHP Meetup'
+            user_group_name: 'Nashville PHP'
+            start_date_time: '2020-03-10 18:00'
+            city: 'Nashville '
+            country: Tennessee
+            latitude: 36.14497756958
+            longitude: -86.793197631836
+            url: 'https://www.meetup.com/nashvillephp/events/khfqgrybcfbnb/'
+        -
+            name: 'Symfony String Component und Cache me if you can'
+            user_group_name: 'Symfony User Group Hamburg'
+            start_date_time: '2020-03-10 18:30'
+            city: Hamburg
+            country: Germany
+            latitude: 53.561973571777
+            longitude: 9.9660148620605
+            url: 'https://www.meetup.com/sfughh/events/xqdjjrybcfbfb/'
+        -
+            name: 'Introduction to Time-Series'
+            user_group_name: GlasgowPHP
+            start_date_time: '2020-03-10 18:30'
+            city: Glasgow
+            country: 'United Kingdom'
+            latitude: 55.860752105713
+            longitude: -4.2572212219238
+            url: 'https://www.meetup.com/GlasgowPHP/events/269180966/'
+        -
+            name: 'Andy Snell: Advanced File Operations in PHP'
+            user_group_name: 'Dallas PHP'
+            start_date_time: '2020-03-10 19:00'
+            city: Richardson
+            country: Texas
+            latitude: 32.97993850708
+            longitude: -96.712028503418
+            url: 'https://www.meetup.com/dallasphp/events/268964183/'
+        -
+            name: 'PHPAmersfoort March 2020'
+            user_group_name: PHPAmersfoort
+            start_date_time: '2020-03-10 19:00'
+            city: Amersfoort
+            country: Netherlands
+            latitude: 52.155967712402
+            longitude: 5.3811268806458
+            url: 'https://www.meetup.com/PHPAmersfoort/events/cjgglmybcfbnb/'
+        -
+            name: 'PHPstok #5 Samodoskonalenie programisty & PHPUnit & wzrorce projektowe'
+            user_group_name: PHPstok
+            start_date_time: '2020-03-11 18:00'
+            city: Białystok
+            country: Poland
+            latitude: 53.132398
+            longitude: 23.1591679
+            url: 'https://crossweb.pl/wydarzenia/phpstok-5-samodoskonalenie-programisty-phpunit-wzrorce-projektowe-marzec-2020/'
+        -
+            name: 'Presentation Meetup -- Allyship'
+            user_group_name: 'Kansas City''s PHP User Group'
+            start_date_time: '2020-03-11 18:00'
+            city: 'Kansas City'
+            country: 'United States'
+            latitude: 39.036270141602
+            longitude: -94.574935913086
+            url: 'https://www.meetup.com/kcphpug/events/267319590/'
+        -
+            name: 'PHP 7.4 and OpenAPI'
+            user_group_name: PHPSW
+            start_date_time: '2020-03-11 18:45'
+            city: Bristol
+            country: 'United Kingdom'
+            latitude: 51.453147888184
+            longitude: -2.5912439823151
+            url: 'https://www.meetup.com/php-sw/events/268924669/'
+        -
+            name: 'SydPHP - March 2020 Meetup  ELMO'
+            user_group_name: 'Sydney PHP'
+            start_date_time: '2020-03-12 18:00'
+            city: Sydney
+            country: Australia
+            latitude: -33.874797821045
+            longitude: 151.20715332031
+            url: 'https://www.meetup.com/SydPHP/events/268790723/'
+        -
+            name: 'Symfony User Group Osnabrück #7'
+            user_group_name: 'Symfony User Group Osnabrück'
+            start_date_time: '2020-03-12 18:30'
+            city: Osnabrück
+            country: Germany
+            latitude: 52.276374816895
+            longitude: 8.0438346862793
+            url: 'https://www.meetup.com/sfugos/events/265656558/'
+        -
+            name: 'Modern monoliths and AWS Lambda Custom Runtimes  Swipe iX'
+            user_group_name: 'Cape Town PHP Group'
+            start_date_time: '2020-03-12 18:30'
+            city: 'Cape Town'
+            country: 'South Africa'
+            latitude: -33.83145904541
+            longitude: 18.646722793579
+            url: 'https://www.meetup.com/Cape-Town-PHP-Group/events/269057899/'
+        -
+            name: 'Meetup PHPWomen - Edição Especial'
+            user_group_name: 'PHP Rio'
+            start_date_time: '2020-03-12 19:00'
+            city: 'Rio de Janeiro'
+            country: Brazil
+            latitude: -22.947484970093
+            longitude: -43.186199188232
+            url: 'https://www.meetup.com/PHP-Rio/events/268323012/'
+        -
+            name: 'PHPSP Pub'
+            user_group_name: PHPSP
+            start_date_time: '2020-03-12 19:00'
+            city: 'São Paulo'
+            country: Brazil
+            latitude: -23.56495475769
+            longitude: -46.654830932617
+            url: 'https://www.meetup.com/php-sp/events/qsnlkrybcfbqb/'
+        -
+            name: '** CANCELLED ** Topic To Be Determined'
+            user_group_name: 'GTA PHP User Group'
+            start_date_time: '2020-03-12 19:00'
+            city: Toronto
+            country: Canada
+            latitude: 43.653839111328
+            longitude: -79.37956237793
+            url: 'https://www.meetup.com/GTA-PHP-User-Group-Toronto/events/xxkpfrybcfbqb/'
+        -
+            name: 'TDD API Development, the right way'
+            user_group_name: laravel.istanbul
+            start_date_time: '2020-03-12 19:00'
+            city: Istanbul
+            country: Turkey
+            latitude: 41.015129089355
+            longitude: 28.967994689941
+            url: 'https://www.meetup.com/laravelistanbul/events/269059351/'
+        -
+            name: 'SLIM 4: PHP''S MICROFRAMEWORK'
+            user_group_name: PHPMiNDS
+            start_date_time: '2020-03-12 19:00'
+            city: Nottingham
+            country: 'United Kingdom'
+            latitude: 52.951992034912
+            longitude: -1.1430399417877
+            url: 'https://www.meetup.com/PHPMiNDS-in-Nottingham/events/268999773/'
+        -
+            name: 'Shopware TechDay PL for Symfony and Vue.Js Developers'
+            user_group_name: 'Shopware TechDay PL for Symfony and Vue.Js Developers'
+            start_date_time: '2020-03-16 18:30'
+            city: Kraków
+            country: Poland
+            latitude: 50.0619474
+            longitude: 19.9368564
+            url: 'https://crossweb.pl/wydarzenia/shopware-techday-pl-for-symfony-and-vue-js-developers-marzec-2020/'
+        -
+            name: 'PHP & Databases: How MySQL can boost (or kill) your PHP application'
+            user_group_name: 'PHP Cambridge'
+            start_date_time: '2020-03-16 18:30'
+            city: Milton
+            country: 'United Kingdom'
+            latitude: 52.232315063477
+            longitude: 0.15139700472355
+            url: 'https://www.meetup.com/phpcambridge/events/268560020/'
+        -
+            name: 'Introduction to OpenAPI'
+            user_group_name: 'PHP North East'
+            start_date_time: '2020-03-17 18:00'
+            city: 'Newcastle Upon Tyne'
+            country: 'United Kingdom'
+            latitude: 54.970584869385
+            longitude: -1.6159969568253
+            url: 'https://www.meetup.com/phpnortheast/events/268798423/'
+        -
+            name: 'Monkeys in the Machine (Machine Learning)'
+            user_group_name: PHPDX
+            start_date_time: '2020-03-17 18:00'
+            city: Portland
+            country: Oregon
+            latitude: 45.529090881348
+            longitude: -122.68419647217
+            url: 'https://www.meetup.com/PDX-PHP/events/nqgwnrybcfbwb/'
+        -
+            name: 'PHP+Beer DT'
+            user_group_name: 'The Indianapolis PHP Meetup Group'
+            start_date_time: '2020-03-17 18:30'
+            city: Indianapolis
+            country: Indiana
+            latitude: 39.768821716309
+            longitude: -86.153495788574
+            url: 'https://www.meetup.com/indyphp/events/swphmqybcfbwb/'
+        -
+            name: '17 March: The Big "Why Equal Doesn''t Equal" Quiz by Juliette RF  Smartschool'
+            user_group_name: 'PHP Limburg BE'
+            start_date_time: '2020-03-17 18:30'
+            city: Meeuwen-Gruitrode
+            country: Belgium
+            latitude: 51.094871520996
+            longitude: 5.5226230621338
+            url: 'https://www.meetup.com/PHP-Limburg-BE/events/269229380/'
+        -
+            name: 'Despliega aplicaciones PHP autoescalables en AWS con Beanstalk y Terraform'
+            user_group_name: 'PHP Sevilla'
+            start_date_time: '2020-03-17 19:00'
+            city: Sevilla
+            country: Spain
+            latitude: 37.408702850342
+            longitude: -5.9446468353271
+            url: 'https://www.meetup.com/PHP-Sevilla/events/269273935/'
+        -
+            name: 'Security Awareness for developers'
+            user_group_name: 'PHP & Laravel development Eindhoven'
+            start_date_time: '2020-03-18 18:00'
+            city: Eindhoven
+            country: Netherlands
+            latitude: 51.424694061279
+            longitude: 5.4669008255005
+            url: 'https://www.meetup.com/PHP-Laravel-Eindhoven/events/268679320/'
+        -
+            name: 'Super Apéro PHP 2020'
+            user_group_name: 'Antenne AFUP Reims : PHP'
+            start_date_time: '2020-03-18 18:30'
+            city: Reims
+            country: France
+            latitude: 49.259952545166
+            longitude: 4.0317010879517
+            url: 'https://www.meetup.com/afup-reims-php/events/269008941/'
+        -
+            name: 'Main monthly meeting'
+            user_group_name: 'DC PHP Developer''s Community'
+            start_date_time: '2020-03-18 18:30'
+            city: Vienna
+            country: Virginia
+            latitude: 38.929744720459
+            longitude: -77.2470703125
+            url: 'https://www.meetup.com/DC-PHP/events/bszxnpybcfbxb/'
+        -
+            name: 'Meetup AFUP - Super Apéro PHP 2020 - Process de recrutement & Atelier CV'
+            user_group_name: 'Antenne AFUP Limoges : PHP'
+            start_date_time: '2020-03-18 18:45'
+            city: Limoges
+            country: France
+            latitude: 45.836090087891
+            longitude: 1.2384070158005
+            url: 'https://www.meetup.com/afup-limoges-php/events/269057181/'
+        -
+            name: '[Lille] Super Apéro PHP le 18/03 chez Scaleway'
+            user_group_name: 'Antenne AFUP Hauts de France : PHP'
+            start_date_time: '2020-03-18 19:00'
+            city: Lille
+            country: France
+            latitude: 50.637992858887
+            longitude: 3.0570669174194
+            url: 'https://www.meetup.com/afup-hauts-de-france-php/events/269229970/'
+        -
+            name: 'KaunasPHP.lt v.56'
+            user_group_name: 'Kaunas PHP meetups'
+            start_date_time: '2020-03-18 19:00'
+            city: Kaunas
+            country: Lithuania
+            latitude: 54.902729034424
+            longitude: 23.897106170654
+            url: 'https://www.meetup.com/KaunasPHP/events/268827328/'
+        -
+            name: 'Drinks and Talks at LINKS DER ISAR / AirLST'
+            user_group_name: 'Laravel Usergroup Munich'
+            start_date_time: '2020-03-18 19:00'
+            city: München
+            country: Germany
+            latitude: 48.14236831665
+            longitude: 11.584701538086
+            url: 'https://www.meetup.com/laravel-munich/events/268149486/'
+        -
+            name: 'Super Apero PHP 2020 / Open mike !'
+            user_group_name: 'AFUP Aix-Marseille'
+            start_date_time: '2020-03-18 19:00'
+            city: Aix-en-Provence
+            country: France
+            latitude: 43.482540130615
+            longitude: 5.3855228424072
+            url: 'https://www.meetup.com/afup-aix-marseille-php/events/269043019/'
+        -
+            name: '🍻 SuperApéro PHP'
+            user_group_name: 'AFUP Rennes'
+            start_date_time: '2020-03-18 19:00'
+            city: Rennes
+            country: France
+            latitude: 48.1022605896
+            longitude: -1.674633026123
+            url: 'https://www.meetup.com/AFUP-Rennes/events/269203542/'
+        -
+            name: 'Super ApéroPHP 2020'
+            user_group_name: 'ApéroPHP Toulouse'
+            start_date_time: '2020-03-18 19:00'
+            city: Toulouse
+            country: France
+            latitude: 43.602680206299
+            longitude: 1.4540189504623
+            url: 'https://www.meetup.com/AperoPHP-Toulouse/events/268603474/'
+        -
+            name: 'Super Apéro PHP - Conteneurisation et Docker'
+            user_group_name: 'Antenne AFUP Tours PHP'
+            start_date_time: '2020-03-18 19:00'
+            city: Tours
+            country: France
+            latitude: 47.383430480957
+            longitude: 0.69863200187683
+            url: 'https://www.meetup.com/afup-tours-php/events/269028500/'
+        -
+            name: 'Super Apéro AFUP'
+            user_group_name: 'Antenne AFUP Lorraine : PHP'
+            start_date_time: '2020-03-18 19:00'
+            city: Metz
+            country: France
+            latitude: 49.11930847168
+            longitude: 6.175714969635
+            url: 'https://www.meetup.com/afup-lorraine-php/events/269139335/'
+        -
+            name: 'Super Apéro PHP 2020'
+            user_group_name: 'Antenne AFUP Lyon : PHP'
+            start_date_time: '2020-03-18 19:00'
+            city: Lyon
+            country: France
+            latitude: 45.769653320312
+            longitude: 4.8359160423279
+            url: 'https://www.meetup.com/afup-lyon-php/events/268982053/'
+        -
+            name: '🍻 SuperApéro de l''année !'
+            user_group_name: 'Antenne AFUP Nantes : PHP'
+            start_date_time: '2020-03-18 19:00'
+            city: Nantes
+            country: France
+            latitude: 47.214878082275
+            longitude: -1.5552660226822
+            url: 'https://www.meetup.com/afup-nantes-php/events/269063294/'
+        -
+            name: 'Super-Apéro AFUP 2020'
+            user_group_name: 'Antenne AFUP Paris : PHP'
+            start_date_time: '2020-03-18 19:00'
+            city: Paris
+            country: France
+            latitude: 48.864570617676
+            longitude: 2.3691520690918
+            url: 'https://www.meetup.com/afup-paris-php/events/269296925/'
+        -
+            name: 'Super Apéro PHP 2020'
+            user_group_name: 'Bordeaux PHP Meetup'
+            start_date_time: '2020-03-18 19:30'
+            city: Bordeaux
+            country: France
+            latitude: 44.850749969482
+            longitude: -0.57160401344299
+            url: 'https://www.meetup.com/Bordeaux-PHP-Meetup/events/268854197/'
+        -
+            name: 'Essex Web Developers Meetup'
+            user_group_name: 'Essex Web Developers'
+            start_date_time: '2020-03-18 19:30'
+            city: Chelmsford
+            country: 'United Kingdom'
+            latitude: 51.741291046143
+            longitude: 0.47440698742867
+            url: 'https://www.meetup.com/EssexWebDevelopers/events/qbrcnrybcfbxb/'
+        -
+            name: 'Let''s Go: Social Hackathon at FH Salzburg'
+            user_group_name: 'Salzburg Web Dev'
+            start_date_time: '2020-03-19 15:00'
+            city: Puch
+            country: Austria
+            latitude: 47.724117279053
+            longitude: 13.086338043213
+            url: 'https://www.meetup.com/salzburgwebdev/events/266200197/'
+        -
+            name: 'PHP Adelaide User Group Meeting'
+            user_group_name: 'PHP Adelaide'
+            start_date_time: '2020-03-19 18:00'
+            city: Adelaide
+            country: Australia
+            latitude: -34.928619384766
+            longitude: 138.59996032715
+            url: 'https://www.meetup.com/PHP-Adelaide/events/vxpcxlybcfbzb/'
+        -
+            name: 'Tinel #34 with Kene Udeze'
+            user_group_name: 'Tinel Meetup'
+            start_date_time: '2020-03-19 18:00'
+            city: Split
+            country: Croatia
+            latitude: 43.512920379639
+            longitude: 16.485216140747
+            url: 'https://www.meetup.com/TinelMeetup/events/269232482/'
+        -
+            name: 'Sheffield PHP - Clean Code'
+            user_group_name: 'Sheffield PHP - Clean Code'
+            start_date_time: '2020-03-19 18:00'
+            city: Sheffield
+            country: 'United Kingdom'
+            latitude: 53.3806626
+            longitude: -1.4702278
+            url: 'https://opentechcalendar.co.uk/event/10104-sheffield-php-clean-code'
+        -
+            name: PHP
+            user_group_name: TrianglePHP
+            start_date_time: '2020-03-19 18:00'
+            city: Morrisville
+            country: 'North Carolina'
+            latitude: 35.85147857666
+            longitude: -78.794403076172
+            url: 'https://www.meetup.com/trianglephp/events/mccslqybcfbzb/'
+        -
+            name: 'ZgPHP #103'
+            user_group_name: 'ZgPHP meetup'
+            start_date_time: '2020-03-19 18:00'
+            city: Zagreb
+            country: Croatia
+            latitude: 45.787647247314
+            longitude: 15.953630447388
+            url: 'https://www.meetup.com/ZgPHP-meetup/events/268822967/'
+        -
+            name: 'Let''s learn about GraphQL with Magento & React (advanced)!'
+            user_group_name: 'Laravel Meetup Groningen'
+            start_date_time: '2020-03-19 18:30'
+            city: Groningen
+            country: Netherlands
+            latitude: 53.219467163086
+            longitude: 6.5646162033081
+            url: 'https://www.meetup.com/Laravel-Meetup-Groningen/events/269002204/'
+        -
+            name: 'PHPSP Campinas + PUB'
+            user_group_name: 'PHPSP Campinas'
+            start_date_time: '2020-03-19 19:00'
+            city: Campinas
+            country: Brazil
+            latitude: -22.897144317627
+            longitude: -47.050975799561
+            url: 'https://www.meetup.com/PHPSP-Campinas/events/lzzltqybcfbzb/'
+        -
+            name: 'March Meetup: Save the Date'
+            user_group_name: 'PHP Johannesburg Meetup Group'
+            start_date_time: '2020-03-19 19:00'
+            city: Johannesburg
+            country: 'South Africa'
+            latitude: -26.046060562134
+            longitude: 28.05989074707
+            url: 'https://www.meetup.com/PHP-Johannesburg-Meetup-Group/events/268135949/'
+        -
+            name: '30 Vulns in 30 Minutes by Josh Cummings, with Food Provided!'
+            user_group_name: 'Utah PHP User Group'
+            start_date_time: '2020-03-19 19:00'
+            city: Lehi
+            country: Utah
+            latitude: 40.440002441406
+            longitude: -111.89384460449
+            url: 'https://www.meetup.com/Utah-PHP-User-Group/events/vlfnprybcfbzb/'
+        -
+            name: 'Monthly Meeting - March/2020'
+            user_group_name: AmsterdamPHP
+            start_date_time: '2020-03-19 19:00'
+            city: Amsterdam
+            country: Netherlands
+            latitude: 52.366695404053
+            longitude: 4.8945398330688
+            url: 'https://www.meetup.com/AmsterdamPHP/events/mhtvlrybcfbzb/'
+        -
+            name: 'This meetup is CANCELLED due to COVID19 concerns.'
+            user_group_name: 'York Region PHP User Group'
+            start_date_time: '2020-03-19 19:00'
+            city: Newmarket
+            country: Canada
+            latitude: 44.056102752686
+            longitude: -79.485504150391
+            url: 'https://www.meetup.com/York-Region-PHP-User-Group/events/ftkpfrybcfbzb/'
+        -
+            name: 'Docplanner Tech Workshops #1'
+            user_group_name: 'Docplanner Tech Workshops'
+            start_date_time: '2020-03-21 09:00'
+            city: Warszawa
+            country: Poland
+            latitude: 52.2319581
+            longitude: 21.0067249
+            url: 'https://crossweb.pl/wydarzenia/docplanner-tech-workshops-1-marzec-2020/'
+        -
+            name: 'Open Workshop — Combined Frederick Technology Groups'
+            user_group_name: 'Frederick Web Technology Group'
+            start_date_time: '2020-03-21 10:00'
+            city: Frederick
+            country: Maryland
+            latitude: 39.415821075439
+            longitude: -77.410438537598
+            url: 'https://www.meetup.com/FredWebTech/events/lwlvcqybcfbcc/'
+        -
+            name: 'Coffee Shop Hangout'
+            user_group_name: 'Kansas City''s PHP User Group'
+            start_date_time: '2020-03-21 14:30'
+            city: Lenexa
+            country: Kansas
+            latitude: 38.970943450928
+            longitude: -94.734397888184
+            url: 'https://www.meetup.com/kcphpug/events/bmwtcpybcfbcc/'
+        -
+            name: 'PHPUG Münster Meetup 03/2020 - Cloud Native PHP'
+            user_group_name: 'PHP-Usergroup Münster'
+            start_date_time: '2020-03-23 19:00'
+            city: Münster
+            country: Germany
+            latitude: 51.950931549072
+            longitude: 7.6360630989075
+            url: 'https://www.meetup.com/phpugms/events/mvrrpqybcfbwb/'
+        -
+            name: 'Memphis PHP User Group'
+            user_group_name: 'Memphis PHP User Group Meetup'
+            start_date_time: '2020-03-24 18:30'
+            city: Memphis
+            country: Tennessee
+            latitude: 35.12174987793
+            longitude: -89.940200805664
+            url: 'https://www.meetup.com/Memphis-PHP-Meetup/events/qthbnrybcfbgc/'
+        -
+            name: 'Google Cloud - PHP.FRL'
+            user_group_name: PHP.FRL
+            start_date_time: '2020-03-24 19:00'
+            city: Kollum
+            country: Netherlands
+            latitude: 53.236438751221
+            longitude: 5.9965000152588
+            url: 'https://www.meetup.com/PHP-FRL/events/267911514/'
+        -
+            name: 'What''s New in Laravel 7'
+            user_group_name: 'Tampa Bay Laravel'
+            start_date_time: '2020-03-24 19:00'
+            city: 'St. Petersburg'
+            country: Florida
+            latitude: 27.770568847656
+            longitude: -82.642074584961
+            url: 'https://www.meetup.com/Laravel/events/269162701/'
+        -
+            name: 'azPHP Meetup'
+            user_group_name: azPHP
+            start_date_time: '2020-03-24 19:00'
+            city: Phoenix
+            country: Arizona
+            latitude: 33.440837860107
+            longitude: -112.06692504883
+            url: 'https://www.meetup.com/azPHPUG/events/265407030/'
+        -
+            name: 'Nashville PHP/WordPress BBQ Lunch'
+            user_group_name: 'Nashville PHP'
+            start_date_time: '2020-03-25 11:00'
+            city: Nashville
+            country: Tennessee
+            latitude: 36.159385681152
+            longitude: -86.796211242676
+            url: 'https://www.meetup.com/nashvillephp/events/mklnwqybcfbhc/'
+        -
+            name: 'Succeeding in Open Source'
+            user_group_name: 'Boston PHP'
+            start_date_time: '2020-03-25 18:00'
+            city: Boston
+            country: Massachusetts
+            latitude: 42.347198486328
+            longitude: -71.078308105469
+            url: 'https://www.meetup.com/bostonphp/events/268666193/'
+        -
+            name: 'March Event at Spilberg'
+            user_group_name: 'Full Stack Antwerp'
+            start_date_time: '2020-03-25 19:00'
+            city: Antwerpen
+            country: Belgium
+            latitude: 51.215774536133
+            longitude: 4.4088230133057
+            url: 'https://www.meetup.com/fullstackantwerp/events/nkjsbrybcfbhc/'
+        -
+            name: 'March 2020 Meetup'
+            user_group_name: 'Ottawa PHP Meetup'
+            start_date_time: '2020-03-25 19:00'
+            city: Kanata
+            country: Canada
+            latitude: 45.337337493896
+            longitude: -75.904960632324
+            url: 'https://www.meetup.com/Ottawa-PHP-Meetup/events/267118940/'
+        -
+            name: 'PHP Oxford meetup'
+            user_group_name: 'PHP Oxford'
+            start_date_time: '2020-03-25 19:30'
+            city: Oxford
+            country: 'United Kingdom'
+            latitude: 51.752372741699
+            longitude: -1.2635029554367
+            url: 'https://www.meetup.com/PHP-Oxford/events/vvrzwqybcfbhc/'
+        -
+            name: 'PHP-SI Meetup #15'
+            user_group_name: 'PHP Developers Slovenia'
+            start_date_time: '2020-03-26 18:00'
+            city: Ljubljana
+            country: Slovenia
+            latitude: 46.083896636963
+            longitude: 14.516814231873
+            url: 'https://www.meetup.com/php-si/events/268770260/'
+        -
+            name: 'PHPUG  Decompiled''20'
+            user_group_name: 'PHP USERGROUP DRESDEN'
+            start_date_time: '2020-03-27 09:00'
+            city: Dresden
+            country: Germany
+            latitude: 51.072067260742
+            longitude: 13.711418151855
+            url: 'https://www.meetup.com/PHP-USERGROUP-DRESDEN/events/269180970/'
+        -
+            name: 'PHPRio - Tech Day'
+            user_group_name: 'PHP Rio'
+            start_date_time: '2020-03-28 08:00'
+            city: 'Rio de Janeiro'
+            country: Brazil
+            latitude: -22.997938156128
+            longitude: -43.345901489258
+            url: 'https://www.meetup.com/PHP-Rio/events/269237743/'
+        -
+            name: 'Contribute Your Code 1: Volunteering session for beginners and expert devs'
+            user_group_name: 'Dev Japan'
+            start_date_time: '2020-03-28 12:00'
+            city: Kawasaki
+            country: Japan
+            latitude: 35.531627655029
+            longitude: 139.69931030273
+            url: 'https://www.meetup.com/devjapan/events/268500780/'
+        -
+            name: 'March Meetup - Lightning talks'
+            user_group_name: 'PHP UserGroup Wellington'
+            start_date_time: '2020-03-31 18:00'
+            city: Wellington
+            country: 'New Zealand'
+            latitude: -41.29252243042
+            longitude: 174.7819519043
+            url: 'https://www.meetup.com/PHP-Usergroup-Wellington/events/264149917/'
+        -
+            name: 'Laravel March 2020 Meetup'
+            user_group_name: 'PHP Laravel Framework Sydney'
+            start_date_time: '2020-03-31 18:00'
+            city: Sydney
+            country: Australia
+            latitude: -33.883991241455
+            longitude: 151.21005249023
+            url: 'https://www.meetup.com/PHP-Laravel-Framework-Sydney/events/269295743/'
+        -
+            name: 'PHP and Laravel monthly meetup'
+            user_group_name: 'Chattanooga PHP Developers'
+            start_date_time: '2020-04-01 12:00'
+            city: Chattanooga
+            country: Tennessee
+            latitude: 35.105934143066
+            longitude: -85.333053588867
+            url: 'https://www.meetup.com/chattanoogaphp/events/zcthrqybcgbcb/'
+        -
+            name: 'Aberdeen PHP User Group'
+            user_group_name: 'Aberdeen PHP User Group'
+            start_date_time: '2020-04-01 18:30'
+            city: Aberdeen
+            country: 'United Kingdom'
+            latitude: 57.1482429
+            longitude: -2.0928095
+            url: 'https://opentechcalendar.co.uk/event/10283-aberdeen-php-user-group'
+        -
+            name: 'Presentation Meetup'
+            user_group_name: 'Kansas City''s PHP User Group'
+            start_date_time: '2020-04-01 18:00'
+            city: 'Kansas City'
+            country: 'United States'
+            latitude: 39.036270141602
+            longitude: -94.574935913086
+            url: 'https://www.meetup.com/kcphpug/events/267319924/'
+        -
+            name: 'Christchurch Silverstripe Meetup – April 2020'
+            user_group_name: 'Silverstripe Christchurch Meetup'
+            start_date_time: '2020-04-01 19:00'
+            city: Christchurch
+            country: 'New Zealand'
+            latitude: -43.526737213135
+            longitude: 172.64967346191
+            url: 'https://www.meetup.com/SilverStripe-Christchurch-Meetup/events/269215781/'
+        -
+            name: 'Laravel Dublin'
+            user_group_name: 'Laravel Dublin'
+            start_date_time: '2020-04-01 19:00'
+            city: Dublin
+            country: Ireland
+            latitude: 53.349758148193
+            longitude: -6.2491869926453
+            url: 'https://www.meetup.com/Laravel-Vuejs-Dublin/events/frwqhqybcgbcb/'
+        -
+            name: 'PHPers Warszawa #22'
+            user_group_name: 'PHPers Warszawa'
+            start_date_time: '2020-04-02 18:30'
+            city: Warszawa
+            country: Poland
+            latitude: 52.2319581
+            longitude: 21.0067249
+            url: 'https://crossweb.pl/wydarzenia/phpers-warszawa-22/'
+        -
+            name: 'PHPers Warszawa #22'
+            user_group_name: 'PHPers Warszawa'
+            start_date_time: '2020-04-02 18:30'
+            city: Warszawa
+            country: Poland
+            latitude: 52.268169403076
+            longitude: 21.022016525269
+            url: 'https://www.meetup.com/PHPers-Warszawa/events/268771298/'
+        -
+            name: 'Vilnius PHP'
+            user_group_name: 'Vilnius PHP Meetups'
+            start_date_time: '2020-04-02 19:00'
+            city: Vilnius
+            country: Lithuania
+            latitude: 54.699935913086
+            longitude: 25.31224822998
+            url: 'https://www.meetup.com/vilniusphp/events/fchrnrybcgbdb/'
+        -
+            name: 'PHP April/ It''s almost Easter Light Talks Meetup'
+            user_group_name: GroningenPHP
+            start_date_time: '2020-04-02 19:30'
+            city: Groningen
+            country: Netherlands
+            latitude: 53.214248657227
+            longitude: 6.569179058075
+            url: 'https://www.meetup.com/GroningenPHP/events/fgjkvlybcgbdb/'
+        -
+            name: 'Drupal Developer Days (external)'
+            user_group_name: 'PHP Vegas'
+            start_date_time: '2020-04-06 07:00'
+            city: Ghent
+            country: Belgium
+            latitude: 51.054340362549
+            longitude: 3.717423915863
+            url: 'https://www.meetup.com/PHP-Vegas/events/229968329/'
+        -
+            name: 'Nashville PHP South Lunch'
+            user_group_name: 'Nashville PHP'
+            start_date_time: '2020-04-07 11:30'
+            city: Franklin
+            country: Tennessee
+            latitude: 35.957515716553
+            longitude: -86.801834106445
+            url: 'https://www.meetup.com/nashvillephp/events/ggbppqybcgbkb/'
+        -
+            name: 'Treffen der Symfony User Group Hamburg'
+            user_group_name: 'Symfony User Group Hamburg'
+            start_date_time: '2020-04-07 18:30'
+            city: Hamburg
+            country: Germany
+            latitude: 53.584529876709
+            longitude: 10.025159835815
+            url: 'https://www.meetup.com/sfughh/events/xqdjjrybcgbkb/'
+        -
+            name: 'Presentation: Technology Meetup (Topic to be determined)'
+            user_group_name: 'Frederick Web Technology Group'
+            start_date_time: '2020-04-07 18:30'
+            city: Frederick
+            country: Maryland
+            latitude: 39.415821075439
+            longitude: -77.410438537598
+            url: 'https://www.meetup.com/FredWebTech/events/bmxdqpybcgbkb/'
+        -
+            name: 'April Meetup Berlin PHP User Group'
+            user_group_name: 'Berlin PHP Usergroup'
+            start_date_time: '2020-04-07 19:00'
+            city: Berlin
+            country: Germany
+            latitude: 52.500381469727
+            longitude: 13.419730186462
+            url: 'https://www.meetup.com/Berlin-PHP-Usergroup/events/268480202/'
+        -
+            name: 'Pipeline: cosa sono e come effettuare un deploy con Deployer PHP + REGALO!'
+            user_group_name: '#pugRomagna: PHP User Group Romagnolo'
+            start_date_time: '2020-04-07 20:30'
+            city: Rimini
+            country: Italy
+            latitude: 44.038803100586
+            longitude: 12.59289932251
+            url: 'https://www.meetup.com/PUG-Romagna-PHP-User-Group-Romagnolo/events/269005162/'
+        -
+            name: 'Meetup II / 2020'
+            user_group_name: 'PHP USERGROUP DRESDEN'
+            start_date_time: '2020-04-08 18:30'
+            city: Dresden
+            country: Germany
+            latitude: 51.071502685547
+            longitude: 13.751160621643
+            url: 'https://www.meetup.com/PHP-USERGROUP-DRESDEN/events/268260489/'

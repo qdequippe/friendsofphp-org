@@ -1,16 +1,34 @@
 #!/usr/bin/env php
-<?php declare(strict_types=1);
+<?php
 
-use Fop\Console\FriendsOfPhpApplication;
 use Fop\HttpKernel\FopKernel;
-use Symfony\Component\Console\Application;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\ErrorHandler\Debug;
+
+set_time_limit(0);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$fopKernel = new FopKernel('prod', true);
-$fopKernel->boot();
+$input = new ArgvInput();
+if (null !== $env = $input->getParameterOption(['--env', '-e'], null, true)) {
+    putenv('APP_ENV='.$_SERVER['APP_ENV'] = $_ENV['APP_ENV'] = $env);
+}
 
-$container = $fopKernel->getContainer();
+if ($input->hasParameterOption('--no-debug', true)) {
+    putenv('APP_DEBUG='.$_SERVER['APP_DEBUG'] = $_ENV['APP_DEBUG'] = '0');
+}
 
-$application = $container->get(FriendsOfPhpApplication::class);
-exit($application->run());
+require dirname(__DIR__).'/config/bootstrap.php';
+
+if ($_SERVER['APP_DEBUG']) {
+    umask(0000);
+
+    if (class_exists(Debug::class)) {
+        Debug::enable();
+    }
+}
+
+$kernel = new FopKernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
+$application = new Application($kernel);
+$application->run($input);

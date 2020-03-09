@@ -3,7 +3,7 @@
 namespace Fop\Filter;
 
 use Fop\Contract\MeetupFilterInterface;
-use Fop\Entity\Meetup;
+use Fop\ValueObject\Meetup;
 
 final class MeetupFilterCollector
 {

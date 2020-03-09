@@ -3,10 +3,11 @@
 namespace Fop\MeetupCom;
 
 use Fop\Contract\MeetupImporterInterface;
-use Fop\Entity\Meetup;
+use Fop\Group\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
+use Fop\MeetupCom\Api\MeetupComCooler;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
-use Fop\Repository\GroupRepository;
+use Fop\ValueObject\Meetup;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -32,16 +33,23 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
      */
     private $symfonyStyle;
 
+    /**
+     * @var MeetupComCooler
+     */
+    private $meetupComCooler;
+
     public function __construct(
         GroupRepository $userGroupRepository,
         MeetupComMeetupFactory $meetupComMeetupFactory,
         MeetupComApi $meetupComApi,
-        SymfonyStyle $symfonyStyle
+        SymfonyStyle $symfonyStyle,
+        MeetupComCooler $meetupComCooler
     ) {
         $this->groupRepository = $userGroupRepository;
         $this->meetupComMeetupFactory = $meetupComMeetupFactory;
         $this->meetupComApi = $meetupComApi;
         $this->symfonyStyle = $symfonyStyle;
+        $this->meetupComCooler = $meetupComCooler;
     }
 
     /**
@@ -49,22 +57,19 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
      */
     public function getMeetups(): array
     {
-        $groupSlugs = $this->groupRepository->fetchGroupSlugs();
-
-        $meetups = [];
         $errors = [];
+        $meetups = [];
 
-        $progressBar = $this->symfonyStyle->createProgressBar(count($groupSlugs));
-
+        $groupSlugs = $this->groupRepository->fetchGroupSlugs();
         foreach ($groupSlugs as $groupSlug) {
             try {
+                $this->symfonyStyle->note(sprintf('Loading meetups for %s group', $groupSlug));
+
                 $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
-                $progressBar->advance();
+                $this->meetupComCooler->coolDownIfNeeded();
 
                 // should help with https://github.com/TomasVotruba/friendsofphp.org/runs/492500241#step:4:32
                 // @see https://www.meetup.com/meetup_api/#limits
-                usleep(10000);
-
                 if ($meetupsData === []) {
                     continue;
                 }
@@ -74,7 +79,6 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
             } catch (GuzzleException $guzzleException) {
                 // the group might not exists anymore, but it should not be a blocker for existing groups
                 $errors[] = $guzzleException->getMessage();
-                continue;
             }
         }
 

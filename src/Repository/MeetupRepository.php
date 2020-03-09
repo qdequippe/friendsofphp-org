@@ -2,34 +2,59 @@
 
 namespace Fop\Repository;
 
-use Fop\Entity\Meetup;
 use Fop\FileSystem\YamlFileSystem;
+use Fop\Hydrator\ArrayToValueObjectHydrator;
+use Fop\ValueObject\Meetup;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 final class MeetupRepository
 {
     /**
      * @var string
      */
-    private $generatedDataStorage;
+    private $meetupsStorage;
+
+    /**
+     * @var Meetup[]
+     */
+    private $meetups = [];
 
     /**
      * @var YamlFileSystem
      */
     private $yamlFileSystem;
 
-    public function __construct(string $generatedDataStorage, YamlFileSystem $yamlFileSystem)
-    {
-        $this->generatedDataStorage = $generatedDataStorage;
+    public function __construct(
+        string $meetupsStorage,
+        YamlFileSystem $yamlFileSystem,
+        ParameterBagInterface $parameterBag,
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator
+    ) {
         $this->yamlFileSystem = $yamlFileSystem;
+
+        $meetupsArray = (array) $parameterBag->get('meetups');
+        $this->meetups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($meetupsArray, Meetup::class);
+        $this->meetupsStorage = $meetupsStorage;
     }
 
     /**
      * @param Meetup[] $meetups
      */
-    public function saveImportsToFile(array $meetups, string $category): void
+    public function saveImportsToFile(array $meetups): void
     {
-        $fileName = $this->generatedDataStorage . '/' . $category . '-imported_meetups.yaml';
-        $this->saveToFileAndStorage($meetups, $fileName);
+        $this->saveToFileAndStorage($meetups, $this->meetupsStorage);
+    }
+
+    /**
+     * @return Meetup[]
+     */
+    public function fetchAll(): array
+    {
+        usort($this->meetups, function (Meetup $firstMeetup, Meetup $secondMeetup) {
+            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
+        });
+
+        return $this->meetups;
     }
 
     /**
@@ -41,7 +66,7 @@ final class MeetupRepository
 
         $meetupsYamlStructure = [
             'parameters' => [
-                'meetups' => $this->turnsObjectsToArrays($meetups),
+                'meetups' => $this->turnMeetupsToArrays($meetups),
             ],
         ];
 
@@ -65,23 +90,13 @@ final class MeetupRepository
      * @param Meetup[] $meetups
      * @return mixed[]
      */
-    private function turnsObjectsToArrays(array $meetups): array
+    private function turnMeetupsToArrays(array $meetups): array
     {
-        $meetupsAsArray = [];
-
+        $meetupsArray = [];
         foreach ($meetups as $meetup) {
-            $meetupsAsArray[] = [
-                'name' => $meetup->getName(),
-                'user_group' => $meetup->getUserGroup(),
-                'start' => $meetup->getStartDateTime()->format('Y-m-d H:i'),
-                'city' => $meetup->getCity(),
-                'country' => $meetup->getCountry(),
-                'latitude' => $meetup->getLatitude(),
-                'longitude' => $meetup->getLongitude(),
-                'url' => $meetup->getUrl(),
-            ];
+            $meetupsArray[] = $meetup->toArray();
         }
 
-        return $meetupsAsArray;
+        return $meetupsArray;
     }
 }

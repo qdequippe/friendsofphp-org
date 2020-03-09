@@ -2,63 +2,66 @@
 
 namespace Fop\HttpKernel;
 
-use Symfony\Component\Config\Loader\DelegatingLoader;
-use Symfony\Component\Config\Loader\GlobFileLoader;
+use Iterator;
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Config\Loader\LoaderResolver;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpKernel\Bundle\BundleInterface;
-use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symplify\AutoBindParameter\DependencyInjection\CompilerPass\AutoBindParameterCompilerPass;
+use Symplify\Autodiscovery\Discovery;
 use Symplify\AutowireArrayParameter\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
+use Symplify\FlexLoader\Flex\FlexLoader;
 use Symplify\PackageBuilder\DependencyInjection\CompilerPass\AutoReturnFactoryCompilerPass;
-use Symplify\PackageBuilder\Yaml\FileLoader\ParameterMergingYamlFileLoader;
 
 final class FopKernel extends Kernel
 {
-    public function registerContainerConfiguration(LoaderInterface $loader): void
-    {
-        $loader->load(__DIR__ . '/../../config/config.yaml');
-    }
-
-    public function getCacheDir(): string
-    {
-        return sys_get_temp_dir() . '/fop_cache';
-    }
-
-    public function getLogDir(): string
-    {
-        return sys_get_temp_dir() . '/fop_log';
-    }
+    use MicroKernelTrait;
 
     /**
-     * @return BundleInterface[]
+     * @var FlexLoader
      */
-    public function registerBundles(): iterable
+    private $flexLoader;
+
+    /**
+     * @var Discovery
+     */
+    private $discovery;
+
+    public function __construct(string $environment, bool $debug)
     {
-        return [];
+        parent::__construct($environment, $debug);
+
+        $this->flexLoader = new FlexLoader($environment, $this->getProjectDir());
+        $this->discovery = new Discovery($this->getProjectDir());
+    }
+
+    public function registerBundles(): Iterator
+    {
+        return $this->flexLoader->loadBundles();
+    }
+
+    protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
+    {
+        $this->discovery->discoverTemplates($containerBuilder);
+
+        $this->flexLoader->loadConfigs($containerBuilder, $loader, [
+            // project packages
+            $this->getProjectDir() . '/packages/*/config/*',
+        ]);
+    }
+
+    protected function configureRoutes(RouteCollectionBuilder $routeCollectionBuilder): void
+    {
+        $this->discovery->discoverRoutes($routeCollectionBuilder);
+        $this->flexLoader->loadRoutes($routeCollectionBuilder);
     }
 
     protected function build(ContainerBuilder $containerBuilder): void
     {
         $containerBuilder->addCompilerPass(new AutoReturnFactoryCompilerPass());
-        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
+
         $containerBuilder->addCompilerPass(new AutoBindParameterCompilerPass());
-    }
-
-    /**
-     * @param ContainerInterface|ContainerBuilder $container
-     */
-    protected function getContainerLoader(ContainerInterface $container): DelegatingLoader
-    {
-        $kernelFileLocator = new FileLocator($this);
-        $loaderResolver = new LoaderResolver([
-            new GlobFileLoader($kernelFileLocator),
-            new ParameterMergingYamlFileLoader($container, $kernelFileLocator),
-        ]);
-
-        return new DelegatingLoader($loaderResolver);
+        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
     }
 }

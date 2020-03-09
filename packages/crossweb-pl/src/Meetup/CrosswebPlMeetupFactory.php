@@ -3,10 +3,10 @@
 namespace Fop\CrosswebPl\Meetup;
 
 use DateTimeInterface;
-use Fop\Entity\Location;
-use Fop\Entity\Meetup;
 use Fop\Geolocation\Geolocator;
 use Fop\Meetup\MeetupFactory;
+use Fop\ValueObject\Location;
+use Fop\ValueObject\Meetup;
 use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;

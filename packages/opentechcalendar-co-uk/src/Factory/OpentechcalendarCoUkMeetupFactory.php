@@ -2,10 +2,11 @@
 
 namespace Fop\OpentechcalendarCoUk\Factory;
 
-use Fop\Entity\Location;
-use Fop\Entity\Meetup;
+use Fop\Exception\ShouldNotHappenException;
 use Fop\Geolocation\Geolocator;
 use Fop\Meetup\MeetupFactory;
+use Fop\ValueObject\Location;
+use Fop\ValueObject\Meetup;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;
@@ -52,6 +53,10 @@ final class OpentechcalendarCoUkMeetupFactory
             return null;
         }
 
+        if ($location->getCoordinate()->getLng() === 0.0 && $location->getCoordinate()->getLat() === 0.0) {
+            throw new ShouldNotHappenException(sprintf('Invalid location resolved for "%s".', $name));
+        }
+
         $link = $data['siteurl'];
 
         return $this->meetupFactory->create($name, $group, $start, $location, $link);
@@ -62,7 +67,7 @@ final class OpentechcalendarCoUkMeetupFactory
      */
     private function createLocation(array $data): ?Location
     {
-        if (! isset($data['venue'])) {
+        if ($this->isVenueMissing($data)) {
             // fallback to city
             $city = $data['areas'][0]['title'];
             return $this->geolocator->createLocationFromCity($city);
@@ -71,5 +76,18 @@ final class OpentechcalendarCoUkMeetupFactory
         $coordinate = new Coordinate((float) $data['venue']['lat'], (float) $data['venue']['lng']);
 
         return new Location($data['areas'][0]['title'], $data['country']['title'], $coordinate);
+    }
+
+    private function isVenueMissing(array $data): bool
+    {
+        if (! isset($data['venue'])) {
+            return true;
+        }
+
+        if ($data['venue']['lat'] === null || $data['venue']['lat']) {
+            return true;
+        }
+
+        return false;
     }
 }

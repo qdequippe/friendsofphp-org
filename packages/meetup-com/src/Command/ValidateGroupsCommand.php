@@ -3,7 +3,7 @@
 namespace Fop\MeetupCom\Command;
 
 use Fop\Exception\ShouldNotHappenException;
-use Fop\Repository\GroupRepository;
+use Fop\Group\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -28,11 +28,8 @@ final class ValidateGroupsCommand extends Command
      */
     private $groupRepository;
 
-    public function __construct(
-        SymfonyStyle $symfonyStyle,
-        GroupRepository $groupRepository,
-        string $groupsStorage
-    ) {
+    public function __construct(SymfonyStyle $symfonyStyle, GroupRepository $groupRepository, string $groupsStorage)
+    {
         parent::__construct();
         $this->symfonyStyle = $symfonyStyle;
         $this->groupRepository = $groupRepository;
@@ -53,20 +50,20 @@ final class ValidateGroupsCommand extends Command
         $duplicatedGroupSlugs = [];
 
         foreach ($groups as $group) {
-            if ($group['country'] === 'United States') {
+            if ($group->getCountry() === 'United States') {
                 throw new ShouldNotHappenException(sprintf(
                     'Group "%s" has country as too generic "%s". Change it to specific state.',
-                    $group['name'],
+                    $group->getName(),
                     'United States'
                 ));
             }
         }
 
         foreach ($groups as $group) {
-            if (! isset($existingGroupSlugs[$group['meetup_com_slug']])) {
-                $existingGroupSlugs[$group['meetup_com_slug']] = true;
+            if (! isset($existingGroupSlugs[$group->getMeetupComSlug()])) {
+                $existingGroupSlugs[$group->getMeetupComSlug()] = true;
             } else {
-                $duplicatedGroupSlugs[] = $group['meetup_com_slug'];
+                $duplicatedGroupSlugs[] = $group->getMeetupComSlug();
             }
         }
 
@@ -78,9 +75,10 @@ final class ValidateGroupsCommand extends Command
             return ShellCode::SUCCESS;
         }
 
-        $this->symfonyStyle->title('Found duplicated groups');
+        $this->symfonyStyle->section('Found duplicated groups');
         $this->symfonyStyle->listing($duplicatedGroupSlugs);
-        $this->symfonyStyle->error(sprintf('Cleanup "%s" file please.', $this->groupsStorage));
+
+        $this->symfonyStyle->error(sprintf('Cleanup "%s" file', $this->groupsStorage));
 
         return ShellCode::ERROR;
     }

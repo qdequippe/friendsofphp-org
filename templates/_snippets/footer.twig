@@ -21,29 +21,29 @@
         </p>
 
         <p>
-            We show <strong>meetups for next {{ max_forecast_days }} days</strong>, so you can <a href="https://www.tomasvotruba.cz/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">pick up where to go speak</a> or talks with friends right away.
+            We show <strong>meetups for next {{ max_forecast_days }} days</strong>, so you can <a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">pick up where to go speak</a> or talks with friends right away.
         </p>
 
         <hr class="mt-5 mb-5">
 
         <p class="text-center">
-            <a href="/groups/" class="btn btn-warning btn-lg">Did we Forget Your Group?</a>
+            <a href="{{ path('groups') }}" class="btn btn-warning btn-lg">Did we Forget Your Group?</a>
         </p>
 
         <br>
 
         <div class="text-center pt-5">
             <p class="dim">
-                Made with ❤️ on️ <a href="https://www.statie.org">Statie</a> by ️☕️ and <a href="https://tomasvotruba.com">Tomas Votruba</a>
+                Made with ❤️ by ️☕️ and <a href="https://tomasvotruba.com">Tomas Votruba</a>
                 <br>
                 Check <a href="https://github.com/tomasvotruba/friendsofphp.org">the repository on Github</a>
                 <br>
 
-                <a href="/api/meetups.json">Meetups JSON</a>
+                <a href="{{ path('api_meetups_json') }}">Meetups JSON</a>
 
                 <span class="pl-2 pr-2">•</span>
 
-                <a href="/api/groups.json">Groups JSON</a>
+                <a href="{{ path('api_groups_json') }}">Groups JSON</a>
 
                 <span class="pl-2 pr-2">•</span>
 
