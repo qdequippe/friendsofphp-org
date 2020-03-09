@@ -11,12 +11,13 @@ services:
 
     Fop\:
         resource: '../src'
-        exclude: '../src/{Entity,HttpKernel/FopKernel.php,Contract}'
+        exclude:
+            - '../src/Entity/*'
+            - '../src/HttpKernel/*'
+            - '../src/Contract/*'
 
     Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader: ~
+    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
 
     GuzzleHttp\Client: ~
     Symplify\PackageBuilder\Http\BetterGuzzleClient: ~
-
-    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: ~
-

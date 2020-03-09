@@ -1,0 +1,26 @@
+{% block title %}"When is the Next PHP Meetup?{% endblock %}
+{% layout "_layouts/default.twig" %}
+
+<div class="container-fluid" id="content">
+    <div class="row">
+        <div class="col-md-12 pb-5 pt-4">
+            {# sort meetups from all imported files from nearest to the most further one #}
+            {% set meetups = sort_by_field(meetups, 'start') %}
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <a name="map"></a>
+                            <div id="{{ map_id }}" class="mb-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 pl-md-0">
+                    {% include "_snippets/meetups/map_and_table.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

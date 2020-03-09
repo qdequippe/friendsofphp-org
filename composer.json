@@ -27,10 +27,10 @@
     "autoload": {
         "psr-4": {
             "Fop\\": "src",
-            "Fop\\MeetupCom\\": "packages/MeetupCom/src",
-            "Fop\\CrosswebPl\\": "packages/CrosswebPl/src",
-            "Fop\\OpentechcalendarCoUk\\": "packages/OpentechcalendarCoUk/src",
-            "Fop\\DouUa\\": "packages/DouUa/src"
+            "Fop\\MeetupCom\\": "packages/meetup-com/src",
+            "Fop\\CrosswebPl\\": "packages/crossweb-pl/src",
+            "Fop\\OpentechcalendarCoUk\\": "packages/opentechcalendar-co-uk/src",
+            "Fop\\StaticSiteSumper\\": "packages/static-site-dumper/src"
         }
     },
     "autoload-dev": {
@@ -39,9 +39,9 @@
         }
     },
     "scripts": {
-        "check-cs": "vendor/bin/ecs check bin src tests packages",
-        "fix-cs": "vendor/bin/ecs check bin src tests packages --fix",
-        "phpstan": "vendor/bin/phpstan analyse bin src tests packages --error-format symplify",
+        "check-cs": "vendor/bin/ecs check bin src tests packages --ansi",
+        "fix-cs": "vendor/bin/ecs check bin src tests packages --fix --ansi",
+        "phpstan": "vendor/bin/phpstan analyse bin src tests packages --error-format symplify --ansi",
         "generate": [
             "bin/console import",
             "vendor/bin/statie generate source"

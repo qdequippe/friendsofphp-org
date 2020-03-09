@@ -1,6 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Fop\DouUa\Exception;
+declare(strict_types=1);
+
+namespace Fop\Exception;
 
 use Exception;
 

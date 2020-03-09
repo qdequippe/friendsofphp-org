@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "_snippets/head.twig" %}
+
+    <body>
+        <div id="head" class="text-center pt-3 pb-2">
+            {% include "_snippets/headline.twig" %}
+        </div>
+
+        {% block content %}{% endblock %}
+
+        {% include "_snippets/footer.twig" %}
+        {% include "_snippets/google_analytics.twig" %}
+    </body>
+</html>

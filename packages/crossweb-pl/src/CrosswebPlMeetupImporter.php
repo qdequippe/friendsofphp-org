@@ -4,8 +4,8 @@ namespace Fop\CrosswebPl;
 
 use Fop\Contract\MeetupImporterInterface;
 use Fop\CrosswebPl\Meetup\CrosswebPlMeetupFactory;
-use Fop\DouUa\Xml\XmlReader;
 use Fop\Entity\Meetup;
+use Fop\Xml\XmlReader;
 use Nette\Utils\Strings;
 
 final class CrosswebPlMeetupImporter implements MeetupImporterInterface

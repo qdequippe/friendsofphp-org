@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop\DouUa\Xml;
+namespace Fop\Xml;
 
-use Fop\DouUa\Exception\XmlException;
+use Fop\Exception\XmlException;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use SimpleXMLElement;

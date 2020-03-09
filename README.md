@@ -16,6 +16,17 @@ npm install
 gulp # see gulpfile.js for more
 ```
 
+Create `config/config.local.yaml` and add your [Meetup.com API keys](https://secure.meetup.com/meetup_api/oauth_consumers/):
+
+```yaml
+# config/config.local.yaml
+parameters:
+    env(MEETUP_COM_OAUTH_KEY): "..."
+    env(MEETUP_COM_OAUTH_SECRET): "..."
+```
+
+This is needed to import meetups from meetup.com groups.
+
 ### Update Meetup Data
 
 To see some meetups you must import them first:

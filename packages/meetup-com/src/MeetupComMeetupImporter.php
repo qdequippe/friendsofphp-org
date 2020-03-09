@@ -61,6 +61,10 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
                 $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
                 $progressBar->advance();
 
+                // should help with https://github.com/TomasVotruba/friendsofphp.org/runs/492500241#step:4:32
+                // @see https://www.meetup.com/meetup_api/#limits
+                usleep(10000);
+
                 if ($meetupsData === []) {
                     continue;
                 }

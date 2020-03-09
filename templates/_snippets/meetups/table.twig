@@ -1,0 +1,69 @@
+<div id="table"></div>
+
+<table class="table table-bordered table-responsive" id="table-meetups">
+    <thead class="thead-inverse">
+        <tr>
+            <th class="w-25 text-center">
+                📅
+                &nbsp;
+                <span class="hidden-sm-down">When</span>
+            </th>
+            <th class="w-25 text-center">
+                📍
+
+                <span class="hidden-sm-down">Where</span>
+            </th>
+            <th class="w-50 text-center">
+                <span class="hidden-sm-down">Meetup</span>
+            </th>
+        </tr>
+    </thead>
+    <tr id="block-zoomout">
+        <td colspan="3" class="text-center">
+            No meetups in this area. Try to zoom out a bit!
+        </td>
+    </tr>
+
+    {% for meetup in meetups %}
+        {% set days_from_today = diff_from_today_in_days(meetup.start) %}
+
+        {# @var meetup \Fop\Twig\Autocomplete\MeetupAutocomplete #}
+
+        {% set days_from_today = diff_from_today_in_days(meetup.start) %}
+
+        {% if days_from_today <= max_forecast_days %}
+            <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}" data-datetime="{{ meetup.start|date("Y-m-d H:i") }}">
+                <td class="w-25">
+                    <span class="text-nowrap text-{% if days_from_today < 7 %}success{% elseif days_from_today < 14 %}warning{% else %}danger{% endif %}">
+                        {{ meetup.start|date("D") }},
+                        <strong>{{ meetup.start|date("M d") }}</strong>
+                    </span>
+
+                    <br>
+
+                    <small class="text-secondary">{{ meetup.start|date("H:i") }}</small>
+                </td>
+                <td class="w-25">
+                    <a href="#" onclick="relocate({{ meetup.latitude }}, {{ meetup.longitude }})">
+                        {{ meetup.city }}
+                    </a>
+
+                    <br>
+
+                    <small class="text-secondary">{{ meetup.country }}</small>
+                </td>
+                <td class="w-50">
+                    <strong>
+                        <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                    </strong>
+
+                    <br>
+
+                    <small class="text-secondary">{{ meetup.user_group }}</small>
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+
+
