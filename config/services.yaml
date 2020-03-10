@@ -20,6 +20,3 @@ services:
 
     GuzzleHttp\Client: null
     Symplify\PackageBuilder\Http\BetterGuzzleClient: null
-
-    # twig
-    Fop\MeetupCom\Twig\LastMeetupDateByGroupSlugTwigExtension: ~

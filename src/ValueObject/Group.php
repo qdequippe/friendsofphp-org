@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Fop\ValueObject;
 
-use DateTimeInterface;
-use Fop\Utils\DateStaticUtils;
-
 final class Group
 {
     /**
@@ -24,21 +21,11 @@ final class Group
      */
     private $country;
 
-    /**
-     * @var DateTimeInterface|null
-     */
-    private $lastMeetupDateTime;
-
-    public function __construct(
-        string $name,
-        string $meetupComSlug,
-        string $country,
-        ?DateTimeInterface $lastMeetupDateTime
-    ) {
+    public function __construct(string $name, string $meetupComSlug, string $country)
+    {
         $this->name = $name;
         $this->meetupComSlug = $meetupComSlug;
         $this->country = $country;
-        $this->lastMeetupDateTime = $lastMeetupDateTime;
     }
 
     public function getName(): string
@@ -56,35 +43,12 @@ final class Group
         return $this->country;
     }
 
-    public function getDaysFromLastMeetup(): ?int
-    {
-        return DateStaticUtils::getDiffFromTodayInDays($this->lastMeetupDateTime);
-    }
-
-    public function changeLastMeetupDateTime(?DateTimeInterface $lastMeetupDateTime): void
-    {
-        $this->lastMeetupDateTime = $lastMeetupDateTime;
-    }
-
-    public function getLastMeetupDateTime(): ?DateTimeInterface
-    {
-        return $this->lastMeetupDateTime;
-    }
-
     public function toArray(): array
     {
-        $data = [
+        return [
             'name' => $this->name,
             'meetup_com_slug' => $this->getMeetupComSlug(),
             'country' => $this->country,
         ];
-
-        if ($this->lastMeetupDateTime) {
-            $data['last_meetup_date_time'] = $this->lastMeetupDateTime->format('Y-m-d');
-        } else {
-            $data['last_meetup_date_time'] = null;
-        }
-
-        return $data;
     }
 }

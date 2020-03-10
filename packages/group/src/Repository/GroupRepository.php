@@ -48,21 +48,6 @@ final class GroupRepository
         return $this->groups;
     }
 
-    /**
-     * @return Group[][]
-     */
-    public function fetchGroupedByCountry(): array
-    {
-        $groupsByCountry = [];
-        foreach ($this->groups as $group) {
-            $groupsByCountry[$group->getCountry()][] = $group;
-        }
-
-        ksort($groupsByCountry);
-
-        return $groupsByCountry;
-    }
-
     public function persist(): void
     {
         $yamlStructure = [
