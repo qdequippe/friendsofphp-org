@@ -115,13 +115,15 @@ final class DumpStaticSiteCommand extends Command
     {
         $routePath = $route->getPath();
 
-        if ($routePath === '/') {
-            $routePath = '/index.html';
+        $routePath = ltrim($routePath, '/');
+
+        if ($routePath === '') {
+            $routePath = 'index.html';
         } elseif (! $this->isFileWithSuffix($routePath)) {
             $routePath .= '/index.html';
         }
 
-        return getcwd() . '/output' . $routePath;
+        return getcwd() . '/output/' . $routePath;
     }
 
     private function isFileWithSuffix(string $routePath): bool
