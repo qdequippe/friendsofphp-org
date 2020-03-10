@@ -1,0 +1,60 @@
+{% block title %}What PHP Groups are Out There?{% endblock %}
+
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container-fluid" id="groups">
+        <div class="text-center">
+            <h2 class="pt-4 pb-4">We Check <strong>{{ group_count }} Active Groups</strong> on Meetup.com Everyday!</h2>
+            <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/source/_data/groups.yaml" class="btn btn-success btn-lg mt-1 mb-4">Add Your Group!</a>
+        </div>
+
+        <p>Active Groups? Yes! All these groups had at least one meetup in last 180 days.</p>
+
+        <table class="table table-bordered table-responsive">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25 text-center">Group Name</th>
+                    <th class="w-25 text-center">Last Meetup</th>
+                </tr>
+            </thead>
+
+            {% for country, groups in groups_by_country %}
+                <thead class="thead-inverse">
+                    <tr>
+                        <th colspan="2" class="text-center">
+                            <h3 id="{{ country|webalize }}">
+                                <a href="#{{ country|webalize }}">{{ country }}</a>
+                            </h3>
+
+                            {% if groups|length > 3 %}
+                                <div class="text-muted pull-right">({{ groups|length }} groups)</div>
+                            {% endif %}
+                        </th>
+                    </tr>
+                </thead>
+
+                {% for group in groups %}
+                    <tr>
+                        <td>
+                            <strong>
+                                <a href="https://meetup.com/{{ group.meetupComSlug }}">{{ group.name }}</a>
+                            </strong>
+                        </td>
+
+                        {% if group.lastMeetupDateTime != null %}
+                            <td class="text-{% if group.daysFromLastMeetup < -180 %}danger{% elseif group.daysFromLastMeetup < -90 %}warning{% else %}success{% endif %}">
+                                {{ group.lastMeetupDateTime|date("M d, Y") }}
+                            </td>
+                        {% else %}
+                            <td>
+                                &ndash;
+                                {{ group.lastMeetupDateTime != null }}
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

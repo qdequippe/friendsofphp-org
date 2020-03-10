@@ -3,10 +3,11 @@
 namespace Fop\Command;
 
 use Fop\Contract\MeetupImporterInterface;
-use Fop\Entity\Meetup;
 use Fop\Filter\MeetupFilterCollector;
+use Fop\Meetup\DataCollector\MeetupCollector;
 use Fop\MeetupCom\Command\Reporter\MeetupReporter;
 use Fop\Repository\MeetupRepository;
+use Fop\ValueObject\Meetup;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -17,6 +18,11 @@ use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ImportCommand extends Command
 {
+    /**
+     * @var string
+     */
+    private const OPTION_ONLY = 'only';
+
     /**
      * @var MeetupImporterInterface[]
      */
@@ -43,6 +49,11 @@ final class ImportCommand extends Command
     private $meetupFilterCollector;
 
     /**
+     * @var MeetupCollector
+     */
+    private $meetupCollector;
+
+    /**
      * @param MeetupImporterInterface[] $meetupImporters
      */
     public function __construct(
@@ -50,7 +61,8 @@ final class ImportCommand extends Command
         SymfonyStyle $symfonyStyle,
         MeetupRepository $meetupRepository,
         MeetupReporter $meetupReporter,
-        MeetupFilterCollector $meetupFilterCollector
+        MeetupFilterCollector $meetupFilterCollector,
+        MeetupCollector $meetupCollector
     ) {
         parent::__construct();
         $this->meetupImporters = $meetupImporters;
@@ -58,19 +70,20 @@ final class ImportCommand extends Command
         $this->meetupRepository = $meetupRepository;
         $this->meetupReporter = $meetupReporter;
         $this->meetupFilterCollector = $meetupFilterCollector;
+        $this->meetupCollector = $meetupCollector;
     }
 
     protected function configure(): void
     {
         $this->setName(CommandNaming::classToName(self::class));
         $this->setDescription('Import meetups from meetup providers');
-        $this->addOption('only', null, InputOption::VALUE_REQUIRED, 'Single provider key to run');
+        $this->addOption(self::OPTION_ONLY, null, InputOption::VALUE_REQUIRED, 'Single provider key to run');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var string|null $provider */
-        $provider = $input->getOption('only');
+        $provider = $input->getOption(self::OPTION_ONLY);
 
         $meetupImporters = $this->getMeetupImporters($provider);
 
@@ -85,13 +98,16 @@ final class ImportCommand extends Command
         }
 
         foreach ($meetupImporters as $meetupImporter) {
-            $this->symfonyStyle->note(sprintf('Importing meetups from "%s"', $meetupImporter->getKey()));
+            $this->symfonyStyle->section(sprintf('Importing meetups from "%s"', $meetupImporter->getKey()));
 
             $meetups = $meetupImporter->getMeetups();
             $meetups = $this->meetupFilterCollector->filter($meetups);
 
-            $this->saveAndReportMeetups($meetups, $meetupImporter->getKey());
+            $this->reportMeetups($meetups, $meetupImporter->getKey());
+            $this->meetupCollector->addMeetups($meetups);
         }
+
+        $this->meetupRepository->saveImportsToFile($this->meetupCollector->getMeetups());
 
         $this->symfonyStyle->success('Import is done!');
 
@@ -133,14 +149,13 @@ final class ImportCommand extends Command
     /**
      * @param Meetup[] $meetups
      */
-    private function saveAndReportMeetups(array $meetups, string $key): void
+    private function reportMeetups(array $meetups, string $key): void
     {
         if (count($meetups) === 0) {
             return;
         }
 
         $this->meetupReporter->printMeetups($meetups);
-        $this->meetupRepository->saveImportsToFile($meetups, $key);
 
         $this->symfonyStyle->success(sprintf('Loaded %d meetups from "%s"', count($meetups), $key));
     }

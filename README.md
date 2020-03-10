@@ -12,22 +12,32 @@
 git clone git@github.com:TomasVotruba/friendsofphp.org.git # use your fork to contribute
 cd friendsofphp.org
 composer install
-npm install
-gulp # see gulpfile.js for more
 ```
 
-### Update Meetup Data
+- Copy `.env` to `.env.local`
+- Add your [Meetup.com API keys](https://secure.meetup.com/meetup_api/oauth_consumers/):
 
-To see some meetups you must import them first:
+```dotenv
+# .env.local
+MEETUP_COM_OAUTH_KEY=...
+MEETUP_COM_OAUTH_SECRET=...
+```
+
+- Update Meetup Data
 
 ```bash
 bin/console import
-
-# then run website
-gulp
 ```
 
-You'll find new or updated files in `/source/_data/generated/` directory.
+- Run Local Server
+
+```bash
+bin/console server:run
+```
+
+You'll find new or updated files in `/config/_data/generated/` directory.
+
+### Usage
 
 To **upgrade last meeting dates**:
 
@@ -35,17 +45,11 @@ To **upgrade last meeting dates**:
 bin/console last-group-meetup
 ```
 
-Don't forget to use the API keys:
-
-```
-MEETUP_COM_OAUTH_KEY=xxx MEETUP_COM_OAUTH_SECRET=yyy bin/console last-group-meetup
-```
-
-## API?
+## JSON API?
 
 Do you want to get all groups and meetups? There you are:
 
-- https://friendsofphp.org/api/meetups.json 
+- https://friendsofphp.org/api/meetups.json
 - https://friendsofphp.org/api/groups.json
 
 ## Maintenance

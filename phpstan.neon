@@ -4,12 +4,23 @@ includes:
 parameters:
     level: max
 
+    paths:
+        - bin
+        - src
+        - tests
+        - packages
+
+    checkGenericClassInNonGenericObjectType: false
     reportUnmatchedIgnoredErrors: false
 
     ignoreErrors:
-        - '#Parameter \#1 \$containerBuilder of class Symplify\\PackageBuilder\\Yaml\\FileLoader\\ParameterMergingYamlFileLoader constructor expects Symfony\\Component\\DependencyInjection\\ContainerBuilder, Symfony\\Component\\DependencyInjection\\ContainerInterface given#'
         # iterables
         - '#return type has no value type specified in iterable type Iterator#'
         - '#no value type specified in iterable type array#'
 
-        - '#Offset (.*?) does not exist on \(array\)\|null#'
+        - '#Property Fop\\Group\\Repository\\GroupRepository\:\:\$groups \(array<Fop\\ValueObject\\Group\>\) does not accept array<object\>#'
+        - '#Cannot call method getName\(\) on ReflectionType\|null#'
+        - '#Property Fop\\Repository\\MeetupRepository\:\:\$meetups \(array<Fop\\ValueObject\\Meetup\>\) does not accept array<object\>#'
+
+        # variadic
+        - '#Method Fop\\MeetupCom\\Api\\MeetupComRequestRunner\:\:runCallbackWithinRequestLimits\(\) has parameter \$args with no typehint specified#'

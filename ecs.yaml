@@ -19,3 +19,4 @@ parameters:
         Symplify\CodingStandard\Sniffs\CleanCode\ForbiddenStaticFunctionSniff:
             # helper class
             - 'src/Utils/Arrays.php'
+            - '*Static*'

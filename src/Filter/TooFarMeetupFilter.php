@@ -4,7 +4,7 @@ namespace Fop\Filter;
 
 use DateTimeInterface;
 use Fop\Contract\MeetupFilterInterface;
-use Fop\Entity\Meetup;
+use Fop\ValueObject\Meetup;
 use Nette\Utils\DateTime;
 
 final class TooFarMeetupFilter implements MeetupFilterInterface

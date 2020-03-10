@@ -12,6 +12,9 @@ composer.lock
 /source/_data/generated
 !.gitkeep
 *.local.yaml
-!source/_data/generated/group_last_date.yaml
 
 .phpunit.result.cache
+
+
+/var
+.env.local

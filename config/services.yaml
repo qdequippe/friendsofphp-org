@@ -1,0 +1,27 @@
+imports:
+    - { resource: 'parameters.yaml' }
+
+services:
+    _defaults:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    Fop\:
+        resource: '../src'
+        exclude:
+            - '../src/Entity/*'
+            - '../src/HttpKernel/*'
+            - '../src/Contract/*'
+            - '../src/ValueObject/*'
+
+    Symplify\Statie\Templating\ArrayUtils: null
+
+    Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader: null
+    Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory: null
+
+    GuzzleHttp\Client: null
+    Symplify\PackageBuilder\Http\BetterGuzzleClient: null
+
+    # twig
+    Fop\MeetupCom\Twig\LastMeetupDateByGroupSlugTwigExtension: ~

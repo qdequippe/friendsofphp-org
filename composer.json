@@ -2,35 +2,47 @@
     "name": "friends-of-php/friends-of-php",
     "require": {
         "php": "^7.3",
+        "doctrine/cache": "^1.10",
         "ext-simplexml": "*",
         "guzzlehttp/guzzle": "^6.5",
+        "kamermans/guzzle-oauth2-subscriber": "^1.0",
+        "league/period": "^4.9",
+        "mjaschen/phpgeo": "^2.1",
         "nette/utils": "^3.0",
         "rinvex/countries": "^3.1",
-        "symplify/statie": "^7.2",
-        "symplify/package-builder": "^7.2",
+        "sensio/framework-extra-bundle": "^5.5",
         "symfony/console": "^5.0",
+        "symfony/debug-bundle": "^5.0",
         "symfony/dependency-injection": "^5.0",
         "symfony/dom-crawler": "^5.0",
+        "symfony/dotenv": "^5.0",
         "symfony/http-kernel": "^5.0",
-        "mjaschen/phpgeo": "^2.1",
-        "league/period": "^4.9",
-        "kamermans/guzzle-oauth2-subscriber": "^1.0"
+        "symfony/flex": "^1.4",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/twig-bridge": "^5.0",
+        "symfony/twig-bundle": "^5.0",
+        "symplify/autodiscovery": "^7.2",
+        "symplify/flex-loader": "^7.2",
+        "symplify/package-builder": "^7.2",
+        "symplify/statie": "^7.2"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": "^8.5",
         "spatie/http-status-check": "^3.1",
         "symplify/phpstan-extensions": "^7.2",
-        "symplify/easy-coding-standard": "^7.2",
-        "nette/caching": "^3.0"
+        "symplify/easy-coding-standard": "^7.2"
     },
     "autoload": {
         "psr-4": {
             "Fop\\": "src",
-            "Fop\\MeetupCom\\": "packages/MeetupCom/src",
-            "Fop\\CrosswebPl\\": "packages/CrosswebPl/src",
-            "Fop\\OpentechcalendarCoUk\\": "packages/OpentechcalendarCoUk/src",
-            "Fop\\DouUa\\": "packages/DouUa/src"
+            "Fop\\Group\\": "packages/group/src",
+            "Fop\\Meetup\\": "packages/meetup/src",
+            "Fop\\Hydrator\\": "packages/hydrator/src",
+            "Fop\\MeetupCom\\": "packages/meetup-com/src",
+            "Fop\\CrosswebPl\\": "packages/crossweb-pl/src",
+            "Fop\\OpentechcalendarCoUk\\": "packages/opentechcalendar-co-uk/src",
+            "Fop\\StaticSiteDumper\\": "packages/static-site-dumper/src"
         }
     },
     "autoload-dev": {
@@ -39,13 +51,31 @@
         }
     },
     "scripts": {
-        "check-cs": "vendor/bin/ecs check bin src tests packages",
-        "fix-cs": "vendor/bin/ecs check bin src tests packages --fix",
-        "phpstan": "vendor/bin/phpstan analyse bin src tests packages --error-format symplify",
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "check-cs": "vendor/bin/ecs check bin src tests packages --ansi",
+        "fix-cs": "vendor/bin/ecs check bin src tests packages --fix --ansi",
+        "phpstan": "vendor/bin/phpstan analyse --error-format symplify --ansi",
         "generate": [
             "bin/console import",
-            "vendor/bin/statie generate source"
+            "bin/console dump:static:site"
         ],
         "dead": "vendor/bin/http-status-check scan https://friendsofphp.org/groups/ --output=log.txt"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true
+        }
     }
 }

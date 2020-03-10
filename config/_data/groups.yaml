@@ -1,0 +1,788 @@
+# this file was generated on 2020-03-10 14:03:54, do not edit it manually
+parameters:
+    groups:
+        -
+            name: 'Austin PHP Meetup'
+            meetup_com_slug: austinphp
+            country: USA
+            last_meetup_date_time: '2020-02-13'
+        -
+            name: laravel.istanbul
+            meetup_com_slug: laravelistanbul
+            country: Turkey
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'İstanbul PHP User Group'
+            meetup_com_slug: IstanbulPHP
+            country: Turkey
+            last_meetup_date_time: '2019-11-23'
+        -
+            name: 'SilverStripe Christchurch Meetup'
+            meetup_com_slug: SilverStripe-Christchurch-Meetup
+            country: 'New Zealand'
+            last_meetup_date_time: '2019-12-04'
+        -
+            name: 'PHP UserGroup Wellington'
+            meetup_com_slug: PHP-Usergroup-Wellington
+            country: 'New Zealand'
+            last_meetup_date_time: '2020-01-28'
+        -
+            name: 'use \BNE\PHP;'
+            meetup_com_slug: BrisPHP
+            country: Australia
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'PHP Adelaide'
+            meetup_com_slug: PHP-Adelaide
+            country: Australia
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'PHP Laravel Framework Sydney'
+            meetup_com_slug: PHP-Laravel-Framework-Sydney
+            country: Australia
+            last_meetup_date_time: '2019-10-08'
+        -
+            name: 'Sydney PHP'
+            meetup_com_slug: SydPHP
+            country: Australia
+            last_meetup_date_time: '2019-11-28'
+        -
+            name: 'Salzburg Web Dev'
+            meetup_com_slug: salzburgwebdev
+            country: Austria
+            last_meetup_date_time: '2020-02-25'
+        -
+            name: BrusselsPHP
+            meetup_com_slug: BrusselsPHP
+            country: Belgium
+            last_meetup_date_time: '2019-12-11'
+        -
+            name: 'PHP Antwerp'
+            meetup_com_slug: phpantwerp
+            country: Belgium
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'PHP Limburg BE'
+            meetup_com_slug: PHP-Limburg-BE
+            country: Belgium
+            last_meetup_date_time: '2019-12-05'
+        -
+            name: 'Vancouver PHP Meetup'
+            meetup_com_slug: Vancouver-PHP
+            country: Canada
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'AFUP Montpellier'
+            meetup_com_slug: Montpellier-PHP-Meetup
+            country: France
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'PHP Usergroup Düsseldorf'
+            meetup_com_slug: PHP-Usergroup-Duesseldorf
+            country: Germany
+            last_meetup_date_time: '2020-02-13'
+        -
+            name: 'Symfony User Group Hamburg'
+            meetup_com_slug: sfughh
+            country: Germany
+            last_meetup_date_time: '2020-02-04'
+        -
+            name: 'Symfony User Group Cologne'
+            meetup_com_slug: sfugcgn
+            country: Germany
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'PHP User Group Stuttgart '
+            meetup_com_slug: PHP-User-Group-Stuttgart
+            country: Germany
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'Symfony User Group Berlin'
+            meetup_com_slug: sfugberlin
+            country: Germany
+            last_meetup_date_time: '2020-02-25'
+        -
+            name: 'PHP User Group Metropolregion Rhein-Neckar'
+            meetup_com_slug: PHPUG-Rhein-Neckar
+            country: Germany
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'PHP User Group Münster'
+            meetup_com_slug: phpugms
+            country: Germany
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: Dublin
+            meetup_com_slug: PHP-Dublin
+            country: Ireland
+            last_meetup_date_time: '2020-02-18'
+        -
+            name: 'PHP México'
+            meetup_com_slug: PHP-The-Right-Way
+            country: Mexico
+            last_meetup_date_time: '2019-12-13'
+        -
+            name: NijmegenPHP
+            meetup_com_slug: NijmegenPHP
+            country: Netherlands
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: LimburgPHP
+            meetup_com_slug: Limburg-PHP-Meetup
+            country: Netherlands
+            last_meetup_date_time: '2019-11-11'
+        -
+            name: 'Tilburg PHP'
+            meetup_com_slug: Tilburg-PHP-Meetup
+            country: Netherlands
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: Amersfoort
+            meetup_com_slug: PHPAmersfoort
+            country: Netherlands
+            last_meetup_date_time: '2020-02-11'
+        -
+            name: 'Szczecin PHP User Group'
+            meetup_com_slug: Szczecin-PHP-Meetup
+            country: Poland
+            last_meetup_date_time: '2020-01-24'
+        -
+            name: Singapore
+            meetup_com_slug: sgphpug
+            country: Singapore
+            last_meetup_date_time: '2020-03-02'
+        -
+            name: 'Cape Town PHP Group'
+            meetup_com_slug: Cape-Town-PHP-Group
+            country: 'South Africa'
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: AsturPHP
+            meetup_com_slug: AsturPHP
+            country: Spain
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'PHP Sevilla'
+            meetup_com_slug: PHP-Sevilla
+            country: Spain
+            last_meetup_date_time: '2019-10-10'
+        -
+            name: 'Sri Lanka'
+            meetup_com_slug: PHP-developers-Sri-Lanka
+            country: 'Sri Lanka'
+            last_meetup_date_time: '2019-10-18'
+        -
+            name: PHP-Stockholm
+            meetup_com_slug: php-stockholm
+            country: Sweden
+            last_meetup_date_time: '2019-10-24'
+        -
+            name: 'PHPMiNDS Nottingham'
+            meetup_com_slug: PHPMiNDS-Nottingham
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-13'
+        -
+            name: brumPHP
+            meetup_com_slug: brumphp
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'Bristol PHP Training'
+            meetup_com_slug: Bristol-PHP-Training
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: Cambridge
+            meetup_com_slug: phpcambridge
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-17'
+        -
+            name: 'JaxPHP / JaxWeb'
+            meetup_com_slug: JaxPHP-JaxWeb
+            country: Florida
+            last_meetup_date_time: '2019-10-16'
+        -
+            name: Dallas
+            meetup_com_slug: dallasphp
+            country: Texas
+            last_meetup_date_time: '2020-02-11'
+        -
+            name: TrianglePHP
+            meetup_com_slug: trianglephp
+            country: 'North Carolina'
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'Washington D.C.'
+            meetup_com_slug: DC-PHP
+            country: 'Washington, D.C.'
+            last_meetup_date_time: '2020-02-19'
+        -
+            name: Orlando
+            meetup_com_slug: OrlandoPHP
+            country: Florida
+            last_meetup_date_time: '2019-10-22'
+        -
+            name: Seattle
+            meetup_com_slug: seaphp
+            country: Washington
+            last_meetup_date_time: '2019-12-19'
+        -
+            name: Buffalo
+            meetup_com_slug: buffalowebdevelopers
+            country: 'New York'
+            last_meetup_date_time: '2020-01-22'
+        -
+            name: 'Utah PHP User Group'
+            meetup_com_slug: Utah-PHP-User-Group
+            country: Utah
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: Indianapolis
+            meetup_com_slug: indyphp
+            country: Indiana
+            last_meetup_date_time: '2020-02-18'
+        -
+            name: PDX-PHP
+            meetup_com_slug: PDX-PHP
+            country: Oregon
+            last_meetup_date_time: '2020-02-18'
+        -
+            name: 'Northern IL PHP Group'
+            meetup_com_slug: Rockford-PHP-Developers-Group
+            country: Illinois
+            last_meetup_date_time: '2020-01-09'
+        -
+            name: 'Las Vegas PHP'
+            meetup_com_slug: PHP-Vegas
+            country: Nevada
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'Chattanooga PHP'
+            meetup_com_slug: chattanoogaphp
+            country: Tennessee
+            last_meetup_date_time: '2020-03-04'
+        -
+            name: 'Frederick Web Tech'
+            meetup_com_slug: FredWebTech
+            country: Maryland
+            last_meetup_date_time: '2020-03-03'
+        -
+            name: Chicago-PHP-User-Group
+            meetup_com_slug: Chicago-PHP-User-Group
+            country: Illinois
+            last_meetup_date_time: '2020-03-09'
+        -
+            name: 'PHP Quebec'
+            meetup_com_slug: PHPQuebec
+            country: Canada
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'PHPSP Campinas'
+            meetup_com_slug: PHPSP-Campinas
+            country: Brazil
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'PHP Rio'
+            meetup_com_slug: PHP-Rio
+            country: Brazil
+            last_meetup_date_time: '2020-02-12'
+        -
+            name: 'PHP DF'
+            meetup_com_slug: php-df
+            country: Brazil
+            last_meetup_date_time: '2019-12-19'
+        -
+            name: PHPRS
+            meetup_com_slug: PHP-RS
+            country: Brazil
+            last_meetup_date_time: '2019-11-19'
+        -
+            name: 'PHPSC Floripa'
+            meetup_com_slug: PHPSC-Floripa
+            country: Brazil
+            last_meetup_date_time: '2020-03-09'
+        -
+            name: PHPMG
+            meetup_com_slug: PHP-MG
+            country: Brazil
+            last_meetup_date_time: '2019-12-10'
+        -
+            name: 'PHP Baires'
+            meetup_com_slug: phpbaires-devs
+            country: Argentina
+            last_meetup_date_time: '2019-10-10'
+        -
+            name: 'ZgPHP meetup'
+            meetup_com_slug: ZgPHP-meetup
+            country: Croatia
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'PHP London'
+            meetup_com_slug: phplondon
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: PHPSW
+            meetup_com_slug: php-sw
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-12'
+        -
+            name: 'PHP User Group Munich'
+            meetup_com_slug: phpugmunich
+            country: Germany
+            last_meetup_date_time: '2020-01-22'
+        -
+            name: 'PHP USERGROUP DRESDEN'
+            meetup_com_slug: PHP-USERGROUP-DRESDEN
+            country: Germany
+            last_meetup_date_time: '2020-02-25'
+        -
+            name: 'Vilnius PHP Meetups'
+            meetup_com_slug: vilniusphp
+            country: Lithuania
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'PHP-Usergroup Hamburg (PHPUGHH)'
+            meetup_com_slug: phpughh
+            country: Germany
+            last_meetup_date_time: '2020-02-11'
+        -
+            name: 'PHPSP - São Paulo PHP Developers Group'
+            meetup_com_slug: php-sp
+            country: Brazil
+            last_meetup_date_time: '2020-02-13'
+        -
+            name: 'Web Developer Chemnitz'
+            meetup_com_slug: Web-Developer-Chemnitz
+            country: Germany
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'PHP Johannesburg Meetup Group'
+            meetup_com_slug: PHP-Johannesburg-Meetup-Group
+            country: 'South Africa'
+            last_meetup_date_time: '2020-01-16'
+        -
+            name: 'Laravel Philippines'
+            meetup_com_slug: Laravel-Philippines
+            country: Philippines
+            last_meetup_date_time: '2020-02-07'
+        -
+            name: 'Berlin PHP Usergroup'
+            meetup_com_slug: Berlin-PHP-Usergroup
+            country: Germany
+            last_meetup_date_time: '2020-03-03'
+        -
+            name: 'Friends of PHP - Prague'
+            meetup_com_slug: friends-of-php-prague
+            country: 'Czech Republic'
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'Bucharest PHP Meetup'
+            meetup_com_slug: Bucharest-PHP-Meetup
+            country: Romania
+            last_meetup_date_time: '2019-10-17'
+        -
+            name: 'Dev Japan'
+            meetup_com_slug: devjapan
+            country: Japan
+            last_meetup_date_time: '2020-01-18'
+        -
+            name: 'Laravel UY'
+            meetup_com_slug: Laravel-UY
+            country: Uruguay
+            last_meetup_date_time: '2019-11-25'
+        -
+            name: 'Medellín PHP'
+            meetup_com_slug: MedellinPHP
+            country: Colombia
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'South Florida PHP User Group (SoFloPHP)'
+            meetup_com_slug: South-Florida-PHP-Users-Group
+            country: Florida
+            last_meetup_date_time: '2020-01-09'
+        -
+            name: 'Symfony St. Petersburg Meetup - Symfoniacs SPB'
+            meetup_com_slug: symfoniacs-spb
+            country: Russia
+            last_meetup_date_time: '2020-01-25'
+        -
+            name: 'PHPers Warszawa'
+            meetup_com_slug: PHPers-Warszawa
+            country: Poland
+            last_meetup_date_time: '2020-01-23'
+        -
+            name: '#PUG-Romagna: PHP User Group Romagnolo'
+            meetup_com_slug: PUG-Romagna-PHP-User-Group-Romagnolo
+            country: Italy
+            last_meetup_date_time: '2020-02-05'
+        -
+            name: '#pugTO: PHP User Group Torino'
+            meetup_com_slug: pugTO-PHP-User-Group-Torino
+            country: Italy
+            last_meetup_date_time: '2020-02-19'
+        -
+            name: 'PHP User Group Roma'
+            meetup_com_slug: PUG-Roma
+            country: Italy
+            last_meetup_date_time: '2020-02-25'
+        -
+            name: '#pugMi: PHP User Group Milano'
+            meetup_com_slug: MilanoPHP
+            country: Italy
+            last_meetup_date_time: '2020-01-22'
+        -
+            name: 'Antenne AFUP Nantes : PHP'
+            meetup_com_slug: afup-nantes-php
+            country: France
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'Bordeaux PHP Meetup'
+            meetup_com_slug: Bordeaux-PHP-Meetup
+            country: France
+            last_meetup_date_time: '2020-02-19'
+        -
+            name: 'Antenne AFUP Tours PHP'
+            meetup_com_slug: afup-tours-php
+            country: France
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'ApéroPHP Toulouse'
+            meetup_com_slug: AperoPHP-Toulouse
+            country: France
+            last_meetup_date_time: '2020-02-05'
+        -
+            name: 'Antenne AFUP Lorraine : PHP'
+            meetup_com_slug: afup-lorraine-php
+            country: France
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'Antenne AFUP Reims : PHP'
+            meetup_com_slug: afup-reims-php
+            country: France
+            last_meetup_date_time: '2020-01-16'
+        -
+            name: 'Antenne AFUP Poitiers : PHP'
+            meetup_com_slug: afup-poitiers-php
+            country: France
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'Antenne AFUP Hauts de France : PHP'
+            meetup_com_slug: afup-hauts-de-france-php
+            country: France
+            last_meetup_date_time: '2020-02-06'
+        -
+            name: 'Antenne AFUP Lyon : PHP'
+            meetup_com_slug: afup-lyon-php
+            country: France
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'Antenne AFUP Limoges : PHP'
+            meetup_com_slug: afup-limoges-php
+            country: France
+            last_meetup_date_time: '2020-02-19'
+        -
+            name: 'Antenne AFUP Paris : PHP'
+            meetup_com_slug: afup-paris-php
+            country: France
+            last_meetup_date_time: '2020-02-13'
+        -
+            name: 'AFUP Rennes'
+            meetup_com_slug: AFUP-Rennes
+            country: France
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'AFSY SfPots'
+            meetup_com_slug: afsy-sfpot
+            country: France
+            last_meetup_date_time: '2020-02-19'
+        -
+            name: 'AFUP Aix / Marseille'
+            meetup_com_slug: afup-aix-marseille-php
+            country: France
+            last_meetup_date_time: '2020-01-16'
+        -
+            name: PHPMad
+            meetup_com_slug: PHPMad
+            country: Spain
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: LaravelCPH
+            meetup_com_slug: laravel-cph
+            country: Denmark
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'RIGA DEV DAYS 2019'
+            meetup_com_slug: RIGA-DEV-DAYS
+            country: Latvia
+            last_meetup_date_time: '2020-02-19'
+        -
+            name: 'Kaunas PHP meetups'
+            meetup_com_slug: KaunasPHP
+            country: Lithuania
+            last_meetup_date_time: '2020-01-15'
+        -
+            name: 'ThinkPHP Kharkiv'
+            meetup_com_slug: thinkphp
+            country: Ukraine
+            last_meetup_date_time: '2019-10-20'
+        -
+            name: 'Bulgaria PHP'
+            meetup_com_slug: bgphp-ug
+            country: Bulgaria
+            last_meetup_date_time: '2019-12-17'
+        -
+            name: 'Developers Day powered by kariera.gr'
+            meetup_com_slug: Developers-Day
+            country: Greece
+            last_meetup_date_time: '2019-11-30'
+        -
+            name: 'Athens Laravel Meetup'
+            meetup_com_slug: athens-laravel-meetup
+            country: Greece
+            last_meetup_date_time: '2019-10-15'
+        -
+            name: 'Laravel Serbia'
+            meetup_com_slug: Laravel-Serbia
+            country: Serbia
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'OpenWeb Sarajevo Meetup'
+            meetup_com_slug: sarajevo-openweb-meetup
+            country: 'Bosnia and Herzegovina'
+            last_meetup_date_time: '2020-01-07'
+        -
+            name: 'Tinel Meetup'
+            meetup_com_slug: TinelMeetup
+            country: Croatia
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'PHP Developers Slovenia'
+            meetup_com_slug: php-si
+            country: Slovenia
+            last_meetup_date_time: '2019-11-14'
+        -
+            name: 'Laravel Montreal'
+            meetup_com_slug: Laravel-Montreal
+            country: Canada
+            last_meetup_date_time: '2020-01-27'
+        -
+            name: AmsterdamPHP
+            meetup_com_slug: AmsterdamPHP
+            country: Netherlands
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 010PHP
+            meetup_com_slug: 010PHP
+            country: Netherlands
+            last_meetup_date_time: '2020-02-13'
+        -
+            name: GroningenPHP
+            meetup_com_slug: GroningenPHP
+            country: Netherlands
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'PHP & Laravel development Eindhoven'
+            meetup_com_slug: PHP-Laravel-Eindhoven
+            country: Netherlands
+            last_meetup_date_time: '2020-01-15'
+        -
+            name: 'Laravel Meetup Groningen'
+            meetup_com_slug: Laravel-Meetup-Groningen
+            country: Netherlands
+            last_meetup_date_time: '2019-10-22'
+        -
+            name: PHP.FRL
+            meetup_com_slug: PHP-FRL
+            country: Netherlands
+            last_meetup_date_time: '2019-12-17'
+        -
+            name: 'PHP Hilversum'
+            meetup_com_slug: PHP-Hilversum
+            country: Netherlands
+            last_meetup_date_time: '2019-11-27'
+        -
+            name: 'Laravel Poznań Meetup'
+            meetup_com_slug: Laravel-Poznan-Meetup
+            country: Poland
+            last_meetup_date_time: '2020-02-06'
+        -
+            name: 'Laravel Dublin'
+            meetup_com_slug: Laravel-Vuejs-Dublin
+            country: Ireland
+            last_meetup_date_time: '2019-11-13'
+        -
+            name: 'Deeper PHP'
+            meetup_com_slug: Deeper-PHP
+            country: Luxembourg
+            last_meetup_date_time: '2020-03-09'
+        -
+            name: PHP-WVL
+            meetup_com_slug: php-wvl
+            country: Belgium
+            last_meetup_date_time: '2020-03-03'
+        -
+            name: 'GTA PHP User Group'
+            meetup_com_slug: GTA-PHP-User-Group-Toronto
+            country: Canada
+            last_meetup_date_time: '2020-01-09'
+        -
+            name: 'Ottawa PHP Meetup'
+            meetup_com_slug: Ottawa-PHP-Meetup
+            country: Canada
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'York Region PHP User Group'
+            meetup_com_slug: York-Region-PHP-User-Group
+            country: Canada
+            last_meetup_date_time: '2019-10-17'
+        -
+            name: 'Laravel Usergroup Munich'
+            meetup_com_slug: laravel-munich
+            country: Germany
+            last_meetup_date_time: '2020-01-22'
+        -
+            name: 'PHP Usergroup Karlsruhe'
+            meetup_com_slug: PHP-Usergroup-Karlsruhe
+            country: Germany
+            last_meetup_date_time: '2019-11-07'
+        -
+            name: 'PHP User Group Rheinhessen'
+            meetup_com_slug: PHP-User-Group-Rheinhessen
+            country: Germany
+            last_meetup_date_time: '2020-03-03'
+        -
+            name: 'PHP Vigo Meetup'
+            meetup_com_slug: PHPVigo
+            country: Spain
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'PHP Oxford'
+            meetup_com_slug: PHP-Oxford
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'edPUG - Edinburgh PHP User Group'
+            meetup_com_slug: edinburgh-php-user-group
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-01-21'
+        -
+            name: 'PHP Essex'
+            meetup_com_slug: PHP-Essex
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-19'
+        -
+            name: 'PHP South Wales'
+            meetup_com_slug: PHP-South-Wales
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-27'
+        -
+            name: 'The UK Symfony Meetup'
+            meetup_com_slug: symfony
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'PHP Dorset'
+            meetup_com_slug: PHPDorset
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-03-09'
+        -
+            name: GlasgowPHP
+            meetup_com_slug: GlasgowPHP
+            country: 'United Kingdom'
+            last_meetup_date_time: '2019-10-08'
+        -
+            name: 'PHP Roundtable Budapest'
+            meetup_com_slug: PHP-Roundtable-Budapest
+            country: Hungary
+            last_meetup_date_time: '2020-02-20'
+        -
+            name: 'Veszprém PHP Meetup'
+            meetup_com_slug: Veszprem-PHP-Meetup
+            country: Hungary
+            last_meetup_date_time: '2020-03-09'
+        -
+            name: 'PHP North East'
+            meetup_com_slug: PHP-North-East
+            country: 'United Kingdom'
+            last_meetup_date_time: '2020-02-18'
+        -
+            name: 'Louisville Laravel Meetup'
+            meetup_com_slug: Louisville-Laravel-Meetup
+            country: Colorado
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: 'Tampa Bay PHP'
+            meetup_com_slug: tampa-bay-php
+            country: Florida
+            last_meetup_date_time: '2019-11-05'
+        -
+            name: 'Tampa Bay Laravel'
+            meetup_com_slug: Laravel
+            country: Florida
+            last_meetup_date_time: '2020-02-25'
+        -
+            name: 'Boston PHP'
+            meetup_com_slug: bostonphp
+            country: Massachusetts
+            last_meetup_date_time: '2020-02-23'
+        -
+            name: 'Detroit Laravel Meetup'
+            meetup_com_slug: Laravel-Detroit
+            country: Michigan
+            last_meetup_date_time: '2019-12-12'
+        -
+            name: 'Kansas City PHP User Group'
+            meetup_com_slug: kcphpug
+            country: Missouri
+            last_meetup_date_time: '2020-02-15'
+        -
+            name: 'North Jersey PHP & Programmers" Convergence'
+            meetup_com_slug: nnjppc
+            country: 'New Jersey'
+            last_meetup_date_time: '2020-02-13'
+        -
+            name: 'Nashville PHP'
+            meetup_com_slug: nashvillephp
+            country: Tennessee
+            last_meetup_date_time: '2020-03-03'
+        -
+            name: 'Memphis PHP User Group Meetup'
+            meetup_com_slug: Memphis-PHP-Meetup
+            country: Tennessee
+            last_meetup_date_time: '2020-01-28'
+        -
+            name: azPHP
+            meetup_com_slug: azPHPUG
+            country: Arizona
+            last_meetup_date_time: '2020-02-25'
+        -
+            name: 'Péhápkaři Brno'
+            meetup_com_slug: Pehapkari-Brno
+            country: 'Czech Republic'
+            last_meetup_date_time: '2020-02-26'
+        -
+            name: ColumbusPHP
+            meetup_com_slug: phpphp
+            country: Ohio
+            last_meetup_date_time: '2020-02-12'
+        -
+            name: AtlantaPHP
+            meetup_com_slug: atlantaphp
+            country: Georgia
+            last_meetup_date_time: '2020-03-05'
+        -
+            name: 'Symfony User Group Osnabrück'
+            meetup_com_slug: sfugos
+            country: Germany
+            last_meetup_date_time: '2020-01-09'
+        -
+            name: 'BeerPHP Moscow'
+            meetup_com_slug: BeerPHP-Moscow
+            country: Russia
+            last_meetup_date_time: '2020-02-15'
+        -
+            name: 'Meetup Laravel Lyon'
+            meetup_com_slug: Meetup-Laravel-Lyon
+            country: France
+            last_meetup_date_time: '2019-10-16'

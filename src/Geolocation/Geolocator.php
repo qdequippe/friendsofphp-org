@@ -2,7 +2,7 @@
 
 namespace Fop\Geolocation;
 
-use Fop\Entity\Location;
+use Fop\ValueObject\Location;
 use Location\Coordinate;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
