@@ -6,3 +6,5 @@ services:
 
     Fop\StaticSiteDumper\:
         resource: "../src"
+
+    Symplify\SmartFileSystem\Finder\FinderSanitizer: null
