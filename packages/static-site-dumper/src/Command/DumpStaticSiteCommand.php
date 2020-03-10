@@ -6,6 +6,7 @@ namespace Fop\StaticSiteDumper\Command;
 
 use Fop\StaticSiteDumper\HttpFoundation\ControllerContentResolver;
 use Nette\Utils\FileSystem;
+use Nette\Utils\Strings;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -68,9 +69,10 @@ final class DumpStaticSiteCommand extends Command
         $this->symfonyStyle->section('Dumping static website');
 
         $this->dumpControllerContents();
-        $this->copyAssets();
+        $this->symfonyStyle->success('Controllers generated');
 
-        $this->symfonyStyle->success('Done!');
+        $this->copyAssets();
+        $this->symfonyStyle->success('Assets copied');
 
         return ShellCode::SUCCESS;
     }
@@ -115,10 +117,15 @@ final class DumpStaticSiteCommand extends Command
 
         if ($routePath === '/') {
             $routePath = '/index.html';
-        } else {
+        } elseif (! $this->isFileWithSuffix($routePath)) {
             $routePath .= '/index.html';
         }
 
         return getcwd() . '/output' . $routePath;
+    }
+
+    private function isFileWithSuffix(string $routePath): bool
+    {
+        return (bool) Strings::match($routePath, '#\.[\w]+#');
     }
 }
