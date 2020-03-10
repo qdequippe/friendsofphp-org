@@ -45,12 +45,15 @@ final class DumpStaticSiteCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->writeln('yes');
+        $this->symfonyStyle->section(sprintf(
+            'Dumping static website for %d routes', count($this->router->getRouteCollection()))
+        );
 
         foreach ($this->router->getRouteCollection() as $route) {
-            dump($route->getPath());
-
             $controllerClass = $route->getDefault('_controller');
+
+            $this->symfonyStyle->note(sprintf('Dumping static content for "%s" class to "%s" path', $controllerClass, $route->getPath()));
+
             $controller = $this->container->get($controllerClass);
             dump((string) $controller());
 
