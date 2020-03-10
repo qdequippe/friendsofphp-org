@@ -23,7 +23,7 @@ final class ApiGroupsController extends AbstractController
 
     /**
      * Note: beware the dot in the route name! @see https://github.com/symfony/symfony/issues/26099
-     * @Route(path="api/groups", name="api_groups_json", methods={"GET"})
+     * @Route(path="api/groups.json", name="api_groups_json", methods={"GET"})
      */
     public function __invoke(): Response
     {

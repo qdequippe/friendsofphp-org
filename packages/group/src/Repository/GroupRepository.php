@@ -30,7 +30,7 @@ final class GroupRepository
         ParameterBagInterface $parameterBag,
         YamlFileSystem $yamlFileSystem
     ) {
-        $groupsArray = $parameterBag->has('groups') ? $parameterBag->get('groups') : [];
+        $groupsArray = (array) $parameterBag->get('groups');
 
         /** @var Group[] $groups */
         $groups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($groupsArray, Group::class);
