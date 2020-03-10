@@ -1,6 +1,7 @@
 services:
     _defaults:
         autowire: true
+        autoconfigure: true
         public: true
 
     Fop\StaticSiteDumper\:
