@@ -199,3 +199,9 @@ footer ul, #groups ul {
 #head a.btn {
     text-decoration: none;
 }
+
+#table-meetups_filter input {
+    font-size: 1em;
+    margin-left: -.2em;
+    color: #333;
+}
