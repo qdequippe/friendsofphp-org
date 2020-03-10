@@ -49,20 +49,6 @@ final class GroupRepository
     }
 
     /**
-     * @return string[]
-     */
-    public function fetchGroupSlugs(): array
-    {
-        $groupSlugs = [];
-
-        foreach ($this->groups as $group) {
-            $groupSlugs[] = $group->getMeetupComSlug();
-        }
-
-        return $groupSlugs;
-    }
-
-    /**
      * @return Group[][]
      */
     public function fetchGroupedByCountry(): array
