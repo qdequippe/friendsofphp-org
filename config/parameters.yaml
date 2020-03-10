@@ -1,5 +1,5 @@
 imports:
-    - { resource: '_data/' }
+    - { resource: '_data/*' }
 
 # imported also by statie.yml - needs to be standalone
 parameters:
@@ -8,8 +8,6 @@ parameters:
 
     groups_storage: '%kernel.project_dir%/config/_data/groups.yaml'
     meetups_storage: '%kernel.project_dir%/config/_data/meetups.yaml'
-
-    website_url: 'https://friendsofphp.org'
 
     # its still public in the footer, so no need to hide it
     # setup & manage here: https://console.cloud.google.com/apis/credentials

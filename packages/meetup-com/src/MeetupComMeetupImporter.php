@@ -60,12 +60,11 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
         $errors = [];
         $meetups = [];
 
-        $groupSlugs = $this->groupRepository->fetchGroupSlugs();
-        foreach ($groupSlugs as $groupSlug) {
+        foreach ($this->groupRepository->fetchAll() as $group) {
             try {
-                $this->symfonyStyle->note(sprintf('Loading meetups for %s group', $groupSlug));
+                $this->symfonyStyle->note(sprintf('Loading meetups for %s group', $group->getMeetupComSlug()));
 
-                $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
+                $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($group->getMeetupComSlug());
                 $this->meetupComCooler->coolDownIfNeeded();
 
                 // should help with https://github.com/TomasVotruba/friendsofphp.org/runs/492500241#step:4:32

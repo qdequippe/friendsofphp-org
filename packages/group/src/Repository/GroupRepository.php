@@ -30,7 +30,7 @@ final class GroupRepository
         ParameterBagInterface $parameterBag,
         YamlFileSystem $yamlFileSystem
     ) {
-        $groupsArray = $parameterBag->has('groups') ? $parameterBag->get('groups') : [];
+        $groupsArray = (array) $parameterBag->get('groups');
 
         /** @var Group[] $groups */
         $groups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($groupsArray, Group::class);
@@ -46,20 +46,6 @@ final class GroupRepository
     public function fetchAll(): array
     {
         return $this->groups;
-    }
-
-    /**
-     * @return string[]
-     */
-    public function fetchGroupSlugs(): array
-    {
-        $groupSlugs = [];
-
-        foreach ($this->groups as $group) {
-            $groupSlugs[] = $group->getMeetupComSlug();
-        }
-
-        return $groupSlugs;
     }
 
     /**
