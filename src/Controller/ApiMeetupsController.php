@@ -23,7 +23,7 @@ final class ApiMeetupsController extends AbstractController
 
     /**
      * Note: beware the dot in the route name! @see https://github.com/symfony/symfony/issues/26099
-     * @Route(path="api/meetups", name="api_meetups_json", methods={"GET"})
+     * @Route(path="api/meetups.json", name="api_meetups_json", methods={"GET"})
      */
     public function __invoke(): Response
     {
