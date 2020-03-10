@@ -105,6 +105,8 @@ final class ImportCommand extends Command
 
             $this->reportMeetups($meetups, $meetupImporter->getKey());
             $this->meetupCollector->addMeetups($meetups);
+
+            $this->symfonyStyle->newLine(2);
         }
 
         $this->meetupRepository->saveImportsToFile($this->meetupCollector->getMeetups());
