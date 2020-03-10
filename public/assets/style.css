@@ -195,3 +195,7 @@ footer ul, #groups ul {
     color: #FFF;
     text-decoration: none;
 }
+
+#head a.btn {
+    text-decoration: none;
+}
