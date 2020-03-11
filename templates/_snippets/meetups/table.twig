@@ -9,6 +9,9 @@
         </tr>
     </thead>
 
+    {# @todo http://plnkr.co/edit/mdeEYoZtnvpfHCdtSxDP?p=preview&preview #}
+    {# @todo https://stackoverflow.com/questions/38717543/how-do-i-filter-date-range-in-datatables #}
+
     {# @var meetup \Fop\ValueObject\Meetup #}
     {% for meetup in meetups %}
         {% if meetup.startInDays <= max_forecast_days %}
