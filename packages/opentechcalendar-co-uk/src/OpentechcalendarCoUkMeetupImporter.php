@@ -2,8 +2,8 @@
 
 namespace Fop\OpentechcalendarCoUk;
 
-use Fop\Core\Contract\MeetupImporterInterface;
 use Fop\Core\ValueObject\Meetup;
+use Fop\Meetup\Contract\MeetupImporterInterface;
 use Fop\OpentechcalendarCoUk\Factory\OpentechcalendarCoUkMeetupFactory;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Json;

@@ -4,9 +4,9 @@ namespace Fop\CrosswebPl\Meetup;
 
 use DateTimeInterface;
 use Fop\Core\Geolocation\Geolocator;
-use Fop\Core\Meetup\MeetupFactory;
 use Fop\Core\ValueObject\Location;
 use Fop\Core\ValueObject\Meetup;
+use Fop\Meetup\Meetup\MeetupFactory;
 use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;

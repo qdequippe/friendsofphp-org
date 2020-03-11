@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Core\Filter;
+namespace Fop\Meetup\Filter;
 
 use Fop\Core\Contract\MeetupFilterInterface;
 use Fop\Core\ValueObject\Meetup;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-use Fop\HttpKernel\FopKernel;
+use Fop\Core\HttpKernel\FopKernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

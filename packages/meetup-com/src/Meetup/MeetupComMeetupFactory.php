@@ -5,10 +5,10 @@ namespace Fop\MeetupCom\Meetup;
 use DateTimeInterface;
 use DateTimeZone;
 use Fop\Core\Geolocation\Geolocator;
-use Fop\Core\Meetup\MeetupFactory;
 use Fop\Core\Utils\CityNormalizer;
 use Fop\Core\ValueObject\Location;
 use Fop\Core\ValueObject\Meetup;
+use Fop\Meetup\Meetup\MeetupFactory;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 

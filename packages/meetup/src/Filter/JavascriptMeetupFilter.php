@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Core\Filter;
+namespace Fop\Meetup\Filter;
 
 use Fop\Core\Contract\MeetupFilterInterface;
 use Fop\Core\ValueObject\Meetup;
-use Nette\Utils\DateTime;
+use Nette\Utils\Strings;
 
-final class PastMeetupFilter implements MeetupFilterInterface
+final class JavascriptMeetupFilter implements MeetupFilterInterface
 {
     /**
      * @param Meetup[] $meetups
@@ -15,7 +15,7 @@ final class PastMeetupFilter implements MeetupFilterInterface
     public function filter(array $meetups): array
     {
         return array_filter($meetups, function (Meetup $meetup): bool {
-            return $meetup->getStartDateTime() > DateTime::from('now');
+            return ! Strings::match($meetup->getName(), '#javascript#i');
         });
     }
 }

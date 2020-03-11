@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Core\Meetup;
+namespace Fop\Meetup\Meetup;
 
 use DateTimeInterface;
 use Fop\Core\ValueObject\Location;
