@@ -5,13 +5,14 @@
 {% block content %}
     <div class="container-fluid" id="content">
         <div class="row">
+            <div class="col-4 col-md-6 pl-md-0 pt-3">
+                <a name="map"></a>
+                <div id="{{ map_id }}"></div>
+            </div>
+
             <div class="col-12 col-md-6 pb-5 pt-3">
                 <script src="/assets/js/utils.js?v={{ random() }}"></script>
                 {% include "_snippets/meetups/table.twig" %}
-            </div>
-            <div class="col-12 col-md-6 pl-md-0 pt-3">
-                <a name="map"></a>
-                <div id="{{ map_id }}"></div>
             </div>
         </div>
     </div>
