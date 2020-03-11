@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Exception;
+namespace Fop\Core\Exception;
 
 use Exception;
 

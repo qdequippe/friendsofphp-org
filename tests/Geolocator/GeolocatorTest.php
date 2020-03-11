@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Tests\Geolocator;
+namespace Fop\Core\Tests\Geolocator;
 
-use Fop\Geolocation\Geolocator;
-use Fop\HttpKernel\FopKernel;
+use Fop\Core\Geolocation\Geolocator;
+use Fop\Core\HttpKernel\FopKernel;
 use Iterator;
 use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 

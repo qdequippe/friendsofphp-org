@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\DataCollector;
 
-use Fop\ValueObject\Meetup;
+use Fop\Core\ValueObject\Meetup;
 
 final class MeetupCollector
 {

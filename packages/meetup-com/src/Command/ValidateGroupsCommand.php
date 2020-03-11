@@ -2,7 +2,7 @@
 
 namespace Fop\MeetupCom\Command;
 
-use Fop\Exception\ShouldNotHappenException;
+use Fop\Core\Exception\ShouldNotHappenException;
 use Fop\Group\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

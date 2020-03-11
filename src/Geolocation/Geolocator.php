@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Geolocation;
+namespace Fop\Core\Geolocation;
 
-use Fop\ValueObject\Location;
+use Fop\Core\ValueObject\Location;
 use Location\Coordinate;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;

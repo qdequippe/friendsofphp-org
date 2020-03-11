@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\HttpKernel;
+namespace Fop\Core\HttpKernel;
 
 use Iterator;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;

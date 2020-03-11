@@ -2,7 +2,7 @@
 
 namespace Fop\MeetupCom\Guzzle;
 
-use Fop\Exception\ShouldNotHappenException;
+use Fop\Core\Exception\ShouldNotHappenException;
 use GuzzleHttp\Client;
 use kamermans\OAuth2\GrantType\ClientCredentials;
 use kamermans\OAuth2\OAuth2Middleware;

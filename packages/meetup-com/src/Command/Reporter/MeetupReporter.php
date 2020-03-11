@@ -2,7 +2,7 @@
 
 namespace Fop\MeetupCom\Command\Reporter;
 
-use Fop\ValueObject\Meetup;
+use Fop\Core\ValueObject\Meetup;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupReporter

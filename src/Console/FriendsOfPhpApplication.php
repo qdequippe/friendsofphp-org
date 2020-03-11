@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Console;
+namespace Fop\Core\Console;
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;

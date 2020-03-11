@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Tests\Utils;
+namespace Fop\Core\Tests\Utils;
 
-use Fop\Utils\CityNormalizer;
+use Fop\Core\Utils\CityNormalizer;
 use Iterator;
 use PHPUnit\Framework\TestCase;
 

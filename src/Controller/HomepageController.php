@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Fop\Controller;
+namespace Fop\Core\Controller;
 
-use Fop\Repository\MeetupRepository;
+use Fop\Core\Repository\MeetupRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

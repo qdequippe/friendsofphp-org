@@ -2,12 +2,12 @@
 
 namespace Fop\MeetupCom;
 
-use Fop\Contract\MeetupImporterInterface;
+use Fop\Core\Contract\MeetupImporterInterface;
+use Fop\Core\ValueObject\Meetup;
 use Fop\Group\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Api\MeetupComCooler;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
-use Fop\ValueObject\Meetup;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\Console\Style\SymfonyStyle;
 

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Utils;
+namespace Fop\Core\Utils;
 
 use Nette\Utils\Strings;
 

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Meetup;
+namespace Fop\Core\Meetup;
 
 use DateTimeInterface;
-use Fop\ValueObject\Location;
-use Fop\ValueObject\Meetup;
+use Fop\Core\ValueObject\Location;
+use Fop\Core\ValueObject\Meetup;
 
 final class MeetupFactory
 {

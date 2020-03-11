@@ -32,7 +32,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fop\\": "src",
+            "Fop\\Core\\": "src",
             "Fop\\Group\\": "packages/group/src",
             "Fop\\Meetup\\": "packages/meetup/src",
             "Fop\\Hydrator\\": "packages/hydrator/src",
@@ -44,7 +44,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Fop\\Tests\\": "tests"
+            "Fop\\Core\\Tests\\": "tests"
         }
     },
     "scripts": {

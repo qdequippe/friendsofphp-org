@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Contract;
+namespace Fop\Core\Contract;
 
-use Fop\ValueObject\Meetup;
+use Fop\Core\ValueObject\Meetup;
 
 interface MeetupImporterInterface
 {

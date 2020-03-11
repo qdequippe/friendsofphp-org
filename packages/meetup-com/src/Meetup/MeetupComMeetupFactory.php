@@ -4,11 +4,11 @@ namespace Fop\MeetupCom\Meetup;
 
 use DateTimeInterface;
 use DateTimeZone;
-use Fop\Geolocation\Geolocator;
-use Fop\Meetup\MeetupFactory;
-use Fop\Utils\CityNormalizer;
-use Fop\ValueObject\Location;
-use Fop\ValueObject\Meetup;
+use Fop\Core\Geolocation\Geolocator;
+use Fop\Core\Meetup\MeetupFactory;
+use Fop\Core\ValueObject\Location;
+use Fop\Core\ValueObject\Meetup;
+use Fop\Core\Utils\CityNormalizer;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 

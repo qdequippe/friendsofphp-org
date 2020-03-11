@@ -6,7 +6,7 @@ parameters:
     meetup_com_oauth_key: '%env(MEETUP_COM_OAUTH_KEY)%'
     meetup_com_oauth_secret: '%env(MEETUP_COM_OAUTH_SECRET)%'
 
-    # used in @see Fop\Geolocation\Geolocator
+    # used in @see Fop\Core\Geolocation\Geolocator
     usa_states:
         al: 'Alabama'
         ak: 'Alaska'

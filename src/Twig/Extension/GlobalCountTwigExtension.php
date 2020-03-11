@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Twig\Extension;
+namespace Fop\Core\Twig\Extension;
 
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;

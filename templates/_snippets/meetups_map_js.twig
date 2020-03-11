@@ -13,7 +13,7 @@
     var markers = [
         {% set markers %}
             {% for meetup in meetups %}
-                {# @var meetup \Fop\ValueObject\Meetup #}
+                {# @var meetup \Fop\Core\ValueObject\Meetup #}
                 {% if meetup.startInDays >= 0 %}
                     {
                         "type": "{% if meetup.startInDays < 7 %}green{% elseif meetup.startInDays < 14 %}orange{% else %}red{% endif %}",

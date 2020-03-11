@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Fop\ValueObject;
+namespace Fop\Core\ValueObject;
 
 use DateTimeInterface;
-use Fop\Utils\DateStaticUtils;
+use Fop\Core\Utils\DateStaticUtils;
 
 final class Meetup
 {

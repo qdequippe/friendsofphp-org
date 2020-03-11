@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Fop\Hydrator;
 
 use DateTimeInterface;
-use Fop\ValueObject\Location;
+use Fop\Core\ValueObject\Location;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 use ReflectionClass;

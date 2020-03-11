@@ -2,10 +2,10 @@
 
 namespace Fop\CrosswebPl;
 
-use Fop\Contract\MeetupImporterInterface;
+use Fop\Core\Contract\MeetupImporterInterface;
+use Fop\Core\ValueObject\Meetup;
 use Fop\CrosswebPl\Meetup\CrosswebPlMeetupFactory;
-use Fop\ValueObject\Meetup;
-use Fop\Xml\XmlReader;
+use Fop\Core\Xml\XmlReader;
 use Nette\Utils\Strings;
 
 final class CrosswebPlMeetupImporter implements MeetupImporterInterface

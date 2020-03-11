@@ -3,9 +3,9 @@
 namespace Fop\Group\Command;
 
 use DateTime;
+use Fop\MeetupCom\Api\MeetupComCooler;
 use Fop\Group\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
-use Fop\MeetupCom\Api\MeetupComCooler;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

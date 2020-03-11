@@ -12,7 +12,7 @@
     {# @todo http://plnkr.co/edit/mdeEYoZtnvpfHCdtSxDP?p=preview&preview #}
     {# @todo https://stackoverflow.com/questions/38717543/how-do-i-filter-date-range-in-datatables #}
 
-    {# @var meetup \Fop\ValueObject\Meetup #}
+    {# @var meetup \Fop\Core\ValueObject\Meetup #}
     {% for meetup in meetups %}
         {% if meetup.startInDays <= max_forecast_days %}
             <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}" data-datetime="{{ meetup.startDateTime|date("Y-m-d H:i") }}">

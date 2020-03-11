@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Command;
+namespace Fop\Core\Command;
 
-use Fop\Contract\MeetupImporterInterface;
-use Fop\Filter\MeetupFilterCollector;
+use Fop\Core\Contract\MeetupImporterInterface;
+use Fop\Core\Filter\MeetupFilterCollector;
+use Fop\Core\Repository\MeetupRepository;
+use Fop\Core\ValueObject\Meetup;
 use Fop\Meetup\DataCollector\MeetupCollector;
 use Fop\MeetupCom\Command\Reporter\MeetupReporter;
-use Fop\Repository\MeetupRepository;
-use Fop\ValueObject\Meetup;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

@@ -3,9 +3,9 @@
 namespace Fop\MeetupCom\Api;
 
 use DateTimeInterface;
-use Fop\Guzzle\ResponseConverter;
 use Fop\MeetupCom\Guzzle\Oauth2AwareClient;
 use Fop\MeetupCom\ValueObject\RateLimits;
+use Fop\Core\Guzzle\ResponseConverter;
 use Nette\Utils\DateTime;
 
 final class MeetupComApi

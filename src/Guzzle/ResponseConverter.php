@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Guzzle;
+namespace Fop\Core\Guzzle;
 
 use Nette\Utils\Json;
 use Psr\Http\Message\ResponseInterface;

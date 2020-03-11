@@ -2,11 +2,11 @@
 
 namespace Fop\OpentechcalendarCoUk\Factory;
 
-use Fop\Exception\ShouldNotHappenException;
-use Fop\Geolocation\Geolocator;
-use Fop\Meetup\MeetupFactory;
-use Fop\ValueObject\Location;
-use Fop\ValueObject\Meetup;
+use Fop\Core\Exception\ShouldNotHappenException;
+use Fop\Core\Geolocation\Geolocator;
+use Fop\Core\Meetup\MeetupFactory;
+use Fop\Core\ValueObject\Location;
+use Fop\Core\ValueObject\Meetup;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;

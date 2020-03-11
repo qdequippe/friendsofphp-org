@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\FileSystem;
+namespace Fop\Core\FileSystem;
 
 use DateTime;
 use Nette\Utils\FileSystem;

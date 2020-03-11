@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Controller;
+namespace Fop\Core\Controller;
 
 use Nette\Utils\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\ValueObject;
+namespace Fop\Core\ValueObject;
 
 final class Group
 {

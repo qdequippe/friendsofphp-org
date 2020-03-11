@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Filter;
+namespace Fop\Core\Filter;
 
-use Fop\Contract\MeetupFilterInterface;
-use Fop\ValueObject\Meetup;
+use Fop\Core\Contract\MeetupFilterInterface;
+use Fop\Core\ValueObject\Meetup;
 use Nette\Utils\Strings;
 
 final class JavascriptMeetupFilter implements MeetupFilterInterface
