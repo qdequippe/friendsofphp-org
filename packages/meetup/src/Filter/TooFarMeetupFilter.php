@@ -3,8 +3,8 @@
 namespace Fop\Meetup\Filter;
 
 use DateTimeInterface;
-use Fop\Core\ValueObject\Meetup;
 use Fop\Meetup\Contract\MeetupFilterInterface;
+use Fop\Meetup\ValueObject\Meetup;
 use Nette\Utils\DateTime;
 
 final class TooFarMeetupFilter implements MeetupFilterInterface

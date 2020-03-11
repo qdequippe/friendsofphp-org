@@ -24,4 +24,4 @@ parameters:
 
         # variadic
         - '#Method Fop\\MeetupCom\\Api\\MeetupComRequestRunner\:\:runCallbackWithinRequestLimits\(\) has parameter \$args with no typehint specified#'
-        - '#Property Fop\\Meetup\\Repository\\MeetupRepository\:\:\$meetups \(array<Fop\\Core\\ValueObject\\Meetup\>\) does not accept array<object\>#'
+        - '#Property Fop\\Meetup\\Repository\\MeetupRepository\:\:\$meetups \(array<Fop\\Meetup\\ValueObject\\Meetup\>\) does not accept array<object\>#'

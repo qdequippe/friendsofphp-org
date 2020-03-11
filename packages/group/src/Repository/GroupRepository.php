@@ -3,7 +3,7 @@
 namespace Fop\Group\Repository;
 
 use Fop\Core\FileSystem\YamlFileSystem;
-use Fop\Core\ValueObject\Group;
+use Fop\Group\ValueObject\Group;
 use Fop\Hydrator\ArrayToValueObjectHydrator;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 

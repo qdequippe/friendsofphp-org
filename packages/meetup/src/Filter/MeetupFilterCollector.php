@@ -2,8 +2,8 @@
 
 namespace Fop\Meetup\Filter;
 
-use Fop\Core\ValueObject\Meetup;
 use Fop\Meetup\Contract\MeetupFilterInterface;
+use Fop\Meetup\ValueObject\Meetup;
 
 final class MeetupFilterCollector
 {

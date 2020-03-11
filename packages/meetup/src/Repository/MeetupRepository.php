@@ -3,8 +3,8 @@
 namespace Fop\Meetup\Repository;
 
 use Fop\Core\FileSystem\YamlFileSystem;
-use Fop\Core\ValueObject\Meetup;
 use Fop\Hydrator\ArrayToValueObjectHydrator;
+use Fop\Meetup\ValueObject\Meetup;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 final class MeetupRepository

@@ -6,3 +6,5 @@ services:
 
     Fop\Group\:
         resource: "../src"
+        exclude:
+            - "../src/ValueObject/*"

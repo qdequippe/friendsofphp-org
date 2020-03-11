@@ -2,11 +2,11 @@
 
 namespace Fop\Core\Command;
 
-use Fop\Core\ValueObject\Meetup;
 use Fop\Meetup\Contract\MeetupImporterInterface;
 use Fop\Meetup\DataCollector\MeetupCollector;
 use Fop\Meetup\Filter\MeetupFilterCollector;
 use Fop\Meetup\Repository\MeetupRepository;
+use Fop\Meetup\ValueObject\Meetup;
 use Fop\MeetupCom\Command\Reporter\MeetupReporter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

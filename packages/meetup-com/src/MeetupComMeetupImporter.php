@@ -2,9 +2,9 @@
 
 namespace Fop\MeetupCom;
 
-use Fop\Core\ValueObject\Meetup;
 use Fop\Group\Repository\GroupRepository;
 use Fop\Meetup\Contract\MeetupImporterInterface;
+use Fop\Meetup\ValueObject\Meetup;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Api\MeetupComCooler;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;

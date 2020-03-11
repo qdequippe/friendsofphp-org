@@ -3,8 +3,8 @@
 namespace Fop\Meetup\Meetup;
 
 use DateTimeInterface;
-use Fop\Core\ValueObject\Location;
-use Fop\Core\ValueObject\Meetup;
+use Fop\Meetup\ValueObject\Location;
+use Fop\Meetup\ValueObject\Meetup;
 
 final class MeetupFactory
 {

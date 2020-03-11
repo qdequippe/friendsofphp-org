@@ -4,9 +4,9 @@ namespace Fop\OpentechcalendarCoUk\Factory;
 
 use Fop\Core\Exception\ShouldNotHappenException;
 use Fop\Core\Geolocation\Geolocator;
-use Fop\Core\ValueObject\Location;
-use Fop\Core\ValueObject\Meetup;
 use Fop\Meetup\Meetup\MeetupFactory;
+use Fop\Meetup\ValueObject\Location;
+use Fop\Meetup\ValueObject\Meetup;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 use Nette\Utils\Strings;

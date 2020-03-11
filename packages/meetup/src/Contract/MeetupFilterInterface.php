@@ -2,7 +2,7 @@
 
 namespace Fop\Meetup\Contract;
 
-use Fop\Core\ValueObject\Meetup;
+use Fop\Meetup\ValueObject\Meetup;
 
 interface MeetupFilterInterface
 {
