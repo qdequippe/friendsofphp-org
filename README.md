@@ -35,14 +35,6 @@ bin/console server:run
 
 You'll find new or updated files in `/config/_data/` directory.
 
-### Usage
-
-To **upgrade last meeting dates**:
-
-```bash
-bin/console last-group-meetup
-```
-
 ## JSON API?
 
 Do you want to get all groups and meetups? There you are:
