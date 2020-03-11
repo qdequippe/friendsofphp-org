@@ -1,0 +1,27 @@
+language: php
+
+matrix:
+    include:
+        - php: 7.3
+
+before_install:
+    # configure timezone: https://stackoverflow.com/a/27052708/1348344
+    - export TZ=Europe/Prague
+
+install:
+    - composer update
+
+script:
+    # import data
+    - bin/console import --ansi
+
+    # build static version to /output directory
+    - bin/console dump-static-site --ansi
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    on:
+        branch: master
+    local_dir: output
