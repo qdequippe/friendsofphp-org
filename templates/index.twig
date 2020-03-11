@@ -3,37 +3,25 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-<div class="container-fluid" id="content">
-    <div class="row">
-        <div class="col-md-12 pb-5 pt-4">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="row">
-                        <div class="col-12">
-                            <table class="table table-bordered">
-                                <thead class="thead-inverse">
-                                    <tr>
-                                        <th class="text-center">🔎 &nbsp;ZOOM Map → Filter Meetups</th>
-                                    </tr>
-                                </thead>
-
-                                <tr>
-                                    <td style="padding: .2em">
-                                        <a name="map"></a>
-                                        <div id="{{ map_id }}"></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 pl-md-0">
-                    {% include "_snippets/meetups/map_and_table.twig" %}
-                </div>
+    <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-12 col-md-6 pb-5 pt-3">
+                <script src="/assets/js/utils.js?v={{ random() }}"></script>
+                {% include "_snippets/meetups/table.twig" %}
+            </div>
+            <div class="col-12 col-md-6 pl-md-0 pt-3">
+                <a name="map"></a>
+                <div id="{{ map_id }}"></div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+    {# need to be run after jQuery #}
+    <script src="/assets/js/menu-area-pick.js?v={{ random() }}"></script>
+
+    {# generated javascript using jQuery #}
+    {% include "_snippets/meetups_map_js.twig" %}
 
 {% endblock %}
