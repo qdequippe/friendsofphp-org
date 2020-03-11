@@ -2,6 +2,7 @@
 
 namespace Fop\Group\Command;
 
+use DateTime;
 use Fop\Group\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Api\MeetupComCooler;
@@ -12,7 +13,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
 
-final class LastGroupMeetupCommand extends Command
+final class ValidateDeadGroupsCommand extends Command
 {
     /**
      * @var SymfonyStyle
@@ -55,28 +56,40 @@ final class LastGroupMeetupCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $groups = $this->groupRepository->fetchAll();
+        $possiblyDeadGroups = [];
+        $sixMonthsAgoDateTime = new DateTime('- 6 months');
 
-        foreach ($groups as $group) {
+        foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
+
+            $this->symfonyStyle->note(sprintf('Resolved last meetup date time for "%s"', $group->getName()));
+
+            // too fresh
+            if ($lastMeetupDateTime > $sixMonthsAgoDateTime) {
+                $this->meetupComCooler->coolDownIfNeeded();
+                continue;
+            }
+
             $lastMeetupDateTimeAsString = $lastMeetupDateTime ? $lastMeetupDateTime->format('Y-m-d') : '';
-
-            $this->symfonyStyle->note(
-                sprintf(
-                    'Update last meetup date time for "%s" group to "%s"',
-                    $group->getName(),
-                    $lastMeetupDateTimeAsString
-                )
-            );
-
-            $group->changeLastMeetupDateTime($lastMeetupDateTime);
+            $possiblyDeadGroups[$group->getName()] = $lastMeetupDateTimeAsString;
 
             $this->meetupComCooler->coolDownIfNeeded();
         }
 
-        $this->groupRepository->persist();
-        $this->symfonyStyle->success('Finished');
+        if ($possiblyDeadGroups === []) {
+            $this->symfonyStyle->success('All groups are fresh!');
 
-        return ShellCode::SUCCESS;
+            return ShellCode::SUCCESS;
+        }
+
+        $this->symfonyStyle->section(sprintf('There are %d dead groups', count($possiblyDeadGroups)));
+
+        foreach ($possiblyDeadGroups as $groupName => $lastMeetupDateTimeAsString) {
+            $this->symfonyStyle->writeln(
+                sprintf(' * group "%s" with last meetup on %d', $groupName, $lastMeetupDateTimeAsString)
+            );
+        }
+
+        return ShellCode::ERROR;
     }
 }

@@ -4,25 +4,21 @@
     <thead class="thead-inverse">
         <tr>
             <th class="w-25 text-center">
-                📅
-                &nbsp;
                 <span class="hidden-sm-down">When</span>
             </th>
             <th class="w-25 text-center">
-                📍
-
                 <span class="hidden-sm-down">Where</span>
             </th>
             <th class="w-50 text-center">
                 <span class="hidden-sm-down">Meetup</span>
             </th>
         </tr>
+        <tr id="block-zoomout">
+            <td colspan="3" class="text-center">
+                No meetups in this area. Try to zoom out a bit!
+            </td>
+        </tr>
     </thead>
-    <tr id="block-zoomout">
-        <td colspan="3" class="text-center">
-            No meetups in this area. Try to zoom out a bit!
-        </td>
-    </tr>
 
     {# @var meetup \Fop\ValueObject\Meetup #}
     {% for meetup in meetups %}

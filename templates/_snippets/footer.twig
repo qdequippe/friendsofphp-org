@@ -1,8 +1,28 @@
+{# jquery #}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
 <script type="text/javascript">
     var relocate = function(latitude, longitude) {
         var targetLatLng = new L.LatLng(latitude, longitude);
         map.setView(targetLatLng, 8);
     };
+
+    // see https://datatables.net/examples/index
+    $('#table-meetups').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        // "searching": true,
+        "paging": false,
+        "ordering": false,
+        "info": false,
+        "oLanguage": {
+            "sSearch": ""
+        }
+    });
+
+    $("[aria-controls='table-meetups']").attr('placeholder', 'Filter Meetups...');
 </script>
 
 <footer class="pb-5 pt-5 mt-5">
