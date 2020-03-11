@@ -1,6 +1,4 @@
-# [FriendsOfPhp.org](https://www.friendsofphp.org) - All PHP Meetups in next 30 days
-
-[![Build Status Github Actions](https://img.shields.io/github/workflow/status/tomasvotruba/friendsofphp.org/Code_Checks?style=flat-square)](https://github.com/TomasVotruba/friendsofphp.org/actions)
+# [FriendsOfPhp.org](https://www.friendsofphp.org) - World PHP Meetups in next 30 days
 
 <div align="center">
    <img src="/docs/preview.png?v=1">
@@ -35,7 +33,7 @@ bin/console import
 bin/console server:run
 ```
 
-You'll find new or updated files in `/config/_data/generated/` directory.
+You'll find new or updated files in `/config/_data/` directory.
 
 ### Usage
 
