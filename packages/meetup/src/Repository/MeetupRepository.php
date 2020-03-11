@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Core\Repository;
+namespace Fop\Meetup\Repository;
 
 use Fop\Core\FileSystem\YamlFileSystem;
 use Fop\Core\ValueObject\Meetup;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Core\Controller;
 
-use Fop\Core\Repository\MeetupRepository;
+use Fop\Meetup\Repository\MeetupRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
