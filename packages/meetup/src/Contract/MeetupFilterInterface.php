@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Core\Contract;
+namespace Fop\Meetup\Contract;
 
 use Fop\Core\ValueObject\Meetup;
 
