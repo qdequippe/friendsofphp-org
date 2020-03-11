@@ -88,7 +88,7 @@ final class DumpStaticSiteCommand extends Command
             $filePath = $this->resolveFilePath($route);
 
             $this->symfonyStyle->note(sprintf(
-                'Dumping static content for"%s" route to "%s" path',
+                'Dumping static content for "%s" route to "%s" path',
                 $route->getPath(),
                 $filePath
             ));
