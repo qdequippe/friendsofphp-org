@@ -1,5 +1,6 @@
 imports:
     - { resource: 'parameters.yaml' }
+    - { resource: '../vendor/symplify/symfony-static-dumper/config/config.yaml' }
 
 services:
     _defaults:
@@ -20,3 +21,4 @@ services:
 
     GuzzleHttp\Client: null
     Symplify\PackageBuilder\Http\BetterGuzzleClient: null
+

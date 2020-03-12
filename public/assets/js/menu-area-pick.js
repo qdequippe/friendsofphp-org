@@ -7,7 +7,7 @@ $(function() {
         tresholdDate.setHours(tresholdDate.getHours() - 2);
         var tresholdDateTime = Date.parse(tresholdDate);
 
-        $("tr.meetup").each(function () {
+        $("#map-filterable-table tr.meetup").each(function () {
             var meetupLatLng = L.latLng($(this).data('latitude'), $(this).data('longitude'));
             if (bounds.contains(meetupLatLng)) {
                 // is in the past?
@@ -22,15 +22,6 @@ $(function() {
                 $(this).hide();
             }
         });
-
-        // see https://stackoverflow.com/a/20064911/1348344
-        var visibleMeetups = $("table#table-meetups tr.meetup:visible").length;
-
-        if (visibleMeetups === 0) {
-            $("#block-zoomout").show();
-        } else {
-            $("#block-zoomout").hide();
-        }
     };
 
     // show relevant meetups when map moves
