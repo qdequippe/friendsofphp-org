@@ -5,14 +5,19 @@
 {% block content %}
     <div class="container-fluid" id="content">
         <div class="row">
-            <div class="col-12 col-md-6 pl-md-0 pt-3">
+            <div class="col-12 col-md-6 pl-md-0 pt-3 hidden-sm-down">
                 <a name="map"></a>
                 <div id="{{ map_id }}"></div>
             </div>
 
-            <div class="col-12 col-md-6 pb-5 pt-3">
-                <script src="/assets/js/utils.js?v={{ random() }}"></script>
-                {% include "_snippets/meetups/table.twig" %}
+            <script src="{{ asset('assets/js/utils.js') }}"></script>
+
+            <div class="col-12 col-md-6 pb-5 pt-3 hidden-sm-down">
+                {% include "_snippets/meetups/map_filterable_table.twig" %}
+            </div>
+
+            <div class="col-12 col-md-6 pb-5 pt-3 hidden-md-up">
+                {% include "_snippets/meetups/static_table.twig" %}
             </div>
         </div>
     </div>

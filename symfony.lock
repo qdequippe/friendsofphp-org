@@ -232,6 +232,9 @@
             "phpcs.xml.dist"
         ]
     },
+    "symfony/asset": {
+        "version": "v5.0.5"
+    },
     "symfony/cache": {
         "version": "v5.0.5"
     },

@@ -11,9 +11,9 @@
     };
 
     // see https://datatables.net/examples/index
-    $('#table-meetups').DataTable({
+    $('.table-meetups').DataTable({
         // see https://datatables.net/examples/basic_init/filter_only.html
-        // "searching": true,
+        "searching": true,
         "paging": false,
         "ordering": false,
         "info": false,
@@ -22,7 +22,8 @@
         }
     });
 
-    $("[aria-controls='table-meetups']").attr('placeholder', 'Filter Meetups...');
+    $("[aria-controls='static-table']").attr('placeholder', 'Filter Meetups...');
+    $("[aria-controls='map-filterable-table']").attr('placeholder', 'Filter Meetups...');
 </script>
 
 <footer class="pb-5 pt-5 mt-5">

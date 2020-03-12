@@ -1,0 +1,10 @@
+<table class="table table-bordered table-responsive table-meetups" id="static-table">
+    {% include "_snippets/meetups/table_header.twig" %}
+
+    {# @todo http://plnkr.co/edit/mdeEYoZtnvpfHCdtSxDP?p=preview&preview #}
+    {# @todo https://stackoverflow.com/questions/38717543/how-do-i-filter-date-range-in-datatables #}
+
+    {% for meetup in meetups %}
+        {% include "_snippets/meetups/table_meetup_line.twig" %}
+    {% endfor %}
+</table>

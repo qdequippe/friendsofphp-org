@@ -200,8 +200,10 @@ footer ul, #groups ul {
     text-decoration: none;
 }
 
-#table-meetups_filter input {
-    font-size: 1em;
+#static-table_filter input, #map-filterable-table_filter input {
+    font-size: 1.2em;
     margin-left: -.2em;
+    margin-bottom: .6em;
+    width: 100%;
     color: #333;
 }
