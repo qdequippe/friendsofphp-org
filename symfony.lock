@@ -431,6 +431,9 @@
     "symplify/smart-file-system": {
         "version": "v7.2.3"
     },
+    "symplify/symfony-static-dumper": {
+        "version": "7.3-dev"
+    },
     "theseer/tokenizer": {
         "version": "1.1.3"
     },
