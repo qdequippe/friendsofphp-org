@@ -20,3 +20,9 @@ parameters:
             # helper class
             - 'src/Utils/Arrays.php'
             - '*Static*'
+
+
+        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer:
+            # waits on php cs fixer bug fix to be relased
+            - "packages/meetup/src/Repository/MeetupRepository.php"
+            - "packages/meetup/src/Filter/MeetupFilterCollector.php"

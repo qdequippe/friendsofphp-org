@@ -29,8 +29,9 @@
     "require-dev": {
         "phpstan/phpstan": "^0.12",
         "phpunit/phpunit": "^8.5",
-        "symplify/phpstan-extensions": "^7.3",
-        "symplify/easy-coding-standard": "^7.3"
+        "rector/rector": "^0.7.6",
+        "symplify/easy-coding-standard": "^7.3",
+        "symplify/phpstan-extensions": "^7.3"
     },
     "autoload": {
         "psr-4": {
