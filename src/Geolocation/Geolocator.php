@@ -20,20 +20,17 @@ final class Geolocator
      */
     private const API_LOCATION_TO_COUNTRY = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s';
 
+    private BetterGuzzleClient $betterGuzzleClient;
+
     /**
      * @var mixed[]
      */
-    private $countryJsonByLatitudeAndLongitudeCache = [];
+    private array $countryJsonByLatitudeAndLongitudeCache = [];
 
     /**
      * @var string[]
      */
-    private $usaStates = [];
-
-    /**
-     * @var BetterGuzzleClient
-     */
-    private $betterGuzzleClient;
+    private array $usaStates = [];
 
     /**
      * @param string[] $usaStates

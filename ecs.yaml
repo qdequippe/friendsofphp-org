@@ -20,3 +20,19 @@ parameters:
             # helper class
             - 'src/Utils/Arrays.php'
             - '*Static*'
+
+
+        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer:
+            # waits on php cs fixer bug fix to be relased
+            - "packages/meetup/src/Repository/MeetupRepository.php"
+            - "packages/meetup/src/Filter/MeetupFilterCollector.php"
+            - "packages/meetup/src/DataCollector/MeetupCollector.php"
+            - "packages/group/src/Repository/GroupRepository.php"
+            - "src/Utils/CityNormalizer.php"
+            - "src/Geolocation/Geolocator.php"
+            - "src/Controller/ApiMeetupsController.php"
+            - "src/Controller/ApiGroupsController.php"
+            - "src/Command/ImportCommand.php"
+
+        # breaks PHP 7.4 fn()
+        PHP_CodeSniffer\Standards\PSR2\Sniffs\Methods\FunctionCallSignatureSniff: null

@@ -6,20 +6,11 @@ namespace Fop\MeetupCom\ValueObject;
 
 final class RateLimits
 {
-    /**
-     * @var int
-     */
-    private $requestLimit;
+    private int $requestLimit;
 
-    /**
-     * @var int
-     */
-    private $remainingRequests;
+    private int $remainingRequests;
 
-    /**
-     * @var int
-     */
-    private $requestToReset;
+    private int $requestToReset;
 
     public function __construct(int $requestLimit, int $remainingRequests, int $requestToReset)
     {

@@ -8,10 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class CityNormalizerTest extends TestCase
 {
-    /**
-     * @var CityNormalizer
-     */
-    private $cityNormalizer;
+    private CityNormalizer $cityNormalizer;
 
     protected function setUp(): void
     {

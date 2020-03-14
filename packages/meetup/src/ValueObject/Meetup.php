@@ -7,30 +7,15 @@ use Fop\Core\Utils\DateStaticUtils;
 
 final class Meetup
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
-    /**
-     * @var string
-     */
-    private $userGroupName;
+    private string $userGroupName;
 
-    /**
-     * @var string
-     */
-    private $url;
+    private string $url;
 
-    /**
-     * @var Location
-     */
-    private $location;
+    private Location $location;
 
-    /**
-     * @var DateTimeInterface
-     */
-    private $startDateTime;
+    private DateTimeInterface $startDateTime;
 
     public function __construct(
         string $name,

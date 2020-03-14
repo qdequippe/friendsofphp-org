@@ -9,20 +9,14 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 final class GroupRepository
 {
-    /**
-     * @var string
-     */
-    private $groupsStorage;
+    private string $groupsStorage;
+
+    private YamlFileSystem $yamlFileSystem;
 
     /**
      * @var Group[]
      */
-    private $groups = [];
-
-    /**
-     * @var YamlFileSystem
-     */
-    private $yamlFileSystem;
+    private array $groups = [];
 
     public function __construct(
         string $groupsStorage,
@@ -65,9 +59,10 @@ final class GroupRepository
      */
     private function sortGroupsByName(array $groups): array
     {
-        usort($groups, function (Group $firstGroup, Group $secondGroup) {
-            return $firstGroup->getName() <=> $secondGroup->getName();
-        });
+        usort(
+            $groups,
+            fn (Group $firstGroup, Group $secondGroup) => $firstGroup->getName() <=> $secondGroup->getName()
+        );
 
         return $groups;
     }

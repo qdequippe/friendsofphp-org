@@ -10,7 +10,7 @@ final class MeetupFilterCollector
     /**
      * @var MeetupFilterInterface[]
      */
-    private $meetupFilters = [];
+    private array $meetupFilters = [];
 
     /**
      * @param MeetupFilterInterface[] $meetupFilters

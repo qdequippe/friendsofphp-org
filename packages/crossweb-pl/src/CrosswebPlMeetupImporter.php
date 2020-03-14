@@ -15,15 +15,9 @@ final class CrosswebPlMeetupImporter implements MeetupImporterInterface
      */
     private const XML_CALENDAR_FEED = 'https://crossweb.pl/feed/wydarzenia/php/';
 
-    /**
-     * @var XmlReader
-     */
-    private $xmlReader;
+    private XmlReader $xmlReader;
 
-    /**
-     * @var CrosswebPlMeetupFactory
-     */
-    private $crosswebPlMeetupFactory;
+    private CrosswebPlMeetupFactory $crosswebPlMeetupFactory;
 
     public function __construct(XmlReader $xmlReader, CrosswebPlMeetupFactory $crosswebPlMeetupFactory)
     {

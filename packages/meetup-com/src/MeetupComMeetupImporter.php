@@ -13,30 +13,15 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupComMeetupImporter implements MeetupImporterInterface
 {
-    /**
-     * @var GroupRepository
-     */
-    private $groupRepository;
+    private GroupRepository $groupRepository;
 
-    /**
-     * @var MeetupComMeetupFactory
-     */
-    private $meetupComMeetupFactory;
+    private MeetupComMeetupFactory $meetupComMeetupFactory;
 
-    /**
-     * @var MeetupComApi
-     */
-    private $meetupComApi;
+    private MeetupComApi $meetupComApi;
 
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
+    private SymfonyStyle $symfonyStyle;
 
-    /**
-     * @var MeetupComCooler
-     */
-    private $meetupComCooler;
+    private MeetupComCooler $meetupComCooler;
 
     public function __construct(
         GroupRepository $userGroupRepository,
@@ -74,7 +59,7 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
                 }
 
                 $groupMeetups = $this->createMeetupsFromMeetupsData($meetupsData);
-                $meetups = array_merge($meetups, $groupMeetups);
+                $meetups = [...$meetups, ...$groupMeetups];
             } catch (GuzzleException $guzzleException) {
                 // the group might not exists anymore, but it should not be a blocker for existing groups
                 $errors[] = $guzzleException->getMessage();

@@ -9,10 +9,7 @@ use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
 
 final class GeolocatorTest extends AbstractKernelTestCase
 {
-    /**
-     * @var Geolocator
-     */
-    private $geolocator;
+    private Geolocator $geolocator;
 
     protected function setUp(): void
     {

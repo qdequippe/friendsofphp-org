@@ -1,0 +1,10 @@
+parameters:
+    auto_import_names: true
+
+    sets:
+        - php74
+
+    paths:
+        - src
+        - packages
+        - tests

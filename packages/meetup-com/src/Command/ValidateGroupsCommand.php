@@ -13,20 +13,11 @@ use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ValidateGroupsCommand extends Command
 {
-    /**
-     * @var string
-     */
-    private $groupsStorage;
+    private string $groupsStorage;
 
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
+    private SymfonyStyle $symfonyStyle;
 
-    /**
-     * @var GroupRepository
-     */
-    private $groupRepository;
+    private GroupRepository $groupRepository;
 
     public function __construct(SymfonyStyle $symfonyStyle, GroupRepository $groupRepository, string $groupsStorage)
     {

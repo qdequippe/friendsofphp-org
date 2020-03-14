@@ -14,7 +14,7 @@ final class CityNormalizer
     /**
      * @var string[]
      */
-    private $cityNormalizationMap = [
+    private array $cityNormalizationMap = [
         '#Praha(.*?)#' => 'Prague',
         '#Brno(.*?)#' => 'Brno',
         'Hlavní město Praha' => 'Prague',

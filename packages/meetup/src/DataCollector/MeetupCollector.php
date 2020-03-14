@@ -11,14 +11,14 @@ final class MeetupCollector
     /**
      * @var Meetup[]
      */
-    private $meetups = [];
+    private array $meetups = [];
 
     /**
      * @param Meetup[] $meetups
      */
     public function addMeetups(array $meetups): void
     {
-        $this->meetups = array_merge($this->meetups, $meetups);
+        $this->meetups = [...$this->meetups, ...$meetups];
     }
 
     /**
