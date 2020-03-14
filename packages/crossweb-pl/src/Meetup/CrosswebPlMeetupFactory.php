@@ -4,7 +4,6 @@ namespace Fop\CrosswebPl\Meetup;
 
 use DateTimeInterface;
 use Fop\Core\Geolocation\Geolocator;
-use Fop\Meetup\Meetup\MeetupFactory;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
 use Nette\Utils\DateTime;
@@ -18,15 +17,9 @@ final class CrosswebPlMeetupFactory
      */
     private $geolocator;
 
-    /**
-     * @var MeetupFactory
-     */
-    private $meetupFactory;
-
-    public function __construct(Geolocator $geolocator, MeetupFactory $meetupFactory)
+    public function __construct(Geolocator $geolocator)
     {
         $this->geolocator = $geolocator;
-        $this->meetupFactory = $meetupFactory;
     }
 
     public function createMeetupFromMeetupUrl(string $url, string $name): ?Meetup
@@ -43,7 +36,9 @@ final class CrosswebPlMeetupFactory
             return null;
         }
 
-        return $this->meetupFactory->create($name, $this->resolveGroupName($name), $startDateTime, $location, $url);
+        $groupName = $this->resolveGroupName($name);
+
+        return new Meetup($name, $groupName, $startDateTime, $location, $url);
     }
 
     private function resolveLocation(string $content): ?Location

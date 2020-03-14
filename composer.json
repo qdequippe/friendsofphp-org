@@ -1,7 +1,7 @@
 {
     "name": "friends-of-php/friends-of-php",
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "ext-simplexml": "*",
         "doctrine/cache": "^1.10",
         "guzzlehttp/guzzle": "^6.5",
