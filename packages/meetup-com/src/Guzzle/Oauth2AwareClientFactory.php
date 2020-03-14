@@ -10,20 +10,11 @@ use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class Oauth2AwareClientFactory
 {
-    /**
-     * @var string
-     */
-    private $meetupComOauthKey;
+    private string $meetupComOauthKey;
 
-    /**
-     * @var string
-     */
-    private $meetupComOauthSecret;
+    private string $meetupComOauthSecret;
 
-    /**
-     * @var StringFormatConverter
-     */
-    private $stringFormatConverter;
+    private StringFormatConverter $stringFormatConverter;
 
     public function __construct(
         string $meetupComOauthKey,

@@ -14,7 +14,7 @@ final class ApiGroupsController extends AbstractController
     /**
      * @var mixed[]
      */
-    private $groups = [];
+    private array $groups = [];
 
     public function __construct(array $groups)
     {

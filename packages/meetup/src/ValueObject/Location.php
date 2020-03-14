@@ -6,20 +6,11 @@ use Location\Coordinate;
 
 final class Location
 {
-    /**
-     * @var string
-     */
-    private $city;
+    private string $city;
 
-    /**
-     * @var string
-     */
-    private $country;
+    private string $country;
 
-    /**
-     * @var Coordinate
-     */
-    private $coordinate;
+    private Coordinate $coordinate;
 
     public function __construct(string $city, string $country, Coordinate $coordinate)
     {

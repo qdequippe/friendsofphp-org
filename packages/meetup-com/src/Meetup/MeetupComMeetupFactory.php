@@ -13,15 +13,9 @@ use Nette\Utils\DateTime;
 
 final class MeetupComMeetupFactory
 {
-    /**
-     * @var Geolocator
-     */
-    private $geolocator;
+    private Geolocator $geolocator;
 
-    /**
-     * @var CityNormalizer
-     */
-    private $cityNormalizer;
+    private CityNormalizer $cityNormalizer;
 
     public function __construct(Geolocator $geolocator, CityNormalizer $cityNormalizer)
     {

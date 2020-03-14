@@ -16,10 +16,7 @@ final class OpentechcalendarCoUkMeetupImporter implements MeetupImporterInterfac
      */
     private const EVENTS_JSON_URL = 'https://opentechcalendar.co.uk/api1/events.json';
 
-    /**
-     * @var OpentechcalendarCoUkMeetupFactory
-     */
-    private $opentechcalendarCoUkMeetupFactory;
+    private OpentechcalendarCoUkMeetupFactory $opentechcalendarCoUkMeetupFactory;
 
     public function __construct(OpentechcalendarCoUkMeetupFactory $opentechcalendarCoUkMeetupFactory)
     {

@@ -11,10 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class HomepageController extends AbstractController
 {
-    /**
-     * @var MeetupRepository
-     */
-    private $meetupRepository;
+    private MeetupRepository $meetupRepository;
 
     public function __construct(MeetupRepository $meetupRepository)
     {

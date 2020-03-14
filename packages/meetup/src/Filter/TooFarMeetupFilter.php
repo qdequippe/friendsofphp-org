@@ -2,17 +2,13 @@
 
 namespace Fop\Meetup\Filter;
 
-use DateTimeInterface;
 use Fop\Meetup\Contract\MeetupFilterInterface;
 use Fop\Meetup\ValueObject\Meetup;
 use Nette\Utils\DateTime;
 
 final class TooFarMeetupFilter implements MeetupFilterInterface
 {
-    /**
-     * @var DateTimeInterface
-     */
-    private $maxForecastDateTime;
+    private DateTime $maxForecastDateTime;
 
     public function __construct(int $maxForecastDays)
     {
@@ -25,8 +21,9 @@ final class TooFarMeetupFilter implements MeetupFilterInterface
      */
     public function filter(array $meetups): array
     {
-        return array_filter($meetups, function (Meetup $meetup): bool {
-            return $meetup->getStartDateTime() <= $this->maxForecastDateTime;
-        });
+        return array_filter(
+            $meetups,
+            fn (Meetup $meetup): bool => $meetup->getStartDateTime() <= $this->maxForecastDateTime
+        );
     }
 }

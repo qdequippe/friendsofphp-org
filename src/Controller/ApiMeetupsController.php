@@ -14,7 +14,7 @@ final class ApiMeetupsController extends AbstractController
     /**
      * @var mixed[]
      */
-    private $meetups = [];
+    private array $meetups = [];
 
     public function __construct(array $meetups = [])
     {

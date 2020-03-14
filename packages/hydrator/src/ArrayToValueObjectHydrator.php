@@ -14,10 +14,7 @@ use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class ArrayToValueObjectHydrator
 {
-    /**
-     * @var StringFormatConverter
-     */
-    private $stringFormatConverter;
+    private StringFormatConverter $stringFormatConverter;
 
     public function __construct(StringFormatConverter $stringFormatConverter)
     {
@@ -99,7 +96,8 @@ final class ArrayToValueObjectHydrator
             return false;
         }
 
-        $parameterTypeName = $reflectionParameter->getType()->getName();
+        $reflectionParameterType = $reflectionParameter->getType();
+        $parameterTypeName = $reflectionParameterType->getName();
 
         return is_a($parameterTypeName, $type, true);
     }

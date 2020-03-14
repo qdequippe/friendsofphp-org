@@ -23,35 +23,20 @@ final class ImportCommand extends Command
      */
     private const OPTION_ONLY = 'only';
 
+    private SymfonyStyle $symfonyStyle;
+
+    private MeetupRepository $meetupRepository;
+
+    private MeetupReporter $meetupReporter;
+
+    private MeetupFilterCollector $meetupFilterCollector;
+
+    private MeetupCollector $meetupCollector;
+
     /**
      * @var MeetupImporterInterface[]
      */
-    private $meetupImporters = [];
-
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
-
-    /**
-     * @var MeetupRepository
-     */
-    private $meetupRepository;
-
-    /**
-     * @var MeetupReporter
-     */
-    private $meetupReporter;
-
-    /**
-     * @var MeetupFilterCollector
-     */
-    private $meetupFilterCollector;
-
-    /**
-     * @var MeetupCollector
-     */
-    private $meetupCollector;
+    private array $meetupImporters = [];
 
     /**
      * @param MeetupImporterInterface[] $meetupImporters

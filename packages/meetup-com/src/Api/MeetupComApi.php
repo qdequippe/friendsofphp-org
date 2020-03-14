@@ -28,15 +28,9 @@ final class MeetupComApi
      */
     private const API_LAST_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events?status=past&desc=true&page=1';
 
-    /**
-     * @var ResponseConverter
-     */
-    private $responseConverter;
+    private ResponseConverter $responseConverter;
 
-    /**
-     * @var Oauth2AwareClient
-     */
-    private $oauth2AwareClient;
+    private Oauth2AwareClient $oauth2AwareClient;
 
     public function __construct(ResponseConverter $responseConverter, Oauth2AwareClient $oauth2AwareClient)
     {

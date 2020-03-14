@@ -12,10 +12,7 @@ use Nette\Utils\Strings;
 
 final class CrosswebPlMeetupFactory
 {
-    /**
-     * @var Geolocator
-     */
-    private $geolocator;
+    private Geolocator $geolocator;
 
     public function __construct(Geolocator $geolocator)
     {

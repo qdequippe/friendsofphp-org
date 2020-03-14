@@ -9,20 +9,14 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 final class MeetupRepository
 {
-    /**
-     * @var string
-     */
-    private $meetupsStorage;
+    private string $meetupsStorage;
+
+    private YamlFileSystem $yamlFileSystem;
 
     /**
      * @var Meetup[]
      */
-    private $meetups = [];
-
-    /**
-     * @var YamlFileSystem
-     */
-    private $yamlFileSystem;
+    private array $meetups = [];
 
     public function __construct(
         string $meetupsStorage,
@@ -50,9 +44,10 @@ final class MeetupRepository
      */
     public function fetchAll(): array
     {
-        usort($this->meetups, function (Meetup $firstMeetup, Meetup $secondMeetup) {
-            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
-        });
+        usort(
+            $this->meetups,
+            fn (Meetup $firstMeetup, Meetup $secondMeetup) => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
+        );
 
         return $this->meetups;
     }
@@ -79,9 +74,10 @@ final class MeetupRepository
      */
     private function sortByStartDateTime(array $meetups): array
     {
-        usort($meetups, function (Meetup $firstMeetup, Meetup $secondMeetup): int {
-            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
-        });
+        usort(
+            $meetups,
+            fn (Meetup $firstMeetup, Meetup $secondMeetup): int => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
+        );
 
         return $meetups;
     }

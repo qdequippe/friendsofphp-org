@@ -15,25 +15,13 @@ use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ValidateDeadGroupsCommand extends Command
 {
-    /**
-     * @var SymfonyStyle
-     */
-    private $symfonyStyle;
+    private SymfonyStyle $symfonyStyle;
 
-    /**
-     * @var GroupRepository
-     */
-    private $groupRepository;
+    private GroupRepository $groupRepository;
 
-    /**
-     * @var MeetupComApi
-     */
-    private $meetupComApi;
+    private MeetupComApi $meetupComApi;
 
-    /**
-     * @var MeetupComCooler
-     */
-    private $meetupComCooler;
+    private MeetupComCooler $meetupComCooler;
 
     public function __construct(
         SymfonyStyle $symfonyStyle,
