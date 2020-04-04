@@ -16,7 +16,7 @@ jobs:
                 run: |
                     # configure timezone: https://stackoverflow.com/a/27052708/1348344
                     export TZ=Europe/Prague
-                    bin/console import --ansi
+                    bin/console import --ansi -vvv
                     bin/console dump-static-site --ansi
                 env:
                     MEETUP_COM_OAUTH_KEY: ${{ secrets.MEETUP_COM_OAUTH_KEY }}

@@ -34,6 +34,9 @@ final class MeetupComMeetupFactory
 
         $startDateTime = $this->createStartDateTimeFromEventData($data);
         $location = $this->createLocation($data);
+        if ($location === null) {
+            return null;
+        }
 
         $name = $this->createName($data);
 
@@ -78,9 +81,14 @@ final class MeetupComMeetupFactory
     /**
      * @param mixed[] $data
      */
-    private function createLocation(array $data): Location
+    private function createLocation(array $data): ?Location
     {
         $venue = $data['venue'];
+
+        if (! isset($venue['lon'])) {
+            // online event probably
+            return null;
+        }
 
         // base location of the meetup, use it for event location
         if ($venue['lon'] === 0 || $venue['lat'] === 0 || (isset($venue['city']) && $venue['city'] === 'Shenzhen')) {

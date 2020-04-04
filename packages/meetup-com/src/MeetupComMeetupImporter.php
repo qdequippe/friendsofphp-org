@@ -47,7 +47,8 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             try {
-                $this->symfonyStyle->note(sprintf('Loading meetups for %s group', $group->getMeetupComSlug()));
+                $message = sprintf('Loading meetups for "%s" group', $group->getMeetupComSlug());
+                $this->symfonyStyle->note($message);
 
                 $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($group->getMeetupComSlug());
                 $this->meetupComCooler->coolDownIfNeeded();
