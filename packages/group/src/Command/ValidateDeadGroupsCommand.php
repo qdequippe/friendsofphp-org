@@ -30,6 +30,7 @@ final class ValidateDeadGroupsCommand extends Command
         MeetupComCooler $meetupComCooler
     ) {
         parent::__construct();
+
         $this->symfonyStyle = $symfonyStyle;
         $this->groupRepository = $groupRepository;
         $this->meetupComApi = $meetupComApi;
@@ -45,7 +46,8 @@ final class ValidateDeadGroupsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $possiblyDeadGroups = [];
-        $sixMonthsAgoDateTime = new DateTime('- 6 months');
+        // increase temporary from 6 to 10 months due to covid
+        $sixMonthsAgoDateTime = new DateTime('- 10 months');
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
