@@ -50,6 +50,7 @@ final class ImportCommand extends Command
         MeetupCollector $meetupCollector
     ) {
         parent::__construct();
+
         $this->meetupImporters = $meetupImporters;
         $this->symfonyStyle = $symfonyStyle;
         $this->meetupRepository = $meetupRepository;

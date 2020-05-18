@@ -22,6 +22,7 @@ final class ValidateGroupsCommand extends Command
     public function __construct(SymfonyStyle $symfonyStyle, GroupRepository $groupRepository, string $groupsStorage)
     {
         parent::__construct();
+
         $this->symfonyStyle = $symfonyStyle;
         $this->groupRepository = $groupRepository;
         $this->groupsStorage = $groupsStorage;

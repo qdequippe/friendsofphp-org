@@ -54,7 +54,8 @@ final class CrosswebPlMeetupFactory
     private function resolveStartDateTime(string $content): ?DateTimeInterface
     {
         $match = Strings::match($content, '#Godzina.*?(?<time>\d+\:\d+)#s');
-        $time = $match['time'] ?? '19:00'; // fallback to prevent 00:00
+        // fallback to prevent 00:00
+        $time = $match['time'] ?? '19:00';
 
         $match = Strings::match($content, '#Data:.*?(?<date>\d+\.\d+\.\d+)#s');
         $date = $match['date'] ?? null;

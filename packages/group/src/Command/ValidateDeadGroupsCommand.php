@@ -30,6 +30,7 @@ final class ValidateDeadGroupsCommand extends Command
         MeetupComCooler $meetupComCooler
     ) {
         parent::__construct();
+
         $this->symfonyStyle = $symfonyStyle;
         $this->groupRepository = $groupRepository;
         $this->meetupComApi = $meetupComApi;

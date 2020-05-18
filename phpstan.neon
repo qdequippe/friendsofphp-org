@@ -1,5 +1,6 @@
 includes:
     - vendor/symplify/phpstan-extensions/config/config.neon
+    - vendor/symplify/coding-standard/config/symplify-rules.neon
 
 parameters:
     level: max
@@ -10,7 +11,6 @@ parameters:
         - tests
         - packages
 
-    checkGenericClassInNonGenericObjectType: false
     reportUnmatchedIgnoredErrors: false
 
     ignoreErrors:

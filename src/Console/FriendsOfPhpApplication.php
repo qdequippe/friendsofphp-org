@@ -13,6 +13,7 @@ final class FriendsOfPhpApplication extends Application
     public function __construct(array $commands)
     {
         $this->addCommands($commands);
+
         parent::__construct();
     }
 }
