@@ -74,17 +74,19 @@ final class ImportCommand extends Command
         $meetupImporters = $this->getMeetupImporters($provider);
 
         if ($meetupImporters === [] && $provider) {
-            $this->symfonyStyle->error(sprintf(
+            $errorMessage = sprintf(
                 'The provider for "%s" was not found.%sPick one of "%s"',
                 $provider,
                 PHP_EOL,
                 implode('", "', $this->getMeetupImporterKeys())
-            ));
+            );
+            $this->symfonyStyle->error($errorMessage);
             return ShellCode::ERROR;
         }
 
         foreach ($meetupImporters as $meetupImporter) {
-            $this->symfonyStyle->section(sprintf('Importing meetups from "%s"', $meetupImporter->getKey()));
+            $section = sprintf('Importing meetups from "%s"', $meetupImporter->getKey());
+            $this->symfonyStyle->section($section);
 
             $meetups = $meetupImporter->getMeetups();
             $meetups = $this->meetupFilterCollector->filter($meetups);
@@ -145,6 +147,7 @@ final class ImportCommand extends Command
 
         $this->meetupReporter->printMeetups($meetups);
 
-        $this->symfonyStyle->success(sprintf('Loaded %d meetups from "%s"', count($meetups), $key));
+        $successMessage = sprintf('Loaded %d meetups from "%s"', count($meetups), $key);
+        $this->symfonyStyle->success($successMessage);
     }
 }

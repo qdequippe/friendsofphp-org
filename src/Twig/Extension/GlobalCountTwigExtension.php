@@ -11,7 +11,10 @@ final class GlobalCountTwigExtension extends AbstractExtension
 {
     public function __construct(Environment $environment, array $groups = [], array $meetups = [])
     {
-        $environment->addGlobal('meetup_count', count($meetups));
-        $environment->addGlobal('group_count', count($groups));
+        $meetupCount = count($meetups);
+        $environment->addGlobal('meetup_count', $meetupCount);
+
+        $groupCount = count($groups);
+        $environment->addGlobal('group_count', $groupCount);
     }
 }
