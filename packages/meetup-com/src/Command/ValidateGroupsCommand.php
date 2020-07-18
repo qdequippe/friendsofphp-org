@@ -70,7 +70,8 @@ final class ValidateGroupsCommand extends Command
         $this->symfonyStyle->section('Found duplicated groups');
         $this->symfonyStyle->listing($duplicatedGroupSlugs);
 
-        $this->symfonyStyle->error(sprintf('Cleanup "%s" file', $this->groupsStorage));
+        $errorMessage = sprintf('Cleanup "%s" file', $this->groupsStorage);
+        $this->symfonyStyle->error($errorMessage);
 
         return ShellCode::ERROR;
     }

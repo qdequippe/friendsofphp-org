@@ -33,12 +33,13 @@ final class MeetupComCooler
             return;
         }
 
-        $this->symfonyStyle->warning(sprintf(
+        $warningMessage = sprintf(
             'Remaining request count %d is under %d. Cooling down for %d seconds not to throtle meetup.com API',
             $reaminingRequestCount,
             self::REMAINING_REQUEST_LOWER_LIMIT,
             self::COOLDOWN_IN_SECONDS
-        ));
+        );
+        $this->symfonyStyle->warning($warningMessage);
 
         sleep(self::COOLDOWN_IN_SECONDS);
     }

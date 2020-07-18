@@ -1,9 +1,0 @@
-services:
-    _defaults:
-        autowire: true
-        public: true
-
-    Fop\Hydrator\:
-        resource: "../src"
-
-    Symplify\PackageBuilder\Strings\StringFormatConverter: null

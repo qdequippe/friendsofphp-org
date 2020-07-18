@@ -52,7 +52,8 @@ final class ValidateDeadGroupsCommand extends Command
         foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
 
-            $this->symfonyStyle->note(sprintf('Resolved last meetup date time for "%s"', $group->getName()));
+            $message = sprintf('Resolved last meetup date time for "%s"', $group->getName());
+            $this->symfonyStyle->note($message);
 
             // too fresh
             if ($lastMeetupDateTime > $sixMonthsAgoDateTime) {
@@ -72,12 +73,12 @@ final class ValidateDeadGroupsCommand extends Command
             return ShellCode::SUCCESS;
         }
 
-        $this->symfonyStyle->section(sprintf('There are %d dead groups', count($possiblyDeadGroups)));
+        $section = sprintf('There are %d dead groups', count($possiblyDeadGroups));
+        $this->symfonyStyle->section($section);
 
         foreach ($possiblyDeadGroups as $groupName => $lastMeetupDateTimeAsString) {
-            $this->symfonyStyle->writeln(
-                sprintf(' * group "%s" with last meetup on %d', $groupName, $lastMeetupDateTimeAsString)
-            );
+            $groupMessage = sprintf(' * group "%s" with last meetup on %d', $groupName, $lastMeetupDateTimeAsString);
+            $this->symfonyStyle->writeln($groupMessage);
         }
 
         return ShellCode::ERROR;

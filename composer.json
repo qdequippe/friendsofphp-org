@@ -27,6 +27,7 @@
         "symplify/symfony-static-dumper": "dev-master"
     },
     "require-dev": {
+        "migrify/config-transformer": "^0.3.15",
         "phpstan/phpstan": "^0.12.14",
         "phpunit/phpunit": "^8.5",
         "rector/rector": "dev-master",
@@ -62,7 +63,7 @@
             "@auto-scripts"
         ],
         "check-cs": "vendor/bin/ecs check bin src tests packages --ansi",
-        "fix-cs": "vendor/bin/ecs check bin src tests packages --fix --ansi",
+        "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "phpstan": "vendor/bin/phpstan analyse --error-format symplify --ansi",
         "generate": [
             "bin/console import",
