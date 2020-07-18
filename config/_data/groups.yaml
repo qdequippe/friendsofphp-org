@@ -406,11 +406,6 @@ parameters:
             country: Russia
 
         -
-            name: 'PHPers Warszawa'
-            meetup_com_slug: PHPers-Warszawa
-            country: Poland
-
-        -
             name: '#PUG-Romagna: PHP User Group Romagnolo'
             meetup_com_slug: PUG-Romagna-PHP-User-Group-Romagnolo
             country: Italy
