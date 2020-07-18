@@ -9,6 +9,10 @@ use Symplify\PackageBuilder\Yaml\ParameterMergingYamlLoader;
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/parameters.php');
 
+    $containerConfigurator->import(__DIR__ . '/packages/*');
+
+    $containerConfigurator->import(__DIR__ . '/../packages/*/config/*.php');
+
     $containerConfigurator->import(__DIR__ . '/../vendor/symplify/symfony-static-dumper/config/config.php');
 
     $services = $containerConfigurator->services();
@@ -19,14 +23,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autoconfigure();
 
     $services->load('Fop\Core\\', __DIR__ . '/../src')
-        ->exclude(
-            [
-                __DIR__ . '/../src/Entity/*',
-                __DIR__ . '/../src/HttpKernel/*',
-                __DIR__ . '/../src/Contract/*',
-                __DIR__ . '/../src/ValueObject/*',
-            ]
-        );
+        ->exclude([__DIR__ . '/../src/HttpKernel/*']);
 
     $services->set(ParameterMergingYamlLoader::class);
 
