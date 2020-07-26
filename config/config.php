@@ -34,5 +34,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->set(BetterGuzzleClient::class);
 
-    $services->alias(ClientInterface::class, BetterGuzzleClient::class);
+    $services->alias(ClientInterface::class, Client::class);
 };
