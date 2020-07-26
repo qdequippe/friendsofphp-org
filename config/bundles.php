@@ -1,17 +1,22 @@
 <?php declare(strict_types=1);
 
+use Symfony\Bundle\DebugBundle\DebugBundle;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symplify\ConsoleColorDiff\ConsoleColorDiffBundle;
+
 return [
-    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => [
+    FrameworkBundle::class => [
         'all' => true,
     ],
-    Symfony\Bundle\DebugBundle\DebugBundle::class => [
+    DebugBundle::class => [
         'dev' => true,
         'test' => true,
     ],
-    Symfony\Bundle\TwigBundle\TwigBundle::class => [
+    TwigBundle::class => [
         'all' => true,
     ],
-    Symplify\ConsoleColorDiff\ConsoleColorDiffBundle::class => [
+    ConsoleColorDiffBundle::class => [
         'dev' => true,
         'test' => true,
     ],
