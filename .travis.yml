@@ -9,7 +9,7 @@ before_install:
     - export TZ=Europe/Prague
 
 install:
-    - composer update
+    - composer update --ansi
 
 script:
     # import data

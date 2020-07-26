@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\PackageBuilder\Console\Style\SymfonyStyleFactory;
 use Symplify\PackageBuilder\Http\BetterGuzzleClient;
@@ -11,7 +12,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $containerConfigurator->import(__DIR__ . '/packages/*');
 
-    $containerConfigurator->import(__DIR__ . '/../packages/*/config/*.php');
+    $containerConfigurator->import(__DIR__ . '/../packages/*/config/*');
 
     $containerConfigurator->import(__DIR__ . '/../vendor/symplify/symfony-static-dumper/config/config.php');
 
@@ -32,4 +33,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(Client::class);
 
     $services->set(BetterGuzzleClient::class);
+
+    $services->alias(ClientInterface::class, BetterGuzzleClient::class);
 };
