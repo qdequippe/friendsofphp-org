@@ -2,10 +2,10 @@
 
 namespace Fop\Group\Command;
 
-use DateTime;
 use Fop\Group\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Api\MeetupComCooler;
+use Nette\Utils\DateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -47,7 +47,7 @@ final class ValidateDeadGroupsCommand extends Command
     {
         $possiblyDeadGroups = [];
         // increase temporary from 6 to 10 months due to covid
-        $sixMonthsAgoDateTime = new DateTime('- 10 months');
+        $sixMonthsAgoDateTime = DateTime::from('- 10 months');
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());

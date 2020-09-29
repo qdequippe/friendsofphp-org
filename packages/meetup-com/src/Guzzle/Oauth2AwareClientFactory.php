@@ -3,9 +3,11 @@
 namespace Fop\MeetupCom\Guzzle;
 
 use Fop\Core\Exception\ShouldNotHappenException;
+use Fop\Core\ValueObject\Option;
 use GuzzleHttp\Client;
 use kamermans\OAuth2\GrantType\ClientCredentials;
 use kamermans\OAuth2\OAuth2Middleware;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class Oauth2AwareClientFactory
@@ -16,13 +18,10 @@ final class Oauth2AwareClientFactory
 
     private StringFormatConverter $stringFormatConverter;
 
-    public function __construct(
-        string $meetupComOauthKey,
-        string $meetupComOauthSecret,
-        StringFormatConverter $stringFormatConverter
-    ) {
-        $this->meetupComOauthKey = $meetupComOauthKey;
-        $this->meetupComOauthSecret = $meetupComOauthSecret;
+    public function __construct(ParameterProvider $parameterProvider, StringFormatConverter $stringFormatConverter)
+    {
+        $this->meetupComOauthKey = $parameterProvider->provideStringParameter(Option::MEETUP_COM_OAUTH_KEY);
+        $this->meetupComOauthSecret = $parameterProvider->provideStringParameter(Option::MEETUP_COM_OAUTH_SECRET);
         $this->stringFormatConverter = $stringFormatConverter;
     }
 

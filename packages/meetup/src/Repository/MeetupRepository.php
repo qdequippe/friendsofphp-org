@@ -3,9 +3,10 @@
 namespace Fop\Meetup\Repository;
 
 use Fop\Core\FileSystem\YamlFileSystem;
+use Fop\Core\ValueObject\Option;
 use Fop\Hydrator\ArrayToValueObjectHydrator;
 use Fop\Meetup\ValueObject\Meetup;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class MeetupRepository
 {
@@ -19,16 +20,15 @@ final class MeetupRepository
     private array $meetups = [];
 
     public function __construct(
-        string $meetupsStorage,
         YamlFileSystem $yamlFileSystem,
-        ParameterBagInterface $parameterBag,
+        ParameterProvider $parameterProvider,
         ArrayToValueObjectHydrator $arrayToValueObjectHydrator
     ) {
         $this->yamlFileSystem = $yamlFileSystem;
 
-        $meetupsArray = (array) $parameterBag->get('meetups');
+        $meetupsArray = $parameterProvider->provideArrayParameter(Option::MEETUPS);
         $this->meetups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($meetupsArray, Meetup::class);
-        $this->meetupsStorage = $meetupsStorage;
+        $this->meetupsStorage = $parameterProvider->provideStringParameter(Option::MEETUPS_STORAGE);
     }
 
     /**

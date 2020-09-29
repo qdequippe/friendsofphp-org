@@ -1,5 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
+
+use Fop\Core\ValueObject\Option;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -8,12 +11,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
     # https://secure.meetup.com/meetup_api/oauth_consumers/
-    $parameters->set('meetup_com_oauth_key', '%env(MEETUP_COM_OAUTH_KEY)%');
-
-    $parameters->set('meetup_com_oauth_secret', '%env(MEETUP_COM_OAUTH_SECRET)%');
+    $parameters->set(Option::MEETUP_COM_OAUTH_KEY, '%env(MEETUP_COM_OAUTH_KEY)%');
+    $parameters->set(Option::MEETUP_COM_OAUTH_SECRET, '%env(MEETUP_COM_OAUTH_SECRET)%');
 
     $parameters->set(
-        'usa_states',
+        Option::USA_STATES,
         [
             'al' => 'Alabama',
             'ak' => 'Alaska',

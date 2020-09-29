@@ -5,7 +5,7 @@ namespace Fop\Group\Repository;
 use Fop\Core\FileSystem\YamlFileSystem;
 use Fop\Group\ValueObject\Group;
 use Fop\Hydrator\ArrayToValueObjectHydrator;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class GroupRepository
 {
@@ -19,19 +19,18 @@ final class GroupRepository
     private array $groups = [];
 
     public function __construct(
-        string $groupsStorage,
+        ParameterProvider $parameterProvider,
         ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
-        ParameterBagInterface $parameterBag,
         YamlFileSystem $yamlFileSystem
     ) {
-        $groupsArray = (array) $parameterBag->get('groups');
+        $groupsArray = $parameterProvider->provideArrayParameter('groups');
+        $this->groupsStorage = $parameterProvider->provideStringParameter('groups_storage');
 
         /** @var Group[] $groups */
         $groups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($groupsArray, Group::class);
         $this->groups = $this->sortGroupsByName($groups);
 
         $this->yamlFileSystem = $yamlFileSystem;
-        $this->groupsStorage = $groupsStorage;
     }
 
     /**

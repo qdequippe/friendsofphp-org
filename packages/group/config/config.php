@@ -11,5 +11,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->public();
 
     $services->load('Fop\Group\\', __DIR__ . '/../src')
-        ->exclude([__DIR__ . '/../src/ValueObject/*']);
+        ->exclude([__DIR__ . '/../src/ValueObject']);
 };
