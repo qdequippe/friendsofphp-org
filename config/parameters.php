@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Fop\Core\ValueObject\Option;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -11,7 +12,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     # imported also by statie.yml - needs to be standalone
     # how many days into the future the meetups should be imported
-    $parameters->set('max_forecast_days', 30);
+    $parameters->set(Option::MAX_FORECAST_DAYS, 30);
 
     $parameters->set('groups_storage', __DIR__ . '/../config/_data/groups.yaml');
 

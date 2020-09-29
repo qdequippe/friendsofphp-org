@@ -2,11 +2,13 @@
 
 namespace Fop\Core\Geolocation;
 
+use Fop\Core\ValueObject\Option;
 use Fop\Meetup\ValueObject\Location;
 use Location\Coordinate;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
 use Symplify\PackageBuilder\Http\BetterGuzzleClient;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class Geolocator
 {
@@ -32,12 +34,9 @@ final class Geolocator
      */
     private array $usaStates = [];
 
-    /**
-     * @param string[] $usaStates
-     */
-    public function __construct(array $usaStates, BetterGuzzleClient $betterGuzzleClient)
+    public function __construct(ParameterProvider $parameterProvider, BetterGuzzleClient $betterGuzzleClient)
     {
-        $this->usaStates = $usaStates;
+        $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
         $this->betterGuzzleClient = $betterGuzzleClient;
     }
 

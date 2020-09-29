@@ -2,7 +2,7 @@
 
 namespace Fop\Core\FileSystem;
 
-use DateTime;
+use Nette\Utils\DateTime;
 use Nette\Utils\FileSystem;
 use Symfony\Component\Yaml\Yaml;
 

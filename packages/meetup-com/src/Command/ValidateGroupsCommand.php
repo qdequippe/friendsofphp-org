@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
 use Symplify\PackageBuilder\Console\ShellCode;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class ValidateGroupsCommand extends Command
 {
@@ -19,13 +20,16 @@ final class ValidateGroupsCommand extends Command
 
     private GroupRepository $groupRepository;
 
-    public function __construct(SymfonyStyle $symfonyStyle, GroupRepository $groupRepository, string $groupsStorage)
-    {
+    public function __construct(
+        SymfonyStyle $symfonyStyle,
+        GroupRepository $groupRepository,
+        ParameterProvider $parameterProvider
+    ) {
         parent::__construct();
 
         $this->symfonyStyle = $symfonyStyle;
         $this->groupRepository = $groupRepository;
-        $this->groupsStorage = $groupsStorage;
+        $this->groupsStorage = $parameterProvider->provideStringParameter('groups_storage');
     }
 
     protected function configure(): void

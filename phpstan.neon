@@ -22,3 +22,52 @@ parameters:
 
         # variadic
         - '#Property Fop\\Meetup\\Repository\\MeetupRepository\:\:\$meetups \(array<Fop\\Meetup\\ValueObject\\Meetup\>\) does not accept array<object\>#'
+
+        -
+             message: '#Too many public elements on class \- 11\. Try narrow it down under 10#'
+             paths:
+                 - packages/meetup/src/ValueObject/Meetup.php
+
+        -
+            message: '#Do not use protected element in final class#'
+            paths:
+                - src/HttpKernel/FopKernel.php # 36
+                - src/HttpKernel/FopKernel.php # 43
+
+        -
+            message: '#Do not use static calls#'
+            paths:
+                - packages/meetup/src/ValueObject/Meetup.php # 81
+                - src/Geolocation/Geolocator.php # 71
+                - src/Geolocation/Geolocator.php # 99
+
+        -
+            message: '#Instead of "Nette\\Utils\\FileSystem" class/interface use "Symplify\\SmartFileSystem\\SmartFileSystem"#'
+            paths:
+                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 24
+                - packages/opentechcalendar-co-uk/src/OpentechcalendarCoUkMeetupImporter.php # 31
+                - src/FileSystem/YamlFileSystem.php # 22
+                - src/Xml/XmlReader.php # 14
+
+        -
+            message: '#Use local named constant instead of inline string for regex to explain meaning by constant name#'
+            paths:
+                - packages/crossweb-pl/src/CrosswebPlMeetupImporter.php # 62
+                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 43
+                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 56
+                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 60
+                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 73
+                - packages/opentechcalendar-co-uk/src/Factory/OpentechcalendarCoUkMeetupFactory.php # 28
+                - packages/opentechcalendar-co-uk/src/OpentechcalendarCoUkMeetupImporter.php # 38
+
+        -
+            message: '#Array with keys is not allowed\. Use value object to pass data instead#'
+            paths:
+                - packages/group/src/Repository/GroupRepository.php # 46
+                - packages/group/src/Repository/GroupRepository.php # 47
+                - packages/group/src/ValueObject/Group.php # 39
+                - packages/meetup-com/src/Guzzle/Oauth2AwareClientFactory.php # 40
+                - packages/meetup/src/Repository/MeetupRepository.php # 62
+                - packages/meetup/src/Repository/MeetupRepository.php # 63
+                - packages/meetup/src/ValueObject/Meetup.php # 86
+                - src/Utils/CityNormalizer.php # 17

@@ -28,9 +28,9 @@
     },
     "require-dev": {
         "migrify/config-transformer": "^0.3.15",
-        "phpstan/phpstan": "^0.12.14",
-        "phpunit/phpunit": "^8.5",
-        "rector/rector": "dev-master",
+        "phpstan/phpstan": "^0.12.43",
+        "phpunit/phpunit": "^9.3",
+        "rector/rector": "^0.8.10",
         "symplify/easy-coding-standard": "^8.0",
         "symplify/parameter-name-guard": "^8.0",
         "symplify/phpstan-extensions": "^8.0"

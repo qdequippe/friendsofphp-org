@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Fop\Core\Controller;
 
+use Fop\Core\ValueObject\Option;
 use Nette\Utils\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class ApiGroupsController extends AbstractController
 {
@@ -16,9 +18,9 @@ final class ApiGroupsController extends AbstractController
      */
     private array $groups = [];
 
-    public function __construct(array $groups)
+    public function __construct(ParameterProvider $parameterProvider)
     {
-        $this->groups = $groups;
+        $this->groups = $parameterProvider->provideArrayParameter(Option::GROUPS);
     }
 
     /**
