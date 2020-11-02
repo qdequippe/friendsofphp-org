@@ -21,19 +21,19 @@
         "symfony/http-kernel": "^5.0",
         "symfony/twig-bridge": "^5.0",
         "symfony/twig-bundle": "^5.0",
-        "symplify/autodiscovery": "^8.0",
-        "symplify/flex-loader": "^8.0",
-        "symplify/package-builder": "^8.0",
-        "symplify/symfony-static-dumper": "dev-master"
+        "symplify/autodiscovery": "^8.3",
+        "symplify/flex-loader": "^8.3",
+        "symplify/package-builder": "^8.3",
+        "symplify/symfony-static-dumper": "^8.3"
     },
     "require-dev": {
         "migrify/config-transformer": "^0.3.15",
-        "phpstan/phpstan": "^0.12.43",
+        "phpstan/phpstan": "^0.12.53",
         "phpunit/phpunit": "^9.3",
-        "rector/rector": "^0.8.10",
-        "symplify/easy-coding-standard": "^8.0",
-        "symplify/parameter-name-guard": "^8.0",
-        "symplify/phpstan-extensions": "^8.0"
+        "rector/rector": "^0.8.48",
+        "symplify/easy-coding-standard": "^8.3",
+        "symplify/parameter-name-guard": "^8.3",
+        "symplify/phpstan-extensions": "^8.3"
     },
     "autoload": {
         "psr-4": {

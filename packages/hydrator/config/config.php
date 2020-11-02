@@ -8,6 +8,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     $services->defaults()
         ->autowire()
+        ->autoconfigure()
         ->public();
 
     $services->load('Fop\Hydrator\\', __DIR__ . '/../src');

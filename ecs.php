@@ -1,11 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
-use Symplify\EasyCodingStandard\Configuration\Option;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
@@ -25,13 +27,12 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/ecs.php',
     ]);
 
+    $parameters->set(Option::EXCLUDE_PATHS, [__DIR__ . '/config/bundles.php']);
+
     $parameters->set(Option::SETS, ['php70', 'php71', 'clean-code', 'dead-code', 'symplify', 'common', 'psr12']);
 
-    $parameters->set(
-        Option::SKIP,
-        [
-            UnaryOperatorSpacesFixer::class => null,
-            BlankLineAfterOpeningTagFixer::class => null,
-        ]
-    );
+    $parameters->set(Option::SKIP, [
+        UnaryOperatorSpacesFixer::class => null,
+        BlankLineAfterOpeningTagFixer::class => null,
+    ]);
 };
