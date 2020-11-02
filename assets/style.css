@@ -1,0 +1,209 @@
+body {
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    color: #222;
+    font-size: 19px;
+    line-height: 1.5em;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+#mapid {
+    height: 25em;
+}
+
+#head {
+    background: hsl(229, 30%, 44%);
+    color: #DDD;
+}
+
+#head p a {
+    text-decoration: underline;
+    color: #ddd;
+}
+
+#head p a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+#head h1 {
+    font-size: 3.4rem;
+}
+
+#head h1 a {
+    color: #EEE;
+}
+
+#head h1 a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+footer {
+    background: hsl(229, 30%, 44%);
+    color: #EEE;
+}
+
+footer .dim {
+    line-height: 2.5em;
+}
+
+footer h3 {
+    padding-bottom: .5em;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a.btn {
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #DDD;
+    text-decoration: none;
+}
+
+.add-to-calendar-button {
+    margin-top: -.2em;
+}
+
+/* precise colors */
+.text-next-month {
+    color: #2981CA;
+}
+
+/* menu */
+.navbar {
+    text-align: center;
+    background: hsl(229, 30%, 44%);
+    padding: 0;
+    margin: auto;
+}
+
+.navbar li a, .navbar li a:active, .navbar li a:focus {
+    background: white;
+}
+
+nav ul {
+    list-style: none;
+    display: block;
+    float: left;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+nav ul li {
+    float: left;
+    display: block;
+    position: relative;
+}
+
+nav ul li a {
+    padding: .5em .7em;
+    display: block;
+    color: #FFF;
+}
+
+#content a:hover {
+    text-decoration: none;
+}
+
+/* fluid container with break on top dimension */
+@media (min-width: 1200px) {
+    .container-fluid {
+        max-width: 1140px;
+    }
+}
+
+/* show/hidden menu; ref https://stackoverflow.com/a/35362821/1348344 */
+@media (max-width: 768px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+
+/* mobile version */
+@media (max-width: 768px) {
+    #head h1 {
+        font-size: 1.7em;
+    }
+}
+
+/* mobile narrow */
+@media (max-width: 460px) {
+    #head h1 {
+        font-size: 1.5em;
+    }
+}
+
+footer .dim {
+    font-size: .9em;
+    color: #DDD;
+}
+
+#groups a:hover {
+    text-decoration: none;
+}
+
+/* reset left indent */
+footer ul, #groups ul {
+    padding-left: 1.2em;
+}
+
+/*!* map pop-ups *!*/
+.leaflet-container {
+    font-size: 1em;
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+
+#map_metadata {
+    text-align: center;
+}
+
+.text-muted a {
+    text-decoration: underline;
+    color: #999;
+}
+
+.text-muted a:hover {
+    text-decoration: none;
+    color: #555;
+}
+
+.text-bigger {
+    font-size: 1.3em;
+    line-height: 1.7em;
+}
+
+.thead-inverse th a {
+    display: block;
+    color: #DDD;
+    text-decoration: underline;
+}
+
+.thead-inverse th a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+#head a.btn {
+    text-decoration: none;
+}
+
+#static-table_filter input, #map-filterable-table_filter input {
+    font-size: 1.2em;
+    margin-left: -.2em;
+    margin-bottom: .6em;
+    width: 100%;
+    color: #333;
+}

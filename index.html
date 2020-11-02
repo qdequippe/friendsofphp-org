@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>
+        When is the Next PHP Meetup?    </title>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+
+        <link href="/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.2/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin=""/>
+
+        <link rel="preconnect" href="https://www.google-analytics.com">
+
+        <link href="/assets/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+    <body>
+        <div id="head" class="text-center pt-3 pb-2">
+            <h1>
+    <a href="/">
+        When is the Next <strong>PHP Meetup</strong>?
+        🐘
+    </a>
+</h1>
+
+<p>
+    Visit one of 0 upcoming PHP meetups
+
+    <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/config/_data/groups.yaml" class="btn btn-success btn-sm ml-2">Add Your Group</a>
+</p>
+        </div>
+
+            <div class="container-fluid" id="content">
+        <div class="row">
+            <div class="col-md-4 pl-md-0 pr-md-0 pt-3 hidden-sm-down">
+                <a name="map"></a>
+                <div id="mapid"></div>
+            </div>
+
+            <script src="/assets/js/utils.js"></script>
+
+            <div class="col-md-8 pb-5 pt-3 hidden-sm-down">
+                <table class="table table-bordered table-responsive table-meetups" id="map-filterable-table">
+    <thead class="thead-inverse">
+    <tr>
+        <th class="w-25 text-center">When</th>
+        <th class="w-25 text-center">Where</th>
+        <th class="w-50 text-center">Meetup</th>
+    </tr>
+</thead>
+
+        
+            <tr class="meetup" data-longitude="10.025159835815" data-latitude="53.584529876709" data-datetime="2020-11-03 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Tue,
+                        <strong>Nov 03</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.584529876709, 10.025159835815)">
+            Hamburg
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/sfughh/events/xqdjjrybcpbfb/">Treffen der Symfony User Group Hamburg</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Symfony User Group Hamburg</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-85.333053588867" data-latitude="35.105934143066" data-datetime="2020-11-04 12:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Wed,
+                        <strong>Nov 04</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">12:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(35.105934143066, -85.333053588867)">
+            Chattanooga
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Tennessee</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/chattanoogaphp/events/dgkvtrybcpbgb/">PHP and Laravel monthly meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Chattanooga PHP Developers (Laravel/Drupal/Symfony/All PHP)</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-6.2491869926453" data-latitude="53.349758148193" data-datetime="2020-11-04 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Wed,
+                        <strong>Nov 04</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.349758148193, -6.2491869926453)">
+            Dublin
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Ireland</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/Laravel-Vuejs-Dublin/events/frwqhqybcpbgb/">Laravel Dublin</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Laravel Dublin</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="23.7265346" data-latitude="37.9766083" data-datetime="2020-11-05 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Nov 05</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(37.9766083, 23.7265346)">
+            On-line
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Greece</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://crossweb.pl/wydarzenia/laravel-poznan-meetup-16/">Laravel Poznań Meetup #16</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Laravel Poznań Meetup</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="23.7265346" data-latitude="37.9766083" data-datetime="2020-11-10 17:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Tue,
+                        <strong>Nov 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">17:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(37.9766083, 23.7265346)">
+            On-line
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Greece</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://crossweb.pl/wydarzenia/codete-speech-teach-php-series-how-to-write-clean-code/">Codete Speech &amp; Teach - PHP Series: &quot;How to write clean code?&quot;</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Codete Speech &amp; Teach - PHP Series: &quot;How to write clean code?&quot;</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="9.9936819076538" data-latitude="53.551086425781" data-datetime="2020-11-10 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Tue,
+                        <strong>Nov 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.551086425781, 9.9936819076538)">
+            Hamburg
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/phpughh/events/fpnmzmybcpbnb/">Treffen der PHP-Usergroup Hamburg</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP-Usergroup Hamburg (PHPUGHH)</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="172.64157104492" data-latitude="-43.534355163574" data-datetime="2020-11-11 17:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Wed,
+                        <strong>Nov 11</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">17:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-43.534355163574, 172.64157104492)">
+            Christchurch
+        </a>
+
+        <br>
+
+        <small class="text-secondary">New Zealand</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/SilverStripe-Christchurch-Meetup/events/274269888/">Christchurch Silverstripe Meetup – November 2020</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Silverstripe Christchurch Meetup</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-46.654830932617" data-latitude="-23.56495475769" data-datetime="2020-11-12 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Thu,
+                        <strong>Nov 12</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-23.56495475769, -46.654830932617)">
+            São Paulo
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Brazil</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/php-sp/events/qsnlkrybcpbqb/">PHPSP Pub</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHPSP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="153.02359008789" data-latitude="-27.482067108154" data-datetime="2020-11-17 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Nov 17</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-27.482067108154, 153.02359008789)">
+            South Brisbane
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Australia</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/BrisPHP/events/274172329/">BrisPHP Q3 2020 - Product development lifecycle, PHP 8.0, and more!</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">use \BNE\PHP;</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="7.6360630989075" data-latitude="51.950931549072" data-datetime="2020-11-17 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Nov 17</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(51.950931549072, 7.6360630989075)">
+            Münster
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/phpugms/events/mvrrpqybcpbwb/">PHPUG Münster Meetup XX/2020</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP-Usergroup Münster</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-77.2470703125" data-latitude="38.929744720459" data-datetime="2020-11-18 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Nov 18</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(38.929744720459, -77.2470703125)">
+            Vienna
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Virginia</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/DC-PHP/events/bszxnpybcpbxb/">Main monthly meeting</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">DC PHP Developer&#039;s Community</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="138.59996032715" data-latitude="-34.928619384766" data-datetime="2020-11-19 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Thu,
+                        <strong>Nov 19</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-34.928619384766, 138.59996032715)">
+            Adelaide
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Australia</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-Adelaide/events/vxpcxlybcpbzb/">PHP Adelaide User Group Meeting</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Adelaide</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="4.9041390419006" data-latitude="52.367572784424" data-datetime="2020-11-19 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Thu,
+                        <strong>Nov 19</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(52.367572784424, 4.9041390419006)">
+            Amsterdam
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Netherlands</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/AmsterdamPHP/events/mhtvlrybcpbzb/">Monthly Meeting</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">AmsterdamPHP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-111.89384460449" data-latitude="40.440002441406" data-datetime="2020-11-19 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Thu,
+                        <strong>Nov 19</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(40.440002441406, -111.89384460449)">
+            Lehi
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Utah</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/Utah-PHP-User-Group/events/vlfnprybcpbzb/">Looking for Speakers</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Utah PHP User Group</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-1.2635029554367" data-latitude="51.752372741699" data-datetime="2020-11-25 19:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Nov 25</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(51.752372741699, -1.2635029554367)">
+            Oxford
+        </a>
+
+        <br>
+
+        <small class="text-secondary">United Kingdom</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-Oxford/events/vvrzwqybcpbhc/">PHP Oxford meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Oxford</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-86.801834106445" data-latitude="35.957515716553" data-datetime="2020-12-01 11:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Dec 01</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">11:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(35.957515716553, -86.801834106445)">
+            Franklin
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Tennessee</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/nashvillephp/events/ggbppqybcqbcb/">Nashville PHP South Lunch</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Nashville PHP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="10.025159835815" data-latitude="53.584529876709" data-datetime="2020-12-01 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Dec 01</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.584529876709, 10.025159835815)">
+            Hamburg
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/sfughh/events/xqdjjrybcqbcb/">Treffen der Symfony User Group Hamburg</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Symfony User Group Hamburg</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-85.333053588867" data-latitude="35.105934143066" data-datetime="2020-12-02 12:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Dec 02</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">12:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(35.105934143066, -85.333053588867)">
+            Chattanooga
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Tennessee</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/chattanoogaphp/events/dgkvtrybcqbdb/">PHP and Laravel monthly meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Chattanooga PHP Developers (Laravel/Drupal/Symfony/All PHP)</small>
+    </td>
+</tr>
+    </table>
+            </div>
+
+            <div class="col-12 pb-5 pt-3 hidden-md-up">
+                <table class="table table-bordered table-responsive table-meetups" id="static-table">
+    <thead class="thead-inverse">
+    <tr>
+        <th class="w-25 text-center">When</th>
+        <th class="w-25 text-center">Where</th>
+        <th class="w-50 text-center">Meetup</th>
+    </tr>
+</thead>
+
+        
+            <tr class="meetup" data-longitude="10.025159835815" data-latitude="53.584529876709" data-datetime="2020-11-03 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Tue,
+                        <strong>Nov 03</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.584529876709, 10.025159835815)">
+            Hamburg
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/sfughh/events/xqdjjrybcpbfb/">Treffen der Symfony User Group Hamburg</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Symfony User Group Hamburg</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-85.333053588867" data-latitude="35.105934143066" data-datetime="2020-11-04 12:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Wed,
+                        <strong>Nov 04</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">12:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(35.105934143066, -85.333053588867)">
+            Chattanooga
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Tennessee</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/chattanoogaphp/events/dgkvtrybcpbgb/">PHP and Laravel monthly meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Chattanooga PHP Developers (Laravel/Drupal/Symfony/All PHP)</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-6.2491869926453" data-latitude="53.349758148193" data-datetime="2020-11-04 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Wed,
+                        <strong>Nov 04</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.349758148193, -6.2491869926453)">
+            Dublin
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Ireland</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/Laravel-Vuejs-Dublin/events/frwqhqybcpbgb/">Laravel Dublin</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Laravel Dublin</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="23.7265346" data-latitude="37.9766083" data-datetime="2020-11-05 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Nov 05</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(37.9766083, 23.7265346)">
+            On-line
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Greece</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://crossweb.pl/wydarzenia/laravel-poznan-meetup-16/">Laravel Poznań Meetup #16</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Laravel Poznań Meetup</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="23.7265346" data-latitude="37.9766083" data-datetime="2020-11-10 17:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Tue,
+                        <strong>Nov 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">17:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(37.9766083, 23.7265346)">
+            On-line
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Greece</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://crossweb.pl/wydarzenia/codete-speech-teach-php-series-how-to-write-clean-code/">Codete Speech &amp; Teach - PHP Series: &quot;How to write clean code?&quot;</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Codete Speech &amp; Teach - PHP Series: &quot;How to write clean code?&quot;</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="9.9936819076538" data-latitude="53.551086425781" data-datetime="2020-11-10 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Tue,
+                        <strong>Nov 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.551086425781, 9.9936819076538)">
+            Hamburg
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/phpughh/events/fpnmzmybcpbnb/">Treffen der PHP-Usergroup Hamburg</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP-Usergroup Hamburg (PHPUGHH)</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="172.64157104492" data-latitude="-43.534355163574" data-datetime="2020-11-11 17:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Wed,
+                        <strong>Nov 11</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">17:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-43.534355163574, 172.64157104492)">
+            Christchurch
+        </a>
+
+        <br>
+
+        <small class="text-secondary">New Zealand</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/SilverStripe-Christchurch-Meetup/events/274269888/">Christchurch Silverstripe Meetup – November 2020</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Silverstripe Christchurch Meetup</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-46.654830932617" data-latitude="-23.56495475769" data-datetime="2020-11-12 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Thu,
+                        <strong>Nov 12</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-23.56495475769, -46.654830932617)">
+            São Paulo
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Brazil</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/php-sp/events/qsnlkrybcpbqb/">PHPSP Pub</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHPSP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="153.02359008789" data-latitude="-27.482067108154" data-datetime="2020-11-17 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Nov 17</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-27.482067108154, 153.02359008789)">
+            South Brisbane
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Australia</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/BrisPHP/events/274172329/">BrisPHP Q3 2020 - Product development lifecycle, PHP 8.0, and more!</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">use \BNE\PHP;</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="7.6360630989075" data-latitude="51.950931549072" data-datetime="2020-11-17 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Nov 17</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(51.950931549072, 7.6360630989075)">
+            Münster
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/phpugms/events/mvrrpqybcpbwb/">PHPUG Münster Meetup XX/2020</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP-Usergroup Münster</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-77.2470703125" data-latitude="38.929744720459" data-datetime="2020-11-18 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Nov 18</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(38.929744720459, -77.2470703125)">
+            Vienna
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Virginia</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/DC-PHP/events/bszxnpybcpbxb/">Main monthly meeting</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">DC PHP Developer&#039;s Community</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="138.59996032715" data-latitude="-34.928619384766" data-datetime="2020-11-19 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Thu,
+                        <strong>Nov 19</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(-34.928619384766, 138.59996032715)">
+            Adelaide
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Australia</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-Adelaide/events/vxpcxlybcpbzb/">PHP Adelaide User Group Meeting</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Adelaide</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="4.9041390419006" data-latitude="52.367572784424" data-datetime="2020-11-19 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Thu,
+                        <strong>Nov 19</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(52.367572784424, 4.9041390419006)">
+            Amsterdam
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Netherlands</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/AmsterdamPHP/events/mhtvlrybcpbzb/">Monthly Meeting</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">AmsterdamPHP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-111.89384460449" data-latitude="40.440002441406" data-datetime="2020-11-19 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Thu,
+                        <strong>Nov 19</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(40.440002441406, -111.89384460449)">
+            Lehi
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Utah</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/Utah-PHP-User-Group/events/vlfnprybcpbzb/">Looking for Speakers</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Utah PHP User Group</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-1.2635029554367" data-latitude="51.752372741699" data-datetime="2020-11-25 19:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Nov 25</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(51.752372741699, -1.2635029554367)">
+            Oxford
+        </a>
+
+        <br>
+
+        <small class="text-secondary">United Kingdom</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-Oxford/events/vvrzwqybcpbhc/">PHP Oxford meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Oxford</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-86.801834106445" data-latitude="35.957515716553" data-datetime="2020-12-01 11:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Dec 01</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">11:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(35.957515716553, -86.801834106445)">
+            Franklin
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Tennessee</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/nashvillephp/events/ggbppqybcqbcb/">Nashville PHP South Lunch</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Nashville PHP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="10.025159835815" data-latitude="53.584529876709" data-datetime="2020-12-01 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Dec 01</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.584529876709, 10.025159835815)">
+            Hamburg
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/sfughh/events/xqdjjrybcqbcb/">Treffen der Symfony User Group Hamburg</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Symfony User Group Hamburg</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-85.333053588867" data-latitude="35.105934143066" data-datetime="2020-12-02 12:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Dec 02</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">12:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(35.105934143066, -85.333053588867)">
+            Chattanooga
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Tennessee</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/chattanoogaphp/events/dgkvtrybcqbdb/">PHP and Laravel monthly meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Chattanooga PHP Developers (Laravel/Drupal/Symfony/All PHP)</small>
+    </td>
+</tr>
+    </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+        <script src="/assets/js/menu-area-pick.js?v=911202"></script>
+
+        <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
+        integrity="sha512-2fA79E27MOeBgLjmBrtAgM/20clVSV8vJERaW/EcnnWCVGwQRazzKtQS1kIusCZv1PtaQxosDZZ0F1Oastl55w=="
+        crossorigin=""></script>
+
+<script type="text/javascript">
+    var icons = {
+        // pick from: https://github.com/pointhi/leaflet-color-markers
+        green: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+        orange: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+        red: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png'
+    };
+
+    var markers = [
+        
+        {
+                        "type": "green",
+                        "title": "Treffen der Symfony User Group Hamburg",
+                        "position": [53.584529876709, 10.025159835815],
+                        "date": "11-03",
+                        "location": "Hamburg",
+                        "url": "https://www.meetup.com/sfughh/events/xqdjjrybcpbfb/",
+                        // for filtering
+                        "datetime": "2020-11-03 18:30",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "PHP and Laravel monthly meetup",
+                        "position": [35.105934143066, -85.333053588867],
+                        "date": "11-04",
+                        "location": "Chattanooga",
+                        "url": "https://www.meetup.com/chattanoogaphp/events/dgkvtrybcpbgb/",
+                        // for filtering
+                        "datetime": "2020-11-04 12:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "Laravel Dublin",
+                        "position": [53.349758148193, -6.2491869926453],
+                        "date": "11-04",
+                        "location": "Dublin",
+                        "url": "https://www.meetup.com/Laravel-Vuejs-Dublin/events/frwqhqybcpbgb/",
+                        // for filtering
+                        "datetime": "2020-11-04 19:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "Laravel Poznań Meetup #16",
+                        "position": [37.9766083, 23.7265346],
+                        "date": "11-05",
+                        "location": "On-line",
+                        "url": "https://crossweb.pl/wydarzenia/laravel-poznan-meetup-16/",
+                        // for filtering
+                        "datetime": "2020-11-05 18:00",
+                    },
+                                                                                {
+                        "type": "orange",
+                        "title": "Codete Speech &amp; Teach - PHP Series: &quot;How to write clean code?&quot;",
+                        "position": [37.9766083, 23.7265346],
+                        "date": "11-10",
+                        "location": "On-line",
+                        "url": "https://crossweb.pl/wydarzenia/codete-speech-teach-php-series-how-to-write-clean-code/",
+                        // for filtering
+                        "datetime": "2020-11-10 17:00",
+                    },
+                                                                                {
+                        "type": "orange",
+                        "title": "Treffen der PHP-Usergroup Hamburg",
+                        "position": [53.551086425781, 9.9936819076538],
+                        "date": "11-10",
+                        "location": "Hamburg",
+                        "url": "https://www.meetup.com/phpughh/events/fpnmzmybcpbnb/",
+                        // for filtering
+                        "datetime": "2020-11-10 18:30",
+                    },
+                                                                                {
+                        "type": "orange",
+                        "title": "Christchurch Silverstripe Meetup – November 2020",
+                        "position": [-43.534355163574, 172.64157104492],
+                        "date": "11-11",
+                        "location": "Christchurch",
+                        "url": "https://www.meetup.com/SilverStripe-Christchurch-Meetup/events/274269888/",
+                        // for filtering
+                        "datetime": "2020-11-11 17:30",
+                    },
+                                                                                {
+                        "type": "orange",
+                        "title": "PHPSP Pub",
+                        "position": [-23.56495475769, -46.654830932617],
+                        "date": "11-12",
+                        "location": "São Paulo",
+                        "url": "https://www.meetup.com/php-sp/events/qsnlkrybcpbqb/",
+                        // for filtering
+                        "datetime": "2020-11-12 19:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "BrisPHP Q3 2020 - Product development lifecycle, PHP 8.0, and more!",
+                        "position": [-27.482067108154, 153.02359008789],
+                        "date": "11-17",
+                        "location": "South Brisbane",
+                        "url": "https://www.meetup.com/BrisPHP/events/274172329/",
+                        // for filtering
+                        "datetime": "2020-11-17 18:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "PHPUG Münster Meetup XX/2020",
+                        "position": [51.950931549072, 7.6360630989075],
+                        "date": "11-17",
+                        "location": "Münster",
+                        "url": "https://www.meetup.com/phpugms/events/mvrrpqybcpbwb/",
+                        // for filtering
+                        "datetime": "2020-11-17 19:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Main monthly meeting",
+                        "position": [38.929744720459, -77.2470703125],
+                        "date": "11-18",
+                        "location": "Vienna",
+                        "url": "https://www.meetup.com/DC-PHP/events/bszxnpybcpbxb/",
+                        // for filtering
+                        "datetime": "2020-11-18 18:30",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "PHP Adelaide User Group Meeting",
+                        "position": [-34.928619384766, 138.59996032715],
+                        "date": "11-19",
+                        "location": "Adelaide",
+                        "url": "https://www.meetup.com/PHP-Adelaide/events/vxpcxlybcpbzb/",
+                        // for filtering
+                        "datetime": "2020-11-19 18:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Monthly Meeting",
+                        "position": [52.367572784424, 4.9041390419006],
+                        "date": "11-19",
+                        "location": "Amsterdam",
+                        "url": "https://www.meetup.com/AmsterdamPHP/events/mhtvlrybcpbzb/",
+                        // for filtering
+                        "datetime": "2020-11-19 19:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Looking for Speakers",
+                        "position": [40.440002441406, -111.89384460449],
+                        "date": "11-19",
+                        "location": "Lehi",
+                        "url": "https://www.meetup.com/Utah-PHP-User-Group/events/vlfnprybcpbzb/",
+                        // for filtering
+                        "datetime": "2020-11-19 19:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "PHP Oxford meetup",
+                        "position": [51.752372741699, -1.2635029554367],
+                        "date": "11-25",
+                        "location": "Oxford",
+                        "url": "https://www.meetup.com/PHP-Oxford/events/vvrzwqybcpbhc/",
+                        // for filtering
+                        "datetime": "2020-11-25 19:30",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Nashville PHP South Lunch",
+                        "position": [35.957515716553, -86.801834106445],
+                        "date": "12-01",
+                        "location": "Franklin",
+                        "url": "https://www.meetup.com/nashvillephp/events/ggbppqybcqbcb/",
+                        // for filtering
+                        "datetime": "2020-12-01 11:30",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Treffen der Symfony User Group Hamburg",
+                        "position": [53.584529876709, 10.025159835815],
+                        "date": "12-01",
+                        "location": "Hamburg",
+                        "url": "https://www.meetup.com/sfughh/events/xqdjjrybcqbcb/",
+                        // for filtering
+                        "datetime": "2020-12-01 18:30",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "PHP and Laravel monthly meetup",
+                        "position": [35.105934143066, -85.333053588867],
+                        "date": "12-02",
+                        "location": "Chattanooga",
+                        "url": "https://www.meetup.com/chattanoogaphp/events/dgkvtrybcqbdb/",
+                        // for filtering
+                        "datetime": "2020-12-02 12:00",
+                    }
+    ];
+
+    var grouped = {};
+
+    var tresholdDate = new Date();
+    // go 2 hours in the future, so the running meetup is discoverable; e.g. when comming late like me :)
+    tresholdDate.setHours(tresholdDate.getHours() - 2);
+    var tresholdDateTime = Date.parse(tresholdDate);
+
+    for (var i in markers) {
+        var marker = markers[i];
+
+        // is in the past?
+        var meetupDateTime = Date.parse(marker.datetime);
+        if (meetupDateTime < tresholdDateTime) {
+            continue;
+        }
+
+        // group meetups in one location
+        if (typeof grouped[marker.location] == 'undefined') {
+            grouped[marker.location] = {
+                type: marker.type,
+                position: marker.position,
+                markers: []
+            };
+        }
+
+        grouped[marker.location].markers.push(marker);
+    }
+
+    var map = L.map('mapid');
+
+    // fit to bounds, so pc and mobile have same content
+    // https://leafletjs.com/reference-1.3.2.html#latlngbounds
+
+    // reconstruction from serialized object is not completely working, so we need to restore it manually
+    var restoreBoundFromString = function(stringBound) {
+        stringBound = stringBound.replace(/%22/g, '"');
+        pastBounds = JSON.parse(stringBound);
+
+        return L.latLngBounds(
+            L.latLng(pastBounds._northEast.lat, pastBounds._northEast.lng),
+            L.latLng(pastBounds._southWest.lat, pastBounds._southWest.lng)
+        );
+    };
+
+    // get url bounds
+    var pastBounds = window.localStorage.getItem('bounds');
+
+    // @see https://stackoverflow.com/a/36444134/1348344
+    var isRefreshed = performance.navigation.type;
+
+    if (get('bounds') && isRefreshed === 0)  {
+        var boundsAsString = get('bounds');
+
+        map.fitBounds(restoreBoundFromString(boundsAsString));
+    } else if (pastBounds) {
+        map.fitBounds(restoreBoundFromString(pastBounds));
+    } else {
+        // default map - the whole world
+        map.setView([25, 0], 2);
+    }
+
+    // ref https://github.com/php-ug/php.ug/issues/221#issuecomment-437917289
+    var restoreDislocation = function(map) {
+        var currentCenter = map.getCenter();
+        if (currentCenter.lng > 300 || currentCenter.lng < -300) {
+            // default map - the whole world
+            alert('Whoa, you fell of the main map! Lets get back to center.');
+            map.setView([25, 0], 2);
+        }
+    };
+
+    restoreDislocation(map);
+
+
+    // store past location when map mooves
+    map.on('moveend', function(e) {
+        var bounds = map.getBounds();
+        // objects needs to serialize, since only string can be saved: https://stackoverflow.com/a/2010948/1348344
+        restoreDislocation(map);
+
+        var boundsAsString = boundsToString(bounds);
+        window.localStorage.setItem('bounds', boundsAsString);
+    });
+
+    // required and nice to have promotion to great tool
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // @see https://stackoverflow.com/a/1199420/1348344
+    String.prototype.truncate = String.prototype.truncate ||
+        function(n){
+            return (this.length > n) ? this.substr(0, n-1) + '&hellip;' : this;
+        };
+
+    for (var i in grouped) {
+        var group = grouped[i];
+
+        let [first] = group.markers;
+        var description = '<div class="text-center mb-3" style="width:450px">📍&nbsp;&nbsp;'
+            + first.location
+            + "</div>";
+
+        for (var j in group.markers) {
+            marker = group.markers[j];
+
+            var url = '<a class="text-bold block text-primary ml-3" href="' + marker.url + '" target="_blank" rel="noreferrer noopener"><strong>' + marker.title.truncate(38) + '</strong></a>';
+
+            description += '<div class="mb-3">'
+                + '📅&nbsp; ' + marker.date
+                + url + '</div>'
+            ;
+        }
+
+        var icon = new L.Icon({
+            iconUrl: icons[group.type],
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34]
+        });
+
+        // width: @see https://stackoverflow.com/a/38007764/1348344
+        L.marker(group.position, { icon: icon }).addTo(map).bindPopup(description, {
+            maxWidth: 450
+        });
+    }
+</script>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+
+<script type="text/javascript">
+    var relocate = function(latitude, longitude) {
+        var targetLatLng = new L.LatLng(latitude, longitude);
+        map.setView(targetLatLng, 8);
+    };
+
+    // see https://datatables.net/examples/index
+    $('.table-meetups').DataTable({
+        // see https://datatables.net/examples/basic_init/filter_only.html
+        "searching": true,
+        "paging": false,
+        "ordering": false,
+        "info": false,
+        "oLanguage": {
+            "sSearch": ""
+        }
+    });
+
+    $("[aria-controls='static-table']").attr('placeholder', 'Filter Meetups...');
+    $("[aria-controls='map-filterable-table']").attr('placeholder', 'Filter Meetups...');
+</script>
+
+<footer class="pb-5 pt-5 mt-5">
+    <div class="container-fluid">
+        <blockquote class="blockquote text-bigger text-center mb-5">
+            "Meeting people from other countries brings<br>
+            <strong>fresh energy to your coding</strong>, new ideas and valuable feedback."
+        </blockquote>
+
+        <br>
+
+        <div class="row">
+            <div class="col-6">
+                <h3>How to Use It?</h3>
+
+                <ul>
+                    <li>Zoom in the map</li>
+                    <li>Filter the meetup table</li>
+                    <li>Pick a meetup in your area</li>
+                    <li><a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">Go speak</a> or meet new friends</li>
+                </ul>
+            </div>
+
+            <div class="col-6">
+                <h3>Features</h3>
+
+                <ul>
+                    <li>Meetups are <strong>updated every 12 hours</strong></li>
+                    <li>Showing meetups for next <strong>30 days</strong></li>
+                    <li>Generated by Travis CI</li>
+                    <li>Hosted on <a href="https://github.com/tomasvotruba/friendsofphp.org">Github Pages</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="mt-5 mb-5">
+
+        <div class="text-center pt-5">
+            <p class="dim">
+                Made with ❤️ by ️☕️ and <a href="https://tomasvotruba.com">Tomas Votruba</a>
+                <span class="pl-2 pr-2">•</span>
+
+                Fully <a href="https://github.com/tomasvotruba/friendsofphp.org">Open Sourced</a>
+
+                <br>
+
+                <a href="/api/meetups.json">Meetups JSON</a>
+
+                <span class="pl-2 pr-2">•</span>
+
+                <a href="/api/groups.json">Groups JSON</a>
+
+                <span class="pl-2 pr-2">•</span>
+
+                <a href="https://github.com/TomasVotruba/friendsofphp.org/actions?query=workflow%3A%22Build+and+Deploy%22">
+                    Regenerated 2020-11-02 CET
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-122522291-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122522291-1');
+</script>
+    </body>
+</html>
