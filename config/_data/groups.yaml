@@ -671,11 +671,6 @@ parameters:
             country: 'United Kingdom'
 
         -
-            name: 'PHP Dorset'
-            meetup_com_slug: PHPDorset
-            country: 'United Kingdom'
-
-        -
             name: GlasgowPHP
             meetup_com_slug: GlasgowPHP
             country: 'United Kingdom'
