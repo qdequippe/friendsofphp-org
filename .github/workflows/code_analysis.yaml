@@ -10,18 +10,23 @@ jobs:
     matrix:
         strategy:
             fail-fast: false
-
             matrix:
                 actions:
                     -
                         name: Coding Standard
                         run: 'composer fix-cs'
+
                     -
                         name: 'PHPStan'
                         run: composer phpstan
+
                     -
                         name: 'Unit Tests'
                         run: vendor/bin/phpunit
+
+                    -
+                        name: 'Dead Groups'
+                        run: 'bin/console validate-dead-groups'
 
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest

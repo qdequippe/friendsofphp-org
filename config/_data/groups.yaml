@@ -371,11 +371,6 @@ parameters:
             country: Germany
 
         -
-            name: 'Friends of PHP - Prague'
-            meetup_com_slug: friends-of-php-prague
-            country: 'Czech Republic'
-
-        -
             name: 'Bucharest PHP Meetup'
             meetup_com_slug: Bucharest-PHP-Meetup
             country: Romania
