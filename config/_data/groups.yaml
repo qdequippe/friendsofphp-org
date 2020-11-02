@@ -11,11 +11,6 @@ parameters:
             country: Turkey
 
         -
-            name: 'İstanbul PHP User Group'
-            meetup_com_slug: IstanbulPHP
-            country: Turkey
-
-        -
             name: 'SilverStripe Christchurch Meetup'
             meetup_com_slug: SilverStripe-Christchurch-Meetup
             country: 'New Zealand'
