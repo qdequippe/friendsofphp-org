@@ -10,6 +10,7 @@ jobs:
     matrix:
         strategy:
             fail-fast: false
+
             matrix:
                 actions:
                     -
@@ -21,22 +22,20 @@ jobs:
                     -
                         name: 'Unit Tests'
                         run: vendor/bin/phpunit
-                    -
-                        name: 'Dead Groups'
-                        run: 'bin/console validate-dead-groups'
 
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
 
         steps:
             -   uses: actions/checkout@v2
+
             # see https://github.com/shivammathur/setup-php
-            -   uses: shivammathur/setup-php@v1
+            -   uses: shivammathur/setup-php@v2
                 with:
                     php-version: 7.4
-                    coverage: none
                     # needed by phpunit
                     extensions: mbstring
 
-            -   run: composer install --no-progress
+            -   run: composer install --no-progress --ansi
+
             -   run: ${{ matrix.actions.run }}

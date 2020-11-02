@@ -30,7 +30,6 @@
         "migrify/config-transformer": "^0.3.15",
         "phpstan/phpstan": "^0.12.53",
         "phpunit/phpunit": "^9.3",
-        "rector/rector": "^0.8.48",
         "symplify/easy-coding-standard": "^8.3",
         "symplify/parameter-name-guard": "^8.3",
         "symplify/phpstan-extensions": "^8.3"
