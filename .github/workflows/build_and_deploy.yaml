@@ -11,35 +11,37 @@ on:
         - cron: '0 */12 * * *'
 
 jobs:
-    build-and-deploy:
+    build_and_deploy:
         runs-on: ubuntu-latest
+
         steps:
-            -   uses: actions/checkout@v2
+            -
+                uses: actions/checkout@v2
                 with:
                     persist-credentials: false
 
-            -   uses: shivammathur/setup-php@v1
+            -   uses: shivammathur/setup-php@v2
                 with:
                     php-version: 7.4
-                    coverage: none
 
-            -   run: composer install --no-progress
+            -   run: composer install --no-progress --ansi
 
-            -
-                name: Build
-                run: |
-                    # configure timezone: https://stackoverflow.com/a/27052708/1348344
-                    export TZ=Europe/Prague
-                    bin/console import --ansi
-                    bin/console dump-static-site --ansi
+            # configure timezone: https://stackoverflow.com/a/27052708/1348344
+            -   run: export TZ=Europe/Prague
+
+            -   run: bin/console import --ansi
                 env:
                     MEETUP_COM_OAUTH_KEY: ${{ secrets.MEETUP_COM_OAUTH_KEY }}
                     MEETUP_COM_OAUTH_SECRET: ${{ secrets.MEETUP_COM_OAUTH_SECRET }}
 
+            -   run: bin/console dump-static-site --ansi
+
+            # see https://github.com/JamesIves/github-pages-deploy-action
             -
-                name: Deploy
-                uses: JamesIves/github-pages-deploy-action@releases/v3
+                name: Deploy 🚀
+                uses: JamesIves/github-pages-deploy-action@3.7.1
                 with:
-                    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
                     BRANCH: gh-pages
                     FOLDER: output
+                    CLEAN: true

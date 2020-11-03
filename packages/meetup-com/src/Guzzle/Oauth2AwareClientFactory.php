@@ -46,7 +46,8 @@ final class Oauth2AwareClientFactory
         $oAuth2Middleware = new OAuth2Middleware($clientCredentials);
 
         $client = new Oauth2AwareClient();
-        $client->getConfig('handler')->push($oAuth2Middleware);
+        $client->getConfig('handler')
+            ->push($oAuth2Middleware);
 
         return $client;
     }

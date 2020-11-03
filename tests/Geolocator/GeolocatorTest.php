@@ -29,7 +29,9 @@ final class GeolocatorTest extends AbstractKernelTestCase
 
     public function provideData(): Iterator
     {
-        yield [['country' => 'CZ'], 'Czech Republic'];
+        yield [[
+            'country' => 'CZ',
+        ], 'Czech Republic'];
         yield [[
             'latitude' => 50.847572953654,
             'longitude' => 4.3535041809082,

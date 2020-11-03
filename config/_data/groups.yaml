@@ -11,11 +11,6 @@ parameters:
             country: Turkey
 
         -
-            name: 'İstanbul PHP User Group'
-            meetup_com_slug: IstanbulPHP
-            country: Turkey
-
-        -
             name: 'SilverStripe Christchurch Meetup'
             meetup_com_slug: SilverStripe-Christchurch-Meetup
             country: 'New Zealand'
@@ -371,11 +366,6 @@ parameters:
             country: Germany
 
         -
-            name: 'Friends of PHP - Prague'
-            meetup_com_slug: friends-of-php-prague
-            country: 'Czech Republic'
-
-        -
             name: 'Bucharest PHP Meetup'
             meetup_com_slug: Bucharest-PHP-Meetup
             country: Romania
@@ -673,11 +663,6 @@ parameters:
         -
             name: 'The UK Symfony Meetup'
             meetup_com_slug: symfony
-            country: 'United Kingdom'
-
-        -
-            name: 'PHP Dorset'
-            meetup_com_slug: PHPDorset
             country: 'United Kingdom'
 
         -

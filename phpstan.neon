@@ -71,3 +71,11 @@ parameters:
                 - packages/meetup/src/Repository/MeetupRepository.php # 63
                 - packages/meetup/src/ValueObject/Meetup.php # 86
                 - src/Utils/CityNormalizer.php # 17
+
+        -
+            message: '#Do not use factory/method call in constructor, put factory in config and get service with dependency injection#'
+            paths:
+                - packages/group/src/Repository/GroupRepository.php # 30
+                - packages/meetup/src/Repository/MeetupRepository.php # 30
+                - src/Twig/Extension/GlobalCountTwigExtension.php # 15
+                - src/Twig/Extension/GlobalCountTwigExtension.php # 18

@@ -46,8 +46,8 @@ final class ValidateDeadGroupsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $possiblyDeadGroups = [];
-        // increase temporary from 6 to 10 months due to covid
-        $sixMonthsAgoDateTime = DateTime::from('- 10 months');
+        // increase temporary from 16 months due to covid
+        $sixMonthsAgoDateTime = DateTime::from('- 16 months');
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
