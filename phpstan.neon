@@ -1,6 +1,6 @@
 includes:
     - vendor/symplify/phpstan-extensions/config/config.neon
-    - vendor/symplify/coding-standard/config/symplify-rules.neon
+    - vendor/symplify/phpstan-rules/config/symplify-rules.neon
 
 parameters:
     level: max

@@ -7,28 +7,13 @@ use Fop\Core\Utils\DateStaticUtils;
 
 final class Meetup
 {
-    private string $name;
-
-    private string $userGroupName;
-
-    private string $url;
-
-    private Location $location;
-
-    private DateTimeInterface $startDateTime;
-
     public function __construct(
-        string $name,
-        string $userGroupName,
-        DateTimeInterface $startDateTime,
-        Location $location,
-        string $url
+        private string $name,
+        private string $userGroupName,
+        private DateTimeInterface $startDateTime,
+        private Location $location,
+        private string $url
     ) {
-        $this->name = $name;
-        $this->userGroupName = $userGroupName;
-        $this->location = $location;
-        $this->url = $url;
-        $this->startDateTime = $startDateTime;
     }
 
     public function getLocation(): Location
@@ -51,6 +36,11 @@ final class Meetup
         return $this->url;
     }
 
+    public function getStartDateTimeFormatted(string $format): string
+    {
+        return $this->startDateTime->format($format);
+    }
+
     public function getStartDateTime(): DateTimeInterface
     {
         return $this->startDateTime;
@@ -68,14 +58,12 @@ final class Meetup
 
     public function getLatitude(): float
     {
-        return $this->location->getCoordinate()
-            ->getLat();
+        return $this->location->getCoordinateLatitude();
     }
 
     public function getLongitude(): float
     {
-        return $this->location->getCoordinate()
-            ->getLng();
+        return $this->location->getCoordinateLongitude();
     }
 
     public function getStartInDays(): ?int

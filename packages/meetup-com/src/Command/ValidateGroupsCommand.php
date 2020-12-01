@@ -16,19 +16,13 @@ final class ValidateGroupsCommand extends Command
 {
     private string $groupsStorage;
 
-    private SymfonyStyle $symfonyStyle;
-
-    private GroupRepository $groupRepository;
-
     public function __construct(
-        SymfonyStyle $symfonyStyle,
-        GroupRepository $groupRepository,
+        private SymfonyStyle $symfonyStyle,
+        private GroupRepository $groupRepository,
         ParameterProvider $parameterProvider
     ) {
         parent::__construct();
 
-        $this->symfonyStyle = $symfonyStyle;
-        $this->groupRepository = $groupRepository;
         $this->groupsStorage = $parameterProvider->provideStringParameter('groups_storage');
     }
 

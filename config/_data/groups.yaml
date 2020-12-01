@@ -181,11 +181,6 @@ parameters:
             country: 'United Kingdom'
 
         -
-            name: 'Bristol PHP Training'
-            meetup_com_slug: Bristol-PHP-Training
-            country: 'United Kingdom'
-
-        -
             name: Cambridge
             meetup_com_slug: phpcambridge
             country: 'United Kingdom'
@@ -239,11 +234,6 @@ parameters:
             name: PDX-PHP
             meetup_com_slug: PDX-PHP
             country: Oregon
-
-        -
-            name: 'Northern IL PHP Group'
-            meetup_com_slug: Rockford-PHP-Developers-Group
-            country: Illinois
 
         -
             name: 'Las Vegas PHP'

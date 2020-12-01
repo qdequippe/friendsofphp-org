@@ -22,8 +22,6 @@ final class Geolocator
      */
     private const API_LOCATION_TO_COUNTRY = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s';
 
-    private BetterGuzzleClient $betterGuzzleClient;
-
     /**
      * @var mixed[]
      */
@@ -34,10 +32,9 @@ final class Geolocator
      */
     private array $usaStates = [];
 
-    public function __construct(ParameterProvider $parameterProvider, BetterGuzzleClient $betterGuzzleClient)
+    public function __construct(ParameterProvider $parameterProvider, private BetterGuzzleClient $betterGuzzleClient)
     {
         $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
-        $this->betterGuzzleClient = $betterGuzzleClient;
     }
 
     public function createLocationFromCity(string $city): ?Location

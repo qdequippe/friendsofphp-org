@@ -8,16 +8,10 @@ use Fop\Meetup\ValueObject\Meetup;
 final class MeetupFilterCollector
 {
     /**
-     * @var MeetupFilterInterface[]
-     */
-    private array $meetupFilters = [];
-
-    /**
      * @param MeetupFilterInterface[] $meetupFilters
      */
-    public function __construct(array $meetupFilters)
+    public function __construct(private array $meetupFilters)
     {
-        $this->meetupFilters = $meetupFilters;
     }
 
     /**

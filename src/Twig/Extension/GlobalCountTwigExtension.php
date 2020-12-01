@@ -4,17 +4,23 @@ declare(strict_types=1);
 
 namespace Fop\Core\Twig\Extension;
 
-use Twig\Environment;
 use Twig\Extension\AbstractExtension;
+use Twig\Extension\GlobalsInterface;
 
-final class GlobalCountTwigExtension extends AbstractExtension
+final class GlobalCountTwigExtension extends AbstractExtension implements GlobalsInterface
 {
-    public function __construct(Environment $environment, array $groups = [], array $meetups = [])
+    public function __construct(private array $groups = [], private array $meetups = [])
     {
-        $meetupCount = count($meetups);
-        $environment->addGlobal('meetup_count', $meetupCount);
+    }
 
-        $groupCount = count($groups);
-        $environment->addGlobal('group_count', $groupCount);
+    /**
+     * @return array<string, int>
+     */
+    public function getGlobals(): array
+    {
+        return [
+            'meetup_count' => count($this->meetups),
+            'group_count' => count($this->groups),
+        ];
     }
 }

@@ -6,17 +6,8 @@ namespace Fop\MeetupCom\ValueObject;
 
 final class RateLimits
 {
-    private int $requestLimit;
-
-    private int $remainingRequests;
-
-    private int $requestToReset;
-
-    public function __construct(int $requestLimit, int $remainingRequests, int $requestToReset)
+    public function __construct(private int $requestLimit, private int $remainingRequests, private int $requestToReset)
     {
-        $this->requestLimit = $requestLimit;
-        $this->remainingRequests = $remainingRequests;
-        $this->requestToReset = $requestToReset;
     }
 
     public function getRequestLimit(): int

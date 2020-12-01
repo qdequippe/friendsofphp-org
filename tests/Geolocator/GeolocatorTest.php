@@ -5,7 +5,7 @@ namespace Fop\Core\Tests\Geolocator;
 use Fop\Core\Geolocation\Geolocator;
 use Fop\Core\HttpKernel\FopKernel;
 use Iterator;
-use Symplify\PackageBuilder\Tests\AbstractKernelTestCase;
+use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 final class GeolocatorTest extends AbstractKernelTestCase
 {
