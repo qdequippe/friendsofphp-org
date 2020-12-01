@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Core\Utils;
 
+use DateInterval;
 use DateTimeInterface;
 use Nette\Utils\DateTime;
 
@@ -15,6 +16,7 @@ final class DateStaticUtils
             return null;
         }
 
+        /** @var DateInterval $dateInterval */
         $dateInterval = $dateTime->diff(new DateTime('now'));
         if ($dateInterval->invert === 0) {
             return (int) - $dateInterval->days;

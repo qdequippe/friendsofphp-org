@@ -1,7 +1,7 @@
 {
     "name": "friends-of-php/friends-of-php",
     "require": {
-        "php": "^7.4",
+        "php": "^8.0",
         "ext-simplexml": "*",
         "doctrine/cache": "^1.10",
         "guzzlehttp/guzzle": "^6.5",
@@ -31,7 +31,6 @@
         "phpstan/phpstan": "^0.12.53",
         "phpunit/phpunit": "^9.3",
         "symplify/easy-coding-standard": "^8.3",
-        "symplify/parameter-name-guard": "^8.3",
         "symplify/phpstan-extensions": "^8.3"
     },
     "autoload": {

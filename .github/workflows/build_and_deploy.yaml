@@ -22,9 +22,9 @@ jobs:
 
             -   uses: shivammathur/setup-php@v2
                 with:
-                    php-version: 7.4
+                    php-version: 8.0
 
-            -   run: composer install --no-progress --ansi
+            -   run: composer install --no-progress --ansi --ignore-platform-reqs
 
             # configure timezone: https://stackoverflow.com/a/27052708/1348344
             -   run: export TZ=Europe/Prague
