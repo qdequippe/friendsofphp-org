@@ -8,6 +8,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 use Symplify\EasyCodingStandard\ValueObject\Option;
+use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
@@ -27,12 +28,19 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/ecs.php',
     ]);
 
-    $parameters->set(Option::EXCLUDE_PATHS, [__DIR__ . '/config/bundles.php']);
-
-    $parameters->set(Option::SETS, ['php70', 'php71', 'clean-code', 'dead-code', 'symplify', 'common', 'psr12']);
+    $parameters->set(Option::SETS, [
+        SetList::PHP_70,
+        SetList::PHP_71,
+        SetList::CLEAN_CODE,
+        SetList::COMMON,
+        SetList::SYMPLIFY,
+        SetList::PSR_12,
+    ]);
 
     $parameters->set(Option::SKIP, [
-        UnaryOperatorSpacesFixer::class => null,
-        BlankLineAfterOpeningTagFixer::class => null,
+        __DIR__ . '/config/bundles.php',
+
+        UnaryOperatorSpacesFixer::class,
+        BlankLineAfterOpeningTagFixer::class,
     ]);
 };

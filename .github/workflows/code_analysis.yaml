@@ -25,6 +25,10 @@ jobs:
                         run: vendor/bin/phpunit
 
                     -
+                        name: 'Rector'
+                        run: vendor/bin/rector p
+
+                    -
                         name: 'Dead Groups'
                         run: 'bin/console validate-dead-groups'
 
