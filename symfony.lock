@@ -497,6 +497,9 @@
     "symplify/phpstan-extensions": {
         "version": "v7.2.3"
     },
+    "symplify/phpstan-rules": {
+        "version": "9.0.0-beta9"
+    },
     "symplify/rule-doc-generator": {
         "version": "9.0.0-beta9"
     },
