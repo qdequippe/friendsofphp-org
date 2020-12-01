@@ -236,11 +236,6 @@ parameters:
             country: Oregon
 
         -
-            name: 'Northern IL PHP Group'
-            meetup_com_slug: Rockford-PHP-Developers-Group
-            country: Illinois
-
-        -
             name: 'Las Vegas PHP'
             meetup_com_slug: PHP-Vegas
             country: Nevada
