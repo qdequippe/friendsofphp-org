@@ -16,13 +16,12 @@ final class Oauth2AwareClientFactory
 
     private string $meetupComOauthSecret;
 
-    private StringFormatConverter $stringFormatConverter;
-
-    public function __construct(ParameterProvider $parameterProvider, StringFormatConverter $stringFormatConverter)
-    {
+    public function __construct(
+        ParameterProvider $parameterProvider,
+        private StringFormatConverter $stringFormatConverter
+    ) {
         $this->meetupComOauthKey = $parameterProvider->provideStringParameter(Option::MEETUP_COM_OAUTH_KEY);
         $this->meetupComOauthSecret = $parameterProvider->provideStringParameter(Option::MEETUP_COM_OAUTH_SECRET);
-        $this->stringFormatConverter = $stringFormatConverter;
     }
 
     /**

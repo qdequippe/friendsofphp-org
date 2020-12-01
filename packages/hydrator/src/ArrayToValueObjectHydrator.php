@@ -14,11 +14,8 @@ use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class ArrayToValueObjectHydrator
 {
-    private StringFormatConverter $stringFormatConverter;
-
-    public function __construct(StringFormatConverter $stringFormatConverter)
+    public function __construct(private StringFormatConverter $stringFormatConverter)
     {
-        $this->stringFormatConverter = $stringFormatConverter;
     }
 
     /**

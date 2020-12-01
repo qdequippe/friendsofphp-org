@@ -12,20 +12,16 @@ final class MeetupRepository
 {
     private string $meetupsStorage;
 
-    private YamlFileSystem $yamlFileSystem;
-
     /**
      * @var Meetup[]
      */
     private array $meetups = [];
 
     public function __construct(
-        YamlFileSystem $yamlFileSystem,
+        private YamlFileSystem $yamlFileSystem,
         ParameterProvider $parameterProvider,
         ArrayToValueObjectHydrator $arrayToValueObjectHydrator
     ) {
-        $this->yamlFileSystem = $yamlFileSystem;
-
         $meetupsArray = $parameterProvider->provideArrayParameter(Option::MEETUPS);
 
         $this->meetups = $this->createMeetups($arrayToValueObjectHydrator, $meetupsArray);

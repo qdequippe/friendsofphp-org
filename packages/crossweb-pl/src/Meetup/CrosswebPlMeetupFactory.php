@@ -12,11 +12,8 @@ use Nette\Utils\Strings;
 
 final class CrosswebPlMeetupFactory
 {
-    private Geolocator $geolocator;
-
-    public function __construct(Geolocator $geolocator)
+    public function __construct(private Geolocator $geolocator)
     {
-        $this->geolocator = $geolocator;
     }
 
     public function createMeetupFromMeetupUrl(string $url, string $name): ?Meetup

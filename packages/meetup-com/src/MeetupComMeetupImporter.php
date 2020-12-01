@@ -13,28 +13,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupComMeetupImporter implements MeetupImporterInterface
 {
-    private GroupRepository $groupRepository;
-
-    private MeetupComMeetupFactory $meetupComMeetupFactory;
-
-    private MeetupComApi $meetupComApi;
-
-    private SymfonyStyle $symfonyStyle;
-
-    private MeetupComCooler $meetupComCooler;
-
     public function __construct(
-        GroupRepository $userGroupRepository,
-        MeetupComMeetupFactory $meetupComMeetupFactory,
-        MeetupComApi $meetupComApi,
-        SymfonyStyle $symfonyStyle,
-        MeetupComCooler $meetupComCooler
+        private GroupRepository $groupRepository,
+        private MeetupComMeetupFactory $meetupComMeetupFactory,
+        private MeetupComApi $meetupComApi,
+        private SymfonyStyle $symfonyStyle,
+        private MeetupComCooler $meetupComCooler
     ) {
-        $this->groupRepository = $userGroupRepository;
-        $this->meetupComMeetupFactory = $meetupComMeetupFactory;
-        $this->meetupComApi = $meetupComApi;
-        $this->symfonyStyle = $symfonyStyle;
-        $this->meetupComCooler = $meetupComCooler;
     }
 
     /**

@@ -12,11 +12,8 @@ use Nette\Utils\Strings;
 
 final class OpentechcalendarCoUkMeetupFactory
 {
-    private Geolocator $geolocator;
-
-    public function __construct(Geolocator $geolocator)
+    public function __construct(private Geolocator $geolocator)
     {
-        $this->geolocator = $geolocator;
     }
 
     /**

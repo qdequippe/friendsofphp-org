@@ -11,8 +11,6 @@ final class GroupRepository
 {
     private string $groupsStorage;
 
-    private YamlFileSystem $yamlFileSystem;
-
     /**
      * @var Group[]
      */
@@ -21,14 +19,12 @@ final class GroupRepository
     public function __construct(
         ParameterProvider $parameterProvider,
         ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
-        YamlFileSystem $yamlFileSystem
+        private YamlFileSystem $yamlFileSystem
     ) {
         $groupsArray = $parameterProvider->provideArrayParameter('groups');
         $this->groupsStorage = $parameterProvider->provideStringParameter('groups_storage');
 
         $this->groups = $this->createGroups($arrayToValueObjectHydrator, $groupsArray);
-
-        $this->yamlFileSystem = $yamlFileSystem;
     }
 
     /**

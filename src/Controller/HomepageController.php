@@ -11,16 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class HomepageController extends AbstractController
 {
-    private MeetupRepository $meetupRepository;
-
-    public function __construct(MeetupRepository $meetupRepository)
+    public function __construct(private MeetupRepository $meetupRepository)
     {
-        $this->meetupRepository = $meetupRepository;
     }
 
-    /**
-     * @Route(path="/", name="homepage")
-     */
+    #[Route('/', name: 'homepage')]
     public function __invoke(): Response
     {
         return $this->render('index.twig', [

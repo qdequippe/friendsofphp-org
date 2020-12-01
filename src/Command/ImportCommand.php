@@ -16,40 +16,18 @@ use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ImportCommand extends Command
 {
-    private SymfonyStyle $symfonyStyle;
-
-    private MeetupRepository $meetupRepository;
-
-    private MeetupReporter $meetupReporter;
-
-    private MeetupFilterCollector $meetupFilterCollector;
-
-    private MeetupCollector $meetupCollector;
-
-    /**
-     * @var MeetupImporterInterface[]
-     */
-    private array $meetupImporters = [];
-
     /**
      * @param MeetupImporterInterface[] $meetupImporters
      */
     public function __construct(
-        array $meetupImporters,
-        SymfonyStyle $symfonyStyle,
-        MeetupRepository $meetupRepository,
-        MeetupReporter $meetupReporter,
-        MeetupFilterCollector $meetupFilterCollector,
-        MeetupCollector $meetupCollector
+        private array $meetupImporters,
+        private SymfonyStyle $symfonyStyle,
+        private MeetupRepository $meetupRepository,
+        private MeetupReporter $meetupReporter,
+        private MeetupFilterCollector $meetupFilterCollector,
+        private MeetupCollector $meetupCollector
     ) {
         parent::__construct();
-
-        $this->meetupImporters = $meetupImporters;
-        $this->symfonyStyle = $symfonyStyle;
-        $this->meetupRepository = $meetupRepository;
-        $this->meetupReporter = $meetupReporter;
-        $this->meetupFilterCollector = $meetupFilterCollector;
-        $this->meetupCollector = $meetupCollector;
     }
 
     protected function configure(): void
