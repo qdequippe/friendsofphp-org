@@ -43,7 +43,7 @@ final class OpentechcalendarCoUkMeetupFactory
             return null;
         }
 
-        if ($location->getCoordinate()->getLng() === 0.0 && $location->getCoordinate()->getLat() === 0.0) {
+        if ($location->getCoordinateLongitude() === 0.0 && $location->getCoordinateLatitude() === 0.0) {
             throw new ShouldNotHappenException(sprintf('Invalid location resolved for "%s".', $name));
         }
 

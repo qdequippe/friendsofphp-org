@@ -26,9 +26,7 @@ final class GroupRepository
         $groupsArray = $parameterProvider->provideArrayParameter('groups');
         $this->groupsStorage = $parameterProvider->provideStringParameter('groups_storage');
 
-        /** @var Group[] $groups */
-        $groups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($groupsArray, Group::class);
-        $this->groups = $this->sortGroupsByName($groups);
+        $this->groups = $this->createGroups($arrayToValueObjectHydrator, $groupsArray);
 
         $this->yamlFileSystem = $yamlFileSystem;
     }
@@ -78,5 +76,15 @@ final class GroupRepository
         }
 
         return $groupsArray;
+    }
+
+    /**
+     * @return Group[]
+     */
+    private function createGroups(ArrayToValueObjectHydrator $arrayToValueObjectHydrator, array $groupsArray): array
+    {
+        /** @var Group[] $groups */
+        $groups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($groupsArray, Group::class);
+        return $this->sortGroupsByName($groups);
     }
 }

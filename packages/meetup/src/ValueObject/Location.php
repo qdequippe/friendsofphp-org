@@ -33,4 +33,14 @@ final class Location
     {
         return $this->coordinate;
     }
+
+    public function getCoordinateLatitude(): float
+    {
+        return $this->coordinate->getLat();
+    }
+
+    public function getCoordinateLongitude(): float
+    {
+        return $this->coordinate->getLng();
+    }
 }

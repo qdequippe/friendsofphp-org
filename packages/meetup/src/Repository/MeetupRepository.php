@@ -27,7 +27,8 @@ final class MeetupRepository
         $this->yamlFileSystem = $yamlFileSystem;
 
         $meetupsArray = $parameterProvider->provideArrayParameter(Option::MEETUPS);
-        $this->meetups = $arrayToValueObjectHydrator->hydrateArraysToValueObject($meetupsArray, Meetup::class);
+
+        $this->meetups = $this->createMeetups($arrayToValueObjectHydrator, $meetupsArray);
         $this->meetupsStorage = $parameterProvider->provideStringParameter(Option::MEETUPS_STORAGE);
     }
 
@@ -94,5 +95,10 @@ final class MeetupRepository
         }
 
         return $meetupsArray;
+    }
+
+    private function createMeetups(ArrayToValueObjectHydrator $arrayToValueObjectHydrator, array $meetupsArray): array
+    {
+        return $arrayToValueObjectHydrator->hydrateArraysToValueObject($meetupsArray, Meetup::class);
     }
 }

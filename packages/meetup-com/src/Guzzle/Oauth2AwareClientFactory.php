@@ -45,11 +45,7 @@ final class Oauth2AwareClientFactory
         $clientCredentials = new ClientCredentials($reauthClient, $reauthConfig);
         $oAuth2Middleware = new OAuth2Middleware($clientCredentials);
 
-        $client = new Oauth2AwareClient();
-        $client->getConfig('handler')
-            ->push($oAuth2Middleware);
-
-        return $client;
+        return $this->decorateWithOauth2Client($oAuth2Middleware);
     }
 
     private function ensureOAuthKeysAreSet(): void
@@ -80,5 +76,14 @@ final class Oauth2AwareClientFactory
         $underscore = $this->stringFormatConverter->camelCaseToUnderscore($name);
 
         return strtoupper($underscore);
+    }
+
+    private function decorateWithOauth2Client(OAuth2Middleware $oAuth2Middleware): Oauth2AwareClient
+    {
+        $client = new Oauth2AwareClient();
+        $config = $client->getConfig('handler');
+        $config->push($oAuth2Middleware);
+
+        return $client;
     }
 }

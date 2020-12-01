@@ -73,14 +73,12 @@ final class Meetup
 
     public function getLatitude(): float
     {
-        return $this->location->getCoordinate()
-            ->getLat();
+        return $this->location->getCoordinateLatitude();
     }
 
     public function getLongitude(): float
     {
-        return $this->location->getCoordinate()
-            ->getLng();
+        return $this->location->getCoordinateLongitude();
     }
 
     public function getStartInDays(): ?int
