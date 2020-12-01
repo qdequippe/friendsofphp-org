@@ -17,11 +17,26 @@ final class MeetupReporter
     /**
      * @param Meetup[] $meetups
      */
-    public function printMeetups(array $meetups): void
+    public function reportMeetups(array $meetups, string $key): void
+    {
+        if (count($meetups) === 0) {
+            return;
+        }
+
+        $this->printMeetups($meetups);
+
+        $successMessage = sprintf('Loaded %d meetups from "%s" importer', count($meetups), $key);
+        $this->symfonyStyle->success($successMessage);
+    }
+
+    /**
+     * @param Meetup[] $meetups
+     */
+    private function printMeetups(array $meetups): void
     {
         $meetupListToDisplay = [];
         foreach ($meetups as $meetup) {
-            $meetupListToDisplay[] = $meetup->getStartDateTime()->format('Y-m-d') . ' - ' . $meetup->getName();
+            $meetupListToDisplay[] = $meetup->getStartDateTimeFormatted('Y-m-d') . ' - ' . $meetup->getName();
         }
 
         $this->symfonyStyle->listing($meetupListToDisplay);

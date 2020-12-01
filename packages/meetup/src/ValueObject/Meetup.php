@@ -51,6 +51,11 @@ final class Meetup
         return $this->url;
     }
 
+    public function getStartDateTimeFormatted(string $format): string
+    {
+        return $this->startDateTime->format($format);
+    }
+
     public function getStartDateTime(): DateTimeInterface
     {
         return $this->startDateTime;
