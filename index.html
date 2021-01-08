@@ -66,36 +66,6 @@
 </thead>
 
         
-            <tr class="meetup" data-longitude="25.31224822998" data-latitude="54.699935913086" data-datetime="2021-01-07 19:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-success">
-                        Thu,
-                        <strong>Jan 07</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(54.699935913086, 25.31224822998)">
-            Vilnius
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Lithuania</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/vilniusphp/events/hmcgcsycccbkb/">Vilnius PHP</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">Vilnius PHP Meetups</small>
-    </td>
-</tr>
             <tr class="meetup" data-longitude="9.9936819076538" data-latitude="53.551086425781" data-datetime="2021-01-12 18:30">
     <td class="w-25">
                     <span class="text-nowrap text-success">
@@ -158,7 +128,7 @@
 </tr>
             <tr class="meetup" data-longitude="138.59996032715" data-latitude="-34.928619384766" data-datetime="2021-01-21 18:00">
     <td class="w-25">
-                    <span class="text-nowrap text-danger">
+                    <span class="text-nowrap text-warning">
                         Thu,
                         <strong>Jan 21</strong>
                     </span>
@@ -188,7 +158,7 @@
 </tr>
             <tr class="meetup" data-longitude="4.9041390419006" data-latitude="52.367572784424" data-datetime="2021-01-21 19:00">
     <td class="w-25">
-                    <span class="text-nowrap text-danger">
+                    <span class="text-nowrap text-warning">
                         Thu,
                         <strong>Jan 21</strong>
                     </span>
@@ -410,36 +380,6 @@
 </thead>
 
         
-            <tr class="meetup" data-longitude="25.31224822998" data-latitude="54.699935913086" data-datetime="2021-01-07 19:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-success">
-                        Thu,
-                        <strong>Jan 07</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(54.699935913086, 25.31224822998)">
-            Vilnius
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Lithuania</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/vilniusphp/events/hmcgcsycccbkb/">Vilnius PHP</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">Vilnius PHP Meetups</small>
-    </td>
-</tr>
             <tr class="meetup" data-longitude="9.9936819076538" data-latitude="53.551086425781" data-datetime="2021-01-12 18:30">
     <td class="w-25">
                     <span class="text-nowrap text-success">
@@ -502,7 +442,7 @@
 </tr>
             <tr class="meetup" data-longitude="138.59996032715" data-latitude="-34.928619384766" data-datetime="2021-01-21 18:00">
     <td class="w-25">
-                    <span class="text-nowrap text-danger">
+                    <span class="text-nowrap text-warning">
                         Thu,
                         <strong>Jan 21</strong>
                     </span>
@@ -532,7 +472,7 @@
 </tr>
             <tr class="meetup" data-longitude="4.9041390419006" data-latitude="52.367572784424" data-datetime="2021-01-21 19:00">
     <td class="w-25">
-                    <span class="text-nowrap text-danger">
+                    <span class="text-nowrap text-warning">
                         Thu,
                         <strong>Jan 21</strong>
                     </span>
@@ -747,7 +687,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
-        <script src="/assets/js/menu-area-pick.js?v=1956214704"></script>
+        <script src="/assets/js/menu-area-pick.js?v=1464236639"></script>
 
         <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
         integrity="sha512-2fA79E27MOeBgLjmBrtAgM/20clVSV8vJERaW/EcnnWCVGwQRazzKtQS1kIusCZv1PtaQxosDZZ0F1Oastl55w=="
@@ -764,16 +704,6 @@
     var markers = [
         
         {
-                        "type": "green",
-                        "title": "Vilnius PHP",
-                        "position": [54.699935913086, 25.31224822998],
-                        "date": "01-07",
-                        "location": "Vilnius",
-                        "url": "https://www.meetup.com/vilniusphp/events/hmcgcsycccbkb/",
-                        // for filtering
-                        "datetime": "2021-01-07 19:00",
-                    },
-                                                                                {
                         "type": "green",
                         "title": "Treffen der PHP-Usergroup Hamburg",
                         "position": [53.551086425781, 9.9936819076538],
@@ -794,7 +724,7 @@
                         "datetime": "2021-01-20 18:30",
                     },
                                                                                 {
-                        "type": "red",
+                        "type": "orange",
                         "title": "PHP Adelaide User Group Meeting",
                         "position": [-34.928619384766, 138.59996032715],
                         "date": "01-21",
@@ -804,7 +734,7 @@
                         "datetime": "2021-01-21 18:00",
                     },
                                                                                 {
-                        "type": "red",
+                        "type": "orange",
                         "title": "Monthly Meeting",
                         "position": [52.367572784424, 4.9041390419006],
                         "date": "01-21",
@@ -1084,7 +1014,7 @@
                 <span class="pl-2 pr-2">•</span>
 
                 <a href="https://github.com/TomasVotruba/friendsofphp.org/actions?query=workflow%3A%22Build+and+Deploy%22">
-                    Regenerated 2021-01-07 CET
+                    Regenerated 2021-01-08 CET
                 </a>
             </p>
         </div>
