@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\OpentechcalendarCoUk\Factory;
 
@@ -33,7 +35,7 @@ final class OpentechcalendarCoUkMeetupFactory
         }
 
         $name = $data['summary'];
-        $start = DateTime::from($data['start']['rfc2882timezone']);
+        $dateTime = DateTime::from($data['start']['rfc2882timezone']);
         $group = $data['summary'];
 
         $location = $this->createLocation($data);
@@ -50,7 +52,7 @@ final class OpentechcalendarCoUkMeetupFactory
         return new Meetup(
             $name,
             $group,
-            $start,
+            $dateTime,
             $link,
             $location->getCity(),
             $location->getCountry(),
@@ -80,11 +82,6 @@ final class OpentechcalendarCoUkMeetupFactory
         if (! isset($data['venue'])) {
             return true;
         }
-
-        if ($data['venue']['lat'] === null || $data['venue']['lat']) {
-            return true;
-        }
-
-        return false;
+        return $data['venue']['lat'] === null || $data['venue']['lat'];
     }
 }

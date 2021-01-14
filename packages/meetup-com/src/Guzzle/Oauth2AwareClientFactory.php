@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\MeetupCom\Guzzle;
 
@@ -79,10 +81,10 @@ final class Oauth2AwareClientFactory
 
     private function decorateWithOauth2Client(OAuth2Middleware $oAuth2Middleware): Oauth2AwareClient
     {
-        $client = new Oauth2AwareClient();
-        $config = $client->getConfig('handler');
+        $oauth2AwareClient = new Oauth2AwareClient();
+        $config = $oauth2AwareClient->getConfig('handler');
         $config->push($oAuth2Middleware);
 
-        return $client;
+        return $oauth2AwareClient;
     }
 }

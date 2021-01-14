@@ -14,7 +14,7 @@ final class CityNormalizer
     /**
      * @var string[]
      */
-    private array $cityNormalizationMap = [
+    private const CITY_NORMALIZATION_MAP = [
         '#Praha(.*?)#' => 'Prague',
         '#Brno(.*?)#' => 'Brno',
         'Hlavní město Praha' => 'Prague',
@@ -55,7 +55,7 @@ final class CityNormalizer
 
     public function normalize(string $city): string
     {
-        foreach ($this->cityNormalizationMap as $pattern => $correct) {
+        foreach (self::CITY_NORMALIZATION_MAP as $pattern => $correct) {
             if (Strings::match($city, $this->normalizePattern($pattern))) {
                 return $correct;
             }
@@ -70,6 +70,6 @@ final class CityNormalizer
             return $pattern;
         }
 
-        return '#' . preg_quote($pattern) . '#';
+        return '#' . preg_quote($pattern, '#') . '#';
     }
 }

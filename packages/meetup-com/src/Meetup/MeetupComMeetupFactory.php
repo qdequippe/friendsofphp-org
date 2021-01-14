@@ -1,8 +1,9 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\MeetupCom\Meetup;
 
-use DateTimeInterface;
 use DateTimeZone;
 use Fop\Core\Geolocation\Geolocator;
 use Fop\Core\Utils\CityNormalizer;
@@ -62,19 +63,14 @@ final class MeetupComMeetupFactory
         if ($meetup['status'] !== 'upcoming') {
             return true;
         }
-
         // draft event, not ready yet
-        if (! isset($meetup['venue'])) {
-            return true;
-        }
-
-        return false;
+        return ! isset($meetup['venue']);
     }
 
     /**
      * @param mixed[] $data
      */
-    private function createStartDateTimeFromEventData(array $data): DateTimeInterface
+    private function createStartDateTimeFromEventData(array $data): DateTime
     {
         // not sure why it adds extra "000" in the end
         $time = $this->normalizeTimestamp($data['time']);

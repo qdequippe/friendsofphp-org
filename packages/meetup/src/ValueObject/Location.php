@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\Meetup\ValueObject;
 
@@ -21,11 +23,6 @@ final class Location
     public function getCountry(): string
     {
         return $this->country;
-    }
-
-    public function getCoordinate(): Coordinate
-    {
-        return $this->coordinate;
     }
 
     public function getCoordinateLatitude(): float

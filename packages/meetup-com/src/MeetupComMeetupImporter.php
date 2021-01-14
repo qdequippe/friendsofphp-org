@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\MeetupCom;
 
@@ -30,7 +32,7 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
         $errors = [];
         $meetups = [];
 
-        foreach ($this->groupRepository->fetchAll() as $group) {
+        foreach ($this->groupRepository->getGroups() as $group) {
             try {
                 $message = sprintf('Loading meetups for "%s" group', $group->getMeetupComSlug());
                 $this->symfonyStyle->note($message);

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\Core\Geolocation;
 
@@ -138,7 +140,7 @@ final class Geolocator
      */
     public function getCountryJsonByLatitudeAndLongitude(float $latitude, float $longitude): array
     {
-        $cacheKey = sha1((string) $longitude . (string) $longitude);
+        $cacheKey = sha1($longitude . $longitude);
         if (isset($this->countryJsonByLatitudeAndLongitudeCache[$cacheKey])) {
             return $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey];
         }

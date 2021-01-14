@@ -12,11 +12,9 @@ use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
  */
 final class GroupsFactory
 {
-    private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
-
-    public function __construct(ArrayToValueObjectHydrator $arrayToValueObjectHydrator)
-    {
-        $this->arrayToValueObjectHydrator = $arrayToValueObjectHydrator;
+    public function __construct(
+        private ArrayToValueObjectHydrator $arrayToValueObjectHydrator
+    ) {
     }
 
     /**

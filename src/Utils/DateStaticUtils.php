@@ -19,7 +19,7 @@ final class DateStaticUtils
         /** @var DateInterval $dateInterval */
         $dateInterval = $dateTime->diff(new DateTime('now'));
         if ($dateInterval->invert === 0) {
-            return (int) - $dateInterval->days;
+            return - $dateInterval->days;
         }
 
         return (int) $dateInterval->days;
