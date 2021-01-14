@@ -79,6 +79,7 @@ parameters:
         -
             message: '#Do not use factory/method call in constructor\. Put factory in config and get service with dependency injection#'
             paths:
+                - packages/meetup/src/Repository/MeetupRepository.php
                 - packages/meetup/src/Repository/GroupRepository.php
 
         -

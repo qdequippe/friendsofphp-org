@@ -33,7 +33,16 @@ final class CrosswebPlMeetupFactory
 
         $groupName = $this->resolveGroupName($name);
 
-        return new Meetup($name, $groupName, $startDateTime, $location, $url);
+        return new Meetup(
+            $name,
+            $groupName,
+            $startDateTime,
+            $url,
+            $location->getCity(),
+            $location->getCountry(),
+            $location->getCoordinateLatitude(),
+            $location->getCoordinateLongitude()
+        );
     }
 
     private function resolveLocation(string $content): ?Location

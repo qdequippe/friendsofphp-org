@@ -26,7 +26,7 @@ final class GroupRepository
         private GroupsFactory $groupsFactory
     ) {
         $groupsArray = $parameterProvider->provideArrayParameter(Option::GROUPS);
-        $this->groups = $groupsFactory->createGroups($groupsArray);
+        $this->groups = $groupsFactory->create($groupsArray);
 
         $this->groupsStorage = $parameterProvider->provideStringParameter(Option::GROUPS_STORAGE);
     }
@@ -42,16 +42,8 @@ final class GroupRepository
     public function persist(): void
     {
         $groupsArray = $this->arraysConverter->turnToArrays($this->groups);
-        $parameterHolder = new ParameterHolder('groups', $groupsArray);
+        $parameterHolder = new ParameterHolder(Option::GROUPS, $groupsArray);
 
         $this->yamlFileSystem->printParameterHolder($parameterHolder, $this->groupsStorage);
     }
-
-//    /**
-//     * @param Group[] $groups
-//     * @return Group[]
-//     */
-//        $groups = $arrayToValueObjectHydrator->hydrateArrays($groupsArray, Group::class);
-//        return $this->sortGroupsByName($groups);
-//    }
 }

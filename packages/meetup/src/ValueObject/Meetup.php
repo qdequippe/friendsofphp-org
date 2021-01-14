@@ -5,6 +5,7 @@ namespace Fop\Meetup\ValueObject;
 use DateTimeInterface;
 use Fop\Core\Utils\DateStaticUtils;
 use Fop\Meetup\Contract\ArrayableInterface;
+use Location\Coordinate;
 
 final class Meetup implements ArrayableInterface
 {
@@ -12,24 +13,28 @@ final class Meetup implements ArrayableInterface
         private string $name,
         private string $userGroupName,
         private DateTimeInterface $startDateTime,
-        private Location $location,
-        private string $url
+        private string $url,
+        private string $city,
+        private string $country,
+        private float $latitude,
+        private float $longitude
     ) {
     }
 
     public function getLocation(): Location
     {
-        return $this->location;
+        $coordinate = new Coordinate($this->latitude, $this->longitude);
+        return new Location($this->city, $this->country, $coordinate);
     }
 
     public function getCity(): string
     {
-        return $this->location->getCity();
+        return $this->city;
     }
 
     public function getCountry(): string
     {
-        return $this->location->getCountry();
+        return $this->country;
     }
 
     public function getUrl(): string
@@ -59,12 +64,12 @@ final class Meetup implements ArrayableInterface
 
     public function getLatitude(): float
     {
-        return $this->location->getCoordinateLatitude();
+        return $this->latitude;
     }
 
     public function getLongitude(): float
     {
-        return $this->location->getCoordinateLongitude();
+        return $this->longitude;
     }
 
     public function getStartInDays(): ?int

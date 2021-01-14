@@ -7,6 +7,9 @@ namespace Fop\Meetup\ValueObjectFactory;
 use Fop\Meetup\ValueObject\Group;
 use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 
+/**
+ * @see \Fop\Meetup\Tests\ValueObjectFactory\GroupsFactoryTest
+ */
 final class GroupsFactory
 {
     private ArrayToValueObjectHydrator $arrayToValueObjectHydrator;
@@ -17,9 +20,10 @@ final class GroupsFactory
     }
 
     /**
+     * @param mixed[] $groupsArray
      * @return Group[]
      */
-    public function createGroups(array $groupsArray): array
+    public function create(array $groupsArray): array
     {
         /** @var Group[] $groups */
         $groups = $this->arrayToValueObjectHydrator->hydrateArrays($groupsArray, Group::class);
