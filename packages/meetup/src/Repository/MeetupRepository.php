@@ -60,4 +60,9 @@ final class MeetupRepository
         $parameterHolder = new ParameterHolder(Option::MEETUPS, $meetupsArray);
         $this->yamlFileSystem->printParameterHolder($parameterHolder, $storage);
     }
+
+    public function getCount(): int
+    {
+        return count($this->fetchAll());
+    }
 }
