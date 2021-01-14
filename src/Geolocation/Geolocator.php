@@ -4,12 +4,17 @@ namespace Fop\Core\Geolocation;
 
 use Fop\Core\ValueObject\Option;
 use Fop\Meetup\ValueObject\Location;
+use GuzzleHttp\Client;
 use Location\Coordinate;
+use Nette\Utils\Json;
+use Psr\Http\Message\ResponseInterface;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
-use Symplify\PackageBuilder\Http\BetterGuzzleClient;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
+/**
+ * @see \Fop\Core\Tests\Geolocator\GeolocatorTest
+ */
 final class Geolocator
 {
     /**
@@ -34,7 +39,7 @@ final class Geolocator
 
     public function __construct(
         ParameterProvider $parameterProvider,
-        private BetterGuzzleClient $betterGuzzleClient
+        private Client $client
     ) {
         $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
     }
@@ -43,7 +48,11 @@ final class Geolocator
     {
         $url = sprintf(self::API_CITY_TO_LOCATION, $city);
 
-        $json = $this->betterGuzzleClient->requestToJson($url);
+        $json = $this->client->request($url);
+
+        dump($json);
+        die;
+
         if (! isset($json[0]['lat']) || ! isset($json[0]['lat'])) {
             return null;
         }
@@ -137,7 +146,9 @@ final class Geolocator
         }
 
         $url = sprintf(self::API_LOCATION_TO_COUNTRY, $latitude, $longitude);
-        $json = $this->betterGuzzleClient->requestToJson($url);
+        $response = $this->client->get($url);
+
+        $json = $this->createJsonFromResponse($response);
 
         $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey] = $json;
 
@@ -158,5 +169,11 @@ final class Geolocator
         $countryJson = $this->getCountryJsonByLatitudeAndLongitude($group['latitude'], $group['longitude']);
 
         return $countryJson['address']['country_code'];
+    }
+
+    private function createJsonFromResponse(ResponseInterface $response): array
+    {
+        $responseBody = (string) $response->getBody();
+        return Json::decode($responseBody, Json::FORCE_ARRAY);
     }
 }

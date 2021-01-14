@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Core\Controller;
 
+use Fop\Core\ValueObject\Routing\RouteName;
 use Fop\Meetup\Repository\MeetupRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +17,7 @@ final class HomepageController extends AbstractController
     ) {
     }
 
-    #[Route('/', name: 'homepage')]
+    #[Route('/', name: RouteName::HOMEPAGE)]
     public function __invoke(): Response
     {
         return $this->render('index.twig', [

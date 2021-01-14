@@ -11,12 +11,8 @@ use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(__DIR__ . '/parameters.php');
-
     $containerConfigurator->import(__DIR__ . '/packages/*');
-
     $containerConfigurator->import(__DIR__ . '/../packages/*/config/*');
-
-    $containerConfigurator->import(__DIR__ . '/../vendor/symplify/symfony-static-dumper/config/config.php');
 
     $services = $containerConfigurator->services();
 

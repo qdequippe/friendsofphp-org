@@ -3,7 +3,9 @@
 namespace Fop\Group\Repository;
 
 use Fop\Core\FileSystem\YamlFileSystem;
+use Fop\Core\ValueObject\Option;
 use Fop\Group\ValueObject\Group;
+use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class GroupRepository
@@ -17,11 +19,11 @@ final class GroupRepository
 
     public function __construct(
         ParameterProvider $parameterProvider,
-        \Symplify\EasyHydrator\ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
         private YamlFileSystem $yamlFileSystem
     ) {
-        $groupsArray = $parameterProvider->provideArrayParameter('groups');
-        $this->groupsStorage = $parameterProvider->provideStringParameter('groups_storage');
+        $groupsArray = $parameterProvider->provideArrayParameter(Option::GROUPS);
+        $this->groupsStorage = $parameterProvider->provideStringParameter(Option::GROUPS_STORAGE);
 
         $this->groups = $this->createGroups($arrayToValueObjectHydrator, $groupsArray);
     }
@@ -77,7 +79,7 @@ final class GroupRepository
      * @return Group[]
      */
     private function createGroups(
-        \Symplify\EasyHydrator\ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
         array $groupsArray
     ): array {
         /** @var Group[] $groups */

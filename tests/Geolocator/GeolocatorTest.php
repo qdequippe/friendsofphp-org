@@ -14,8 +14,7 @@ final class GeolocatorTest extends AbstractKernelTestCase
     protected function setUp(): void
     {
         $this->bootKernel(FopKernel::class);
-
-        $this->geolocator = self::$container->get(Geolocator::class);
+        $this->geolocator = $this->getService(Geolocator::class);
     }
 
     /**
