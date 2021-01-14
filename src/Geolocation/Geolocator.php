@@ -32,8 +32,10 @@ final class Geolocator
      */
     private array $usaStates = [];
 
-    public function __construct(ParameterProvider $parameterProvider, private BetterGuzzleClient $betterGuzzleClient)
-    {
+    public function __construct(
+        ParameterProvider $parameterProvider,
+        private BetterGuzzleClient $betterGuzzleClient
+    ) {
         $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
     }
 

@@ -12,8 +12,10 @@ use Symplify\PackageBuilder\Console\ShellCode;
 
 final class RatesCommand extends Command
 {
-    public function __construct(private MeetupComApi $meetupComApi, private SymfonyStyle $symfonyStyle)
-    {
+    public function __construct(
+        private MeetupComApi $meetupComApi,
+        private SymfonyStyle $symfonyStyle
+    ) {
         parent::__construct();
     }
 

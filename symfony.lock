@@ -488,6 +488,9 @@
     "symplify/easy-coding-standard": {
         "version": "v7.2.3"
     },
+    "symplify/easy-hydrator": {
+        "version": "9.0.34"
+    },
     "symplify/easy-testing": {
         "version": "9.0.0-beta9"
     },

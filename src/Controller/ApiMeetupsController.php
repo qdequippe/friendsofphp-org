@@ -11,8 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class ApiMeetupsController extends AbstractController
 {
-    public function __construct(private array $meetups = [])
-    {
+    public function __construct(
+        private array $meetups = []
+    ) {
     }
 
     /**

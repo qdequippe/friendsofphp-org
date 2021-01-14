@@ -4,8 +4,8 @@ namespace Fop\Meetup\Repository;
 
 use Fop\Core\FileSystem\YamlFileSystem;
 use Fop\Core\ValueObject\Option;
-use Fop\Hydrator\ArrayToValueObjectHydrator;
 use Fop\Meetup\ValueObject\Meetup;
+use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class MeetupRepository
@@ -95,6 +95,6 @@ final class MeetupRepository
 
     private function createMeetups(ArrayToValueObjectHydrator $arrayToValueObjectHydrator, array $meetupsArray): array
     {
-        return $arrayToValueObjectHydrator->hydrateArraysToValueObject($meetupsArray, Meetup::class);
+        return $arrayToValueObjectHydrator->hydrateArrays($meetupsArray, Meetup::class);
     }
 }

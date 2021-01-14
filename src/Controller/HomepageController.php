@@ -11,8 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 final class HomepageController extends AbstractController
 {
-    public function __construct(private MeetupRepository $meetupRepository)
-    {
+    public function __construct(
+        private MeetupRepository $meetupRepository
+    ) {
     }
 
     #[Route('/', name: 'homepage')]

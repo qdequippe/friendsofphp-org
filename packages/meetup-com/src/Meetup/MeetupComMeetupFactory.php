@@ -13,8 +13,10 @@ use Nette\Utils\DateTime;
 
 final class MeetupComMeetupFactory
 {
-    public function __construct(private Geolocator $geolocator, private CityNormalizer $cityNormalizer)
-    {
+    public function __construct(
+        private Geolocator $geolocator,
+        private CityNormalizer $cityNormalizer
+    ) {
     }
 
     /**

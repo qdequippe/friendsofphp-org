@@ -6,8 +6,11 @@ namespace Fop\Group\ValueObject;
 
 final class Group
 {
-    public function __construct(private string $name, private string $meetupComSlug, private string $country)
-    {
+    public function __construct(
+        private string $name,
+        private string $meetupComSlug,
+        private string $country
+    ) {
     }
 
     public function getName(): string

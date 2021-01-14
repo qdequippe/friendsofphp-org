@@ -6,8 +6,11 @@ use Location\Coordinate;
 
 final class Location
 {
-    public function __construct(private string $city, private string $country, private Coordinate $coordinate)
-    {
+    public function __construct(
+        private string $city,
+        private string $country,
+        private Coordinate $coordinate
+    ) {
     }
 
     public function getCity(): string

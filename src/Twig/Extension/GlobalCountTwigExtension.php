@@ -9,8 +9,10 @@ use Twig\Extension\GlobalsInterface;
 
 final class GlobalCountTwigExtension extends AbstractExtension implements GlobalsInterface
 {
-    public function __construct(private array $groups = [], private array $meetups = [])
-    {
+    public function __construct(
+        private array $groups = [],
+        private array $meetups = []
+    ) {
     }
 
     /**

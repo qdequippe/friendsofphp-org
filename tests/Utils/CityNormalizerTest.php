@@ -18,9 +18,10 @@ final class CityNormalizerTest extends TestCase
     /**
      * @dataProvider provideData()
      */
-    public function test(string $invalidCity, string $correctCity): void
+    public function test(string $invalidCity, string $expectedCorrectCity): void
     {
-        $this->assertSame($correctCity, $this->cityNormalizer->normalize($invalidCity));
+        $normalizedCity = $this->cityNormalizer->normalize($invalidCity);
+        $this->assertSame($expectedCorrectCity, $normalizedCity);
     }
 
     public function provideData(): Iterator
