@@ -10,8 +10,9 @@ final class MeetupFilterCollector
     /**
      * @param MeetupFilterInterface[] $meetupFilters
      */
-    public function __construct(private array $meetupFilters)
-    {
+    public function __construct(
+        private array $meetupFilters
+    ) {
     }
 
     /**

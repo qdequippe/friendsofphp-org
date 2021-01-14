@@ -2,10 +2,12 @@
 
 namespace Fop\Meetup\Repository;
 
-use Fop\Core\FileSystem\YamlFileSystem;
+use Fop\Core\FileSystem\ParameterFilePrinter;
 use Fop\Core\ValueObject\Option;
-use Fop\Hydrator\ArrayToValueObjectHydrator;
+use Fop\Meetup\Arrays\ArraysConverter;
 use Fop\Meetup\ValueObject\Meetup;
+use Fop\Meetup\ValueObject\ParameterHolder;
+use Fop\Meetup\ValueObjectFactory\MeetupFactory;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class MeetupRepository
@@ -18,13 +20,13 @@ final class MeetupRepository
     private array $meetups = [];
 
     public function __construct(
-        private YamlFileSystem $yamlFileSystem,
+        private ParameterFilePrinter $yamlFileSystem,
         ParameterProvider $parameterProvider,
-        ArrayToValueObjectHydrator $arrayToValueObjectHydrator
+        private ArraysConverter $arraysConverter,
+        MeetupFactory $meetupFactory,
     ) {
         $meetupsArray = $parameterProvider->provideArrayParameter(Option::MEETUPS);
-
-        $this->meetups = $this->createMeetups($arrayToValueObjectHydrator, $meetupsArray);
+        $this->meetups = $meetupFactory->create($meetupsArray);
         $this->meetupsStorage = $parameterProvider->provideStringParameter(Option::MEETUPS_STORAGE);
     }
 
@@ -54,47 +56,8 @@ final class MeetupRepository
      */
     private function saveToFileAndStorage(array $meetups, string $storage): void
     {
-        $meetups = $this->sortByStartDateTime($meetups);
-
-        $meetupsYamlStructure = [
-            'parameters' => [
-                'meetups' => $this->turnMeetupsToArrays($meetups),
-            ],
-        ];
-
-        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
-    }
-
-    /**
-     * @param Meetup[] $meetups
-     * @return Meetup[]
-     */
-    private function sortByStartDateTime(array $meetups): array
-    {
-        usort(
-            $meetups,
-            fn (Meetup $firstMeetup, Meetup $secondMeetup): int => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
-        );
-
-        return $meetups;
-    }
-
-    /**
-     * @param Meetup[] $meetups
-     * @return mixed[]
-     */
-    private function turnMeetupsToArrays(array $meetups): array
-    {
-        $meetupsArray = [];
-        foreach ($meetups as $meetup) {
-            $meetupsArray[] = $meetup->toArray();
-        }
-
-        return $meetupsArray;
-    }
-
-    private function createMeetups(ArrayToValueObjectHydrator $arrayToValueObjectHydrator, array $meetupsArray): array
-    {
-        return $arrayToValueObjectHydrator->hydrateArraysToValueObject($meetupsArray, Meetup::class);
+        $meetupsArray = $this->arraysConverter->turnToArrays($meetups);
+        $parameterHolder = new ParameterHolder(Option::MEETUPS, $meetupsArray);
+        $this->yamlFileSystem->printParameterHolder($parameterHolder, $storage);
     }
 }

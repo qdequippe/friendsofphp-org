@@ -2,12 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Fop\Group\ValueObject;
+namespace Fop\Meetup\ValueObject;
 
-final class Group
+use Fop\Meetup\Contract\ArrayableInterface;
+
+final class Group implements ArrayableInterface
 {
-    public function __construct(private string $name, private string $meetupComSlug, private string $country)
-    {
+    public function __construct(
+        private string $name,
+        private string $meetupComSlug,
+        private string $country
+    ) {
     }
 
     public function getName(): string
@@ -25,6 +30,9 @@ final class Group
         return $this->country;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         return [

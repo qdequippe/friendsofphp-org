@@ -13,8 +13,10 @@ use Nette\Utils\DateTime;
 
 final class MeetupComMeetupFactory
 {
-    public function __construct(private Geolocator $geolocator, private CityNormalizer $cityNormalizer)
-    {
+    public function __construct(
+        private Geolocator $geolocator,
+        private CityNormalizer $cityNormalizer
+    ) {
     }
 
     /**
@@ -34,7 +36,16 @@ final class MeetupComMeetupFactory
 
         $name = $this->createName($data);
 
-        return new Meetup($name, $data['group']['name'], $startDateTime, $location, $data['link']);
+        return new Meetup(
+            $name,
+            $data['group']['name'],
+            $startDateTime,
+            $data['link'],
+            $location->getCity(),
+            $location->getCountry(),
+            $location->getCoordinateLatitude(),
+            $location->getCoordinateLongitude()
+        );
     }
 
     /**

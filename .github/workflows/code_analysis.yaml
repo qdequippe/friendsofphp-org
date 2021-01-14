@@ -26,11 +26,11 @@ jobs:
 
                     -
                         name: 'Rector'
-                        run: vendor/bin/rector process --dry-run
+                        run: vendor/bin/rector process --dry-run --ansi
 
                     -
                         name: 'Dead Groups'
-                        run: 'bin/console validate-dead-groups'
+                        run: 'bin/console validate-dead-groups --ansi'
 
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest

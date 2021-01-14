@@ -7,8 +7,9 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupReporter
 {
-    public function __construct(private SymfonyStyle $symfonyStyle)
-    {
+    public function __construct(
+        private SymfonyStyle $symfonyStyle
+    ) {
     }
 
     /**

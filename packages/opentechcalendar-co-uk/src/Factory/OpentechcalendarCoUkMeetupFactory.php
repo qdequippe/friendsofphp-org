@@ -12,8 +12,9 @@ use Nette\Utils\Strings;
 
 final class OpentechcalendarCoUkMeetupFactory
 {
-    public function __construct(private Geolocator $geolocator)
-    {
+    public function __construct(
+        private Geolocator $geolocator
+    ) {
     }
 
     /**
@@ -34,8 +35,8 @@ final class OpentechcalendarCoUkMeetupFactory
         $name = $data['summary'];
         $start = DateTime::from($data['start']['rfc2882timezone']);
         $group = $data['summary'];
-        $location = $this->createLocation($data);
 
+        $location = $this->createLocation($data);
         if ($location === null) {
             return null;
         }
@@ -46,7 +47,16 @@ final class OpentechcalendarCoUkMeetupFactory
 
         $link = $data['siteurl'];
 
-        return new Meetup($name, $group, $start, $location, $link);
+        return new Meetup(
+            $name,
+            $group,
+            $start,
+            $link,
+            $location->getCity(),
+            $location->getCountry(),
+            $location->getCoordinateLatitude(),
+            $location->getCoordinateLongitude()
+        );
     }
 
     /**

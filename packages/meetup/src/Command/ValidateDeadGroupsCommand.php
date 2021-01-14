@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Fop\Group\Command;
+namespace Fop\Meetup\Command;
 
-use Fop\Group\Repository\GroupRepository;
+use Fop\Meetup\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Api\MeetupComCooler;
 use Nette\Utils\DateTime;

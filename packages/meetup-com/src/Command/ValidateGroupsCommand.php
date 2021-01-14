@@ -3,7 +3,8 @@
 namespace Fop\MeetupCom\Command;
 
 use Fop\Core\Exception\ShouldNotHappenException;
-use Fop\Group\Repository\GroupRepository;
+use Fop\Core\ValueObject\Option;
+use Fop\Meetup\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -23,7 +24,7 @@ final class ValidateGroupsCommand extends Command
     ) {
         parent::__construct();
 
-        $this->groupsStorage = $parameterProvider->provideStringParameter('groups_storage');
+        $this->groupsStorage = $parameterProvider->provideStringParameter(Option::GROUPS_STORAGE);
     }
 
     protected function configure(): void

@@ -14,17 +14,17 @@ final class GeolocatorTest extends AbstractKernelTestCase
     protected function setUp(): void
     {
         $this->bootKernel(FopKernel::class);
-
-        $this->geolocator = self::$container->get(Geolocator::class);
+        $this->geolocator = $this->getService(Geolocator::class);
     }
 
     /**
      * @param mixed[] $group
      * @dataProvider provideData()
      */
-    public function test(array $group, string $expecedCountry): void
+    public function test(array $group, string $expectedCountry): void
     {
-        $this->assertSame($expecedCountry, $this->geolocator->resolveCountryByGroup($group));
+        $resolvedCountry = $this->geolocator->resolveCountryByGroup($group);
+        $this->assertSame($expectedCountry, $resolvedCountry);
     }
 
     public function provideData(): Iterator
@@ -32,6 +32,7 @@ final class GeolocatorTest extends AbstractKernelTestCase
         yield [[
             'country' => 'CZ',
         ], 'Czech Republic'];
+
         yield [[
             'latitude' => 50.847572953654,
             'longitude' => 4.3535041809082,
