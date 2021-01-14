@@ -46,4 +46,9 @@ final class GroupRepository
 
         $this->yamlFileSystem->printParameterHolder($parameterHolder, $this->groupsStorage);
     }
+
+    public function getCount(): int
+    {
+        return count($this->fetchAll());
+    }
 }

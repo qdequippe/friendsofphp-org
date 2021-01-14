@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Fop\Core\Twig\Extension;
 
+use Fop\Meetup\Repository\GroupRepository;
+use Fop\Meetup\Repository\MeetupRepository;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
 final class GlobalCountTwigExtension extends AbstractExtension implements GlobalsInterface
 {
     public function __construct(
-        private array $groups = [],
-        private array $meetups = []
+        private MeetupRepository $meetupRepository,
+        private GroupRepository $groupRepository
     ) {
     }
 
@@ -21,8 +23,8 @@ final class GlobalCountTwigExtension extends AbstractExtension implements Global
     public function getGlobals(): array
     {
         return [
-            'meetup_count' => count($this->meetups),
-            'group_count' => count($this->groups),
+            'meetup_count' => $this->meetupRepository->getCount(),
+            'group_count' => $this->groupRepository->getCount(),
         ];
     }
 }
