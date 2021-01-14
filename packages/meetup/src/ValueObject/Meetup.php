@@ -4,8 +4,9 @@ namespace Fop\Meetup\ValueObject;
 
 use DateTimeInterface;
 use Fop\Core\Utils\DateStaticUtils;
+use Fop\Meetup\Contract\ArrayableInterface;
 
-final class Meetup
+final class Meetup implements ArrayableInterface
 {
     public function __construct(
         private string $name,
@@ -71,6 +72,9 @@ final class Meetup
         return DateStaticUtils::getDiffFromTodayInDays($this->startDateTime);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         return [

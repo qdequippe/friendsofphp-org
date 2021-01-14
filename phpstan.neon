@@ -63,9 +63,6 @@ parameters:
         -
             message: '#Array with keys is not allowed\. Use value object to pass data instead#'
             paths:
-                - packages/group/src/Repository/GroupRepository.php # 46
-                - packages/group/src/Repository/GroupRepository.php # 47
-                - packages/group/src/ValueObject/Group.php # 39
                 - packages/meetup-com/src/Guzzle/Oauth2AwareClientFactory.php # 40
                 - packages/meetup/src/Repository/MeetupRepository.php # 62
                 - packages/meetup/src/Repository/MeetupRepository.php # 63
@@ -75,7 +72,16 @@ parameters:
         -
             message: '#Do not use factory/method call in constructor, put factory in config and get service with dependency injection#'
             paths:
-                - packages/group/src/Repository/GroupRepository.php # 30
                 - packages/meetup/src/Repository/MeetupRepository.php # 30
                 - src/Twig/Extension/GlobalCountTwigExtension.php # 15
                 - src/Twig/Extension/GlobalCountTwigExtension.php # 18
+
+        -
+            message: '#Do not use factory/method call in constructor\. Put factory in config and get service with dependency injection#'
+            paths:
+                - packages/meetup/src/Repository/GroupRepository.php
+
+        -
+            message: '#There should be no empty class#'
+            paths:
+                - packages/meetup-com/src/Guzzle/Oauth2AwareClient.php

@@ -2,9 +2,11 @@
 
 namespace Fop\Meetup\Repository;
 
-use Fop\Core\FileSystem\YamlFileSystem;
+use Fop\Core\FileSystem\ParameterFilePrinter;
 use Fop\Core\ValueObject\Option;
+use Fop\Meetup\Arrays\ArraysConverter;
 use Fop\Meetup\ValueObject\Meetup;
+use Fop\Meetup\ValueObject\ParameterHolder;
 use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
@@ -18,9 +20,10 @@ final class MeetupRepository
     private array $meetups = [];
 
     public function __construct(
-        private YamlFileSystem $yamlFileSystem,
+        private ParameterFilePrinter $yamlFileSystem,
         ParameterProvider $parameterProvider,
-        ArrayToValueObjectHydrator $arrayToValueObjectHydrator
+        ArrayToValueObjectHydrator $arrayToValueObjectHydrator,
+        private ArraysConverter $arraysConverter
     ) {
         $meetupsArray = $parameterProvider->provideArrayParameter(Option::MEETUPS);
 
@@ -56,13 +59,9 @@ final class MeetupRepository
     {
         $meetups = $this->sortByStartDateTime($meetups);
 
-        $meetupsYamlStructure = [
-            'parameters' => [
-                'meetups' => $this->turnMeetupsToArrays($meetups),
-            ],
-        ];
-
-        $this->yamlFileSystem->saveArrayToFile($meetupsYamlStructure, $storage);
+        $meetupsArray = $this->arraysConverter->turnToArrays($meetups);
+        $parameterHolder = new ParameterHolder('meetups', $meetupsArray);
+        $this->yamlFileSystem->printParameterHolder($parameterHolder, $storage);
     }
 
     /**
@@ -77,20 +76,6 @@ final class MeetupRepository
         );
 
         return $meetups;
-    }
-
-    /**
-     * @param Meetup[] $meetups
-     * @return mixed[]
-     */
-    private function turnMeetupsToArrays(array $meetups): array
-    {
-        $meetupsArray = [];
-        foreach ($meetups as $meetup) {
-            $meetupsArray[] = $meetup->toArray();
-        }
-
-        return $meetupsArray;
     }
 
     private function createMeetups(ArrayToValueObjectHydrator $arrayToValueObjectHydrator, array $meetupsArray): array

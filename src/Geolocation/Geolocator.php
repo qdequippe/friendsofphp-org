@@ -48,10 +48,8 @@ final class Geolocator
     {
         $url = sprintf(self::API_CITY_TO_LOCATION, $city);
 
-        $json = $this->client->request($url);
-
-        dump($json);
-        die;
+        $response = $this->client->get($url);
+        $json = $this->createJsonFromResponse($response);
 
         if (! isset($json[0]['lat']) || ! isset($json[0]['lat'])) {
             return null;
