@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use Rector\Core\Configuration\Option;
+use Rector\Privatization\Rector\ClassMethod\PrivatizeFinalClassMethodRector;
+use Rector\Privatization\Rector\ClassMethod\PrivatizeLocalOnlyMethodRector;
 use Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -11,7 +13,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $parameters = $containerConfigurator->parameters();
-    $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages']);
+    $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/packages', __DIR__ . '/tests']);
 
     $parameters->set(Option::AUTO_IMPORT_NAMES, true);
 
@@ -25,18 +27,14 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::PHP_71,
         SetList::DEAD_CODE,
         SetList::CODE_QUALITY,
-        //        SetList::PRIVATIZATION,
+        SetList::PRIVATIZATION,
         SetList::NAMING,
         SetList::TYPE_DECLARATION,
     ]);
 
     $parameters->set(Option::SKIP, [
         // buggy because of MicroKernel trait fuckups
-        \Rector\Privatization\Rector\ClassMethod\PrivatizeLocalOnlyMethodRector:: class => [
-            __DIR__ . '/src/HttpKernel/FopKernel.php',
-        ],
-        \Rector\Privatization\Rector\ClassMethod\PrivatizeFinalClassMethodRector::class => [
-            __DIR__ . '/src/HttpKernel/FopKernel.php',
-        ],
+        PrivatizeLocalOnlyMethodRector:: class => [__DIR__ . '/src/HttpKernel/FopKernel.php'],
+        PrivatizeFinalClassMethodRector::class => [__DIR__ . '/src/HttpKernel/FopKernel.php'],
     ]);
 };

@@ -14,6 +14,18 @@ use Nette\Utils\Strings;
 
 final class OpentechcalendarCoUkMeetupFactory
 {
+    /**
+     * @var string
+     */
+    private const TITLE = 'title';
+    /**
+     * @var string
+     */
+    private const VENUE = 'venue';
+    /**
+     * @var string
+     */
+    private const LAT = 'lat';
     public function __construct(
         private Geolocator $geolocator
     ) {
@@ -68,20 +80,20 @@ final class OpentechcalendarCoUkMeetupFactory
     {
         if ($this->isVenueMissing($data)) {
             // fallback to city
-            $city = $data['areas'][0]['title'];
+            $city = $data['areas'][0][self::TITLE];
             return $this->geolocator->createLocationFromCity($city);
         }
 
-        $coordinate = new Coordinate((float) $data['venue']['lat'], (float) $data['venue']['lng']);
+        $coordinate = new Coordinate((float) $data[self::VENUE][self::LAT], (float) $data[self::VENUE]['lng']);
 
-        return new Location($data['areas'][0]['title'], $data['country']['title'], $coordinate);
+        return new Location($data['areas'][0][self::TITLE], $data['country'][self::TITLE], $coordinate);
     }
 
     private function isVenueMissing(array $data): bool
     {
-        if (! isset($data['venue'])) {
+        if (! isset($data[self::VENUE])) {
             return true;
         }
-        return $data['venue']['lat'] === null || $data['venue']['lat'];
+        return $data[self::VENUE][self::LAT] === null || $data[self::VENUE][self::LAT];
     }
 }
