@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Core\Configuration\Option;
+use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Privatization\Rector\ClassMethod\PrivatizeFinalClassMethodRector;
 use Rector\Privatization\Rector\ClassMethod\PrivatizeLocalOnlyMethodRector;
 use Rector\Privatization\Rector\Property\ChangeReadOnlyPropertyWithDefaultValueToConstantRector;
@@ -36,5 +37,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         // buggy because of MicroKernel trait fuckups
         PrivatizeLocalOnlyMethodRector:: class => [__DIR__ . '/src/HttpKernel/FopKernel.php'],
         PrivatizeFinalClassMethodRector::class => [__DIR__ . '/src/HttpKernel/FopKernel.php'],
+
+        RenamePropertyToMatchTypeRector::class => [
+            // un-wanted renamed, compatize later
+            __DIR__ . '/packages/meetup/src/ValueObject/Meetup.php',
+        ],
     ]);
 };

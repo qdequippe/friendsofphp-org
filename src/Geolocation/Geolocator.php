@@ -187,6 +187,9 @@ final class Geolocator
         return $countryJson[self::ADDRESS]['country_code'];
     }
 
+    /**
+     * @return mixed[]
+     */
     private function createJsonFromResponse(ResponseInterface $response): array
     {
         $responseBody = (string) $response->getBody();

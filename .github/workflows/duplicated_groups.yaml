@@ -17,7 +17,7 @@ jobs:
                     php-version: 8.0
                     coverage: none
 
-            -   run: composer install --no-progress --ignore-platform-reqs
+            -   run: composer install --no-progress --ignore-platform-reqs --ansi
 
             -   run: bin/console validate-groups
                 env:

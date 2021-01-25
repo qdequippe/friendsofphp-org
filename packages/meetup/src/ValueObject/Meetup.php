@@ -13,7 +13,7 @@ final class Meetup implements ArrayableInterface
     public function __construct(
         private string $name,
         private string $userGroupName,
-        private DateTimeInterface $dateTime,
+        private DateTimeInterface $startDateTime,
         private string $url,
         private string $city,
         private string $country,
@@ -48,12 +48,12 @@ final class Meetup implements ArrayableInterface
 
     public function getStartDateTimeFormatted(string $format): string
     {
-        return $this->dateTime->format($format);
+        return $this->startDateTime->format($format);
     }
 
     public function getStartDateTime(): DateTimeInterface
     {
-        return $this->dateTime;
+        return $this->startDateTime;
     }
 
     public function getName(): string
@@ -90,7 +90,7 @@ final class Meetup implements ArrayableInterface
      */
     public function getStartInDays(): ?int
     {
-        return DateStaticUtils::getDiffFromTodayInDays($this->dateTime);
+        return DateStaticUtils::getDiffFromTodayInDays($this->startDateTime);
     }
 
     /**
@@ -101,7 +101,7 @@ final class Meetup implements ArrayableInterface
         return [
             'name' => $this->name,
             'user_group_name' => $this->userGroupName,
-            'start_date_time' => $this->dateTime->format('Y-m-d H:i'),
+            'start_date_time' => $this->startDateTime->format('Y-m-d H:i'),
             'city' => $this->city,
             'country' => $this->country,
             'latitude' => $this->latitude,
