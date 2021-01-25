@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\MeetupCom\Api;
 
@@ -24,14 +26,14 @@ final class MeetupComCooler
 
     public function coolDownIfNeeded(): void
     {
-        $reaminingRequestCount = $this->meetupComApi->getRemainingRequestCount();
-        if ($reaminingRequestCount >= self::REMAINING_REQUEST_LOWER_LIMIT) {
+        $remainingRequestCount = $this->meetupComApi->getRemainingRequestCount();
+        if ($remainingRequestCount >= self::REMAINING_REQUEST_LOWER_LIMIT) {
             return;
         }
 
         $warningMessage = sprintf(
             'Remaining request count %d is under %d. Cooling down for %d seconds not to throtle meetup.com API',
-            $reaminingRequestCount,
+            $remainingRequestCount,
             self::REMAINING_REQUEST_LOWER_LIMIT,
             self::COOLDOWN_IN_SECONDS
         );

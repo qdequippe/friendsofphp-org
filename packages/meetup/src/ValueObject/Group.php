@@ -37,7 +37,7 @@ final class Group implements ArrayableInterface
     {
         return [
             'name' => $this->name,
-            'meetup_com_slug' => $this->getMeetupComSlug(),
+            'meetup_com_slug' => $this->meetupComSlug,
             'country' => $this->country,
         ];
     }

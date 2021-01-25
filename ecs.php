@@ -5,7 +5,6 @@ declare(strict_types=1);
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer;
-use SlevomatCodingStandard\Sniffs\Classes\DisallowMultiPropertyDefinitionSniff;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
@@ -28,16 +27,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/tests',
         __DIR__ . '/packages',
         __DIR__ . '/ecs.php',
+        __DIR__ . '/rector.php',
     ]);
 
-    $parameters->set(Option::SETS, [
-        SetList::PHP_70,
-        SetList::PHP_71,
-        SetList::CLEAN_CODE,
-        SetList::COMMON,
-        SetList::SYMPLIFY,
-        SetList::PSR_12,
-    ]);
+    $parameters->set(Option::SETS, [SetList::CLEAN_CODE, SetList::COMMON, SetList::SYMPLIFY, SetList::PSR_12]);
 
     $parameters->set(Option::SKIP, [
         __DIR__ . '/config/bundles.php',
@@ -45,7 +38,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         UnaryOperatorSpacesFixer::class,
         BlankLineAfterOpeningTagFixer::class,
         // broken on PHP 8
-        DisallowMultiPropertyDefinitionSniff::class,
         ClassAttributesSeparationFixer::class,
     ]);
 };

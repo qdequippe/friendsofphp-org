@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\MeetupCom\Api;
 
@@ -41,8 +43,7 @@ final class MeetupComApi
     {
         $url = sprintf(self::API_EVENTS_BY_GROUPS_URL, $groupSlug);
 
-        $response = $this->oauth2AwareClient->request('GET', $url);
-
+        $response = $this->oauth2AwareClient->get($url);
         return $this->responseConverter->toJson($response);
     }
 
@@ -51,7 +52,7 @@ final class MeetupComApi
      */
     public function getRateLimits(): RateLimits
     {
-        $response = $this->oauth2AwareClient->request('GET', self::STATUS_URL);
+        $response = $this->oauth2AwareClient->get(self::STATUS_URL);
 
         $limit = $response->getHeader('X-RateLimit-Limit')[0];
         $remaining = $response->getHeader('X-RateLimit-Remaining')[0];
@@ -70,7 +71,7 @@ final class MeetupComApi
     {
         $url = sprintf(self::API_LAST_EVENTS_BY_GROUPS_URL, $groupSlug);
 
-        $response = $this->oauth2AwareClient->request('GET', $url);
+        $response = $this->oauth2AwareClient->get($url);
         $data = $this->responseConverter->toJson($response);
 
         if (! isset($data[0])) {

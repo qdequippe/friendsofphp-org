@@ -86,3 +86,4 @@ parameters:
             message: '#There should be no empty class#'
             paths:
                 - packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
+

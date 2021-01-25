@@ -1,8 +1,9 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\MeetupCom\Meetup;
 
-use DateTimeInterface;
 use DateTimeZone;
 use Fop\Core\Geolocation\Geolocator;
 use Fop\Core\Utils\CityNormalizer;
@@ -13,6 +14,22 @@ use Nette\Utils\DateTime;
 
 final class MeetupComMeetupFactory
 {
+    /**
+     * @var string
+     */
+    private const GROUP = 'group';
+    /**
+     * @var string
+     */
+    private const LON = 'lon';
+    /**
+     * @var string
+     */
+    private const LAT = 'lat';
+    /**
+     * @var string
+     */
+    private const CITY = 'city';
     public function __construct(
         private Geolocator $geolocator,
         private CityNormalizer $cityNormalizer
@@ -38,7 +55,7 @@ final class MeetupComMeetupFactory
 
         return new Meetup(
             $name,
-            $data['group']['name'],
+            $data[self::GROUP]['name'],
             $startDateTime,
             $data['link'],
             $location->getCity(),
@@ -62,19 +79,14 @@ final class MeetupComMeetupFactory
         if ($meetup['status'] !== 'upcoming') {
             return true;
         }
-
         // draft event, not ready yet
-        if (! isset($meetup['venue'])) {
-            return true;
-        }
-
-        return false;
+        return ! isset($meetup['venue']);
     }
 
     /**
      * @param mixed[] $data
      */
-    private function createStartDateTimeFromEventData(array $data): DateTimeInterface
+    private function createStartDateTimeFromEventData(array $data): DateTime
     {
         // not sure why it adds extra "000" in the end
         $time = $this->normalizeTimestamp($data['time']);
@@ -90,31 +102,31 @@ final class MeetupComMeetupFactory
     {
         $venue = $data['venue'];
 
-        if (! isset($venue['lon'])) {
+        if (! isset($venue[self::LON])) {
             // online event probably
             return null;
         }
 
         // base location of the meetup, use it for event location
-        if ($venue['lon'] === 0 || $venue['lat'] === 0 || (isset($venue['city']) && $venue['city'] === 'Shenzhen')) {
+        if ($venue[self::LON] === 0 || $venue[self::LAT] === 0 || (isset($venue[self::CITY]) && $venue[self::CITY] === 'Shenzhen')) {
             // correction for Shenzhen miss-location to America
-            $venue['lon'] = $data['group']['group_lon'];
-            $venue['lat'] = $data['group']['group_lat'];
+            $venue[self::LON] = $data[self::GROUP]['group_lon'];
+            $venue[self::LAT] = $data[self::GROUP]['group_lat'];
         }
 
         $venue = $this->normalizeCityStates($venue);
-        if (! isset($venue['city'])) {
-            $country = $this->geolocator->getCountryJsonByLatitudeAndLongitude($venue['lat'], $venue['lon']);
-            $venue['city'] = $country['address']['city'];
+        if (! isset($venue[self::CITY])) {
+            $country = $this->geolocator->getCountryJsonByLatitudeAndLongitude($venue[self::LAT], $venue[self::LON]);
+            $venue[self::CITY] = $country['address'][self::CITY];
         }
 
-        $venue['city'] = $this->cityNormalizer->normalize($venue['city']);
+        $venue[self::CITY] = $this->cityNormalizer->normalize($venue[self::CITY]);
 
         $country = $this->geolocator->resolveCountryByVenue($venue);
 
-        $coordinate = new Coordinate($venue['lat'], $venue['lon']);
+        $coordinate = new Coordinate($venue[self::LAT], $venue[self::LON]);
 
-        return new Location($venue['city'], $country, $coordinate);
+        return new Location($venue[self::CITY], $country, $coordinate);
     }
 
     /**
@@ -144,12 +156,12 @@ final class MeetupComMeetupFactory
      */
     private function normalizeCityStates(array $venue): array
     {
-        if (isset($venue['city']) && $venue['city'] !== null) {
+        if (isset($venue[self::CITY]) && $venue[self::CITY] !== null) {
             return $venue;
         }
 
         if ($venue['localized_country_name'] === 'Singapore') {
-            $venue['city'] = 'Singapore';
+            $venue[self::CITY] = 'Singapore';
         }
 
         return $venue;

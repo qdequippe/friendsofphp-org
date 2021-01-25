@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\Meetup\Command;
 
@@ -36,7 +38,7 @@ final class ValidateDeadGroupsCommand extends Command
         // increase temporary from 16 months due to covid
         $sixMonthsAgoDateTime = DateTime::from('- 16 months');
 
-        foreach ($this->groupRepository->fetchAll() as $group) {
+        foreach ($this->groupRepository->getGroups() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
 
             $message = sprintf('Resolved last meetup date time for "%s"', $group->getName());
@@ -48,7 +50,7 @@ final class ValidateDeadGroupsCommand extends Command
                 continue;
             }
 
-            $lastMeetupDateTimeAsString = $lastMeetupDateTime ? $lastMeetupDateTime->format('Y-m-d') : '';
+            $lastMeetupDateTimeAsString = $lastMeetupDateTime !== null ? $lastMeetupDateTime->format('Y-m-d') : '';
             $possiblyDeadGroups[$group->getName()] = $lastMeetupDateTimeAsString;
 
             $this->meetupComCooler->coolDownIfNeeded();

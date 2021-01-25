@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\Meetup\Repository;
 
@@ -20,7 +22,7 @@ final class MeetupRepository
     private array $meetups = [];
 
     public function __construct(
-        private ParameterFilePrinter $yamlFileSystem,
+        private ParameterFilePrinter $parameterFilePrinter,
         ParameterProvider $parameterProvider,
         private ArraysConverter $arraysConverter,
         MeetupFactory $meetupFactory,
@@ -51,6 +53,11 @@ final class MeetupRepository
         return $this->meetups;
     }
 
+    public function getCount(): int
+    {
+        return count($this->fetchAll());
+    }
+
     /**
      * @param Meetup[] $meetups
      */
@@ -58,11 +65,6 @@ final class MeetupRepository
     {
         $meetupsArray = $this->arraysConverter->turnToArrays($meetups);
         $parameterHolder = new ParameterHolder(Option::MEETUPS, $meetupsArray);
-        $this->yamlFileSystem->printParameterHolder($parameterHolder, $storage);
-    }
-
-    public function getCount(): int
-    {
-        return count($this->fetchAll());
+        $this->parameterFilePrinter->printParameterHolder($parameterHolder, $storage);
     }
 }

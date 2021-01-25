@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\MeetupCom\Command;
 
@@ -35,7 +37,7 @@ final class ValidateGroupsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $groups = $this->groupRepository->fetchAll();
+        $groups = $this->groupRepository->getGroups();
 
         $existingGroupSlugs = [];
         $duplicatedGroupSlugs = [];
@@ -60,7 +62,7 @@ final class ValidateGroupsCommand extends Command
 
         $duplicatedGroupSlugs = array_unique($duplicatedGroupSlugs);
 
-        if (! count($duplicatedGroupSlugs)) {
+        if (count($duplicatedGroupSlugs) === 0) {
             $this->symfonyStyle->success('Great job! There are no duplicated groups.');
 
             return ShellCode::SUCCESS;

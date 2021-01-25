@@ -17,6 +17,9 @@ final class ParameterHolder
         return $this->parameterName;
     }
 
+    /**
+     * @return mixed[]
+     */
     public function getParameterValue(): array
     {
         return $this->parameterValue;

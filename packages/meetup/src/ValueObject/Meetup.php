@@ -1,11 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Fop\Meetup\ValueObject;
 
 use DateTimeInterface;
 use Fop\Core\Utils\DateStaticUtils;
 use Fop\Meetup\Contract\ArrayableInterface;
-use Location\Coordinate;
 
 final class Meetup implements ArrayableInterface
 {
@@ -21,22 +22,25 @@ final class Meetup implements ArrayableInterface
     ) {
     }
 
-    public function getLocation(): Location
-    {
-        $coordinate = new Coordinate($this->latitude, $this->longitude);
-        return new Location($this->city, $this->country, $coordinate);
-    }
-
+    /**
+     * @api used in twig
+     */
     public function getCity(): string
     {
         return $this->city;
     }
 
+    /**
+     * @api used in twig
+     */
     public function getCountry(): string
     {
         return $this->country;
     }
 
+    /**
+     * @api used in twig
+     */
     public function getUrl(): string
     {
         return $this->url;
@@ -57,21 +61,33 @@ final class Meetup implements ArrayableInterface
         return $this->name;
     }
 
+    /**
+     * @api used in twig
+     */
     public function getUserGroup(): string
     {
         return $this->userGroupName;
     }
 
+    /**
+     * @api used in twig
+     */
     public function getLatitude(): float
     {
         return $this->latitude;
     }
 
+    /**
+     * @api used in twig
+     */
     public function getLongitude(): float
     {
         return $this->longitude;
     }
 
+    /**
+     * @api used in twig
+     */
     public function getStartInDays(): ?int
     {
         return DateStaticUtils::getDiffFromTodayInDays($this->startDateTime);
@@ -86,10 +102,10 @@ final class Meetup implements ArrayableInterface
             'name' => $this->name,
             'user_group_name' => $this->userGroupName,
             'start_date_time' => $this->startDateTime->format('Y-m-d H:i'),
-            'city' => $this->getCity(),
-            'country' => $this->getCountry(),
-            'latitude' => $this->getLatitude(),
-            'longitude' => $this->getLongitude(),
+            'city' => $this->city,
+            'country' => $this->country,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
             'url' => $this->url,
         ];
     }

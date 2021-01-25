@@ -18,7 +18,7 @@ final class MeetupCollector
      */
     public function addMeetups(array $meetups): void
     {
-        $this->meetups = [...$this->meetups, ...$meetups];
+        $this->meetups = array_merge($this->meetups, $meetups);
     }
 
     /**

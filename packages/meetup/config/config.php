@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -11,5 +13,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->public();
 
     $services->load('Fop\Meetup\\', __DIR__ . '/../src')
-        ->exclude([__DIR__ . '/../src/ValueObject/*']);
+        ->exclude([__DIR__ . '/../src/ValueObject']);
 };
