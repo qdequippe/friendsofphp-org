@@ -10,12 +10,8 @@ use Nette\Utils\DateTime;
 
 final class DateStaticUtils
 {
-    public static function getDiffFromTodayInDays(?DateTimeInterface $dateTime): ?int
+    public static function getDiffFromTodayInDays(DateTimeInterface $dateTime): ?int
     {
-        if ($dateTime === null) {
-            return null;
-        }
-
         /** @var DateInterval $dateInterval */
         $dateInterval = $dateTime->diff(new DateTime('now'));
         if ($dateInterval->invert === 0) {

@@ -18,44 +18,17 @@ parameters:
         - '#return type has no value type specified in iterable type Iterator#'
         - '#no value type specified in iterable type array#'
 
-        - '#Cannot call method getName\(\) on ReflectionType\|null#'
-
-        # variadic
-        - '#Property Fop\\Meetup\\Repository\\MeetupRepository\:\:\$meetups \(array<Fop\\Meetup\\ValueObject\\Meetup\>\) does not accept array<object\>#'
-
-        -
-             message: '#Too many public elements on class \- 11\. Try narrow it down under 10#'
-             paths:
-                 - packages/meetup/src/ValueObject/Meetup.php
-
-        -
-            message: '#Do not use protected element in final class#'
-            paths:
-                - src/HttpKernel/FopKernel.php # 36
-                - src/HttpKernel/FopKernel.php # 43
-
-        -
-            message: '#Do not use static calls#'
-            paths:
-                - packages/meetup/src/ValueObject/Meetup.php # 81
-                - src/Geolocation/Geolocator.php # 71
-                - src/Geolocation/Geolocator.php # 99
-
         -
             message: '#Instead of "Nette\\Utils\\FileSystem" class/interface use "Symplify\\SmartFileSystem\\SmartFileSystem"#'
             paths:
                 - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 24
                 - packages/opentechcalendar-co-uk/src/OpentechcalendarCoUkMeetupImporter.php # 31
-                - src/FileSystem/YamlFileSystem.php # 22
                 - src/Xml/XmlReader.php # 14
 
         -
             message: '#Use local named constant instead of inline string for regex to explain meaning by constant name#'
             paths:
                 - packages/crossweb-pl/src/CrosswebPlMeetupImporter.php # 62
-                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 43
-                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 56
-                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 60
                 - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 73
                 - packages/opentechcalendar-co-uk/src/Factory/OpentechcalendarCoUkMeetupFactory.php # 28
                 - packages/opentechcalendar-co-uk/src/OpentechcalendarCoUkMeetupImporter.php # 38
@@ -64,17 +37,6 @@ parameters:
             message: '#Array with keys is not allowed\. Use value object to pass data instead#'
             paths:
                 - packages/meetup-com/src/Guzzle/Oauth2AwareClientFactory.php # 40
-                - packages/meetup/src/Repository/MeetupRepository.php # 62
-                - packages/meetup/src/Repository/MeetupRepository.php # 63
-                - packages/meetup/src/ValueObject/Meetup.php # 86
-                - src/Utils/CityNormalizer.php # 17
-
-        -
-            message: '#Do not use factory/method call in constructor, put factory in config and get service with dependency injection#'
-            paths:
-                - packages/meetup/src/Repository/MeetupRepository.php # 30
-                - src/Twig/Extension/GlobalCountTwigExtension.php # 15
-                - src/Twig/Extension/GlobalCountTwigExtension.php # 18
 
         -
             message: '#Do not use factory/method call in constructor\. Put factory in config and get service with dependency injection#'
@@ -87,3 +49,8 @@ parameters:
             paths:
                 - packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
 
+        # on purpose for autowiring
+        -
+            message: '#Do not inherit from abstract class, better use composition#'
+            paths:
+                - packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
