@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
 use PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -37,7 +36,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
         UnaryOperatorSpacesFixer::class,
         BlankLineAfterOpeningTagFixer::class,
-        // broken on PHP 8
-        ClassAttributesSeparationFixer::class,
     ]);
 };

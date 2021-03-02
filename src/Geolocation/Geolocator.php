@@ -28,18 +28,22 @@ final class Geolocator
      * @var string
      */
     private const API_LOCATION_TO_COUNTRY = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s';
+
     /**
      * @var string
      */
     private const LAT = 'lat';
+
     /**
      * @var string
      */
     private const ADDRESS = 'address';
+
     /**
      * @var string
      */
     private const COUNTRY = 'country';
+
     /**
      * @var string
      */

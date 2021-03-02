@@ -40,6 +40,7 @@ final class Option
      * @var string
      */
     public const USA_STATES = 'usa_states';
+
     /**
      * @var string
      */

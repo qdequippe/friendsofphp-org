@@ -18,14 +18,17 @@ final class OpentechcalendarCoUkMeetupFactory
      * @var string
      */
     private const TITLE = 'title';
+
     /**
      * @var string
      */
     private const VENUE = 'venue';
+
     /**
      * @var string
      */
     private const LAT = 'lat';
+
     public function __construct(
         private Geolocator $geolocator
     ) {

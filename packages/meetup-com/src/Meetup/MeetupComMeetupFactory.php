@@ -18,18 +18,22 @@ final class MeetupComMeetupFactory
      * @var string
      */
     private const GROUP = 'group';
+
     /**
      * @var string
      */
     private const LON = 'lon';
+
     /**
      * @var string
      */
     private const LAT = 'lat';
+
     /**
      * @var string
      */
     private const CITY = 'city';
+
     public function __construct(
         private Geolocator $geolocator,
         private CityNormalizer $cityNormalizer
