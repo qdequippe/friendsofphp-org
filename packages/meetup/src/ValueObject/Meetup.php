@@ -88,7 +88,7 @@ final class Meetup implements ArrayableInterface
     /**
      * @api used in twig
      */
-    public function getStartInDays(): ?int
+    public function getStartInDays(): int
     {
         return DateStaticUtils::getDiffFromTodayInDays($this->startDateTime);
     }
