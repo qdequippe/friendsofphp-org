@@ -15,7 +15,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::MAX_FORECAST_DAYS, 30);
 
     $parameters->set(Option::GROUPS_STORAGE, __DIR__ . '/../config/_data/groups.php');
-
     $parameters->set(Option::MEETUPS_STORAGE, __DIR__ . '/../config/_data/meetups.php');
 
     # its still public in the footer, so no need to hide it
