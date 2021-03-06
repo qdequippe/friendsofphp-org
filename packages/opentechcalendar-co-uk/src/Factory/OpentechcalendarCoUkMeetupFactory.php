@@ -92,6 +92,9 @@ final class OpentechcalendarCoUkMeetupFactory
         return new Location($data['areas'][0][self::TITLE], $data['country'][self::TITLE], $coordinate);
     }
 
+    /**
+     * @param array<string, mixed> $data
+     */
     private function isVenueMissing(array $data): bool
     {
         if (! isset($data[self::VENUE])) {

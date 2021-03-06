@@ -7,9 +7,9 @@ namespace Fop\OpentechcalendarCoUk;
 use Fop\Meetup\Contract\MeetupImporterInterface;
 use Fop\Meetup\ValueObject\Meetup;
 use Fop\OpentechcalendarCoUk\Factory\OpentechcalendarCoUkMeetupFactory;
-use Nette\Utils\FileSystem;
 use Nette\Utils\Json;
 use Nette\Utils\Strings;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class OpentechcalendarCoUkMeetupImporter implements MeetupImporterInterface
 {
@@ -19,6 +19,7 @@ final class OpentechcalendarCoUkMeetupImporter implements MeetupImporterInterfac
     private const EVENTS_JSON_URL = 'https://opentechcalendar.co.uk/api1/events.json';
 
     public function __construct(
+        private SmartFileSystem $smartFileSystem,
         private OpentechcalendarCoUkMeetupFactory $opentechcalendarCoUkMeetupFactory
     ) {
     }
@@ -28,7 +29,7 @@ final class OpentechcalendarCoUkMeetupImporter implements MeetupImporterInterfac
      */
     public function getMeetups(): array
     {
-        $jsonContent = FileSystem::read(self::EVENTS_JSON_URL);
+        $jsonContent = $this->smartFileSystem->readFile(self::EVENTS_JSON_URL);
         $json = Json::decode($jsonContent, Json::FORCE_ARRAY);
 
         $eventsJson = $json['data'] ?? [];

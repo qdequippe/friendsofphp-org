@@ -5,16 +5,22 @@ declare(strict_types=1);
 namespace Fop\Core\Xml;
 
 use Fop\Core\Exception\XmlException;
-use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
 use SimpleXMLElement;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class XmlReader
 {
+    private SmartFileSystem $smartFileSystem;
+
+    public function __construct(SmartFileSystem $smartFileSystem)
+    {
+        $this->smartFileSystem = $smartFileSystem;
+    }
+
     public function loadFile(string $file): SimpleXMLElement
     {
-        $fileContent = FileSystem::read($file);
-
+        $fileContent = $this->smartFileSystem->readFile($file);
         $fileContent = $this->correctSyntax($fileContent);
 
         $xml = simplexml_load_string($fileContent);

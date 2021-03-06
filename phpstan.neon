@@ -14,17 +14,6 @@ parameters:
     reportUnmatchedIgnoredErrors: false
 
     ignoreErrors:
-        # iterables
-        - '#return type has no value type specified in iterable type Iterator#'
-        - '#no value type specified in iterable type array#'
-
-        -
-            message: '#Instead of "Nette\\Utils\\FileSystem" class/interface use "Symplify\\SmartFileSystem\\SmartFileSystem"#'
-            paths:
-                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 24
-                - packages/opentechcalendar-co-uk/src/OpentechcalendarCoUkMeetupImporter.php # 31
-                - src/Xml/XmlReader.php # 14
-
         -
             message: '#Use local named constant instead of inline string for regex to explain meaning by constant name#'
             paths:
@@ -54,3 +43,10 @@ parameters:
             message: '#Do not inherit from abstract class, better use composition#'
             paths:
                 - packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
+
+        - '#Use decoupled factory service to create "Symfony\\Component\\HttpFoundation\\Response" object#'
+
+services:
+    -
+        class: Symplify\PHPStanRules\Rules\NoInheritanceRule
+        tags: [phpstan.rules.rule]

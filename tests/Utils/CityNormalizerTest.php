@@ -26,6 +26,9 @@ final class CityNormalizerTest extends TestCase
         $this->assertSame($expectedCorrectCity, $normalizedCity);
     }
 
+    /**
+     * @return Iterator<string[]>
+     */
     public function provideData(): Iterator
     {
         yield ['Praha', 'Prague'];

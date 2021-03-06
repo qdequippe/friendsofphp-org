@@ -9,19 +9,20 @@ use Fop\Core\Geolocation\Geolocator;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
 use Nette\Utils\DateTime;
-use Nette\Utils\FileSystem;
 use Nette\Utils\Strings;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class CrosswebPlMeetupFactory
 {
     public function __construct(
-        private Geolocator $geolocator
+        private Geolocator $geolocator,
+        private SmartFileSystem $smartFileSystem
     ) {
     }
 
     public function createMeetupFromMeetupUrl(string $url, string $name): ?Meetup
     {
-        $urlContent = FileSystem::read($url);
+        $urlContent = $this->smartFileSystem->readFile($url);
 
         $location = $this->resolveLocation($urlContent);
         if ($location === null) {

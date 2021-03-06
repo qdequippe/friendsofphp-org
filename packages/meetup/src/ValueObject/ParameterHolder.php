@@ -6,6 +6,9 @@ namespace Fop\Meetup\ValueObject;
 
 final class ParameterHolder
 {
+    /**
+     * @param mixed[] $parameterValue
+     */
     public function __construct(
         private string $parameterName,
         private array $parameterValue

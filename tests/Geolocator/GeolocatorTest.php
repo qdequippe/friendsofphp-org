@@ -29,6 +29,9 @@ final class GeolocatorTest extends AbstractKernelTestCase
         $this->assertSame($expectedCountry, $resolvedCountry);
     }
 
+    /**
+     * @return Iterator<mixed[]>
+     */
     public function provideData(): Iterator
     {
         yield [[
