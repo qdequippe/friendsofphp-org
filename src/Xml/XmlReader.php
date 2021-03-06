@@ -11,11 +11,9 @@ use Symplify\SmartFileSystem\SmartFileSystem;
 
 final class XmlReader
 {
-    private SmartFileSystem $smartFileSystem;
-
-    public function __construct(SmartFileSystem $smartFileSystem)
-    {
-        $this->smartFileSystem = $smartFileSystem;
+    public function __construct(
+        private SmartFileSystem $smartFileSystem
+    ) {
     }
 
     public function loadFile(string $file): SimpleXMLElement

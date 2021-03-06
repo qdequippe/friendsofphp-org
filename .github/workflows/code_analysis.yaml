@@ -24,10 +24,6 @@ jobs:
                         name: 'Unit Tests'
                         run: vendor/bin/phpunit
 
-                    -
-                        name: 'Rector'
-                        run: vendor/bin/rector process --dry-run --ansi
-
                     # disable until covid is over to avoid false positives
 #                    -
 #                        name: 'Dead Groups'

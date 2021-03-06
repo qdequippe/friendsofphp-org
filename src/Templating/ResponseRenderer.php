@@ -29,7 +29,7 @@ final class ResponseRenderer
     /**
      * @param mixed[] $data
      */
-    public function json(array $data): Response
+    public function json(array $data): JsonResponse
     {
         return new JsonResponse($data);
     }
