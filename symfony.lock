@@ -190,6 +190,9 @@
     "psr/event-dispatcher": {
         "version": "1.0.0"
     },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
     "psr/http-message": {
         "version": "1.0.1"
     },
@@ -329,6 +332,9 @@
     "symfony/event-dispatcher-contracts": {
         "version": "v2.0.1"
     },
+    "symfony/expression-language": {
+        "version": "v5.2.4"
+    },
     "symfony/filesystem": {
         "version": "v5.0.5"
     },
@@ -466,6 +472,9 @@
     },
     "symplify/amnesia": {
         "version": "9.0.44"
+    },
+    "symplify/astral": {
+        "version": "v9.2.4"
     },
     "symplify/auto-bind-parameter": {
         "version": "v7.2.3"
