@@ -14,6 +14,7 @@ final class Meetup implements ArrayableInterface
         private string $name,
         private string $userGroupName,
         private DateTimeInterface $startDateTime,
+        private int $daysUntil,
         private string $url,
         private string $city,
         private string $country,
@@ -45,7 +46,7 @@ final class Meetup implements ArrayableInterface
     {
         return $this->url;
     }
-
+    
     public function getStartDateTimeFormatted(string $format): string
     {
         return $this->startDateTime->format($format);
@@ -55,6 +56,15 @@ final class Meetup implements ArrayableInterface
     {
         return $this->startDateTime;
     }
+
+    /**
+     * @api used in twig
+    */
+    public function daysUntil(): int
+    {
+        return $this->daysUntil;
+    }
+
 
     public function getName(): string
     {
@@ -102,6 +112,7 @@ final class Meetup implements ArrayableInterface
             'name' => $this->name,
             'user_group_name' => $this->userGroupName,
             'start_date_time' => $this->startDateTime->format('Y-m-d H:i'),
+            'days_until' => $this->daysUntil,
             'city' => $this->city,
             'country' => $this->country,
             'latitude' => $this->latitude,

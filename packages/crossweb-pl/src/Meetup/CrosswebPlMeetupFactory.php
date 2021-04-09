@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fop\CrosswebPl\Meetup;
 
 use DateTimeInterface;
+use Carbon\Carbon;
 use Fop\Core\Geolocation\Geolocator;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
@@ -36,10 +37,12 @@ final class CrosswebPlMeetupFactory
 
         $groupName = $this->resolveGroupName($name);
 
+        $daysUntil = Carbon::parse(date('Y-m-d'))->diffInDays($startDateTime);
         return new Meetup(
             $name,
             $groupName,
             $startDateTime,
+            $daysUntil,
             $url,
             $location->getCity(),
             $location->getCountry(),

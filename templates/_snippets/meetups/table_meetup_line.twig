@@ -1,24 +1,5 @@
 {# @var meetup \Fop\Meetup\ValueObject\Meetup #}
 <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}" data-datetime="{{ meetup.startDateTime|date("Y-m-d H:i") }}">
-    <td class="w-25">
-                    <span class="text-nowrap text-{% if meetup.startInDays < 7 %}success{% elseif meetup.startInDays < 14 %}warning{% else %}danger{% endif %}">
-                        {{ meetup.startDateTime|date("D") }},
-                        <strong>{{ meetup.startDateTime|date("M d") }}</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">{{ meetup.startDateTime|date("H:i") }}</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate({{ meetup.latitude }}, {{ meetup.longitude }})">
-            {{ meetup.city }}
-        </a>
-
-        <br>
-
-        <small class="text-secondary">{{ meetup.country }}</small>
-    </td>
     <td class="w-50">
         <strong>
             <a href="{{ meetup.url }}">{{ meetup.name }}</a>
@@ -28,4 +9,29 @@
 
         <small class="text-secondary">{{ meetup.userGroup }}</small>
     </td>
-</tr>
+
+    <td class="w-25">
+
+        <a href="#" onclick="relocate({{ meetup.latitude }}, {{ meetup.longitude }})">
+            {{ meetup.city }}
+        </a>
+
+        <br>
+
+        <small class="text-secondary">{{ meetup.country }}</small>
+
+    </td>
+
+    <td class="w-25">
+        <span class="text-nowrap text-{% if meetup.startInDays < 7 %}success{% elseif meetup.startInDays < 14 %}warning{% else %}danger{% endif %}">
+            {{ meetup.startDateTime|date("D") }},
+            <strong>{{ meetup.startDateTime|date("M, d") }}</strong>
+        </span>
+        <br>
+        <small class="text-secondary">{{ meetup.daysUntil }} days from now</small>
+        <br>
+
+        <small class="text-secondary">{{ meetup.startDateTime|date("H:i") }}</small>
+
+    </td>
+    </tr>
