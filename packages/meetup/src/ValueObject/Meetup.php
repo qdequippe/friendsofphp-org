@@ -103,7 +103,6 @@ final class Meetup implements ArrayableInterface
             'name' => $this->name,
             'user_group_name' => $this->userGroupName,
             'start_date_time' => $this->startDateTime->format('Y-m-d H:i'),
-            'start_in_days' => $this->getStartInDays(),
             'city' => $this->city,
             'country' => $this->country,
             'latitude' => $this->latitude,
