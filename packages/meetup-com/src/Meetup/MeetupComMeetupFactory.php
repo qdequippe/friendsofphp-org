@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Fop\MeetupCom\Meetup;
 
 use DateTimeZone;
-use Carbon\Carbon;
 use Fop\Core\Geolocation\Geolocator;
 use Fop\Core\Utils\CityNormalizer;
 use Fop\Meetup\ValueObject\Location;
@@ -57,12 +56,10 @@ final class MeetupComMeetupFactory
         }
 
         $name = $this->createName($data);
-        $daysUntil = Carbon::parse(date('Y-m-d'))->diffInDays($startDateTime);
         return new Meetup(
             $name,
             $data[self::GROUP]['name'],
             $startDateTime,
-            $daysUntil,
             $data['link'],
             $location->getCity(),
             $location->getCountry(),
