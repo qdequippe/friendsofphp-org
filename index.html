@@ -40,7 +40,7 @@
 </h1>
 
 <p>
-    Visit one of 6 upcoming PHP meetups
+    Visit one of 7 upcoming PHP meetups
 
     <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/master/config/_data/groups.php" class="btn btn-success btn-sm ml-2">Add Your Group</a>
 </p>
@@ -66,6 +66,36 @@
 </thead>
 
         
+            <tr class="meetup" data-longitude="23.7265346" data-latitude="37.9766083" data-datetime="2021-04-20 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Tue,
+                        <strong>Apr 20</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(37.9766083, 23.7265346)">
+            On-line
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Greece</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://crossweb.pl/wydarzenia/phpers-online-1/">PHPers Online #1</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHPers Online</small>
+    </td>
+</tr>
             <tr class="meetup" data-longitude="-77.2470703125" data-latitude="38.929744720459" data-datetime="2021-04-21 18:30">
     <td class="w-25">
                     <span class="text-nowrap text-success">
@@ -260,6 +290,36 @@
 </thead>
 
         
+            <tr class="meetup" data-longitude="23.7265346" data-latitude="37.9766083" data-datetime="2021-04-20 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Tue,
+                        <strong>Apr 20</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(37.9766083, 23.7265346)">
+            On-line
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Greece</small>
+    </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://crossweb.pl/wydarzenia/phpers-online-1/">PHPers Online #1</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHPers Online</small>
+    </td>
+</tr>
             <tr class="meetup" data-longitude="-77.2470703125" data-latitude="38.929744720459" data-datetime="2021-04-21 18:30">
     <td class="w-25">
                     <span class="text-nowrap text-success">
@@ -447,7 +507,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
-        <script src="/assets/js/menu-area-pick.js?v=2097007439"></script>
+        <script src="/assets/js/menu-area-pick.js?v=1812181317"></script>
 
         <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
         integrity="sha512-2fA79E27MOeBgLjmBrtAgM/20clVSV8vJERaW/EcnnWCVGwQRazzKtQS1kIusCZv1PtaQxosDZZ0F1Oastl55w=="
@@ -464,6 +524,16 @@
     var markers = [
         
         {
+                        "type": "green",
+                        "title": "PHPers Online #1",
+                        "position": [37.9766083, 23.7265346],
+                        "date": "04-20",
+                        "location": "On-line",
+                        "url": "https://crossweb.pl/wydarzenia/phpers-online-1/",
+                        // for filtering
+                        "datetime": "2021-04-20 18:00",
+                    },
+                                                                                {
                         "type": "green",
                         "title": "Main monthly meeting",
                         "position": [38.929744720459, -77.2470703125],
