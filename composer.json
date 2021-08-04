@@ -16,7 +16,6 @@
         "symfony/dependency-injection": "^5.3",
         "symfony/dom-crawler": "^5.3",
         "symfony/dotenv": "^5.3",
-        "symfony/flex": "^1.12",
         "symfony/framework-bundle": "^5.3",
         "symfony/http-kernel": "^5.3",
         "symfony/twig-bridge": "^5.3",
@@ -33,7 +32,7 @@
         "rector/rector": "^0.11",
         "symplify/easy-coding-standard": "^9.4",
         "symplify/phpstan-extensions": "^9.4",
-        "symplify/phpstan-rules": "^9.4"
+        "symplify/phpstan-rules": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -51,16 +50,6 @@
         }
     },
     "scripts": {
-        "auto-scripts": [
-            "bin/console cache:clear",
-            "bin/console assets:install public"
-        ],
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ],
         "check-cs": "vendor/bin/ecs check bin src tests packages --ansi",
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "phpstan": "vendor/bin/phpstan analyse --error-format symplify --ansi",
@@ -76,5 +65,7 @@
         "symfony": {
             "allow-contrib": true
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
