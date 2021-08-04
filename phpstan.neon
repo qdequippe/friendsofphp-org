@@ -1,6 +1,5 @@
 includes:
     - vendor/symplify/phpstan-extensions/config/config.neon
-    - vendor/symplify/phpstan-rules/config/symplify-rules.neon
 
 parameters:
     level: max
@@ -12,41 +11,3 @@ parameters:
         - packages
 
     reportUnmatchedIgnoredErrors: false
-
-    ignoreErrors:
-        -
-            message: '#Use local named constant instead of inline string for regex to explain meaning by constant name#'
-            paths:
-                - packages/crossweb-pl/src/CrosswebPlMeetupImporter.php # 62
-                - packages/crossweb-pl/src/Meetup/CrosswebPlMeetupFactory.php # 73
-                - packages/opentechcalendar-co-uk/src/Factory/OpentechcalendarCoUkMeetupFactory.php # 28
-                - packages/opentechcalendar-co-uk/src/OpentechcalendarCoUkMeetupImporter.php # 38
-
-        -
-            message: '#Array with keys is not allowed\. Use value object to pass data instead#'
-            paths:
-                - packages/meetup-com/src/Guzzle/Oauth2AwareClientFactory.php # 40
-
-        -
-            message: '#Do not use factory/method call in constructor\. Put factory in config and get service with dependency injection#'
-            paths:
-                - packages/meetup/src/Repository/MeetupRepository.php
-                - packages/meetup/src/Repository/GroupRepository.php
-
-        -
-            message: '#There should be no empty class#'
-            paths:
-                - packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
-
-        # on purpose for autowiring
-        -
-            message: '#Do not inherit from abstract class, better use composition#'
-            paths:
-                - packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
-
-        - '#Use decoupled factory service to create "Symfony\\Component\\HttpFoundation\\Response" object#'
-
-services:
-    -
-        class: Symplify\PHPStanRules\Rules\NoInheritanceRule
-        tags: [phpstan.rules.rule]
