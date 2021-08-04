@@ -14,7 +14,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $services->set(LineLengthFixer::class);
-
     $services->set(StandaloneLineInMultilineArrayFixer::class);
 
     $parameters = $containerConfigurator->parameters();
@@ -29,7 +28,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         __DIR__ . '/rector.php',
     ]);
 
-    $parameters->set(Option::SETS, [SetList::CLEAN_CODE, SetList::COMMON, SetList::SYMPLIFY, SetList::PSR_12]);
+    $containerConfigurator->import(SetList::CLEAN_CODE);
+    $containerConfigurator->import(SetList::COMMON);
+    $containerConfigurator->import(SetList::SYMPLIFY);
+    $containerConfigurator->import(SetList::PSR_12);
 
     $parameters->set(Option::SKIP, [
         __DIR__ . '/config/bundles.php',

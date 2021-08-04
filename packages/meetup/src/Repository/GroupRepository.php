@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Fop\Meetup\Repository;
 
 use Fop\Core\ValueObject\Option;
-use Fop\Meetup\Arrays\ArraysConverter;
 use Fop\Meetup\ValueObject\Group;
 use Fop\Meetup\ValueObjectFactory\GroupsFactory;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
@@ -19,7 +18,6 @@ final class GroupRepository
 
     public function __construct(
         ParameterProvider $parameterProvider,
-        private ArraysConverter $arraysConverter,
         private GroupsFactory $groupsFactory
     ) {
         $groupsArray = $parameterProvider->provideArrayParameter(Option::GROUPS);
