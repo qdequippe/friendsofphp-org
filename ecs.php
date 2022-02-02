@@ -2,10 +2,7 @@
 
 declare(strict_types=1);
 
-use PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer;
-use PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 use Symplify\EasyCodingStandard\ValueObject\Option;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
@@ -14,7 +11,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
 
     $services->set(LineLengthFixer::class);
-    $services->set(StandaloneLineInMultilineArrayFixer::class);
 
     $parameters = $containerConfigurator->parameters();
 
@@ -33,10 +29,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $containerConfigurator->import(SetList::SYMPLIFY);
     $containerConfigurator->import(SetList::PSR_12);
 
-    $parameters->set(Option::SKIP, [
-        __DIR__ . '/config/bundles.php',
-
-        UnaryOperatorSpacesFixer::class,
-        BlankLineAfterOpeningTagFixer::class,
-    ]);
+    $parameters->set(Option::SKIP, [__DIR__ . '/config/bundles.php']);
 };

@@ -16,7 +16,8 @@ final class GroupRepository
      */
     private array $groups = [];
 
-    public function __construct(ParameterProvider $parameterProvider, GroupsFactory $groupsFactory) {
+    public function __construct(ParameterProvider $parameterProvider, GroupsFactory $groupsFactory)
+    {
         $groupsArray = $parameterProvider->provideArrayParameter(Option::GROUPS);
         $this->groups = $groupsFactory->create($groupsArray);
     }

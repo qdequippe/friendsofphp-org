@@ -7,6 +7,7 @@ namespace Fop\Meetup\ValueObject;
 use DateTimeInterface;
 use Fop\Core\Utils\DateStaticUtils;
 use Fop\Meetup\Contract\ArrayableInterface;
+use Nette\Utils\DateTime;
 
 final class Meetup implements ArrayableInterface
 {
@@ -20,6 +21,23 @@ final class Meetup implements ArrayableInterface
         private float $latitude,
         private float $longitude
     ) {
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    public static function fromArray(array $data): self
+    {
+        return new self(
+            $data['name'],
+            $data['user_group_name'],
+            DateTime::from($data['start_date_time']),
+            $data['url'],
+            $data['city'],
+            $data['country'],
+            $data['latitude'],
+            $data['longitude']
+        );
     }
 
     /**
