@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Fop\Core\FileSystem;
 
 use Fop\Meetup\ValueObject\ParameterHolder;
-use Symplify\PhpConfigPrinter\YamlToPhpConverter;
 use Symplify\SmartFileSystem\SmartFileSystem;
 
 /**

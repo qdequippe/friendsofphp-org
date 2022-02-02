@@ -10,7 +10,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
 
 final class RatesCommand extends Command
 {
@@ -35,6 +34,6 @@ final class RatesCommand extends Command
         $this->symfonyStyle->note('Remaining request: ' . $rateLimits->getRemainingRequests());
         $this->symfonyStyle->note('Request count to reset: ' . $rateLimits->getRequestToReset());
 
-        return ShellCode::SUCCESS;
+        return self::SUCCESS;
     }
 }

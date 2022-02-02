@@ -12,7 +12,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class ValidateGroupsCommand extends Command
@@ -65,7 +64,7 @@ final class ValidateGroupsCommand extends Command
         if (count($duplicatedGroupSlugs) === 0) {
             $this->symfonyStyle->success('Great job! There are no duplicated groups.');
 
-            return ShellCode::SUCCESS;
+            return self::SUCCESS;
         }
 
         $this->symfonyStyle->section('Found duplicated groups');
@@ -74,6 +73,6 @@ final class ValidateGroupsCommand extends Command
         $errorMessage = sprintf('Cleanup "%s" file', $this->groupsStorage);
         $this->symfonyStyle->error($errorMessage);
 
-        return ShellCode::ERROR;
+        return self::FAILURE;
     }
 }
