@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use GuzzleHttp\Client;
+use Jajo\JSONDB;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
@@ -25,4 +26,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(ParameterProvider::class);
     $services->set(PrivatesAccessor::class);
     $services->set(Client::class);
+
+    $services->set(JSONDB::class)
+        ->arg('$dir', __DIR__ . '/../json-database');
 };

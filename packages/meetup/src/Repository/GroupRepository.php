@@ -33,6 +33,14 @@ final class GroupRepository extends AbstractRepository
         return count($this->groups);
     }
 
+    /**
+     * @return Group[]
+     */
+    public function fetchAll(): array
+    {
+        return $this->groups;
+    }
+
     public function getTable(): string
     {
         return 'meetups.json';

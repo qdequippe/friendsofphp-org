@@ -5,27 +5,20 @@ declare(strict_types=1);
 namespace Fop\MeetupCom\Command;
 
 use Fop\Core\Exception\ShouldNotHappenException;
-use Fop\Core\ValueObject\Option;
 use Fop\Meetup\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class ValidateGroupsCommand extends Command
 {
-    private string $groupsStorage;
-
     public function __construct(
         private SymfonyStyle $symfonyStyle,
         private GroupRepository $groupRepository,
-        ParameterProvider $parameterProvider
     ) {
         parent::__construct();
-
-        $this->groupsStorage = $parameterProvider->provideStringParameter(Option::GROUPS_STORAGE);
     }
 
     protected function configure(): void
@@ -70,7 +63,7 @@ final class ValidateGroupsCommand extends Command
         $this->symfonyStyle->section('Found duplicated groups');
         $this->symfonyStyle->listing($duplicatedGroupSlugs);
 
-        $errorMessage = sprintf('Cleanup "%s" file', $this->groupsStorage);
+        $errorMessage = sprintf('Cleanup "%s" storage file', $this->groupRepository->getTable());
         $this->symfonyStyle->error($errorMessage);
 
         return self::FAILURE;

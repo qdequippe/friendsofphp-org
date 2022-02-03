@@ -6,8 +6,6 @@ use Fop\Core\ValueObject\Option;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(__DIR__ . '/_data/*');
-
     $parameters = $containerConfigurator->parameters();
 
     // how many days into the future the meetups should be imported

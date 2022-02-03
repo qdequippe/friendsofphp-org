@@ -5,32 +5,24 @@ declare(strict_types=1);
 namespace Fop\Meetup\Tests\ValueObjectFactory;
 
 use Fop\Core\HttpKernel\FopKernel;
-use Fop\Core\ValueObject\Option;
+use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\ValueObject\Group;
-use Fop\Meetup\ValueObjectFactory\GroupsFactory;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
 final class GroupsFactoryTest extends AbstractKernelTestCase
 {
-    private GroupsFactory $groupsFactory;
-
-    private ParameterProvider $parameterProvider;
+    private GroupRepository $groupRepository;
 
     protected function setUp(): void
     {
         $this->bootKernel(FopKernel::class);
-        $this->groupsFactory = $this->getService(GroupsFactory::class);
-        $this->parameterProvider = $this->getService(ParameterProvider::class);
+        $this->groupRepository = $this->getService(GroupRepository::class);
     }
 
     public function test(): void
     {
-        $groupsArray = $this->parameterProvider->provideArrayParameter(Option::GROUPS);
-        $groups = $this->groupsFactory->create($groupsArray);
-
-        $groupCount = count($groups);
-        $this->assertGreaterThan(50, $groupCount);
+        $groups = $this->groupRepository->fetchAll();
+        $this->assertGreaterThan(50, count($groups));
         $this->assertContainsOnlyInstancesOf(Group::class, $groups);
     }
 }

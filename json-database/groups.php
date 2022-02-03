@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
+    // @todo convert to json
     $parameters->set(Option::GROUPS, [
         [
             'name' => 'Austin PHP Meetup',

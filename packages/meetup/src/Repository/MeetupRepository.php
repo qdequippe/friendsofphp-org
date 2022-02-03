@@ -30,7 +30,7 @@ final class MeetupRepository extends AbstractRepository
             $meetupsArrays[] = $meetup->toArray();
         }
 
-        $this->saveMany($meetupsArrays);
+        $this->insertMany($meetupsArrays);
     }
 
     /**
