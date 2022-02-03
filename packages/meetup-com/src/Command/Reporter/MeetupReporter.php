@@ -10,7 +10,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 final class MeetupReporter
 {
     public function __construct(
-        private SymfonyStyle $symfonyStyle
+        private readonly SymfonyStyle $symfonyStyle
     ) {
     }
 
@@ -19,7 +19,7 @@ final class MeetupReporter
      */
     public function reportMeetups(array $meetups, string $key): void
     {
-        if (count($meetups) === 0) {
+        if ($meetups === []) {
             return;
         }
 

@@ -14,7 +14,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ImportCommand extends Command
 {
@@ -22,12 +21,12 @@ final class ImportCommand extends Command
      * @param MeetupImporterInterface[] $meetupImporters
      */
     public function __construct(
-        private array $meetupImporters,
-        private SymfonyStyle $symfonyStyle,
-        private MeetupRepository $meetupRepository,
-        private MeetupReporter $meetupReporter,
-        private MeetupFilterCollector $meetupFilterCollector,
-        private MeetupCollector $meetupCollector
+        private readonly array $meetupImporters,
+        private readonly SymfonyStyle $symfonyStyle,
+        private readonly MeetupRepository $meetupRepository,
+        private readonly MeetupReporter $meetupReporter,
+        private readonly MeetupFilterCollector $meetupFilterCollector,
+        private readonly MeetupCollector $meetupCollector
     ) {
         parent::__construct();
     }
@@ -53,10 +52,10 @@ final class ImportCommand extends Command
             $this->symfonyStyle->newLine(2);
         }
 
-        $this->meetupRepository->saveImportsToFile($this->meetupCollector->getMeetups());
+        $this->meetupRepository->saveMany($this->meetupCollector->getMeetups());
 
         $this->symfonyStyle->success('Import is done!');
 
-        return ShellCode::SUCCESS;
+        return self::SUCCESS;
     }
 }

@@ -13,15 +13,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
 
 final class ValidateDeadGroupsCommand extends Command
 {
     public function __construct(
-        private SymfonyStyle $symfonyStyle,
-        private GroupRepository $groupRepository,
-        private MeetupComApi $meetupComApi,
-        private MeetupComCooler $meetupComCooler
+        private readonly SymfonyStyle $symfonyStyle,
+        private readonly GroupRepository $groupRepository,
+        private readonly MeetupComApi $meetupComApi,
+        private readonly MeetupComCooler $meetupComCooler
     ) {
         parent::__construct();
     }
@@ -59,7 +58,7 @@ final class ValidateDeadGroupsCommand extends Command
         if ($possiblyDeadGroups === []) {
             $this->symfonyStyle->success('All groups are fresh!');
 
-            return ShellCode::SUCCESS;
+            return self::SUCCESS;
         }
 
         $section = sprintf('There are %d dead groups', count($possiblyDeadGroups));
@@ -70,6 +69,6 @@ final class ValidateDeadGroupsCommand extends Command
             $this->symfonyStyle->writeln($groupMessage);
         }
 
-        return ShellCode::ERROR;
+        return self::FAILURE;
     }
 }

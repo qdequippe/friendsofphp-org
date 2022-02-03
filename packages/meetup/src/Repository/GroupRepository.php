@@ -4,23 +4,19 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Repository;
 
-use Fop\Core\ValueObject\Option;
 use Fop\Meetup\ValueObject\Group;
 use Fop\Meetup\ValueObjectFactory\GroupsFactory;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
-final class GroupRepository
+final class GroupRepository extends AbstractRepository
 {
     /**
      * @var Group[]
      */
     private array $groups = [];
 
-    public function __construct(
-        ParameterProvider $parameterProvider,
-        private GroupsFactory $groupsFactory
-    ) {
-        $groupsArray = $parameterProvider->provideArrayParameter(Option::GROUPS);
+    public function __construct(GroupsFactory $groupsFactory)
+    {
+        $groupsArray = $this->groups;
         $this->groups = $groupsFactory->create($groupsArray);
     }
 
@@ -35,5 +31,18 @@ final class GroupRepository
     public function getCount(): int
     {
         return count($this->groups);
+    }
+
+    /**
+     * @return Group[]
+     */
+    public function fetchAll(): array
+    {
+        return $this->groups;
+    }
+
+    public function getTable(): string
+    {
+        return 'groups.json';
     }
 }

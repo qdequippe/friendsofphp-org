@@ -2,7 +2,7 @@ includes:
     - vendor/symplify/phpstan-extensions/config/config.neon
 
 parameters:
-    level: max
+    level: 8
 
     paths:
         - bin
@@ -10,4 +10,6 @@ parameters:
         - tests
         - packages
 
-    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # for autowire
+        - '#Class Fop\\MeetupCom\\Guzzle\\Oauth2AwareClient extends @final class GuzzleHttp\\Client#'

@@ -7,9 +7,9 @@ namespace Fop\MeetupCom\ValueObject;
 final class RateLimits
 {
     public function __construct(
-        private int $requestLimit,
-        private int $remainingRequests,
-        private int $requestToReset
+        private readonly int $requestLimit,
+        private readonly int $remainingRequests,
+        private readonly int $requestToReset
     ) {
     }
 

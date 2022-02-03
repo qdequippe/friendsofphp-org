@@ -12,7 +12,7 @@ use Symplify\SmartFileSystem\SmartFileSystem;
 final class XmlReader
 {
     public function __construct(
-        private SmartFileSystem $smartFileSystem
+        private readonly SmartFileSystem $smartFileSystem
     ) {
     }
 

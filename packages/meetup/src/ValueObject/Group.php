@@ -9,10 +9,18 @@ use Fop\Meetup\Contract\ArrayableInterface;
 final class Group implements ArrayableInterface
 {
     public function __construct(
-        private string $name,
-        private string $meetupComSlug,
-        private string $country
+        private readonly string $name,
+        private readonly string $meetupComSlug,
+        private readonly string $country
     ) {
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    public static function fromArray(array $data): self
+    {
+        return new self($data['name'], $data['meetup_com_slug'], $data['country'],);
     }
 
     public function getName(): string

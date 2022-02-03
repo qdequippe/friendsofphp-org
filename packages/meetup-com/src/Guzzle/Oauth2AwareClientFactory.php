@@ -14,13 +14,13 @@ use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 final class Oauth2AwareClientFactory
 {
-    private string $meetupComOauthKey;
+    private readonly string $meetupComOauthKey;
 
-    private string $meetupComOauthSecret;
+    private readonly string $meetupComOauthSecret;
 
     public function __construct(
         ParameterProvider $parameterProvider,
-        private StringFormatConverter $stringFormatConverter
+        private readonly StringFormatConverter $stringFormatConverter
     ) {
         $this->meetupComOauthKey = $parameterProvider->provideStringParameter(Option::MEETUP_COM_OAUTH_KEY);
         $this->meetupComOauthSecret = $parameterProvider->provideStringParameter(Option::MEETUP_COM_OAUTH_SECRET);

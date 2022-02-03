@@ -35,8 +35,8 @@ final class MeetupComMeetupFactory
     private const CITY = 'city';
 
     public function __construct(
-        private Geolocator $geolocator,
-        private CityNormalizer $cityNormalizer
+        private readonly Geolocator $geolocator,
+        private readonly CityNormalizer $cityNormalizer
     ) {
     }
 
@@ -51,7 +51,7 @@ final class MeetupComMeetupFactory
 
         $startDateTime = $this->createStartDateTimeFromEventData($data);
         $location = $this->createLocation($data);
-        if ($location === null) {
+        if (! $location instanceof Location) {
             return null;
         }
 

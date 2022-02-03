@@ -5,28 +5,20 @@ declare(strict_types=1);
 namespace Fop\MeetupCom\Command;
 
 use Fop\Core\Exception\ShouldNotHappenException;
-use Fop\Core\ValueObject\Option;
 use Fop\Meetup\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symplify\PackageBuilder\Console\Command\CommandNaming;
-use Symplify\PackageBuilder\Console\ShellCode;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class ValidateGroupsCommand extends Command
 {
-    private string $groupsStorage;
-
     public function __construct(
-        private SymfonyStyle $symfonyStyle,
-        private GroupRepository $groupRepository,
-        ParameterProvider $parameterProvider
+        private readonly SymfonyStyle $symfonyStyle,
+        private readonly GroupRepository $groupRepository,
     ) {
         parent::__construct();
-
-        $this->groupsStorage = $parameterProvider->provideStringParameter(Option::GROUPS_STORAGE);
     }
 
     protected function configure(): void
@@ -62,18 +54,18 @@ final class ValidateGroupsCommand extends Command
 
         $duplicatedGroupSlugs = array_unique($duplicatedGroupSlugs);
 
-        if (count($duplicatedGroupSlugs) === 0) {
+        if ($duplicatedGroupSlugs === []) {
             $this->symfonyStyle->success('Great job! There are no duplicated groups.');
 
-            return ShellCode::SUCCESS;
+            return self::SUCCESS;
         }
 
         $this->symfonyStyle->section('Found duplicated groups');
         $this->symfonyStyle->listing($duplicatedGroupSlugs);
 
-        $errorMessage = sprintf('Cleanup "%s" file', $this->groupsStorage);
+        $errorMessage = sprintf('Cleanup "%s" storage file', $this->groupRepository->getTable());
         $this->symfonyStyle->error($errorMessage);
 
-        return ShellCode::ERROR;
+        return self::FAILURE;
     }
 }

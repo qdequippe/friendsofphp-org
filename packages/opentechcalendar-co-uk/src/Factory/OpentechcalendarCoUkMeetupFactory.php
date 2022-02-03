@@ -30,7 +30,7 @@ final class OpentechcalendarCoUkMeetupFactory
     private const LAT = 'lat';
 
     public function __construct(
-        private Geolocator $geolocator
+        private readonly Geolocator $geolocator
     ) {
     }
 
@@ -54,7 +54,7 @@ final class OpentechcalendarCoUkMeetupFactory
         $group = $data['summary'];
 
         $location = $this->createLocation($data);
-        if ($location === null) {
+        if (! $location instanceof Location) {
             return null;
         }
 

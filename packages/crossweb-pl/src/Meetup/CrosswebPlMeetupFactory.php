@@ -15,8 +15,8 @@ use Symplify\SmartFileSystem\SmartFileSystem;
 final class CrosswebPlMeetupFactory
 {
     public function __construct(
-        private Geolocator $geolocator,
-        private SmartFileSystem $smartFileSystem
+        private readonly Geolocator $geolocator,
+        private readonly SmartFileSystem $smartFileSystem
     ) {
     }
 
@@ -25,12 +25,12 @@ final class CrosswebPlMeetupFactory
         $urlContent = $this->smartFileSystem->readFile($url);
 
         $location = $this->resolveLocation($urlContent);
-        if ($location === null) {
+        if (! $location instanceof Location) {
             return null;
         }
 
         $startDateTime = $this->resolveStartDateTime($urlContent);
-        if ($startDateTime === null) {
+        if (! $startDateTime instanceof \DateTimeInterface) {
             return null;
         }
 
