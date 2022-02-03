@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fop\Meetup\ValueObjectFactory;
 
 use Fop\Meetup\ValueObject\Meetup;
+use Webmozart\Assert\Assert;
 
 /**
  * @see \Fop\Meetup\Tests\ValueObjectFactory\MeetupFactoryTest
@@ -22,6 +23,8 @@ final class MeetupFactory
         foreach ($meetupsArray as $meetupArray) {
             $meetups[] = Meetup::fromArray($meetupArray);
         }
+
+        Assert::allIsAOf($meetups, Meetup::class);
 
         return $this->sortByStartDateTime($meetups);
     }

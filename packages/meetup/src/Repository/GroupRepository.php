@@ -10,7 +10,7 @@ use Fop\Meetup\ValueObjectFactory\GroupsFactory;
 final class GroupRepository extends AbstractRepository
 {
     public function __construct(
-        private GroupsFactory $groupsFactory
+        private readonly GroupsFactory $groupsFactory
     ) {
     }
 
