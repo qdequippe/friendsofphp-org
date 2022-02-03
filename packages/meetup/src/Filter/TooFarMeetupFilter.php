@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Filter;
 
+use DateTimeImmutable;
+use DateTimeInterface;
 use Fop\Core\ValueObject\Option;
 use Fop\Meetup\Contract\MeetupFilterInterface;
 use Fop\Meetup\ValueObject\Meetup;
@@ -12,7 +14,10 @@ use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
 final class TooFarMeetupFilter implements MeetupFilterInterface
 {
-    private DateTime $maxForecastDateTime;
+    /**
+     * @var \DateTime|DateTimeImmutable
+     */
+    private readonly DateTimeInterface $maxForecastDateTime;
 
     public function __construct(ParameterProvider $parameterProvider)
     {

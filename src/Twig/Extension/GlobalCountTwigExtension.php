@@ -12,8 +12,8 @@ use Twig\Extension\GlobalsInterface;
 final class GlobalCountTwigExtension extends AbstractExtension implements GlobalsInterface
 {
     public function __construct(
-        private MeetupRepository $meetupRepository,
-        private GroupRepository $groupRepository
+        private readonly MeetupRepository $meetupRepository,
+        private readonly GroupRepository $groupRepository
     ) {
     }
 

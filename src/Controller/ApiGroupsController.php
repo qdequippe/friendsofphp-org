@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class ApiGroupsController extends AbstractController
 {
     public function __construct(
-        private GroupRepository $groupRepository
+        private readonly GroupRepository $groupRepository
     ) {
     }
 

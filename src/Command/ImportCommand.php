@@ -21,12 +21,12 @@ final class ImportCommand extends Command
      * @param MeetupImporterInterface[] $meetupImporters
      */
     public function __construct(
-        private array $meetupImporters,
-        private SymfonyStyle $symfonyStyle,
-        private MeetupRepository $meetupRepository,
-        private MeetupReporter $meetupReporter,
-        private MeetupFilterCollector $meetupFilterCollector,
-        private MeetupCollector $meetupCollector
+        private readonly array $meetupImporters,
+        private readonly SymfonyStyle $symfonyStyle,
+        private readonly MeetupRepository $meetupRepository,
+        private readonly MeetupReporter $meetupReporter,
+        private readonly MeetupFilterCollector $meetupFilterCollector,
+        private readonly MeetupCollector $meetupCollector
     ) {
         parent::__construct();
     }

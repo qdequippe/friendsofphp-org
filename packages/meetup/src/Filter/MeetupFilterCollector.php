@@ -13,7 +13,7 @@ final class MeetupFilterCollector
      * @param MeetupFilterInterface[] $meetupFilters
      */
     public function __construct(
-        private array $meetupFilters
+        private readonly array $meetupFilters
     ) {
     }
 

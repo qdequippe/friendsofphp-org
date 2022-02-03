@@ -14,8 +14,8 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class RatesCommand extends Command
 {
     public function __construct(
-        private MeetupComApi $meetupComApi,
-        private SymfonyStyle $symfonyStyle
+        private readonly MeetupComApi $meetupComApi,
+        private readonly SymfonyStyle $symfonyStyle
     ) {
         parent::__construct();
     }

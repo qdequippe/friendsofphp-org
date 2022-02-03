@@ -12,14 +12,14 @@ use Nette\Utils\DateTime;
 final class Meetup implements ArrayableInterface
 {
     public function __construct(
-        private string $name,
-        private string $userGroupName,
-        private DateTimeInterface $startDateTime,
-        private string $url,
-        private string $city,
-        private string $country,
-        private float $latitude,
-        private float $longitude
+        private readonly string $name,
+        private readonly string $userGroupName,
+        private readonly DateTimeInterface $startDateTime,
+        private readonly string $url,
+        private readonly string $city,
+        private readonly string $country,
+        private readonly float $latitude,
+        private readonly float $longitude
     ) {
     }
 

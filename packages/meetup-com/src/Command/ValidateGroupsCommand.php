@@ -15,8 +15,8 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class ValidateGroupsCommand extends Command
 {
     public function __construct(
-        private SymfonyStyle $symfonyStyle,
-        private GroupRepository $groupRepository,
+        private readonly SymfonyStyle $symfonyStyle,
+        private readonly GroupRepository $groupRepository,
     ) {
         parent::__construct();
     }
@@ -54,7 +54,7 @@ final class ValidateGroupsCommand extends Command
 
         $duplicatedGroupSlugs = array_unique($duplicatedGroupSlugs);
 
-        if (count($duplicatedGroupSlugs) === 0) {
+        if ($duplicatedGroupSlugs === []) {
             $this->symfonyStyle->success('Great job! There are no duplicated groups.');
 
             return self::SUCCESS;

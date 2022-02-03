@@ -61,7 +61,7 @@ final class Geolocator
 
     public function __construct(
         ParameterProvider $parameterProvider,
-        private Client $client
+        private readonly Client $client
     ) {
         $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
     }

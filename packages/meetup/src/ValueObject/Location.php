@@ -9,9 +9,9 @@ use Location\Coordinate;
 final class Location
 {
     public function __construct(
-        private string $city,
-        private string $country,
-        private Coordinate $coordinate
+        private readonly string $city,
+        private readonly string $country,
+        private readonly Coordinate $coordinate
     ) {
     }
 

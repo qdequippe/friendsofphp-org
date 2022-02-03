@@ -17,10 +17,10 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 final class ValidateDeadGroupsCommand extends Command
 {
     public function __construct(
-        private SymfonyStyle $symfonyStyle,
-        private GroupRepository $groupRepository,
-        private MeetupComApi $meetupComApi,
-        private MeetupComCooler $meetupComCooler
+        private readonly SymfonyStyle $symfonyStyle,
+        private readonly GroupRepository $groupRepository,
+        private readonly MeetupComApi $meetupComApi,
+        private readonly MeetupComCooler $meetupComCooler
     ) {
         parent::__construct();
     }

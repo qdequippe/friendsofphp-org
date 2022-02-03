@@ -9,9 +9,9 @@ use Fop\Meetup\Contract\ArrayableInterface;
 final class Group implements ArrayableInterface
 {
     public function __construct(
-        private string $name,
-        private string $meetupComSlug,
-        private string $country
+        private readonly string $name,
+        private readonly string $meetupComSlug,
+        private readonly string $country
     ) {
     }
 

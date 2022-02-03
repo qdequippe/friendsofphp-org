@@ -19,8 +19,8 @@ final class MeetupComCooler
     private const COOLDOWN_IN_SECONDS = 6;
 
     public function __construct(
-        private MeetupComApi $meetupComApi,
-        private SymfonyStyle $symfonyStyle
+        private readonly MeetupComApi $meetupComApi,
+        private readonly SymfonyStyle $symfonyStyle
     ) {
     }
 

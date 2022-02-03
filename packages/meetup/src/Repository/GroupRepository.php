@@ -16,7 +16,7 @@ final class GroupRepository extends AbstractRepository
 
     public function __construct(GroupsFactory $groupsFactory)
     {
-        $groupsArray = $this->fetchAll();
+        $groupsArray = $this->groups;
         $this->groups = $groupsFactory->create($groupsArray);
     }
 

@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 final class HomepageController extends AbstractController
 {
     public function __construct(
-        private MeetupRepository $meetupRepository,
+        private readonly MeetupRepository $meetupRepository,
     ) {
     }
 

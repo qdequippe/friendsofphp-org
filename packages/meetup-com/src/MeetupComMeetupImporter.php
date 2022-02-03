@@ -16,11 +16,11 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 final class MeetupComMeetupImporter implements MeetupImporterInterface
 {
     public function __construct(
-        private GroupRepository $groupRepository,
-        private MeetupComMeetupFactory $meetupComMeetupFactory,
-        private MeetupComApi $meetupComApi,
-        private SymfonyStyle $symfonyStyle,
-        private MeetupComCooler $meetupComCooler
+        private readonly GroupRepository $groupRepository,
+        private readonly MeetupComMeetupFactory $meetupComMeetupFactory,
+        private readonly MeetupComApi $meetupComApi,
+        private readonly SymfonyStyle $symfonyStyle,
+        private readonly MeetupComCooler $meetupComCooler
     ) {
     }
 
@@ -77,7 +77,7 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
 
         foreach ($meetupsData as $meetupData) {
             $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
-            if ($meetup === null) {
+            if (! $meetup instanceof Meetup) {
                 continue;
             }
 
