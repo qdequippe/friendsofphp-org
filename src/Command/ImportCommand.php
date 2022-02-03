@@ -52,7 +52,7 @@ final class ImportCommand extends Command
             $this->symfonyStyle->newLine(2);
         }
 
-        $this->meetupRepository->saveImportsToFile($this->meetupCollector->getMeetups());
+        $this->meetupRepository->saveMany($this->meetupCollector->getMeetups());
 
         $this->symfonyStyle->success('Import is done!');
 

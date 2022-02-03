@@ -24,25 +24,5 @@ final class Option
     /**
      * @var string
      */
-    public const MEETUPS = 'meetups';
-
-    /**
-     * @var string
-     */
-    public const MEETUPS_STORAGE = 'meetups_storage';
-
-    /**
-     * @var string
-     */
-    public const GROUPS = 'groups';
-
-    /**
-     * @var string
-     */
     public const USA_STATES = 'usa_states';
-
-    /**
-     * @var string
-     */
-    public const GROUPS_STORAGE = 'groups_storage';
 }

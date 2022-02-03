@@ -4,40 +4,33 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Repository;
 
-use Fop\Core\FileSystem\ParameterFilePrinter;
-use Fop\Core\ValueObject\Option;
-use Fop\Meetup\Arrays\ArraysConverter;
 use Fop\Meetup\ValueObject\Meetup;
-use Fop\Meetup\ValueObject\ParameterHolder;
 use Fop\Meetup\ValueObjectFactory\MeetupFactory;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 
-final class MeetupRepository
+final class MeetupRepository extends AbstractRepository
 {
-    private string $meetupsStorage;
-
     /**
      * @var Meetup[]
      */
     private array $meetups = [];
 
-    public function __construct(
-        private ParameterFilePrinter $parameterFilePrinter,
-        ParameterProvider $parameterProvider,
-        private ArraysConverter $arraysConverter,
-        MeetupFactory $meetupFactory,
-    ) {
-        $meetupsArray = $parameterProvider->provideArrayParameter(Option::MEETUPS);
+    public function __construct(MeetupFactory $meetupFactory,)
+    {
+        $meetupsArray = $this->fetchAll();
         $this->meetups = $meetupFactory->create($meetupsArray);
-        $this->meetupsStorage = $parameterProvider->provideStringParameter(Option::MEETUPS_STORAGE);
     }
 
     /**
      * @param Meetup[] $meetups
      */
-    public function saveImportsToFile(array $meetups): void
+    public function saveMany(array $meetups): void
     {
-        $this->saveToFileAndStorage($meetups, $this->meetupsStorage);
+        $meetupsArrays = [];
+        foreach ($meetups as $meetup) {
+            $meetupsArrays[] = $meetup->toArray();
+        }
+
+        $this->saveMany($meetupsArrays);
     }
 
     /**
@@ -58,13 +51,8 @@ final class MeetupRepository
         return count($this->fetchAll());
     }
 
-    /**
-     * @param Meetup[] $meetups
-     */
-    private function saveToFileAndStorage(array $meetups, string $storage): void
+    public function getTable(): string
     {
-        $meetupsArray = $this->arraysConverter->turnToArrays($meetups);
-        $parameterHolder = new ParameterHolder(Option::MEETUPS, $meetupsArray);
-        $this->parameterFilePrinter->printParameterHolder($parameterHolder, $storage);
+        return 'meetups.json';
     }
 }
