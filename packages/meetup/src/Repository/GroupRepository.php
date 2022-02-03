@@ -9,28 +9,9 @@ use Fop\Meetup\ValueObjectFactory\GroupsFactory;
 
 final class GroupRepository extends AbstractRepository
 {
-    /**
-     * @var Group[]
-     */
-    private array $groups = [];
-
-    public function __construct(GroupsFactory $groupsFactory)
-    {
-        $groupsArray = $this->groups;
-        $this->groups = $groupsFactory->create($groupsArray);
-    }
-
-    /**
-     * @return Group[]
-     */
-    public function getGroups(): array
-    {
-        return $this->groups;
-    }
-
-    public function getCount(): int
-    {
-        return count($this->groups);
+    public function __construct(
+        private readonly GroupsFactory $groupsFactory
+    ) {
     }
 
     /**
@@ -38,7 +19,13 @@ final class GroupRepository extends AbstractRepository
      */
     public function fetchAll(): array
     {
-        return $this->groups;
+        $groupsArray = parent::fetchAll();
+        return $this->groupsFactory->create($groupsArray);
+    }
+
+    public function getCount(): int
+    {
+        return count($this->fetchAll());
     }
 
     public function getTable(): string

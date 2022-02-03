@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fop\Meetup\ValueObjectFactory;
 
 use Fop\Meetup\ValueObject\Group;
+use Webmozart\Assert\Assert;
 
 /**
  * @see \Fop\Meetup\Tests\ValueObjectFactory\GroupsFactoryTest
@@ -21,6 +22,8 @@ final class GroupsFactory
         foreach ($groupsArray as $groupArray) {
             $groups[] = Group::fromArray($groupArray);
         }
+
+        Assert::allIsAOf($groups, Group::class);
 
         return $this->sortGroupsByName($groups);
     }

@@ -37,7 +37,7 @@ final class ValidateDeadGroupsCommand extends Command
         // increase temporary from 16 months due to covid
         $sixMonthsAgoDateTime = DateTime::from('- 16 months');
 
-        foreach ($this->groupRepository->getGroups() as $group) {
+        foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
 
             $message = sprintf('Resolved last meetup date time for "%s"', $group->getName());

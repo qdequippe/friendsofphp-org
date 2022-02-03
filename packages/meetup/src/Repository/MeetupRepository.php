@@ -9,15 +9,9 @@ use Fop\Meetup\ValueObjectFactory\MeetupFactory;
 
 final class MeetupRepository extends AbstractRepository
 {
-    /**
-     * @var Meetup[]
-     */
-    private array $meetups = [];
-
-    public function __construct(MeetupFactory $meetupFactory,)
-    {
-        $meetupsArray = $this->fetchAll();
-        $this->meetups = $meetupFactory->create($meetupsArray);
+    public function __construct(
+        private readonly MeetupFactory $meetupFactory
+    ) {
     }
 
     /**
@@ -27,7 +21,7 @@ final class MeetupRepository extends AbstractRepository
     {
         $meetupsArrays = [];
         foreach ($meetups as $meetup) {
-            $meetupsArrays[] = $meetup->toArray();
+            $meetupsArrays[] = $meetup->jsonSerialize();
         }
 
         $this->insertMany($meetupsArrays);
@@ -38,12 +32,15 @@ final class MeetupRepository extends AbstractRepository
      */
     public function fetchAll(): array
     {
+        $meetupsArrays = parent::fetchAll();
+        $meetups = $this->meetupFactory->create($meetupsArrays);
+
         usort(
-            $this->meetups,
+            $meetups,
             fn (Meetup $firstMeetup, Meetup $secondMeetup) => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
         );
 
-        return $this->meetups;
+        return $meetups;
     }
 
     public function getCount(): int
