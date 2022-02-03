@@ -43,6 +43,6 @@ final class GroupRepository extends AbstractRepository
 
     public function getTable(): string
     {
-        return 'meetups.json';
+        return 'groups.json';
     }
 }

@@ -9,6 +9,9 @@ use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
+    // tempě
+    $containerConfigurator->import(__DIR__ . '/_data/*');
+
     $containerConfigurator->import(__DIR__ . '/parameters.php');
     $containerConfigurator->import(__DIR__ . '/packages/*');
     $containerConfigurator->import(__DIR__ . '/../packages/*/config/*');
