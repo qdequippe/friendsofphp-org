@@ -114,7 +114,7 @@ final class Meetup implements ArrayableInterface
     /**
      * @return array<string, mixed>
      */
-    public function toArray(): array
+    public function jsonSerialize(): array
     {
         return [
             'name' => $this->name,

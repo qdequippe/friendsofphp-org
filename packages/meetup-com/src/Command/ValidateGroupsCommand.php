@@ -29,7 +29,7 @@ final class ValidateGroupsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $groups = $this->groupRepository->getGroups();
+        $groups = $this->groupRepository->fetchAll();
 
         $existingGroupSlugs = [];
         $duplicatedGroupSlugs = [];

@@ -27,7 +27,7 @@ final class MeetupRepository extends AbstractRepository
     {
         $meetupsArrays = [];
         foreach ($meetups as $meetup) {
-            $meetupsArrays[] = $meetup->toArray();
+            $meetupsArrays[] = $meetup->jsonSerialize();
         }
 
         $this->insertMany($meetupsArrays);
