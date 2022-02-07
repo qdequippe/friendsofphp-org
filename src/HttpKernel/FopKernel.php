@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use Symplify\AutowireArrayParameter\DependencyInjection\CompilerPass\AutowireArrayParameterCompilerPass;
+use Symplify\SymfonyStaticDumper\ValueObject\SymfonyStaticDumperConfig;
 use Symplify\SymplifyKernel\ValueObject\SymplifyKernelConfig;
 
 final class FopKernel extends Kernel
@@ -19,6 +20,7 @@ final class FopKernel extends Kernel
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
         $loader->load(__DIR__ . '/../../config/config.php');
+        $loader->load(SymfonyStaticDumperConfig::FILE_PATH);
 
         $loader->load(SymplifyKernelConfig::FILE_PATH);
     }
