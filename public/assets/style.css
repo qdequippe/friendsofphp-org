@@ -13,8 +13,9 @@ body {
 }
 
 #head {
-    background: hsl(229, 30%, 44%);
+    background: #6C78AF;
     color: #FFF;
+    border-bottom: 10px #59649a solid;
 }
 
 .text-secondary {
@@ -156,8 +157,7 @@ footer ul, #groups ul {
 
 #map-filterable-table_filter input {
     font-size: 1.0em;
-    margin-left: -.2em;
-    margin-top: -5em;
+    margin-top: -4.15em;
     float: right;
     color: #333;
 }
