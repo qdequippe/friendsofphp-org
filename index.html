@@ -40,7 +40,7 @@
 </h1>
 
 <p>
-    Visit one of 13 upcoming PHP meetups
+    Visit one of 35 upcoming PHP meetups
 
     <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/main/json-database/groups.json" class="btn btn-success btn-sm ml-2">
         Add Your Group
@@ -50,24 +50,124 @@
 
             <div class="container-fluid" id="content">
         <div class="row">
-            <div class="col-md-4 pl-md-0 pr-md-0 pt-3 hidden-sm-down">
+            <div class="col-md-4 pl-md-0 pr-md-0 pt-3">
                 <a name="map"></a>
                 <div id="mapid"></div>
             </div>
 
             <script src="/assets/js/utils.js"></script>
 
-            <div class="col-md-8 pb-5 pt-3 hidden-sm-down">
+            <div class="col-md-8 pb-5 pt-3">
                 <table class="table table-bordered table-responsive table-meetups" id="map-filterable-table">
     <thead class="thead-inverse">
-    <tr>
-        <th class="w-25 text-center">When</th>
-        <th class="w-25 text-center">Where</th>
-        <th class="w-50 text-center">Meetup</th>
-    </tr>
-</thead>
+        <tr>
+            <th class="w-25 text-center">When</th>
+            <th class="w-25 text-center">Where</th>
+            <th class="text-center">Online</th>
+            <th class="w-50 text-center">Meetup</th>
+        </tr>
+    </thead>
 
         
+            <tr class="meetup" data-longitude="-86.7742984" data-latitude="36.1622767" data-datetime="2022-02-08 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Tue,
+                        <strong>Feb 08</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(36.1622767, -86.7742984)">
+            Nashville
+        </a>
+
+        <br>
+
+        <small class="text-secondary">TN</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/nashvillephp/events/kzkdwrydcdblb/">Monthly Virtual PHP Meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Nashville PHP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="8.2762513" data-latitude="50.0012314" data-datetime="2022-02-08 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Tue,
+                        <strong>Feb 08</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(50.0012314, 8.2762513)">
+            Mainz
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-User-Group-Rheinhessen/events/283216335/">71. Meetup PHPUG Rheinhessen</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP User Group Rheinhessen</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-99.1331785" data-latitude="19.4326296" data-datetime="2022-02-08 20:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Tue,
+                        <strong>Feb 08</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">20:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(19.4326296, -99.1331785)">
+            México City
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Mexico</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-The-Right-Way/events/283637086/">Cómo crear sitios con WordPress sin comprar plantillas</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Mexico</small>
+    </td>
+</tr>
             <tr class="meetup" data-longitude="-2.5912439823151" data-latitude="51.453147888184" data-datetime="2022-02-09 18:45">
     <td class="w-25">
                     <span class="text-nowrap text-success">
@@ -88,6 +188,8 @@
 
         <small class="text-secondary">United Kingdom</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/php-sw/events/283490357/">Coding With Confidence</a>
@@ -96,6 +198,204 @@
         <br>
 
         <small class="text-secondary">PHPSW</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-122.3300624" data-latitude="47.6038321" data-datetime="2022-02-10 16:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Feb 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">16:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(47.6038321, -122.3300624)">
+            Seattle
+        </a>
+
+        <br>
+
+        <small class="text-secondary">WA</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/seaphp/events/283728414/">MergePHP - Container-Native w/o k8s: PHP in ECS on AWS</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Seattle PHP User Group</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="79.8541134" data-latitude="6.9387469" data-datetime="2022-02-10 17:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Feb 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">17:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(6.9387469, 79.8541134)">
+            Colombo
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Sri Lanka</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-developers-Sri-Lanka/events/283477619/">Explorer Series Episode 4: A Quest to Find Your Ideal Frontend Framework</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Developers Sri Lanka</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-112.0741417" data-latitude="33.4484367" data-datetime="2022-02-10 17:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Feb 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">17:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(33.4484367, -112.0741417)">
+            Phoenix
+        </a>
+
+        <br>
+
+        <small class="text-secondary">AZ</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/azPHPUG/events/283662074/">MergePHP - Container-Native w/o k8s: PHP in ECS on AWS</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">azPHP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-94.5781416" data-latitude="39.100105" data-datetime="2022-02-10 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Feb 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(39.100105, -94.5781416)">
+            Kansas City
+        </a>
+
+        <br>
+
+        <small class="text-secondary">MO</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/kcphpug/events/283727670/">MergePHP - Container-Native w/o k8s: PHP in ECS on AWS</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Kansas City&#039;s PHP User Group</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="13.7381437" data-latitude="51.0493286" data-datetime="2022-02-10 18:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Feb 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(51.0493286, 13.7381437)">
+            Dresden
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-USERGROUP-DRESDEN/events/283569105/">Meetup I/2022 - Deploy PHP Apps with Docker - The Essentials</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP USERGROUP DRESDEN</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-71.0582912" data-latitude="42.3602534" data-datetime="2022-02-10 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-success">
+                        Thu,
+                        <strong>Feb 10</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(42.3602534, -71.0582912)">
+            Boston
+        </a>
+
+        <br>
+
+        <small class="text-secondary">MA</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/bostonphp/events/283038468/">MergePHP - Container-Native w/o k8s: PHP in ECS on AWS</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Boston PHP</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="-46.631435394287" data-latitude="-23.604293823242" data-datetime="2022-02-10 19:00">
@@ -118,6 +418,8 @@
 
         <small class="text-secondary">Brazil</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/php-sp/events/bpmsqsydcdbnb/">PHPSP Pub</a>
@@ -148,6 +450,8 @@
 
         <small class="text-secondary">Brazil</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/PHP-MG/events/283617370/">21º PHPMG Talks</a>
@@ -156,6 +460,39 @@
         <br>
 
         <small class="text-secondary">PHPMG</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-122.6741949" data-latitude="45.5202471" data-datetime="2022-02-15 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Tue,
+                        <strong>Feb 15</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(45.5202471, -122.6741949)">
+            Portland
+        </a>
+
+        <br>
+
+        <small class="text-secondary">OR</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PDX-PHP/events/bllwzrydcdbtb/">Monthly Meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHPDX</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="-86.141220092773" data-latitude="39.766067504883" data-datetime="2022-02-15 18:30">
@@ -178,6 +515,8 @@
 
         <small class="text-secondary">Indiana</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/indyphp/events/slhppsydcdbtb/">Tech+Beer Downtown (formerly PHP+Beer)</a>
@@ -186,6 +525,72 @@
         <br>
 
         <small class="text-secondary">Downtown Tech+Beer (formerly Indianapolis PHP Meetup)</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="23.7283052" data-latitude="37.9839412" data-datetime="2022-02-15 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Tue,
+                        <strong>Feb 15</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(37.9839412, 23.7283052)">
+            Athens
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Greece</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/athens-laravel-meetup/events/283314971/">API-first design approach with Stoplight</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Athens Laravel Meetup</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="0.1186637" data-latitude="52.2055314" data-datetime="2022-02-15 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Tue,
+                        <strong>Feb 15</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(52.2055314, 0.1186637)">
+            Cambridge
+        </a>
+
+        <br>
+
+        <small class="text-secondary">United Kingdom</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/phpcambridge/events/283222395/">Deploying PHP Apps with Docker Compose - The Essentials</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Cambridge</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="-0.091050997376442" data-latitude="51.520523071289" data-datetime="2022-02-16 09:00">
@@ -208,6 +613,8 @@
 
         <small class="text-secondary">United Kingdom</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/phplondon/events/283468541/">PHP UK Conference 2022</a>
@@ -216,6 +623,39 @@
         <br>
 
         <small class="text-secondary">PHP London</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="0.4724553" data-latitude="51.7345398" data-datetime="2022-02-16 19:15">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Wed,
+                        <strong>Feb 16</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:15</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(51.7345398, 0.4724553)">
+            Chelmsford
+        </a>
+
+        <br>
+
+        <small class="text-secondary">United Kingdom</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/EssexWebDevelopers/events/nbfzjsydcdbvb/">Essex Web Developers Meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Essex Web Developers</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="138.59996032715" data-latitude="-34.928619384766" data-datetime="2022-02-17 18:00">
@@ -238,6 +678,8 @@
 
         <small class="text-secondary">Australia</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/PHP-Adelaide/events/vxpcxlydcdbwb/">PHP Adelaide User Group Meeting</a>
@@ -268,6 +710,8 @@
 
         <small class="text-secondary">Netherlands</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/AmsterdamPHP/events/mhtvlrydcdbwb/">Monthly Meeting</a>
@@ -298,6 +742,8 @@
 
         <small class="text-secondary">France</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/afup-tours-php/events/283354121/">Validation avancée Symfony - Excel : en fait, c&#039;est pas si mal !</a>
@@ -328,6 +774,8 @@
 
         <small class="text-secondary">Utah</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/Utah-PHP-User-Group/events/vlfnprydcdbwb/">Developing SOLID Code by Mark Niebergall</a>
@@ -336,6 +784,39 @@
         <br>
 
         <small class="text-secondary">Utah PHP User Group</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="6.5680077" data-latitude="53.2190652" data-datetime="2022-02-17 19:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Thu,
+                        <strong>Feb 17</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(53.2190652, 6.5680077)">
+            Groningen
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Netherlands</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/GroningenPHP/events/jhvhqrydcdbfb/">PHP Meetup /Talk by ..........???????</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">GroningenPHP</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="-115.15256500244" data-latitude="36.15958404541" data-datetime="2022-02-19 13:00">
@@ -358,6 +839,8 @@
 
         <small class="text-secondary">Nevada</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/Vegas-Programmers/events/vzrlrsydcdbzb/">Demo Time! Showcase your StartUp or Pet Project.</a>
@@ -366,6 +849,39 @@
         <br>
 
         <small class="text-secondary">Vegas Programmers</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-94.5781416" data-latitude="39.100105" data-datetime="2022-02-19 14:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-warning">
+                        Sat,
+                        <strong>Feb 19</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">14:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(39.100105, -94.5781416)">
+            Kansas City
+        </a>
+
+        <br>
+
+        <small class="text-secondary">MO</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/kcphpug/events/sbfkhsydcdbzb/">Weekend Hangout</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Kansas City&#039;s PHP User Group</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="-115.15264892578" data-latitude="36.159141540527" data-datetime="2022-02-19 14:30">
@@ -388,6 +904,8 @@
 
         <small class="text-secondary">Nevada</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/Vegas-Programmers/events/kzrlrsydcdbzb/">App Monitoring Tools + Home Assistant + AI Round Table</a>
@@ -396,6 +914,72 @@
         <br>
 
         <small class="text-secondary">Vegas Programmers</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-1.2578499" data-latitude="51.7520131" data-datetime="2022-02-23 19:30">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Feb 23</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:30</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(51.7520131, -1.2578499)">
+            Oxford
+        </a>
+
+        <br>
+
+        <small class="text-secondary">United Kingdom</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHP-Oxford/events/sksjlsydcdbfc/">PHP Oxford meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP Oxford</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="8.4673098" data-latitude="49.4892913" data-datetime="2022-02-24 19:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Thu,
+                        <strong>Feb 24</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">19:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(49.4892913, 8.4673098)">
+            Mannheim
+        </a>
+
+        <br>
+
+        <small class="text-secondary">Germany</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/PHPUG-Rhein-Neckar/events/283152433/">PHPUGMRN 01/22</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">PHP User Group Metropolregion Rhein-Neckar</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="-86.801834106445" data-latitude="35.957515716553" data-datetime="2022-03-01 11:30">
@@ -418,6 +1002,8 @@
 
         <small class="text-secondary">Tennessee</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/nashvillephp/events/gvsrlsydcfbcb/">Nashville PHP South Lunch</a>
@@ -428,55 +1014,11 @@
         <small class="text-secondary">Nashville PHP</small>
     </td>
 </tr>
-            <tr class="meetup" data-longitude="6.569179058075" data-latitude="53.214248657227" data-datetime="2022-03-03 19:30">
+            <tr class="meetup" data-longitude="10.000654" data-latitude="53.550341" data-datetime="2022-03-01 18:45">
     <td class="w-25">
                     <span class="text-nowrap text-danger">
-                        Thu,
-                        <strong>Mar 03</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:30</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(53.214248657227, 6.569179058075)">
-            Groningen
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Netherlands</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/GroningenPHP/events/jhvhqrydcfbfb/">PHP Meetup /Talk by.......</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">GroningenPHP</small>
-    </td>
-</tr>
-    </table>
-            </div>
-
-            <div class="col-12 pb-5 pt-3 hidden-md-up">
-                <table class="table table-bordered table-responsive table-meetups" id="static-table">
-    <thead class="thead-inverse">
-    <tr>
-        <th class="w-25 text-center">When</th>
-        <th class="w-25 text-center">Where</th>
-        <th class="w-50 text-center">Meetup</th>
-    </tr>
-</thead>
-
-        
-            <tr class="meetup" data-longitude="-2.5912439823151" data-latitude="51.453147888184" data-datetime="2022-02-09 18:45">
-    <td class="w-25">
-                    <span class="text-nowrap text-success">
-                        Wed,
-                        <strong>Feb 09</strong>
+                        Tue,
+                        <strong>Mar 01</strong>
                     </span>
 
         <br>
@@ -484,149 +1026,65 @@
         <small class="text-secondary">18:45</small>
     </td>
     <td class="w-25">
-        <a href="#" onclick="relocate(51.453147888184, -2.5912439823151)">
-            Bristol
+        <a href="#" onclick="relocate(53.550341, 10.000654)">
+            Hamburg
         </a>
 
         <br>
 
-        <small class="text-secondary">United Kingdom</small>
+        <small class="text-secondary">Germany</small>
     </td>
+    <td>
+                    👍
+            </td>
     <td class="w-50">
         <strong>
-            <a href="https://www.meetup.com/php-sw/events/283490357/">Coding With Confidence</a>
+            <a href="https://www.meetup.com/sfughh/events/hdvhqsydcfbcb/">Treffen der Symfony User Group Hamburg</a>
         </strong>
 
         <br>
 
-        <small class="text-secondary">PHPSW</small>
+        <small class="text-secondary">Symfony User Group Hamburg</small>
     </td>
 </tr>
-            <tr class="meetup" data-longitude="-46.631435394287" data-latitude="-23.604293823242" data-datetime="2022-02-10 19:00">
+            <tr class="meetup" data-longitude="-85.3094883" data-latitude="35.0457219" data-datetime="2022-03-02 12:00">
     <td class="w-25">
-                    <span class="text-nowrap text-success">
-                        Thu,
-                        <strong>Feb 10</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(-23.604293823242, -46.631435394287)">
-            São Paulo
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Brazil</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/php-sp/events/bpmsqsydcdbnb/">PHPSP Pub</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">PHPSP</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="-43.968860626221" data-latitude="-19.861371994019" data-datetime="2022-02-11 19:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-success">
-                        Fri,
-                        <strong>Feb 11</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(-19.861371994019, -43.968860626221)">
-            Belo Horizonte
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Brazil</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/PHP-MG/events/283617370/">21º PHPMG Talks</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">PHPMG</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="-86.141220092773" data-latitude="39.766067504883" data-datetime="2022-02-15 18:30">
-    <td class="w-25">
-                    <span class="text-nowrap text-warning">
-                        Tue,
-                        <strong>Feb 15</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">18:30</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(39.766067504883, -86.141220092773)">
-            Indianapolis
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Indiana</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/indyphp/events/slhppsydcdbtb/">Tech+Beer Downtown (formerly PHP+Beer)</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">Downtown Tech+Beer (formerly Indianapolis PHP Meetup)</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="-0.091050997376442" data-latitude="51.520523071289" data-datetime="2022-02-16 09:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-warning">
+                    <span class="text-nowrap text-danger">
                         Wed,
-                        <strong>Feb 16</strong>
+                        <strong>Mar 02</strong>
                     </span>
 
         <br>
 
-        <small class="text-secondary">09:00</small>
+        <small class="text-secondary">12:00</small>
     </td>
     <td class="w-25">
-        <a href="#" onclick="relocate(51.520523071289, -0.091050997376442)">
-            London
+        <a href="#" onclick="relocate(35.0457219, -85.3094883)">
+            Chattanooga
         </a>
 
         <br>
 
-        <small class="text-secondary">United Kingdom</small>
+        <small class="text-secondary">TN</small>
     </td>
+    <td>
+                    👍
+            </td>
     <td class="w-50">
         <strong>
-            <a href="https://www.meetup.com/phplondon/events/283468541/">PHP UK Conference 2022</a>
+            <a href="https://www.meetup.com/chattanoogaphp/events/mwpqrsydcfbdb/">PHP and Laravel monthly meetup</a>
         </strong>
 
         <br>
 
-        <small class="text-secondary">PHP London</small>
+        <small class="text-secondary">Chattanooga PHP Developers (Laravel/Drupal/Symfony/All PHP)</small>
     </td>
 </tr>
-            <tr class="meetup" data-longitude="138.59996032715" data-latitude="-34.928619384766" data-datetime="2022-02-17 18:00">
+            <tr class="meetup" data-longitude="6.5680077" data-latitude="53.2190652" data-datetime="2022-03-02 18:00">
     <td class="w-25">
-                    <span class="text-nowrap text-warning">
-                        Thu,
-                        <strong>Feb 17</strong>
+                    <span class="text-nowrap text-danger">
+                        Wed,
+                        <strong>Mar 02</strong>
                     </span>
 
         <br>
@@ -634,202 +1092,58 @@
         <small class="text-secondary">18:00</small>
     </td>
     <td class="w-25">
-        <a href="#" onclick="relocate(-34.928619384766, 138.59996032715)">
-            Adelaide
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Australia</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/PHP-Adelaide/events/vxpcxlydcdbwb/">PHP Adelaide User Group Meeting</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">PHP Adelaide</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="4.9041390419006" data-latitude="52.367572784424" data-datetime="2022-02-17 19:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-warning">
-                        Thu,
-                        <strong>Feb 17</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(52.367572784424, 4.9041390419006)">
-            Amsterdam
+        <a href="#" onclick="relocate(53.2190652, 6.5680077)">
+            Groningen
         </a>
 
         <br>
 
         <small class="text-secondary">Netherlands</small>
     </td>
+    <td>
+                    👍
+            </td>
     <td class="w-50">
         <strong>
-            <a href="https://www.meetup.com/AmsterdamPHP/events/mhtvlrydcdbwb/">Monthly Meeting</a>
+            <a href="https://www.meetup.com/Laravel-Meetup-Groningen/events/283708248/">Laravel Origins documentary premiere &amp; Afterparty with Taylor Otwell</a>
         </strong>
 
         <br>
 
-        <small class="text-secondary">AmsterdamPHP</small>
+        <small class="text-secondary">Laravel Meetup Groningen</small>
     </td>
 </tr>
-            <tr class="meetup" data-longitude="0.68148398399353" data-latitude="47.363296508789" data-datetime="2022-02-17 19:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-warning">
-                        Thu,
-                        <strong>Feb 17</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(47.363296508789, 0.68148398399353)">
-            Tours
-        </a>
-
-        <br>
-
-        <small class="text-secondary">France</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/afup-tours-php/events/283354121/">Validation avancée Symfony - Excel : en fait, c&#039;est pas si mal !</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">Antenne AFUP Tours PHP</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="-111.89384460449" data-latitude="40.440002441406" data-datetime="2022-02-17 19:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-warning">
-                        Thu,
-                        <strong>Feb 17</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">19:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(40.440002441406, -111.89384460449)">
-            Lehi
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Utah</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/Utah-PHP-User-Group/events/vlfnprydcdbwb/">Developing SOLID Code by Mark Niebergall</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">Utah PHP User Group</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="-115.15256500244" data-latitude="36.15958404541" data-datetime="2022-02-19 13:00">
-    <td class="w-25">
-                    <span class="text-nowrap text-warning">
-                        Sat,
-                        <strong>Feb 19</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">13:00</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(36.15958404541, -115.15256500244)">
-            Las Vegas
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Nevada</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/Vegas-Programmers/events/vzrlrsydcdbzb/">Demo Time! Showcase your StartUp or Pet Project.</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">Vegas Programmers</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="-115.15264892578" data-latitude="36.159141540527" data-datetime="2022-02-19 14:30">
-    <td class="w-25">
-                    <span class="text-nowrap text-warning">
-                        Sat,
-                        <strong>Feb 19</strong>
-                    </span>
-
-        <br>
-
-        <small class="text-secondary">14:30</small>
-    </td>
-    <td class="w-25">
-        <a href="#" onclick="relocate(36.159141540527, -115.15264892578)">
-            Las Vegas
-        </a>
-
-        <br>
-
-        <small class="text-secondary">Nevada</small>
-    </td>
-    <td class="w-50">
-        <strong>
-            <a href="https://www.meetup.com/Vegas-Programmers/events/kzrlrsydcdbzb/">App Monitoring Tools + Home Assistant + AI Round Table</a>
-        </strong>
-
-        <br>
-
-        <small class="text-secondary">Vegas Programmers</small>
-    </td>
-</tr>
-            <tr class="meetup" data-longitude="-86.801834106445" data-latitude="35.957515716553" data-datetime="2022-03-01 11:30">
+            <tr class="meetup" data-longitude="25.2829111" data-latitude="54.6870458" data-datetime="2022-03-03 19:00">
     <td class="w-25">
                     <span class="text-nowrap text-danger">
-                        Tue,
-                        <strong>Mar 01</strong>
+                        Thu,
+                        <strong>Mar 03</strong>
                     </span>
 
         <br>
 
-        <small class="text-secondary">11:30</small>
+        <small class="text-secondary">19:00</small>
     </td>
     <td class="w-25">
-        <a href="#" onclick="relocate(35.957515716553, -86.801834106445)">
-            Franklin
+        <a href="#" onclick="relocate(54.6870458, 25.2829111)">
+            Vilnius
         </a>
 
         <br>
 
-        <small class="text-secondary">Tennessee</small>
+        <small class="text-secondary">Lithuania</small>
     </td>
+    <td>
+                    👍
+            </td>
     <td class="w-50">
         <strong>
-            <a href="https://www.meetup.com/nashvillephp/events/gvsrlsydcfbcb/">Nashville PHP South Lunch</a>
+            <a href="https://www.meetup.com/vilniusphp/events/hxqwrsydcfbfb/">Vilnius PHP</a>
         </strong>
 
         <br>
 
-        <small class="text-secondary">Nashville PHP</small>
+        <small class="text-secondary">Vilnius PHP Meetups</small>
     </td>
 </tr>
             <tr class="meetup" data-longitude="6.569179058075" data-latitude="53.214248657227" data-datetime="2022-03-03 19:30">
@@ -852,6 +1166,8 @@
 
         <small class="text-secondary">Netherlands</small>
     </td>
+    <td>
+            </td>
     <td class="w-50">
         <strong>
             <a href="https://www.meetup.com/GroningenPHP/events/jhvhqrydcfbfb/">PHP Meetup /Talk by.......</a>
@@ -860,6 +1176,39 @@
         <br>
 
         <small class="text-secondary">GroningenPHP</small>
+    </td>
+</tr>
+            <tr class="meetup" data-longitude="-86.7742984" data-latitude="36.1622767" data-datetime="2022-03-08 18:00">
+    <td class="w-25">
+                    <span class="text-nowrap text-danger">
+                        Tue,
+                        <strong>Mar 08</strong>
+                    </span>
+
+        <br>
+
+        <small class="text-secondary">18:00</small>
+    </td>
+    <td class="w-25">
+        <a href="#" onclick="relocate(36.1622767, -86.7742984)">
+            Nashville
+        </a>
+
+        <br>
+
+        <small class="text-secondary">TN</small>
+    </td>
+    <td>
+                    👍
+            </td>
+    <td class="w-50">
+        <strong>
+            <a href="https://www.meetup.com/nashvillephp/events/kzkdwrydcfblb/">Monthly Virtual PHP Meetup</a>
+        </strong>
+
+        <br>
+
+        <small class="text-secondary">Nashville PHP</small>
     </td>
 </tr>
     </table>
@@ -869,7 +1218,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
-        <script src="/assets/js/menu-area-pick.js?v=619547807"></script>
+        <script src="/assets/js/menu-area-pick.js?v=426237584"></script>
 
         <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
         integrity="sha512-2fA79E27MOeBgLjmBrtAgM/20clVSV8vJERaW/EcnnWCVGwQRazzKtQS1kIusCZv1PtaQxosDZZ0F1Oastl55w=="
@@ -887,6 +1236,36 @@
         
         {
                         "type": "green",
+                        "title": "Monthly Virtual PHP Meetup",
+                        "position": [36.1622767, -86.7742984],
+                        "date": "02-08",
+                        "location": "Nashville",
+                        "url": "https://www.meetup.com/nashvillephp/events/kzkdwrydcdblb/",
+                        // for filtering
+                        "datetime": "2022-02-08 18:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "71. Meetup PHPUG Rheinhessen",
+                        "position": [50.0012314, 8.2762513],
+                        "date": "02-08",
+                        "location": "Mainz",
+                        "url": "https://www.meetup.com/PHP-User-Group-Rheinhessen/events/283216335/",
+                        // for filtering
+                        "datetime": "2022-02-08 19:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "Cómo crear sitios con WordPress sin comprar plantillas",
+                        "position": [19.4326296, -99.1331785],
+                        "date": "02-08",
+                        "location": "México City",
+                        "url": "https://www.meetup.com/PHP-The-Right-Way/events/283637086/",
+                        // for filtering
+                        "datetime": "2022-02-08 20:00",
+                    },
+                                                                                {
+                        "type": "green",
                         "title": "Coding With Confidence",
                         "position": [51.453147888184, -2.5912439823151],
                         "date": "02-09",
@@ -894,6 +1273,66 @@
                         "url": "https://www.meetup.com/php-sw/events/283490357/",
                         // for filtering
                         "datetime": "2022-02-09 18:45",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "MergePHP - Container-Native w/o k8s: PHP in ECS on AWS",
+                        "position": [47.6038321, -122.3300624],
+                        "date": "02-10",
+                        "location": "Seattle",
+                        "url": "https://www.meetup.com/seaphp/events/283728414/",
+                        // for filtering
+                        "datetime": "2022-02-10 16:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "Explorer Series Episode 4: A Quest to Find Your Ideal Frontend Framework",
+                        "position": [6.9387469, 79.8541134],
+                        "date": "02-10",
+                        "location": "Colombo",
+                        "url": "https://www.meetup.com/PHP-developers-Sri-Lanka/events/283477619/",
+                        // for filtering
+                        "datetime": "2022-02-10 17:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "MergePHP - Container-Native w/o k8s: PHP in ECS on AWS",
+                        "position": [33.4484367, -112.0741417],
+                        "date": "02-10",
+                        "location": "Phoenix",
+                        "url": "https://www.meetup.com/azPHPUG/events/283662074/",
+                        // for filtering
+                        "datetime": "2022-02-10 17:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "MergePHP - Container-Native w/o k8s: PHP in ECS on AWS",
+                        "position": [39.100105, -94.5781416],
+                        "date": "02-10",
+                        "location": "Kansas City",
+                        "url": "https://www.meetup.com/kcphpug/events/283727670/",
+                        // for filtering
+                        "datetime": "2022-02-10 18:00",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "Meetup I/2022 - Deploy PHP Apps with Docker - The Essentials",
+                        "position": [51.0493286, 13.7381437],
+                        "date": "02-10",
+                        "location": "Dresden",
+                        "url": "https://www.meetup.com/PHP-USERGROUP-DRESDEN/events/283569105/",
+                        // for filtering
+                        "datetime": "2022-02-10 18:30",
+                    },
+                                                                                {
+                        "type": "green",
+                        "title": "MergePHP - Container-Native w/o k8s: PHP in ECS on AWS",
+                        "position": [42.3602534, -71.0582912],
+                        "date": "02-10",
+                        "location": "Boston",
+                        "url": "https://www.meetup.com/bostonphp/events/283038468/",
+                        // for filtering
+                        "datetime": "2022-02-10 19:00",
                     },
                                                                                 {
                         "type": "green",
@@ -917,6 +1356,16 @@
                     },
                                                                                 {
                         "type": "orange",
+                        "title": "Monthly Meetup",
+                        "position": [45.5202471, -122.6741949],
+                        "date": "02-15",
+                        "location": "Portland",
+                        "url": "https://www.meetup.com/PDX-PHP/events/bllwzrydcdbtb/",
+                        // for filtering
+                        "datetime": "2022-02-15 18:00",
+                    },
+                                                                                {
+                        "type": "orange",
                         "title": "Tech+Beer Downtown (formerly PHP+Beer)",
                         "position": [39.766067504883, -86.141220092773],
                         "date": "02-15",
@@ -927,6 +1376,26 @@
                     },
                                                                                 {
                         "type": "orange",
+                        "title": "API-first design approach with Stoplight",
+                        "position": [37.9839412, 23.7283052],
+                        "date": "02-15",
+                        "location": "Athens",
+                        "url": "https://www.meetup.com/athens-laravel-meetup/events/283314971/",
+                        // for filtering
+                        "datetime": "2022-02-15 19:00",
+                    },
+                                                                                {
+                        "type": "orange",
+                        "title": "Deploying PHP Apps with Docker Compose - The Essentials",
+                        "position": [52.2055314, 0.1186637],
+                        "date": "02-15",
+                        "location": "Cambridge",
+                        "url": "https://www.meetup.com/phpcambridge/events/283222395/",
+                        // for filtering
+                        "datetime": "2022-02-15 19:00",
+                    },
+                                                                                {
+                        "type": "orange",
                         "title": "PHP UK Conference 2022",
                         "position": [51.520523071289, -0.091050997376442],
                         "date": "02-16",
@@ -934,6 +1403,16 @@
                         "url": "https://www.meetup.com/phplondon/events/283468541/",
                         // for filtering
                         "datetime": "2022-02-16 09:00",
+                    },
+                                                                                {
+                        "type": "orange",
+                        "title": "Essex Web Developers Meetup",
+                        "position": [51.7345398, 0.4724553],
+                        "date": "02-16",
+                        "location": "Chelmsford",
+                        "url": "https://www.meetup.com/EssexWebDevelopers/events/nbfzjsydcdbvb/",
+                        // for filtering
+                        "datetime": "2022-02-16 19:15",
                     },
                                                                                 {
                         "type": "orange",
@@ -977,6 +1456,16 @@
                     },
                                                                                 {
                         "type": "orange",
+                        "title": "PHP Meetup /Talk by ..........???????",
+                        "position": [53.2190652, 6.5680077],
+                        "date": "02-17",
+                        "location": "Groningen",
+                        "url": "https://www.meetup.com/GroningenPHP/events/jhvhqrydcdbfb/",
+                        // for filtering
+                        "datetime": "2022-02-17 19:30",
+                    },
+                                                                                {
+                        "type": "orange",
                         "title": "Demo Time! Showcase your StartUp or Pet Project.",
                         "position": [36.15958404541, -115.15256500244],
                         "date": "02-19",
@@ -984,6 +1473,16 @@
                         "url": "https://www.meetup.com/Vegas-Programmers/events/vzrlrsydcdbzb/",
                         // for filtering
                         "datetime": "2022-02-19 13:00",
+                    },
+                                                                                {
+                        "type": "orange",
+                        "title": "Weekend Hangout",
+                        "position": [39.100105, -94.5781416],
+                        "date": "02-19",
+                        "location": "Kansas City",
+                        "url": "https://www.meetup.com/kcphpug/events/sbfkhsydcdbzb/",
+                        // for filtering
+                        "datetime": "2022-02-19 14:30",
                     },
                                                                                 {
                         "type": "orange",
@@ -997,6 +1496,26 @@
                     },
                                                                                 {
                         "type": "red",
+                        "title": "PHP Oxford meetup",
+                        "position": [51.7520131, -1.2578499],
+                        "date": "02-23",
+                        "location": "Oxford",
+                        "url": "https://www.meetup.com/PHP-Oxford/events/sksjlsydcdbfc/",
+                        // for filtering
+                        "datetime": "2022-02-23 19:30",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "PHPUGMRN 01/22",
+                        "position": [49.4892913, 8.4673098],
+                        "date": "02-24",
+                        "location": "Mannheim",
+                        "url": "https://www.meetup.com/PHPUG-Rhein-Neckar/events/283152433/",
+                        // for filtering
+                        "datetime": "2022-02-24 19:00",
+                    },
+                                                                                {
+                        "type": "red",
                         "title": "Nashville PHP South Lunch",
                         "position": [35.957515716553, -86.801834106445],
                         "date": "03-01",
@@ -1007,6 +1526,46 @@
                     },
                                                                                 {
                         "type": "red",
+                        "title": "Treffen der Symfony User Group Hamburg",
+                        "position": [53.550341, 10.000654],
+                        "date": "03-01",
+                        "location": "Hamburg",
+                        "url": "https://www.meetup.com/sfughh/events/hdvhqsydcfbcb/",
+                        // for filtering
+                        "datetime": "2022-03-01 18:45",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "PHP and Laravel monthly meetup",
+                        "position": [35.0457219, -85.3094883],
+                        "date": "03-02",
+                        "location": "Chattanooga",
+                        "url": "https://www.meetup.com/chattanoogaphp/events/mwpqrsydcfbdb/",
+                        // for filtering
+                        "datetime": "2022-03-02 12:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Laravel Origins documentary premiere &amp; Afterparty with Taylor Otwell",
+                        "position": [53.2190652, 6.5680077],
+                        "date": "03-02",
+                        "location": "Groningen",
+                        "url": "https://www.meetup.com/Laravel-Meetup-Groningen/events/283708248/",
+                        // for filtering
+                        "datetime": "2022-03-02 18:00",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Vilnius PHP",
+                        "position": [54.6870458, 25.2829111],
+                        "date": "03-03",
+                        "location": "Vilnius",
+                        "url": "https://www.meetup.com/vilniusphp/events/hxqwrsydcfbfb/",
+                        // for filtering
+                        "datetime": "2022-03-03 19:00",
+                    },
+                                                                                {
+                        "type": "red",
                         "title": "PHP Meetup /Talk by.......",
                         "position": [53.214248657227, 6.569179058075],
                         "date": "03-03",
@@ -1014,6 +1573,16 @@
                         "url": "https://www.meetup.com/GroningenPHP/events/jhvhqrydcfbfb/",
                         // for filtering
                         "datetime": "2022-03-03 19:30",
+                    },
+                                                                                {
+                        "type": "red",
+                        "title": "Monthly Virtual PHP Meetup",
+                        "position": [36.1622767, -86.7742984],
+                        "date": "03-08",
+                        "location": "Nashville",
+                        "url": "https://www.meetup.com/nashvillephp/events/kzkdwrydcfblb/",
+                        // for filtering
+                        "datetime": "2022-03-08 18:00",
                     }
     ];
 
