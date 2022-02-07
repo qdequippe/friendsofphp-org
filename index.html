@@ -31,33 +31,53 @@
 </head>
 
     <body>
-        <div id="head" class="text-center pt-3 pb-2">
-            <h1>
-    <a href="/">
-        When is the Next <strong>PHP Meetup</strong>?
-        🐘
-    </a>
-</h1>
+        <div id="head" class="text-center pt-5 pb-2 mb-0">
+            <div class="container-fluid">
+                <h1 class="mb-4">
+                    <a href="/">
+                        When is the Next <strong>PHP Meetup</strong>?
+                        🐘
+                    </a>
+                </h1>
 
-<p>
-    Visit one of 36 upcoming PHP meetups
-
-    <a href="https://github.com/TomasVotruba/friendsofphp.org/edit/main/json-database/groups.json" class="btn btn-success btn-sm ml-2">
-        Add Your Group
-    </a>
-</p>
+                <blockquote class="blockquote text-bigger text-center mb-4">
+                    "It was so awesome to meet <strong>new people who also love PHP</strong>!"
+                    <div class="blockquote-footer">
+                        Every 1st-time meetup visitor
+                    </div>
+                </blockquote>
+            </div>
         </div>
+
+        <hr class="mt-0">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 text-uppercase">↓ Zoom the map to filter</div>
+                <div class="col-6 text-secondary text-center">
+                    Displaying <strong>36 PHP meetups</strong> from 149 PHP groups
+                </div>
+
+                <div class="col-3">
+                    <div id="filter-form">
+                        <label>
+                            <input id="search" class="form-control" placeholder="FILTER BY ANYTHING... ↓" aria-controls="map-filterable-table">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
 
             <div class="container-fluid" id="content">
         <div class="row">
-            <div class="col-md-4 pl-md-0 pr-md-0 pt-3">
+            <div class="col-md-4 pl-md-0 pr-md-0">
                 <a name="map"></a>
                 <div id="mapid"></div>
             </div>
 
-            <script src="/assets/js/utils.js"></script>
-
-            <div class="col-md-8 pb-5 pt-3">
+            <div class="col-md-8 mt-0">
                 <table class="table table-bordered table-responsive table-meetups" id="map-filterable-table">
     <thead class="thead-inverse">
         <tr>
@@ -189,7 +209,7 @@
         <small class="text-secondary">United Kingdom</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -420,7 +440,7 @@
         <small class="text-secondary">Brazil</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -453,7 +473,7 @@
         <small class="text-secondary">Brazil</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -519,7 +539,7 @@
         <small class="text-secondary">Indiana</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -618,7 +638,7 @@
         <small class="text-secondary">United Kingdom</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -684,7 +704,7 @@
         <small class="text-secondary">Australia</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -717,7 +737,7 @@
         <small class="text-secondary">Croatia</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -750,7 +770,7 @@
         <small class="text-secondary">Netherlands</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -783,7 +803,7 @@
         <small class="text-secondary">France</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -816,7 +836,7 @@
         <small class="text-secondary">Utah</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -882,7 +902,7 @@
         <small class="text-secondary">Nevada</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -948,7 +968,7 @@
         <small class="text-secondary">Nevada</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -1047,7 +1067,7 @@
         <small class="text-secondary">Tennessee</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -1212,7 +1232,7 @@
         <small class="text-secondary">Netherlands</small>
     </td>
     <td>
-                <span title="In person">🫂</span>
+                <span title="In person">🧑‍🤝‍🧑</span>
             </td>
     <td class="w-50">
         <strong>
@@ -1259,12 +1279,14 @@
 </tr>
     </table>
             </div>
+
+            <script src="/assets/js/utils.js"></script>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
-        <script src="/assets/js/menu-area-pick.js?v=518251639"></script>
+        <script src="/assets/js/menu-area-pick.js?v=1905278928"></script>
 
         <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
         integrity="sha512-2fA79E27MOeBgLjmBrtAgM/20clVSV8vJERaW/EcnnWCVGwQRazzKtQS1kIusCZv1PtaQxosDZZ0F1Oastl55w=="
@@ -1794,51 +1816,25 @@
         }
     });
 
-    $("[aria-controls='static-table']").attr('placeholder', 'Filter Meetups...');
-    $("[aria-controls='map-filterable-table']").attr('placeholder', 'Filter Meetups...');
+    $('#search').keyup(function() {
+        var table = $('.table-meetups').DataTable();
+        table.search($(this).val()).draw();
+    });
+
 </script>
 
-<footer class="pb-5 pt-5 mt-5">
+<footer class="pb-2 pt-3 mt-5">
     <div class="container-fluid">
-        <blockquote class="blockquote text-bigger text-center mb-5">
-            "Meeting people from other countries brings<br>
-            <strong>fresh energy to your coding</strong>, new ideas and valuable feedback."
-        </blockquote>
-
-        <br>
-
-        <div class="row">
-            <div class="col-6">
-                <h3>How to Use It?</h3>
-
-                <ul>
-                    <li>Zoom in the map</li>
-                    <li>Filter the meetup table</li>
-                    <li>Pick a meetup in your area</li>
-                    <li><a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">Go speak</a> or meet new friends</li>
-                </ul>
-            </div>
-
-            <div class="col-6">
-                <h3>Features</h3>
-
-                <ul>
-                    <li>Meetups are <strong>updated every 12 hours</strong></li>
-                    <li>Showing meetups for next <strong>30 days</strong></li>
-                    <li>Generated by GitHub Actions</li>
-                    <li>Hosted on <a href="https://github.com/tomasvotruba/friendsofphp.org">Github Pages</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <hr class="mt-5 mb-5">
-
-        <div class="text-center pt-5">
-            <p class="dim">
+        <div class="text-center">
+            <p>
                 Made with ❤️ by ️☕️ and <a href="https://tomasvotruba.com">Tomas Votruba</a>
+                based on personal <a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">meetings with awesome people</a>
+
                 <span class="pl-2 pr-2">•</span>
 
-                Fully <a href="https://github.com/tomasvotruba/friendsofphp.org">Open Sourced</a>
+                <a href="https://github.com/tomasvotruba/friendsofphp.org">
+                    <svg style="width: 1.7em; margin-bottom: -.5em" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg>
+                </a>
 
                 <br>
 
