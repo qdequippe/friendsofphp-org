@@ -39,8 +39,3 @@ parameters:
         -
             message: '#Instead of abstract class, use specific service with composition#'
             path: packages/meetup/src/Repository/AbstractRepository.php
-
-        # fix later - see https://github.com/guzzle/guzzle/pull/2516/files + https://github.com/guzzle/guzzle/issues/2514
-        -
-            message: '#Anonymous variables in a method call can lead to false dead methods\. Make sure the variable type is known#'
-            path: packages/meetup-com/src/Guzzle/Oauth2AwareClientFactory.php

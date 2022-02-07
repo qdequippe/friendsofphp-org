@@ -7,6 +7,7 @@ namespace Fop\MeetupCom\Guzzle;
 use Fop\Core\Exception\ShouldNotHappenException;
 use Fop\Core\ValueObject\Option;
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use kamermans\OAuth2\GrantType\ClientCredentials;
 use kamermans\OAuth2\OAuth2Middleware;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
@@ -80,10 +81,15 @@ final class Oauth2AwareClientFactory
 
     private function decorateWithOauth2Client(OAuth2Middleware $oAuth2Middleware): Oauth2AwareClient
     {
-        $oauth2AwareClient = new Oauth2AwareClient();
-        $config = $oauth2AwareClient->getConfig('handler');
-        $config->push($oAuth2Middleware);
+        $handlerStack = HandlerStack::create();
+        $handlerStack->push($oAuth2Middleware);
 
-        return $oauth2AwareClient;
+        return new Oauth2AwareClient([
+            'handler' => $handlerStack,
+        ]);
+//        $config = $oauth2AwareClient->getConfig('handler');
+//        $config->push($oAuth2Middleware);
+
+//        return $oauth2AwareClient;
     }
 }
