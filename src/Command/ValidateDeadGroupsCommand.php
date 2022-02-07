@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Meetup\Command;
+namespace Fop\Core\Command;
 
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;

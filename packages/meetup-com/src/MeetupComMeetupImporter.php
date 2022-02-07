@@ -34,20 +34,23 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             try {
-                $message = sprintf('Loading meetups for "%s" group', $group->getMeetupComSlug());
+                $groupSlug = $group->getMeetupComSlug();
+
+                $message = sprintf('Loading meetups for "%s" group', $groupSlug);
                 $this->symfonyStyle->note($message);
 
-                $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($group->getMeetupComSlug());
+                $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
+
                 $this->meetupComCooler->coolDownIfNeeded();
 
-                // should help with https://github.com/TomasVotruba/friendsofphp.org/runs/492500241#step:4:32
-                // @see https://www.meetup.com/meetup_api/#limits
+                // @see https://www.meetup.com/api/guide/#p05-rate-limiting
                 if ($meetupsData === []) {
                     continue;
                 }
 
                 $groupMeetups = $this->createMeetupsFromMeetupsData($meetupsData);
-                $meetups = [...$meetups, ...$groupMeetups];
+
+                $meetups = array_merge($meetups, $groupMeetups);
             } catch (GuzzleException $guzzleException) {
                 // the group might not exists anymore, but it should not be a blocker for existing groups
                 $errors[] = $guzzleException->getMessage();

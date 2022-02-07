@@ -41,7 +41,7 @@ final class ImportCommand extends Command
     {
         foreach ($this->meetupImporters as $meetupImporter) {
             $section = sprintf('Importing meetups from "%s"', $meetupImporter->getKey());
-            $this->symfonyStyle->section($section);
+            $this->symfonyStyle->title($section);
 
             $meetups = $meetupImporter->getMeetups();
             $meetups = $this->meetupFilterCollector->filter($meetups);

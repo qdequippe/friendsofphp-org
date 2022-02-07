@@ -8,8 +8,9 @@ use DateTimeInterface;
 use Fop\Core\Utils\DateStaticUtils;
 use Fop\Meetup\Contract\ArrayableInterface;
 use Nette\Utils\DateTime;
+use Stringable;
 
-final class Meetup implements ArrayableInterface
+final class Meetup implements ArrayableInterface, Stringable
 {
     public function __construct(
         private readonly string $name,
@@ -21,6 +22,14 @@ final class Meetup implements ArrayableInterface
         private readonly float $latitude,
         private readonly float $longitude
     ) {
+    }
+
+    /**
+     * Unique group time stamp and id, for filtering unique meetups.
+     */
+    public function __toString(): string
+    {
+        return $this->userGroupName . '_' . $this->name . '_' . $this->startDateTime->format('Y-m-d');
     }
 
     /**

@@ -42,10 +42,10 @@ abstract class AbstractRepository implements RepositoryInterface
     }
 
     /**
-     * @param array<array<string, mixed>> $items
+     * @param array<string, mixed> $item
      */
-    public function insertMany(array $items): void
+    public function insert(array $item): void
     {
-        $this->jsonDb->insert($this->getTable(), $items);
+        $this->jsonDb->insert($this->getTable(), $item);
     }
 }
