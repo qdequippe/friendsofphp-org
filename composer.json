@@ -3,7 +3,6 @@
     "require": {
         "php": "^8.1",
         "ext-simplexml": "*",
-        "doctrine/cache": "^1.12",
         "guzzlehttp/guzzle": "^7.4",
         "jajo/jsondb": "^3.0",
         "kamermans/guzzle-oauth2-subscriber": "^1.0",
