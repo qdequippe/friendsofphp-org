@@ -14,17 +14,16 @@ body {
 
 #head {
     background: hsl(229, 30%, 44%);
-    color: #DDD;
+    color: #FFF;
 }
 
-#head p a {
-    text-decoration: underline;
-    color: #ddd;
+.text-secondary {
+    text-transform: uppercase;
 }
 
-#head p a:hover {
-    text-decoration: none;
-    color: #fff;
+.blockquote-footer {
+    color: #FFF;
+    font-size: .7em;
 }
 
 #head h1 {
@@ -32,10 +31,6 @@ body {
 }
 
 #head h1 a {
-    color: #EEE;
-}
-
-#head h1 a:hover {
     color: #FFF;
     text-decoration: none;
 }
@@ -65,47 +60,6 @@ footer a.btn {
 footer a:hover {
     color: #DDD;
     text-decoration: none;
-}
-
-.add-to-calendar-button {
-    margin-top: -.2em;
-}
-
-/* precise colors */
-.text-next-month {
-    color: #2981CA;
-}
-
-/* menu */
-.navbar {
-    text-align: center;
-    background: hsl(229, 30%, 44%);
-    padding: 0;
-    margin: auto;
-}
-
-.navbar li a, .navbar li a:active, .navbar li a:focus {
-    background: white;
-}
-
-nav ul {
-    list-style: none;
-    display: block;
-    float: left;
-    padding: 0;
-    margin-bottom: 0;
-}
-
-nav ul li {
-    float: left;
-    display: block;
-    position: relative;
-}
-
-nav ul li a {
-    padding: .5em .7em;
-    display: block;
-    color: #FFF;
 }
 
 #content a:hover {
@@ -200,10 +154,10 @@ footer ul, #groups ul {
     text-decoration: none;
 }
 
-#static-table_filter input, #map-filterable-table_filter input {
-    font-size: 1.2em;
+#map-filterable-table_filter input {
+    font-size: 1.0em;
     margin-left: -.2em;
-    margin-bottom: .6em;
-    width: 100%;
+    margin-top: -5em;
+    float: right;
     color: #333;
 }
