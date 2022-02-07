@@ -4,7 +4,7 @@ on:
     pull_request: null
     push:
         branches:
-            - master
+            - main
 
 jobs:
     matrix:
@@ -25,9 +25,9 @@ jobs:
                         run: vendor/bin/phpunit
 
                     # disable until covid is over to avoid false positives
-#                    -
-#                        name: 'Dead Groups'
-#                        run: 'bin/console validate-dead-groups --ansi'
+                    -
+                        name: 'Dead Groups'
+                        run: 'bin/console validate-dead-groups --ansi'
 
         name: ${{ matrix.actions.name }}
         runs-on: ubuntu-latest
@@ -42,6 +42,6 @@ jobs:
                     # needed by phpunit
                     extensions: mbstring
 
-            -   run: composer install --no-progress --ansi --ignore-platform-reqs
+            -   run: composer install --no-progress --ansi
 
             -   run: ${{ matrix.actions.run }}

@@ -24,7 +24,7 @@ jobs:
                 with:
                     php-version: 8.1
 
-            -   run: composer install --no-progress --ansi --ignore-platform-reqs
+            -   run: composer install --no-progress --ansi
 
             # configure timezone: https://stackoverflow.com/a/27052708/1348344
             -   run: export TZ=Europe/Prague
