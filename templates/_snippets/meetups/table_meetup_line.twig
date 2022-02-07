@@ -19,6 +19,11 @@
 
         <small class="text-secondary">{{ meetup.country }}</small>
     </td>
+    <td>
+        {% if meetup.online %}
+            👍
+        {% endif %}
+    </td>
     <td class="w-50">
         <strong>
             <a href="{{ meetup.url }}">{{ meetup.name }}</a>
