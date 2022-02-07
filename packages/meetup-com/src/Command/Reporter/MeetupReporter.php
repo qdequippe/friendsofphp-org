@@ -17,7 +17,7 @@ final class MeetupReporter
     /**
      * @param Meetup[] $meetups
      */
-    public function reportMeetups(array $meetups, string $key): void
+    public function reportMeetups(array $meetups): void
     {
         if ($meetups === []) {
             return;
@@ -25,7 +25,7 @@ final class MeetupReporter
 
         $this->printMeetups($meetups);
 
-        $successMessage = sprintf('Loaded %d meetups from "%s" importer', count($meetups), $key);
+        $successMessage = sprintf('Loaded %d meetups', count($meetups));
         $this->symfonyStyle->success($successMessage);
     }
 

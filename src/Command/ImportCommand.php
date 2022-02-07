@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Fop\Core\Command;
 
-use Fop\Meetup\Contract\MeetupImporterInterface;
 use Fop\Meetup\DataCollector\MeetupCollector;
 use Fop\Meetup\Filter\MeetupFilterCollector;
 use Fop\Meetup\Repository\MeetupRepository;
 use Fop\MeetupCom\Command\Reporter\MeetupReporter;
+use Fop\MeetupCom\MeetupComMeetupImporter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,16 +17,13 @@ use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
 final class ImportCommand extends Command
 {
-    /**
-     * @param MeetupImporterInterface[] $meetupImporters
-     */
     public function __construct(
-        private readonly array $meetupImporters,
         private readonly SymfonyStyle $symfonyStyle,
         private readonly MeetupRepository $meetupRepository,
         private readonly MeetupReporter $meetupReporter,
         private readonly MeetupFilterCollector $meetupFilterCollector,
-        private readonly MeetupCollector $meetupCollector
+        private readonly MeetupCollector $meetupCollector,
+        private readonly MeetupComMeetupImporter $meetupComMeetupImporter
     ) {
         parent::__construct();
     }
@@ -39,18 +36,15 @@ final class ImportCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        foreach ($this->meetupImporters as $meetupImporter) {
-            $section = sprintf('Importing meetups from "%s"', $meetupImporter->getKey());
-            $this->symfonyStyle->title($section);
+        $this->symfonyStyle->title('Importing meetups from "meetup.com"');
 
-            $meetups = $meetupImporter->getMeetups();
-            $meetups = $this->meetupFilterCollector->filter($meetups);
+        $meetups = $this->meetupComMeetupImporter->getMeetups();
+        $meetups = $this->meetupFilterCollector->filter($meetups);
 
-            $this->meetupReporter->reportMeetups($meetups, $meetupImporter->getKey());
-            $this->meetupCollector->addMeetups($meetups);
+        $this->meetupReporter->reportMeetups($meetups);
+        $this->meetupCollector->addMeetups($meetups);
 
-            $this->symfonyStyle->newLine(2);
-        }
+        $this->symfonyStyle->newLine(2);
 
         $this->meetupRepository->saveMany($this->meetupCollector->getMeetups());
 

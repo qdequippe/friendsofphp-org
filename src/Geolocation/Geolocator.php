@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Fop\Core\Geolocation;
 
+use Fop\Core\Exception\ShouldNotHappenException;
 use Fop\Core\ValueObject\Option;
 use GuzzleHttp\Client;
+use Location\Coordinate;
 use Nette\Utils\Json;
 use Psr\Http\Message\ResponseInterface;
 use Rinvex\Country\Country;
@@ -22,6 +24,12 @@ final class Geolocator
      * @var string
      */
     private const API_LOCATION_TO_COUNTRY = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=%s&lon=%s';
+
+    /**
+     * @see https://stackoverflow.com/a/7028463/1348344
+     * @var string
+     */
+    private const API_SEARCH_BY_CITY = 'https://nominatim.openstreetmap.org/search?format=json&q=%s';
 
     /**
      * @var string
@@ -58,6 +66,21 @@ final class Geolocator
         private readonly Client $client
     ) {
         $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
+    }
+
+    public function resolveLatLonByCityAndCountry(string $location): Coordinate
+    {
+        $url = sprintf(self::API_SEARCH_BY_CITY, $location);
+        $response = $this->client->get($url);
+
+        $json = $this->createJsonFromResponse($response);
+
+        $resultItem = $json[0] ?? null;
+        if ($resultItem === null) {
+            throw new ShouldNotHappenException();
+        }
+
+        return new Coordinate((float) $resultItem['lat'], (float) $resultItem['lon']);
     }
 
     /**

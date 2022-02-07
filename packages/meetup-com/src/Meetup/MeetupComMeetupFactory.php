@@ -34,6 +34,11 @@ final class MeetupComMeetupFactory
      */
     private const CITY = 'city';
 
+    /**
+     * @var string
+     */
+    private const IS_ONLINE_EVENT = 'is_online_event';
+
     public function __construct(
         private readonly Geolocator $geolocator,
         private readonly CityNormalizer $cityNormalizer
@@ -51,11 +56,8 @@ final class MeetupComMeetupFactory
 
         $startDateTime = $this->createStartDateTimeFromEventData($data);
         $location = $this->createLocation($data);
-        if (! $location instanceof Location) {
-            return null;
-        }
-
         $name = $this->createName($data);
+        $isOnline = (bool) $data[self::IS_ONLINE_EVENT];
 
         return new Meetup(
             $name,
@@ -65,7 +67,8 @@ final class MeetupComMeetupFactory
             $location->getCity(),
             $location->getCountry(),
             $location->getCoordinateLatitude(),
-            $location->getCoordinateLongitude()
+            $location->getCoordinateLongitude(),
+            $isOnline
         );
     }
 
@@ -83,6 +86,7 @@ final class MeetupComMeetupFactory
         if ($meetup['status'] !== 'upcoming') {
             return true;
         }
+
         // draft event, not ready yet
         return ! isset($meetup['venue']);
     }
@@ -102,17 +106,21 @@ final class MeetupComMeetupFactory
     /**
      * @param mixed[] $data
      */
-    private function createLocation(array $data): ?Location
+    private function createLocation(array $data): Location
     {
         $venue = $data['venue'];
 
-        if (! isset($venue[self::LON])) {
+        if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT] === true) {
             // online event probably
-            return null;
+            $localizedLocation = $data['group']['localized_location'];
+            [$city, $country] = explode(', ', (string) $localizedLocation);
+
+            $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
+            return new Location($city, $country, $coordinate);
         }
 
         // base location of the meetup, use it for event location
-        if ($venue[self::LON] === 0 || $venue[self::LAT] === 0 || (isset($venue[self::CITY]) && $venue[self::CITY] === 'Shenzhen')) {
+        if (isset($venue[self::LON]) && $venue[self::LON] === 0 || $venue[self::LAT] === 0 || (isset($venue[self::CITY]) && $venue[self::CITY] === 'Shenzhen')) {
             // correction for Shenzhen miss-location to America
             $venue[self::LON] = $data[self::GROUP]['group_lon'];
             $venue[self::LAT] = $data[self::GROUP]['group_lat'];
