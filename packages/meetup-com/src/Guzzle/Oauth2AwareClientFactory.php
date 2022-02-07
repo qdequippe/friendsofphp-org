@@ -87,9 +87,5 @@ final class Oauth2AwareClientFactory
         return new Oauth2AwareClient([
             'handler' => $handlerStack,
         ]);
-//        $config = $oauth2AwareClient->getConfig('handler');
-//        $config->push($oAuth2Middleware);
-
-//        return $oauth2AwareClient;
     }
 }
