@@ -20,7 +20,8 @@ final class Meetup implements ArrayableInterface, Stringable
         private readonly string $city,
         private readonly string $country,
         private readonly float $latitude,
-        private readonly float $longitude
+        private readonly float $longitude,
+        private readonly bool $isOnline
     ) {
     }
 
@@ -45,7 +46,8 @@ final class Meetup implements ArrayableInterface, Stringable
             $data['city'],
             $data['country'],
             $data['latitude'],
-            $data['longitude']
+            $data['longitude'],
+            $data['is_online'],
         );
     }
 
@@ -134,6 +136,12 @@ final class Meetup implements ArrayableInterface, Stringable
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
             'url' => $this->url,
+            'is_online' => $this->isOnline,
         ];
+    }
+
+    public function isOnline(): bool
+    {
+        return $this->isOnline;
     }
 }

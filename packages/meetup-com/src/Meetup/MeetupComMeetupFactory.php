@@ -50,12 +50,15 @@ final class MeetupComMeetupFactory
         }
 
         $startDateTime = $this->createStartDateTimeFromEventData($data);
+
         $location = $this->createLocation($data);
         if (! $location instanceof Location) {
             return null;
         }
 
         $name = $this->createName($data);
+
+        $isOnline = (bool) $data['is_online_event'] ?? false;
 
         return new Meetup(
             $name,
@@ -65,7 +68,8 @@ final class MeetupComMeetupFactory
             $location->getCity(),
             $location->getCountry(),
             $location->getCoordinateLatitude(),
-            $location->getCoordinateLongitude()
+            $location->getCoordinateLongitude(),
+            $isOnline
         );
     }
 
@@ -83,6 +87,7 @@ final class MeetupComMeetupFactory
         if ($meetup['status'] !== 'upcoming') {
             return true;
         }
+
         // draft event, not ready yet
         return ! isset($meetup['venue']);
     }
@@ -106,13 +111,17 @@ final class MeetupComMeetupFactory
     {
         $venue = $data['venue'];
 
-        if (! isset($venue[self::LON])) {
+        if (isset($data['is_online_event']) && $data['is_online_event'] === true) {
             // online event probably
-            return null;
+            $localizedLocation = $data['group']['localized_location'];
+            [$city, $country] = explode(', ', $localizedLocation);
+
+            $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
+            return new Location($city, $country, $coordinate);
         }
 
         // base location of the meetup, use it for event location
-        if ($venue[self::LON] === 0 || $venue[self::LAT] === 0 || (isset($venue[self::CITY]) && $venue[self::CITY] === 'Shenzhen')) {
+        if (isset($venue[self::LON]) && $venue[self::LON] === 0 || $venue[self::LAT] === 0 || (isset($venue[self::CITY]) && $venue[self::CITY] === 'Shenzhen')) {
             // correction for Shenzhen miss-location to America
             $venue[self::LON] = $data[self::GROUP]['group_lon'];
             $venue[self::LAT] = $data[self::GROUP]['group_lat'];

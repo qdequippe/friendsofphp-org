@@ -36,6 +36,8 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
             try {
                 $groupSlug = $group->getMeetupComSlug();
 
+                $groupSlug = 'vilniusphp';
+
                 $message = sprintf('Loading meetups for "%s" group', $groupSlug);
                 $this->symfonyStyle->note($message);
 
@@ -49,7 +51,6 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
                 }
 
                 $groupMeetups = $this->createMeetupsFromMeetupsData($meetupsData);
-
                 $meetups = array_merge($meetups, $groupMeetups);
             } catch (GuzzleException $guzzleException) {
                 // the group might not exists anymore, but it should not be a blocker for existing groups
@@ -79,6 +80,8 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
         $meetups = [];
 
         foreach ($meetupsData as $meetupData) {
+            dump($meetupData);
+
             $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
             if (! $meetup instanceof Meetup) {
                 continue;
