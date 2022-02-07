@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Fop\Core\Geolocation;
 
 use Fop\Core\ValueObject\Option;
-use Fop\Meetup\ValueObject\Location;
 use GuzzleHttp\Client;
-use Location\Coordinate;
 use Nette\Utils\Json;
 use Psr\Http\Message\ResponseInterface;
 use Rinvex\Country\Country;
@@ -19,11 +17,6 @@ use Symplify\PackageBuilder\Parameter\ParameterProvider;
  */
 final class Geolocator
 {
-    /**
-     * @var string
-     */
-    private const API_CITY_TO_LOCATION = 'https://nominatim.openstreetmap.org/search.php?q=%s&format=json';
-
     /**
      * @var string
      */
@@ -64,25 +57,6 @@ final class Geolocator
         private readonly Client $client
     ) {
         $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
-    }
-
-    public function createLocationFromCity(string $city): ?Location
-    {
-        $url = sprintf(self::API_CITY_TO_LOCATION, $city);
-
-        $response = $this->client->get($url);
-        $json = $this->createJsonFromResponse($response);
-
-        if (! isset($json[0][self::LAT]) || ! isset($json[0][self::LAT])) {
-            return null;
-        }
-
-        $lat = (float) $json[0][self::LAT];
-        $lon = (float) $json[0]['lon'];
-
-        $country = $this->resolveCountryByLatitudeAndLongitude($lat, $lon);
-
-        return new Location($city, $country, new Coordinate($lat, $lon));
     }
 
     /**
