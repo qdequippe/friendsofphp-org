@@ -44,7 +44,6 @@
             "Fop\\Core\\": "src",
             "Fop\\Meetup\\": "packages/meetup/src",
             "Fop\\MeetupCom\\": "packages/meetup-com/src",
-            "Fop\\CrosswebPl\\": "packages/crossweb-pl/src",
             "Fop\\OpentechcalendarCoUk\\": "packages/opentechcalendar-co-uk/src"
         }
     },
