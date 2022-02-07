@@ -50,15 +50,9 @@ final class MeetupComMeetupFactory
         }
 
         $startDateTime = $this->createStartDateTimeFromEventData($data);
-
         $location = $this->createLocation($data);
-        if (! $location instanceof Location) {
-            return null;
-        }
-
         $name = $this->createName($data);
-
-        $isOnline = isset($data['is_online_event']) ? $data['is_online_event'] : false;
+        $isOnline = (bool) $data['is_online_event'];
 
         return new Meetup(
             $name,
