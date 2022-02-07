@@ -155,11 +155,6 @@
         "country": "Spain"
     },
     {
-        "name": "PHP Sevilla",
-        "meetup_com_slug": "PHP-Sevilla",
-        "country": "Spain"
-    },
-    {
         "name": "Sri Lanka",
         "meetup_com_slug": "PHP-developers-Sri-Lanka",
         "country": "Sri Lanka"
@@ -693,11 +688,6 @@
         "name": "Boston PHP",
         "meetup_com_slug": "bostonphp",
         "country": "Massachusetts"
-    },
-    {
-        "name": "Detroit Laravel Meetup",
-        "meetup_com_slug": "Laravel-Detroit",
-        "country": "Michigan"
     },
     {
         "name": "Kansas City PHP User Group",
