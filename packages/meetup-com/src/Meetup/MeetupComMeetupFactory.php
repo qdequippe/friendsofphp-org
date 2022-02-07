@@ -34,6 +34,11 @@ final class MeetupComMeetupFactory
      */
     private const CITY = 'city';
 
+    /**
+     * @var string
+     */
+    private const IS_ONLINE_EVENT = 'is_online_event';
+
     public function __construct(
         private readonly Geolocator $geolocator,
         private readonly CityNormalizer $cityNormalizer
@@ -52,7 +57,7 @@ final class MeetupComMeetupFactory
         $startDateTime = $this->createStartDateTimeFromEventData($data);
         $location = $this->createLocation($data);
         $name = $this->createName($data);
-        $isOnline = (bool) $data['is_online_event'];
+        $isOnline = (bool) $data[self::IS_ONLINE_EVENT];
 
         return new Meetup(
             $name,
@@ -105,10 +110,10 @@ final class MeetupComMeetupFactory
     {
         $venue = $data['venue'];
 
-        if (isset($data['is_online_event']) && $data['is_online_event'] === true) {
+        if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT] === true) {
             // online event probably
             $localizedLocation = $data['group']['localized_location'];
-            [$city, $country] = explode(', ', $localizedLocation);
+            [$city, $country] = explode(', ', (string) $localizedLocation);
 
             $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
             return new Location($city, $country, $coordinate);
