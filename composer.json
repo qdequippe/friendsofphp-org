@@ -43,8 +43,7 @@
         "psr-4": {
             "Fop\\Core\\": "src",
             "Fop\\Meetup\\": "packages/meetup/src",
-            "Fop\\MeetupCom\\": "packages/meetup-com/src",
-            "Fop\\OpentechcalendarCoUk\\": "packages/opentechcalendar-co-uk/src"
+            "Fop\\MeetupCom\\": "packages/meetup-com/src"
         }
     },
     "autoload-dev": {
