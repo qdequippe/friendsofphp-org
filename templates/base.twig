@@ -3,9 +3,44 @@
     {% include "_snippets/head.twig" %}
 
     <body>
-        <div id="head" class="text-center pt-3 pb-2">
-            {% include "_snippets/headline.twig" %}
+        <div id="head" class="text-center pt-5 pb-2 mb-0">
+            <div class="container-fluid">
+                <h1 class="mb-4">
+                    <a href="/">
+                        When is the Next <strong>PHP Meetup</strong>?
+                        🐘
+                    </a>
+                </h1>
+
+                <blockquote class="blockquote text-bigger text-center mb-4">
+                    "It was so awesome to meet <strong>new people who also love PHP</strong>!"
+                    <div class="blockquote-footer">
+                        Every 1st-time meetup visitor
+                    </div>
+                </blockquote>
+            </div>
         </div>
+
+        <hr class="mt-0">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 text-uppercase">↓ Zoom the map to filter</div>
+                <div class="col-6 text-secondary text-center">
+                    Displaying <strong>{{ meetup_count }} PHP meetups</strong> from {{ group_count }} PHP groups
+                </div>
+
+                <div class="col-3">
+                    <div id="filter-form">
+                        <label>
+                            <input id="search" class="form-control" placeholder="FILTER BY ANYTHING... ↓" aria-controls="map-filterable-table">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
 
         {% block content %}{% endblock %}
 

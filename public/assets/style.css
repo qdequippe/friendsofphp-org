@@ -13,18 +13,19 @@ body {
 }
 
 #head {
-    background: hsl(229, 30%, 44%);
-    color: #DDD;
+    background: #6C78AF;
+    color: #FFF;
+    border-bottom: 10px #59649a solid;
 }
 
-#head p a {
-    text-decoration: underline;
-    color: #ddd;
+::placeholder {
+    color: #000;
+    opacity: 1;
 }
 
-#head p a:hover {
-    text-decoration: none;
-    color: #fff;
+.blockquote-footer {
+    color: #FFF;
+    font-size: .7em;
 }
 
 #head h1 {
@@ -32,80 +33,28 @@ body {
 }
 
 #head h1 a {
-    color: #EEE;
-}
-
-#head h1 a:hover {
     color: #FFF;
     text-decoration: none;
 }
 
 footer {
-    background: hsl(229, 30%, 44%);
-    color: #EEE;
-}
-
-footer .dim {
+    background: #3d3c3c;
+    border-top: 10px #252526 solid;
     line-height: 2.5em;
 }
 
-footer h3 {
-    padding-bottom: .5em;
+footer p {
+    color: #DDD;
 }
 
 footer a {
-    color: white;
+    color: #FFF;
     text-decoration: underline;
-}
-
-footer a.btn {
-    text-decoration: none;
 }
 
 footer a:hover {
     color: #DDD;
     text-decoration: none;
-}
-
-.add-to-calendar-button {
-    margin-top: -.2em;
-}
-
-/* precise colors */
-.text-next-month {
-    color: #2981CA;
-}
-
-/* menu */
-.navbar {
-    text-align: center;
-    background: hsl(229, 30%, 44%);
-    padding: 0;
-    margin: auto;
-}
-
-.navbar li a, .navbar li a:active, .navbar li a:focus {
-    background: white;
-}
-
-nav ul {
-    list-style: none;
-    display: block;
-    float: left;
-    padding: 0;
-    margin-bottom: 0;
-}
-
-nav ul li {
-    float: left;
-    display: block;
-    position: relative;
-}
-
-nav ul li a {
-    padding: .5em .7em;
-    display: block;
-    color: #FFF;
 }
 
 #content a:hover {
@@ -146,20 +95,6 @@ nav ul li a {
     }
 }
 
-footer .dim {
-    font-size: .9em;
-    color: #DDD;
-}
-
-#groups a:hover {
-    text-decoration: none;
-}
-
-/* reset left indent */
-footer ul, #groups ul {
-    padding-left: 1.2em;
-}
-
 /*!* map pop-ups *!*/
 .leaflet-container {
     font-size: 1em;
@@ -170,14 +105,8 @@ footer ul, #groups ul {
     text-align: center;
 }
 
-.text-muted a {
-    text-decoration: underline;
-    color: #999;
-}
-
-.text-muted a:hover {
-    text-decoration: none;
-    color: #555;
+.dataTables_filter {
+    display: none;
 }
 
 .text-bigger {
@@ -200,10 +129,13 @@ footer ul, #groups ul {
     text-decoration: none;
 }
 
-#static-table_filter input, #map-filterable-table_filter input {
-    font-size: 1.2em;
-    margin-left: -.2em;
-    margin-bottom: .6em;
-    width: 100%;
+#filter-form input {
+    font-size: 1.0em;
+    margin-top: -.2em;
+    margin-bottom: -.6em;
     color: #333;
+}
+
+#filter-form input::placeholder {
+    color: black;
 }

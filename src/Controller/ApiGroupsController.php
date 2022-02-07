@@ -32,7 +32,6 @@ final class ApiGroupsController extends AbstractController
 
         return $this->json([
             'generated_at' => $generatedAt,
-            'group_count' => count($groups),
             'groups' => $groups,
         ]);
     }
