@@ -738,5 +738,10 @@
         "name": "Meetup Laravel Lyon",
         "meetup_com_slug": "Meetup-Laravel-Lyon",
         "country": "France"
+    },
+    {
+        "name": "PHPMiNDS",
+        "meetup_com_slug": "PHPMiNDS-in-Nottingham",
+        "country": "United Kingdom"
     }
 ]
