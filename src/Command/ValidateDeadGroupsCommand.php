@@ -65,7 +65,7 @@ final class ValidateDeadGroupsCommand extends Command
         $this->symfonyStyle->section($section);
 
         foreach ($possiblyDeadGroups as $groupName => $lastMeetupDateTimeAsString) {
-            $groupMessage = sprintf(' * group "%s" with last meetup on %d', $groupName, $lastMeetupDateTimeAsString);
+            $groupMessage = sprintf(' * group "%s" with last meetup on %s', $groupName, $lastMeetupDateTimeAsString);
             $this->symfonyStyle->writeln($groupMessage);
         }
 

@@ -1,3 +1,6 @@
+includes:
+    - vendor/symplify/phpstan-rules/config/symplify-rules.neon
+
 parameters:
     level: 8
 
@@ -11,3 +14,28 @@ parameters:
     ignoreErrors:
         # for autowire
         - '#Class Fop\\MeetupCom\\Guzzle\\Oauth2AwareClient extends @final class GuzzleHttp\\Client#'
+
+        # for autowiring
+        -
+            message: '#There should be no empty class#'
+            path: packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
+
+        # fluent json DB api
+        -
+            message: '#Do not use chained method calls\. Put each on separated lines#'
+            path: packages/meetup/src/Repository/AbstractRepository.php
+
+        # @todo fix in repository
+        -
+            message: '#Anonymous variables in a method call can lead to false dead methods\. Make sure the variable type is known#'
+            path: packages/meetup/src/Repository/AbstractRepository.php
+
+        # init repository
+        -
+            message: '#Autowired/inject method name "boot\(\)" must respect "autowire/inject\(\*\)" name#'
+            path: packages/meetup/src/Repository/AbstractRepository.php
+
+        # abstract repository
+        -
+            message: '#Instead of abstract class, use specific service with composition#'
+            path: packages/meetup/src/Repository/AbstractRepository.php

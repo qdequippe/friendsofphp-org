@@ -22,7 +22,9 @@ final class GroupsFactoryTest extends AbstractKernelTestCase
     public function test(): void
     {
         $groups = $this->groupRepository->fetchAll();
-        $this->assertGreaterThan(50, count($groups));
+        $groupCount = count($groups);
+
+        $this->assertGreaterThan(50, $groupCount);
         $this->assertContainsOnlyInstancesOf(Group::class, $groups);
     }
 }

@@ -17,7 +17,7 @@ final class HomepageController extends AbstractController
     ) {
     }
 
-    #[Route('/', name: RouteName::HOMEPAGE)]
+    #[Route(path: '/', name: RouteName::HOMEPAGE)]
     public function __invoke(): Response
     {
         return $this->render('index.twig', [

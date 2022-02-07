@@ -15,7 +15,7 @@ jobs:
                 with:
                     php-version: 8.1
 
-            -   run: composer install --no-progress --ignore-platform-reqs
+            -   run: composer install --no-progress
 
             -
                 name: Build
