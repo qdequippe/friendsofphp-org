@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fop\Meetup\DataCollector;
 
 use Fop\Meetup\ValueObject\Meetup;
+use Webmozart\Assert\Assert;
 
 final class MeetupCollector
 {
@@ -18,6 +19,8 @@ final class MeetupCollector
      */
     public function addMeetups(array $meetups): void
     {
+        Assert::allIsAOf($meetups, Meetup::class);
+
         $this->meetups = array_merge($this->meetups, $meetups);
     }
 

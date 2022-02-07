@@ -1,14 +1,12 @@
 [
-    [
-        {
-            "name": "PHP Meetup \/Talk by.......",
-            "user_group_name": "GroningenPHP",
-            "start_date_time": "2022-03-03 19:30",
-            "city": "Groningen",
-            "country": "Netherlands",
-            "latitude": 53.21424865722656,
-            "longitude": 6.569179058074951,
-            "url": "https:\/\/www.meetup.com\/GroningenPHP\/events\/jhvhqrydcfbfb\/"
-        }
-    ]
+    {
+        "name": "PHP Meetup \/Talk by.......",
+        "user_group_name": "GroningenPHP",
+        "start_date_time": "2022-03-03 19:30",
+        "city": "Groningen",
+        "country": "Netherlands",
+        "latitude": 53.21424865722656,
+        "longitude": 6.569179058074951,
+        "url": "https:\/\/www.meetup.com\/GroningenPHP\/events\/jhvhqrydcfbfb\/"
+    }
 ]
