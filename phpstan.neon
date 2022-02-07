@@ -4,6 +4,7 @@ parameters:
     paths:
         - bin
         - src
+        - config
         - tests
         - packages
 
