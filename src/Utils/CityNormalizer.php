@@ -56,7 +56,8 @@ final class CityNormalizer
     public function normalize(string $city): string
     {
         foreach (self::CITY_NORMALIZATION_MAP as $pattern => $correct) {
-            if (Strings::match($city, $this->normalizePattern($pattern))) {
+            $match = Strings::match($city, $this->normalizePattern($pattern));
+            if ($match !== null) {
                 return $correct;
             }
         }

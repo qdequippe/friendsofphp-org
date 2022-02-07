@@ -8,6 +8,7 @@ use Fop\Meetup\Contract\Repository\RepositoryInterface;
 use Jajo\JSONDB;
 use Nette\Utils\FileSystem;
 use Symfony\Contracts\Service\Attribute\Required;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 abstract class AbstractRepository implements RepositoryInterface
 {
@@ -25,10 +26,12 @@ abstract class AbstractRepository implements RepositoryInterface
             FileSystem::createDir($databaseStorageDirectory);
         }
 
+        $smartFileSystem = new SmartFileSystem();
+
         // create empty storage file if not exists
         $storageFile = $databaseStorageDirectory . '/' . $this->getTable();
         if (! file_exists($storageFile)) {
-            file_put_contents($storageFile, '[]');
+            $smartFileSystem->dumpFile($storageFile, '[]');
         }
     }
 

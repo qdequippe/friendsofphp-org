@@ -150,8 +150,8 @@ final class MeetupComMeetupFactory
 
     private function createUtcDateTime(int $time, int $utcOffset): DateTime
     {
-        return DateTime::from($time + $utcOffset)
-            ->setTimezone(new DateTimeZone('UTC'));
+        $dateTime = DateTime::from($time + $utcOffset);
+        return $dateTime->setTimezone(new DateTimeZone('UTC'));
     }
 
     /**

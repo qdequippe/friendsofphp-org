@@ -38,12 +38,11 @@ final class Oauth2AwareClientFactory
             'base_uri' => 'https://secure.meetup.com/oauth2/access',
         ]);
 
-        $reauthConfig = [
+        $clientCredentials = new ClientCredentials($reauthClient, [
             'client_id' => $this->meetupComOauthKey,
             'client_secret' => $this->meetupComOauthSecret,
-        ];
+        ]);
 
-        $clientCredentials = new ClientCredentials($reauthClient, $reauthConfig);
         $oAuth2Middleware = new OAuth2Middleware($clientCredentials);
 
         return $this->decorateWithOauth2Client($oAuth2Middleware);

@@ -11,6 +11,7 @@ use Psr\Http\Message\ResponseInterface;
 use Rinvex\Country\Country;
 use Rinvex\Country\CountryLoader;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
+use Webmozart\Assert\Assert;
 
 /**
  * @see \Fop\Core\Tests\Geolocator\GeolocatorTest
@@ -88,7 +89,7 @@ final class Geolocator
             return $this->countryJsonByLatitudeAndLongitudeCache[$cacheKey];
         }
 
-        $url = sprintf(self::API_LOCATION_TO_COUNTRY, $latitude, $longitude);
+        $url = sprintf(self::API_LOCATION_TO_COUNTRY, (string) $latitude, (string) $longitude);
         $response = $this->client->get($url);
 
         $json = $this->createJsonFromResponse($response);
@@ -143,7 +144,12 @@ final class Geolocator
                 $country = array_pop($country);
             }
 
-            return $country->getName();
+            Assert::isInstanceOf($country, Country::class);
+            $countryName = $country->getName();
+
+            Assert::string($countryName);
+
+            return $countryName;
         }
 
         return $countryJson[self::ADDRESS]['countrymp'];

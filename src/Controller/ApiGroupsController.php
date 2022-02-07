@@ -8,7 +8,7 @@ use Fop\Core\ValueObject\Routing\RouteName;
 use Fop\Meetup\Repository\GroupRepository;
 use Nette\Utils\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class ApiGroupsController extends AbstractController
@@ -22,9 +22,9 @@ final class ApiGroupsController extends AbstractController
      * Note: beware the dot in the route name! @see https://github.com/symfony/symfony/issues/26099 The first route is
      * for testing locally.
      */
-    #[Route('api/groups-json')]
-    #[Route('api/groups.json', name: RouteName::API_GROUPS_JSON)]
-    public function __invoke(): Response
+    #[Route(path: 'api/groups-json')]
+    #[Route(path: 'api/groups.json', name: RouteName::API_GROUPS_JSON)]
+    public function __invoke(): JsonResponse
     {
         $generatedAt = DateTime::from('now')->format('Y-m-d H:i:s');
 
