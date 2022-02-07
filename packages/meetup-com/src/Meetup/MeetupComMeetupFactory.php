@@ -58,7 +58,7 @@ final class MeetupComMeetupFactory
 
         $name = $this->createName($data);
 
-        $isOnline = (bool) $data['is_online_event'] ?? false;
+        $isOnline = isset($data['is_online_event']) ? $data['is_online_event'] : false;
 
         return new Meetup(
             $name,
@@ -107,7 +107,7 @@ final class MeetupComMeetupFactory
     /**
      * @param mixed[] $data
      */
-    private function createLocation(array $data): ?Location
+    private function createLocation(array $data): Location
     {
         $venue = $data['venue'];
 

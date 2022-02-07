@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Core\Geolocation;
 
+use Fop\Core\Exception\ShouldNotHappenException;
 use Fop\Core\ValueObject\Option;
 use GuzzleHttp\Client;
 use Location\Coordinate;
@@ -67,16 +68,16 @@ final class Geolocator
         $this->usaStates = $parameterProvider->provideArrayParameter(Option::USA_STATES);
     }
 
-    public function resolveLatLonByCityAndCountry(string $city): Coordinate|null
+    public function resolveLatLonByCityAndCountry(string $location): Coordinate
     {
-        $url = sprintf(self::API_SEARCH_BY_CITY, (string) $city);
+        $url = sprintf(self::API_SEARCH_BY_CITY, $location);
         $response = $this->client->get($url);
 
         $json = $this->createJsonFromResponse($response);
 
         $resultItem = $json[0] ?? null;
         if ($resultItem === null) {
-            return null;
+            throw new ShouldNotHappenException();
         }
 
         return new Coordinate((float) $resultItem['lat'], (float) $resultItem['lon']);

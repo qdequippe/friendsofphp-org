@@ -36,8 +36,6 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
             try {
                 $groupSlug = $group->getMeetupComSlug();
 
-                $groupSlug = 'vilniusphp';
-
                 $message = sprintf('Loading meetups for "%s" group', $groupSlug);
                 $this->symfonyStyle->note($message);
 
@@ -80,8 +78,6 @@ final class MeetupComMeetupImporter implements MeetupImporterInterface
         $meetups = [];
 
         foreach ($meetupsData as $meetupData) {
-            dump($meetupData);
-
             $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
             if (! $meetup instanceof Meetup) {
                 continue;
