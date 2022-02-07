@@ -32,6 +32,8 @@ final class MeetupRepository extends AbstractRepository
         $meetupsArrays = parent::fetchAll();
         $meetups = $this->meetupFactory->create($meetupsArrays);
 
+        $meetups = array_unique($meetups);
+
         usort(
             $meetups,
             fn (Meetup $firstMeetup, Meetup $secondMeetup) => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
