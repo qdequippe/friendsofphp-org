@@ -26,7 +26,7 @@ final class MeetupComMeetupImporter
     /**
      * @return Meetup[]
      */
-    public function getMeetups(): array
+    public function import(): array
     {
         $errors = [];
         $meetups = [];
@@ -36,7 +36,7 @@ final class MeetupComMeetupImporter
                 $groupSlug = $group->getMeetupComSlug();
 
                 $message = sprintf('Loading meetups for "%s" group', $groupSlug);
-                $this->symfonyStyle->note($message);
+                $this->symfonyStyle->writeln(' * ' . $message);
 
                 $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
 
@@ -59,6 +59,11 @@ final class MeetupComMeetupImporter
         foreach ($errors as $error) {
             $this->symfonyStyle->error($error);
         }
+
+        // sort meetups from by date
+        usort($meetups, function (Meetup $firstMeetup, Meetup $secondMeetup): int {
+            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
+        });
 
         return $meetups;
     }

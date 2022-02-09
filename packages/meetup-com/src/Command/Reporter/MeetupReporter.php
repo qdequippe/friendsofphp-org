@@ -23,10 +23,11 @@ final class MeetupReporter
             return;
         }
 
-        $this->printMeetups($meetups);
-
         $successMessage = sprintf('Loaded %d meetups', count($meetups));
         $this->symfonyStyle->success($successMessage);
+
+        $this->printMeetups($meetups);
+        $this->symfonyStyle->newLine(2);
     }
 
     /**

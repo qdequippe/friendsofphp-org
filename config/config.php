@@ -5,7 +5,6 @@ declare(strict_types=1);
 use GuzzleHttp\Client;
 use Jajo\JSONDB;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\PackageBuilder\Reflection\PrivatesAccessor;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -23,7 +22,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->load('Fop\Core\\', __DIR__ . '/../src')
         ->exclude([__DIR__ . '/../src/HttpKernel', __DIR__ . '/../src/ValueObject']);
 
-    $services->set(ParameterProvider::class);
     $services->set(PrivatesAccessor::class);
     $services->set(Client::class);
 

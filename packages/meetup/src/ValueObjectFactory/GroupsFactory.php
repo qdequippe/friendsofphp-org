@@ -13,7 +13,7 @@ use Webmozart\Assert\Assert;
 final class GroupsFactory
 {
     /**
-     * @param mixed[] $groupsArray
+     * @param array<string, mixed> $groupsArray
      * @return Group[]
      */
     public function create(array $groupsArray): array
