@@ -19,11 +19,9 @@
                         "type": "{% if meetup.startInDays < 7 %}green{% elseif meetup.startInDays < 14 %}orange{% else %}red{% endif %}",
                         "title": "{{ meetup.name }}",
                         "position": [{{ meetup.latitude }}, {{ meetup.longitude }}],
-                        "date": "{{ meetup.startDateTime|date("m-d") }}",
+                        "date": "{{ meetup.utcStartDateTime|date("m-d") }}",
                         "location": "{{ meetup.city }}",
                         "url": "{{ meetup.url }}",
-                        // for filtering
-                        "datetime": "{{ meetup.startDateTime|date("Y-m-d H:i") }}",
                     },
                 {% endif %}
             {% endfor %}
