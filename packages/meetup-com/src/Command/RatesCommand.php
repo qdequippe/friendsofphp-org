@@ -30,9 +30,9 @@ final class RatesCommand extends Command
     {
         $rateLimits = $this->meetupComApi->getRateLimits();
 
-        $this->symfonyStyle->note('Request limit: ' . $rateLimits->getRequestLimit());
-        $this->symfonyStyle->note('Remaining request: ' . $rateLimits->getRemainingRequests());
-        $this->symfonyStyle->note('Request count to reset: ' . $rateLimits->getRequestToReset());
+        $this->symfonyStyle->writeln('Request limit: ' . $rateLimits->getRequestLimit());
+        $this->symfonyStyle->writeln('Remaining request: ' . $rateLimits->getRemainingRequests());
+        $this->symfonyStyle->writeln('Request count to reset: ' . $rateLimits->getRequestToReset());
 
         return self::SUCCESS;
     }

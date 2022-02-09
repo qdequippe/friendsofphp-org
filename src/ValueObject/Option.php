@@ -19,10 +19,5 @@ final class Option
     /**
      * @var string
      */
-    public const MAX_FORECAST_DAYS = 'max_forecast_days';
-
-    /**
-     * @var string
-     */
     public const USA_STATES = 'usa_states';
 }

@@ -4,29 +4,42 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Filter;
 
-use Fop\Meetup\Contract\MeetupFilterInterface;
 use Fop\Meetup\ValueObject\Meetup;
+use Nette\Utils\DateTime;
 
 final class MeetupFilterCollector
 {
-    /**
-     * @param MeetupFilterInterface[] $meetupFilters
-     */
-    public function __construct(
-        private readonly array $meetupFilters
-    ) {
-    }
-
     /**
      * @param Meetup[] $meetups
      * @return Meetup[]
      */
     public function filter(array $meetups): array
     {
-        foreach ($this->meetupFilters as $meetupFilter) {
-            $meetups = $meetupFilter->filter($meetups);
-        }
+        $futureMeetups = $this->filterOutPastMeetups($meetups);
+        return $this->filterTooFarMeetups($futureMeetups);
+    }
 
-        return $meetups;
+    /**
+     * @param Meetup[] $meetups
+     * @return Meetup[]
+     */
+    private function filterOutPastMeetups(array $meetups): array
+    {
+        return array_filter($meetups, fn (Meetup $meetup): bool => $meetup->getStartDateTime() > DateTime::from('now'));
+    }
+
+    /**
+     * @param Meetup[] $meetups
+     * @return Meetup[]
+     */
+    private function filterTooFarMeetups(array $meetups): array
+    {
+        // remove meetups too far in the future - mostly automatically generated without any content
+        $maxForecastDateTime = DateTime::from('+ 30 days');
+
+        return array_filter(
+            $meetups,
+            fn (Meetup $meetup): bool => $meetup->getStartDateTime() <= $maxForecastDateTime
+        );
     }
 }

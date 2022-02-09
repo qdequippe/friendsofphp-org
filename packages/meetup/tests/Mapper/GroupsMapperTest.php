@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Fop\Meetup\Tests\ValueObjectFactory;
+namespace Fop\Meetup\Tests\Mapper;
 
 use Fop\Core\HttpKernel\FopKernel;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\ValueObject\Group;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class GroupsFactoryTest extends AbstractKernelTestCase
+final class GroupsMapperTest extends AbstractKernelTestCase
 {
     private GroupRepository $groupRepository;
 

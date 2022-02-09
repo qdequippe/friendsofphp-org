@@ -5,13 +5,15 @@ declare(strict_types=1);
 namespace Fop\Meetup\Repository;
 
 use Fop\Meetup\ValueObject\Group;
-use Fop\Meetup\ValueObjectFactory\GroupsFactory;
 
+/**
+ * @extends AbstractRepository<Group>
+ */
 final class GroupRepository extends AbstractRepository
 {
-    public function __construct(
-        private readonly GroupsFactory $groupsFactory
-    ) {
+    public function __construct()
+    {
+        parent::__construct(Group::class);
     }
 
     /**
@@ -20,7 +22,8 @@ final class GroupRepository extends AbstractRepository
     public function fetchAll(): array
     {
         $groupsArray = parent::fetchAll();
-        return $this->groupsFactory->create($groupsArray);
+
+        return $this->sortGroupsByName($groupsArray);
     }
 
     public function getCount(): int
@@ -31,5 +34,19 @@ final class GroupRepository extends AbstractRepository
     public function getTable(): string
     {
         return 'groups.json';
+    }
+
+    /**
+     * @param Group[] $groups
+     * @return Group[]
+     */
+    private function sortGroupsByName(array $groups): array
+    {
+        usort(
+            $groups,
+            fn (Group $firstGroup, Group $secondGroup) => $firstGroup->getName() <=> $secondGroup->getName()
+        );
+
+        return $groups;
     }
 }

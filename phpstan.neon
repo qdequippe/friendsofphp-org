@@ -20,15 +20,13 @@ parameters:
             message: '#There should be no empty class#'
             path: packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
 
-        # fluent json DB api
+        # @todo fix in repository on github
         -
             message: '#Do not use chained method calls\. Put each on separated lines#'
-            path: packages/meetup/src/Repository/AbstractRepository.php
-
-        # @todo fix in repository
+            path: packages/meetup/src/Repository/*Repository.php
         -
             message: '#Anonymous variables in a method call can lead to false dead methods\. Make sure the variable type is known#'
-            path: packages/meetup/src/Repository/AbstractRepository.php
+            path: packages/meetup/src/Repository/*Repository.php
 
         # init repository
         -
@@ -39,3 +37,12 @@ parameters:
         -
             message: '#Instead of abstract class, use specific service with composition#'
             path: packages/meetup/src/Repository/AbstractRepository.php
+
+
+        # too strict for commands
+        -
+             message: '#Private method in is not allowed here \- it should only delegate to others\. Decouple the private method to a new service class#'
+             path: src/Command/ImportCommand.php
+
+        # generics false positive
+        - '#Method Fop\\Meetup\\Repository\\AbstractRepository\:\:fetchAll\(\) should return array<TEntity of Fop\\Meetup\\Contract\\ArrayableInterface> but returns array<int, Fop\\Meetup\\Contract\\ArrayableInterface>#'
