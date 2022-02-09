@@ -35,7 +35,7 @@ final class MeetupRepository extends AbstractRepository
 
         usort(
             $meetups,
-            fn (Meetup $firstMeetup, Meetup $secondMeetup) => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
+            fn (Meetup $firstMeetup, Meetup $secondMeetup) => $firstMeetup->getUtcStartDateTime() <=> $secondMeetup->getUtcStartDateTime()
         );
 
         return $meetups;

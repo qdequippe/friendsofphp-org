@@ -15,7 +15,9 @@ final class Meetup implements ArrayableInterface, Stringable
     public function __construct(
         private readonly string $name,
         private readonly string $userGroupName,
-        private readonly DateTimeInterface $startDateTime,
+        private readonly DateTimeInterface $utcStartDateTime,
+        private readonly string $localDate,
+        private readonly string $localTime,
         private readonly string $url,
         private readonly string $city,
         private readonly string $country,
@@ -30,7 +32,7 @@ final class Meetup implements ArrayableInterface, Stringable
      */
     public function __toString(): string
     {
-        return $this->userGroupName . '_' . $this->name . '_' . $this->startDateTime->format('Y-m-d');
+        return $this->userGroupName . '_' . $this->name . '_' . $this->utcStartDateTime->format('Y-m-d');
     }
 
     /**
@@ -41,7 +43,9 @@ final class Meetup implements ArrayableInterface, Stringable
         return new self(
             $data['name'],
             $data['user_group_name'],
-            DateTime::from($data['start_date_time']),
+            DateTime::from($data['utc_start_date_time']),
+            $data['local_date'],
+            $data['local_time'],
             $data['url'],
             $data['city'],
             $data['country'],
@@ -75,14 +79,9 @@ final class Meetup implements ArrayableInterface, Stringable
         return $this->url;
     }
 
-    public function getStartDateTimeFormatted(string $format): string
+    public function getUtcStartDateTime(): DateTimeInterface
     {
-        return $this->startDateTime->format($format);
-    }
-
-    public function getStartDateTime(): DateTimeInterface
-    {
-        return $this->startDateTime;
+        return $this->utcStartDateTime;
     }
 
     public function getName(): string
@@ -119,7 +118,7 @@ final class Meetup implements ArrayableInterface, Stringable
      */
     public function getStartInDays(): int
     {
-        return DateStaticUtils::getDiffFromTodayInDays($this->startDateTime);
+        return DateStaticUtils::getDiffFromTodayInDays($this->utcStartDateTime);
     }
 
     /**
@@ -130,7 +129,9 @@ final class Meetup implements ArrayableInterface, Stringable
         return [
             'name' => $this->name,
             'user_group_name' => $this->userGroupName,
-            'start_date_time' => $this->startDateTime->format('Y-m-d H:i'),
+            'local_date' => $this->localDate,
+            'local_time' => $this->localTime,
+            'utc_start_date_time' => $this->utcStartDateTime->format('U'),
             'city' => $this->city,
             'country' => $this->country,
             'latitude' => $this->latitude,
@@ -143,5 +144,15 @@ final class Meetup implements ArrayableInterface, Stringable
     public function isOnline(): bool
     {
         return $this->isOnline;
+    }
+
+    public function getLocalDate(): string
+    {
+        return $this->localDate;
+    }
+
+    public function getLocalTime(): string
+    {
+        return $this->localTime;
     }
 }

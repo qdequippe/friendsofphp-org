@@ -2,7 +2,9 @@
     {
         "name": "Coding With Confidence",
         "user_group_name": "PHPSW",
-        "start_date_time": "2022-02-09 18:45",
+        "local_date": "2022-02-09",
+        "local_time": "18:45",
+        "utc_start_date_time": "1644432300",
         "city": "Bristol",
         "country": "United Kingdom",
         "latitude": 51.453147888183594,
@@ -12,21 +14,11 @@
     }
 ,
     {
-        "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
-        "user_group_name": "Seattle PHP User Group",
-        "start_date_time": "2022-02-10 16:00",
-        "city": "Seattle",
-        "country": "WA",
-        "latitude": 47.6038321,
-        "longitude": -122.3300624,
-        "url": "https:\/\/www.meetup.com\/seaphp\/events\/283728414\/",
-        "is_online": true
-    }
-,
-    {
         "name": "Explorer Series Episode 4: A Quest to Find Your Ideal Frontend Framework",
         "user_group_name": "PHP Developers Sri Lanka",
-        "start_date_time": "2022-02-10 17:00",
+        "local_date": "2022-02-10",
+        "local_time": "17:00",
+        "utc_start_date_time": "1644492600",
         "city": "Colombo",
         "country": "Sri Lanka",
         "latitude": 6.9387469,
@@ -36,33 +28,11 @@
     }
 ,
     {
-        "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
-        "user_group_name": "azPHP",
-        "start_date_time": "2022-02-10 17:00",
-        "city": "Phoenix",
-        "country": "AZ",
-        "latitude": 33.4484367,
-        "longitude": -112.0741417,
-        "url": "https:\/\/www.meetup.com\/azPHPUG\/events\/283662074\/",
-        "is_online": true
-    }
-,
-    {
-        "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
-        "user_group_name": "Kansas City's PHP User Group",
-        "start_date_time": "2022-02-10 18:00",
-        "city": "Kansas City",
-        "country": "MO",
-        "latitude": 39.100105,
-        "longitude": -94.5781416,
-        "url": "https:\/\/www.meetup.com\/kcphpug\/events\/283727670\/",
-        "is_online": true
-    }
-,
-    {
         "name": "Meetup I\/2022 - Deploy PHP Apps with Docker - The Essentials",
         "user_group_name": "PHP USERGROUP DRESDEN",
-        "start_date_time": "2022-02-10 18:30",
+        "local_date": "2022-02-10",
+        "local_time": "18:30",
+        "utc_start_date_time": "1644514200",
         "city": "Dresden",
         "country": "Germany",
         "latitude": 51.0493286,
@@ -72,9 +42,25 @@
     }
 ,
     {
+        "name": "PHPSP Pub",
+        "user_group_name": "PHPSP",
+        "local_date": "2022-02-10",
+        "local_time": "19:00",
+        "utc_start_date_time": "1644530400",
+        "city": "São Paulo",
+        "country": "Brazil",
+        "latitude": -23.604293823242188,
+        "longitude": -46.63143539428711,
+        "url": "https:\/\/www.meetup.com\/php-sp\/events\/bpmsqsydcdbnb\/",
+        "is_online": false
+    }
+,
+    {
         "name": "AtlantaPHP February 2022 Online Meeting",
         "user_group_name": "AtlantaPHP Meetup Group",
-        "start_date_time": "2022-02-10 19:00",
+        "local_date": "2022-02-10",
+        "local_time": "19:00",
+        "utc_start_date_time": "1644537600",
         "city": "Atlanta",
         "country": "GA",
         "latitude": 33.7489924,
@@ -86,7 +72,9 @@
     {
         "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
         "user_group_name": "Boston PHP",
-        "start_date_time": "2022-02-10 19:00",
+        "local_date": "2022-02-10",
+        "local_time": "19:00",
+        "utc_start_date_time": "1644537600",
         "city": "Boston",
         "country": "MA",
         "latitude": 42.3602534,
@@ -96,21 +84,53 @@
     }
 ,
     {
-        "name": "PHPSP Pub",
-        "user_group_name": "PHPSP",
-        "start_date_time": "2022-02-10 19:00",
-        "city": "São Paulo",
-        "country": "Brazil",
-        "latitude": -23.604293823242188,
-        "longitude": -46.63143539428711,
-        "url": "https:\/\/www.meetup.com\/php-sp\/events\/bpmsqsydcdbnb\/",
-        "is_online": false
+        "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
+        "user_group_name": "Kansas City's PHP User Group",
+        "local_date": "2022-02-10",
+        "local_time": "18:00",
+        "utc_start_date_time": "1644537600",
+        "city": "Kansas City",
+        "country": "MO",
+        "latitude": 39.100105,
+        "longitude": -94.5781416,
+        "url": "https:\/\/www.meetup.com\/kcphpug\/events\/283727670\/",
+        "is_online": true
+    }
+,
+    {
+        "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
+        "user_group_name": "Seattle PHP User Group",
+        "local_date": "2022-02-10",
+        "local_time": "16:00",
+        "utc_start_date_time": "1644537600",
+        "city": "Seattle",
+        "country": "WA",
+        "latitude": 47.6038321,
+        "longitude": -122.3300624,
+        "url": "https:\/\/www.meetup.com\/seaphp\/events\/283728414\/",
+        "is_online": true
+    }
+,
+    {
+        "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
+        "user_group_name": "azPHP",
+        "local_date": "2022-02-10",
+        "local_time": "17:00",
+        "utc_start_date_time": "1644537600",
+        "city": "Phoenix",
+        "country": "AZ",
+        "latitude": 33.4484367,
+        "longitude": -112.0741417,
+        "url": "https:\/\/www.meetup.com\/azPHPUG\/events\/283662074\/",
+        "is_online": true
     }
 ,
     {
         "name": "21º PHPMG Talks",
         "user_group_name": "PHPMG",
-        "start_date_time": "2022-02-11 19:00",
+        "local_date": "2022-02-11",
+        "local_time": "19:00",
+        "utc_start_date_time": "1644616800",
         "city": "Belo Horizonte",
         "country": "Brazil",
         "latitude": -19.861371994018555,
@@ -120,33 +140,11 @@
     }
 ,
     {
-        "name": "Monthly Meetup",
-        "user_group_name": "PHPDX",
-        "start_date_time": "2022-02-15 18:00",
-        "city": "Portland",
-        "country": "OR",
-        "latitude": 45.5202471,
-        "longitude": -122.6741949,
-        "url": "https:\/\/www.meetup.com\/PDX-PHP\/events\/bllwzrydcdbtb\/",
-        "is_online": true
-    }
-,
-    {
-        "name": "Tech+Beer Downtown (formerly PHP+Beer)",
-        "user_group_name": "Downtown Tech+Beer (formerly Indianapolis PHP Meetup)",
-        "start_date_time": "2022-02-15 18:30",
-        "city": "Indianapolis",
-        "country": "Indiana",
-        "latitude": 39.76606750488281,
-        "longitude": -86.14122009277344,
-        "url": "https:\/\/www.meetup.com\/indyphp\/events\/slhppsydcdbtb\/",
-        "is_online": false
-    }
-,
-    {
         "name": "API-first design approach with Stoplight",
         "user_group_name": "Athens Laravel Meetup",
-        "start_date_time": "2022-02-15 19:00",
+        "local_date": "2022-02-15",
+        "local_time": "19:00",
+        "utc_start_date_time": "1644944400",
         "city": "Athens",
         "country": "Greece",
         "latitude": 37.9839412,
@@ -158,7 +156,9 @@
     {
         "name": "Deploying PHP Apps with Docker Compose - The Essentials",
         "user_group_name": "PHP Cambridge",
-        "start_date_time": "2022-02-15 19:00",
+        "local_date": "2022-02-15",
+        "local_time": "19:00",
+        "utc_start_date_time": "1644951600",
         "city": "Cambridge",
         "country": "United Kingdom",
         "latitude": 52.2055314,
@@ -168,9 +168,39 @@
     }
 ,
     {
+        "name": "Tech+Beer Downtown (formerly PHP+Beer)",
+        "user_group_name": "Downtown Tech+Beer (formerly Indianapolis PHP Meetup)",
+        "local_date": "2022-02-15",
+        "local_time": "18:30",
+        "utc_start_date_time": "1644967800",
+        "city": "Indianapolis",
+        "country": "Indiana",
+        "latitude": 39.76606750488281,
+        "longitude": -86.14122009277344,
+        "url": "https:\/\/www.meetup.com\/indyphp\/events\/slhppsydcdbtb\/",
+        "is_online": false
+    }
+,
+    {
+        "name": "Monthly Meetup",
+        "user_group_name": "PHPDX",
+        "local_date": "2022-02-15",
+        "local_time": "18:00",
+        "utc_start_date_time": "1644976800",
+        "city": "Portland",
+        "country": "OR",
+        "latitude": 45.5202471,
+        "longitude": -122.6741949,
+        "url": "https:\/\/www.meetup.com\/PDX-PHP\/events\/bllwzrydcdbtb\/",
+        "is_online": true
+    }
+,
+    {
         "name": "PHP UK Conference 2022",
         "user_group_name": "PHP London",
-        "start_date_time": "2022-02-16 09:00",
+        "local_date": "2022-02-16",
+        "local_time": "09:00",
+        "utc_start_date_time": "1645002000",
         "city": "London",
         "country": "United Kingdom",
         "latitude": 51.52052307128906,
@@ -182,7 +212,9 @@
     {
         "name": "Essex Web Developers Meetup",
         "user_group_name": "Essex Web Developers",
-        "start_date_time": "2022-02-16 19:15",
+        "local_date": "2022-02-16",
+        "local_time": "19:15",
+        "utc_start_date_time": "1645038900",
         "city": "Chelmsford",
         "country": "United Kingdom",
         "latitude": 51.7345398,
@@ -194,7 +226,9 @@
     {
         "name": "PHP Adelaide User Group Meeting",
         "user_group_name": "PHP Adelaide",
-        "start_date_time": "2022-02-17 18:00",
+        "local_date": "2022-02-17",
+        "local_time": "18:00",
+        "utc_start_date_time": "1645083000",
         "city": "Adelaide",
         "country": "Australia",
         "latitude": -34.928619384765625,
@@ -206,7 +240,9 @@
     {
         "name": "ZgPHP meetup #123",
         "user_group_name": "ZgPHP meetup",
-        "start_date_time": "2022-02-17 18:00",
+        "local_date": "2022-02-17",
+        "local_time": "18:00",
+        "utc_start_date_time": "1645117200",
         "city": "Zagreb",
         "country": "Croatia",
         "latitude": 45.814491271972656,
@@ -218,7 +254,9 @@
     {
         "name": "Monthly Meeting",
         "user_group_name": "AmsterdamPHP",
-        "start_date_time": "2022-02-17 19:00",
+        "local_date": "2022-02-17",
+        "local_time": "19:00",
+        "utc_start_date_time": "1645120800",
         "city": "Amsterdam",
         "country": "Netherlands",
         "latitude": 52.36757278442383,
@@ -230,7 +268,9 @@
     {
         "name": "Validation avancée Symfony - Excel : en fait, c'est pas si mal !",
         "user_group_name": "Antenne AFUP Tours PHP",
-        "start_date_time": "2022-02-17 19:00",
+        "local_date": "2022-02-17",
+        "local_time": "19:00",
+        "utc_start_date_time": "1645120800",
         "city": "Tours",
         "country": "France",
         "latitude": 47.36329650878906,
@@ -240,21 +280,11 @@
     }
 ,
     {
-        "name": "Developing SOLID Code by Mark Niebergall",
-        "user_group_name": "Utah PHP User Group",
-        "start_date_time": "2022-02-17 19:00",
-        "city": "Lehi",
-        "country": "Utah",
-        "latitude": 40.44000244140625,
-        "longitude": -111.89384460449219,
-        "url": "https:\/\/www.meetup.com\/Utah-PHP-User-Group\/events\/vlfnprydcdbwb\/",
-        "is_online": false
-    }
-,
-    {
         "name": "PHP Meetup \/Talk by ..........???????",
         "user_group_name": "GroningenPHP",
-        "start_date_time": "2022-02-17 19:30",
+        "local_date": "2022-02-17",
+        "local_time": "19:30",
+        "utc_start_date_time": "1645122600",
         "city": "Groningen",
         "country": "Netherlands",
         "latitude": 53.2190652,
@@ -264,21 +294,25 @@
     }
 ,
     {
-        "name": "Demo Time! Showcase your StartUp or Pet Project.",
-        "user_group_name": "Vegas Programmers",
-        "start_date_time": "2022-02-19 13:00",
-        "city": "Las Vegas",
-        "country": "Nevada",
-        "latitude": 36.159584045410156,
-        "longitude": -115.1525650024414,
-        "url": "https:\/\/www.meetup.com\/Vegas-Programmers\/events\/vzrlrsydcdbzb\/",
+        "name": "Developing SOLID Code by Mark Niebergall",
+        "user_group_name": "Utah PHP User Group",
+        "local_date": "2022-02-17",
+        "local_time": "19:00",
+        "utc_start_date_time": "1645149600",
+        "city": "Lehi",
+        "country": "Utah",
+        "latitude": 40.44000244140625,
+        "longitude": -111.89384460449219,
+        "url": "https:\/\/www.meetup.com\/Utah-PHP-User-Group\/events\/vlfnprydcdbwb\/",
         "is_online": false
     }
 ,
     {
         "name": "Weekend Hangout",
         "user_group_name": "Kansas City's PHP User Group",
-        "start_date_time": "2022-02-19 14:30",
+        "local_date": "2022-02-19",
+        "local_time": "14:30",
+        "utc_start_date_time": "1645302600",
         "city": "Kansas City",
         "country": "MO",
         "latitude": 39.100105,
@@ -288,9 +322,25 @@
     }
 ,
     {
+        "name": "Demo Time! Showcase your StartUp or Pet Project.",
+        "user_group_name": "Vegas Programmers",
+        "local_date": "2022-02-19",
+        "local_time": "13:00",
+        "utc_start_date_time": "1645304400",
+        "city": "Las Vegas",
+        "country": "Nevada",
+        "latitude": 36.159584045410156,
+        "longitude": -115.1525650024414,
+        "url": "https:\/\/www.meetup.com\/Vegas-Programmers\/events\/vzrlrsydcdbzb\/",
+        "is_online": false
+    }
+,
+    {
         "name": "App Monitoring Tools + Home Assistant + AI Round Table",
         "user_group_name": "Vegas Programmers",
-        "start_date_time": "2022-02-19 14:30",
+        "local_date": "2022-02-19",
+        "local_time": "14:30",
+        "utc_start_date_time": "1645309800",
         "city": "Las Vegas",
         "country": "Nevada",
         "latitude": 36.159141540527344,
@@ -302,7 +352,9 @@
     {
         "name": "PHP Oxford meetup",
         "user_group_name": "PHP Oxford",
-        "start_date_time": "2022-02-23 19:30",
+        "local_date": "2022-02-23",
+        "local_time": "19:30",
+        "utc_start_date_time": "1645644600",
         "city": "Oxford",
         "country": "United Kingdom",
         "latitude": 51.7520131,
@@ -314,7 +366,9 @@
     {
         "name": "PHPUGMRN 01\/22",
         "user_group_name": "PHP User Group Metropolregion Rhein-Neckar",
-        "start_date_time": "2022-02-24 19:00",
+        "local_date": "2022-02-24",
+        "local_time": "19:00",
+        "utc_start_date_time": "1645725600",
         "city": "Mannheim",
         "country": "Germany",
         "latitude": 49.4892913,
@@ -324,21 +378,11 @@
     }
 ,
     {
-        "name": "The Working Group",
-        "user_group_name": "Boston PHP",
-        "start_date_time": "2022-03-01 00:00",
-        "city": "Virtual",
-        "country": "Massachusetts",
-        "latitude": 42.40721130371094,
-        "longitude": -71.38243865966797,
-        "url": "https:\/\/www.meetup.com\/bostonphp\/events\/283821265\/",
-        "is_online": false
-    }
-,
-    {
         "name": "Nashville PHP South Lunch",
         "user_group_name": "Nashville PHP",
-        "start_date_time": "2022-03-01 11:30",
+        "local_date": "2022-03-01",
+        "local_time": "11:30",
+        "utc_start_date_time": "1646155800",
         "city": "Franklin",
         "country": "Tennessee",
         "latitude": 35.957515716552734,
@@ -350,7 +394,9 @@
     {
         "name": "Treffen der Symfony User Group Hamburg",
         "user_group_name": "Symfony User Group Hamburg",
-        "start_date_time": "2022-03-01 18:45",
+        "local_date": "2022-03-01",
+        "local_time": "18:45",
+        "utc_start_date_time": "1646156700",
         "city": "Hamburg",
         "country": "Germany",
         "latitude": 53.550341,
@@ -362,7 +408,9 @@
     {
         "name": "PHP and Laravel monthly meetup",
         "user_group_name": "Chattanooga PHP Developers (Laravel\/Drupal\/Symfony\/All PHP)",
-        "start_date_time": "2022-03-02 12:00",
+        "local_date": "2022-03-02",
+        "local_time": "12:00",
+        "utc_start_date_time": "1646240400",
         "city": "Chattanooga",
         "country": "TN",
         "latitude": 35.0457219,
@@ -374,7 +422,9 @@
     {
         "name": "Laravel Origins documentary premiere & Afterparty with Taylor Otwell",
         "user_group_name": "Laravel Meetup Groningen",
-        "start_date_time": "2022-03-02 18:00",
+        "local_date": "2022-03-02",
+        "local_time": "18:00",
+        "utc_start_date_time": "1646240400",
         "city": "Groningen",
         "country": "Netherlands",
         "latitude": 53.2190652,
@@ -386,7 +436,9 @@
     {
         "name": "Vilnius PHP",
         "user_group_name": "Vilnius PHP Meetups",
-        "start_date_time": "2022-03-03 19:00",
+        "local_date": "2022-03-03",
+        "local_time": "19:00",
+        "utc_start_date_time": "1646326800",
         "city": "Vilnius",
         "country": "Lithuania",
         "latitude": 54.6870458,
@@ -398,7 +450,9 @@
     {
         "name": "PHP Meetup \/Talk by.......",
         "user_group_name": "GroningenPHP",
-        "start_date_time": "2022-03-03 19:30",
+        "local_date": "2022-03-03",
+        "local_time": "19:30",
+        "utc_start_date_time": "1646332200",
         "city": "Groningen",
         "country": "Netherlands",
         "latitude": 53.21424865722656,
@@ -410,7 +464,9 @@
     {
         "name": "Monthly Virtual PHP Meetup",
         "user_group_name": "Nashville PHP",
-        "start_date_time": "2022-03-08 18:00",
+        "local_date": "2022-03-08",
+        "local_time": "18:00",
+        "utc_start_date_time": "1646784000",
         "city": "Nashville",
         "country": "TN",
         "latitude": 36.1622767,
@@ -422,7 +478,9 @@
     {
         "name": "PHPSP Pub",
         "user_group_name": "PHPSP",
-        "start_date_time": "2022-03-10 19:00",
+        "local_date": "2022-03-10",
+        "local_time": "19:00",
+        "utc_start_date_time": "1646949600",
         "city": "São Paulo",
         "country": "Brazil",
         "latitude": -23.56495475769043,
