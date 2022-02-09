@@ -1,5 +1,17 @@
 [
     {
+        "name": "Coding With Confidence",
+        "user_group_name": "PHPSW",
+        "start_date_time": "2022-02-09 18:45",
+        "city": "Bristol",
+        "country": "United Kingdom",
+        "latitude": 51.453147888183594,
+        "longitude": -2.5912439823150635,
+        "url": "https:\/\/www.meetup.com\/php-sw\/events\/283490357\/",
+        "is_online": false
+    }
+,
+    {
         "name": "MergePHP - Container-Native w\/o k8s: PHP in ECS on AWS",
         "user_group_name": "Seattle PHP User Group",
         "start_date_time": "2022-02-10 16:00",
