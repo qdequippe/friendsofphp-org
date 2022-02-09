@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Fop\Meetup\ValueObjectFactory;
+namespace Fop\Meetup\Mapper;
 
 use Fop\Meetup\ValueObject\Group;
 use Webmozart\Assert\Assert;
 
 /**
- * @see \Fop\Meetup\Tests\ValueObjectFactory\GroupsFactoryTest
+ * @see \Fop\Meetup\Tests\Mapper\GroupsMapperTest
  */
-final class GroupsFactory
+final class GroupsMapper
 {
     /**
      * @param array<string, mixed> $groupsArray
      * @return Group[]
      */
-    public function create(array $groupsArray): array
+    public function mapArraysToObjects(array $groupsArray): array
     {
         $groups = [];
         foreach ($groupsArray as $groupArray) {

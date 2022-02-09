@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Repository;
 
+use Fop\Meetup\Mapper\GroupsMapper;
 use Fop\Meetup\ValueObject\Group;
-use Fop\Meetup\ValueObjectFactory\GroupsFactory;
 
 final class GroupRepository extends AbstractRepository
 {
     public function __construct(
-        private readonly GroupsFactory $groupsFactory
+        private readonly GroupsMapper $groupsMapper
     ) {
     }
 
@@ -20,7 +20,7 @@ final class GroupRepository extends AbstractRepository
     public function fetchAll(): array
     {
         $groupsArray = parent::fetchAll();
-        return $this->groupsFactory->create($groupsArray);
+        return $this->groupsMapper->mapArraysToObjects($groupsArray);
     }
 
     public function getCount(): int

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Repository;
 
+use Fop\Meetup\Mapper\MeetupMapper;
 use Fop\Meetup\ValueObject\Meetup;
-use Fop\Meetup\ValueObjectFactory\MeetupFactory;
 
 final class MeetupRepository extends AbstractRepository
 {
     public function __construct(
-        private readonly MeetupFactory $meetupFactory
+        private readonly MeetupMapper $meetupFactory
     ) {
     }
 

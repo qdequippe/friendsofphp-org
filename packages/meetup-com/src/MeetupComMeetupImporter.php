@@ -61,9 +61,11 @@ final class MeetupComMeetupImporter
         }
 
         // sort meetups from by date
-        usort($meetups, function (Meetup $firstMeetup, Meetup $secondMeetup): int {
-            return $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime();
-        });
+        usort(
+            $meetups,
+            fn (Meetup $firstMeetup, Meetup $secondMeetup): int
+                => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
+        );
 
         return $meetups;
     }

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Fop\Meetup\Tests\ValueObjectFactory;
+namespace Fop\Meetup\Tests\Mapper;
 
 use Fop\Core\HttpKernel\FopKernel;
 use Fop\Meetup\Repository\MeetupRepository;
 use Fop\Meetup\ValueObject\Meetup;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
-final class MeetupFactoryTest extends AbstractKernelTestCase
+final class MeetupMapperTest extends AbstractKernelTestCase
 {
     private MeetupRepository $meetupRepository;
 

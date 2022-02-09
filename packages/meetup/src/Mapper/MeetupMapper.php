@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Fop\Meetup\ValueObjectFactory;
+namespace Fop\Meetup\Mapper;
 
 use Fop\Meetup\ValueObject\Meetup;
 use Webmozart\Assert\Assert;
 
 /**
- * @see \Fop\Meetup\Tests\ValueObjectFactory\MeetupFactoryTest
+ * @see \Fop\Meetup\Tests\Mapper\MeetupMapperTest
  */
-final class MeetupFactory
+final class MeetupMapper
 {
     /**
      * @param mixed[] $meetupsArray
