@@ -7,7 +7,7 @@ namespace Fop\Meetup\Filter;
 use Fop\Meetup\ValueObject\Meetup;
 use Nette\Utils\DateTime;
 
-final class MeetupFilterCollector
+final class MeetupFilter
 {
     /**
      * @param Meetup[] $meetups
@@ -25,7 +25,10 @@ final class MeetupFilterCollector
      */
     private function filterOutPastMeetups(array $meetups): array
     {
-        return array_filter($meetups, fn (Meetup $meetup): bool => $meetup->getStartDateTime() > DateTime::from('now'));
+        return array_filter(
+            $meetups,
+            fn (Meetup $meetup): bool => $meetup->getUtcStartDateTime() > DateTime::from('now')
+        );
     }
 
     /**
@@ -39,7 +42,7 @@ final class MeetupFilterCollector
 
         return array_filter(
             $meetups,
-            fn (Meetup $meetup): bool => $meetup->getStartDateTime() <= $maxForecastDateTime
+            fn (Meetup $meetup): bool => $meetup->getUtcStartDateTime() <= $maxForecastDateTime
         );
     }
 }

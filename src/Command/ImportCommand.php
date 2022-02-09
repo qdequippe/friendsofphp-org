@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Core\Command;
 
-use Fop\Meetup\Filter\MeetupFilterCollector;
+use Fop\Meetup\Filter\MeetupFilter;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\Repository\MeetupRepository;
 use Fop\Meetup\ValueObject\Meetup;
@@ -20,7 +20,7 @@ final class ImportCommand extends Command
     public function __construct(
         private readonly SymfonyStyle $symfonyStyle,
         private readonly MeetupRepository $meetupRepository,
-        private readonly MeetupFilterCollector $meetupFilterCollector,
+        private readonly MeetupFilter $meetupFilterCollector,
         private readonly MeetupComMeetupImporter $meetupComMeetupImporter,
         private readonly GroupRepository $groupRepository
     ) {
@@ -66,7 +66,7 @@ final class ImportCommand extends Command
         foreach ($meetups as $meetup) {
             $meetupListToDisplay[] = sprintf(
                 '%s - %s (by "%s" group)',
-                $meetup->getStartDateTimeFormatted('Y-m-d'),
+                $meetup->getLocalDate(),
                 $meetup->getName(),
                 $meetup->getUserGroup()
             );

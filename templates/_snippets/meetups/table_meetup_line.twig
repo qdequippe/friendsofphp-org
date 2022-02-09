@@ -8,7 +8,7 @@
 
         <br>
 
-        <small class="text-secondary">{{ meetup.startDateTime|date("H:i") }}</small>
+        <small class="text-secondary">{{ meetup.localTime }}</small>
     </td>
     <td class="w-25">
         <a href="#" onclick="relocate({{ meetup.latitude }}, {{ meetup.longitude }})">

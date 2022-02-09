@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom\Meetup;
 
-use DateTimeZone;
 use Fop\Core\Geolocation\Geolocator;
 use Fop\Core\Utils\CityNormalizer;
 use Fop\Meetup\ValueObject\Location;
@@ -54,7 +53,8 @@ final class MeetupComMeetupFactory
             return null;
         }
 
-        $startDateTime = $this->createStartDateTimeFromEventData($data);
+        $utcStartDateTime = $this->createUtcStartDateTime($data);
+
         $location = $this->createLocation($data);
         $name = $this->createName($data);
         $isOnline = (bool) $data[self::IS_ONLINE_EVENT];
@@ -62,7 +62,9 @@ final class MeetupComMeetupFactory
         return new Meetup(
             $name,
             $data[self::GROUP]['name'],
-            $startDateTime,
+            $utcStartDateTime,
+            $data['local_date'],
+            $data['local_time'],
             $data['link'],
             $location->getCity(),
             $location->getCountry(),
@@ -94,13 +96,12 @@ final class MeetupComMeetupFactory
     /**
      * @param mixed[] $data
      */
-    private function createStartDateTimeFromEventData(array $data): DateTime
+    private function createUtcStartDateTime(array $data): DateTime
     {
         // not sure why it adds extra "000" in the end
-        $time = $this->normalizeTimestamp($data['time']);
-        $utcOffset = $this->normalizeTimestamp($data['utc_offset']);
+        $unixTimestamp = (int) substr((string) $data['time'], 0, -3);
 
-        return $this->createUtcDateTime($time, $utcOffset);
+        return DateTime::createFromFormat('U', (string) $unixTimestamp);
     }
 
     /**
@@ -147,19 +148,7 @@ final class MeetupComMeetupFactory
     private function createName(array $data): string
     {
         $name = trim($data['name']);
-
         return str_replace('@', '', $name);
-    }
-
-    private function normalizeTimestamp(int $timestamp): int
-    {
-        return (int) substr((string) $timestamp, 0, -3);
-    }
-
-    private function createUtcDateTime(int $time, int $utcOffset): DateTime
-    {
-        $dateTime = DateTime::from($time + $utcOffset);
-        return $dateTime->setTimezone(new DateTimeZone('UTC'));
     }
 
     /**

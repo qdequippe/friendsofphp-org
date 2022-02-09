@@ -64,7 +64,7 @@ final class MeetupComMeetupImporter
         usort(
             $meetups,
             fn (Meetup $firstMeetup, Meetup $secondMeetup): int
-                => $firstMeetup->getStartDateTime() <=> $secondMeetup->getStartDateTime()
+                => $firstMeetup->getUtcStartDateTime() <=> $secondMeetup->getUtcStartDateTime()
         );
 
         return $meetups;
