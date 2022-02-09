@@ -12,6 +12,45 @@
     {# @todo https://stackoverflow.com/questions/38717543/how-do-i-filter-date-range-in-datatables #}
 
     {% for meetup in meetups %}
-        {% include "_snippets/meetups/table_meetup_line.twig" %}
+        {# @var meetup \Fop\Meetup\ValueObject\Meetup #}
+        <tr class="meetup" data-longitude="{{ meetup.longitude }}" data-latitude="{{ meetup.latitude}}">
+            <td class="w-25">
+        <span class="text-nowrap text-{% if meetup.startInDays < 7 %}success{% elseif meetup.startInDays < 14 %}warning{% else %}danger{% endif %}">
+            {{ meetup.utcStartDateTime|date("D") }},
+            <strong>{{ meetup.utcStartDateTime|date("M d") }}</strong>
+        </span>
+
+                <br>
+
+                <small class="text-secondary">
+                    {{ meetup.localTime }} <span style="color: #CCC">(local time)</span>
+                    <br>
+                    <a href="https://www.google.com/search?q={{ meetup.localTime }} {{ meetup.city }} my time">my time?</a>
+                </small>
+            </td>
+            <td class="w-25">
+                <strong>{{ meetup.city }}</strong>
+
+                <br>
+
+                <small class="text-secondary">{{ meetup.country }}</small>
+            </td>
+            <td>
+                {% if meetup.online %}
+                    <span class="icon-tooltip" title="Online"> 💻</span>
+                {% else %}
+                    <span class="icon-tooltip" title="In person">🧑‍🤝‍🧑</span>
+                {% endif %}
+            </td>
+            <td class="w-50">
+                <strong>
+                    <a href="{{ meetup.url }}">{{ meetup.name }}</a>
+                </strong>
+
+                <br>
+
+                <small class="text-secondary">{{ meetup.userGroup }}</small>
+            </td>
+        </tr>
     {% endfor %}
 </table>
