@@ -9,7 +9,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'debug' => true,
         'strict_variables' => true,
         'globals' => [
-            'max_forecast_days' => '%max_forecast_days%',
             'map_id' => 'mapid',
         ],
     ]);

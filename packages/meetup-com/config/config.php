@@ -3,10 +3,23 @@
 declare(strict_types=1);
 
 use Fop\Core\ValueObject\Option;
+use GuzzleHttp\Client;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->import(__DIR__ . '/services.php');
+    $services = $containerConfigurator->services();
+
+    $services->defaults()
+        ->autowire()
+        ->autoconfigure()
+        ->public();
+
+    $services->load('Fop\MeetupCom\\', __DIR__ . '/../src')
+        ->exclude([__DIR__ . '/../src/ValueObject']);
+
+    $services->set(Client::class);
+    $services->set(StringFormatConverter::class);
 
     $parameters = $containerConfigurator->parameters();
 

@@ -35,7 +35,7 @@ final class MeetupComMeetupImporter
             try {
                 $groupSlug = $group->getMeetupComSlug();
 
-                $message = sprintf('Loading meetups for "%s" group', $groupSlug);
+                $message = sprintf('Scanning "%s" group', $groupSlug);
                 $this->symfonyStyle->writeln(' * ' . $message);
 
                 $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);

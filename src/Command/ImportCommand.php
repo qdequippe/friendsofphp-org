@@ -43,7 +43,7 @@ final class ImportCommand extends Command
 
         $this->reportFoundMeetups($meetups);
 
-        $this->meetupRepository->purge();
+        $this->meetupRepository->deleteAll();
         $this->meetupRepository->saveMany($meetups);
 
         return self::SUCCESS;

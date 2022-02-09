@@ -12,8 +12,16 @@ use Symplify\SmartFileSystem\SmartFileSystem;
 
 abstract class AbstractRepository implements RepositoryInterface
 {
+    /**
+     * @var string
+     */
+    private const JSON_DATABASE_DIRECTORY = __DIR__ . '/../../../../json-database';
+
     #[Required]
     public JSONDB $jsonDb;
+
+    #[Required]
+    public SmartFileSystem $smartFileSystem;
 
     /**
      * Must be called before first method calls
@@ -21,17 +29,14 @@ abstract class AbstractRepository implements RepositoryInterface
     #[Required]
     public function boot(): void
     {
-        $databaseStorageDirectory = __DIR__ . '/../../../../json-database';
-        if (! file_exists($databaseStorageDirectory)) {
-            FileSystem::createDir($databaseStorageDirectory);
+        if (! file_exists(self::JSON_DATABASE_DIRECTORY)) {
+            FileSystem::createDir(self::JSON_DATABASE_DIRECTORY);
         }
 
-        $smartFileSystem = new SmartFileSystem();
-
         // create empty storage file if not exists
-        $storageFile = $databaseStorageDirectory . '/' . $this->getTable();
+        $storageFile = self::JSON_DATABASE_DIRECTORY . '/' . $this->getTable();
         if (! file_exists($storageFile)) {
-            $smartFileSystem->dumpFile($storageFile, '[]');
+            $this->smartFileSystem->dumpFile($storageFile, '[]');
         }
     }
 
@@ -50,5 +55,11 @@ abstract class AbstractRepository implements RepositoryInterface
     public function insert(array $item): void
     {
         $this->jsonDb->insert($this->getTable(), $item);
+    }
+
+    public function deleteAll(): void
+    {
+        $storageFile = self::JSON_DATABASE_DIRECTORY . '/' . $this->getTable();
+        $this->smartFileSystem->dumpFile($storageFile, '[]');
     }
 }
