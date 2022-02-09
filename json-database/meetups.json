@@ -378,20 +378,6 @@
     }
 ,
     {
-        "name": "The Working Group",
-        "user_group_name": "Boston PHP",
-        "local_date": "2022-03-01",
-        "local_time": "00:00",
-        "utc_start_date_time": "1646110800",
-        "city": "Virtual",
-        "country": "Massachusetts",
-        "latitude": 42.40721130371094,
-        "longitude": -71.38243865966797,
-        "url": "https:\/\/www.meetup.com\/bostonphp\/events\/283821265\/",
-        "is_online": false
-    }
-,
-    {
         "name": "Nashville PHP South Lunch",
         "user_group_name": "Nashville PHP",
         "local_date": "2022-03-01",

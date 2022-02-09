@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom\Meetup;
 
+use DateTimeInterface;
+use Fop\Core\Exception\ShouldNotHappenException;
 use Fop\Core\Geolocation\Geolocator;
 use Fop\Core\Utils\CityNormalizer;
 use Fop\Meetup\ValueObject\Location;
@@ -38,6 +40,16 @@ final class MeetupComMeetupFactory
      */
     private const IS_ONLINE_EVENT = 'is_online_event';
 
+    /**
+     * @var string
+     */
+    private const NAME = 'name';
+
+    /**
+     * @var string
+     */
+    private const VENUE = 'venue';
+
     public function __construct(
         private readonly Geolocator $geolocator,
         private readonly CityNormalizer $cityNormalizer
@@ -61,7 +73,7 @@ final class MeetupComMeetupFactory
 
         return new Meetup(
             $name,
-            $data[self::GROUP]['name'],
+            $data[self::GROUP][self::NAME],
             $utcStartDateTime,
             $data['local_date'],
             $data['local_time'],
@@ -90,18 +102,28 @@ final class MeetupComMeetupFactory
         }
 
         // draft event, not ready yet
-        return ! isset($meetup['venue']);
+        if (! isset($meetup[self::VENUE])) {
+            return true;
+        }
+
+        // special venue, not really a meetup, but a promo - see https://www.meetup.com/bostonphp/events/283821265/
+        return $meetup[self::VENUE][self::NAME] === 'Virtual';
     }
 
     /**
      * @param mixed[] $data
      */
-    private function createUtcStartDateTime(array $data): DateTime
+    private function createUtcStartDateTime(array $data): DateTimeInterface
     {
         // not sure why it adds extra "000" in the end
         $unixTimestamp = (int) substr((string) $data['time'], 0, -3);
 
-        return DateTime::createFromFormat('U', (string) $unixTimestamp);
+        $dateTime = DateTime::createFromFormat('U', (string) $unixTimestamp);
+        if (! $dateTime instanceof DateTimeInterface) {
+            throw new ShouldNotHappenException();
+        }
+
+        return $dateTime;
     }
 
     /**
@@ -109,7 +131,7 @@ final class MeetupComMeetupFactory
      */
     private function createLocation(array $data): Location
     {
-        $venue = $data['venue'];
+        $venue = $data[self::VENUE];
 
         if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT] === true) {
             // online event probably
@@ -147,7 +169,7 @@ final class MeetupComMeetupFactory
      */
     private function createName(array $data): string
     {
-        $name = trim($data['name']);
+        $name = trim($data[self::NAME]);
         return str_replace('@', '', $name);
     }
 

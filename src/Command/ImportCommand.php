@@ -20,7 +20,7 @@ final class ImportCommand extends Command
     public function __construct(
         private readonly SymfonyStyle $symfonyStyle,
         private readonly MeetupRepository $meetupRepository,
-        private readonly MeetupFilter $meetupFilterCollector,
+        private readonly MeetupFilter $meetupFilter,
         private readonly MeetupComMeetupImporter $meetupComMeetupImporter,
         private readonly GroupRepository $groupRepository
     ) {
@@ -39,7 +39,7 @@ final class ImportCommand extends Command
         $this->symfonyStyle->title($title);
 
         $meetups = $this->meetupComMeetupImporter->import();
-        $meetups = $this->meetupFilterCollector->filter($meetups);
+        $meetups = $this->meetupFilter->filter($meetups);
 
         $this->reportFoundMeetups($meetups);
 

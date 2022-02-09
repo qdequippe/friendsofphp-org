@@ -11,6 +11,8 @@ parameters:
         - tests
         - packages
 
+    reportUnmatchedIgnoredErrors: false
+
     ignoreErrors:
         # for autowire
         - '#Class Fop\\MeetupCom\\Guzzle\\Oauth2AwareClient extends @final class GuzzleHttp\\Client#'
@@ -46,6 +48,3 @@ parameters:
 
         # generics false positive
         - '#Method Fop\\Meetup\\Repository\\AbstractRepository\:\:fetchAll\(\) should return array<TEntity of Fop\\Meetup\\Contract\\ArrayableInterface> but returns array<int, Fop\\Meetup\\Contract\\ArrayableInterface>#'
-
-        # require DateTime interface
-        - '#Method Fop\\MeetupCom\\Meetup\\MeetupComMeetupFactory\:\:createUtcStartDateTime\(\) should return Nette\\Utils\\DateTime but returns Nette\\Utils\\DateTime\|false#'
