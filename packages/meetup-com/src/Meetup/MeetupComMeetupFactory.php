@@ -113,7 +113,7 @@ final class MeetupComMeetupFactory
     /**
      * @param mixed[] $data
      */
-    private function createUtcStartDateTime(array $data): DateTimeInterface
+    private function createUtcStartDateTime(array $data): DateTime
     {
         // not sure why it adds extra "000" in the end
         $unixTimestamp = (int) substr((string) $data['time'], 0, -3);
