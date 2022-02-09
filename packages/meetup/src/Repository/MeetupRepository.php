@@ -57,7 +57,8 @@ final class MeetupRepository extends AbstractRepository
      */
     public function purge(): void
     {
-        $this->jsonDb->delete()
-            ->from($this->getTable());
+        $this->jsonDb->from($this->getTable())
+            ->delete()
+            ->trigger();
     }
 }
