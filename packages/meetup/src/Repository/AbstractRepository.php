@@ -32,7 +32,7 @@ abstract class AbstractRepository implements RepositoryInterface
      * @param class-string<TEntity> $entityClass
      */
     public function __construct(
-        private string $entityClass
+        private string $entityClass,
     ) {
         Assert::isAOf($entityClass, ArrayableInterface::class);
     }
