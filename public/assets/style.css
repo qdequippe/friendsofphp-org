@@ -139,3 +139,8 @@ footer a:hover {
 #filter-form input::placeholder {
     color: black;
 }
+
+/* tooltip */
+.icon-tooltip {
+     cursor: help;
+}
