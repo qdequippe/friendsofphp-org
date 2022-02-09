@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Repository;
 
+use Fop\Meetup\Contract\ArrayableInterface;
 use Fop\Meetup\Contract\Repository\RepositoryInterface;
 use Jajo\JSONDB;
 use Nette\Utils\FileSystem;
 use Symfony\Contracts\Service\Attribute\Required;
 use Symplify\SmartFileSystem\SmartFileSystem;
+use Webmozart\Assert\Assert;
 
+/**
+ * @template TEntity as ArrayableInterface
+ */
 abstract class AbstractRepository implements RepositoryInterface
 {
     /**
@@ -22,6 +27,15 @@ abstract class AbstractRepository implements RepositoryInterface
 
     #[Required]
     public SmartFileSystem $smartFileSystem;
+
+    /**
+     * @param class-string<TEntity> $entityClass
+     */
+    public function __construct(
+        private string $entityClass
+    ) {
+        Assert::isAOf($entityClass, ArrayableInterface::class);
+    }
 
     /**
      * Must be called before first method calls
@@ -41,12 +55,23 @@ abstract class AbstractRepository implements RepositoryInterface
     }
 
     /**
-     * @return array<string, mixed>
+     * @return TEntity[]
      */
     public function fetchAll(): array
     {
-        return $this->jsonDb->from($this->getTable())
+        $itemsArray = $this->jsonDb->from($this->getTable())
             ->get();
+
+        $className = $this->entityClass;
+
+        $entities = [];
+        foreach ($itemsArray as $itemArray) {
+            $entities[] = $className::fromArray($itemArray);
+        }
+
+        Assert::allIsInstanceOf($entities, $className);
+
+        return $entities;
     }
 
     /**

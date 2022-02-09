@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Fop\Meetup\Repository;
 
-use Fop\Meetup\Mapper\MeetupMapper;
 use Fop\Meetup\ValueObject\Meetup;
 
+/**
+ * @extends AbstractRepository<Meetup>
+ */
 final class MeetupRepository extends AbstractRepository
 {
-    public function __construct(
-        private readonly MeetupMapper $meetupFactory
-    ) {
+    public function __construct()
+    {
+        parent::__construct(Meetup::class);
     }
 
     /**
@@ -29,10 +31,7 @@ final class MeetupRepository extends AbstractRepository
      */
     public function fetchAll(): array
     {
-        $meetupsArrays = parent::fetchAll();
-        $meetups = $this->meetupFactory->create($meetupsArrays);
-
-        $meetups = array_unique($meetups);
+        $meetups = parent::fetchAll();
 
         usort(
             $meetups,

@@ -43,3 +43,6 @@ parameters:
         -
              message: '#Private method in is not allowed here \- it should only delegate to others\. Decouple the private method to a new service class#'
              path: src/Command/ImportCommand.php
+
+        # generics false positive
+        - '#Method Fop\\Meetup\\Repository\\AbstractRepository\:\:fetchAll\(\) should return array<TEntity of Fop\\Meetup\\Contract\\ArrayableInterface> but returns array<int, Fop\\Meetup\\Contract\\ArrayableInterface>#'
