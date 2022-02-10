@@ -738,5 +738,10 @@
         "name": "PHPMiNDS",
         "meetup_com_slug": "PHPMiNDS-in-Nottingham",
         "country": "United Kingdom"
+    },
+    {
+        "name":"PHP Usergroup Darmstadt",
+        "meetup_com_slug": "Darmstadt-PHP-Meetup-Gruppe",
+        "country": "Germany"
     }
 ]
