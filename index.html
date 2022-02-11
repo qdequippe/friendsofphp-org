@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
     <title>
-        When is the Next PHP Meetup?    </title>
+            </title>
 
     <meta charset="utf-8">
     <meta name="robots" content="index, follow">
@@ -70,15 +70,46 @@
 
         <hr>
 
-            <div class="container-fluid" id="content">
-        <div class="row">
-            <div class="col-md-4 pl-md-0 pr-md-0">
-                <a name="map"></a>
-                <div id="mapid"></div>
-            </div>
+        <div class="container-fluid" id="content">
+            <div class="row">
+                <div class="col-md-4 pl-md-0 pr-md-0">
+                    <a name="map"></a>
+                    <div id="mapid"></div>
 
-            <div class="col-md-8 mt-0">
-                <table class="table table-bordered table-responsive table-meetups" id="map-filterable-table">
+                    <br>
+
+                    <ul class="bigger-list">
+                        <li>
+                            <a href="/api/meetups.json">Meetups JSON</a>
+                        </li>
+                        <li>
+                            <a href="/api/groups.json">Groups JSON</a>
+                        </li>
+
+                        <li>
+                            Last Update: <a href="https://github.com/TomasVotruba/friendsofphp.org/actions?query=workflow%3A%22Build+and+Deploy%22">
+                                2022-02-11 14:45 CEST
+                            </a>
+                        </li>
+                        <li>
+                            Contribute <a href="https://github.com/tomasvotruba/friendsofphp.org">on GitHub</a>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <div class="card mb-5 mt-5">
+                        <div class="card-body pb-0 border border-warning">
+                            <p>
+                                Made with ❤️ by <a href="https://tomasvotruba.com">Tomas Votruba</a>
+                                based on personal <a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">meetings with awesome people!</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 mt-0">
+                    <table class="table table-bordered table-responsive table-meetups" id="map-filterable-table">
     <thead class="thead-inverse">
         <tr>
             <th class="w-25 text-center">When</th>
@@ -1105,17 +1136,20 @@
             </td>
         </tr>
     </table>
+                </div>
+
+                <script src="/assets/js/utils.js"></script>
             </div>
-
-            <script src="/assets/js/utils.js"></script>
         </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        <br><br>
+        <br><br>
 
-        <script src="/assets/js/menu-area-pick.js?v=377761994"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
-        <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
+                <script src="/assets/js/menu-area-pick.js?v=709268685"></script>
+
+                <script src="https://unpkg.com/leaflet@1.3.2/dist/leaflet.js"
         integrity="sha512-2fA79E27MOeBgLjmBrtAgM/20clVSV8vJERaW/EcnnWCVGwQRazzKtQS1kIusCZv1PtaQxosDZZ0F1Oastl55w=="
         crossorigin=""></script>
 
@@ -1491,7 +1525,6 @@
     }
 </script>
 
-
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
@@ -1521,36 +1554,6 @@
     });
 </script>
 
-<footer class="pb-2 pt-3 mt-5">
-    <div class="container-fluid">
-        <div class="text-center">
-            <p>
-                Made with ❤️ by ️☕️ and <a href="https://tomasvotruba.com">Tomas Votruba</a>
-                based on personal <a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">meetings with awesome people</a>
-
-                <span class="pl-2 pr-2">•</span>
-
-                <a href="https://github.com/tomasvotruba/friendsofphp.org">
-                    <svg style="width: 1.7em; margin-bottom: -.5em" fill="currentColor" viewBox="0 0 24 24"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg>
-                </a>
-
-                <br>
-
-                <a href="/api/meetups.json">Meetups JSON</a>
-
-                <span class="pl-2 pr-2">•</span>
-
-                <a href="/api/groups.json">Groups JSON</a>
-
-                <span class="pl-2 pr-2">•</span>
-
-                <a href="https://github.com/TomasVotruba/friendsofphp.org/actions?query=workflow%3A%22Build+and+Deploy%22">
-                    Last Update: 2022-02-11 12:09 CEST
-                </a>
-            </p>
-        </div>
-    </div>
-</footer>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122522291-1"></script>
 <script>
