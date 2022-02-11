@@ -8,6 +8,37 @@
             <div class="col-md-4 pl-md-0 pr-md-0">
                 <a name="map"></a>
                 <div id="{{ map_id }}"></div>
+
+                <br>
+
+                <ul class="bigger-list">
+                    <li>
+                        <a href="{{ path('api_meetups_json') }}">Meetups JSON</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('api_groups_json') }}">Groups JSON</a>
+                    </li>
+
+                    <li>
+                        Last Update: <a href="https://github.com/TomasVotruba/friendsofphp.org/actions?query=workflow%3A%22Build+and+Deploy%22">
+                            {{ "now"|date("Y-m-d H:i") }} CEST
+                        </a>
+                    </li>
+                    <li>
+                        Contribute <a href="https://github.com/tomasvotruba/friendsofphp.org">on GitHub</a>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <div class="card mb-5 mt-5">
+                    <div class="card-body pb-0 border border-warning">
+                        <p>
+                            Made with ❤️ by <a href="https://tomasvotruba.com">Tomas Votruba</a>
+                            based on personal <a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">meetings with awesome people!</a>
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-8 mt-0">
@@ -17,6 +48,9 @@
             <script src="{{ asset('assets/js/utils.js') }}"></script>
         </div>
     </div>
+
+    <br><br>
+    <br><br>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 
