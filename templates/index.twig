@@ -1,29 +1,106 @@
-{% set title %}When is the Next PHP Meetup?{% endset %}
+<!DOCTYPE html>
+<html lang="en">
+    {% include "_snippets/head.twig" %}
 
-{% extends 'base.twig' %}
+    <body>
+        <div id="head" class="text-center pt-5 pb-2 mb-0">
+            <div class="container-fluid">
+                <h1 class="mb-4">
+                    <a href="/">
+                        When is the Next <strong>PHP Meetup</strong>?
+                        🐘
+                    </a>
+                </h1>
 
-{% block content %}
-    <div class="container-fluid" id="content">
-        <div class="row">
-            <div class="col-md-4 pl-md-0 pr-md-0">
-                <a name="map"></a>
-                <div id="{{ map_id }}"></div>
+                <blockquote class="blockquote text-bigger text-center mb-4">
+                    "It was so awesome to meet <strong>new people who also love PHP</strong>!"
+                    <div class="blockquote-footer">
+                        Every 1st-time meetup visitor
+                    </div>
+                </blockquote>
             </div>
-
-            <div class="col-md-8 mt-0">
-                {% include "_snippets/meetups/map_filterable_table.twig" %}
-            </div>
-
-            <script src="{{ asset('assets/js/utils.js') }}"></script>
         </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        <hr class="mt-0">
 
-    {# need to be run after jQuery #}
-    <script src="/assets/js/menu-area-pick.js?v={{ random() }}"></script>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 text-uppercase">↓ Zoom the map to filter</div>
+                <div class="col-6 text-secondary text-center">
+                    Displaying <strong>{{ meetup_count }} PHP meetups</strong> from {{ group_count }} PHP groups
+                </div>
 
-    {# generated javascript using jQuery #}
-    {% include "_snippets/meetups_map_js.twig" %}
+                <div class="col-3">
+                    <div id="filter-form">
+                        <label>
+                            <input id="search" class="form-control" placeholder="FILTER BY ANYTHING... ↓" aria-controls="map-filterable-table">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-{% endblock %}
+        <hr>
+
+        <div class="container-fluid" id="content">
+            <div class="row">
+                <div class="col-md-4 pl-md-0 pr-md-0">
+                    <a name="map"></a>
+                    <div id="{{ map_id }}"></div>
+
+                    <br>
+
+                    <ul class="bigger-list">
+                        <li>
+                            <a href="{{ path('api_meetups_json') }}">Meetups JSON</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('api_groups_json') }}">Groups JSON</a>
+                        </li>
+
+                        <li>
+                            Last Update: <a href="https://github.com/TomasVotruba/friendsofphp.org/actions?query=workflow%3A%22Build+and+Deploy%22">
+                                {{ "now"|date("Y-m-d H:i") }} CEST
+                            </a>
+                        </li>
+                        <li>
+                            Contribute <a href="https://github.com/tomasvotruba/friendsofphp.org">on GitHub</a>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <div class="card mb-5 mt-5">
+                        <div class="card-body pb-0 border border-warning">
+                            <p>
+                                Made with ❤️ by <a href="https://tomasvotruba.com">Tomas Votruba</a>
+                                based on personal <a href="https://www.tomasvotruba.com/blog/2018/07/23/5-signs-should-never-have-a-talk-abroad/">meetings with awesome people!</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 mt-0">
+                    {% include "_snippets/meetups/map_filterable_table.twig" %}
+                </div>
+
+                <script src="{{ asset('assets/js/utils.js') }}"></script>
+            </div>
+        </div>
+
+        <br><br>
+        <br><br>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
+        {# need to be run after jQuery #}
+        <script src="/assets/js/menu-area-pick.js?v={{ random() }}"></script>
+
+        {# generated javascript using jQuery #}
+        {% include "_snippets/meetups_map_js.twig" %}
+
+        {% include "_snippets/footer.twig" %}
+
+        {% include "_snippets/google_analytics.twig" %}
+    </body>
+</html>

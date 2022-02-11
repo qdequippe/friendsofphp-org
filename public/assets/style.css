@@ -144,3 +144,7 @@ footer a:hover {
 .icon-tooltip {
      cursor: help;
 }
+
+.bigger-list li {
+    line-height: 2em;
+}
