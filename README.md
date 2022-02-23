@@ -5,6 +5,8 @@
     <h2>World PHP Meetups in next 30 days</h2>
 </div>
 
+<br>
+
 <div align="center">
    <img src="/docs/new_website.png?v=3">
 </div>
