@@ -59,8 +59,9 @@ abstract class AbstractRepository implements RepositoryInterface
      */
     public function fetchAll(): array
     {
-        $itemsArray = $this->jsonDb->from($this->getTable())
-            ->get();
+        /** @var JSONDB $jsonDbTable */
+        $jsonDbTable = $this->jsonDb->from($this->getTable());
+        $itemsArray = $jsonDbTable->get();
 
         $className = $this->entityClass;
 

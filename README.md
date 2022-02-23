@@ -1,7 +1,7 @@
 # [FriendsOfPhp.org](https://www.friendsofphp.org) - World PHP Meetups in next 30 days
 
 <div align="center">
-   <img src="/docs/website.png?v=3">
+   <img src="/docs/new_website.png?v=3">
 </div>
 
 ## Install
