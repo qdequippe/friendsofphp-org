@@ -1,4 +1,9 @@
-# [FriendsOfPhp.org](https://www.friendsofphp.org) - World PHP Meetups in next 30 days
+<div align="center">
+    <h1>
+        <a href="https://www.friendsofphp.org">Friends of Php.org</a>
+    </h1>
+    <h2>World PHP Meetups in next 30 days</h2>
+</div>
 
 <div align="center">
    <img src="/docs/new_website.png?v=3">
