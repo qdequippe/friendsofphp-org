@@ -49,14 +49,4 @@ Do you want to get all groups and meetups? There you are:
 - https://friendsofphp.org/api/meetups.json
 - https://friendsofphp.org/api/groups.json
 
-## Maintenance
-
-How to keep fit and slim!
-
-### Check Status Code of All Links
-
-Once in a few months, check if all external links are still alive, so people won't get lost.
-
-```bash
-composer dead
-```
+Happy coding... with friends!
