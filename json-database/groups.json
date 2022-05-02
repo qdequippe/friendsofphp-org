@@ -1,7 +1,12 @@
 [
     {
+        "name": "Göteborg Laravel Meetup",
+        "meetup_com_slug": "Goteborg-Laravel-Meetup-Fully-Studios",
+        "country": "Sweden"
+    },
+    {
         "name": "PHP Bergen",
-        "meetup_com_slug": "PHP-Bergen"
+        "meetup_com_slug": "PHP-Bergen",
         "country": "Norway"
     },
     {
