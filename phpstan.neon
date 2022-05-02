@@ -48,3 +48,16 @@ parameters:
 
         # generics false positive
         - '#Method Fop\\Meetup\\Repository\\AbstractRepository\:\:fetchAll\(\) should return array<TEntity of Fop\\Meetup\\Contract\\ArrayableInterface> but returns array<int, Fop\\Meetup\\Contract\\ArrayableInterface>#'
+
+        # array shape on purpose
+        -
+            message: '#Instead of array shape, use value object with specific types in constructor and getters#'
+            path:  src/Twig/Extension/GlobalCountTwigExtension.php
+
+        # json serialize
+        -
+            message: '#Complete known array shape to the method @return type#'
+            path: packages/meetup/src/ValueObject/Meetup.php
+
+        # false positive
+        - '#Add explicit array type to assigned "\$venue" expression#'

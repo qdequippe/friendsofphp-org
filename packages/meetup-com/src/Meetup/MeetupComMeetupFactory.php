@@ -174,8 +174,8 @@ final class MeetupComMeetupFactory
     }
 
     /**
-     * @param mixed[] $venue
-     * @return mixed[]
+     * @param array<string, mixed> $venue
+     * @return array<string, mixed>
      */
     private function normalizeCityStates(array $venue): array
     {

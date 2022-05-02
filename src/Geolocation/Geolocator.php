@@ -52,7 +52,7 @@ final class Geolocator
     private const STATE = 'state';
 
     /**
-     * @var mixed[]
+     * @var array<string, mixed[]>
      */
     private array $countryJsonByLatitudeAndLongitudeCache = [];
 
@@ -84,7 +84,7 @@ final class Geolocator
     }
 
     /**
-     * @param mixed[] $venue
+     * @param array<string, mixed> $venue
      */
     public function resolveCountryByVenue(array $venue): string
     {

@@ -39,7 +39,7 @@ final class Group implements ArrayableInterface
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array{name: string, meetup_com_slug: string, country: string}
      */
     public function jsonSerialize(): array
     {

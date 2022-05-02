@@ -18,7 +18,7 @@ final class GlobalCountTwigExtension extends AbstractExtension implements Global
     }
 
     /**
-     * @return array<string, int>
+     * @return array{meetup_count: int, group_count: int}
      */
     public function getGlobals(): array
     {
