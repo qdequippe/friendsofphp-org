@@ -16,19 +16,19 @@ final class MeetupComApi
      * @see https://www.meetup.com/meetup_api/docs/:urlname/events/#list
      * @var string
      */
-    private const API_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events';
+    private const API_EVENTS_BY_GROUPS_URL = 'https://api.meetup.com/%s/events';
 
     /**
      * @see https://www.meetup.com/meetup_api/docs/status/
      * @var string
      */
-    private const STATUS_URL = 'http://api.meetup.com/status';
+    private const STATUS_URL = 'https://api.meetup.com/status';
 
     /**
      * @see https://www.meetup.com/meetup_api/docs/:urlname/events/#list
      * @var string
      */
-    private const API_LAST_EVENTS_BY_GROUPS_URL = 'http://api.meetup.com/%s/events?status=past&desc=true&page=1';
+    private const API_LAST_EVENTS_BY_GROUPS_URL = 'https://api.meetup.com/%s/events?status=past&desc=true&page=1';
 
     public function __construct(
         private readonly ResponseConverter $responseConverter,
