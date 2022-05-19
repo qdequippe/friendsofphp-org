@@ -102,7 +102,7 @@ final class MeetupComMeetupFactory
         }
 
         // special venue, not really a meetup, but a promo - see https://www.meetup.com/bostonphp/events/283821265/
-        if (isset ($meetup[self::VENUE][self::NAME])) {
+        if (isset($meetup[self::VENUE][self::NAME])) {
             return $meetup[self::VENUE][self::NAME] === 'Virtual';
         }
 
@@ -135,7 +135,7 @@ final class MeetupComMeetupFactory
         } else {
             // no specific venue defined
             $localizedLocation = $data['group']['localized_location'];
-            [$city, $country] = explode(", ", $localizedLocation);
+            [$city, $country] = explode(', ', $localizedLocation);
 
             $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
             return new Location($city, $country, $coordinate);
