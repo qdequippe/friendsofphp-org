@@ -40,6 +40,9 @@ final class MeetupComMeetupImporter
 
                 $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
 
+                $note = sprintf('Found %d meetups', count($meetupsData));
+                $this->symfonyStyle->note($note);
+
                 $this->meetupComCooler->coolDownIfNeeded();
 
                 // @see https://www.meetup.com/api/guide/#p05-rate-limiting
