@@ -61,3 +61,6 @@ parameters:
 
         # false positive
         - '#Add explicit array type to assigned "\$venue" expression#'
+        -
+            message: '#Instead of calling all public methods of value object, pass it directly#'
+            path: packages/meetup-com/src/Meetup/MeetupComMeetupFactory.php
