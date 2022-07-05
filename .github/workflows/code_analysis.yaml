@@ -25,7 +25,7 @@ jobs:
                         run: vendor/bin/phpunit
                     -
                         name: 'Active Classes'
-                        run: vendor/bin/easy-ci check-active-class src packages --ansi
+                        run: vendor/bin/easy-ci check-active-class src --ansi
 
                     # disable until covid is over to avoid false positives
 #                    -

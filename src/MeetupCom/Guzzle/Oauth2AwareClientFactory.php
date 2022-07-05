@@ -13,6 +13,9 @@ use kamermans\OAuth2\OAuth2Middleware;
 use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
+/**
+ * @api
+ */
 final class Oauth2AwareClientFactory
 {
     private readonly string $meetupComOauthKey;
