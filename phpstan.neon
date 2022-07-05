@@ -68,3 +68,10 @@ parameters:
         -
             message: '#Class method "(deleteAll|insert|fetchAll)\(\)" is never used#'
             path: src/Meetup/Repository/AbstractRepository.php
+
+        # allow shapes to avoid overly API complexity
+        - '#Instead of array shape, use value object with specific types in constructor and getters#'
+        - '#Parameter (.*?) expects array(.*?), (array|non\-empty\-array(.*?)) given#'
+        - '#Offset (.*?) does not exist on array#'
+
+

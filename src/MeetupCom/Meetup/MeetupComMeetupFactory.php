@@ -126,7 +126,7 @@ final class MeetupComMeetupFactory
     }
 
     /**
-     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}} $data
+     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}, is_online_event?: bool} $data
      */
     private function createLocation(array $data): Location
     {
