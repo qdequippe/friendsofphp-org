@@ -1,5 +1,10 @@
 [
     {
+        "name": "Laravel Hungary Meetup",
+        "meetup_com_slug": "laravel-hungary-meetup",
+        "country": "Hungary"
+    },
+    {
         "name": "Göteborg Laravel Meetup",
         "meetup_com_slug": "Goteborg-Laravel-Meetup-Fully-Studios",
         "country": "Sweden"
