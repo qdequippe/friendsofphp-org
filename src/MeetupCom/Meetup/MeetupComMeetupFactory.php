@@ -126,7 +126,7 @@ final class MeetupComMeetupFactory
     }
 
     /**
-     * @param mixed[] $data
+     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}} $data
      */
     private function createLocation(array $data): Location
     {
@@ -173,7 +173,7 @@ final class MeetupComMeetupFactory
     }
 
     /**
-     * @param mixed[] $data
+     * @param array{name: string} $data
      */
     private function createName(array $data): string
     {

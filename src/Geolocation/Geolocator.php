@@ -84,7 +84,7 @@ final class Geolocator
     }
 
     /**
-     * @param array<string, mixed> $venue
+     * @param array{localized_country_name: string, state?: string} $venue
      */
     public function resolveCountryByVenue(array $venue): string
     {
@@ -123,7 +123,7 @@ final class Geolocator
     }
 
     /**
-     * @param mixed[] $group
+     * @param array{country?: string, state: string} $group
      */
     public function resolveCountryByGroup(array $group): ?string
     {

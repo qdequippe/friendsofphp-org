@@ -25,8 +25,8 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->skip([
         // buggy because of MicroKernel trait magic
         PrivatizeFinalClassMethodRector::class => [__DIR__ . '/src/HttpKernel/FopKernel.php'],
-        DateTimeToDateTimeInterfaceRector::class => [
-            __DIR__ . '/packages/meetup-com/src/Meetup/MeetupComMeetupFactory.php',
-        ],
+
+        // mostly breaks, already removed
+        DateTimeToDateTimeInterfaceRector::class,
     ]);
 };
