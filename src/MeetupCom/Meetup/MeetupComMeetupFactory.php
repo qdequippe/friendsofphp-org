@@ -141,10 +141,10 @@ final class MeetupComMeetupFactory
             return new Location($city, $country, $coordinate);
         }
 
-        if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT] === true) {
+        if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT]) {
             // online event probably
             $localizedLocation = $data['group']['localized_location'];
-            [$city, $country] = explode(', ', (string) $localizedLocation);
+            [$city, $country] = explode(', ', $localizedLocation);
 
             $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
             return new Location($city, $country, $coordinate);
