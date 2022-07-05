@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Fop\Core\HttpKernel\FopKernel;
+use Fop\HttpKernel\FopKernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

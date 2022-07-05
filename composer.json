@@ -28,23 +28,21 @@
         "phpstan/phpstan-symfony": "^1.1",
         "phpstan/phpstan-webmozart-assert": "^1.0",
         "phpunit/phpunit": "^9.5",
-        "rector/rector": "^0.13",
-        "webmozart/assert": "^1.10",
+        "rector/rector": "^0.13.7",
+        "symplify/easy-ci": "^11.0",
         "symplify/easy-coding-standard": "^11.0",
         "symplify/phpstan-extensions": "^11.0",
-        "symplify/phpstan-rules": "^11.0"
+        "symplify/phpstan-rules": "^11.0",
+        "webmozart/assert": "^1.10"
     },
     "autoload": {
         "psr-4": {
-            "Fop\\Core\\": "src",
-            "Fop\\Meetup\\": "packages/meetup/src",
-            "Fop\\MeetupCom\\": "packages/meetup-com/src"
+            "Fop\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Fop\\Core\\Tests\\": "tests",
-            "Fop\\Meetup\\Tests\\": "packages/meetup/tests"
+            "Fop\\Tests\\": "tests"
         }
     },
     "scripts": {

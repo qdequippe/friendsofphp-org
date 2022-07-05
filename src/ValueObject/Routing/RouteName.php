@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\ValueObject\Routing;
+namespace Fop\ValueObject\Routing;
 
 final class RouteName
 {

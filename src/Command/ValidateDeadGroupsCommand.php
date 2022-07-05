@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Command;
+namespace Fop\Command;
 
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
@@ -12,7 +12,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
 final class ValidateDeadGroupsCommand extends Command
 {
@@ -27,7 +26,7 @@ final class ValidateDeadGroupsCommand extends Command
 
     protected function configure(): void
     {
-        $this->setName(CommandNaming::classToName(self::class));
+        $this->setName('validate-dead-groups');
         $this->setDescription('Import the last group meetup from meetup.com to see which are active and which not');
     }
 

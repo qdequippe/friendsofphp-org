@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Utils;
+namespace Fop\Utils;
 
 use Nette\Utils\Strings;
 

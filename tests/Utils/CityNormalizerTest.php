@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Tests\Utils;
+namespace Fop\Tests\Utils;
 
-use Fop\Core\Utils\CityNormalizer;
+use Fop\Utils\CityNormalizer;
 use Iterator;
 use PHPUnit\Framework\TestCase;
 

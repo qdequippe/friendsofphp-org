@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Fop\MeetupCom\Meetup;
 
 use DateTimeInterface;
-use Fop\Core\Exception\ShouldNotHappenException;
-use Fop\Core\Geolocation\Geolocator;
-use Fop\Core\Utils\CityNormalizer;
+use Fop\Exception\ShouldNotHappenException;
+use Fop\Geolocation\Geolocator;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
+use Fop\Utils\CityNormalizer;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 
@@ -126,7 +126,7 @@ final class MeetupComMeetupFactory
     }
 
     /**
-     * @param mixed[] $data
+     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}, is_online_event?: bool} $data
      */
     private function createLocation(array $data): Location
     {
@@ -141,10 +141,10 @@ final class MeetupComMeetupFactory
             return new Location($city, $country, $coordinate);
         }
 
-        if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT] === true) {
+        if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT]) {
             // online event probably
             $localizedLocation = $data['group']['localized_location'];
-            [$city, $country] = explode(', ', (string) $localizedLocation);
+            [$city, $country] = explode(', ', $localizedLocation);
 
             $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
             return new Location($city, $country, $coordinate);
@@ -173,7 +173,7 @@ final class MeetupComMeetupFactory
     }
 
     /**
-     * @param mixed[] $data
+     * @param array{name: string} $data
      */
     private function createName(array $data): string
     {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Controller;
+namespace Fop\Controller;
 
-use Fop\Core\ValueObject\Routing\RouteName;
 use Fop\Meetup\Repository\GroupRepository;
+use Fop\ValueObject\Routing\RouteName;
 use Nette\Utils\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

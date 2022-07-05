@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Fop\MeetupCom\Api;
 
 use DateTimeInterface;
-use Fop\Core\Guzzle\ResponseConverter;
+use Fop\Guzzle\ResponseConverter;
 use Fop\MeetupCom\Guzzle\Oauth2AwareClient;
 use Fop\MeetupCom\ValueObject\RateLimits;
 use Nette\Utils\DateTime;

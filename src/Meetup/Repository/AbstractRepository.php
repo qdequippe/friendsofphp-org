@@ -20,7 +20,7 @@ abstract class AbstractRepository implements RepositoryInterface
     /**
      * @var string
      */
-    private const JSON_DATABASE_DIRECTORY = __DIR__ . '/../../../../json-database';
+    private const JSON_DATABASE_DIRECTORY = __DIR__ . '/../../../json-database';
 
     #[Required]
     public JSONDB $jsonDb;

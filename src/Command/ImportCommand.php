@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Command;
+namespace Fop\Command;
 
 use Fop\Meetup\Filter\MeetupFilter;
 use Fop\Meetup\Repository\GroupRepository;
@@ -13,7 +13,6 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
 final class ImportCommand extends Command
 {
@@ -29,7 +28,7 @@ final class ImportCommand extends Command
 
     protected function configure(): void
     {
-        $this->setName(CommandNaming::classToName(self::class));
+        $this->setName('import');
         $this->setDescription('Import meetups from meetup.com');
     }
 

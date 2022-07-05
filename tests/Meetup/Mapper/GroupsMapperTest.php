@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Fop\Meetup\Tests\Mapper;
+namespace Fop\Tests\Meetup\Mapper;
 
-use Fop\Core\HttpKernel\FopKernel;
+use Fop\HttpKernel\FopKernel;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\ValueObject\Group;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;

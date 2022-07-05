@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\ValueObject;
+namespace Fop\ValueObject;
 
 final class Option
 {
