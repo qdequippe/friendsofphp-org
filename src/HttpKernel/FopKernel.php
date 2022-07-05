@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\HttpKernel;
+namespace Fop\HttpKernel;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;

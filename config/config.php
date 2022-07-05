@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
+use Fop\ValueObject\Option;
 use GuzzleHttp\Client;
 use Jajo\JSONDB;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
@@ -14,14 +16,13 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autowire()
         ->autoconfigure();
 
-    $services->load('Fop\Core\\', __DIR__ . '/../src')
-        ->exclude([__DIR__ . '/../src/HttpKernel', __DIR__ . '/../src/ValueObject']);
-
-    $services->load('Fop\Meetup\\', __DIR__ . '/../packages/meetup/src')
-        ->exclude([__DIR__ . '/../src/ValueObject']);
-
-    $services->load('Fop\MeetupCom\\', __DIR__ . '/../packages/meetup-com/src')
-        ->exclude([__DIR__ . '/../src/ValueObject']);
+    $services->load('Fop\\', __DIR__ . '/../src')
+        ->exclude([
+            __DIR__ . '/../src/HttpKernel',
+            __DIR__ . '/../src/ValueObject',
+            __DIR__ . '/../src/Meetup/ValueObject',
+            __DIR__ . '/../src/MeetupCom/ValueObject',
+        ]);
 
     $services->set(Client::class);
 

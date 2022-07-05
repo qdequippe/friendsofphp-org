@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Tests\Geolocator;
+namespace Fop\Tests\Geolocator;
 
-use Fop\Core\Geolocation\Geolocator;
-use Fop\Core\HttpKernel\FopKernel;
+use Fop\Geolocation\Geolocator;
+use Fop\HttpKernel\FopKernel;
 use Iterator;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Twig\Extension;
+namespace Fop\Twig\Extension;
 
 use Nette\Utils\Strings;
 use Twig\Extension\AbstractExtension;

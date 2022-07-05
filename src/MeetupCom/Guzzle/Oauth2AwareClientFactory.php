@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom\Guzzle;
 
-use Fop\Core\Exception\ShouldNotHappenException;
-use Fop\Core\ValueObject\Option;
+use Fop\Exception\ShouldNotHappenException;
+use Fop\ValueObject\Option;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use kamermans\OAuth2\GrantType\ClientCredentials;
@@ -28,6 +28,7 @@ final class Oauth2AwareClientFactory
     }
 
     /**
+     * @api Use in factory in config
      * @see https://github.com/kamermans/guzzle-oauth2-subscriber#middleware-guzzle-6
      */
     public function create(): Oauth2AwareClient

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Geolocation;
+namespace Fop\Geolocation;
 
-use Fop\Core\Exception\ShouldNotHappenException;
-use Fop\Core\ValueObject\Option;
+use Fop\Exception\ShouldNotHappenException;
+use Fop\ValueObject\Option;
 use GuzzleHttp\Client;
 use Location\Coordinate;
 use Nette\Utils\Json;
@@ -16,7 +16,7 @@ use Symplify\PackageBuilder\Parameter\ParameterProvider;
 use Webmozart\Assert\Assert;
 
 /**
- * @see \Fop\Core\Tests\Geolocator\GeolocatorTest
+ * @see \Fop\Tests\Geolocator\GeolocatorTest
  */
 final class Geolocator
 {

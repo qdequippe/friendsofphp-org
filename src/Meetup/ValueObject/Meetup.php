@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Fop\Meetup\ValueObject;
 
 use DateTimeInterface;
-use Fop\Core\Utils\DateStaticUtils;
 use Fop\Meetup\Contract\ArrayableInterface;
+use Fop\Utils\DateStaticUtils;
 use Nette\Utils\DateTime;
 use Stringable;
 
+/**
+ * @api used in twig
+ */
 final class Meetup implements ArrayableInterface, Stringable
 {
     public function __construct(
@@ -55,25 +58,16 @@ final class Meetup implements ArrayableInterface, Stringable
         );
     }
 
-    /**
-     * @api used in twig
-     */
     public function getCity(): string
     {
         return $this->city;
     }
 
-    /**
-     * @api used in twig
-     */
     public function getCountry(): string
     {
         return $this->country;
     }
 
-    /**
-     * @api used in twig
-     */
     public function getUrl(): string
     {
         return $this->url;
@@ -89,33 +83,21 @@ final class Meetup implements ArrayableInterface, Stringable
         return $this->name;
     }
 
-    /**
-     * @api used in twig
-     */
     public function getUserGroup(): string
     {
         return $this->userGroupName;
     }
 
-    /**
-     * @api used in twig
-     */
     public function getLatitude(): float
     {
         return $this->latitude;
     }
 
-    /**
-     * @api used in twig
-     */
     public function getLongitude(): float
     {
         return $this->longitude;
     }
 
-    /**
-     * @api used in twig
-     */
     public function getStartInDays(): int
     {
         return DateStaticUtils::getDiffFromTodayInDays($this->utcStartDateTime);

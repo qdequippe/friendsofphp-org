@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom\Command;
 
-use Fop\Core\Exception\ShouldNotHappenException;
+use Fop\Exception\ShouldNotHappenException;
 use Fop\Meetup\Repository\GroupRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symplify\PackageBuilder\Console\Command\CommandNaming;
 
 final class ValidateGroupsCommand extends Command
 {
@@ -23,7 +22,7 @@ final class ValidateGroupsCommand extends Command
 
     protected function configure(): void
     {
-        $this->setName(CommandNaming::classToName(self::class));
+        $this->setName('validate-groups');
         $this->setDescription('Makes sure the groups are not duplicated.');
     }
 

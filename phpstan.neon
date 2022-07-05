@@ -9,7 +9,6 @@ parameters:
         - src
         - config
         - tests
-        - packages
 
     reportUnmatchedIgnoredErrors: false
 
@@ -20,25 +19,25 @@ parameters:
         # for autowiring
         -
             message: '#There should be no empty class#'
-            path: packages/meetup-com/src/Guzzle/Oauth2AwareClient.php
+            path: src/MeetupCom/Guzzle/Oauth2AwareClient.php
 
         # @todo fix in repository on github
         -
             message: '#Do not use chained method calls\. Put each on separated lines#'
-            path: packages/meetup/src/Repository/*Repository.php
+            path: src/Meetup/Repository/*Repository.php
         -
             message: '#Anonymous variables in a method call can lead to false dead methods\. Make sure the variable type is known#'
-            path: packages/meetup/src/Repository/*Repository.php
+            path: src/Meetup/Repository/*Repository.php
 
         # init repository
         -
             message: '#Autowired/inject method name "boot\(\)" must respect "autowire/inject\(\*\)" name#'
-            path: packages/meetup/src/Repository/AbstractRepository.php
+            path: src/Meetup/Repository/AbstractRepository.php
 
         # abstract repository
         -
             message: '#Instead of abstract class, use specific service with composition#'
-            path: packages/meetup/src/Repository/AbstractRepository.php
+            path: src/Meetup/Repository/AbstractRepository.php
 
 
         # too strict for commands
@@ -57,10 +56,15 @@ parameters:
         # json serialize
         -
             message: '#Complete known array shape to the method @return type#'
-            path: packages/meetup/src/ValueObject/Meetup.php
+            path: src/Meetup/ValueObject/Meetup.php
 
         # false positive
         - '#Add explicit array type to assigned "\$venue" expression#'
         -
             message: '#Instead of calling all public methods of value object, pass it directly#'
-            path: packages/meetup-com/src/Meetup/MeetupComMeetupFactory.php
+            path: src/MeetupCom/Meetup/MeetupComMeetupFactory.php
+
+        # false positive - @todo fix in Rector
+        -
+            message: '#Class method "(deleteAll|insert|fetchAll)\(\)" is never used#'
+            path: src/Meetup/Repository/AbstractRepository.php

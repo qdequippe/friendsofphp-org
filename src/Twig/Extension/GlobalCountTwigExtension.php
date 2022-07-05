@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Twig\Extension;
+namespace Fop\Twig\Extension;
 
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\Repository\MeetupRepository;

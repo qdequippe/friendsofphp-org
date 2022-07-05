@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\Core\Guzzle;
+namespace Fop\Guzzle;
 
 use Nette\Utils\Json;
 use Psr\Http\Message\ResponseInterface;

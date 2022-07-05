@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Fop\MeetupCom\Meetup;
 
 use DateTimeInterface;
-use Fop\Core\Exception\ShouldNotHappenException;
-use Fop\Core\Geolocation\Geolocator;
-use Fop\Core\Utils\CityNormalizer;
+use Fop\Exception\ShouldNotHappenException;
+use Fop\Geolocation\Geolocator;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
+use Fop\Utils\CityNormalizer;
 use Location\Coordinate;
 use Nette\Utils\DateTime;
 
