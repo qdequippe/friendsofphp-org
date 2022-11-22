@@ -75,3 +75,13 @@ parameters:
         - '#Offset (.*?) does not exist on array#'
 
 
+        # false positive
+        - '#Relative file path "Import meetups from meetup\.com" is not allowed, use absolute one with __DIR__#'
+
+        -
+            message: '#Method call return value that should be used, but is not#'
+            path: src/Meetup/Repository/AbstractRepository.php
+
+        -
+            message: '#Use "\$this\-><method>\(\)" instead of "parent\:\:<method>\(\)" unless in the same named method#'
+            path: src/Meetup/Repository/AbstractRepository.php
