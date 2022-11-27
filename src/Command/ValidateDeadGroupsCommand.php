@@ -6,7 +6,6 @@ namespace Fop\Command;
 
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
-use Fop\MeetupCom\Api\MeetupComCooler;
 use Nette\Utils\DateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,7 +18,6 @@ final class ValidateDeadGroupsCommand extends Command
         private readonly SymfonyStyle $symfonyStyle,
         private readonly GroupRepository $groupRepository,
         private readonly MeetupComApi $meetupComApi,
-        private readonly MeetupComCooler $meetupComCooler
     ) {
         parent::__construct();
     }
@@ -44,14 +42,11 @@ final class ValidateDeadGroupsCommand extends Command
 
             // too fresh
             if ($lastMeetupDateTime > $sixMonthsAgoDateTime) {
-                $this->meetupComCooler->coolDownIfNeeded();
                 continue;
             }
 
             $lastMeetupDateTimeAsString = $lastMeetupDateTime !== null ? $lastMeetupDateTime->format('Y-m-d') : '';
             $possiblyDeadGroups[$group->getName()] = $lastMeetupDateTimeAsString;
-
-            $this->meetupComCooler->coolDownIfNeeded();
         }
 
         if ($possiblyDeadGroups === []) {
