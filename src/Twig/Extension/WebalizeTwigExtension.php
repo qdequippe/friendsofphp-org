@@ -15,7 +15,7 @@ final class WebalizeTwigExtension extends AbstractExtension
      */
     public function getFilters(): iterable
     {
-        $webalizeTwigFilter = new TwigFilter('webalize', fn (string $value) => Strings::webalize($value));
+        $webalizeTwigFilter = new TwigFilter('webalize', fn (string $value): string => Strings::webalize($value));
 
         return [$webalizeTwigFilter];
     }
