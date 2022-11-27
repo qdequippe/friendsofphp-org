@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Command;
 
+use Fop\Exception\ShouldNotHappenException;
 use Fop\Meetup\Filter\MeetupFilter;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\Repository\MeetupRepository;
@@ -54,8 +55,7 @@ final class ImportCommand extends Command
     private function reportFoundMeetups(array $meetups): void
     {
         if ($meetups === []) {
-            $this->symfonyStyle->warning('No meetups found - that is very unlikely. Is Meetup.com API working?');
-            return;
+            throw new ShouldNotHappenException('No meetups found - that is very unlikely. Is Meetup.com API working?');
         }
 
         $successMessage = sprintf('Loaded %d meetups', count($meetups));

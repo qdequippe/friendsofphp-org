@@ -38,6 +38,10 @@ final class ValidateDeadGroupsCommand extends Command
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
+            if (! $lastMeetupDateTime instanceof \DateTimeInterface) {
+                $possiblyDeadGroups[$group->getName()] = 'none';
+                continue;
+            }
 
             $message = sprintf('Resolved last meetup date time for "%s"', $group->getName());
             $this->symfonyStyle->note($message);
@@ -48,10 +52,8 @@ final class ValidateDeadGroupsCommand extends Command
                 continue;
             }
 
-            $lastMeetupDateTimeAsString = $lastMeetupDateTime !== null ? $lastMeetupDateTime->format('Y-m-d') : '';
-            $possiblyDeadGroups[$group->getName()] = $lastMeetupDateTimeAsString;
-
             $this->meetupComCooler->coolDownIfNeeded();
+            $possiblyDeadGroups[$group->getName()] = $lastMeetupDateTime->format('Y-m-d');
         }
 
         if ($possiblyDeadGroups === []) {
