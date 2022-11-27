@@ -44,7 +44,7 @@ final class GroupRepository extends AbstractRepository
     {
         usort(
             $groups,
-            fn (Group $firstGroup, Group $secondGroup) => $firstGroup->getName() <=> $secondGroup->getName()
+            fn (Group $firstGroup, Group $secondGroup): int => $firstGroup->getName() <=> $secondGroup->getName()
         );
 
         return $groups;

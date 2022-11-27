@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Command;
 
+use DateTimeInterface;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Api\MeetupComCooler;
@@ -33,25 +34,27 @@ final class ValidateDeadGroupsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $possiblyDeadGroups = [];
-        // increase temporary from 16 months due to covid
-        $sixMonthsAgoDateTime = DateTime::from('- 16 months');
+
+        $manyMonthsAgoDateTime = DateTime::from('-6 months');
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
+            if (! $lastMeetupDateTime instanceof DateTimeInterface) {
+                $possiblyDeadGroups[$group->getName()] = 'none';
+                continue;
+            }
 
-            $message = sprintf('Resolved last meetup date time for "%s"', $group->getName());
-            $this->symfonyStyle->note($message);
+            $message = sprintf('* Last meetup for "%s": %s', $group->getName(), $lastMeetupDateTime->format('Y-m-d'));
+            $this->symfonyStyle->writeln($message);
 
             // too fresh
-            if ($lastMeetupDateTime > $sixMonthsAgoDateTime) {
+            if ($lastMeetupDateTime > $manyMonthsAgoDateTime) {
                 $this->meetupComCooler->coolDownIfNeeded();
                 continue;
             }
 
-            $lastMeetupDateTimeAsString = $lastMeetupDateTime !== null ? $lastMeetupDateTime->format('Y-m-d') : '';
-            $possiblyDeadGroups[$group->getName()] = $lastMeetupDateTimeAsString;
-
             $this->meetupComCooler->coolDownIfNeeded();
+            $possiblyDeadGroups[$group->getName()] = $lastMeetupDateTime->format('Y-m-d');
         }
 
         if ($possiblyDeadGroups === []) {

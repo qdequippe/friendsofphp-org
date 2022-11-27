@@ -160,11 +160,6 @@
         "country": "South Africa"
     },
     {
-        "name": "AsturPHP",
-        "meetup_com_slug": "AsturPHP",
-        "country": "Spain"
-    },
-    {
         "name": "Sri Lanka",
         "meetup_com_slug": "PHP-developers-Sri-Lanka",
         "country": "Sri Lanka"
@@ -380,11 +375,6 @@
         "country": "Florida"
     },
     {
-        "name": "Symfony St. Petersburg Meetup - Symfoniacs SPB",
-        "meetup_com_slug": "symfoniacs-spb",
-        "country": "Russia"
-    },
-    {
         "name": "#PUG-Romagna: PHP User Group Romagnolo",
         "meetup_com_slug": "PUG-Romagna-PHP-User-Group-Romagnolo",
         "country": "Italy"
@@ -542,11 +532,6 @@
     {
         "name": "AmsterdamPHP",
         "meetup_com_slug": "AmsterdamPHP",
-        "country": "Netherlands"
-    },
-    {
-        "name": "010PHP",
-        "meetup_com_slug": "010PHP",
         "country": "Netherlands"
     },
     {
@@ -733,11 +718,6 @@
         "name": "Symfony User Group Osnabrück",
         "meetup_com_slug": "sfugos",
         "country": "Germany"
-    },
-    {
-        "name": "BeerPHP Moscow",
-        "meetup_com_slug": "BeerPHP-Moscow",
-        "country": "Russia"
     },
     {
         "name": "Meetup Laravel Lyon",

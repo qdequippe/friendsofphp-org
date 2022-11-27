@@ -35,13 +35,6 @@
                 <small class="text-secondary">{{ meetup.country }}</small>
             </td>
             <td class="w-50">
-                {% if meetup.online %}
-                    <span class="icon-tooltip" title="Online"> 💻</span>
-                {% else %}
-                    <span class="icon-tooltip" title="In person">🧑‍🤝‍🧑</span>
-                {% endif %}
-                &nbsp;
-
                 <strong>
                     <a href="{{ meetup.url }}">{{ meetup.name }}</a>
                 </strong>
