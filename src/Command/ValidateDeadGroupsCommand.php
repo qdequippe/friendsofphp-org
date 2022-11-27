@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\Command;
 
+use DateTimeInterface;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\MeetupCom\Api\MeetupComApi;
 use Fop\MeetupCom\Api\MeetupComCooler;
@@ -38,7 +39,7 @@ final class ValidateDeadGroupsCommand extends Command
 
         foreach ($this->groupRepository->fetchAll() as $group) {
             $lastMeetupDateTime = $this->meetupComApi->getLastMeetupDateTimeByGroupSlug($group->getMeetupComSlug());
-            if (! $lastMeetupDateTime instanceof \DateTimeInterface) {
+            if (! $lastMeetupDateTime instanceof DateTimeInterface) {
                 $possiblyDeadGroups[$group->getName()] = 'none';
                 continue;
             }
