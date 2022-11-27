@@ -54,8 +54,6 @@ final class MeetupComApi
     {
         $response = $this->oauth2AwareClient->get(self::STATUS_URL);
 
-        var_dump($response->getHeaders());
-
         $limit = $response->getHeader('X-RateLimit-Limit')[0];
         $remaining = $response->getHeader('X-RateLimit-Remaining')[0];
         $reset = $response->getHeader('X-RateLimit-Reset')[0];

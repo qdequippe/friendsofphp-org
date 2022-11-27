@@ -38,11 +38,6 @@ final class MeetupComMeetupFactory
     /**
      * @var string
      */
-    private const IS_ONLINE_EVENT = 'is_online_event';
-
-    /**
-     * @var string
-     */
     private const NAME = 'name';
 
     /**
@@ -69,7 +64,6 @@ final class MeetupComMeetupFactory
 
         $location = $this->createLocation($data);
         $name = $this->createName($data);
-        $isOnline = (bool) $data[self::IS_ONLINE_EVENT];
 
         return new Meetup(
             $name,
@@ -82,7 +76,6 @@ final class MeetupComMeetupFactory
             $location->getCountry(),
             $location->getCoordinateLatitude(),
             $location->getCoordinateLongitude(),
-            $isOnline
         );
     }
 
@@ -98,6 +91,11 @@ final class MeetupComMeetupFactory
 
         // skip past meetups
         if ($meetup['status'] !== 'upcoming') {
+            return true;
+        }
+
+        // skip online events, focus on meeting people in person again
+        if (isset($meetup['is_online_event']) && $meetup['is_online_event']) {
             return true;
         }
 
@@ -126,7 +124,7 @@ final class MeetupComMeetupFactory
     }
 
     /**
-     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}, is_online_event?: bool} $data
+     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}} $data
      */
     private function createLocation(array $data): Location
     {
@@ -134,15 +132,6 @@ final class MeetupComMeetupFactory
             $venue = $data[self::VENUE];
         } else {
             // no specific venue defined
-            $localizedLocation = $data['group']['localized_location'];
-            [$city, $country] = explode(', ', $localizedLocation);
-
-            $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
-            return new Location($city, $country, $coordinate);
-        }
-
-        if (isset($data[self::IS_ONLINE_EVENT]) && $data[self::IS_ONLINE_EVENT]) {
-            // online event probably
             $localizedLocation = $data['group']['localized_location'];
             [$city, $country] = explode(', ', $localizedLocation);
 
