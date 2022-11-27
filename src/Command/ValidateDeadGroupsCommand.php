@@ -43,8 +43,8 @@ final class ValidateDeadGroupsCommand extends Command
                 continue;
             }
 
-            $message = sprintf('Resolved last meetup date time for "%s"', $group->getName());
-            $this->symfonyStyle->note($message);
+            $message = sprintf('* Last meetup for "%s": %s', $group->getName(), $lastMeetupDateTime->format('Y-m-d'));
+            $this->symfonyStyle->writeln($message);
 
             // too fresh
             if ($lastMeetupDateTime > $manyMonthsAgoDateTime) {
