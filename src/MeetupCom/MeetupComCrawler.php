@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Fop\MeetupCom\Api;
+namespace Fop\MeetupCom;
 
 use Goutte\Client;
 

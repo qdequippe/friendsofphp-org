@@ -6,7 +6,6 @@ namespace Fop\MeetupCom;
 
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\ValueObject\Meetup;
-use Fop\MeetupCom\Api\MeetupComCrawler;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\Console\Style\SymfonyStyle;
