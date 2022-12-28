@@ -69,6 +69,7 @@ final class MeetupComMeetupImporter
     }
 
     /**
+     * @param mixed[] $meetupsData
      * @return Meetup[]
      */
     private function createMeetupsFromMeetupsData(array $meetupsData): array

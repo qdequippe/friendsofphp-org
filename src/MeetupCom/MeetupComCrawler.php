@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Fop\MeetupCom;
 
 use Goutte\Client;
+use Nette\Utils\Json;
 
 final class MeetupComCrawler
 {
@@ -15,6 +16,9 @@ final class MeetupComCrawler
     ) {
     }
 
+    /**
+     * @return mixed[]
+     */
     public function getMeetupsByGroupSlug(string $groupSlug): array
     {
         $uri = sprintf('%s/%s/events', self::BASE_URI, $groupSlug);
@@ -22,8 +26,9 @@ final class MeetupComCrawler
         $crawler = $this->client->request('GET', $uri);
 
         $data = [];
-        foreach ($crawler->filter('script[type="application/ld+json"]') as $domElement) {
-            $schemas = json_decode($domElement->textContent, true, 512, \JSON_THROW_ON_ERROR);
+        $structuredDataElements = $crawler->filter('script[type="application/ld+json"]');
+        foreach ($structuredDataElements as $domElement) {
+            $schemas = Json::decode($domElement->textContent, Json::FORCE_ARRAY);
 
             foreach ($schemas as $schema) {
                 if (isset($schema['@type']) && $schema['@type'] === 'Event') {

@@ -9,13 +9,15 @@ use Goutte\Client;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 class MeetupComCrawlerTest extends TestCase
 {
     public function testGetMeetupsByGroupSlug(): void
     {
         // Arrange
-        $mockResponse = new MockResponse(file_get_contents(__DIR__ . '/fixtures/meetup_events.html'));
+        $fileSystem = new SmartFileSystem();
+        $mockResponse = new MockResponse($fileSystem->readFile(__DIR__ . '/fixtures/meetup_events.html'));
         $httpClient = new MockHttpClient([$mockResponse]);
         $goutteClient = new Client($httpClient);
         $meetupComCrawler = new MeetupComCrawler($goutteClient);

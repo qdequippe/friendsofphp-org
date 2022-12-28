@@ -31,6 +31,9 @@ final class MeetupComMeetupFactory
     ) {
     }
 
+    /**
+     * @param mixed[] $data
+     */
     public function createFromData(array $data): ?Meetup
     {
         if ($this->shouldSkipMeetup($data)) {
@@ -56,6 +59,9 @@ final class MeetupComMeetupFactory
         );
     }
 
+    /**
+     * @param mixed[] $meetup
+     */
     private function shouldSkipMeetup(array $meetup): bool
     {
         // skip online events, focus on meeting people in person again
@@ -71,17 +77,21 @@ final class MeetupComMeetupFactory
             return true;
         }
 
+        // special venue, not really a meetup, but a promo - see https://www.meetup.com/bostonphp/events/283821265/
+        if (isset($meetup['location']['name']) && $meetup['location']['name'] === 'Virtual') {
+            return true;
+        }
+
         return false;
     }
 
     /**
-     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}} $data
+     * @param mixed[] $data
      */
     private function createLocation(array $data): Location
     {
-        $venue[self::CITY] = $this->cityNormalizer->normalize(
-            html_entity_decode($data['location']['address']['addressLocality'])
-        );
+        $city = html_entity_decode($data['location']['address']['addressLocality']);
+        $venue[self::CITY] = $this->cityNormalizer->normalize($city);
 
         $coordinate = new Coordinate($data['location']['geo']['latitude'], $data['location']['geo']['longitude']);
 
