@@ -111,4 +111,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'wi' => 'Wisconsin',
         'wy' => 'Wyoming',
     ]);
+
+    $services->set(\Goutte\Client::class);
 };

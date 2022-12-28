@@ -20,7 +20,7 @@ final class Group implements ArrayableInterface
      */
     public static function fromArray(array $data): self
     {
-        return new self($data['name'], $data['meetup_com_slug'], $data['country'],);
+        return new self($data['name'], $data['meetup_com_slug'], $data['country']);
     }
 
     public function getName(): string
