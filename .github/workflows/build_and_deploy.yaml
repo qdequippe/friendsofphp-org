@@ -29,10 +29,7 @@ jobs:
             # configure timezone: https://stackoverflow.com/a/27052708/1348344
             -   run: export TZ=Europe/Prague
 
-#            -   run: bin/console import --ansi
-#                env:
-#                    MEETUP_COM_OAUTH_KEY: ${{ secrets.MEETUP_COM_OAUTH_KEY }}
-#                    MEETUP_COM_OAUTH_SECRET: ${{ secrets.MEETUP_COM_OAUTH_SECRET }}
+            -   run: bin/console import --ansi
 
             -   run: bin/console dump-static-site --ansi
 
