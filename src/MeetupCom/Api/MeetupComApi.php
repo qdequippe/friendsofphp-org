@@ -10,6 +10,9 @@ use Fop\MeetupCom\Guzzle\Oauth2AwareClient;
 use Fop\MeetupCom\ValueObject\RateLimits;
 use Nette\Utils\DateTime;
 
+/**
+ * @deprecated
+ */
 final class MeetupComApi
 {
     /**

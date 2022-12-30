@@ -6,8 +6,6 @@ namespace Fop\MeetupCom;
 
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\ValueObject\Meetup;
-use Fop\MeetupCom\Api\MeetupComApi;
-use Fop\MeetupCom\Api\MeetupComCooler;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -17,9 +15,8 @@ final class MeetupComMeetupImporter
     public function __construct(
         private readonly GroupRepository $groupRepository,
         private readonly MeetupComMeetupFactory $meetupComMeetupFactory,
-        private readonly MeetupComApi $meetupComApi,
         private readonly SymfonyStyle $symfonyStyle,
-        private readonly MeetupComCooler $meetupComCooler
+        private readonly MeetupComCrawler $meetupComCrawler
     ) {
     }
 
@@ -38,12 +35,10 @@ final class MeetupComMeetupImporter
                 $message = sprintf('Scanning "%s" group', $groupSlug);
                 $this->symfonyStyle->writeln(' * ' . $message);
 
-                $meetupsData = $this->meetupComApi->getMeetupsByGroupSlug($groupSlug);
+                $meetupsData = $this->meetupComCrawler->getMeetupsByGroupSlug($groupSlug);
 
                 $note = sprintf('Found %d meetups', count($meetupsData));
                 $this->symfonyStyle->note($note);
-
-                $this->meetupComCooler->coolDownIfNeeded();
 
                 // @see https://www.meetup.com/api/guide/#p05-rate-limiting
                 if ($meetupsData === []) {
@@ -83,7 +78,7 @@ final class MeetupComMeetupImporter
 
         foreach ($meetupsData as $meetupData) {
             $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
-            if (! $meetup instanceof Meetup) {
+            if ($meetup === null) {
                 continue;
             }
 

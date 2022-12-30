@@ -4,31 +4,17 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom\Meetup;
 
-use DateTimeInterface;
-use Fop\Exception\ShouldNotHappenException;
-use Fop\Geolocation\Geolocator;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
 use Fop\Utils\CityNormalizer;
 use Location\Coordinate;
-use Nette\Utils\DateTime;
 
 final class MeetupComMeetupFactory
 {
     /**
      * @var string
      */
-    private const GROUP = 'group';
-
-    /**
-     * @var string
-     */
-    private const LON = 'lon';
-
-    /**
-     * @var string
-     */
-    private const LAT = 'lat';
+    private const GROUP = 'organizer';
 
     /**
      * @var string
@@ -40,13 +26,7 @@ final class MeetupComMeetupFactory
      */
     private const NAME = 'name';
 
-    /**
-     * @var string
-     */
-    private const VENUE = 'venue';
-
     public function __construct(
-        private readonly Geolocator $geolocator,
         private readonly CityNormalizer $cityNormalizer
     ) {
     }
@@ -60,18 +40,18 @@ final class MeetupComMeetupFactory
             return null;
         }
 
-        $utcStartDateTime = $this->createUtcStartDateTime($data);
-
         $location = $this->createLocation($data);
         $name = $this->createName($data);
+
+        $localStartDate = new \DateTimeImmutable($data['startDate']);
 
         return new Meetup(
             $name,
             $data[self::GROUP][self::NAME],
-            $utcStartDateTime,
-            $data['local_date'],
-            $data['local_time'],
-            $data['link'],
+            $localStartDate->setTimezone(new \DateTimeZone('UTC')),
+            $localStartDate->format('Y-m-d'),
+            $localStartDate->format('H:i'),
+            $data['url'],
             $location->getCity(),
             $location->getCountry(),
             $location->getCoordinateLatitude(),
@@ -84,24 +64,22 @@ final class MeetupComMeetupFactory
      */
     private function shouldSkipMeetup(array $meetup): bool
     {
-        // not announced yet
-        if (isset($meetup['announced']) && $meetup['announced'] === false) {
-            return true;
-        }
-
-        // skip past meetups
-        if ($meetup['status'] !== 'upcoming') {
-            return true;
-        }
-
         // skip online events, focus on meeting people in person again
-        if (isset($meetup['is_online_event']) && $meetup['is_online_event']) {
+        if (isset($meetup['eventAttendanceMode']) && str_contains(
+            $meetup['eventAttendanceMode'],
+            'OnlineEventAttendanceMode'
+        )) {
+            return true;
+        }
+
+        // no location with address
+        if (isset($meetup['location']['address']) === false) {
             return true;
         }
 
         // special venue, not really a meetup, but a promo - see https://www.meetup.com/bostonphp/events/283821265/
-        if (isset($meetup[self::VENUE][self::NAME])) {
-            return $meetup[self::VENUE][self::NAME] === 'Virtual';
+        if (isset($meetup['location']['name']) && $meetup['location']['name'] === 'Virtual') {
+            return true;
         }
 
         return false;
@@ -110,55 +88,16 @@ final class MeetupComMeetupFactory
     /**
      * @param mixed[] $data
      */
-    private function createUtcStartDateTime(array $data): DateTime
-    {
-        // not sure why it adds extra "000" in the end
-        $unixTimestamp = (int) substr((string) $data['time'], 0, -3);
-
-        $dateTime = DateTime::createFromFormat('U', (string) $unixTimestamp);
-        if (! $dateTime instanceof DateTimeInterface) {
-            throw new ShouldNotHappenException();
-        }
-
-        return $dateTime;
-    }
-
-    /**
-     * @param array{venue?: array<string, mixed>, group: array{localized_location: string}} $data
-     */
     private function createLocation(array $data): Location
     {
-        if (isset($data[self::VENUE])) {
-            $venue = $data[self::VENUE];
-        } else {
-            // no specific venue defined
-            $localizedLocation = $data['group']['localized_location'];
-            [$city, $country] = explode(', ', $localizedLocation);
+        $city = html_entity_decode($data['location']['address']['addressLocality']);
+        $venue[self::CITY] = $this->cityNormalizer->normalize($city);
 
-            $coordinate = $this->geolocator->resolveLatLonByCityAndCountry($localizedLocation);
-            return new Location($city, $country, $coordinate);
-        }
+        $coordinate = new Coordinate($data['location']['geo']['latitude'], $data['location']['geo']['longitude']);
 
-        // base location of the meetup, use it for event location
-        if (isset($venue[self::LON]) && $venue[self::LON] === 0 || $venue[self::LAT] === 0 || (isset($venue[self::CITY]) && $venue[self::CITY] === 'Shenzhen')) {
-            // correction for Shenzhen miss-location to America
-            $venue[self::LON] = $data[self::GROUP]['group_lon'];
-            $venue[self::LAT] = $data[self::GROUP]['group_lat'];
-        }
+        $country = $data['location']['address']['addressCountry']['name'] ?? $data['location']['address']['addressCountry'];
 
-        $venue = $this->normalizeCityStates($venue);
-        if (! isset($venue[self::CITY])) {
-            $country = $this->geolocator->getCountryJsonByLatitudeAndLongitude($venue[self::LAT], $venue[self::LON]);
-            $venue[self::CITY] = $country['address'][self::CITY];
-        }
-
-        $venue[self::CITY] = $this->cityNormalizer->normalize($venue[self::CITY]);
-
-        $country = $this->geolocator->resolveCountryByVenue($venue);
-
-        $coordinate = new Coordinate($venue[self::LAT], $venue[self::LON]);
-
-        return new Location($venue[self::CITY], $country, $coordinate);
+        return new Location($venue[self::CITY], html_entity_decode($country), $coordinate);
     }
 
     /**
@@ -166,24 +105,8 @@ final class MeetupComMeetupFactory
      */
     private function createName(array $data): string
     {
-        $name = trim($data[self::NAME]);
+        $name = html_entity_decode(trim($data[self::NAME]));
+
         return str_replace('@', '', $name);
-    }
-
-    /**
-     * @param array<string, mixed> $venue
-     * @return array<string, mixed>
-     */
-    private function normalizeCityStates(array $venue): array
-    {
-        if (isset($venue[self::CITY]) && $venue[self::CITY] !== null) {
-            return $venue;
-        }
-
-        if ($venue['localized_country_name'] === 'Singapore') {
-            $venue[self::CITY] = 'Singapore';
-        }
-
-        return $venue;
     }
 }
