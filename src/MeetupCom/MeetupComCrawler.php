@@ -31,9 +31,23 @@ final class MeetupComCrawler
             $schemas = Json::decode($domElement->textContent, Json::FORCE_ARRAY);
 
             foreach ($schemas as $schema) {
-                if (isset($schema['@type']) && $schema['@type'] === 'Event') {
-                    $data[] = $schema;
+                if (false === isset($schema['@type'])) {
+                    continue;
                 }
+
+                if ($schema['@type'] !== 'Event') {
+                    continue;
+                }
+
+                if (false === isset($schema['organizer']['url'])) {
+                    continue;
+                }
+
+                if (false === str_contains($schema['organizer']['url'], $groupSlug)) {
+                    continue;
+                }
+
+                $data[] = $schema;
             }
         }
 

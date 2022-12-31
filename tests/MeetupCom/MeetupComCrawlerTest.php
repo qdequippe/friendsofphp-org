@@ -23,7 +23,7 @@ class MeetupComCrawlerTest extends TestCase
         $meetupComCrawler = new MeetupComCrawler($goutteClient);
 
         // Act
-        $meetups = $meetupComCrawler->getMeetupsByGroupSlug('group-slug');
+        $meetups = $meetupComCrawler->getMeetupsByGroupSlug('sfugcgn');
 
         // Assert
         self::assertCount(1, $meetups);
