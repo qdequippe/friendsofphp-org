@@ -43,7 +43,7 @@ final class MeetupComCrawler
                     continue;
                 }
 
-                if (false === str_contains($schema['organizer']['url'], $groupSlug)) {
+                if (false === stripos($schema['organizer']['url'], $groupSlug)) {
                     continue;
                 }
 
