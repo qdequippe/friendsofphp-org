@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom\Meetup;
 
+use DateTimeImmutable;
+use DateTimeZone;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
 use Fop\Utils\CityNormalizer;
@@ -43,14 +45,14 @@ final class MeetupComMeetupFactory
         $location = $this->createLocation($data);
         $name = $this->createName($data);
 
-        $localStartDate = new \DateTimeImmutable($data['startDate']);
+        $dateTimeImmutable = new DateTimeImmutable($data['startDate']);
 
         return new Meetup(
             $name,
             $data[self::GROUP][self::NAME],
-            $localStartDate->setTimezone(new \DateTimeZone('UTC')),
-            $localStartDate->format('Y-m-d'),
-            $localStartDate->format('H:i'),
+            $dateTimeImmutable->setTimezone(new DateTimeZone('UTC')),
+            $dateTimeImmutable->format('Y-m-d'),
+            $dateTimeImmutable->format('H:i'),
             $data['url'],
             $location->getCity(),
             $location->getCountry(),
@@ -66,23 +68,18 @@ final class MeetupComMeetupFactory
     {
         // skip online events, focus on meeting people in person again
         if (isset($meetup['eventAttendanceMode']) && str_contains(
-            $meetup['eventAttendanceMode'],
+            (string) $meetup['eventAttendanceMode'],
             'OnlineEventAttendanceMode'
         )) {
             return true;
         }
 
         // no location with address
-        if (isset($meetup['location']['address']) === false) {
+        if (! isset($meetup['location']['address'])) {
             return true;
         }
-
         // special venue, not really a meetup, but a promo - see https://www.meetup.com/bostonphp/events/283821265/
-        if (isset($meetup['location']['name']) && $meetup['location']['name'] === 'Virtual') {
-            return true;
-        }
-
-        return false;
+        return isset($meetup['location']['name']) && $meetup['location']['name'] === 'Virtual';
     }
 
     /**
@@ -90,14 +87,15 @@ final class MeetupComMeetupFactory
      */
     private function createLocation(array $data): Location
     {
-        $city = html_entity_decode($data['location']['address']['addressLocality']);
+        $venue = [];
+        $city = html_entity_decode((string) $data['location']['address']['addressLocality']);
         $venue[self::CITY] = $this->cityNormalizer->normalize($city);
 
         $coordinate = new Coordinate($data['location']['geo']['latitude'], $data['location']['geo']['longitude']);
 
         $country = $data['location']['address']['addressCountry']['name'] ?? $data['location']['address']['addressCountry'];
 
-        return new Location($venue[self::CITY], html_entity_decode($country), $coordinate);
+        return new Location($venue[self::CITY], html_entity_decode((string) $country), $coordinate);
     }
 
     /**
