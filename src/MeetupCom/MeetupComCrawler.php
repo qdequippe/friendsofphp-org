@@ -27,11 +27,11 @@ final class MeetupComCrawler
 
         $data = [];
         $structuredDataElements = $crawler->filter('script[type="application/ld+json"]');
-        foreach ($structuredDataElements as $domElement) {
-            $schemas = Json::decode($domElement->textContent, Json::FORCE_ARRAY);
+        foreach ($structuredDataElements as $structuredDataElement) {
+            $schemas = Json::decode($structuredDataElement->textContent, Json::FORCE_ARRAY);
 
             foreach ($schemas as $schema) {
-                if (false === isset($schema['@type'])) {
+                if (! isset($schema['@type'])) {
                     continue;
                 }
 
@@ -39,11 +39,11 @@ final class MeetupComCrawler
                     continue;
                 }
 
-                if (false === isset($schema['organizer']['url'])) {
+                if (! isset($schema['organizer']['url'])) {
                     continue;
                 }
 
-                if (false === stripos($schema['organizer']['url'], $groupSlug)) {
+                if (stripos((string) $schema['organizer']['url'], $groupSlug) === false) {
                     continue;
                 }
 

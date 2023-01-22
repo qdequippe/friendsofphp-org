@@ -78,7 +78,7 @@ final class MeetupComMeetupImporter
 
         foreach ($meetupsData as $meetupData) {
             $meetup = $this->meetupComMeetupFactory->createFromData($meetupData);
-            if ($meetup === null) {
+            if (! $meetup instanceof Meetup) {
                 continue;
             }
 
