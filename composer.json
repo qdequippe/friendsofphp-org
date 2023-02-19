@@ -9,7 +9,7 @@
         "kamermans/guzzle-oauth2-subscriber": "^1.0",
         "league/period": "^5.0",
         "mjaschen/phpgeo": "^2.6",
-        "nette/utils": "^3.2",
+        "nette/utils": "^4.0",
         "rinvex/countries": "^9.0",
         "symfony/asset": "^6.1",
         "symfony/console": "^6.1",
