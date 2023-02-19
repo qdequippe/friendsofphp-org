@@ -18,7 +18,7 @@ final class CityNormalizerTest extends TestCase
     }
 
     /**
-     * @dataProvider provideData()
+     * @dataProvider provideData
      */
     public function test(string $invalidCity, string $expectedCorrectCity): void
     {
@@ -29,7 +29,7 @@ final class CityNormalizerTest extends TestCase
     /**
      * @return Iterator<string[]>
      */
-    public function provideData(): Iterator
+    public static function provideData(): Iterator
     {
         yield ['Praha', 'Prague'];
         yield ['Praha 7', 'Prague'];
