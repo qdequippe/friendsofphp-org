@@ -102,7 +102,7 @@ final class Meetup implements ArrayableInterface, Stringable
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array{name: string, user_group_name: string, local_date: string, local_time: string, utc_start_date_time: string, city: string, country: string, latitude: float, longitude: float, url: string}
      */
     public function jsonSerialize(): array
     {
