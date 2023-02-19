@@ -10,7 +10,7 @@
         "league/period": "^5.0",
         "mjaschen/phpgeo": "^2.6",
         "nette/utils": "^3.2",
-        "rinvex/countries": "^7.3",
+        "rinvex/countries": "^9.0",
         "symfony/asset": "^6.1",
         "symfony/console": "^6.1",
         "symfony/debug-bundle": "^6.1",
