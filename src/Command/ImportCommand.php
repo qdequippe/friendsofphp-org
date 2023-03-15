@@ -55,7 +55,7 @@ final class ImportCommand extends Command
     private function reportFoundMeetups(array $meetups): void
     {
         if ($meetups === []) {
-            throw new ShouldNotHappenException('No meetups found - that is very unlikely. Is Meetup.com API working?');
+            throw new ShouldNotHappenException('No meetups found - that is very unlikely. Is Meetup.com up?');
         }
 
         $successMessage = sprintf('Loaded %d meetups', count($meetups));

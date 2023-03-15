@@ -7,7 +7,6 @@ namespace Fop\MeetupCom;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\ValueObject\Meetup;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
-use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 final class MeetupComMeetupImporter
@@ -40,16 +39,14 @@ final class MeetupComMeetupImporter
                 $note = sprintf('Found %d meetups', count($meetupsData));
                 $this->symfonyStyle->note($note);
 
-                // @see https://www.meetup.com/api/guide/#p05-rate-limiting
                 if ($meetupsData === []) {
                     continue;
                 }
 
                 $groupMeetups = $this->createMeetupsFromMeetupsData($meetupsData);
                 $meetups = array_merge($meetups, $groupMeetups);
-            } catch (GuzzleException $guzzleException) {
-                // the group might not exists anymore, but it should not be a blocker for existing groups
-                $errors[] = $guzzleException->getMessage();
+            } catch (\Exception $exception) {
+                $errors[] = $exception->getMessage();
             }
         }
 

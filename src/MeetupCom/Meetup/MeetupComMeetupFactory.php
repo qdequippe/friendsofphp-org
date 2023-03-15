@@ -49,7 +49,7 @@ final class MeetupComMeetupFactory
 
         return new Meetup(
             $name,
-            $data[self::GROUP][self::NAME],
+            html_entity_decode($data[self::GROUP][self::NAME]),
             $dateTimeImmutable->setTimezone(new DateTimeZone('UTC')),
             $dateTimeImmutable->format('Y-m-d'),
             $dateTimeImmutable->format('H:i'),
