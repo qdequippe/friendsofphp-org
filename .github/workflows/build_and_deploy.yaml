@@ -42,3 +42,9 @@ jobs:
                     BRANCH: gh-pages
                     FOLDER: output
                     CLEAN: true
+
+            - name: Purge cache
+              uses: jakejarvis/cloudflare-purge-action@master
+              env:
+                CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+                CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
