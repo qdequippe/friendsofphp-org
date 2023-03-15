@@ -17,7 +17,7 @@ final class FopKernel extends Kernel
 {
     use MicroKernelTrait;
 
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
+    protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader): void
     {
         $loader->load(__DIR__ . '/../../config/config.php');
         $loader->load(SymfonyStaticDumperConfig::FILE_PATH);
@@ -25,13 +25,13 @@ final class FopKernel extends Kernel
         $loader->load(SymplifyKernelConfig::FILE_PATH);
     }
 
-    protected function configureRoutes(RoutingConfigurator $routes): void
+    protected function configureRoutes(RoutingConfigurator $routingConfigurator): void
     {
-        $routes->import(__DIR__ . '/../../config/routes.php');
+        $routingConfigurator->import(__DIR__ . '/../../config/routes.php');
     }
 
-    protected function build(ContainerBuilder $container): void
+    protected function build(ContainerBuilder $containerBuilder): void
     {
-        $container->addCompilerPass(new AutowireArrayParameterCompilerPass());
+        $containerBuilder->addCompilerPass(new AutowireArrayParameterCompilerPass());
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom;
 
+use Exception;
 use Fop\Meetup\Repository\GroupRepository;
 use Fop\Meetup\ValueObject\Meetup;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
@@ -45,7 +46,7 @@ final class MeetupComMeetupImporter
 
                 $groupMeetups = $this->createMeetupsFromMeetupsData($meetupsData);
                 $meetups = array_merge($meetups, $groupMeetups);
-            } catch (\Exception $exception) {
+            } catch (Exception $exception) {
                 $errors[] = $exception->getMessage();
             }
         }
