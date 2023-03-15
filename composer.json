@@ -47,7 +47,7 @@
         }
     },
     "scripts": {
-        "check-cs": "vendor/bin/ecs check bin src tests packages --ansi",
+        "check-cs": "vendor/bin/ecs check bin src tests --ansi",
         "fix-cs": "vendor/bin/ecs check --fix --ansi",
         "phpstan": "vendor/bin/phpstan analyse --error-format symplify --ansi",
         "generate": [
