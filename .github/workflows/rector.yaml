@@ -34,10 +34,9 @@ jobs:
                 if: github.event.pull_request.head.repo.full_name == github.repository
                 uses: EndBug/add-and-commit@v9.1.1
                 with:
-                    # The arguments for the `git add` command (see the paragraph below for more info)
-                    add: .
-                    message: "[ci-review] Rector Rectify"
-                    author_name: "kaizen-ci"
-                    author_email: "info@kaizen-ci.org"
+                    default_author: github_actions
+                    message: "🧹✨"
+                    add: "*"
+                    push: origin HEAD:${{ github.head_ref }}
                 env:
                     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
