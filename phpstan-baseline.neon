@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Fop\\\\Meetup\\\\Repository\\\\AbstractRepository\\:\\:fetchAll\\(\\) should return array\\<TEntity of Fop\\\\Meetup\\\\Contract\\\\ArrayableInterface\\> but returns array\\<int\\<0, max\\>, Fop\\\\Meetup\\\\Contract\\\\ArrayableInterface\\>\\.$#"
+			count: 1
+			path: src/Meetup/Repository/AbstractRepository.php
