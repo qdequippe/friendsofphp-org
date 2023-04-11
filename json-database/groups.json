@@ -733,5 +733,10 @@
         "name":"PHP Usergroup Darmstadt",
         "meetup_com_slug": "Darmstadt-PHP-Meetup-Gruppe",
         "country": "Germany"
+    },
+    {
+        "name":"Vienna PHP",
+        "meetup_com_slug": "viennaphp",
+        "country": "Austria"
     }
 ]
