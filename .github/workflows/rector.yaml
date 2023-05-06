@@ -38,3 +38,4 @@ jobs:
                     message: "🧹✨"
                     add: "*"
                     push: origin HEAD:${{ github.head_ref }}
+                    pull: '--rebase'
