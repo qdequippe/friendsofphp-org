@@ -4,7 +4,6 @@
         "config:base"
     ],
     "labels": ["dependencies"],
-    "reviewers": ["qdequippe"],
     "packageRules": [
         {
             "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
