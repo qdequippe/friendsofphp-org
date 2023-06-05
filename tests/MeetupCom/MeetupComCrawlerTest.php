@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Fop\Tests\MeetupCom;
 
 use Fop\MeetupCom\MeetupComCrawler;
-use Goutte\Client;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
 use Symplify\SmartFileSystem\SmartFileSystem;
@@ -19,8 +19,8 @@ final class MeetupComCrawlerTest extends TestCase
         $smartFileSystem = new SmartFileSystem();
         $mockResponse = new MockResponse($smartFileSystem->readFile(__DIR__ . '/fixtures/meetup_events.html'));
         $mockHttpClient = new MockHttpClient([$mockResponse]);
-        $goutteClient = new Client($mockHttpClient);
-        $meetupComCrawler = new MeetupComCrawler($goutteClient);
+        $httpBrowser = new HttpBrowser($mockHttpClient);
+        $meetupComCrawler = new MeetupComCrawler($httpBrowser);
 
         // Act
         $meetups = $meetupComCrawler->getMeetupsByGroupSlug('sfugcgn');

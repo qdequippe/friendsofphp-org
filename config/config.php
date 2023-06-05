@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use GuzzleHttp\Client;
 use Jajo\JSONDB;
+use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
 
@@ -43,5 +44,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(Client::class);
     $services->set(StringFormatConverter::class);
 
-    $services->set(\Goutte\Client::class);
+    $services->set(HttpBrowser::class)
+        ->autowire();
 };
