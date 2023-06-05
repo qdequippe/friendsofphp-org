@@ -8,7 +8,7 @@
         "kamermans/guzzle-oauth2-subscriber": "^1.0",
         "league/period": "^5.0",
         "mjaschen/phpgeo": "^4.0",
-        "nette/utils": "^3.2",
+        "nette/utils": "^4.0",
         "rinvex/countries": "^9.0",
         "stenope/stenope": "^0.8.0",
         "symfony/asset": "^6.1",
