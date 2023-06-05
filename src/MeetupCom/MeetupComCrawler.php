@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Fop\MeetupCom;
 
-use Goutte\Client;
 use Nette\Utils\Json;
+use Symfony\Component\BrowserKit\HttpBrowser;
 
 final class MeetupComCrawler
 {
     private const BASE_URI = 'https://meetup.com';
 
     public function __construct(
-        private readonly Client $client
+        private readonly HttpBrowser $httpBrowser
     ) {
     }
 
@@ -23,7 +23,7 @@ final class MeetupComCrawler
     {
         $uri = sprintf('%s/%s/events', self::BASE_URI, $groupSlug);
 
-        $crawler = $this->client->request('GET', $uri);
+        $crawler = $this->httpBrowser->request('GET', $uri);
 
         $data = [];
         $structuredDataElements = $crawler->filter('script[type="application/ld+json"]');
