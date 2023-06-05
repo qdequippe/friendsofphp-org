@@ -10,6 +10,7 @@
         "mjaschen/phpgeo": "^4.0",
         "nette/utils": "^3.2",
         "rinvex/countries": "^9.0",
+        "stenope/stenope": "^0.8.0",
         "symfony/asset": "^6.1",
         "symfony/browser-kit": "^6.3",
         "symfony/console": "^6.1",
@@ -54,7 +55,7 @@
         "phpstan": "vendor/bin/phpstan analyse --error-format symplify --ansi",
         "generate": [
             "bin/console import",
-            "bin/console dump:static:site"
+            "bin/console stenope:build -e prod"
         ]
     },
     "config": {
