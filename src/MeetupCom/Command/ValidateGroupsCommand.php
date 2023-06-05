@@ -14,7 +14,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 final class ValidateGroupsCommand extends Command
 {
     public function __construct(
-        private readonly SymfonyStyle $symfonyStyle,
         private readonly GroupRepository $groupRepository,
     ) {
         parent::__construct();
@@ -53,17 +52,18 @@ final class ValidateGroupsCommand extends Command
 
         $duplicatedGroupSlugs = array_unique($duplicatedGroupSlugs);
 
+        $symfonyStyle = new SymfonyStyle($input, $output);
         if ($duplicatedGroupSlugs === []) {
-            $this->symfonyStyle->success('Great job! There are no duplicated groups.');
+            $symfonyStyle->success('Great job! There are no duplicated groups.');
 
             return self::SUCCESS;
         }
 
-        $this->symfonyStyle->section('Found duplicated groups');
-        $this->symfonyStyle->listing($duplicatedGroupSlugs);
+        $symfonyStyle->section('Found duplicated groups');
+        $symfonyStyle->listing($duplicatedGroupSlugs);
 
         $errorMessage = sprintf('Cleanup "%s" storage file', $this->groupRepository->getTable());
-        $this->symfonyStyle->error($errorMessage);
+        $symfonyStyle->error($errorMessage);
 
         return self::FAILURE;
     }

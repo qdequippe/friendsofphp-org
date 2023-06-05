@@ -13,19 +13,19 @@ use Stringable;
 /**
  * @api used in twig
  */
-final class Meetup implements ArrayableInterface, Stringable
+final readonly class Meetup implements ArrayableInterface, Stringable
 {
     public function __construct(
-        private readonly string $name,
-        private readonly string $userGroupName,
-        private readonly DateTimeInterface $utcStartDateTime,
-        private readonly string $localDate,
-        private readonly string $localTime,
-        private readonly string $url,
-        private readonly string $city,
-        private readonly string $country,
-        private readonly float $latitude,
-        private readonly float $longitude,
+        private string $name,
+        private string $userGroupName,
+        private DateTimeInterface $utcStartDateTime,
+        private string $localDate,
+        private string $localTime,
+        private string $url,
+        private string $city,
+        private string $country,
+        private float $latitude,
+        private float $longitude,
     ) {
     }
 

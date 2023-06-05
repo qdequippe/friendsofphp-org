@@ -7,12 +7,12 @@ namespace Fop\MeetupCom;
 use Nette\Utils\Json;
 use Symfony\Component\BrowserKit\HttpBrowser;
 
-final class MeetupComCrawler
+final readonly class MeetupComCrawler
 {
     private const BASE_URI = 'https://meetup.com';
 
     public function __construct(
-        private readonly HttpBrowser $httpBrowser
+        private HttpBrowser $httpBrowser
     ) {
     }
 

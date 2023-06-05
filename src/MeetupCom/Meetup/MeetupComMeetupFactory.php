@@ -11,7 +11,7 @@ use Fop\Meetup\ValueObject\Meetup;
 use Fop\Utils\CityNormalizer;
 use Location\Coordinate;
 
-final class MeetupComMeetupFactory
+final readonly class MeetupComMeetupFactory
 {
     /**
      * @var string
@@ -29,7 +29,7 @@ final class MeetupComMeetupFactory
     private const NAME = 'name';
 
     public function __construct(
-        private readonly CityNormalizer $cityNormalizer
+        private CityNormalizer $cityNormalizer
     ) {
     }
 

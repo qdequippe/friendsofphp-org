@@ -7,6 +7,7 @@ use Jajo\JSONDB;
 use Symfony\Component\BrowserKit\HttpBrowser;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symplify\PackageBuilder\Strings\StringFormatConverter;
+use Symplify\SmartFileSystem\SmartFileSystem;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     $services = $containerConfigurator->services();
@@ -45,5 +46,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $services->set(StringFormatConverter::class);
 
     $services->set(HttpBrowser::class)
+        ->autowire();
+
+    $services->set(SmartFileSystem::class)
         ->autowire();
 };
