@@ -18,7 +18,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 final class ImportCommand extends Command
 {
     public function __construct(
-        private readonly SymfonyStyle $symfonyStyle,
         private readonly MeetupRepository $meetupRepository,
         private readonly MeetupFilter $meetupFilter,
         private readonly MeetupComMeetupImporter $meetupComMeetupImporter,
@@ -36,12 +35,13 @@ final class ImportCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $title = sprintf('Importing meetups from %d PHP groups from "meetup.com"', $this->groupRepository->getCount());
-        $this->symfonyStyle->title($title);
+        $symfonyStyle = new SymfonyStyle($input, $output);
+        $symfonyStyle->title($title);
 
-        $meetups = $this->meetupComMeetupImporter->import();
+        $meetups = $this->meetupComMeetupImporter->import($symfonyStyle);
         $meetups = $this->meetupFilter->filter($meetups);
 
-        $this->reportFoundMeetups($meetups);
+        $this->reportFoundMeetups($meetups, $symfonyStyle);
 
         $this->meetupRepository->deleteAll();
         $this->meetupRepository->saveMany($meetups);
@@ -52,14 +52,14 @@ final class ImportCommand extends Command
     /**
      * @param Meetup[] $meetups
      */
-    private function reportFoundMeetups(array $meetups): void
+    private function reportFoundMeetups(array $meetups, SymfonyStyle $symfonyStyle): void
     {
         if ($meetups === []) {
             throw new ShouldNotHappenException('No meetups found - that is very unlikely. Is Meetup.com up?');
         }
 
         $successMessage = sprintf('Loaded %d meetups', count($meetups));
-        $this->symfonyStyle->success($successMessage);
+        $symfonyStyle->success($successMessage);
 
         $meetupListToDisplay = [];
         foreach ($meetups as $meetup) {
@@ -71,6 +71,6 @@ final class ImportCommand extends Command
             );
         }
 
-        $this->symfonyStyle->listing($meetupListToDisplay);
+        $symfonyStyle->listing($meetupListToDisplay);
     }
 }

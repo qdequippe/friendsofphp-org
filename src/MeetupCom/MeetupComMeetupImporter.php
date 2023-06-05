@@ -10,20 +10,19 @@ use Fop\Meetup\ValueObject\Meetup;
 use Fop\MeetupCom\Meetup\MeetupComMeetupFactory;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-final class MeetupComMeetupImporter
+final readonly class MeetupComMeetupImporter
 {
     public function __construct(
-        private readonly GroupRepository $groupRepository,
-        private readonly MeetupComMeetupFactory $meetupComMeetupFactory,
-        private readonly SymfonyStyle $symfonyStyle,
-        private readonly MeetupComCrawler $meetupComCrawler
+        private GroupRepository $groupRepository,
+        private MeetupComMeetupFactory $meetupComMeetupFactory,
+        private MeetupComCrawler $meetupComCrawler
     ) {
     }
 
     /**
      * @return Meetup[]
      */
-    public function import(): array
+    public function import(SymfonyStyle $symfonyStyle): array
     {
         $errors = [];
         $meetups = [];
@@ -33,12 +32,12 @@ final class MeetupComMeetupImporter
                 $groupSlug = $group->getMeetupComSlug();
 
                 $message = sprintf('Scanning "%s" group', $groupSlug);
-                $this->symfonyStyle->writeln(' * ' . $message);
+                $symfonyStyle->writeln(' * ' . $message);
 
                 $meetupsData = $this->meetupComCrawler->getMeetupsByGroupSlug($groupSlug);
 
                 $note = sprintf('Found %d meetups', count($meetupsData));
-                $this->symfonyStyle->note($note);
+                $symfonyStyle->note($note);
 
                 if ($meetupsData === []) {
                     continue;
@@ -53,7 +52,7 @@ final class MeetupComMeetupImporter
 
         // report errors
         foreach ($errors as $error) {
-            $this->symfonyStyle->error($error);
+            $symfonyStyle->error($error);
         }
 
         // sort meetups from by date

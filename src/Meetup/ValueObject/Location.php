@@ -6,12 +6,12 @@ namespace Fop\Meetup\ValueObject;
 
 use Location\Coordinate;
 
-final class Location
+final readonly class Location
 {
     public function __construct(
-        private readonly string $city,
-        private readonly string $country,
-        private readonly Coordinate $coordinate
+        private string $city,
+        private string $country,
+        private Coordinate $coordinate
     ) {
     }
 
