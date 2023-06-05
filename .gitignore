@@ -1,5 +1,5 @@
-# statie
-/output
+# static site
+/build
 
 # npm
 /node_modules
@@ -12,9 +12,6 @@ composer.lock
 /source/_data/generated
 !.gitkeep
 *.local.yaml
-
-.phpunit.result.cache
-
 
 /var
 .env.local

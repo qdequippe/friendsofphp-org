@@ -15,36 +15,32 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -
-                uses: actions/checkout@v3
-                with:
-                    persist-credentials: false
+            - uses: actions/checkout@v3
 
-            -   uses: shivammathur/setup-php@v2
-                with:
-                    php-version: 8.1
+            - uses: shivammathur/setup-php@v2
+              with:
+                 php-version: 8.1
 
-            -   run: composer install --no-progress --ansi
+            - run: composer install --no-progress --ansi
 
             # configure timezone: https://stackoverflow.com/a/27052708/1348344
-            -   run: export TZ=Europe/Prague
+            #-   run: export TZ=Europe/Prague
 
-            -   run: bin/console import --ansi
+            - run: bin/console import --ansi
 
-            -   run: bin/console dump-static-site --ansi
+            - run: bin/console stenope:build -e prod
 
             # see https://github.com/JamesIves/github-pages-deploy-action
-            -
-                name: Deploy 🚀
-                uses: JamesIves/github-pages-deploy-action@v4.4.2
-                with:
-                    GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                    BRANCH: gh-pages
-                    FOLDER: output
-                    CLEAN: true
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@v4.4.2
+              with:
+                  GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: build
+                  CLEAN: true
 
             - name: Purge cache
               uses: jakejarvis/cloudflare-purge-action@master
               env:
-                CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-                CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+                  CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+                  CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
