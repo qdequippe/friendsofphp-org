@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <url>
             <loc>http://localhost/api/groups-json</loc>
-            <lastmod>2023-06-13T12:11:31+00:00</lastmod>            <priority>0</priority>            <changefreq>monthly</changefreq>
+            <lastmod>2023-06-14T00:26:13+00:00</lastmod>            <priority>0</priority>            <changefreq>monthly</changefreq>
         </url>
             <url>
             <loc>http://localhost/api/groups.json</loc>
-            <lastmod>2023-06-13T12:11:31+00:00</lastmod>                        <changefreq>monthly</changefreq>
+            <lastmod>2023-06-14T00:26:13+00:00</lastmod>                        <changefreq>monthly</changefreq>
         </url>
             <url>
             <loc>http://localhost/api/meetups-json</loc>
-            <lastmod>2023-06-13T12:11:31+00:00</lastmod>                        <changefreq>monthly</changefreq>
+            <lastmod>2023-06-14T00:26:13+00:00</lastmod>                        <changefreq>monthly</changefreq>
         </url>
             <url>
             <loc>http://localhost/api/meetups.json</loc>
-            <lastmod>2023-06-13T12:11:31+00:00</lastmod>                        <changefreq>monthly</changefreq>
+            <lastmod>2023-06-14T00:26:13+00:00</lastmod>                        <changefreq>monthly</changefreq>
         </url>
             <url>
             <loc>http://localhost/</loc>
-            <lastmod>2023-06-13T12:11:31+00:00</lastmod>                        <changefreq>monthly</changefreq>
+            <lastmod>2023-06-14T00:26:13+00:00</lastmod>                        <changefreq>monthly</changefreq>
         </url>
     </urlset>
