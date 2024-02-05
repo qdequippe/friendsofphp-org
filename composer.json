@@ -32,7 +32,7 @@
         "phpstan/phpstan-symfony": "^1.2",
         "phpstan/phpstan-webmozart-assert": "^1.2",
         "phpunit/phpunit": "^10.0",
-        "rector/rector": "^0.17.0",
+        "rector/rector": "^0.19.7",
         "symplify/easy-ci": "^11.1",
         "symplify/easy-coding-standard": "^11.1",
         "symplify/phpstan-extensions": "^11.1",
