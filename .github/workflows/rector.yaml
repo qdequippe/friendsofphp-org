@@ -21,7 +21,7 @@ jobs:
                 with:
                     php-version: 8.2
 
-            -   uses: "ramsey/composer-install@v1"
+            -   uses: "ramsey/composer-install@v2"
 
             ## First run Rector - here can't be --dry-run !!! it would stop the job with it and not commit anything in the future
             -   run: vendor/bin/rector process ${{ matrix.directories }} --ansi
