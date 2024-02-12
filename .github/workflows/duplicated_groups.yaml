@@ -11,13 +11,13 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -   uses: actions/checkout@v4
+            - uses: actions/checkout@v4
 
-            -   uses: shivammathur/setup-php@v2
-                with:
-                    php-version: 8.2
-                    coverage: none
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.2
+                  coverage: none
 
-            -   run: composer install --no-progress
+            - run: composer install --no-progress
 
-            -   run: bin/console validate-groups --ansi
+            - run: bin/console validate-groups --ansi
