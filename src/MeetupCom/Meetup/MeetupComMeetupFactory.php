@@ -97,7 +97,7 @@ final readonly class MeetupComMeetupFactory
 
         if (! isset($data['location']['geo']['latitude']) && ! isset($data['location']['geo']['longitude'])) {
             $coordinate = $this->geocoder->retrieveCoordinate(
-                html_entity_decode($data['location']['address']['streetAddress'])
+                html_entity_decode((string) $data['location']['address']['streetAddress'])
             );
         } else {
             $coordinate = new Coordinate($data['location']['geo']['latitude'], $data['location']['geo']['longitude']);
