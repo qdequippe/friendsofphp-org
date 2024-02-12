@@ -9,15 +9,14 @@ use Fop\Exception\CoordinateNotFoundForAddressException;
 use Location\Coordinate;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class NominatimGeocoder implements GeocoderInterface
+final readonly class NominatimGeocoder implements GeocoderInterface
 {
     private const BASE_URI = 'https://nominatim.openstreetmap.org';
 
     public function __construct(
-        private readonly HttpClientInterface $httpClient
+        private HttpClientInterface $httpClient
     ) {
     }
-
 
     public function retrieveCoordinate(string $address): Coordinate
     {
@@ -37,7 +36,7 @@ final class NominatimGeocoder implements GeocoderInterface
 
         $placeFound = current($data);
 
-        if (isset($placeFound['lat']) === false || isset($placeFound['lon']) === false) {
+        if (! isset($placeFound['lat']) || ! isset($placeFound['lon'])) {
             throw CoordinateNotFoundForAddressException::create($address);
         }
 

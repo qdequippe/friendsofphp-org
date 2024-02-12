@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Fop\Exception;
 
-final class CoordinateNotFoundForAddressException extends \RuntimeException
+use RuntimeException;
+
+final class CoordinateNotFoundForAddressException extends RuntimeException
 {
     public static function create(string $address): self
     {

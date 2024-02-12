@@ -11,6 +11,7 @@ use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
 use Fop\Utils\CityNormalizer;
 use Location\Coordinate;
+use Throwable;
 
 final readonly class MeetupComMeetupFactory
 {
@@ -46,7 +47,7 @@ final readonly class MeetupComMeetupFactory
 
         try {
             $location = $this->createLocation($data);
-        } catch (\Throwable) {
+        } catch (Throwable) {
             return null;
         }
 
@@ -99,7 +100,7 @@ final readonly class MeetupComMeetupFactory
         $city = html_entity_decode((string) $data['location']['address']['addressLocality']);
         $venue[self::CITY] = $this->cityNormalizer->normalize($city);
 
-        if (isset($data['location']['geo']['latitude']) === false && isset($data['location']['geo']['longitude']) === false) {
+        if (! isset($data['location']['geo']['latitude']) && ! isset($data['location']['geo']['longitude'])) {
             $coordinate = $this->geocoder->retrieveCoordinate($data['location']['address']['streetAddress']);
         } else {
             $coordinate = new Coordinate($data['location']['geo']['latitude'], $data['location']['geo']['longitude']);
