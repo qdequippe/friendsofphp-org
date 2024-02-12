@@ -19,7 +19,5 @@ jobs:
 
             - name: Build
               run: |
-                  # configure timezone: https://stackoverflow.com/a/27052708/1348344
-                  # export TZ=Europe/Prague
-                  bin/console import --ansi -vvv
+                  bin/console import --ansi
                   bin/console stenope:build

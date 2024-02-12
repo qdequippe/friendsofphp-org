@@ -23,9 +23,6 @@ jobs:
 
             - run: composer install --no-progress --ansi
 
-            # configure timezone: https://stackoverflow.com/a/27052708/1348344
-            #-   run: export TZ=Europe/Prague
-
             - run: bin/console import --ansi
 
             - run: bin/console stenope:build -e prod
@@ -34,12 +31,9 @@ jobs:
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@v4.5.0
               with:
-                  GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                  BRANCH: gh-pages
-                  FOLDER: build
-                  CLEAN: true
+                  folder: build
 
-            - name: Purge cache
+            - name: Purge Cloudflare cache
               uses: jakejarvis/cloudflare-purge-action@master
               env:
                   CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}

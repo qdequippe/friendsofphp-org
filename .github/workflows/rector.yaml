@@ -11,30 +11,27 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            -
-                uses: actions/checkout@v3
-                with:
-                    token: ${{ secrets.ACCESS_TOKEN || github.token }}
+            - uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.ACCESS_TOKEN || github.token }}
 
-            -
-                uses: shivammathur/setup-php@v2
-                with:
-                    php-version: 8.2
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.2
 
-            -   uses: "ramsey/composer-install@v2"
+            - uses: "ramsey/composer-install@v2"
 
             ## First run Rector - here can't be --dry-run !!! it would stop the job with it and not commit anything in the future
-            -   run: vendor/bin/rector process ${{ matrix.directories }} --ansi
+            - run: vendor/bin/rector process ${{ matrix.directories }} --ansi
 
-            -   run: vendor/bin/ecs check --fix --ansi
+            - run: vendor/bin/ecs check --fix --ansi
 
             # see https://github.com/EndBug/add-and-commit
-            -
-                # commit only to core contributors who have repository access
-                if: github.event.pull_request.head.repo.full_name == github.repository
-                uses: EndBug/add-and-commit@v9
-                with:
-                    default_author: github_actions
-                    message: "🧹✨"
-                    add: "*"
-                    push: origin HEAD:${{ github.head_ref }} --force
+            # commit only to core contributors who have repository access
+            - if: github.event.pull_request.head.repo.full_name == github.repository
+              uses: EndBug/add-and-commit@v9
+              with:
+                  default_author: github_actions
+                  message: "🧹✨"
+                  add: "*"
+                  push: origin HEAD:${{ github.head_ref }} --force
