@@ -27,28 +27,28 @@ final readonly class MeetupComMeetupImporter
         $errors = [];
         $meetups = [];
 
-        foreach ($this->groupRepository->fetchAll() as $group) {
+        $groups = $this->groupRepository->fetchAll();
+        $progressBar = $symfonyStyle->createProgressBar();
+
+        foreach ($progressBar->iterate($groups) as $group) {
             try {
                 $groupSlug = $group->getMeetupComSlug();
 
-                $message = sprintf('Scanning "%s" group', $groupSlug);
-                $symfonyStyle->writeln(' * ' . $message);
-
                 $meetupsData = $this->meetupComCrawler->getMeetupsByGroupSlug($groupSlug);
-
-                $note = sprintf('Found %d meetups', count($meetupsData));
-                $symfonyStyle->note($note);
 
                 if ($meetupsData === []) {
                     continue;
                 }
 
                 $groupMeetups = $this->createMeetupsFromMeetupsData($meetupsData);
-                $meetups = array_merge($meetups, $groupMeetups);
+
+                $meetups[] = $groupMeetups;
             } catch (Exception $exception) {
                 $errors[] = $exception->getMessage();
             }
         }
+
+        $meetups = array_merge(...$meetups);
 
         // report errors
         foreach ($errors as $error) {
