@@ -40,6 +40,6 @@ final readonly class NominatimGeocoder implements GeocoderInterface
             throw CoordinateNotFoundForAddressException::create($address);
         }
 
-        return new Coordinate($placeFound['lat'], $placeFound['lon']);
+        return new Coordinate((float) $placeFound['lat'], (float) $placeFound['lon']);
     }
 }
