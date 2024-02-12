@@ -21,7 +21,7 @@ final readonly class MeetupComCrawler
      */
     public function getMeetupsByGroupSlug(string $groupSlug): array
     {
-        $uri = sprintf('%s/%s/events', self::BASE_URI, $groupSlug);
+        $uri = sprintf('%s/%s', self::BASE_URI, $groupSlug);
 
         $crawler = $this->httpBrowser->request('GET', $uri);
 

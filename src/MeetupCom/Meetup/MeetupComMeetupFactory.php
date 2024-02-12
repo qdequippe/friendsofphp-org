@@ -6,6 +6,7 @@ namespace Fop\MeetupCom\Meetup;
 
 use DateTimeImmutable;
 use DateTimeZone;
+use Fop\Contract\GeocoderInterface;
 use Fop\Meetup\ValueObject\Location;
 use Fop\Meetup\ValueObject\Meetup;
 use Fop\Utils\CityNormalizer;
@@ -29,7 +30,8 @@ final readonly class MeetupComMeetupFactory
     private const NAME = 'name';
 
     public function __construct(
-        private CityNormalizer $cityNormalizer
+        private CityNormalizer $cityNormalizer,
+        private GeocoderInterface $geocoder
     ) {
     }
 
@@ -42,7 +44,12 @@ final readonly class MeetupComMeetupFactory
             return null;
         }
 
-        $location = $this->createLocation($data);
+        try {
+            $location = $this->createLocation($data);
+        } catch (\Throwable) {
+            return null;
+        }
+
         $name = $this->createName($data);
 
         $dateTimeImmutable = new DateTimeImmutable($data['startDate']);
@@ -78,6 +85,7 @@ final readonly class MeetupComMeetupFactory
         if (! isset($meetup['location']['address'])) {
             return true;
         }
+
         // special venue, not really a meetup, but a promo - see https://www.meetup.com/bostonphp/events/283821265/
         return isset($meetup['location']['name']) && $meetup['location']['name'] === 'Virtual';
     }
@@ -91,7 +99,11 @@ final readonly class MeetupComMeetupFactory
         $city = html_entity_decode((string) $data['location']['address']['addressLocality']);
         $venue[self::CITY] = $this->cityNormalizer->normalize($city);
 
-        $coordinate = new Coordinate($data['location']['geo']['latitude'], $data['location']['geo']['longitude']);
+        if (isset($data['location']['geo']['latitude']) === false && isset($data['location']['geo']['longitude']) === false) {
+            $coordinate = $this->geocoder->retrieveCoordinate($data['location']['address']['streetAddress']);
+        } else {
+            $coordinate = new Coordinate($data['location']['geo']['latitude'], $data['location']['geo']['longitude']);
+        }
 
         $country = $data['location']['address']['addressCountry']['name'] ?? $data['location']['address']['addressCountry'];
 
