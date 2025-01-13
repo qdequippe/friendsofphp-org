@@ -7,7 +7,7 @@
         "jajo/jsondb": "^3.0",
         "kamermans/guzzle-oauth2-subscriber": "^1.0",
         "league/period": "^5.0",
-        "mjaschen/phpgeo": "^5.0",
+        "mjaschen/phpgeo": "^6.0",
         "nette/utils": "^3.2",
         "rinvex/countries": "^9.0",
         "stenope/stenope": "^0.8.0",
