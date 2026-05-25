@@ -12,8 +12,6 @@ jobs:
 
         steps:
             - uses: actions/checkout@v6
-              with:
-                  token: ${{ secrets.ACCESS_TOKEN || github.token }}
 
             - uses: shivammathur/setup-php@v2
               with:
