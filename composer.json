@@ -62,6 +62,9 @@
         "sort-packages": true,
         "allow-plugins": {
             "phpstan/extension-installer": true
+        },
+        "platform": {
+            "php": "8.3"
         }
     },
     "minimum-stability": "dev",

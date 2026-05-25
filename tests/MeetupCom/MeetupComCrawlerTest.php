@@ -17,8 +17,9 @@ final class MeetupComCrawlerTest extends TestCase
     {
         // Arrange
         $smartFileSystem = new SmartFileSystem();
-        $mockResponse = new MockResponse($smartFileSystem->readFile(__DIR__ . '/fixtures/meetup_events.html'));
-        $mockHttpClient = new MockHttpClient([$mockResponse]);
+        $mockResponseList = new MockResponse($smartFileSystem->readFile(__DIR__ . '/fixtures/meetup_events.html'));
+        $mockResponseDetail = new MockResponse($smartFileSystem->readFile(__DIR__ . '/fixtures/meetup_detail.html'));
+        $mockHttpClient = new MockHttpClient([$mockResponseList, $mockResponseDetail]);
         $httpBrowser = new HttpBrowser($mockHttpClient);
         $meetupComCrawler = new MeetupComCrawler($httpBrowser);
 
