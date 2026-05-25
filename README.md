@@ -19,15 +19,6 @@ cd friendsofphp.org
 composer install
 ```
 
-- Copy `.env` to `.env.local`
-- Add your [Meetup.com API keys](https://secure.meetup.com/meetup_api/oauth_consumers/):
-
-```dotenv
-# .env.local
-MEETUP_COM_OAUTH_KEY=...
-MEETUP_COM_OAUTH_SECRET=...
-```
-
 - Update Meetup Data
 
 ```bash

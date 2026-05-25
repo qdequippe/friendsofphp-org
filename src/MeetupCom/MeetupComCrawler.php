@@ -39,6 +39,10 @@ final readonly class MeetupComCrawler
                     continue;
                 }
 
+                if (! isset($schema['url'])) {
+                    continue;
+                }
+
                 if (! isset($schema['organizer']['url'])) {
                     continue;
                 }
@@ -47,7 +51,21 @@ final readonly class MeetupComCrawler
                     continue;
                 }
 
-                $data[] = $schema;
+                $crawler = $this->httpBrowser->request('GET', $schema['url']);
+                $innerStructuredDataElements = $crawler->filter('script[type="application/ld+json"]');
+
+                foreach ($innerStructuredDataElements as $innerStructuredDataElement) {
+                    $innerSchema = Json::decode($innerStructuredDataElement->textContent, Json::FORCE_ARRAY);
+                    if (! isset($innerSchema['@type'])) {
+                        continue;
+                    }
+
+                    if ($innerSchema['@type'] !== 'Event') {
+                        continue;
+                    }
+
+                    $data[] = $innerSchema;
+                }
             }
         }
 

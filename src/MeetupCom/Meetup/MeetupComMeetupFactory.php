@@ -51,16 +51,16 @@ final readonly class MeetupComMeetupFactory
         $dateTimeImmutable = new DateTimeImmutable($data['startDate']);
 
         return new Meetup(
-            $name,
-            html_entity_decode((string) $data[self::GROUP][self::NAME]),
-            $dateTimeImmutable->setTimezone(new DateTimeZone('UTC')),
-            $dateTimeImmutable->format('Y-m-d'),
-            $dateTimeImmutable->format('H:i'),
-            $data['url'],
-            $location->getCity(),
-            $location->getCountry(),
-            $location->getCoordinateLatitude(),
-            $location->getCoordinateLongitude(),
+            name: $name,
+            userGroupName: html_entity_decode((string) $data[self::GROUP][self::NAME]),
+            utcStartDateTime: $dateTimeImmutable->setTimezone(new DateTimeZone('UTC')),
+            localDate: $dateTimeImmutable->format('Y-m-d'),
+            localTime: $dateTimeImmutable->format('H:i'),
+            url: $data['url'],
+            city: $location->getCity(),
+            country: $location->getCountry(),
+            latitude: $location->getCoordinateLatitude(),
+            longitude: $location->getCoordinateLongitude(),
         );
     }
 
